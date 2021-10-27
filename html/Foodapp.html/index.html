@@ -1,0 +1,206 @@
+<!--
+  
+    
+web page divided into:
+1.heading
+(divided into 2 parts)
+
+2. main (which has a bg color)
+(divided into 4 parts)
+(title, pizza (has {div, p, table ,p }), burger, softdrink section )
+
+3. footer 
+
+* for all the elements apply this style
+
+
+span tag: you can give styles using this tag, it can be used in any element 
+eg:
+<h1>
+    <span style="color:red"> </span>
+</h1>
+
+styling is done
+-internally
+-inline 
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Food App</title>
+        <style>
+            * {
+                    margin:0;
+             }
+            body {
+                    background: linear-gradient(45deg,limegreen,pink,blue);
+             }
+            #header {
+                    background-color: black;
+                    height: 70px;
+                    }
+            #brand {
+                   width:40% ;
+                   color:white;
+                   float: left;
+                   text-align: center;
+                   line-height: 70px;
+                   }
+            a {
+                  text-decoration: none;
+                  color:white;
+                  margin-right:25px;
+              }
+            #nav {
+                  width: 60%;
+                  float: right;
+                  text-align: center;
+                  line-height: 70px;
+                   }
+            #main {
+                  text-align: center;
+                  }
+
+            #h3 {
+                  background: linear-gradient(45deg, blue,black);
+                  color: white;
+                  padding:10px;
+                  border-radius: 50%;
+                  width: 40%;
+                  margin:15px auto
+                }
+            table {
+                margin:20px 0px;
+                width: 100%;
+                      }
+            img {
+                border-radius: 20px;
+                box-shadow : 0 0 10px black;
+                }
+            td {
+                font-family: cursive;
+                }
+            #footer{
+                background-color: rgb(37, 27, 27);
+                margin-top: 50px;
+                padding: 20px;
+                text-align: center; 
+                color: whitesmoke;
+                }
+
+
+        </style>
+       
+  
+    </head>
+    <body>
+         <div id="header">
+             <div id="brand">
+                <h1> Food World</h1>
+                </div>
+             <div id="nav">
+                 <a href="#">Home</a>
+                 <a href="#">Pizza</a>
+                 <a href="#">Burger</a>
+                 <a href="#">French Fries</a>
+             </div>
+         </div>
+
+         <div id="main">
+            <div style="margin-top: 50px;">
+                <h1><span style="color:blueviolet;">Yummy </span><span style="color: red;">Food</span></h1>
+               <h3 id="h3">enjoy yummy food </h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ullam dolor magnam obcaecati eius facilis tenetur nemo suscipit, fuga dignissimos eum deserunt, dolores sed veniam cumque natus modi quia delectus accusamus? Cum, soluta quisquam, assumenda ut dolores dolor repudiandae corrupti labore et earum iure! Saepe delectus minus possimus repellat cum!</p>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="500px" height="300px" />
+                        </td>
+                        <td>
+                            <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="500" height="300px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Super-Supreme</td>
+                        <td>Pepperoni </td>
+                    </tr>
+                </table>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ipsum nihil consectetur. Quis laudantium suscipit consectetur adipisci officiis ducimus, quo aspernatur exercitationem ipsam, fuga nulla saepe autem, itaque natus sunt quas cum. Vel repudiandae ex ab totam accusantium, voluptatem saepe sequi eveniet perspiciatis magnam repellendus reiciendis quas esse amet magni modi molestias quibusdam ducimus rem! Ipsum vel provident, id esse, corporis nesciunt quaerat eaque dolores, sapiente nostrum laborum excepturi dicta? Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+
+            <div>
+                <h3 id="h3">French Fries </h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum est mollitia commodi aut, quasi provident sit dolores quis expedita tempora Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+               <table>
+                   <tr>
+                       <td>
+                           <img src="https://images.pexels.com/photos/6941028/pexels-photo-6941028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                          
+                       </td>
+                       <td>
+                        <img src="https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="200px" height="200px" />
+                       </td>
+                       <td>
+                        <img src="https://images.pexels.com/photos/2741461/pexels-photo-2741461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                       </td>
+                       <td>
+                        <img src="https://images.pexels.com/photos/4676404/pexels-photo-4676404.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>Cheesy Fries</td>
+                       <td>Spicy Fries</td>
+                       <td>Zuchini Fries</td>
+                       <td>Waffle Fries</td>
+                   </tr>
+               </table>
+
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum voluptates laudantium quaerat reprehenderit ea aspernatur quibusdam mollitia sunt doloribus facere, distinctio nulla natus eum, incidunt itaque quam beatae laboriosam culpa. Aliquam, numquam facilis modi, amet in est nisi a eaque minima commodi dolores explicabo unde inventore. Voluptatem aliquam harum quasi praesentium blanditiis, tempora repellendus dolores non natus animi deserunt corrupti quibusdam neque mollitia minima possimus tenetur sapiente repellat fugit unde quae recusandae, in nam! Inventore quibusdam eum excepturi laboriosam.</p>
+            </div>
+            <div>
+                <h3 id="h3">Burger World King </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, optio dolorem aliquid ipsum cum asperiores quam facere necessitatibus similique molestias amet, cumque doloremque hic labore quo sequi, odit ut architecto!</p>
+               <table>
+                   <tr>
+                       <td>
+                           <img src="https://images.pexels.com/photos/2983102/pexels-photo-2983102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                          
+                       </td>
+                       <td>
+                        <img src="https://images.pexels.com/photos/4809158/pexels-photo-4809158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="250px" height="200px" />
+                       </td>
+                       <td>
+                        <img src="https://images.pexels.com/photos/1556698/pexels-photo-1556698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                       </td>
+                       <td>
+                        <img src="https://images.pexels.com/photos/3220617/pexels-photo-3220617.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="250px" height="200px" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>Beef Burger</td>
+                       <td>Chicken Burger</td>
+                       <td>Veg Burger</td>
+                       <td>Turkey Burger</td>
+                   </tr>
+               </table>
+               <p> sit amet consectetur adipisicing elit. Dolorum cum voluptates laudantium quaerat reprehenderit ea aspernatur quibusdam mollitia sunt doloribus facere, distinctio nulla nadnwklnw ekekw[ tus eum, incidunt itaque quam beatae laboriosam culpa. Aliquam, numquam facilis modi, amet in est nisi a eaque minima commodi dolores explicabo unde inventore. Voluptatem aliquam harum quafnwkcnk dwopjpweo si praesentium blanditiis, tempora repellendus dolores non natus animi deserunt corrupti quibusdam neque mollitia minima possimus tenetur sapiente repellat fugit unde quae recusandae, in nam! Inventore quibusdam eum excepturi laboriosam. dnwnioef;neiow</p>
+            </div>
+
+         </div>
+
+         <div id="footer">
+             <div>
+                 <span><a href=""><i class="fa fa-twitter"></i></a></span>
+                 <span><a href=""><i class="fa fa-linkedin"></i></a></span>
+                 <span><a href=""><i class="fa fa-facebook"></i></a></span>
+                 <span><a href=""><i class="fa fa-instagram"></i></a></span>
+             </div>
+             <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit in sed quae inventore quam laboriosam, iusto esse fugiat officiis voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, laboriosam repellat. Reprehenderit ut ullam architecto? Similique esse tenetur eos perferendis. </div>
+             <div><h4>All copyrights &copy; are Reserved</h4></div>
+         </div>
+    </body>
+</html>
