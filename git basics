@@ -17,3 +17,56 @@ These are the commands to follow:
 5.	Git status 
 6.	Git pull 
 7.	Git push -u origin master 
+
+
+//in case you get this error after typing this 
+$ git pull
+error: Your local changes to the following files would be overwritten by merge:
+        README.md
+Please commit your changes or stash them before you merge.
+Aborting
+
+$ git push -u origin master
+To https://github.com/elevateagency/Geekster-.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/elevateagency/Geekster-.g
+it'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+(fix it like this)
+-git stash 
+-git pull
+-git push -u origin master
+
+
+$ git stash
+Saved working directory and index state WIP on master: 7ee25ca fourth commit
+
+$ git pull
+Merge made by the 'recursive' strategy.
+ README.md  | 12 +++---------
+ git basics | 19 +++++++++++++++++++
+ 2 files changed, 22 insertions(+), 9 deletions(-)
+ create mode 100644 git basics
+
+$ git push -u origin master
+Enumerating objects: 16, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 2.36 KiB | 1.18 MiB/s, done.
+Total 8 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/elevateagency/Geekster-.git
+   fe37680..2f20b00  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+
+
+
+
+
+
