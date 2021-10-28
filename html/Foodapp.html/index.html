@@ -2,17 +2,32 @@
   
     
 web page divided into:
-1.heading
-(divided into 2 parts)
+1.header
+(divided into sub 2 parts)
+-lhs brand div 
+-rhs menu bar div 
+
+{main properties used:
+-float (pushes to left and right)
+-line-height (centre the text and manipulate height )}
 
 2. main (which has a bg color)
 (divided into 4 parts)
-(title, pizza (has {div, p, table ,p }), burger, softdrink section )
+-title 
+main tags used: <span> for styling in the header. (inline styling)
+
+-pizza ({div (h3 tag title), p, table (which 2 columns),p })
+
+-burger
+-frenchfries 
 
 3. footer 
+we create 3 div sections with respective id's
 
-* for all the elements apply this style
+(universale selector)* 
+for all the elements apply this style
 
+(when we set styling for header it leaves some space on the top and lhs, because of its default margin and padding settings, to fix that we use *, 
 
 span tag: you can give styles using this tag, it can be used in any element 
 eg:
@@ -21,8 +36,8 @@ eg:
 </h1>
 
 styling is done
--internally
--inline 
+-internal styling (inside style tags)
+-inline (on the same line)
 -->
 
 
@@ -33,6 +48,8 @@ styling is done
         <style>
             * {
                     margin:0;
+                    padding:0;
+                    text-align: center;
              }
             body {
                     background: linear-gradient(45deg,limegreen,pink,blue);
@@ -53,7 +70,7 @@ styling is done
                   color:white;
                   margin-right:25px;
               }
-            #nav {
+            #menu {
                   width: 60%;
                   float: right;
                   text-align: center;
@@ -63,13 +80,32 @@ styling is done
                   text-align: center;
                   }
 
-            #h3 {
+            #pizza {
                   background: linear-gradient(45deg, blue,black);
-                  color: white;
+                  color: cornsilk;
                   padding:10px;
                   border-radius: 50%;
                   width: 40%;
-                  margin:15px auto
+                  margin: 30px auto;
+                }
+            
+            #frenchfries {
+                  background: linear-gradient(45deg, blue,black);
+                  color:cornsilk;
+                  padding:10px;
+                  border-radius: 50%;
+                  width: 40%;
+                  margin: 30px auto;
+                  /*auto is to bring it to the center  
+                  margin: top/bottom left/right */
+                }
+            #burger {
+                  background: linear-gradient(45deg, blue,black);
+                  color: cornsilk;
+                  padding:10px;
+                  border-radius: 50%;
+                  width: 40%;
+                  margin:30px auto;
                 }
             table {
                 margin:20px 0px;
@@ -97,10 +133,12 @@ styling is done
     </head>
     <body>
          <div id="header">
+
              <div id="brand">
                 <h1> Food World</h1>
                 </div>
-             <div id="nav">
+
+             <div id="menu">
                  <a href="#">Home</a>
                  <a href="#">Pizza</a>
                  <a href="#">Burger</a>
@@ -110,8 +148,12 @@ styling is done
 
          <div id="main">
             <div style="margin-top: 50px;">
-                <h1><span style="color:blueviolet;">Yummy </span><span style="color: red;">Food</span></h1>
-               <h3 id="h3">enjoy yummy food </h3>
+                <h1>
+                    <span style="color:blueviolet;">Yummy </span>
+                    <span style="color: rgb(214, 15, 15);">Food</span>
+                </h1>
+
+               <h3 id="pizza">delicious pizza </h3>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ullam dolor magnam obcaecati eius facilis tenetur nemo suscipit, fuga dignissimos eum deserunt, dolores sed veniam cumque natus modi quia delectus accusamus? Cum, soluta quisquam, assumenda ut dolores dolor repudiandae corrupti labore et earum iure! Saepe delectus minus possimus repellat cum!</p>
             </div>
             <div>
@@ -121,7 +163,7 @@ styling is done
                             <img src="https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="500px" height="300px" />
                         </td>
                         <td>
-                            <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="500" height="300px" />
+                            <img src="https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="500px" height="300px" />
                         </td>
                     </tr>
                     <tr>
@@ -133,22 +175,22 @@ styling is done
             </div>
 
             <div>
-                <h3 id="h3">French Fries </h3>
+                <h3 id="frenchfries">French Fries </h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum est mollitia commodi aut, quasi provident sit dolores quis expedita tempora Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                <table>
                    <tr>
                        <td>
-                           <img src="https://images.pexels.com/photos/6941028/pexels-photo-6941028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                           <img src="https://images.pexels.com/photos/6941028/pexels-photo-6941028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                           
                        </td>
                        <td>
-                        <img src="https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="200px" height="200px" />
+                        <img src="https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="350px" height="200px" />
                        </td>
                        <td>
-                        <img src="https://images.pexels.com/photos/2741461/pexels-photo-2741461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                        <img src="https://images.pexels.com/photos/2741461/pexels-photo-2741461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                        </td>
                        <td>
-                        <img src="https://images.pexels.com/photos/4676404/pexels-photo-4676404.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                        <img src="https://images.pexels.com/photos/4676404/pexels-photo-4676404.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                        </td>
                    </tr>
                    <tr>
@@ -162,22 +204,22 @@ styling is done
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum voluptates laudantium quaerat reprehenderit ea aspernatur quibusdam mollitia sunt doloribus facere, distinctio nulla natus eum, incidunt itaque quam beatae laboriosam culpa. Aliquam, numquam facilis modi, amet in est nisi a eaque minima commodi dolores explicabo unde inventore. Voluptatem aliquam harum quasi praesentium blanditiis, tempora repellendus dolores non natus animi deserunt corrupti quibusdam neque mollitia minima possimus tenetur sapiente repellat fugit unde quae recusandae, in nam! Inventore quibusdam eum excepturi laboriosam.</p>
             </div>
             <div>
-                <h3 id="h3">Burger World King </h3>
+                <h3 id="burger">Burger World King </h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, optio dolorem aliquid ipsum cum asperiores quam facere necessitatibus similique molestias amet, cumque doloremque hic labore quo sequi, odit ut architecto!</p>
                <table>
                    <tr>
                        <td>
-                           <img src="https://images.pexels.com/photos/2983102/pexels-photo-2983102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                           <img src="https://images.pexels.com/photos/2983102/pexels-photo-2983102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                           
                        </td>
                        <td>
-                        <img src="https://images.pexels.com/photos/4809158/pexels-photo-4809158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="250px" height="200px" />
+                        <img src="https://images.pexels.com/photos/4809158/pexels-photo-4809158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                        </td>
                        <td>
-                        <img src="https://images.pexels.com/photos/1556698/pexels-photo-1556698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="200px" height="200px" />
+                        <img src="https://images.pexels.com/photos/1556698/pexels-photo-1556698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                        </td>
                        <td>
-                        <img src="https://images.pexels.com/photos/3220617/pexels-photo-3220617.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="250px" height="200px" />
+                        <img src="https://images.pexels.com/photos/3220617/pexels-photo-3220617.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="350px" height="200px" />
                        </td>
                    </tr>
                    <tr>
@@ -200,7 +242,9 @@ styling is done
                  <span><a href=""><i class="fa fa-instagram"></i></a></span>
              </div>
              <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit in sed quae inventore quam laboriosam, iusto esse fugiat officiis voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, laboriosam repellat. Reprehenderit ut ullam architecto? Similique esse tenetur eos perferendis. </div>
-             <div><h4>All copyrights &copy; are Reserved</h4></div>
+                <div>
+                 <span style="margin: 50px 50px;"><h4>All copyrights &copy; are Reserved</h4> </span>
+                </div>
          </div>
     </body>
 </html>
