@@ -1,0 +1,131 @@
+<!--
+    1.list-style-type
+    use in unordered list to manipulate 
+    the pointers 
+
+    2.list-style-position-allignation with respect to the numbers.
+    -outside
+    -inside 
+
+    3.list-style-image (you can explicitly add an image icon in place of the pointers )
+
+    syntax:
+    list-style-image: url('')
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+          font size 
+        </title>
+        <style>
+            
+            #font1{
+                background-color: coral;
+                font-size: 16px;
+            }
+            ul{
+                list-style-type: circle;
+                /*
+                it basically manipulates the type
+
+                -disc
+                -circle
+                -square
+                -none (marker is gone)
+
+                */
+            }
+            ol{
+                list-style-type: decimal-leading-zero;
+                /*
+                -decimal (no changes)
+                -none
+                -upper-alpha (A, B)
+                -lower-alpha (a, b)
+                -upper-roman (I, II)
+                -lower-roman  (i, ii)
+                -arabic-indic
+
+
+                */
+                width: 40px;
+                list-style-position: outside;
+                /*
+                -inside
+                the output will be like this 
+                1. lorem ipsum dolor 
+                sit amet 
+
+                -outside
+                output:
+                1. lorem ipsum dolor 
+                   sit amet
+                */
+            }
+        #f {
+            list-style-position: outside;
+
+        }
+        #f1{
+            margin: 30px auto;
+            list-style-position: inside;
+        }
+           
+        </style>
+    </head>
+    <body>
+        <h1>ordered list</h1>
+        <div id="font1">
+            <ol type="A">
+                <li>first</li>
+                <li>second</li>
+            </ol>
+        </div>
+
+        <div id="font1">
+            <ol type="i">
+                <li>first</li>
+                <li>second</li>
+            </ol>
+        </div>
+
+        <div id="font1">
+            <ol start="10">
+                <li>first</li>
+                <li>second</li>
+            </ol>
+        </div>
+
+        <div id="font1">
+            <ol start="10" reversed>
+                <li>first</li>
+                <li>second</li>
+            </ol>
+        </div>
+
+        <div id="font1">
+            <ol>
+                <li value="100">first</li>
+                <li value= "200">second</li>
+            </ol>
+        </div>
+        <div>
+            <ol>
+                <li id="f">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li id="f1">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+            </ol>
+        </div>
+        
+        <h1>unordered list</h1>
+        <div id="font1">
+            <ul >
+                <li>first</li>
+                <li>second</li>
+            </ul>
+        </div>
+        
+        
+    </body>
+</html>
