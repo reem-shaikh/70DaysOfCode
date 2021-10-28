@@ -1,0 +1,19 @@
+pushing onto github for the first time:
+git init 
+git status 
+git add . or git add --a 
+git status 
+git commit -m ""
+git remote add origin httpadress
+git push -u origin master 
+
+
+adding updations and files on an already existing repo 
+These are the commands to follow:
+1.	Git status 
+2.	Git add . (to add all files to staging)
+3.	Git status (to view the status)
+4.	Git commit -m “second commit”
+5.	Git status 
+6.	Git pull 
+7.	Git push -u origin master 

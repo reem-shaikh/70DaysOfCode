@@ -1,10 +1,4 @@
-# Geekster-
-pushing onto github commands 
+#assignment website: https://elevateagency.github.io/Geekster-/html/Foodapp.html/index.html
 
-git init 
-git status 
-git add . or git add --a 
-git status 
-git commit -m ""
-git remote add origin httpadress
-git push -u origin master 
+
+
