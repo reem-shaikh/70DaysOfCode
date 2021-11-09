@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--selectors- tells on which element styling is going to be applied 
+
+    1. id- #idname
+    2. class- .classname
+-->
+    <title>Styling</title>
+
+    <h1>this is used for external stylesheet</h1>
+    <p>
+        link rel="stylesheet" href="" </p>
+    <style>
+        #id{
+            color:blue;
+        }
+
+        .class{
+            color:crimson;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <p id="id">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore repellendus odio veniam ducimus a numquam beatae cupiditate eos labore rerum.
+        </p>
+    </div>
+
+    <div>
+        <p class="class">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus maxime eum nostrum fugiat vitae ipsa ad tenetur totam quia animi.
+        </p>
+    </div>
+    <!--dont give multiple id to different div tags
+    - ID can only be unique 
+
+    class can be used style context, multiple elements can have same class
+-->
+
+<br>
+<br>
+
+<div>  
+<dl>
+    <dt class="class">
+        chapter 1
+    </dt>
+    <dd>subchapter 1.1</dd>
+    <dd>subchapter 1.2</dd>
+
+    <dt>
+        chapter 1
+    </dt>
+    <dd>subchapter 1.1</dd>
+    <dd>subchapter 1.2</dd>
+
+</dl>
+</div>
+
+<h1>ways of adding style</h1>
+<ul>
+    <li>inline styling</li>
+    <li>external styling</li>
+</ul>
+
+    <p>this is preffered, it means that your styling is an external file </p>
+
+    
+</body>
+</html>

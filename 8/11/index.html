@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <!--this is an attribute-->
+<head>
+    <!--meta is additional info about the document 
+    
+    which is not part of the primary content, but it is a supplement
+
+3 basic tags that you must have:
+1. charset 
+2. http-equiv- telling browser is compatible, also with the 
+
+treat internet explorer sames as edge 
+ 
+user browser X-UA must be compatbile 
+
+3. content - tells howw big your screen looks initially
+4.title 
+-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<br>
+<br>
+<br>
+
+<h1>starting body tag</h1>
+<body>
+
+    <h1> paragraph</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, incidunt.\</p>
+
+    <br>
+    <br>
+
+    <h1>different head tags</h1>
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+
+    <br>
+    <br>
+
+    <h1> unordered list</h1>
+    <ul>
+        <li>hi</li>
+        <li>hello</li>
+        <li>hi</li>
+    </ul>
+
+    <br>
+    <br>
+
+    <h1> ordered list</h1>
+    <ol>
+        <li>hi</li>
+        <li>hello</li>
+        <li>hi</li>
+    </ol>
+
+    <!--descriptio list is heaadingbased list
+    dl 
+      dt 
+        dd
+        dd
+
+    dt- data title
+    dd- data description-->
+    <h1> data description list</h1>
+    <dl>
+        <dt>dt</dt>
+        <dd>dd</dd>
+        <dd>dd</dd>
+        <dd>dd</dd>
+
+        <dt>dt2</dt>
+        <dd>dd</dd>
+        <dd>dd</dd>
+
+    </dl>
+
+    <!--table
+          thead 
+            tr
+              th
+              th
+            tr
+           
+          tbody
+            tr
+              td
+              td
+            tr 
+
+          tfoot 
+            tr
+              td
+              td
+            tr
+
+        -->
+
+    <h1> table </h1>
+    <table border="1">
+        <thead>
+            <!--top of table -->
+        <tr>
+            <th>day</th>
+            <th>date</th>
+            <th>duration</th>
+            <th>topic</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>monday</td>
+                <td>8th nov</td>
+                <td>8-10pm</td>
+                <td>DNSKNKDNKD</td>
+            </tr>
+
+            <tr>
+                <td>monday</td>
+                <td>8th nov</td>
+                <td>8-10pm</td>
+                <td>DNSKNKDNKD</td>
+            </tr>
+        </tbody>
+           <!--content-->
+           
+  
+           <tfoot>
+               <!--footer table-->
+           </tfoot>
+        
+        
+    </table>
+
+   
+    <br>
+    <br>
+
+    <h1>type attribute</h1>
+
+    <input type="text" />
+    <input type="password" />
+    <input type="email" />
+    <input type="number" />
+
+    <br>
+    <br>
+
+    <h1>placeholder</h1>
+
+    <label>username</label>
+    <input type="text" placeholder="username" />
+
+    <label>password</label>
+    <input type="password" placeholder="password" />
+
+    <br>
+    <br>
+    <!--there is another option for this dropdown
+    
+    1. select
+          option
+          option
+
+    2. input 
+        datalist 
+           option
+           option
+        datalist
+        -->
+
+    <select>
+        <option>option1</option>
+        <option>option2</option>
+        <option>option3</option>
+    </select>
+
+    <br>
+    <br>
+
+    <form action="">
+        <label>Your Cars Name: </label>
+        <input list="cars">
+        <datalist id="cars">
+            <option value="BMW"/>
+            <option value="Bentley"/>
+            <option value="Mercedes"/>
+            <option value="Audi"/>
+            <option value="Volkswagen"/>
+        </datalist>
+    </form>
+
+    <br>
+    <br>
+
+    <h1>radio button with the same type name</h1>
+
+    <input type= "radio" /> op1
+    <br>
+    <input type="radio" /> opt2
+    <br>
+    <input type="radio" /> opt3
+<!--but we can select many because we didnt use name attribute yet 
+
+when form submitted
+it specifies which data is associated to which field
+
+name vs id
+-name given identity to the data 
+-id can be given to any element on the webpage
+
+eg: server differentiates which server is email/password-->
+    <br>
+    <br>
+    <br>
+    <h1>radiobutton</h1>
+    <input type= "radio" name="radio1" /> op1
+    <br>
+    <input type="radio" name="radio1" /> opt2
+    <br>
+    <input type="radio" name="radio1" /> opt3
+
+    <br>
+    <br>
+
+    <h1>checkboxes</h1>
+    <input type= "checkbox" name="cb1" /> op1
+    <br>
+    <input type="checkbox" name="cb1" /> opt2
+    <br>
+    <input type="checkbox" name="cb1" /> opt3
+
+    <!--putting it under the same data identity-->
+    <br>
+    <br>
+
+    <h1>button</h1>
+    <button>
+        click me
+    </button>
+
+    <button type="submit"> submit </button>
+    <button type="reset">reset</button>
+
+    <br>
+    <br>
+
+
+    <form>
+        <!--you can define what you want to do/ send the data-->
+    </form>
+
+    <div>
+        <h1>div tag</h1>
+        <p>
+        when you want to put content inside a container,
+
+        also used for dividing page into different sub parts 
+        </p>
+    </div>
+
+    <!--
+        span used in textual context
+
+        div used for any element,
+        used to divide the page content 
+    -->
+
+    <br>
+    <br>
+
+    <h1>img tag- self closin tag</h1>
+    <img src="https://images.pexels.com/photos/2983098/pexels-photo-2983098.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+
+    <br>
+    <br>
+
+    <h1>read about</h1>
+    <ul>
+        <li>audio tag
+        </li>
+        <li>video tag</li>
+    </ul>
+
+    <br>
+    <br>
+
+    <h1>
+        learn
+    </h1>
+    <h2>how to use microsoft edge tool</h2>
+
+
+
+</body>
+</html>
+
+<!--types of list 
+
+1. ordered list 
+2. unordered list
+3. description list 
+
+
+input tag- self closing tag
+input type 
+<input type= "" />
+
+-text
+-password
+-email
+-number
+
+you can only type number in number tags
+
+placeholder shown when there is no data in the input,
+it is the semi transparent prompting the user to understand what to enter
+
+difference btw radio and check
+-checkbox allows multiple selections
+-you cannot unselect a radiobutton, you can unselect checkboxes
+
+radio means we can select only one option at a time
+
+-->
+

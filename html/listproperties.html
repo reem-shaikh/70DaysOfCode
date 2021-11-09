@@ -26,7 +26,7 @@
                 font-size: 16px;
             }
             ul{
-                list-style-type: circle;
+                list-style-type: none;
                 /*
                 it basically manipulates the type
 
@@ -38,8 +38,9 @@
                 */
             }
             ol{
-                list-style-type: decimal-leading-zero;
+                list-style-type: lower-roman;
                 /*
+                -decimal-leading-zero
                 -decimal (no changes)
                 -none
                 -upper-alpha (A, B)
@@ -50,7 +51,10 @@
 
 
                 */
-                width: 40px;
+                width: 80px;
+                /*
+                specifies width of the text
+                */
                 list-style-position: outside;
                 /*
                 -inside
@@ -120,7 +124,7 @@
         
         <h1>unordered list</h1>
         <div id="font1">
-            <ul >
+            <ul>
                 <li>first</li>
                 <li>second</li>
             </ul>
