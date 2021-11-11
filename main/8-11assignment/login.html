@@ -10,19 +10,22 @@
   <div class="wrapper">
     <h2>Login Form</h2>
     <form action="#">
-        <label style="margin-left:30px;">User Name</label>
-            <input type="text" name="username" placeholder="enter your email" pattern=".+@.+\..+" >
+        <label style="margin-left:30px;">email</label>
+        
+        <input type="email" autocomplete="email" maxlength="25" placeholder="email"/>
             <br>
             <br>
 
             <label style="margin-left: 30px;">Password</label>
+
             <input type="password"
             name="password"
-            placeholder="password" style="margin-left:10px;" />
+            placeholder="password" max="4" min="1" required
+            style="margin-left:10px;" />
             <br>
             <br>
 
-            <button style="text-indent:10px; margin-left:30px; padding-right: 8px;" type="submit;">Submit</button>
+            <button style="text-indent:10px; margin-left:30px; padding-right: 8px;" type="submit;" formaction="">Submit</button>
 
   </div>
 </body>

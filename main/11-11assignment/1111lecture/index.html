@@ -79,7 +79,7 @@ download- whenever you click on the link it will be downloaded
 <!--there must always be a parent form element for the input to work-->
 <form>
     <label>email</label>
-    <input type="email" autocomplete="email" />
+    <input type="email" autocomplete="email" maxlength="25" placeholder="email"/>
     <!--checkbox, color palete, email password, text-->
     <label>checkbox</label>
     <input type="checkbox" checked/>
@@ -89,7 +89,8 @@ download- whenever you click on the link it will be downloaded
     checked- will be preselected-->
 
     <input type="password"/>
-    <input type="text" max="30"/>
+    <input type="text" placeholder="text" max="4" min="1" required/>
+    <button type="submit">submit your form</button>
 
     <!--input rovides inputfield for user to enter data-->
 </form>
@@ -98,8 +99,9 @@ download- whenever you click on the link it will be downloaded
     <button disabled>hello there</button>
     <br>
     <button disabled type="reset">hello there</button>
-    <button type="submit" formaction="url where the form data has to be sent">hello there</button>
-    <!--formaction: url where form must be sent-->
+    <button type="submit" formaction="url where the form data has to be sent">Submit Form</button>
+    <!--formaction: url where form must be sent
+        required- attribute specifies that this field is required in order for succesful submission-->
 <br>
 <br>
 <!--form tag-->
@@ -107,7 +109,17 @@ download- whenever you click on the link it will be downloaded
     <button type="submit" form="form1">form1 </button>
 </form>
 
+<!--regex
+    specifies the pattern the input should have-->
 
+    <!--
+        assignment:
+        create survey login form with good functionality
+    
+    create web page with 4-5 videos 
+    whenever you click on the video it should be downloaded -->
+
+  
 
 
 
