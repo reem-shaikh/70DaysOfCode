@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Account Registration</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="loginstyle.css"/>
+
+		<style>
+			input{
+				width:50%;
+			}
+		</style>
+		
+	</head>
+	<body>
+	<main>
+		
+		<form class="registration">
+				
+			<h3 >Tell Us More About You </h3>
+			<aside class="disclaimer">Disclaimer: We never sell your information to spammers <a href="#" title="Learn how we use this information.">Learn More.</a></aside>
+
+			<fieldset class="name">
+				<label>Name:</label>
+				<input class="first left-column" placeholder="First Name" required="required" />
+				<br>
+
+				<label>Middle Name:</label>
+				<input class="middle-initial 
+				right-column optional" maxlength="1" placeholder="Middle Initial" pattern="(|[A-Za-z])" />
+				<br>
+
+
+				<label>Last Name:</label>
+				<input class="last left-column" placeholder="Last Name" required="required" />
+				<br>
+		
+			</fieldset>
+
+			<fieldset class="address">
+				<label>Address:</label>
+				<input class="street" placeholder="Street Address" required="required"/>
+				<br>
+				<label>City:</label>
+				<input class="city" placeholder="City" required="required"/>
+				<br>
+				<label>State:</label>
+				<input class="state left-column" maxlength="2" placeholder="State" pattern="
+				[A-Za-z].+";>
+				<br>
+				<label>Zip code:</label>
+				<input class="zip-code right-column" maxlength="10" placeholder="Zip Code" pattern="^\d{5}(?:[-\s]\d{4})?$" required="required" />
+
+			
+			</fieldset>
+			<input type="submit" value="Next"/>
+			</form>
+			<!--
+^ = Start of the string.
+\d{5} = Match 5 digits (for condition 1, 2, 3)
+(?:…) = Grouping
+[-\s] = Match a space (for condition 3) or a hyphen (for condition 2)
+\d{4} = Match 4 digits (for condition 2, 3)
+…? = The pattern before it is optional (for condition 1)
+$ = End of the string.
+			-->
+		</main>
+
+	</body>
+</html>

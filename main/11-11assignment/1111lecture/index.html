@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags</title>
+</head>
+
+    <!--
+    Anchor Tag
+    link from one page to another 
+
+attributes:
+href="target value"
+download- whenever you click on the link it will be downloaded 
+-->
+    <a href="https://images.pexels.com/photos/9866757/pexels-photo-9866757.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+    " download>Click Here to download </a>
+
+    <!--by default visited link: link thats already visited- purple color 
+    
+    unvisited link: blue color
+
+    active link: red
+    link your currently on
+
+-->
+
+    <a href="ocean.jpg" download="ocean"> download here </a>
+
+    <!--
+    download=""
+    specifies name yiu'll have when downloaded-->
+
+    <!--inline elements and block elements-->
+
+    <!--block elements 
+    take whole width of the screen-->
+    <h1>hello </h1>
+    <h1>there</h1>
+    <!--inline elements-->
+    <span>hello</span> <span>there</span>
+
+    <br>
+    <br>
+    <!--audio tag-->
+    <audio controls>
+        <source src="mp.mp3">
+    </audio>
+
+    <!--
+    to go to previous folder ../
+    to go to previous previous folder ../../
+-->
+
+    <audio controls autoplay loop>
+        <source src="mp.mp3">
+    </audio <audio controls autoplay muted>
+    <source src="mp.mp3">
+    </audio>
+
+    <a href="mp.mp3" download="audio">download</a>
+
+    <a href="mp.mp3" download="audio" target="_blank">download</a>
+
+    <!--button tag-->
+    <button>hello there</button>
+
+    <!--input tag-->
+    <input type="button" />
+
+    <!--diff btw input and button
+    inside button you can specify other tags like
+    <i> <strong>
+-->
+<br>
+<!--there must always be a parent form element for the input to work-->
+<form>
+    <label>email</label>
+    <input type="email" autocomplete="email" />
+    <!--checkbox, color palete, email password, text-->
+    <label>checkbox</label>
+    <input type="checkbox" checked/>
+    <!--autocomplete specifies whether input must be autocompleted or not 
+    
+    attribute for checkbox and radio:
+    checked- will be preselected-->
+
+    <input type="password"/>
+    <input type="text" max="30"/>
+
+    <!--input rovides inputfield for user to enter data-->
+</form>
+<br>
+<br>
+    <button disabled>hello there</button>
+    <br>
+    <button disabled type="reset">hello there</button>
+    <button type="submit" formaction="url where the form data has to be sent">hello there</button>
+    <!--formaction: url where form must be sent-->
+<br>
+<br>
+<!--form tag-->
+<form id="form1">
+    <button type="submit" form="form1">form1 </button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>

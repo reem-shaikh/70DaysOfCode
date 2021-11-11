@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+  
+}
+  
+  
+  .login-box {
+    width: 320px;
+    height: 420px;
+    background:light rgb(192, 89, 104);
+    color: rgb(136, 66, 66);
+    
+    /* these  properties align it in the middle of the page   */
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border: 1px solid pink;
+  }
+
+
+  /*this is for the .register file   */
+  /* these  properties align it in the middle of the page   */
+  .registration 
+  {
+  position:absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  }
+
+  box-sizing: border-box;
+  padding: 70px 30px;
+  
+  .login-box .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+  }
+  
+  .login-box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+  }
+  
+  .login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .login-box input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .login-box input[type="text"], .login-box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid rgb(197, 133, 133);
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: rgb(110, 67, 67);
+    font-size: 16px;
+  }
+  
+  .login-box input {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #b80f22;
+    color: rgb(112, 97, 97);
+    font-size: 18px;
+    border-radius: 20px;
+  }
+  
+  .login-box input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+  }
+  
+  .login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: -57px;
+    color: rgb(192, 173, 173);
+  }
+  
+  .login-box a:hover {
+    color: rgb(182, 82, 82);
+  }
+
+  
+
+  a {
+    color: @blue_link;
+    text-decoration: none;
+    &:hover {
+      border-bottom: 2px solid @blue_link;
+      color: darken(@blue_link, 10%);
+    }
+  }
+  
+  body {
+    background: #333;
+    margin: 30px;
+  }
+  
+  .disclaimer { 
+    /*margin: auto 45px; */
+    margin-bottom:30px;
+  
+  
+  }
+  
+  h3 { margin: 20px auto 15px; }
+  
+  main {
+    background-color: rgb(247, 247, 247);
+    .border-radius(3px);
+    .centered;
+    .clearfix;
+    margin: 90px;
+    margin-left: 365px;
+    
+    padding-top: 550px;
+    padding-right: 255px;
+    text-align: center;
+    width: 480px;
+
+  
+   
+  }
+  
+  progress {
+     .progress; 
+  }
+  
+  .registration {
+    .form;
+    padding-bottom: 66px;
+    
+  }
+
+  .name{
+    margin: 30px;
+    padding-left:155px;
+    padding-right:155px;
+  }
+
+  .address{
+    margin: 30px;
+    padding-left:50px;
+    padding-right:99px;
+  }
+
+  input{
+    margin-top: 20px;
+  }
+
+ 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="mockloginstyle.css">
+  </head>
+  <body>
+
+    <div class="login-box">
+     
+      <h1>Login Here</h1>
+      <form>
+       
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter Username" 
+        pattern=".+@.+\..+"> 
+        <!--this is in an email format 
+        eg of valid email id:
+            mysite@ourearth.com
+            my.ownsite@ourearth.org
+            mysite@you.me.net
+
+            - ^ signifies starting 
+            -can contain letters from a-z and A-Z 
+            -numbers from 0-9
+            -+ signifies the letter can be repeated more than one time 
+            -$ signifies end of the sentence
+
+can also use this:          
+[A-Za-z 0-9 _ \. -\]+ [@] [a-z]+ [\.][a-z]{2,3}
+
+or this
+^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$
+
+or this 
+.+@.+\..+
+
+            --->
+        
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter Password">
+        <input  type="submit" value="Log In">
+        <a href="#">Lost your Password?</a><br>
+        <a href="#">Don't have An account?</a> 
+        <a href="register.html" target="_blank">Click Here to Register</a>
+        
+      </form>
+    </div>
+  </body>
+</html>
+

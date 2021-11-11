@@ -1,70 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Account Registration</title>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" href="loginstyle.css"/>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="loginstyle.css">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Registration</h2>
+    <form action="#">
 
-		<style>
-			input{
-				width:50%;
-			}
-		</style>
-		
-	</head>
-	<body>
-	<main>
-		
-		<form class="registration">
-				
-			<h3 >Tell Us More About You </h3>
-			<aside class="disclaimer">Disclaimer: We never sell your information to spammers <a href="#" title="Learn how we use this information.">Learn More.</a></aside>
+      <div class="input-box">
+        <input type="text" placeholder="Enter your name" required>
+      </div>
 
-			<fieldset class="name">
-				<label>Name:</label>
-				<input class="first left-column" placeholder="First Name" required="required" />
-				<br>
+      <div class="input-box">
+        <input type="text" placeholder="Enter your email" required 
+        pattern=".+@.+\..+" >
+      </div>
 
-				<label>Middle Name:</label>
-				<input class="middle-initial 
-				right-column optional" maxlength="1" placeholder="Middle Initial" pattern="(|[A-Za-z])" />
-				<br>
+      <div class="input-box">
+        <input type="password" placeholder="Create password" required>
+      </div>
 
+      <div class="input-box">
+        <input type="password" placeholder="Confirm password" required>
+      </div>
 
-				<label>Last Name:</label>
-				<input class="last left-column" placeholder="Last Name" required="required" />
-				<br>
-		
-			</fieldset>
+      <div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & condition</h3>
+      </div>
 
-			<fieldset class="address">
-				<label>Address:</label>
-				<input class="street" placeholder="Street Address" required="required"/>
-				<br>
-				<label>City:</label>
-				<input class="city" placeholder="City" required="required"/>
-				<br>
-				<label>State:</label>
-				<input class="state left-column" maxlength="2" placeholder="State" pattern="
-				[A-Za-z].+";>
-				<br>
-				<label>Zip code:</label>
-				<input class="zip-code right-column" maxlength="10" placeholder="Zip Code" pattern="^\d{5}(?:[-\s]\d{4})?$" required="required" />
-
-			
-			</fieldset>
-			<input type="submit" value="Next"/>
-			</form>
-			<!--
-^ = Start of the string.
-\d{5} = Match 5 digits (for condition 1, 2, 3)
-(?:…) = Grouping
-[-\s] = Match a space (for condition 3) or a hyphen (for condition 2)
-\d{4} = Match 4 digits (for condition 2, 3)
-…? = The pattern before it is optional (for condition 1)
-$ = End of the string.
-			-->
-		</main>
-
-	</body>
+      <div class="input-box button">
+        <input type="Submit" value="Register Now">
+      </div>
+      
+      <div class="text">
+        <h3>Already have an account? <a href="#">Login now</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
 </html>
