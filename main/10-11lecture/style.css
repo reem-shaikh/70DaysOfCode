@@ -1,0 +1,54 @@
+@font-face{
+    /*used when importing fonts 
+
+    for this code were linking 
+
+    fontface creates font family */
+    src: url('Fonts/Poppins-Bold.ttf') format('truetype');
+    /*source of file
+    
+    ttf- true type file 
+    
+    other font file formats:
+    ttf
+    otf
+    woff
+    eot
+    svg*/
+
+}
+
+body{
+    background-color: black;
+}
+
+h1{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font: size 200%;
+    
+
+}
+
+.margin-20{
+    margin:20px;
+}
+
+button{
+    background-color: #303134;
+    border-color: #5f6368;
+    border-width: 1px;
+    border-style: solid;
+    color: #e8eaed; /*color signifies color of the text  */
+    padding-left: 16px;
+    padding-right: 16px;
+
+    height: 36px;
+    border-radius: 4px;
+}
+
+/*mdn web docs */
+
+
+/* to import a font file
+i.r .dtf file */

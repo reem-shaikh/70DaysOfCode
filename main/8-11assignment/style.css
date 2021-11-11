@@ -25,14 +25,16 @@ line-height: 70px;
 background-color:blueviolet;
 font-size:large;
  }
-*    {
+
+*{
 text-align: center;
 }
 
 footer{
 background-color: rgb(37, 27, 27);
-margin-top: 50px;
+margin-top: 800px;
 padding: 20px;
+line-height:20px;
 text-align: center; 
 color: whitesmoke;
 }

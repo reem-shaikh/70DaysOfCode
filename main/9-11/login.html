@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+    <!--maximum size allowed in the input- maxlength
+        pattern: a-z A-Z max 10 ch allowed -->
+
+<form>
+    <h1>Login</h1>
+    <input type="text" placeholder="username" maxlength="10" pattern="[a-zA-Z]{10}"/>
+    <input type="password" placeholder="password"/>
+    <button type="submit">Login</button>
+    <a href="index.html" target="_blank">Click Here to Register</a>
+</form>
+
+<!--form used to bind content together
+
+    publicly: get
+    secretly: post 
+-->
+</body>
+<h1>read about regular expression </h1>
+<!--
+    dot, star, %, plus 
+
+    when this pattern matches only then the form will be submitted
+
+    1.dot
+    pattern="a.a"
+    (include aaa, aba)
+
+    ending with special character:
+    pattern="aa."
+    pattern="aa_"
+    pattern="aa+"
+
+-->
+<h1>ASSIGNMENT</h1>
+<p>text decoration</p>
+<p>regular expression (dot, star/asterix, %, +)
+<!--patterns used to match strings-->
+
+</p>
+<p>complete login form and registration page</p>
+<!--username = email format
+dont use input type email, use regular expression and come up with a pattern-->
+
+</body>
+</html>

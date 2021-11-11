@@ -2,3 +2,7 @@
 
 
 
+how to use microsoft dev tools 
+
+launch 
+localhost:5500/location of file to access

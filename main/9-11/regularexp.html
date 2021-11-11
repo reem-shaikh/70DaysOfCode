@@ -1,0 +1,129 @@
+<!--
+    Regex (means regular expression)
+
+    used for pattern matching/ string matching 
+
+    used for email validation
+    used for password validation 
+
+    [abc]- we can enter any character a/b/c
+
+    [^abc]- any ch except a/b/c
+
+    [a-z]
+
+    [A-Z]
+
+    [a-z A-Z]
+
+    [0-9]
+
+    QUANTIFIERS IN REDEX:
+    we can tell about repeatetion 
+
+    [].
+    any ch is allowed only once
+
+    []? 
+     it can occur either 0 or 1 time 
+
+    []+  
+    occurs 1 or more times 
+
+    eg:
+    [a]+
+    a   ✓
+    aa  ✓
+    aaa ✓
+    ab  X
+
+    [abcd].+ - occur either once or more than once 
+    a    ✓
+    abcd ✓
+    aaaa ✓
+
+    []*
+    occurs 0 or more times
+
+    []{n}
+    occurs n times
+
+    []{n,}
+    occurs n or more times
+
+    []{y,z}
+    occurs minimum y times
+    occurs max till z times 
+
+    eg:
+    []{2,4}
+    occurs atleast 2 times
+    occurs max till 4 times
+
+    REGEX METACHARACTERS:
+    these are short forms of these:
+
+    expression    metach
+    [0-9]            \d
+    [^0-9]           \D
+    [a-zA-Z_0-9]     \w
+    [^\w]            \W 
+    
+    \- tells to treat character as search character 
+
+    to search   ->   search ch
+    +                 /+
+
+qs1: to check if its a mobile number or not?
+start with 8 or 9 and total digits 10
+
+[8 9] [0-9] {9}
+
+qs2: first character uppercase,
+contains lowercase alphabet,
+only one digit allowed in between 
+
+[A-Z][a-z]* [0-9]? [a-z]*
+
+qs3: email ID
+_ - . characters should be allowed 
+
+- is written as -\, if we want to take the literal menaing 
+because it has more than one meaning
+
+similarly . is denoted as \.
+
+[anything ] @ [anything] . [anything]
+        .+  @        .+  .        .+
+
+.+@.+\..+
+
+\.- \ is called escape character
+
+or
+[A-Za-z 0-9 _ \. -\]+ [@] [a-z]+ [\.][a-z]{1,3}
+
+domain name/ TLD can be of a single character
+a@a.a 
+this is a valid case 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="enter email format" pattern=".+@.+\..+" title="enter in format abcd@email.com" required />
+    <!--required needs input data for submitted
+    
+    title displays when we hover over the search bar, prompting user to do something-->
+
+    <button type="submit">submit</button>
+    
+</body>
+</html>
