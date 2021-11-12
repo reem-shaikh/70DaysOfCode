@@ -19,14 +19,27 @@
       <br>
 
       <label>Email</label>
-      <input type="email" name="email" placeholder="enter your email" pattern=".+@.+\..+" />
+      <input type="email" name="email" autocomplete="email" placeholder="enter your email"  />
+      <!-- pattern=".+@.+\..+" -->
       <br>
       <br>
+<!-- 
+    <label>email</label>
+    <input type="email" autocomplete="email" maxlength="25" placeholder="email"/>
+    
+    if you specify type you dont need to specify its regex
+    
+    <label>checkbox</label>
+    <input type="checkbox" checked/>
+
+    <input type="password"/>
+    <input type="text" placeholder="text" max="4" min="1" required/>
+    <button type="submit">submit your form</button> -->
 
 
       <label id="number-label" for="phone">Phone Number</label>
       <input type="number" id="number" name="user_name" placeholder="Enter 10 digit number"
-        pattern="[8 9 6][0-9]{9}" /> 
+      pattern="[8 9 6][0-9]{9}" /> 
 
       <br>
       <br>
@@ -36,32 +49,32 @@
       <br>
       <br>
       <fieldset>
-        <legend>Favorite Subject</legend>
-        <input type="radio" name="course" id="science" value="Science">
+        <legend>What is your study Background?</legend>
+        <input type="radio" name="course"  value="Science">
         <label for="science">Science</label>
         <br>
 
-        <input type="radio" name="course" id="math" value="Math">
-        <label for="math">Mathematics</label>
+        <input type="radio" name="course"value="Math">
+        <label for="commerce">Commerce</label>
         <br>
 
-        <input type="radio" name="course" id="art" value="Art">
+        <input type="radio" name="course"  value="Art">
         <label for="art">Art</label>
       </fieldset>
       <br>
       <br>
       <fieldset>
-        <legend>What do you like about offline classes?</legend>
-        <input type="checkbox" name="school" id="classes" value="Classes">
-        <label for="classes">Classes</label>
+        <legend>What is your favorite subject></legend>
+        <input type="checkbox" name="subject" value="science">
+        <label for="science">Science</label>
         <br>
 
-        <input type="checkbox" name="school" id="teachers" value="teachers">
-        <label for="teachers">Teachers</label>
+        <input type="checkbox" name="subject" value="commerce">
+        <label for="commerce">Commerce</label>
         <br>
 
-        <input type="checkbox" name="school" id="culture" value="Food">
-        <label for="culture">Friends</label>
+        <input type="checkbox" name="subject"  value="art">
+        <label for="art">Art</label>
       </fieldset>
       <br>
       <br>
@@ -86,12 +99,12 @@
 
       <div>
         <label>
-          Any suggestions?
+          Any comments?
         </label>
 
 
         <textarea placeholder="Enter your comment here">
-            </textarea>
+        </textarea>
       </div>
       <br>
       <br>
