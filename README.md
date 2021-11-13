@@ -28,7 +28,7 @@ https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/ind
 
 12-11 assignment
 Landing page (and a form)
-https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
+
 
 
 
