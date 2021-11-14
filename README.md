@@ -27,7 +27,8 @@ https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/ind
 
 
 12-11 assignment
-Landing page (and a form) (refresh the page once or twice, I've added a video in the bg of second page, takes some time to load)
+Landing page (and a form) 
+(refresh the page once or twice, I've added a video in the bg of second page, takes some time to load)
 https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
 
