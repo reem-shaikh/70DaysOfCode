@@ -2,7 +2,8 @@
 https://reem-shaikh.github.io/Geekster-/html/Foodapp.html/index.html -->
 
 8-11 assignment
-layout html: in process
+layout html: 
+(note: the allignation of every image is deliberate)
 https://reem-shaikh.github.io/Geekster-/main/8-11assignment/index.html
 
 9-11 assignment
@@ -28,7 +29,7 @@ https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/ind
 
 12-11 assignment
 Landing page (and a form) 
-(refresh the page once or twice, I've added a video in the bg of second page, takes some time to load)
+(note:refresh the page once or twice, I've added a video in the bg of second page, takes some time to load)
 https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
 
