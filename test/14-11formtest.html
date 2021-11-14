@@ -1,0 +1,194 @@
+<!--
+    
+Make a Form with five separate input types 
+and one of them to be *atleast* radio/checkbox/select in that.
+Host that static page and share that hosted link here. *
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Form</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body >
+ 
+        <form action="#" class="form">
+            <h2 class="h2" style="color:blue; font-size:35px;" >Registration Form</h2>
+            <hr style="border-bottom: 10px;">
+            <div class="body" >
+                
+    
+          <div class="input-box">
+              <label>Name</label>
+            
+            <input type="name" placeholder="Enter your name" autocomplete="name" required="required" >
+            <!--
+                regex: pattern="(|[A-Za-z])"
+            -->
+          </div>
+          <br>
+        
+    
+          <div class="input-box">
+              <label>email</label>
+            <input type="email" placeholder="Enter your email" autocomplete="email" required="required"
+             >
+             <!--instead of mention type we can even set the patterns 
+            with the help of regex strings
+            pattern=" [A-Za-z 0-9 _ \. -\]+ [@] [a-z]+ [\.][a-z]{2,3}" -->
+          </div>
+          <br>     
+
+    
+          <div class="input-box">
+
+          <label for="phone">Phone Number</label>
+          <br>
+          <select style="float:left;">
+            <option> +91</option>
+            <option> +92</option>
+            <option> +93</option>
+          </select>
+        
+
+          <input  name="user_name" placeholder="Enter 10 digit number" 
+          pattern="[8 9 6][0-9]{9}" style="width:70%; margin-left:75px; 
+          float:right; margin-top:-33px;
+          " /> 
+          </div>
+      
+          <br>
+          <br>
+
+          <div class="input-box">
+          <label>Roll No</label>
+          <input type="number" name="number"  placeholder="Enter roll number" min="0" max="100"  required>
+          </div>
+          <br>
+      
+        
+    
+          <div class="input-box">
+          <label>State</label>
+            <input type="state" placeholder="enter state name" required>
+            <!--regex:pattern="[A-Za-z].+"
+            -->
+          </div>
+          <br>
+          <br>
+       
+    
+
+          <div>
+            <legend style="font-size:19px; margin-top: 10px;">
+              What is your favorite subject?</legend>
+            <input type="checkbox" name="color" value="commerce">
+            <label for="commerce">Commerce</label>
+            <br>
+    
+            <input type="checkbox" name="color" value="science">
+            <label for="science">Science</label>
+            <br>
+    
+            <input type="checkbox" name="color"  value="art">
+            <label for="art">Art</label>
+          </div>
+          <br>
+        
+
+       
+
+          <div>
+            <label style="font-size:19px; margin-top: 10px; "  >
+              Which house are you in?
+            </label>
+            <br>
+           
+          <select name="role" style="  margin-top:5px;">
+            <option value="winter">winter</option>
+            <option value="summer">summer</option>
+            <option value="autumn">
+              autumn
+            </option>
+            <option value="spring">spring</option>
+          </select>
+          </div>
+          <br>
+         
+
+         
+
+          <div>
+            <legend style="font-size:19px; margin-top: 10px;" 
+            >Which course do you want to choose?</legend>
+            <input type="radio" name="course"  value="Science">
+            <label for="science">Science</label>
+            <br>
+    
+            <input type="radio" name="course"value="Math">
+            <label for="commerce">Commerce</label>
+            <br>
+    
+            <input type="radio" name="course"  value="Art">
+            <label for="art">Art</label>
+          </div>
+          <br>
+
+
+    
+          <!-- <div >
+            <input type="checkbox">
+            <h3 style="margin-top:-22px; margin-left:25px;">I accept all terms & conditions</h3>
+          </div>
+
+           <div class="comment">
+            <label>
+             Place your resume
+            </label> -->
+   
+<!--     
+          <textarea placeholder="enter resume link here">
+            </textarea>
+          </div>
+          <br>         -->
+    <br>
+          <div >
+            <button type="Submit" fromaction="" value="Register Now"
+            class="submit-button"
+            >Submit</button>
+          </div>
+          <br>
+       
+          
+          <div class="text">
+            <h4 style="margin-top:5px; font-size: 15px;">
+            <a href="#">Already have an account?</a>  
+                     </h4>
+            
+          </div>
+
+          <div class="text">
+            <h4 style="margin-top:-38px; margin-left:173px; font-size: 15px;">
+            <a href="#">Login Now</a>  
+            </h4>
+            
+          </div>
+
+        </form>
+        <br>
+      </div>
+
+      <footer class="footerstart">
+        <span class="footer"><h4>All copyrights &copy; Reem Shaikh</h4> </span>
+      </footer>
+    
+</body>
+</html>

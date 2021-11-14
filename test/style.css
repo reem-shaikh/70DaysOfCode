@@ -1,0 +1,96 @@
+.form{ 
+padding-top: 20px;
+margin-left: 500px;
+margin-right: 590px;
+padding-right: 20px;
+padding-left: 30px;
+margin-top:70px;
+border-radius: 20px;
+box-shadow:5px 5px;
+background-color: white;
+opacity: 0.9;
+
+}
+
+h2{
+  font-family: 'Playfair Display', serif;
+}
+ 
+ form .input-box input{
+   height: 100%;
+   width: 90%;
+   outline: none;
+   padding: 0 15px 10px 5px;
+   margin-left: 2px;
+   
+   font-weight: 400;
+   color: #333;
+   border: 1.5px solid #C7BEBE;
+   border-bottom-width: 3.5px;
+   box-shadow: 2px 2px;
+   font-size:17px; 
+   margin-top:10px;
+ 
+   
+ }
+
+ form .input-box select{
+    height: 100%;
+    width: 20%;
+    outline: none;
+   
+    
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+    border-bottom-width: 3.5px;
+    box-shadow: 2px 2px;
+    font-size:17px; 
+    margin-top:6px;
+    padding-bottom:5px;
+   
+ }
+ 
+ .input-box label{
+   font-size: 17px;
+   text-transform: uppercase;
+   
+ }
+
+ .input-box{
+    padding-top:20px;
+  }
+  
+   
+body{
+    background-image: url('https://images.pexels.com/photos/1044989/pexels-photo-1044989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.submit-button{
+  text-indent:10px;  
+  text-transform: uppercase; 
+
+  padding-top:5px;
+  padding-bottom: 5px; 
+  padding-right:30px; 
+  border-radius:5px; 
+  background-color: white; 
+  box-shadow: 2px 2px;
+}
+.footerstart{
+  background-color: black; margin-left: -80px;
+}
+.footer{
+  margin-bottom:-100px; margin-top:15px; padding:10px; text-align: center; color: white;
+}
+
+.text:hover a{
+  color:magenta;
+}
+
+.submit-button:hover {
+  background-color: lightgrey;
+}
+
