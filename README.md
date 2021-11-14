@@ -33,8 +33,4 @@ https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
 
 
-
-microsoft dev tools:
-
-launch 
-localhost:5500/location of file to access
+<!-- micro dev tools: localhost:5000/location of file -->
