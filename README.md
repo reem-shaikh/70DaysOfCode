@@ -3,7 +3,7 @@ https://reem-shaikh.github.io/Geekster-/html/Foodapp.html/index.html -->
 
 8-11 assignment
 layout html: 
-(note: the allignation of every image is deliberate)
+(note: the allignation of every element is deliberate)
 https://reem-shaikh.github.io/Geekster-/main/8-11assignment/index.html
 
 9-11 assignment
