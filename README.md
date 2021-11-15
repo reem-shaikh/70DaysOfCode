@@ -29,10 +29,11 @@ https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/ind
 
 12-11 assignment
 Landing page (and a form) 
-<!--(note:refresh the page once or twice, I've added a video in the bg of second page, takes some time to load)
-(open link in a new tab to view the video) -->
+note:since the video doesn't load on time, it loads quick when you open the link in a new window tab 
 https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
+that's why I've attached the demo of my code
+https://reem-shaikh.github.io/Geekster-/main/12-11/demoassignment/demo.html
 <!--
 test 14-11
 https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
