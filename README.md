@@ -38,4 +38,9 @@ https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
 -->
 
 
-<!-- micro dev tools: localhost:5000/location of file -->
+<!-- micro dev tools: 
+launch instance
+got to live server: 127.0.0.1:5000/ which is the root and navigate to your file
+
+
+(edge and vscode owned by microsoft) -->
