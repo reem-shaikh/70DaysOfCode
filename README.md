@@ -31,9 +31,9 @@ https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/ind
 Landing page (and a form) 
 note:since the video doesn't load on time
 >>open this link by right clicking>> open the link in a new window (video loads quicker this way)
-https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
-since it buffers sometimes, that's why I've attached the demo of my code
-https://reem-shaikh.github.io/Geekster-/main/12-11/demoassignment/demo.html
+>> https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
+>>since it buffers sometimes, that's why I've attached the demo of my code
+>> https://reem-shaikh.github.io/Geekster-/main/12-11/demoassignment/demo.html
 
 <!--
 test 14-11
