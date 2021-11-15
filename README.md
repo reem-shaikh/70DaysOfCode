@@ -30,7 +30,8 @@ https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/ind
 12-11 assignment
 Landing page (and a form) 
 (note:refresh the page once or twice, I've added a video in the bg of second page, takes some time to load)
-.https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
+(open link in a new tab to view the video)
+https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
 <!--
 test 14-11
