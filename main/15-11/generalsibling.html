@@ -1,0 +1,81 @@
+<!--
+    
+      types of css combinators:
+      -child selector
+         select all p elements 
+         that are children of 
+         div element
+           div > p{
+           background-color: coral;
+
+         }
+
+      -sibling selector 
+       div + p{
+             background-color: green;
+
+         }
+
+      -general sibling selector 
+       select all p tags after div
+
+     div ~p{
+         background-color: red;
+     }
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS combinators</title>
+
+    <style>
+       div ~p{
+         background-color: red;
+     }
+  
+    </style>
+</head>
+<body>
+    <h1>general Sibling selector</h1>
+    <!--if its inside div tag it wont be selected-->
+    <div>
+        <h1>inside div</h1>
+        <p>paragraph</p>
+        <p>Lorem ipsum dolor sit.</p>
+        <!--it doesnt select the p inside other element inside div-->
+        <section>
+            section
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic optio incidunt iusto labore facilis accusantium neque obcaecati velit quo minus!</p>
+        </section>
+        <p>Lorem, ipsum dolor.</p>
+        <h2>Lorem ipsum dolor sit.</h2>
+    </div>
+
+    <br>
+    <!-- only the adjacent element is the sibling selector
+    general sibling selector selects all p after div-->
+    <div>general sibling selector</div>
+    <p> this is sibling of div</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+    <!--outside div tag-->
+
+    <div>Lorem ipsum dolor sit.</div>
+    <p>paragraph</p>
+    <p>Lorem ipsum dolor sit.</p>
+        <section>
+            section
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic optio incidunt iusto labore facilis accusantium neque obcaecati velit quo minus!</p>
+        </section>
+        <p>Lorem, ipsum dolor.</p>
+        <h2>Lorem ipsum dolor sit.</h2>
+    
+    
+</body>
+</html>

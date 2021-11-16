@@ -1,0 +1,52 @@
+<!--
+    
+      types of css combinators:
+      -child selector
+         select all p elements 
+         that are children of 
+         div element
+
+      -sibling selector 
+      -general sibling selector 
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS combinators</title>
+
+    <style>
+       
+
+         div > p{
+           background-color: coral;
+
+         }
+
+    </style>
+</head>
+<body>
+    <h1>Child selector</h1>
+    <!--selects all p elements that are inside div directly-->
+    <div>
+        <h1>inside div</h1>
+        <p>paragraph</p>
+        <p>Lorem ipsum dolor sit.</p>
+        <!--note that it didnt select section
+        because it only selects the direct div-p relation 
+        -->
+        <section>
+            section
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic optio incidunt iusto labore facilis accusantium neque obcaecati velit quo minus!</p>
+        </section>
+        <p>Lorem, ipsum dolor.</p>
+        <h2>Lorem ipsum dolor sit.</h2>
+    </div>
+    
+</body>
+</html>
