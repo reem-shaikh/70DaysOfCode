@@ -55,9 +55,12 @@ https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
 >>https://reem-shaikh.github.io/Geekster-/main/16-11/16-11assignment/wikiclonewithstyling.html
 
 17-11 assignment
--triangles 
+-triangle
+>>https://reem-shaikh.github.io/Geekster-/main/main/17-11/triangle.html
 
 -circle 
+>>>https://reem-shaikh.github.io/Geekster-/main/main/17-11/circle.html
+
 
 <!-- micro dev tools: 
 launch instance
