@@ -56,10 +56,10 @@ https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
 
 17-11 assignment
 -triangle
->>https://reem-shaikh.github.io/Geekster-/main/main/17-11/triangle.html
+>>https://reem-shaikh.github.io/Geekster-/main/17-11/triangle.html
 
 -circle 
->>>https://reem-shaikh.github.io/Geekster-/main/main/17-11/circle.html
+>>>https://reem-shaikh.github.io/Geekster-/main/17-11/circle.html
 
 
 <!-- micro dev tools: 
