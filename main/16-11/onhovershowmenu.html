@@ -1,0 +1,81 @@
+<!--when hover on button 
+dropdown will be open-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+
+        /*
+        initial value for 
+        dropdown is none 
+        when you hover 
+        dropdown is shown 
+        
+        otherwise its hidden
+
+        */
+        .dropdown{
+            display:none;
+        }
+
+    
+        /*this displays in horizontal line */
+        .wrapper:hover .dropdown{
+            display: initial;
+
+        }
+
+
+        /*this property displays in vertical line */
+        .dropdown a{
+           display: block;
+        }
+
+        /* 
+        .wrapper:hover {
+            background-color: orchid;
+        
+        
+        .wrapper:hover .dropdown{
+            display: block;
+            background-color: orchid;
+        } */
+
+        /*  
+        active--> when you click on it, 
+        the baground color will be shown
+
+        */
+        .wrapper:active .dropdown{
+            display: block;
+            background-color: orchid;
+        }
+
+         
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+    <button>hover me</button>
+    <div class="dropdown">
+        <a href="">link 1 </a>
+        <a href="#">link 1 </a>
+        <a href=#>link 1 </a>
+        <a href="">link 1 </a>
+        <a href="#">link 1 </a>
+        <a href=#>link 1 </a>
+    </div>
+
+    </div>
+    <!--wrapper ends-->
+    
+</body>
+</html>

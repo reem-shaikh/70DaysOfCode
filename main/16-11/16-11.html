@@ -1,0 +1,145 @@
+<!--
+    revision session:
+
+classification of selectors:
+1.type
+2.attribute
+3.psuedo selectors
+
+4.combinators 
+they are broadly 3 selectors
+but technically 
+I believe their are 4 
+
+selectors:
+used to apply style properties
+ to a single (or multiple) specific html elements
+
+    -tag
+    -id
+    -class
+    -universal
+    -psuedo selectors
+
+    -combinator 
+      1. child 
+      (direct, indirect)
+      2.sibling 
+      (direct, indirect)
+
+    -Attribute
+
+    pseudo selectors:
+    - psuedo elements (::)
+
+    - psuedo class (:)
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="style.css" />
+    <title>Document</title>
+
+    <style>
+/*universal selector */
+*{
+    margin:10px;
+}
+
+/* 
+    <li>
+    <> -->tag
+    of type li
+
+type selector:
+*/
+li {
+    color: red;
+}
+
+/*id selector */
+#green {
+    color: green;
+}
+
+/* class selector */
+.class {
+    color:blue;
+}
+
+/*pseudo class
+ */
+li:hover{
+   background-color: aquamarine; 
+}
+
+/* *:hover{
+    color:red;
+} */
+
+.blue:hover{
+    color:aqua;
+}
+
+/*first child of li
+
+li- property of element */
+li:first-child{
+    color:purple;
+}
+
+li:last-child{
+    color:red;
+}
+
+/*psuedo element */
+
+/*and */
+li.blue{
+    background-color: purple;
+}
+
+/*can mix 
+id and id 
+class and id 
+
+*/
+#special.special-text{
+    background-color: royalblue;
+}
+
+
+.blue-text, .blue{
+    text-transform: uppercase;
+}
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li id="green">item1</li>
+        <li class="blue">item2</li>
+        <li class="blue-text">item3</li>
+        <li class="special-text"
+        id="special"
+        >item4</li>
+
+        <li >item5</li>
+        <li >last child</li>
+    </ul>
+
+    <ul>
+        <li>first child </li>
+        <li>last child </li>
+    </ul>
+    
+</body>
+</html>
