@@ -6,7 +6,7 @@
 
 ## 8-11 assignment
 **Layout html:**
-(note: the allignation of every element is deliberate)
+>(note: the allignation of every element is deliberate)
 ```bash
 https://reem-shaikh.github.io/Geekster-/main/8-11assignment/index.html
 ```
