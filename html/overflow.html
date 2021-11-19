@@ -1,0 +1,92 @@
+<!--CSS overflow property:
+
+    when content is overflowing 
+    if img is bigger than its 
+    container 
+
+    properties:
+    1.visible- default 
+    2.hidden- hide everything extra outside of the container 
+    3.scroll 
+    4.auto 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        .text{
+            border: 10px solid red;
+            max-height: 100px;
+            width:30%;
+
+            overflow: auto;
+            /*
+            1.visible- shows it as it is 
+
+            2.hidden
+
+            3.scoll-you can view everything by scrolling
+
+            in case of an img 
+            you can scroll from both x and y axis 
+
+            in case of text you can scroll only at y axis but x axis scroll bar is visible and its frozen in place
+
+            to fix this, we use 
+
+            4. auto
+
+
+
+            */
+
+
+        }
+
+        .img{
+            border: 10px solid red;
+            max-height: 100px;
+            width:30%;
+
+            overflow: auto;
+        }
+
+        .img1{
+            border: 10px solid red;
+            max-height: 100px;
+            width:30%;
+
+            overflow-x: hidden;
+            /*
+            overflow-y: hidden
+
+            */
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, sit, pariatur sed fuga ut, expedita aliquam provident obcaecati excepturi odit vero! Perspiciatis eaque excepturi repellat veniam deserunt expedita quo quisquam labore assumenda iste hic distinctio asperiores dicta, illum sint temporibus. Quia sint quo ullam eaque ipsam, corporis ea iure eum tempore quas enim, reprehenderit aut. Architecto sint necessitatibus accusantium vel?
+    </div>
+
+    
+    <div class="img">
+        <img src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+    </div>
+    <br>
+    <br>
+
+    <div class="img1">
+        <img src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+    </div>
+    
+</body>
+</html>

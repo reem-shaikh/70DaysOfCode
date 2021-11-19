@@ -16,14 +16,68 @@
     -form method
     -height
     -width
-    -list
     -min
     -max
-    -multiple
     -pattern
     -placeholder
     -required
-    -stop
+    -multiple
+    -list
+
+    -multiple attribute:
+    indicates if user is allowed to enter more than one value
+
+
+-->
+
+<!--form tag attributes
+    -action
+    -method
+      -post ()
+      -get ()
+    -enctype (encryption type)
+
+    tags used:
+    -label 
+    -input
+    -accept-charset 
+    -action 
+    where to send the form data 
+    when its submitted.
+    
+    php file is linked over here
+    through server 
+
+    -autocomplete
+
+    -method- way to submit form data 
+     -get(data will be sent as url variable) //not secure
+     (its default)
+
+     -post-data send as http post 
+     transaction //secure
+
+     -enctype-converts spaces to + 
+     when your form is submitted 
+     suppose in input field you entered
+
+     Reem shaikh 
+     for 
+     <input type="text" name="sname">
+     then in the url of the submitted link it will show
+     sname=Reem+shaikh
+
+     -name
+     is used to reference data after its submitted
+
+     -novalidate
+     its used to specify the date the form will stop taking inputs,
+     its used to tll server 
+     the form is not valid 
+
+     -target 
+     _blank: opens in new tab
+     _self: open in same tab
 
 
 
@@ -43,6 +97,49 @@
     <title>Attributes</title>
 </head>
 <body>
+    <form accept-charset="utf-8"
+    action="" method="post"
+    name="login-form"
+    novalidate
+    target="_blank">
+<!--accept-chaarset is assigned by default 
+        it contains all the ch encodings that are required for form submission
+    
+    it can also be specified in head section, like we did above
+    for complete documentation
+
+UTF: character encoding for unicode 
+ISO-8859-1: character encoding for latin alphabet 
+-->
+        First Name:<input type="text" autocomplete="on" 
+        name="fname" 
+        placeholder="enter name"
+     
+        />
+        <!--name
+          tells server from which name data was input 
+        -->
+        <br>
+        <br>
+        <input type="text" autofocus />
+        <br>
+        <br>
+        <input type="email"
+        name="email" 
+        multiple>
+        <!--if you want to 
+        take more than one value in same field 
+    you can use multiple-->
+    <input type="file"
+    name="file" multiple>
+    <br>
+    <br>
+
+
+
+        <input type="submit" >
+
+    </form>
     
 </body>
 </html>

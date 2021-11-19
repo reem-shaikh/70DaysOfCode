@@ -1,0 +1,105 @@
+<!--justify content:
+    align items and distribute any extra spacing in the parent container 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            display:flex;
+            justify-content: space-evenly;
+            /*
+            properties:
+            1. flex-start
+            places flex item at beginning of axis 
+
+            2.flex-end
+
+            3.center
+
+            4.space-between
+            space btw items at even intervals
+
+            5.space-around
+            like space-between but has space at lhs most and rhs most, not equally distributed
+
+            6.space-evenly
+            like space-around but has space evenly
+
+
+
+
+
+            */
+            border: 6px solid black;
+            flex-direction: column;
+            /* flex-direction:row */
+        }
+
+        .flex1{
+            color:white;
+            background-color: rgb(245, 25, 69);
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            
+
+        }
+        .flex2{
+            color:red;
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            
+
+        }
+        .flex3{
+            color:white;
+            background-color: rgb(122, 27, 46);
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            
+
+        }
+        .flex4{
+            color:red;
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            
+
+        }
+        .flex5{
+            color:white;
+            background-color: crimson;
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex1">item1</div>
+        <div class="flex2">item2</div>
+        <div class="flex3">item3</div>
+        <div class="flex4">item4</div>
+        <div class="flex5">item5</div>
+    </div>
+    
+    
+</body>
+</html>

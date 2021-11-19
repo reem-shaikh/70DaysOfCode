@@ -1,0 +1,183 @@
+<!--
+    Layouting: parts in which 
+    something is arranged 
+
+    way in which elements will be layed out in the web page
+
+    ✅Block layouting
+    we can have content 
+    which takes complete width 
+    or in the same line 
+    eg:navigation bar
+    eg:login form on fb
+
+    display:block
+
+    ✅float layouting
+    you can arrange content 
+    showcasing either on lhs or rhs 
+    eg:blogs, landing page
+
+    float:left; //right
+
+    🔳FLEX
+    overcomes problems in block 
+    and float layouting 
+
+    :-helps in responsiveness 
+    ability of website to adapt to different screen sizes
+
+    content adapts to the width 
+
+    eg:amazon has bad responsiveness in small screen 
+
+    ⏹️FLEXBOX- responsive 
+    gives ability to dyanamically move div to the next line 
+
+    1D concept. 
+    spans across the row 
+
+    ✔️Properties of Flex:
+    
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square{
+            display:inline-block;
+            width:100px;
+            height:100%;
+            padding:50px;
+            background-color: green;
+        }
+
+        .flexcontainer{
+            display: flex;
+            justify-content:
+            right;
+        }
+        /*
+        flex gives responsivness.
+
+        display:block
+        when stacked one below another 
+
+        display:flex
+        div stacked in a row
+        horizontally
+
+        */
+
+        /*
+        justify-content:
+        -left
+        -right (for arabic text alignation)
+        -initial
+        -flex-end
+        -flex-start
+
+
+        */
+
+        .flex1{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+        .flex2{
+            width:100px;
+            height:100px;
+            background-color: blue;
+        }
+
+        .flex3{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+        .flex4{
+            width:100px;
+            height:100px;
+            background-color: blue;
+        }
+
+        .flexcontainer1{
+            display: flex;
+            justify-content:
+            space-between;
+        }
+
+        .flexcontainer2{
+            display: flex;
+            justify-content:
+            space-evenly;
+        }
+
+        .flexcontainer3{
+            display: flex;
+            justify-content:
+            space-around;
+        }
+
+        
+    </style>
+</head>
+<body>
+   <div class="square">
+        Lorem, ipsum dolor.
+
+    </div> 
+    <br>
+    <br>
+
+    <div class="flexcontainer">
+        <div class="flex1"> </div>
+        <div class="flex2"> </div>
+        <div class="flex3"> </div>
+        <div class="flex4"> </div>
+    </div>
+    <br>
+    <br>
+
+    <h1>space between </h1>
+        <h3>first and last are stuck to the ends and even spaces between them</h3>
+    <div class="flexcontainer1">
+        
+        <div class="flex1"> </div>
+        <div class="flex2"> </div>
+        <div class="flex3"> </div>
+        <div class="flex4"> </div>
+    </div>
+    <br>
+    <br>
+
+    <h1>space evenly</h1>
+        <h3>distributing spaces evenly without sticking to start or end</h3>
+    <div class="flexcontainer2">
+        
+        <div class="flex1"> </div>
+        <div class="flex2"> </div>
+        <div class="flex3"> </div>
+        <div class="flex4"> </div>
+    </div>
+    <br>
+    <br>
+    <h1>space around</h1>
+    <h3>in the middle 3 spaces
+        the space becomes 2x</h3>
+    <div class="flexcontainer3">
+        
+        <div class="flex1"> </div>
+        <div class="flex2"> </div>
+        <div class="flex3"> </div>
+        <div class="flex4"> </div>
+    </div>
+</body>
+</html>

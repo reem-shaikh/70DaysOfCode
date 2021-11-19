@@ -1,0 +1,162 @@
+<!--
+    transform property:
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:80vh;
+            background-color: rgb(247, 156, 156);
+
+        }
+
+        .box{
+            background-color: pink;
+            border:2px solid black;
+            border-radius: 8px;
+            height:400px;
+            width:400px;
+            /* 
+            transform: rotate(45deg); */
+            transition: 
+            all 0.5s ease-in-out;
+
+        }
+
+        .box:hover{
+            transform: rotate(360deg);
+        }
+
+        .box2{
+            background-color: pink;
+            border:2px solid black;
+            border-radius: 8px;
+            height:400px;
+            width:400px;
+          
+            transition: 
+            all 0.5s ease-in-out;
+
+        }
+
+        .box2:hover{
+            transform:skew(40deg);
+        }
+
+        
+        .box3{
+            background-color: pink;
+            border:2px solid black;
+            border-radius: 8px;
+            height:400px;
+            width:400px;
+          
+            transition: 
+            all 0.5s ease-in-out;
+
+        }
+
+        .box3:hover:hover{
+            transform:scale(2);
+        }
+
+
+        .box4{
+            background-color: pink;
+            border:2px solid black;
+            border-radius: 8px;
+            height:400px;
+            width:400px;
+          
+            transition: 
+            all 0.5s ease-in-out;
+
+        }
+
+        .box4:hover:hover{
+            /* transform:translateX(123px); */
+            /* transform: translateY(123px); 
+            
+            transform:translate()
+            for both X and Y
+            */
+            transform: translate(123px, 123px);
+        }
+
+
+        .box5{
+            background-color: pink;
+            border:2px solid black;
+            border-radius: 8px;
+            height:400px;
+            width:400px;
+            /* 
+            transform: rotate(45deg); */
+            transition: 
+            all 0.5s ease-in-out;
+
+        }
+
+        .box5:hover{
+            transform: rotateY(360deg);
+            /* transform: rotateX(360deg); */
+
+        }
+
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+Lorem ipsum dolor sit.
+
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="box2">
+Lorem ipsum dolor sit.
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box3">
+Lorem ipsum dolor sit.
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box4">
+Lorem ipsum dolor sit.
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="box5">
+Lorem ipsum dolor sit.
+
+        </div>
+    </div>
+</body>
+</html>

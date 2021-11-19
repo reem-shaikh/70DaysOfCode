@@ -1,0 +1,130 @@
+<!--
+    perspective-gives 3d look to
+    transform:rotate x
+    transform:rotate y
+
+    perspective-origin:  x   y
+    default value:
+    perspective: 50% 50%
+    or
+    perspective-origin: center center
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .base{
+
+            width: 350px;
+            height:250px;
+            background:grey;
+            font-size:18px;
+            text-align: center;
+            margin: 100px 0 0 100px;
+
+            /*we use perspective on base */
+            perspective: 800px;
+
+     
+        }
+
+        #box{
+            width:350px;
+            height: 250px;
+            background: lightcoral;
+
+            transform: rotateX(80deg);
+        }
+
+.base1{
+
+width: 350px;
+height:250px;
+background:grey;
+font-size:18px;
+text-align: center;
+margin: 100px 0 0 100px;
+
+/*we use perspective on base class
+SMALLER VALUE IS MORE CLOSER
+LARGER VALUE IS MORE FAR */
+perspective: 800px;
+}
+
+#box1{
+width:350px;
+height: 250px;
+background: lightcoral;
+
+transform: rotateY(80deg);
+}
+
+
+/*using this to analyse perspective origin */
+.base2{
+
+width: 350px;
+height:250px;
+background:grey;
+font-size:18px;
+text-align: center;
+margin: 100px 0 0 100px;
+
+/*we use perspective on base class
+SMALLER VALUE IS MORE CLOSER
+LARGER VALUE IS MORE FAR */
+perspective: 800px;
+
+/*perspective-origin properties 
+-center center 
+-left
+-right
+-left bottom
+-right bottom
+-bottom
+-top
+-top right
+-top left
+*/
+perspective-origin: top;
+
+}
+
+#box2{
+width:350px;
+height: 250px;
+background: lightcoral;
+
+transform: rotateY(60deg);
+}
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit.</h1>
+
+    <div class="base">
+        <div id="box">
+            Lorem, ipsum dolor.
+        </div>
+    </div>
+
+    <div class="base1">
+        <div id="box1">
+            Lorem, ipsum dolor.
+        </div>
+    </div>
+
+    <div class="base2">
+        <div id="box2">
+            Lorem, ipsum dolor.
+        </div>
+    </div>
+    
+</body>
+</html>
+

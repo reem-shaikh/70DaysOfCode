@@ -1,0 +1,102 @@
+<!--box sizing property 
+    -content-box (default value)
+    -border-box
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            max-width: 600px;
+            margin: 0 auto;
+
+        }
+
+        .row{
+
+            width:100%;
+
+        }
+
+        .col {
+            display: inline-block;
+            width:32%;
+            height:200px;
+
+            /* drop to next line */
+            padding:20px;
+            border:1px solid red;
+
+            /*because its set to default box model */
+            box-sizing: content-box;
+        }
+
+        /*box model prperty */
+        .container1{
+            max-width: 600px;
+            margin: 0 auto;
+
+        }
+
+        .row1{
+
+            width:100%;
+
+        }
+
+        .col1 {
+     
+            display: inline-block;
+            width:32%;
+            height:200px;
+
+            /* drop to next line */
+            padding:20px;
+            border:1px solid red;
+
+            /*border box places 
+            all in same line
+            it enlarges width and height to max */
+            box-sizing: border-box;
+        }
+
+       /*to make all elements border-box by default 
+       do this
+       */
+       /* html{
+           box-sizing: border-box;
+       }
+
+       *, *::before, *::after {
+           box-sizing: inherit;
+       } */
+
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="row">
+            <div class="col"> one </div>
+            <div class="col"> two </div>
+            <div class="col"> three </div>
+        </div>
+    </main>
+
+    <main class="container1">
+        <div class="row1">
+            <div class="col1"> one </div>
+            <div class="col1"> two </div>
+            <div class="col1"> three </div>
+        </div>
+    </main>
+    
+</body>
+</html>

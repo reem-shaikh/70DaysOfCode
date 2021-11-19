@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>facebook</title>
+    <!--write import before stylesheet-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Playfair Display', serif;
+            
+        }
+        .maincontainer{
+            display:flex;
+            justify-content: space-between;
+            background-color: lightblue;
+        }
+
+        body{
+            margin:0px;
+            padding:0px;
+            background-color:white;
+        }
+
+        .leftsection{
+            width:200px;
+            height: 1000px;
+            background-color: white;
+        }
+
+        .midsection{
+            width:500px;
+            height:1000px;
+            background-color: lightblue;
+
+
+        }
+
+        .midsection > div{
+            background-color: white;
+        }
+
+        .addnew{
+            margin-top: 70px;
+            height: 50px;
+
+            display: flex; 
+            
+        }
+
+        .addnew > input{
+            height: 30px;
+            margin-top: 10px;
+            width:400px;
+
+            margin:auto;
+
+            /* justify-content: center;
+            */ 
+
+            /*
+            alligning item in center
+
+            justify-content: center 
+            display: flex 
+
+            or
+
+            margin:auto
+            display:flex
+
+
+            */
+
+            border-radius:5px;
+            border-width: 0px;
+           
+        }
+
+        /*
+        placeholder psuedo element 
+        */
+        .addnew > input::placeholder {
+            text-align: center;
+            font-weight: 700;
+            color:black;
+        }
+
+        .feed{
+            height:1000px;
+        }
+
+        .lastsection{
+            width:200px;
+            height:1000px;
+            background-color: white;
+
+        }
+
+        .leftsection, .lastsection{
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="leftsection">
+            <h3>Home</h3>>
+            <h5>Lorem ipsum dolor sit.</h5>
+            <h5>Lorem ipsum dolor sit.</h5>
+            <h5>Lorem ipsum dolor sit.</h5>
+            <h5>Lorem ipsum dolor sit.</h5>
+
+        </div>
+        <div class="midsection">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, deleniti!
+            <div class="addnew">
+                <input type="text 
+                " 
+                placeholder="Add a post" />
+
+            </div>
+            <div class="feed">
+
+            </div>
+
+        </div>
+        <div class="lastsection">
+            <h4>suggested</h4>
+            <h4>contacts</h4>
+            <h5>Lorem ipsum dolor sit.</h5>
+            <h5>Lorem ipsum dolor sit.</h5>
+            <h5>Lorem ipsum dolor sit.</h5>
+            <h5>Lorem ipsum dolor sit.</h5>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
