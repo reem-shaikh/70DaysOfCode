@@ -52,7 +52,7 @@ https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
 -i created a page with dropdown, and added some css animation, when hovered over text it gets highlighted, added video with controls in the bg
 >https://reem-shaikh.github.io/Geekster-/main/16-11/16-11assignment/dropdown.html
 
--table styling on wiki clone
+**Table styling on wiki clone**
 >https://reem-shaikh.github.io/Geekster-/main/16-11/16-11assignment/wikiclonewithstyling.html
 
 ## 17-11 assignment
