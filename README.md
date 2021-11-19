@@ -7,7 +7,10 @@
 ## 8-11 assignment
 **Layout html:**
 (note: the allignation of every element is deliberate)
->https://reem-shaikh.github.io/Geekster-/main/8-11assignment/index.html
+
+```bash
+ https://reem-shaikh.github.io/Geekster-/main/8-11assignment/index.html
+```
 
 ## 9-11 assignment
 **login form:**
@@ -49,7 +52,7 @@ https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
 
 ## 16-11 assignment
 **Dropdown**
--i created a page with dropdown, and added some css animation, when hovered over text it gets highlighted, added video with controls in the bg
+I created a page with dropdown, and added some css animation, when hovered over text it gets highlighted, added video with controls in the bg
 >https://reem-shaikh.github.io/Geekster-/main/16-11/16-11assignment/dropdown.html
 
 **Table styling on wiki clone**
