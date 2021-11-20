@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper</title>
+
+    <style>
+       
+      
+        .flexcontainer{
+            flex-wrap: wrap;
+            gap:10px;
+            display: inline-block;
+
+            /*gives gap btw column gap 
+            and top row */
+            /* 
+            column-gap: 20px;
+            row-gap:20px;
+             */
+
+
+            display: flex;
+            flex-direction: row;
+
+           justify-content: space-between; 
+        }
+      
+        
+        .flex1{
+            width:200px;
+            height:50px;
+            border: 1px solid black;
+            padding:5px;
+             }
+
+        .flex2{
+            width:200px;
+            height:50px;
+            font-weight: bold;
+            font-size: 20px;
+         
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flex3{
+            width:150px;
+            height:50px;
+       
+            justify-content: right;
+        
+        }
+        .flex4{
+            width:100px;
+            height:50px;
+            background-color: black;
+        }
+
+        h6{
+            text-align: center;
+        }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Times New Roman', Times, serif;
+  min-height: 100vh;
+  max-width: 100vw;
+  line-height: 1.4;
+  padding: 20px 40px;
+}
+
+.container {
+  max-width: 1200px;
+  gap:2px;
+}
+
+.heading-1 {
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.heading-2 {
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 50px;
+
+}
+
+.heading-3 {
+  font-size: 30px;
+  text-align: center;
+
+  text-indent: 5px;
+
+  
+}
+
+.sub-heading {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 30px; */
+  border-bottom: 1px solid #ccc;
+  /* padding-bottom: 10px; */
+}
+
+
+
+/* HOME */
+.home {
+  flex-direction: column;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 10px;
+}
+
+.home-img {
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+
+/* ARTICLE */
+article > p {
+  font-size: 20px;
+  margin-bottom: 20px;
+
+  columns: 3 25ch;
+  column-gap: 40px;
+  hyphens: auto;
+}
+
+article p:first-child::first-line {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+
+hr{
+  width:70%;
+  margin:auto;
+ 
+}
+
+
+
+    /*
+    900px in total
+
+    */
+    .left{
+        width:950px;
+        flex-direction: column;
+        display: flex;
+
+    }
+
+    .right{
+        width:400px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .leftmost{
+      flex-direction: column;
+      display: flex;
+      width:25%;
+    }
+
+    .leftmost > p{
+      font-size: 13px;
+    }
+
+
+    * > p{
+      text-align: justify;
+      /* flex-wrap: wrap; */
+      display: flex;
+      overflow-wrap: break-word;
+
+    }
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  p {
+    font-size: 16px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  p {
+    font-size: 10px;
+    flex-wrap: wrap;
+      /* display: flex; */
+   overflow-wrap: break-word;
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+
+  
+
+    <div class="flexcontainer">
+        <div class="flex1">
+            <p>Lorem, ipsum dolor. Lorem ipsum dolor sit amet. </p> </div>
+        <div class="flex2" >
+            <h2 style="font-size: 50px; width:100%; margin-left:-50px; text-align: center;
+            ">Newspaper.</h2> </div>
+        <div class="flex3"> 
+            <p>Lorem ipsum dolor sit.</p>
+        </div>
+       
+    </div>
+    <br>
+    <hr>
+    <h6>Lorem ipsum dolor sit.</h6>
+    <hr>
+ 
+
+    <div>
+        <h2 class="heading-2">
+            Lorem ipsum dolor 
+        </h2>
+        <hr>
+    </div>
+ 
+
+    <div class="heading-3" style="margin:auto;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, ea error. Deleniti nobis quos, tempora aliquid, repellendus voluptatem obcaecati, illum quaerat quasi Lorem ipsum dolor sit. Lorem, dolor.
+    </div>
+
+    <div class="main">
+        <div class="home">
+          <div class="left" style="float:left; margin-top:-5px;">
+            <br>
+            <img src="
+            http://via.placeholder.com/640x360 " class="home-img" alt="Paper photo">
+           
+            <h6 style="width:98%; background-color: lightgray; flex-wrap: wrap; display: flex;">Lorem, ipsum dolor. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, pariatur! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem ratione et velit ipsa cum, maiores a facilis minus nihil vitae, corrupti iste in inventore animi officiis voluptatum earum. Amet, dolores.</h6>
+            <br>
+
+            <div class="leftmost">
+              <hr>
+              <h2 style="width:100%; float:left; ">Lorem ipsum dolor sit amet consectetur.</h2>
+           
+              <hr/>
+
+             
+              <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h4>
+              <hr/>
+              <br>
+       
+            
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore est fugit possimus consectetur ipsam incidunt ab labore aspernatur id commodi sint quae exercitationem accusamus modi, eveniet, ratione necessitatibus dolore! Ad! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus asperiores praesentium iure eligendi facilis odit nobis tenetur adipisci maiores, dolor consectetur nisi consequatur dicta eius omnis modi accusantium est nostrum iusto recusandae! Tempora dolorem unde ea nulla doloremque magni eos, maxime soluta id ab impedit dolorum molestiae perspiciatis officiis. Temporibus, repellendus iusto unde quis impedit quod obcaecati reprehenderit ipsam odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis repellat provident voluptate. Blanditiis voluptate itaque, sequi, officiis eum minus, consectetur saepe asperiores reprehenderit corporis sunt nam velit incidunt rem dolorum laudantium maiores? Vel non unde sequi maxime blanditiis. Enim neque voluptas aliquid odit. Nobis, corporis voluptas ipsa quas veritatis, amet inventore itaque id, quo ipsam labore quia ratione voluptates dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptatibus illum atque error rerum maxime nesciunt nulla sunt explicabo. !</p>
+
+              
+
+            </div>
+            <!--leftmost div ends-->
+  
+          
+     
+
+            <div class="leftmiddle" style="float:right; margin:auto; margin-top: -710px;
+            display:flex; flex-wrap: wrap; width: 70%; margin-right: 20px;">
+            <hr>
+            <h3 style="width:157%; text-align:center; font-size: 25px; 
+              text-indent:0%; ">Lorem ipsum dolor sit amet consectetur.</h3>
+            <hr> 
+
+              <div class="leftest" style="width:33%; font-size: 25px; 
+              text-indent:0%;  " >
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, assumenda.
+                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga eum nam accusantium harum reprehenderit libero aut eaque aliquid commodi ullam?
+                 Lorem ipsum dolor sit. dolor.
+                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto itaque quae praesentium hic veniam obcaecati animi ad? Minus, velit adipisci!
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero velit vel excepturi maiores ipsa amet sint, dolorem deserunt reiciendis adipisci nulla ipsum, esse rerum! Corrupti nam cumque explicabo aperiam officia!
+               </p> 
+       
+               <!--image-->
+               <img src="https://www.newhopelanding.com/app/uploads/2019/11/1024.png" alt="" style="width:100%; margin-top: 5px;" />
+
+                <p style="margin-top: -10px;">Lorem, ipsum dolor sit amet. </p>
+             
+                
+              </div>
+              <!--leftest end-->
+              
+
+              <div class="leftmid" style="width:33%; font-size: 25px; 
+              text-indent:0%; margin-left: 13px; margin-bottom: 2px;" > 
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, fugit exercitationem minima iste totam excepturi nobis incidunt sapiente saepe nulla!
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, culpa.
+                Lorem, ipsum dolor.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit maxime eos magni iste suscipit optio accusantium voluptatum quam pariatur, nihil temporibus perspiciatis aut unde. Cumque quod optio quas fugit .
+                <br>
+                <br>
+                <hr style="width:100%;">
+                <h5 style="text-align: center;">Lorem, ipsum dolor. </h5>
+                <hr>
+              
+                <p style="margin-top: 9px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. At debitis obcaecati qui necessitatibus recusandae sequi earum possimus porro voluptate expedita, libero voluptatem ipsum Facilis maxime ratione voluptate neque quidem officia aspernatur.
+                Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </p>
+
+
+              </div>
+              <!--leftmid ends-->
+
+
+              <div class="rightmid" style="width:30%; font-size: 25px; 
+              text-indent:0%; margin-left:auto; margin-top: -2px;">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, molestias minus debitis adipisci dolorem assumenda maxime ad animi iste rem?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut animi at perferendis fugiat accusantium inventore facilis eos magni repellendus repellat, nemo ex suscipit! Perferendis, doloribus optio enim facere . 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officiis veniam minima. Illo, magnam consequatur. Eum saepe expedita odio nemo necessitatibus. Ab, doloremque itaque? Excepturi in porro labore magni corporis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto adipisci voluptates eos doloremque distinctio necessitatibus aut debitis veritatis modi consequuntur. Lorem ipsum dolor sit amet.
+
+              </p>
+
+              </div>
+              <!--rightmid ends-->
+
+
+            
+            </div>
+            <!--left-mid ends-->
+        
+
+            
+          </div>
+          <!--class:left ends-->
+       
+
+        
+          <div class="right" style="float:right; margin:auto; margin-top:5px;">
+            <hr>
+           
+            <h3 class="heading-3">Lorem ipsum dolor sit amet consectetur.</h3>
+          
+         
+            <aside style="margin-bottom: 5px;">
+                <p style="width:50%; text-align:justify; float:left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet deserunt facilis cupiditate nemo quis illo saepe quaerat culpa? Nisi ad mollitia ullam, voluptatum aliquam voluptate. Fuga recusandae soluta quis?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, explicabo autem fugiat repellat quam delectus nobis optio perferendis unde maiores harum magnam inventore dolorum distinctio error, id, modi consequatur rerum adipisci architecto! Quaerat quasi in quibusdam quidem amet, 
+                lorem adipisicing.</p>
+
+                <p style="width:44%; text-align:justify; float:right; flex-wrap: wrap;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet deserunt facilis cupiditate nemo quis illo saepe quaerat culpa? Nisi ad mollitia ullam, voluptatum aliquam voluptate. 
+                  <br>
+                  <br>
+                
+                <img src="https://www.newhopelanding.com/app/uploads/2019/11/1024.png" alt="" style="width:100%;" />
+                <br>
+                Lorem ipsum dolor sit ametconsectetur adipsicing elit. Lorem, ipsum dolor.
+                </p>
+           
+           </aside>
+           <hr >
+           <h3 class="heading-3">Lorem ipsum dolor sit amet consectetur.</h3>
+           <hr />
+
+           <aside style="margin-bottom: 5px;">
+            <p style="width:50%; text-align:justify; float:left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet deserunt facilis cupiditate nemo quis illo saepe quaerat culpa? Nisi ad mollitia ullam, voluptatum aliquam voluptate. Fuga recusandae soluta quis?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, explicabo autem fugiat repellat quam delectus nobis optio perferendis unde maiores harum magnam inventore dolorum distinctio error, id, modi consequatur rerum adipisci architecto! Quaerat quasi in quibusdam quidem amet, eligendi adipisci?
+            lorem adipisicing. Lorem, ipsum.</p>
+
+            <p style="width:44%; text-align:justify; float:right; flex-wrap: wrap;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet deserunt facilis cupiditate nemo quis illo saepe quaerat culpa? Nisi ad mollitia ullam, voluptatum aliquam voluptate. Fuga recusandae soluta quis?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, explicabo autem fugiat repellat quam delectus nobis optio perferendis unde maiores harum magnam inventore dolorum distinctio error, id, modi consequatur rerum adipisci architecto! 
+            </p>
+       
+       </aside>
+
+       <hr >
+       <h3 style="padding:10px; text-align: center;">Lorem ipsum dolor.</h3>
+       <hr />
+
+       <aside style="margin-bottom: 5px;">
+        <p style="width:50%; text-align:justify; float:left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet deserunt facilis cupiditate nemo quis illo saepe quaerat culpa? Nisi ad mollitia ullam, voluptatum aliquam voluptate. Fuga recusandae soluta quis?. Lorem ipsum dolor sit amet. Lorem, ipsum.</p>
+ 
+        <p style="width:44%; text-align:justify; float:right; flex-wrap: wrap;">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque amet deserunt facilis cupiditate nemo quis illo saepe quaerat culpa? Nisi ad mollitia ullam, voluptatum aliquam voluptate. Lorem, ipsum.
+        </p>
+   
+   </aside>
+
+
+
+          </div>
+          <!--end of right div-->
+
+      </div>
+        <!--end of the home div-->
+    
+
+  
+  </body>
+  </html>
+
+
+   
+</body>
+</html>
