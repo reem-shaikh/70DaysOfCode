@@ -106,8 +106,12 @@ https://reem-shaikh.github.io/Geekster-/main/18-11/imageproject.html
 ```bash
 https://reem-shaikh.github.io/Geekster-/main/18-11/newspaper.html
 ```
--->
 
+## 19-11 assignment 
+**fixed property**
+https://reem-shaikh.github.io/Geekster-/main/19-11/positionfixed.html
+
+-->
 
 <!-- micro dev tools: 
 launch instance
