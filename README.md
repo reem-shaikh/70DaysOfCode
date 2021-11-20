@@ -93,7 +93,7 @@ https://reem-shaikh.github.io/Geekster-/main/17-11/triangle.html
 https://reem-shaikh.github.io/Geekster-/main/17-11/circle.html
 ```
 
-
+<!--
 ## 18-11 assignment
 **Responsive image gallery** 
 
@@ -101,6 +101,12 @@ https://reem-shaikh.github.io/Geekster-/main/17-11/circle.html
 https://reem-shaikh.github.io/Geekster-/main/18-11/imageproject.html
 ```
 
+**Newspaper**
+
+```bash
+https://reem-shaikh.github.io/Geekster-/main/18-11/newspaper.html
+```
+-->
 
 
 <!-- micro dev tools: 
