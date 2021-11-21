@@ -93,7 +93,7 @@ https://reem-shaikh.github.io/Geekster-/main/17-11/triangle.html
 https://reem-shaikh.github.io/Geekster-/main/17-11/circle.html
 ```
 
-<!--
+
 ## 18-11 assignment
 **Responsive image gallery** 
 
@@ -111,7 +111,7 @@ https://reem-shaikh.github.io/Geekster-/main/18-11/newspaper.html
 **fixed property**
 https://reem-shaikh.github.io/Geekster-/main/19-11/positionfixed.html
 
--->
+
 
 <!-- micro dev tools: 
 launch instance
