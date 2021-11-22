@@ -121,7 +121,7 @@ https://reem-shaikh.github.io/Geekster-/main/21-11/21-11.html
 https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment2.html
 
 **contact list**
-https://reem-shaikh.github.io/Geekster-/main/22-11/
+https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment1.html
 
 <!-- micro dev tools: 
 launch instance
