@@ -118,10 +118,10 @@ https://reem-shaikh.github.io/Geekster-/main/21-11/21-11.html
 
 ## 22-11 assignment 
 **center allign**
-https://reem-shaikh.github.io/Geekster-/main/
+https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment1.html
 
 **contact list**
-https://reem-shaikh.github.io/Geekster-/main/
+https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment2.html
 
 <!-- micro dev tools: 
 launch instance
