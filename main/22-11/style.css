@@ -1,0 +1,52 @@
+p{
+    font-size:40px;
+}
+
+.nav-bar{
+    width:100%;
+    background-color: blue; 
+    height: 40px;
+    top:0px;
+    left:0px;
+    position:fixed;
+
+} 
+
+.nav-bar1{
+    width:100%;
+    background-color: red; 
+    height: 40px;
+    top:0px;
+    left:0px;
+    position:sticky;
+
+}
+
+.nav-bar2{
+    width:100%;
+    background-color: yellow; 
+    height: 40px;
+    top:0px;
+    left:0px;
+    position:sticky;
+
+}
+
+/*this is to stick over the last one */
+.nav-bar3{
+    width:100%;
+    background-color: black; 
+    height: 40px;
+    top:100px;
+    left:0px;
+    position:sticky;
+
+}
+
+body{
+    margin: 0px;
+}
+
+p:first-of-type{
+    margin-top: 40px;
+}

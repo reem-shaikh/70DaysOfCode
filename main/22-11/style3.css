@@ -1,0 +1,35 @@
+.ancestor{
+    position: fixed;
+    top:100px;
+    left:100px;
+    width:300px;
+    height:300px;
+    background-color: red;
+}
+
+/*
+position wrt closest position ancestor 
+*/
+.absolute{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100px;
+    height:100px;
+    background-color: darkblue;
+}
+
+.flex{
+    display:flex;
+    justify-content: center;
+    height:100px;
+    background-color: darkgreen;
+}
+
+
+.center{
+    width:50px;
+    height:50px;
+    background-color: darkcyan;
+    position: relative;
+}
