@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            background: #000;
+            
+
+        }
+        section{
+            position:relative;
+            width:100%;
+            height:100vh;
+        }
+        section .box{
+            position:fixed;
+            top:calc(50% - 200px);
+            left:calc(50% - 200px);
+            width:400px;
+            height:400px;
+            transform-style:preserve-3d;
+            box-shadow:5px 5px;
+        }
+
+        section .box div{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg)rotateY(25deg) translate3D(-75px, -50px, 150px) ;
+
+        }
+
+        section .box div span{
+            position:fixed;
+            top:0;
+            left:0;
+            display:block;
+            width:100%;
+            height:100%;
+            border:1px solid rgba(0,0,0,1);
+            background: #ccc;
+        }
+
+        section .box div span:nth-child(1){
+            transform: rotateX(0deg) translate3d(0, 0, 200px);
+        }
+
+        section .box div span:nth-child(2){
+            transform: rotateY(90deg) translate3d(0,0,-200px);
+        }
+
+        section .box div span:nth-child(3){
+            transform: rotateX(90deg) translate3d(0,0,200px);
+        }
+
+        section .box div span video{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+
+
+    </style>
+</head>
+<body>
+ 
+    <section>
+        <video src="starry.mp4" autoplay="" muted loop=""></video>
+        <div class="box">
+            <div>
+                <span> <video src="cube1.mp4" autoplay="" muted loop=""></video>
+                </span>
+                <span> <video src="cube1.mp4" autoplay="" muted loop=""></video>
+                </span>
+                <span> <video src="cube1.mp4" autoplay="" muted loop=""></video>
+                </span>
+            </div>
+        </div>
+
+    </section>
+
+   
+    
+</body>
+</html>
