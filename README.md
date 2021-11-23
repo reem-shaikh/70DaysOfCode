@@ -7,39 +7,37 @@
 ## 8-11 assignment
 **Layout html:**
 >(note: the allignation of every element is deliberate)
-https://reem-shaikh.github.io/Geekster-/main/8-11assignment/index.html
+https://reem-shaikh.github.io/Geekster-/main/8-11/index.html
 
 
 ## 9-11 assignment
 **login form:**
-https://reem-shaikh.github.io/Geekster-/main/8-11assignment/login.html
+https://reem-shaikh.github.io/Geekster-/main/8-11/login.html
 
 
 **registration form:**
-https://reem-shaikh.github.io/Geekster-/main/8-11assignment/register.html
+https://reem-shaikh.github.io/Geekster-/main/8-11/register.html
 
 
 
 ## 10-11 assignment 
 **teams wiki clone:**
-https://reem-shaikh.github.io/Geekster-/main/11-11assignment/index.html
+https://reem-shaikh.github.io/Geekster-/main/11-11/index.html
 
 
 ## 11-11 assignment 
 
 **survey form**
-https://reem-shaikh.github.io/Geekster-/main/8-11assignment/survey.html
+https://reem-shaikh.github.io/Geekster-/main/8-11/survey.html
 
 
 **video download page**
-https://reem-shaikh.github.io/Geekster-/main/11-11assignment/videoassignment/index.html 
+https://reem-shaikh.github.io/Geekster-/main/11-11/videoassignment/index.html 
 
 
 
 ## 12-11 assignment
 **Landing page (and a form)** 
->note:since the video doesn't load on time
->open this link by right clicking, open the link in a new window (video loads quicker this way)
 https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
 
