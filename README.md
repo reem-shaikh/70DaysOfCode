@@ -98,8 +98,8 @@ https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment2.html
 https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment1.html
 
 ## 23-11 assignment 
-https://reem-shaikh.github.io/Geekster-/main/23-11/primeno.html
-https://reem-shaikh.github.io/Geekster-/main/23-11/fibonaaci.html
+>https://reem-shaikh.github.io/Geekster-/main/23-11/primeno.html
+>https://reem-shaikh.github.io/Geekster-/main/23-11/fibonaaci.html
 
 <!-- micro dev tools: 
 launch instance
