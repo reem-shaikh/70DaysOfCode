@@ -97,6 +97,10 @@ https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment2.html
 **contact list**
 https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment1.html
 
+## 23-11 assignment 
+https://reem-shaikh.github.io/Geekster-/main/23-11/primeno.html
+https://reem-shaikh.github.io/Geekster-/main/23-11/fibonaaci.html
+
 <!-- micro dev tools: 
 launch instance
 got to live server: 127.0.0.1:5000/ which is the root and navigate to your file
