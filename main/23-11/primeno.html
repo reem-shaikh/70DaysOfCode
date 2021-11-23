@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime number</title>
+</head>
+<!--prime: divisibled by 1 and itself-->
+<body>
+    <script type="text/javascript">
+        var num = prompt("please enter number");
+
+        if(num == 1)
+        {
+            console.log('is neither prime nor composite');
+        }
+        else if (num < 1)
+        {
+            console.log('is not a prime'); 
+        }
+        else
+        {
+            for(var i=2; i<num; i++)
+            {
+                if(num%i==0)
+                {
+                    var res='is not a prime number'; 
+                    break;
+                }
+                else
+                {
+                    var res='is a prime number'; 
+                }
+            }
+            console.log(res);
+        }
+
+        
+        
+
+    </script>
+    
+</body>
+</html>
