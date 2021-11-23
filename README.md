@@ -38,8 +38,6 @@ https://reem-shaikh.github.io/Geekster-/main/11-11/videoassignment/index.html
 
 ## 12-11 assignment
 **Landing page (and a form)** 
->note:since the video doesn't load on time
->open this link by right clicking, open the link in a new window (video loads quicker this way)
 https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
 
