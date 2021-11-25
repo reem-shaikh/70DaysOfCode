@@ -4,13 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Initial vs Inherit</title>
+    <style>
+        #green{
+           color:green;
+           /*
+           default display property of div is block
+
+           */
+        }
+
+        #red{
+          color:red;
+        }
+
+        #initial{
+          color:initial; 
+
+          /*
+          default color of the element 
+          i.e blue is assigned
+          */
+          display:initial;
+          /*
+          displays the default display property of a 
+          that is inline
+          */
+        }
+
+        #inherit{
+          color:inherit; 
+          /*
+          inherits color of the parent element
+          */
+
+          display:inherit; 
+          /*
+           inherits parent div 
+           display property 
+           that is block
+
+
+          */
+          
+        }
+
+        #inline-block{
+            display:inline-block;
+            top:90%;
+            width:50%;
+        }
+
+        #inline{
+            display:inline;
+            color:red;
+            width:30%;
+            /*
+            note:
+            width cannot be manuevered
+            */
+        }
+
+        #block{
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div id="green">
-        <a href="">link1</a>
-        <a href="">link2</a>
-        <a href="">link3</a>
+    <div id="green"> Green text
+        <br>
+        <a href="" id="red">link1</a>
+        <br>
+        <a href="" id="initial">initial</a>
+        <br>
+        <a href="" id="inherit">inherit</a>
+
+        <!--we can give styling in inline-block but not in inline-->
+        <span href="" id="inline-block">inline-block Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsum vel consectetur, tempora eos, cumque molestias quasi natus similique nisi fuga vero. Unde expedita vel natus quaerat illum sapiente excepturi.</span>
+
+        <span id="inline">inline Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo temporibus libero nobis veniam eaque veritatis qui et eius earum magni!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate deleniti quisquam veniam animi, deserunt excepturi vitae libero facere sunt explicabo fugiat assumenda minus aliquid itaque quam laboriosam corrupti consequatur aspernatur?
+        </span>
+
+        <span id="block">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum tempore ea dolores perspiciatis non aperiam, corrupti aspernatur quod suscipit! Quis corporis quasi commodi. Repellendus, id reiciendis cupiditate ipsa laborum ipsam.
+
+        </span>
     </div>
     
 </body>

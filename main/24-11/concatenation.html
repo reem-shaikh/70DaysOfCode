@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>concatenation</title>
+</head>
+<body>
+    <script>
+
+    var str1 = prompt("enter str 1"); //ab
+    //we do concatenation for displaying
+    //two strings in one line
+    var str2 = prompt("enter str 2"); //cd
+    var con = str1 + str2;
+    alert(con);                      //abcd
+
+    //adding
+    var str1= 10; 
+    var str2= 20;
+    var con = str1 + str2;
+    console.log(con); //30
+
+    //number + string -> concatenation
+    var str1= "string"; 
+    var str2= 20;
+    var con = str1 + str2;
+    console.log(con); //string20
+
+    //to convert string to num
+    var a = prompt("enter a");  //5
+    var b = prompt("enter b");  //4
+    var num1 = parseInt(a);     //converts to int 
+    var num2 = parseInt(b);
+    var con = num1 + num2;      //9
+    alert(con);  
+
+    //difference btw 10 and "10"
+    // number and string
+    // this is in string format
+    var str1 = prompt("enter str 1"); //10
+    var str2 = prompt("enter str 2"); //20
+    var con = str1 + str2;
+    alert(con);                      //1020
+
+    // === checks datatype also 
+    if("10" === 10)
+    {
+        console.log("same datatype");
+    }
+    else{
+        console.log("different datatype");
+        //displays this
+    }
+
+    // == checks only for value, doesnt care abour datatype
+    if("10" == 10)
+    {
+        console.log("same datatype");
+        //displays this
+    }
+    else{
+        console.log("different datatype");
+    }
+
+    // = used for assignment
+                    
+
+   </script>
+    
+</body>
+</html>

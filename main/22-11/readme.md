@@ -1,6 +1,6 @@
 1. position
  - static: default positioning
- - fixed: fixed wrt viewport
+ - fixed: fixed wrt viewport and cannot be moved
  - sticky: stuck wrt viewport 
  - relative: placed relatively wrt default position/ initial position
  
