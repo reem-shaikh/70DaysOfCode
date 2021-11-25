@@ -102,8 +102,8 @@ https://reem-shaikh.github.io/Geekster-/main/23-11/primeno.html
 https://reem-shaikh.github.io/Geekster-/main/23-11/fibonaaci.html
 
 # 24-11 assignment
-https://reem-shaikh.github.io/Geekster-/main/24-11/star programs/combinestars.html
-https://reem-shaikh.github.io/Geekster-/main/24-11/star programs/pyramid.html
+https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/combinestars.html
+https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/pyramid.html
 
 <!-- micro dev tools: 
 launch instance
