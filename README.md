@@ -6,7 +6,6 @@
 
 ## 8-11 assignment
 **Layout html:**
->(note: the allignation of every element is deliberate)
 https://reem-shaikh.github.io/Geekster-/main/8-11/index.html
 
 
