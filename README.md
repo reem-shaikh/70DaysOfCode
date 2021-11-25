@@ -100,7 +100,7 @@ https://reem-shaikh.github.io/Geekster-/main/22-11/21-11assignment1.html
 https://reem-shaikh.github.io/Geekster-/main/23-11/primeno.html <br/>
 https://reem-shaikh.github.io/Geekster-/main/23-11/fibonaaci.html
 
-# 24-11 assignment
+## 24-11 assignment
 https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/combinestars.html <br/>
 https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/pyramid.html
 
