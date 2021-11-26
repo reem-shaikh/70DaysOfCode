@@ -111,16 +111,7 @@ in while it wont execute even onc
     }
     console.log("end");
 
->> Pattern
-    1-*
-    2-**
-    3-***
-    4-****
-    5-*****
-    6-******
-    7-*******
-      1234567
-
+4. Switch Case
 
 
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+</head>
+<body>
+    <script>
+        //array of all the items i want to do 
+        //1.can add a new item 
+        //2.get the list of all to do items
+        //3.mark any items as done 
+        //4.can edit any item 
+        //5.delete any item
+
+        var todo = [];
+
+        function show_List()
+        {
+            for(var i=0; i< todo.length; i++)
+        {
+            console.log(todo[i]);
+        }
+        }
+
+        function add_todo_item(new_item)
+        {
+        
+            // todo.push("hi");
+            // todo.push("bye");
+           var sub_array = [];
+           var todo = [];
+        for (var i = 0; i < todo.length; i++) {
+           sub_array.push(i);
+           todo.push(sub_array.slice(0));
+        }
+        console.log(super_array);
+        }
+
+        //clean code
+        //understandable comment 
+        //indentation
+        //variables 
+
+        function mark_as_done()
+        {
+            var valueentered = prompt("enter index of element you want to mark done");
+            while(i == valueentered)
+        {
+            console.log(todo[i],"✅");
+        }
+            
+        }
+
+        function edit_item()
+        {
+            var edit = prompt("enter index of element that needs to be editted");
+            while(i == edit)
+            {
+                todo[i] = prompt("enter what changes to be added");
+                console.log(todo);
+            }
+
+            
+        }
+
+        function delete_item(){
+            var deleteitem = prompt("which position do you want to make delete operation, pop(0) /shift(1) /splice(2)");
+
+            if(deleteitem == 0)
+            {
+                    var popped = todo.pop();
+                    console.log(todo);
+            }
+            else if(deleteitem == 1)
+            {
+                    var value = todo.shift();
+                    console.log(todo);
+            }
+            else{
+                    for (var i = 0; i < todo.length; i++) {
+                        if (todo[i] === "splice") {
+                        var spliced = todo.splice(i, 1);
+                        }
+                    }
+
+
+            }
+        }
+
+        
+
+        
+      
+        
+
+    </script>
+</body>
+</html>
