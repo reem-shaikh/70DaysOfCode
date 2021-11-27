@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram</title>
+    <!--same no of letters 
+        same letters in the word 
+        different order 
+    -->
+</head>
+<body>
+    <script>
+        //split turns string to every element in an array
+        //join to combine them back to the string 
+        //to make it case insensitive we convert it to lowercase
+
+
+        function isAnagram(str1, str2)
+        {
+            let sorted1 = str1.split('').sort().join('').toLowerCase();
+            let sorted2 = str2.split('').sort().join('').toLowerCase();
+
+            let len1 = str1.length;
+            let len2 = str2.length;
+            if (len1 != len2)
+            {
+                console.log("invalid input");
+            }
+
+            if (sorted1 === sorted2)
+            //checking value and datatype
+            {
+               return console.log("true");
+            }
+            else
+            {
+                return console.log("false");
+            }
+            
+            
+        }
+        var result = isAnagram("heart", "earth");
+        alert(result);
+
+
+       
+
+    </script>
+</body>
+</html>

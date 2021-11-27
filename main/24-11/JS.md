@@ -14,7 +14,11 @@ takes input from the user:
   VM3904:1 hi
 
 >> =, ==, === difference.
-=== checks datatype also 
+1. ===
+   checks 
+   - Datatype
+   - Value 
+
     if("10" === 10)
     {
         console.log("same datatype");
@@ -24,7 +28,10 @@ takes input from the user:
         //displays this
     }
 
-== checks only for value, doesnt care about datatype
+2. ==
+   - checks only for value
+   - doesnt care about datatype
+
     if("10" == 10)
     {
         console.log("same datatype");
@@ -34,7 +41,8 @@ takes input from the user:
         console.log("different datatype");
     }
 
-= used for assignment
+3. = 
+   - used for assignment
 
 Conditional statements/ Branching
 - if, else, else-if
@@ -70,20 +78,20 @@ for(initialization ; condition; increement/ decreement)
     }
     console.log("end of execution");
 
-✔️Difference btw for and while
+✔️Difference btw for and while:
 - for loop 
 uses stepper/ counter
 loop through objects of array
-- ENTRY CONTROLLED
+**ENTRY CONTROLLED**
   checks condition before entering the loop
 
 - while loop
 no counter concept
 has one condition you need to check 
-- ENTRY CONTROLLED
+**ENTRY CONTROLLED**
 
 -Do/while loop
-- EXIT CONTROLLED
+**EXIT CONTROLLED**
   checks condition after entering the loop
 
 3. Do/ while loop
@@ -99,8 +107,8 @@ has one condition you need to check
 
 it will print 11, however in case of while loop it wont print 11
 
-in do/while loop it will print the wrong statement atleast once,
-in while it wont execute even onc
+**In do/while loop it will print the wrong statement atleast once,**
+in while it wont execute wrong statement even once
 
     var i = 11;
     var n = 10;
@@ -110,9 +118,6 @@ in while it wont execute even onc
         i++;
     }
     console.log("end");
-
-4. Switch Case
-
 
 
 

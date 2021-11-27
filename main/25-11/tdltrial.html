@@ -1,101 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To do list</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //array of all the items i want to do 
-        //1.can add a new item 
-        //2.get the list of all to do items
-        //3.mark any items as done 
-        //4.can edit any item 
-        //5.delete any item
+      //array of all the items i want to do
+      //1.can add a new item
+      //2.get the list of all to do items
+      //3.mark any items as done: update
+      //4.can edit any item: update
+      //5.delete any item: splice
 
-        var todo = [];
+      var todo = [];
 
-        function show_List()
-        {
-            for(var i=0; i< todo.length; i++)
-        {
-            console.log(todo[i]);
-        }
-        }
-
-        function add_todo_item(new_item)
-        {
-        
-            // todo.push("hi");
-            // todo.push("bye");
-           var sub_array = [];
-           var todo = [];
+      function show_List() {
         for (var i = 0; i < todo.length; i++) {
-           sub_array.push(i);
-           todo.push(sub_array.slice(0));
+          console.log(todo[i]);
         }
-        console.log(super_array);
-        }
+      }
 
-        //clean code
-        //understandable comment 
-        //indentation
-        //variables 
+      function add_todo_item(new_item) {
+        todo.push(prompt("enter first todo item"));
+        todo.push(prompt("enter second todo item"));
+      }
 
-        function mark_as_done()
+      function task_done() {
+        var c = prompt("enter task that is completed");
+
+        if (c == 0) {
+          todo[0] = "learn JS ✓";
+        } else c == 1;
         {
-            var valueentered = prompt("enter index of element you want to mark done");
-            while(i == valueentered)
-        {
-            console.log(todo[i],"✅");
+          todo[1] = "complete assignments ✓ ";
         }
-            
-        }
+      }
 
-        function edit_item()
-        {
-            var edit = prompt("enter index of element that needs to be editted");
-            while(i == edit)
-            {
-                todo[i] = prompt("enter what changes to be added");
-                console.log(todo);
-            }
+      function task_edit() {
+        todo[0] = prompt("enter task 1");
+        todo[1] = prompt("enter task 2");
+      }
 
-            
-        }
+      function delete_item() {
+        var i = parseInt(prompt("enter what element to start deletion from"));
+        var j = parseInt(prompt("enter till what element should be deleted"));
 
-        function delete_item(){
-            var deleteitem = prompt("which position do you want to make delete operation, pop(0) /shift(1) /splice(2)");
-
-            if(deleteitem == 0)
-            {
-                    var popped = todo.pop();
-                    console.log(todo);
-            }
-            else if(deleteitem == 1)
-            {
-                    var value = todo.shift();
-                    console.log(todo);
-            }
-            else{
-                    for (var i = 0; i < todo.length; i++) {
-                        if (todo[i] === "splice") {
-                        var spliced = todo.splice(i, 1);
-                        }
-                    }
-
-
-            }
-        }
-
-        
-
-        
-      
-        
-
+        todo.splice(i, j);
+      }
     </script>
-</body>
+  </body>
 </html>

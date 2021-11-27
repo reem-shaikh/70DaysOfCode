@@ -108,6 +108,7 @@ HLL -UNDESTANDABLE BY HUMANS
 LLL -UNDESTANDABLE BY MACHINES
 - assembly code
 
+process of compiling converts HLL -> LLL
 
 Q. Intrepreted vs Compile code.
 
@@ -118,9 +119,8 @@ Programming language=
 
 ✅Scripting Language
 Intrepreted 
-line by line conversion 
-HLL -> LLL 
-- its slower because it has to execute with every line of code revamped
+line by line conversion HLL -> LLL 
+- its slower because it has to execute with every line of code everytime a the code is revamped 
 
 eg: CSS, JS, RUBY, PYTHON, PHP, VBA, ES, TYPESCRIPT
 
@@ -133,15 +133,13 @@ eg: SCSS, SASS, JAVA, KOTLIN
 
 
 > familiarize with console 
-TO OPEN BROWSER CONSOLE:
+TO OPEN BROWSER CONSOLE: options:-
 1. inspect element
-
 2. more tools- developer tools
-
 3. F12
 
 > type this inside Console 
-1. variable
+# 1. variable
  - used to store data
  - can assign and update 
  - start with ch/ not number
@@ -172,33 +170,33 @@ undefined
 console.log(temp); 
 VM4216:1 10
 
-2. Constant 
+# 2. Constant 
 
 - const 
 -peice of memory contains only data
-can only be assigned, not updated 
+**can only be assigned, not updated**
 
 >>
-const fixed= 10;
-fixed = 20;
+**const fixed= 10;**
+**fixed = 20;**
 VM5764:1 Uncaught TypeError: Assignment to constant variable.
 at <anonymous>:1:7
 
 >> we can update variables
-var variable = 10
+**var variable = 10**
 undefined
 
-console.log(variable);
+**console.log(variable);**
 VM6895:1 10
 undefined
 
-variable = 20;
+**variable = 20;**
 20
 
-console.log(variable);
+**console.log(variable);**
 VM6998:1 20
 
-3. Data Type 
+# 3. Data Type 
    type of data which were going to store 
    1. primitive
    type is already predefined
@@ -210,7 +208,7 @@ VM6998:1 20
    we create our own custom type 
 
    - Array (["element 1", "element 2"]) 
-   collection of multiple datatypes
+     collection of multiple datatypes
 
    - String (text inside double or single quote)
    - Objects
@@ -222,11 +220,10 @@ first time assignment, we have to give data type, it cannot be changed in future
 eg: java code
 int another = 10;
 another = false;
-
-❌throws error
+❌throws error, because were assigning a boolean value to int code 
 
 ✅loosely typed programming language/ dyanamically typed
-type of data being stored in a variable can change at any point of time 
+**type of data being stored in a variable can changed at any point of time** 
 
 JS is loosely typed. it doesnt care what datatype your storing in variable
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //list of 15 questions 
+        //with 4 options each 
+
+        //question (object)
+        //1. QS (text/ audio/ video) (properties)
+        //2. list of 4 options
+            //array with 4 elements 
+            //single element is a string
+        //3. correct answer 
+        //4. price amount 
+
+        var question_list = [
+            {
+                
+            }
+        ];
+        var single_qs = 
+        {
+            'text' : "which subject we are studying?",
+
+            'options' : ['html', 'css', 'js', 'react'],
+            //we can create array inside object 
+
+            'correct_answer' : 'js',
+            'price_amount': 1000
+        }
+
+        question_list.push(single_qs);
+        console.log("single_qs",single_qs);
+
+        console.log("qs list",question_list);
+
+/*
+
+{text: 'which subject we are studying?', options: Array(4), correct_answer: 'js', price_amount: 1000}
+correct_answer: "js"
+options: Array(4)
+0: "html"
+1: "css"
+2: "js"
+3: "react"
+length: 4
+[[Prototype]]: Array(0)
+price_amount: 1000
+text: "which subject we are studying?"
+
+
+*/
+        
+
+
+
+    </script>
+    
+</body>
+</html>

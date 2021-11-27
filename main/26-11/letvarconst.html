@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        var: function scoped 
+        let: block scoped 
+    -->
+</head>
+<body>
+    <script>
+        //let and var are kind of same 
+
+        // var name = "vinod";
+        // name = "thapa";
+        // console.log(name);
+
+        //thapa
+
+        // let name = "reem";
+        // name = "thapa";
+        // console.log(name);
+        //thapa
+
+
+        // Fixed Value 
+        // const pi = "3.14";
+        // pi = "2.3";
+        // console.log(pi);
+        // type error 
+
+        function modJS(str1){
+            if(str1)
+            {
+                let name = "Reem";
+                const sname = 
+                "Shaikh";
+
+                console.log(name + sname);
+            }//block scope 
+        
+        }//function scope
+
+    modJS(true);
+
+    //difference btw var and let 
+    //when we declare var outside the block scope, then still we will get the output because 
+
+    //var has function scope 
+    // function modJS(str1){
+    //         if(str1)
+    //         {
+    //         var name = "Reem";
+    //         var sname = "Shaikh";
+
+                
+    //         }//block scope 
+    //         console.log(name + sname);
+        
+    //     }//function scope
+
+    // modJS(true);
+
+    //however with let and const the output wont be shown because they are block scoped and the console.log is defined outside its scope 
+    function modJS(str1){
+            if(str1)
+            {
+            let name = "Reem";
+            const sname = "Shaikh";
+
+                
+            }//block scope 
+            console.log(name + sname);
+        
+        }//function scope
+
+    modJS(true);
+
+    </script>
+    
+</body>
+</html>
