@@ -104,6 +104,14 @@ https://reem-shaikh.github.io/Geekster-/main/23-11/fibonaaci.html
 https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/combinestars.html <br/>
 https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/pyramid.html
 
+## 25-11 assignment 
+https://reem-shaikh.github.io/Geekster-/main/25-11/tdltrial.html
+
+## 26-11 assignment 
+https://reem-shaikh.github.io/Geekster-/main/main/26-11/anagram.html
+https://reem-shaikh.github.io/Geekster-/main/main/26-11/factorial.html
+
+
 <!-- micro dev tools: 
 launch instance
 got to live server: 127.0.0.1:5000/ which is the root and navigate to your file
