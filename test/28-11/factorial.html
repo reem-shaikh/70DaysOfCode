@@ -1,0 +1,28 @@
+<!--
+     Write a program in javascript which find factorial of number. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factorial</title>
+  </head>
+  <body>
+    <script>
+      function fact(num) {
+        var factorial = 1;
+
+        for (num; num >= 1; num--) {
+          factorial = factorial * num;
+        }
+        return factorial;
+      }
+
+      var num = parseInt(prompt("enter the number to calculate factorial"));
+      var fact_num = fact(num);
+      console.log(fact_num);
+    </script>
+  </body>
+</html>

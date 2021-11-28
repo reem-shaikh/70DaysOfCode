@@ -1,0 +1,61 @@
+<!--
+    Write a program in javascript which find sum of odd and even digits of a number.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum of odd and even digits</title>
+    <!--
+        825417 
+        odd + even 
+        (8+5+1) + (2+4+7)
+        14 + 13
+        27 
+    -->
+  </head>
+
+  <body>
+    <script>
+      function oddevensum(n) {
+        var sumodd = 0;
+        var sumeven = 0;
+        var sum = 0;
+        var ran = 1;
+        //if ran is even 
+        //digits taken from even place 
+
+        //if ran is odd 
+        //digits taken from odd place 
+
+        var rev = 0;
+
+        while (n != 0) {
+          rev = rev * 10 + (n % 10);
+          n = parseInt(n / 10);
+        }
+        console.log("rev", rev);
+
+        while (rev != 0) {
+          if (ran % 2 == 0) {
+            sumeven = sumeven + (rev % 10);
+            console.log("sumeven", sumeven);
+          } else {
+            sumodd = sumodd + (rev % 10);
+            console.log("sumodd", sumodd);
+          }
+          rev = parseInt(rev / 10);
+          ran = ran + 1;
+        }
+        sum = sumodd + sumeven;
+        return sum;
+      }
+
+      var num = parseInt(prompt("enter the number"));
+      var digitsum = oddevensum(num);
+      console.log(digitsum);
+    </script>
+  </body>
+</html>

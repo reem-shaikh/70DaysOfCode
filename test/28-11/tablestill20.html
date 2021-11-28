@@ -1,0 +1,32 @@
+<!--
+    Write a program in javascript to print all tables from 1 to 20. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables from 1 to 20</title>
+  </head>
+  <body>
+    <script>
+      function table() {
+        var number, table;
+        var i, j;
+
+        for (i = 1; i <= 20; i++) {
+          console.log("table of " + i);
+          number = i;
+          for (j = 1; j <= 10; j++) {
+            table = number * j;
+            console.log(number + "x" + j + "=" + table);
+          }
+        }
+      }
+
+      var table_20 = table();
+      console.log(table_20);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+    Write a program for calculating fibonacci numbers upto n. Push that code to github and share that repository here. *
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonnaci</title>
+    <!--
+        fibonnaci series 
+        0, 1, 1, 2, 3, 5, 8, 13, 21, 34 
+        0 + 1 = 1
+        1 + 1 =2 
+        1 + 2 = 3
+
+        a^n-2 + a^n-1 = a^n
+        first two digits are constant 
+    -->
+  </head>
+  <body>
+    <script>
+      function fibonacci(n) {
+        const arr = [0, 1];
+        //first two elements are constant
+
+        for (var i = 2; i < n; i++) {
+          arr.push(arr[i - 2] + arr[i - 1]);
+        }
+        return arr;
+      }
+
+      var num = parseInt(
+        prompt(
+          "enter the number till where you want to calculate fibbonnaci series"
+        )
+      );
+
+      var fibonacci_series = fibonacci(num);
+      console.log(fibonacci_series);
+    </script>
+  </body>
+</html>
