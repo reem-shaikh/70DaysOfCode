@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
     <title>Css Selectors</title>
     <style>
-        h2::first-letter {
-             color:red;
-             font-size:45px;
-         }
+      h2::first-letter {
+        color: red;
+        font-size: 45px;
+      }
 
-        /* Combinator styling */
-        /*and selector */
-        div.class{
-            color:cornflowerblue;
-        }
+      /* Combinator styling */
+      /*and selector */
+      div.class {
+        color: cornflowerblue;
+      }
 
-        /* or selector */
-        span, h5{
-            background-color: beige;
-        }
+      /* or selector */
+      span,
+      h5 {
+        background-color: beige;
+      }
 
-        /*descendant selector:
+      /*descendant selector:
         as long as its inside div 
         its going to add styling to it*/
-        ul li{
-            background-color: springgreen;
-        }
+      ul li {
+        background-color: springgreen;
+      }
 
-        
-        /*direct child
+      /*direct child
         b is not direct child of div thats why its not accepting */
-        
 
-        /* b is direct child of span */
-        span > b{
-            background-color: yellow;
+      /* b is direct child of span */
+      span > b {
+        background-color: yellow;
+      }
 
-        }
-
-        /* sibling selectors
+      /* sibling selectors
         it selects elements on the same level 
         and after that element */
 
-        /*generalised sibling */
-        li.blue ~ li{
-            background-color: turquoise;
-        }
+      /*generalised sibling */
+      li.blue ~ li {
+        background-color: turquoise;
+      }
 
-        /*adjacent sibling
+      /*adjacent sibling
         only checks element directy after */
-        li.red + li{
-            background-color: yellowgreen;
-        }
+      li.red + li {
+        background-color: yellowgreen;
+      }
 
+      /*second page styling */
 
-        /*second page styling */
-                
-         /* pseudo classes
+      /* pseudo classes
          used to style element based on how user interacts on the page
 
          1. state
@@ -91,224 +88,226 @@
         -link (general link)
         -visited
          */
-         h3:hover{
-             color:blue;
-             font-size:20px;
-         }
-
-         /* unvisited link: yellow */
-         a:link{
-             color:yellow;
-         }
-
-         a:visited{
-             color:green;
-         }
-
-         /*first child inside the parent ul */
-    li:first-child{
-        background-color: turquoise;
-    }
-
-    li:last-child{
-        background-color:green;
-    }
-
-    li:nth-child(3){
-        background-color: violet;
-
-    }
-
-    /*to select every other selector*/
-    li:nth-child(2n){
-        color:tomato;
-    }
-
-    li:nth-child(3n){
-        color:blue;
-    }
-
-    /*start with 1st element */
-    li:nth-child(2n-1){
+      h3:hover {
+        color: blue;
         font-size: 20px;
-    }
+      }
 
-    /*starts from last and 
+      /* unvisited link: yellow */
+      a:link {
+        color: yellow;
+      }
+
+      a:visited {
+        color: green;
+      }
+
+      /*first child inside the parent ul */
+      li:first-child {
+        background-color: turquoise;
+      }
+
+      li:last-child {
+        background-color: green;
+      }
+
+      li:nth-child(3) {
+        background-color: violet;
+      }
+
+      /*to select every other selector*/
+      li:nth-child(2n) {
+        color: tomato;
+      }
+
+      li:nth-child(3n) {
+        color: blue;
+      }
+
+      /*start with 1st element */
+      li:nth-child(2n-1) {
+        font-size: 20px;
+      }
+
+      /*starts from last and 
     goes upwords */
-    li:nth-last-child(2n-1){
-        font-weight:bold;
-    }
+      li:nth-last-child(2n-1) {
+        font-weight: bold;
+      }
 
-    h5::first-line {
-             color: orange;
-        
-         }
+      h5::first-line {
+        color: orange;
+      }
 
-        /* third page */
-        /* psuedo element */
+      /* third page */
+      /* psuedo element */
 
-        div.green::before{
-            content: 'Before';
-            background-color: red;
-
-        }
-
-        div.green::after{
-            content: 'After';
-            background-color: blue;
-
-        }
-
-        /* attribute selector */
-     a[target] {
-     font-size:20px;
-    }
-
-    [data-red]{
+      div.green::before {
+        content: 'Before';
         background-color: red;
-    }
-        
+      }
 
+      div.green::after {
+        content: 'After';
+        background-color: blue;
+      }
 
-       
+      /* attribute selector */
+      a[target] {
+        font-size: 20px;
+      }
+
+      [data-red] {
+        background-color: red;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="book">
-        <input type="checkbox" id="c1">
-        <input type="checkbox" id="c2">
-        <input type="checkbox" id="c3">
+      <input type="checkbox" id="c1" />
+      <input type="checkbox" id="c2" />
+      <input type="checkbox" id="c3" />
 
-        <div id="cover"> 
-            <img alt="" src="https://i.pinimg.com/originals/08/61/21/086121afae5a91e686cb94d1feeaa714.jpg" />
-        </div>
+      <div id="cover">
+        <img
+          alt=""
+          src="https://i.pinimg.com/originals/08/61/21/086121afae5a91e686cb94d1feeaa714.jpg"
+        />
+      </div>
 
-    <div class="flip-book" >
+      <div class="flip-book">
         <div class="flip" id="p1">
-            <div class="back">
-               <img alt="" src="https://www.rd.com/wp-content/uploads/2021/08/hpquote1.jpg" >
-               <label class="back-btn" for="c1">Back</label>
+          <div class="back">
+            <img
+              alt=""
+              src="https://www.rd.com/wp-content/uploads/2021/08/hpquote1.jpg"
+            />
+            <label class="back-btn" for="c1">Back</label>
+          </div>
+
+          <div class="front">
+            <!-- <img src="https://www.denofgeek.com/wp-content/uploads/2009/07/80377.jpg?fit=350%2C502" > -->
+            <h2>Combinators</h2>
+            <div class="class" style="font-size: 13px;">
+              trying to implement the and selector
             </div>
+            <span>trying to implement the or selector</span>
+            <h5>implementing the or selector</h5>
+            <ul>
+              <li class="blue">
+                generalised sibling selector- highlights everything below it
+              </li>
+              <li>descendent selector</li>
+              <li class="red">testing adjacent sibling selector</li>
+              <li>li highlighted</li>
+            </ul>
+            <span>
+              child selector
+              <b>
+                b is direct child of span
+              </b>
+            </span>
 
-            <div class="front">
-                <!-- <img src="https://www.denofgeek.com/wp-content/uploads/2009/07/80377.jpg?fit=350%2C502" > -->
-                <h2>Combinators</h2>
-                <div class="class" style="font-size: 13px;">trying to implement the and selector</div>
-                <span>trying to implement the or selector</span>
-                <h5>implementing the or selector </h5>
-                <ul>
-                    <li class="blue">generalised sibling selector- highlights everything below it</li>
-                    <li>descendent selector</li>
-                    <li class="red">testing adjacent sibling selector </li>
-                    <li>li highlighted</li>
-                </ul>
-                <span>child selector
-                    <b>
-                        b is direct child of span
-                    </b>
-                </span>
-
-                <label class="next-btn"
-                for="c1">
-                Next
-
-                </label>
-             </div>
-             <!--class:front ends-->
+            <label class="next-btn" for="c1">
+              Next
+            </label>
+          </div>
+          <!--class:front ends-->
         </div>
         <!--class:flip ends-->
-      
 
-         <!--second-->
-        
-            <div class="flip" id="p2">
-                <div class="back">
-                   <img alt="" src="https://irs.www.warnerbros.com/keyart-jpeg/movies/media/browser/harry_potter_8film_2000x3000.jpg" />
-                   <label class="back-btn" for="c2">
-                       Back
-                   </label>
-                </div>
-    
-                <div class="front">
-                    <h2>Pseudo Classes</h2>
-                    
-                    <h3>state: hover over me</h3>
-                    <a href="https://www.google.com">testing visited and unvisited link</a>
-                    <ul>
-                        <li>position </li>
-                        <li>li:first-child </li>
-                        <li>li:last-child </li>
-                        <li>li:nth-child(3) </li>
-                        <li> li:nth-child(2n) </li>
-                        <li> li:nth-child(3n) </li>
-                        
-                    </ul>
-                    <h5 style="font-size:13px;">highlighting first line. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, numquam.</h5>
-    
+        <!--second-->
 
+        <div class="flip" id="p2">
+          <div class="back">
+            <img
+              alt=""
+              src="https://irs.www.warnerbros.com/keyart-jpeg/movies/media/browser/harry_potter_8film_2000x3000.jpg"
+            />
+            <label class="back-btn" for="c2">
+              Back
+            </label>
+          </div>
 
+          <div class="front">
+            <h2>Pseudo Classes</h2>
 
+            <h3>state: hover over me</h3>
+            <a href="https://www.google.com">
+              testing visited and unvisited link
+            </a>
+            <ul>
+              <li>position</li>
+              <li>li:first-child</li>
+              <li>li:last-child</li>
+              <li>li:nth-child(3)</li>
+              <li>li:nth-child(2n)</li>
+              <li>li:nth-child(3n)</li>
+            </ul>
+            <h5 style="font-size: 13px;">
+              highlighting first line. Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit. Consequuntur, numquam.
+            </h5>
 
-                    <label class="next-btn"
-                    for="c2">
-                    Next
-    
-                    </label>
-                 </div>
-                 <!--class:front ends-->
-       
-             </div>
-             <!--class:flip ends-->
-       
-                <div class="flip" id="p3">
-                    <div class="back">
-                       <img alt="" src="https://images.pexels.com/photos/5696725/pexels-photo-5696725.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-
-                       <label class="back-btn" for="c3">
-                           Back
-                       </label>
-                    </div>
-        
-                    <div class="front">
-                        <h2>Pseudo Element</h2>
-                        <div class="green">
-                            Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, sed.
-                        </div>
-                        <h2>Attributes</h2>
-                        <a href="">testing</a>
-                        <a href="" target="_blank">2</a>
-                        <a href="">testing</a>
-                        <br>
-                     
-                        <div data-red>thiss iss div</div>
-
-                        <h3>Css Priorty</h3>
-                        <p> Value defined as Important > Inline >id nesting > id > class nesting > class > tag nesting > tag. </p>
-
-                        <br>
-                        
-        
-                        <label class="next-btn"
-                        for="c3">
-        
-                        Next
-                        </label>
-                     </div>
-                     <!--class:front ends-->
-           
-                 </div>
-                 <!--class:flip ends-->
-
-
-
+            <label class="next-btn" for="c2">
+              Next
+            </label>
+          </div>
+          <!--class:front ends-->
         </div>
-        <!--flip book ends-->
-</div>
+        <!--class:flip ends-->
+
+        <div class="flip" id="p3">
+          <div class="back">
+            <img
+              alt=""
+              src="https://images.pexels.com/photos/5696725/pexels-photo-5696725.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            />
+
+            <label class="back-btn" for="c3">
+              Back
+            </label>
+          </div>
+
+          <div class="front">
+            <h2>Pseudo Element</h2>
+            <div class="green">
+              Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Sapiente, sed.
+            </div>
+            <h2>Attributes</h2>
+            <a href="">testing</a>
+            <a href="" target="_blank">2</a>
+            <a href="">testing</a>
+            <br />
+
+            <div data-red>thiss iss div</div>
+
+            <h3>Css Priorty</h3>
+            <p>
+              Value defined as Important > Inline >id nesting > id > class
+              nesting > class > tag nesting > tag.
+            </p>
+
+            <br />
+
+            <label class="next-btn" for="c3">
+              Next
+            </label>
+          </div>
+          <!--class:front ends-->
+        </div>
+        <!--class:flip ends-->
+      </div>
+      <!--flip book ends-->
+    </div>
     <!--class:book ends-->
-    <audio controls autoplay style="opacity: 0.2; margin-bottom: -600px; margin-left:-300px;"> 
-    <source src="audio2.mp3"
-    type="audio/mp3" loop>
+    <audio
+      controls
+      autoplay
+      style="opacity: 0.2; margin-bottom: -600px; margin-left: -300px;"
+    >
+      <source src="audio2.mp3" type="audio/mp3" loop />
     </audio>
-    
-</body>
+  </body>
 </html>

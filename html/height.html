@@ -16,83 +16,82 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            margin:0;
-            padding:0;
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        }
+      .main {
+        margin: 50px auto 0 auto;
+        width: 600px;
+      }
 
-        .main{
-            margin: 50px auto 0 auto;
-            width: 600px;
-        }
+      .main1 {
+        margin: 50px auto 0 auto;
+        width: 600px;
+      }
 
-        .main1{
-            margin: 50px auto 0 auto;
-            width: 600px;
-        }
+      .main2 {
+        margin: 50px auto 0 auto;
+        width: 600px;
+      }
 
-        .main2{
-            margin: 50px auto 0 auto;
-            width: 600px;
-        }
+      .main img {
+        width: 600px;
+        height: 300px;
+      }
 
-        .main img{
-            width:600px;
-            height:300px;
-        }
+      .main1 img {
+        width: 600px;
+        height: 300px;
+      }
 
-        .main1 img{
-            width:600px;
-            height:300px;
-        }
+      .main2 img {
+        width: 600px;
+        height: 300px;
+      }
 
-        .main2 img{
-            width:600px;
-            height:300px;
-        }
+      .main article {
+        width: 550px;
+        border: 5px solid red;
+        margin: 20px 0 0 0;
+        padding: 20px;
 
-        .main article{
-            width:550px;
-            border:5px solid red;
-            margin:20px 0 0 0;
-            padding:20px;
-
-            height:100px;
-            /*no matter how much text we add the article container 
+        height: 100px;
+        /*no matter how much text we add the article container 
             will have same height */
-        }
+      }
 
-        .main1 article{
-            width:550px;
-            border:5px solid red;
-            margin:20px 0 0 0;
-            padding:20px;
+      .main1 article {
+        width: 550px;
+        border: 5px solid red;
+        margin: 20px 0 0 0;
+        padding: 20px;
 
-            min-height:100px;
-            /*
+        min-height: 100px;
+        /*
             container should 
             have atleast this height
             and not below it
             
             as we add more text the article height will increase but will not go below min-height:100px
              */
-        }
+      }
 
-        .main2 article{
-            width:550px;
-            border:5px solid red;
-            margin:20px 0 0 0;
-            padding:20px;
+      .main2 article {
+        width: 550px;
+        border: 5px solid red;
+        margin: 20px 0 0 0;
+        padding: 20px;
 
-            max-height:100px;
-            /*
+        max-height: 100px;
+        /*
             container should 
             have max this height
             
@@ -100,38 +99,60 @@
             as we add more text the article height will not increase beneath this 
            
              */
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-        <img src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="" />
-        <article>
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat ex veritatis accusantium dicta corporis itaque unde modi tempora ratione! Quaerat facere ea veritatis maiores a dolor adipisci unde deserunt voluptates!</p> -->
-        </article>
-
+      <img
+        src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+        alt=""
+      />
+      <article>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat ex veritatis accusantium dicta corporis itaque unde modi tempora ratione! Quaerat facere ea veritatis maiores a dolor adipisci unde deserunt voluptates!</p> -->
+      </article>
     </div>
 
     <div class="main1">
-        <img src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="" />
-        <article>
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, optio quos! Assumenda quo amet alias dolor at vitae consequatur corporis delectus autem veritatis doloribus aliquam eius eveniet officia, facere accusamus maiores eaque atque consequuntur accusantium quae nisi quaerat culpa adipisci? Deleniti explicabo, voluptate vitae dolorem ut omnis itaque ad voluptates? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente adipisci non eos distinctio suscipit facilis odit sed consequatur porro dicta.</p>
-            
-        </article>
-
+      <img
+        src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+        alt=""
+      />
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          optio quos! Assumenda quo amet alias dolor at vitae consequatur
+          corporis delectus autem veritatis doloribus aliquam eius eveniet
+          officia, facere accusamus maiores eaque atque consequuntur accusantium
+          quae nisi quaerat culpa adipisci? Deleniti explicabo, voluptate vitae
+          dolorem ut omnis itaque ad voluptates? Lorem ipsum dolor sit, amet
+          consectetur adipisicing elit. Sapiente adipisci non eos distinctio
+          suscipit facilis odit sed consequatur porro dicta.
+        </p>
+      </article>
     </div>
 
-    
     <div class="main2">
-        <img src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="" />
-        <article>
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, optio quos! Assumenda quo amet alias dolor at vitae consequatur corporis delectus autem veritatis doloribus aliquam eius eveniet officia, facere accusamus maiores eaque atque consequuntur accusantium quae nisi quaerat culpa adipisci? Deleniti explicabo, voluptate vitae dolorem ut omnis itaque ad voluptates? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente adipisci non eos distinctio suscipit facilis odit sed consequatur porro dicta. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam iste non veniam. Minus accusantium exercitationem placeat tempore magnam nam, reprehenderit nihil corporis tenetur aspernatur eveniet sunt ipsa eum vel harum!</p>
-            
-        </article>
-
+      <img
+        src="https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+        alt=""
+      />
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          optio quos! Assumenda quo amet alias dolor at vitae consequatur
+          corporis delectus autem veritatis doloribus aliquam eius eveniet
+          officia, facere accusamus maiores eaque atque consequuntur accusantium
+          quae nisi quaerat culpa adipisci? Deleniti explicabo, voluptate vitae
+          dolorem ut omnis itaque ad voluptates? Lorem ipsum dolor sit, amet
+          consectetur adipisicing elit. Sapiente adipisci non eos distinctio
+          suscipit facilis odit sed consequatur porro dicta. Lorem ipsum dolor
+          sit amet, consectetur adipisicing elit. Aperiam iste non veniam. Minus
+          accusantium exercitationem placeat tempore magnam nam, reprehenderit
+          nihil corporis tenetur aspernatur eveniet sunt ipsa eum vel harum!
+        </p>
+      </article>
     </div>
-    
-    
-</body>
+  </body>
 </html>

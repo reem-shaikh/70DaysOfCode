@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      
-        .flexcontainer{
-            flex-wrap: wrap;
-            gap:10px;
+      .flexcontainer {
+        flex-wrap: wrap;
+        gap: 10px;
 
-            /*gives gap btw column gap 
+        /*gives gap btw column gap 
             and top row */
-            /* 
+        /* 
             column-gap: 20px;
             row-gap:20px;
              */
 
+        display: flex;
+        flex-direction: row;
 
-            display: flex;
-            flex-direction: row;
+        justify-content: space-between;
+      }
 
-            justify-content: space-between;
-        }
-        
-        /*
+      /*
         ✅flex-direction:
         gives direction to flex 
 
@@ -46,66 +44,58 @@
 
 
         */
-        
-        .flex1{
-            width:100px;
-            height:100px;
-            background-color: red;
-        }
-        .flex2{
-            width:100px;
-            height:100px;
-            background-color: blue;
-        }
 
-        .flex3{
-            width:100px;
-            height:100px;
-            background-color: green;
-        }
-        .flex4{
-            width:100px;
-            height:100px;
-            background-color: black;
-        }
+      .flex1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .flex2 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
 
-        .flex5{
-            width:100px;
-            height:100px;
-            background-color: blue;
-        }
+      .flex3 {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+      .flex4 {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+      }
 
-        .flex6{
-            width:100px;
-            height:100px;
-            background-color: green;
-        }
-        .flex7{
-            width:100px;
-            height:100px;
-            background-color: black;
-        }
+      .flex5 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
 
-   
-
-        
+      .flex6 {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+      .flex7 {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+      }
     </style>
-</head>
-<body>
-  
-
+  </head>
+  <body>
     <div class="flexcontainer">
-        <div class="flex1"> </div>
-        <div class="flex2"> </div>
-        <div class="flex3"> </div>
-        <div class="flex4"> </div>
-        <div class="flex5"> </div>
-        <div class="flex6"> </div>
-        <div class="flex7"> </div>
+      <div class="flex1"></div>
+      <div class="flex2"></div>
+      <div class="flex3"></div>
+      <div class="flex4"></div>
+      <div class="flex5"></div>
+      <div class="flex6"></div>
+      <div class="flex7"></div>
     </div>
-    <br>
-    <br>
-
-   
-</body>
+    <br />
+    <br />
+  </body>
 </html>

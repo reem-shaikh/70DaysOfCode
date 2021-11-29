@@ -40,106 +40,101 @@ used to apply style properties
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-    href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
 
     <style>
-/*universal selector */
-*{
-    margin:10px;
-}
+      /*universal selector */
+      * {
+        margin: 10px;
+      }
 
-/* 
+      /* 
     <li>
     <> -->tag
     of type li
 
 type selector:
 */
-li {
-    color: red;
-}
+      li {
+        color: red;
+      }
 
-/*id selector */
-#green {
-    color: green;
-}
+      /*id selector */
+      #green {
+        color: green;
+      }
 
-/* class selector */
-.class {
-    color:blue;
-}
+      /* class selector */
+      .class {
+        color: blue;
+      }
 
-/*pseudo class
+      /*pseudo class
  */
-li:hover{
-   background-color: aquamarine; 
-}
+      li:hover {
+        background-color: aquamarine;
+      }
 
-/* *:hover{
+      /* *:hover{
     color:red;
 } */
 
-.blue:hover{
-    color:aqua;
-}
+      .blue:hover {
+        color: aqua;
+      }
 
-/*first child of li
+      /*first child of li
 
 li- property of element */
-li:first-child{
-    color:purple;
-}
+      li:first-child {
+        color: purple;
+      }
 
-li:last-child{
-    color:red;
-}
+      li:last-child {
+        color: red;
+      }
 
-/*psuedo element */
+      /*psuedo element */
 
-/*and */
-li.blue{
-    background-color: purple;
-}
+      /*and */
+      li.blue {
+        background-color: purple;
+      }
 
-/*can mix 
+      /*can mix 
 id and id 
 class and id 
 
 */
-#special.special-text{
-    background-color: royalblue;
-}
+      #special.special-text {
+        background-color: royalblue;
+      }
 
-
-.blue-text, .blue{
-    text-transform: uppercase;
-}
-
+      .blue-text,
+      .blue {
+        text-transform: uppercase;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <ul>
-        <li id="green">item1</li>
-        <li class="blue">item2</li>
-        <li class="blue-text">item3</li>
-        <li class="special-text"
-        id="special"
-        >item4</li>
+      <li id="green">item1</li>
+      <li class="blue">item2</li>
+      <li class="blue-text">item3</li>
+      <li class="special-text" id="special">item4</li>
 
-        <li >item5</li>
-        <li >last child</li>
+      <li>item5</li>
+      <li>last child</li>
     </ul>
 
     <ul>
-        <li>first child </li>
-        <li>last child </li>
+      <li>first child</li>
+      <li>last child</li>
     </ul>
-    
-</body>
+  </body>
 </html>

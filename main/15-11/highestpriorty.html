@@ -1,55 +1,49 @@
 <!--CSS priorty-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        #id{
-            color:red;
+      #id {
+        color: red;
+      }
 
-        }
+      #id-nested {
+        color: blue;
+      }
 
-        #id-nested{
-            color:blue;
+      .class {
+        color: darkred;
+      }
 
+      .class-nested {
+        color: darkblue;
+      }
 
-        }
+      h5 {
+        color: darkgreen;
+      }
 
-        .class{
-            color:darkred;
+      #logo {
+        color: red;
+      }
 
-        }
+      .text {
+        color: green;
+      }
 
-        .class-nested{
-            color:darkblue;
+      .logo {
+        color: blue;
+      }
 
-        }
+      .new {
+        color: salmon !important;
+      }
 
-        h5{
-            color:darkgreen;
-        }
-
-        #logo{
-            color:red;
-        }
-
-        .text{
-            color: green;
-        }
-
-        .logo{
-            color:blue; 
-        }
-
-        .new{
-            color:salmon !important;
-        }
-
-
-        /*
+      /*
         first priorty
         given to inline styling 
 
@@ -67,22 +61,20 @@
 
 
         */
-        h6{
-            color:yellow;
+      h6 {
+        color: yellow;
+      }
 
-        }
+      .class1defined {
+        color: red;
+      }
 
-        .class1defined {
-            color:red;
-        }
-
-        .class2defined {
-          color:green;
-        }
-
+      .class2defined {
+        color: green;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!--
         
         HIGHEST PRIORTY 
@@ -94,43 +86,39 @@
 
     <!--id nesting > id-->
     <div id="id">
-        <div id="id-nested">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-
-        </div>
-
+      <div id="id-nested">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
 
     <!--class nesting > class-->
     <div class="class">
-        <div class="class-nested">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-
-        </div>
+      <div class="class-nested">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+      </div>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
 
     <!--tag nesting > tag-->
 
     <!--tag-->
-    <h5> Lorem ipsum dolor sit.
-        <!--tag nesting-->
-        <h5 style="color:purple;">
-           tag nesting
-        </h5>
+    <h5>
+      Lorem ipsum dolor sit.
+      <!--tag nesting-->
+      <h5 style="color: purple;">
+        tag nesting
+      </h5>
     </h5>
 
-
-    <br>
-    <br>
+    <br />
+    <br />
 
     <!--inline nesting-->
- 
-        <p style="color:red;" class="logo">inline</p>
 
+    <p style="color: red;" class="logo">inline</p>
 
     <!--comparing all together
     Value defined as Important > Inline >id nesting > id > class nesting > class > tag nesting > tag.
@@ -141,18 +129,19 @@
     <p id="logo" class="text">sample text</p>
 
     <!--when 2 classes are mentioned together-->
-    <p class= "logo text">two classes stylingtogether</p>
+    <p class="logo text">two classes stylingtogether</p>
 
-    <p class= "text logo">two classes stylingtogether</p>
+    <p class="text logo">two classes stylingtogether</p>
 
     <!--output is blue 
     because we wrote logo property the last in css 
 
     later is higher-->
 
-    <p class="new" style="color:yellow;">highest priorty given to the important tag </p>
+    <p class="new" style="color: yellow;">
+      highest priorty given to the important tag
+    </p>
     <!--value given as important is given the higher priorty-->
-
 
     <!--cascading means 
     different styles are competing and highest priorty is over written
@@ -160,12 +149,8 @@
     increasing priorty.
     -->
 
-    <h6 class="class1defined class2defined"
-    style="color:blue;">
-    cascading priorty </h6>
-
-
-
-    
-</body>
+    <h6 class="class1defined class2defined" style="color: blue;">
+      cascading priorty
+    </h6>
+  </body>
 </html>

@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" style="font-size: 19px;">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Units</title>
     <style>
-        .pixel{
-            font-size:4px;
-        }
+      .pixel {
+        font-size: 4px;
+      }
 
-    p{
+      p {
         border: 1px solid black;
-    }
+      }
 
-    .em{
+      .em {
         font-size: 1em;
         /*
         0.1em
 
         */
-    }
+      }
 
-    .custom-font{
+      .custom-font {
         font-size: 10px;
-    }
+      }
 
-    .rem{
+      .rem {
         background-color: aquamarine;
         font-size: 2rem;
-    }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <p class="pixel">Lorem, ipsum dolor.</p>
     <p class="em">Lorem ipsum dolor sit.</p>
 
     <div class="custom-font">
-        <div>
-            <p class="em">pixel</p>
-            <!--
+      <div>
+        <p class="em">pixel</p>
+        <!--
                 since em is relative ti the closest ancestor 
                 thats why pixel size is changed 
             -->
-        </div>
+      </div>
     </div>
 
     <div class="custom-font">
-        <div style="color:green; font-size: 16px ;">
-            <p class="em">pixel2</p>
-            <!--
+      <div style="color: green; font-size: 16px;">
+        <p class="em">pixel2</p>
+        <!--
                 since em is relative ti the closest ancestor 
                 thats why pixel size is changed 
             -->
-        </div>
+      </div>
     </div>
 
     <p class="rem">Lorem ipsum dolor sit.</p>
 
     <div class="custom-font">
-        <div>
-            <p class="rem">pixel</p>
-           
-        </div>
+      <div>
+        <p class="rem">pixel</p>
+      </div>
     </div>
 
     <p>Lorem ipsum dolor sit.</p>
@@ -74,6 +73,5 @@
     <p>Lorem ipsum dolor sit.</p>
 
     <p>Lorem ipsum dolor sit.</p>
-    
-</body>
+  </body>
 </html>

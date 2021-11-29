@@ -8,51 +8,48 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pseudo</title>
     <style>
-      
-
-        /*psuedo class- selectors which are
+      /*psuedo class- selectors which are
         applied on complete html element 
         */
 
-        /*first letter is red color */
-        li:first-letter{
-            color:red;
-        }
+      /*first letter is red color */
+      li:first-letter {
+        color: red;
+      }
 
-        li:first-child {
-            color:yellow;
-        }
+      li:first-child {
+        color: yellow;
+      }
 
-        li:before{
-            content: 'before';
-            background-color:indigo;
-        }
+      li:before {
+        content: 'before';
+        background-color: indigo;
+      }
 
-        li:after{
-            content:'after';
-            background-color: lightcoral;
-        }
+      li:after {
+        content: 'after';
+        background-color: lightcoral;
+      }
 
-        /*pseudo element- selectors
+      /*pseudo element- selectors
         applied on part of the html element  
         */
 
-        p:first-line {
-            color:orange;
-        }
+      p:first-line {
+        color: orange;
+      }
 
-        p:hover{
-            color:blue;
-        }
+      p:hover {
+        color: blue;
+      }
 
-        
-        /* combinators
+      /* combinators
            SPACE-used to select descendent
            
            (child of child)
@@ -64,25 +61,25 @@
            grandchild
 
            */
-           /*
+      /*
            direct child 
            only applied to direct child, 
            one generation down
            */
-           .parent > .child {
-               color:red;
-           }
+      .parent > .child {
+        color: red;
+      }
 
-           .parent > .middleparent > .child {
-               color:lightskyblue;
-           }
+      .parent > .middleparent > .child {
+        color: lightskyblue;
+      }
 
-           /*space: to select grand child */
-           .parent .child {
-               color: green;
-           }
+      /*space: to select grand child */
+      .parent .child {
+        color: green;
+      }
 
-           /*
+      /*
            sibling combinator:
            sibling must come come after first selector  
            
@@ -92,65 +89,65 @@
            apply all li items after special child will have style applied
            with same parent
            */
-           .special-child ~ li
-           {
-               color:magenta;
-           }
+      .special-child ~ li {
+        color: magenta;
+      }
 
-           /*adjacent sibling */
-           .special-child + li {
-               background-color: maroon;
-           }
+      /*adjacent sibling */
+      .special-child + li {
+        background-color: maroon;
+      }
 
-           /*ATTRIBUTE SELECTOR
+      /*ATTRIBUTE SELECTOR
            key-value pair
             */
-           li[key="value"]{
-               background-color: mediumvioletred;
-           }
+      li[key='value'] {
+        background-color: mediumvioletred;
+      }
 
-           li[id="special"]{
-               background-color: green;
-           }
+      li[id='special'] {
+        background-color: green;
+      }
 
-           input[type="password"]{
+      input[type='password'] {
         background-color: olive;
         border-radius: 30px;
-           }
+      }
 
-           [attr_name="attr_value"]{
-               background-color: palegreen;
-           }
+      [attr_name='attr_value'] {
+        background-color: palegreen;
+      }
 
-        /*attribute selector 
+      /*attribute selector 
         select based on attribute value 
 
         checking for key (not value)
         if attribute key exists apply the style
         */
 
-        [attr_name]{
-            background-color: cadetblue;
-        }
+      [attr_name] {
+        background-color: cadetblue;
+      }
 
-        /*applied only to li with this attribute name
+      /*applied only to li with this attribute name
         not to p with this name 
         */
-        li[attr_name]{
-            color:blueviolet;
-        }
-
-           
+      li[attr_name] {
+        color: blueviolet;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <ul>
-        <li> item1 </li>
-        <li> item2 </li>
-        <li> item3 </li>
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
     </ul>
 
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias culpa quibusdam est dignissimos sequi rem quo! Fuga perferendis id aliquam!</p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias culpa
+      quibusdam est dignissimos sequi rem quo! Fuga perferendis id aliquam!
+    </p>
 
     <button href="https://www.google.com">submit</button>
 
@@ -164,8 +161,7 @@
     below parent
     -->
     <div class="parent">
-      <div><span class="child">text</span>
-     </div>
+      <div><span class="child">text</span></div>
     </div>
 
     <!--direct child
@@ -175,34 +171,34 @@
     direct child operator applies to only direct children below parent
     -->
     <div class="parent">
-       <span class="child">text</span>
+      <span class="child">text</span>
     </div>
 
     <!--chaining-->
     <div class="parent">
-        <div class="middleparent">
-            <div class="child">
-                Lorem ipsum dolor sit.
-            </div>
+      <div class="middleparent">
+        <div class="child">
+          Lorem ipsum dolor sit.
         </div>
+      </div>
     </div>
 
     <ul>
-    <li class="special-child"> item 1</li>
-    <li> item2</li>
-    <li class="special" key="value"> item3</li>
-    <li id="special">item4</li>
-    <li attr_name="attr_value">item5</li>
+      <li class="special-child">item 1</li>
+      <li>item2</li>
+      <li class="special" key="value">item3</li>
+      <li id="special">item4</li>
+      <li attr_name="attr_value">item5</li>
     </ul>
 
     <input type="email" placeholder="email" />
     <input type="password" placeholder="password" />
 
-    <p attr_name="attr_value">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error fugit adipisci harum! Repudiandae dolor expedita laborum perspiciatis fugiat quas voluptatum esse nam doloremque deleniti, modi enim accusamus unde rerum necessitatibus? 
-
+    <p attr_name="attr_value">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Error fugit
+      adipisci harum! Repudiandae dolor expedita laborum perspiciatis fugiat
+      quas voluptatum esse nam doloremque deleniti, modi enim accusamus unde
+      rerum necessitatibus?
     </p>
-
-   
-    
-</body>
+  </body>
 </html>

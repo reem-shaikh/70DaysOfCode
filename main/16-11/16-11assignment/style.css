@@ -1,50 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300;400;500;600&display=swap');
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-h2{
-    font-family:'Poppins', sans-serif;
-    font-size: 6em;
-    color: #222;
-    cursor:pointer;
-
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 6em;
+  color: #222;
+  cursor: pointer;
 }
 
-h2 span{
-    transition: 0.5s;
+h2 span {
+  transition: 0.5s;
 }
 
-h2:hover span:nth-child(1)
-{
-    margin-right: 10px;
+h2:hover span:nth-child(1) {
+  margin-right: 10px;
 }
 
-
-h2:hover span:nth-child(2)
-{
-    margin-right: 40px;
+h2:hover span:nth-child(2) {
+  margin-right: 40px;
 }
 
-h2:hover span{
-    color: #fff;
-    text-shadow: 0 0 10px #fff,
-                 0 0 20px #fff,
-                 0 0 40px #fff,
-                 0 0 80px #fff,
-                 0 0 120px #fff,
-                 0 0 160px #fff;
+h2:hover span {
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff,
+    0 0 120px #fff, 0 0 160px #fff;
 }
 
+#menu {
+  padding: 10px;
 
-#menu{
-
-    padding:10px;
-    
-    margin-top: -130px;
-    margin-left: 680px;
-    /* border: 1px solid white; */
+  margin-top: -130px;
+  margin-left: 680px;
+  /* border: 1px solid white; */
 }
 
 /*flat Ui colors */
@@ -52,58 +42,56 @@ h2:hover span{
 /*direct child
 applies to all  ul of menu  */
 #menu > ul {
-    background: rgba(255,0,0,0);
-    
+  background: rgba(255, 0, 0, 0);
 }
 
 /* descendant selectors */
-#menu ul{
-list-style:  none;
-position: relative;
-margin: 0;
-padding: 0;
-float:left;
-
+#menu ul {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  float: left;
 }
 
-#menu ul a{
-    color: white ;
-    background-color: black;
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 32px;
-    padding:20px 45px;
-   
-    font-weight: bold;
-    display: block ;
+#menu ul a {
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 32px;
+  padding: 20px 45px;
+
+  font-weight: bold;
+  display: block;
 }
 
-#menu ul li{
-    float: left;
-    position:relative;
-    margin:0;
-    padding:0;
+#menu ul li {
+  float: left;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 /*giving posiitoining to menu
 such thaat the sub menus are under 
 the main menu */
 
-#menu ul ul{
-    position: absolute;
-    background-color:rgb(5,94,121,0.5);
-    top: 100%;
-    /*height of the submenus */
-    left:0;
+#menu ul ul {
+  position: absolute;
+  background-color: rgb(5, 94, 121, 0.5);
+  top: 100%;
+  /*height of the submenus */
+  left: 0;
 
-    /*to hide the submenus*/
-    display:none;
+  /*to hide the submenus*/
+  display: none;
 }
 
 /*to view submenus on clicking 
 on menu */
-#menu ul li:hover > ul{
-    display: block;
+#menu ul li:hover > ul {
+  display: block;
 }
 /*initially its display none
 but when you hover over li
@@ -112,38 +100,36 @@ it will show sub menus
 and sub-sub menus
 */
 
-#menu ul li:hover{
-    background-color:rgb(5,94,121,0.6);
+#menu ul li:hover {
+  background-color: rgb(5, 94, 121, 0.6);
 }
 
-#menu ul ul li{
-    float:none;
-    width:200px;
-
+#menu ul ul li {
+  float: none;
+  width: 200px;
 }
 
-#menu ul ul li:hover{
-    border-left:3px solid #33d9b2;
+#menu ul ul li:hover {
+  border-left: 3px solid #33d9b2;
 }
 
 /*to remove overlapping */
-#menu ul ul ul{
-    top:0px;
-    left:100%;
+#menu ul ul ul {
+  top: 0px;
+  left: 100%;
 }
-
-
 
 /*this code is for adding text over video */
-.container { position:relative; }
+.container {
+  position: relative;
+}
 .container video {
-    position:relative;
-    z-index:0;
+  position: relative;
+  z-index: 0;
 }
 .overlay {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
-

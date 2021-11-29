@@ -5,145 +5,141 @@ used to apply style properties to a single/ multiple specific html elements
 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Selectors</title>
     <style>
-        /* tag selector */
+      /* tag selector */
 
-        /* element selectors */
-        body{
-            margin: 10px;
-        }
+      /* element selectors */
+      body {
+        margin: 10px;
+      }
 
-        h1{
-            color:red;
+      h1 {
+        color: red;
+      }
 
-         }
+      section {
+        border: 2px solid yellow;
+      }
 
-         section{
-             border: 2px solid yellow;
-         }
+      /* id selectors */
 
-         /* id selectors */
+      #title {
+        color: blue;
+      }
 
-         #title{
-             color:blue;
-         }
+      .class {
+        color: green;
+      }
 
-         .class{
-             color:green;
-         }
+      /* group selectors   */
+      h1,
+      p {
+        color: pink;
+      }
 
-         /* group selectors   */
-         h1, p{
-             color: pink;
+      /* css combinator */
+      div p {
+        font-size: 20px;
+      }
 
-         }
-
-        /* css combinator */
-         div p{
-             font-size:20px;
-         }
-
-         /* 
+      /* 
          child selector
          
          select all p elements 
          that are children of 
          div element */
 
-         div > p{
-           background-color: coral;
+      div > p {
+        background-color: coral;
+      }
 
-         }
+      /* sibling selector */
 
-         /* sibling selector */
+      div + p {
+        background-color: green;
+      }
 
-         div + p{
-             background-color: green;
-
-         }
-
-         /* general sibling selector
+      /* general sibling selector
          selects all p tag after div */
-         div ~ p{
-             background-color:yellow;
-         }
-       
-         /* pseudo classes
+      div ~ p {
+        background-color: yellow;
+      }
+
+      /* pseudo classes
             -hover 
             -link (general link)
             -visited
             -first-letter (edits first letter of the pg)
          */
-         h3:hover{
-             color:blue;
-             font-size:20px;
-         }
+      h3:hover {
+        color: blue;
+        font-size: 20px;
+      }
 
-         /* img:hover{
+      /* img:hover{
 
          } */
 
-         a:link{
-             color:pink;
-         }
+      a:link {
+        color: pink;
+      }
 
-         a:visited{
-             color:green;
-         }
+      a:visited {
+        color: green;
+      }
 
-         p::first-letter {
-             color:red;
-             font-size:45px;
-         }
-         /* can be used for div
+      p::first-letter {
+        color: red;
+        font-size: 45px;
+      }
+      /* can be used for div
          not for span */
 
-         p::first-line {
-             color: orange;
-        
-         }
+      p::first-line {
+        color: orange;
+      }
 
-    /* attribute selector
+      /* attribute selector
     add property to a specific attribute */
 
-    a[target] {
-     font-size:20px;
-    }
-
+      a[target] {
+        font-size: 20px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!--
         SIMPLE SELECTORS:
         ELEMENT SELECTOR
     -->
-    
-    <p>you can directly type name of tag in style and it will be applicable for that tag</p>
 
-    <h1>h1 tag- property applied to
-        all h1 tag
-    </h1>
+    <p>
+      you can directly type name of tag in style and it will be applicable for
+      that tag
+    </p>
 
-    <br>
-    <br>
+    <h1>h1 tag- property applied to all h1 tag</h1>
+
+    <br />
+    <br />
     <!--ID SELECTOR-->
     <h1 id="title">Hello World</h1>
 
     <h1>hi</h1>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <!--CLASS SELECTOR-->
     <h2 class="class">class property</h2>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <!--
         operators:
@@ -160,11 +156,8 @@ used to apply style properties to a single/ multiple specific html elements
     -->
 
     <div>
-        <!--style all para inside div-->
-        <p>
-
-        </p>
-
+      <!--style all para inside div-->
+      <p></p>
     </div>
 
     <!-- child selector (type of CSS selector)
@@ -174,23 +167,23 @@ used to apply style properties to a single/ multiple specific html elements
 
     }
 -->
-<h1 id="title"> child selector </h1>
+    <h1 id="title">child selector</h1>
 
-        <div>
-            <h1>inside div</h1>
-            <p>paragraph</p>
-            <p>Lorem ipsum dolor sit.</p>
-            <section>
-                section
-            </section>
-            <p>Lorem, ipsum dolor.</p>
-            <h2>Lorem ipsum dolor sit.</h2>
-        </div>
+    <div>
+      <h1>inside div</h1>
+      <p>paragraph</p>
+      <p>Lorem ipsum dolor sit.</p>
+      <section>
+        section
+      </section>
+      <p>Lorem, ipsum dolor.</p>
+      <h2>Lorem ipsum dolor sit.</h2>
+    </div>
 
     <h1 id="title">sibling selector</h1>
     <!-- sibling selector-->
     <div>sibling selector</div>
-    <p> this is sibling of div</p>
+    <p>this is sibling of div</p>
 
     <!-- div + p 
         for adjacent element
@@ -206,25 +199,23 @@ div ~p
 }
 -->
     <div></div>
-        <p>lorem3</p>
-        <p>Lorem ipsum dolor sit amet.</p>
+    <p>lorem3</p>
+    <p>Lorem ipsum dolor sit amet.</p>
 
-<!--pseudo selector
+    <!--pseudo selector
 when bring cursor on tag: hovering 
 certain changes take place -->
-    
-<h3>Lorem ipsum dolor sit amet consectetur.</h3>
 
-<a href="https://www.google.com">google</a>
+    <h3>Lorem ipsum dolor sit amet consectetur.</h3>
 
-<!--attribute selector-->
-<p>here</p>
-<a href="">1</a>
-<a href="" target="_blank">2</a>
-<a href="">3</a>
+    <a href="https://www.google.com">google</a>
 
+    <!--attribute selector-->
+    <p>here</p>
+    <a href="">1</a>
+    <a href="" target="_blank">2</a>
+    <a href="">3</a>
 
-    
     <!--DEFAULT CSS
         to manupulate default value of html we set margin to 0-->
 
@@ -233,7 +224,7 @@ certain changes take place -->
 
         Value defined as Important > Inline >id nesting > id > class nesting > class > tag nesting > tag.
     -->
-</body>
+  </body>
 </html>
 
 <!--live page like a novel- book should have 2 pages
@@ -246,9 +237,3 @@ css resources:
 mdn 
 w3 schools
 -->
-
-
-
-
-
-

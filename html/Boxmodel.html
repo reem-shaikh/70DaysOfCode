@@ -1,4 +1,4 @@
-  <!--
+<!--
     BOX MODEL:
     its beleived that each html element is a box
 
@@ -18,8 +18,6 @@
           --------------------
 -->
 
-
-
 <!--
 BOX MODEL: 
     margin 
@@ -32,60 +30,52 @@ BOX MODEL:
 -margin is the space outside the border and the webpage ends 
 -->
 
-
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Box model
+  <head>
+    <title>
+      Box model
+    </title>
+    <style>
+      /* universal selector- were setting be default values  */
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        </title>
-        <style>
-            /* universal selector- were setting be default values  */
-            *
-            {
-                margin:0;
-                padding:0;
+      #first {
+        background-color: #bbf6f5;
+        border: 3px solid #011482;
+        padding: 80px;
+        margin: 74px;
+      }
+      #second {
+        background-color: coral;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+      }
+      #fourth {
+        background-color: crimson;
+        border-radius: 63px;
+        padding: 50px;
+      }
 
-            }
-            
-            #first{
-                background-color: #bbf6f5;
-                border: 3px solid #011482;
-                padding: 80px;
-                margin: 74px;
-            }
-            #second{
-                background-color: coral;
-                padding-top: 50px;
-                padding-bottom: 20px;
-                padding-left: 10px;
+      #fifth {
+        background-color: darkcyan;
+        width: 283px;
+        padding-left: 40px;
+      }
 
-            }
-            #fourth {
-                background-color: crimson;
-                border-radius: 63px ;
-                padding:50px;
+      #third {
+        background-color: #f8e3e3;
+        border: 3px solid blue;
+        padding: 23px 80px 60px 78px;
+        /*top right bottom left  */
 
-            }
+        margin: 80px 70px 40px 80px;
 
-            #fifth {
-                background-color: darkcyan;
-                width: 283px;
-                padding-left:40px;
-
-            }
-
-            #third{
-                background-color: #f8e3e3;
-                border: 3px solid blue;
-                padding: 23px 80px 60px 78px;
-                /*top right bottom left  */
-
-                margin: 80px 70px 40px 80px;
-
-                /*
+        /*
                 1. we can set top, bottom, left, right padding 
                 
                 syntax:
@@ -97,45 +87,66 @@ BOX MODEL:
                 margin = top right bottom left
 
                 */
-            
+      }
 
-            }
+      button {
+        margin: 20px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>padding, margin and border</h3>
+      <p id="first">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam
+        tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem
+        ratione impedit, ipsum eaque id earum unde in architecto veniam facilis
+        eos!
+      </p>
+    </div>
 
-            button{
-                margin:20px;
-                padding:20px;
-            }
+    <div class="container">
+      <h3>padding top, bottom, left</h3>
+      <p id="second">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam
+        tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem
+        ratione impedit, ipsum eaque id earum unde in architecto veniam facilis
+        eos!
+      </p>
+    </div>
 
-        </style>
+    <div class="container">
+      <h3>border radius and padding</h3>
+      <p id="fourth">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam
+        tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem
+        ratione impedit, ipsum eaque id earum unde in architecto veniam facilis
+        eos!
+      </p>
+    </div>
 
-    </head>
-    <body>
-        <div class="container">
-            <h3>padding, margin and border</h3>
-            <p id="first">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem ratione impedit, ipsum eaque id earum unde in architecto veniam facilis eos!</p>
-        </div>
+    <div class="container">
+      <h3>setting width</h3>
+      <p id="fifth">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam
+        tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem
+        ratione impedit, ipsum eaque id earum unde in architecto veniam facilis
+        eos!
+      </p>
+    </div>
 
-        <div class="container">
-            <h3>padding top, bottom, left</h3>
-            <p id="second">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem ratione impedit, ipsum eaque id earum unde in architecto veniam facilis eos!</p>
-        </div>
+    <div class="container">
+      <h3>padding and margin shortcuts</h3>
+      <p id="third">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam
+        tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem
+        ratione impedit, ipsum eaque id earum unde in architecto veniam facilis
+        eos!
+      </p>
+    </div>
 
-        <div class="container">
-            <h3>border radius and padding</h3>
-            <p id="fourth">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem ratione impedit, ipsum eaque id earum unde in architecto veniam facilis eos!</p>
-        </div>
-
-        <div class="container">
-            <h3>setting width</h3>
-            <p id="fifth">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem ratione impedit, ipsum eaque id earum unde in architecto veniam facilis eos!</p>
-        </div>
-
-        <div class="container">
-            <h3>padding and margin shortcuts</h3>
-            <p id="third">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam aliquam tempore reprehenderit, praesentium vero ut blanditiis. Doloribus quidem ratione impedit, ipsum eaque id earum unde in architecto veniam facilis eos!</p>
-        </div>
-
-        <button>click me</button><button>click me</button>
-        
-    </body>
+    <button>click me</button>
+    <button>click me</button>
+  </body>
 </html>

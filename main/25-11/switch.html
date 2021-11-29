@@ -1,102 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Switch Conditional</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-      //equavalent to Else-If Ladder 
-      //write a program to display the number in string format. 
+      //equavalent to Else-If Ladder
+      //write a program to display the number in string format.
       //1 -> 'one'
 
-      var num=parseInt(prompt("enter number"));
-      // == checks for data value 
-      // not data type 
+      var num = parseInt(prompt('enter number'))
+      // == checks for data value
+      // not data type
       //thats we can skip the parseInt
-      //but in case of switch there is no == thats why we need to use parseInt 
+      //but in case of switch there is no == thats why we need to use parseInt
 
-    //   if(num == 1)
-    //   {
-    //       console.log("one");
-    //   }
-    //   else if(num == 2)
-    //   {
-    //       console.log("two");
-    //   }
-    //   else if(num == 3)
-    //   {
-    //     console.log("three");
-    //   }
-    //   else if(num == 4)
-    //   {
-    //     console.log("four");
-    //   }
-    //   else{
-    //     console.log("other");
+      //   if(num == 1)
+      //   {
+      //       console.log("one");
+      //   }
+      //   else if(num == 2)
+      //   {
+      //       console.log("two");
+      //   }
+      //   else if(num == 3)
+      //   {
+      //     console.log("three");
+      //   }
+      //   else if(num == 4)
+      //   {
+      //     console.log("four");
+      //   }
+      //   else{
+      //     console.log("other");
 
-    //   }
+      //   }
 
-      //convert to switch 
-      switch(num){
-          case 1: 
-            console.log("one");
-            break;
-
-          case 2:
-            console.log("two");
-            break;
-
-          case 3:
-            console.log("three");
-            break;
-
-          case 4:
-              console.log("four");
-              break;
-
-          case  5:
-          case  6:
-          case  7:
-              console.log("five/six/seven");
-              break;
-          //we can combine 
-          default:
-              console.log("everything else");
-      }
-
-      var num = prompt("enter the number");
-      num = parseInt(num);
-
-      var remainder = num%2;
-
-      switch(remainder)
-      {
-        case 0:
-            console.log("even");
-            break;
+      //convert to switch
+      switch (num) {
         case 1:
-            console.log("odd");
-            break;
+          console.log('one')
+          break
+
+        case 2:
+          console.log('two')
+          break
+
+        case 3:
+          console.log('three')
+          break
+
+        case 4:
+          console.log('four')
+          break
+
+        case 5:
+        case 6:
+        case 7:
+          console.log('five/six/seven')
+          break
+        //we can combine
+        default:
+          console.log('everything else')
       }
 
-    // Prime
-    // check whether numbers are divisibled by any number between 1 and the number 
-    var n = parseInt(prompt("enter num to check prime or not"));
-    var i=2; 
-    if (n < 2)
-    {
-        console.log("not prime number")
-    }
-    else if ( n%i == 0)
-    {
-        console.log("not a prime number");
-    }
-    else{
-        console.log("prime number");
-    }
+      var num = prompt('enter the number')
+      num = parseInt(num)
+
+      var remainder = num % 2
+
+      switch (remainder) {
+        case 0:
+          console.log('even')
+          break
+        case 1:
+          console.log('odd')
+          break
+      }
+
+      // Prime
+      // check whether numbers are divisibled by any number between 1 and the number
+      var n = parseInt(prompt('enter num to check prime or not'))
+      var i = 2
+      if (n < 2) {
+        console.log('not prime number')
+      } else if (n % i == 0) {
+        console.log('not a prime number')
+      } else {
+        console.log('prime number')
+      }
     </script>
-</body>
+  </body>
 </html>

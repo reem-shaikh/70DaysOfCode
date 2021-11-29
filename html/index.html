@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"> 
-    <!--this is an attribute-->
-<head>
+<html lang="en">
+  <!--this is an attribute-->
+  <head>
     <!--meta is additional info about the document 
     
     which is not part of the primary content, but it is a supplement
@@ -17,23 +17,25 @@ user browser X-UA must be compatbile
 3. content - tells howw big your screen looks initially
 4.title 
 -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<br>
-<br>
-<br>
+  </head>
+  <br />
+  <br />
+  <br />
 
-<h1>starting body tag</h1>
-<body>
+  <h1>starting body tag</h1>
+  <body>
+    <h1>paragraph</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit,
+      incidunt.\
+    </p>
 
-    <h1> paragraph</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, incidunt.\</p>
-
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>different head tags</h1>
     <h1>h1</h1>
@@ -43,24 +45,24 @@ user browser X-UA must be compatbile
     <h5>h5</h5>
     <h6>h6</h6>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
-    <h1> unordered list</h1>
+    <h1>unordered list</h1>
     <ul>
-        <li>hi</li>
-        <li>hello</li>
-        <li>hi</li>
+      <li>hi</li>
+      <li>hello</li>
+      <li>hi</li>
     </ul>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
-    <h1> ordered list</h1>
+    <h1>ordered list</h1>
     <ol>
-        <li>hi</li>
-        <li>hello</li>
-        <li>hi</li>
+      <li>hi</li>
+      <li>hello</li>
+      <li>hi</li>
     </ol>
 
     <!--descriptio list is heaadingbased list
@@ -71,17 +73,16 @@ user browser X-UA must be compatbile
 
     dt- data title
     dd- data description-->
-    <h1> data description list</h1>
+    <h1>data description list</h1>
     <dl>
-        <dt>dt</dt>
-        <dd>dd</dd>
-        <dd>dd</dd>
-        <dd>dd</dd>
+      <dt>dt</dt>
+      <dd>dd</dd>
+      <dd>dd</dd>
+      <dd>dd</dd>
 
-        <dt>dt2</dt>
-        <dd>dd</dd>
-        <dd>dd</dd>
-
+      <dt>dt2</dt>
+      <dd>dd</dd>
+      <dd>dd</dd>
     </dl>
 
     <!--table
@@ -105,46 +106,42 @@ user browser X-UA must be compatbile
 
         -->
 
-    <h1> table </h1>
+    <h1>table</h1>
     <table border="1">
-        <thead>
-            <!--top of table -->
+      <thead>
+        <!--top of table -->
         <tr>
-            <th>day</th>
-            <th>date</th>
-            <th>duration</th>
-            <th>topic</th>
+          <th>day</th>
+          <th>date</th>
+          <th>duration</th>
+          <th>topic</th>
         </tr>
-        </thead>
+      </thead>
 
-        <tbody>
-            <tr>
-                <td>monday</td>
-                <td>8th nov</td>
-                <td>8-10pm</td>
-                <td>DNSKNKDNKD</td>
-            </tr>
+      <tbody>
+        <tr>
+          <td>monday</td>
+          <td>8th nov</td>
+          <td>8-10pm</td>
+          <td>DNSKNKDNKD</td>
+        </tr>
 
-            <tr>
-                <td>monday</td>
-                <td>8th nov</td>
-                <td>8-10pm</td>
-                <td>DNSKNKDNKD</td>
-            </tr>
-        </tbody>
-           <!--content-->
-           
-  
-           <tfoot>
-               <!--footer table-->
-           </tfoot>
-        
-        
+        <tr>
+          <td>monday</td>
+          <td>8th nov</td>
+          <td>8-10pm</td>
+          <td>DNSKNKDNKD</td>
+        </tr>
+      </tbody>
+      <!--content-->
+
+      <tfoot>
+        <!--footer table-->
+      </tfoot>
     </table>
 
-   
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>type attribute</h1>
 
@@ -153,8 +150,8 @@ user browser X-UA must be compatbile
     <input type="email" />
     <input type="number" />
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>placeholder</h1>
 
@@ -164,8 +161,8 @@ user browser X-UA must be compatbile
     <label>password</label>
     <input type="password" placeholder="password" />
 
-    <br>
-    <br>
+    <br />
+    <br />
     <!--there is another option for this dropdown
     
     1. select
@@ -180,37 +177,40 @@ user browser X-UA must be compatbile
         -->
 
     <select>
-        <option>option1</option>
-        <option>option2</option>
-        <option>option3</option>
+      <option>option1</option>
+      <option>option2</option>
+      <option>option3</option>
     </select>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <form action="">
-        <label>Your Cars Name: </label>
-        <input list="cars">
-        <datalist id="cars">
-            <option value="BMW"/>
-            <option value="Bentley"/>
-            <option value="Mercedes"/>
-            <option value="Audi"/>
-            <option value="Volkswagen"/>
-        </datalist>
+      <label>Your Cars Name:</label>
+      <input list="cars" />
+      <datalist id="cars">
+        <option value="BMW" />
+        <option value="Bentley" />
+        <option value="Mercedes" />
+        <option value="Audi" />
+        <option value="Volkswagen" />
+      </datalist>
     </form>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>radio button with the same type name</h1>
 
-    <input type= "radio" /> op1
-    <br>
-    <input type="radio" /> opt2
-    <br>
-    <input type="radio" /> opt3
-<!--but we can select many because we didnt use name attribute yet 
+    <input type="radio" />
+    op1
+    <br />
+    <input type="radio" />
+    opt2
+    <br />
+    <input type="radio" />
+    opt3
+    <!--but we can select many because we didnt use name attribute yet 
 
 when form submitted
 it specifies which data is associated to which field
@@ -220,53 +220,57 @@ name vs id
 -id can be given to any element on the webpage
 
 eg: server differentiates which server is email/password-->
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
     <h1>radiobutton</h1>
-    <input type= "radio" name="radio1" /> op1
-    <br>
-    <input type="radio" name="radio1" /> opt2
-    <br>
-    <input type="radio" name="radio1" /> opt3
+    <input type="radio" name="radio1" />
+    op1
+    <br />
+    <input type="radio" name="radio1" />
+    opt2
+    <br />
+    <input type="radio" name="radio1" />
+    opt3
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>checkboxes</h1>
-    <input type= "checkbox" name="cb1" /> op1
-    <br>
-    <input type="checkbox" name="cb1" /> opt2
-    <br>
-    <input type="checkbox" name="cb1" /> opt3
+    <input type="checkbox" name="cb1" />
+    op1
+    <br />
+    <input type="checkbox" name="cb1" />
+    opt2
+    <br />
+    <input type="checkbox" name="cb1" />
+    opt3
 
     <!--putting it under the same data identity-->
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>button</h1>
     <button>
-        click me
+      click me
     </button>
 
-    <button type="submit"> submit </button>
+    <button type="submit">submit</button>
     <button type="reset">reset</button>
 
-    <br>
-    <br>
-
+    <br />
+    <br />
 
     <form>
-        <!--you can define what you want to do/ send the data-->
+      <!--you can define what you want to do/ send the data-->
     </form>
 
     <div>
-        <h1>div tag</h1>
-        <p>
-        when you want to put content inside a container,
-
-        also used for dividing page into different sub parts 
-        </p>
+      <h1>div tag</h1>
+      <p>
+        when you want to put content inside a container, also used for dividing
+        page into different sub parts
+      </p>
     </div>
 
     <!--
@@ -276,33 +280,31 @@ eg: server differentiates which server is email/password-->
         used to divide the page content 
     -->
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>img tag- self closin tag</h1>
-    <img src="https://images.pexels.com/photos/2983098/pexels-photo-2983098.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+    <img
+      src="https://images.pexels.com/photos/2983098/pexels-photo-2983098.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    />
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>read about</h1>
     <ul>
-        <li>audio tag
-        </li>
-        <li>video tag</li>
+      <li>audio tag</li>
+      <li>video tag</li>
     </ul>
 
-    <br>
-    <br>
+    <br />
+    <br />
 
     <h1>
-        learn
+      learn
     </h1>
     <h2>how to use microsoft edge tool</h2>
-
-
-
-</body>
+  </body>
 </html>
 
 <!--types of list 
@@ -333,4 +335,3 @@ difference btw radio and check
 radio means we can select only one option at a time
 
 -->
-

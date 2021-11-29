@@ -29,31 +29,30 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Display property</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        }
+      body {
+        font-family: tahoma;
+        font-size: 32px;
+        padding: 100px 40px 0px 40px;
+      }
 
-        body{
-            font-family: tahoma;
-            font-size: 32px;
-            padding: 100px 40px 0px 40px;
-        }
-
-        h1{
-            margin-bottom: 30px;
-        }
-        p{
-            margin-top: 10px;
-            display: inline;
-            /*
+      h1 {
+        margin-bottom: 30px;
+      }
+      p {
+        margin-top: 10px;
+        display: inline;
+        /*
             by default p is block.
 
             block element to inline
@@ -61,81 +60,98 @@
             first para is sinked with the last
 
             */
-        }
+      }
 
-        p.one{
-            background-color: aquamarine;
-            /* 
+      p.one {
+        background-color: aquamarine;
+        /* 
             display: none; */
-            /*
+        /*
 
             removes display of that element */
-        }
+      }
 
-        p.two{
-            background-color: blueviolet;
-            
-            
-        }
-        /*
+      p.two {
+        background-color: blueviolet;
+      }
+      /*
           default of p is block
 
         */
-        p.two span{
-            background-color: red;
-            display: block;
-            /*
+      p.two span {
+        background-color: red;
+        display: block;
+        /*
             convert inline element to block
             */
-        }
+      }
 
-        p.three{
-            background-color: pink;
-        }
+      p.three {
+        background-color: pink;
+      }
 
-        p.three span{
-            display: inline-block;
-            background-color: red;
-        }
+      p.three span {
+        display: inline-block;
+        background-color: red;
+      }
 
-        p.four{
-            background-color: purple;
-        }
+      p.four {
+        background-color: purple;
+      }
 
-        p.four span{
-            display: list-item;
-            background-color: red;
-        }
+      p.four span {
+        display: list-item;
+        background-color: red;
+      }
 
-        p.five{
-            background-color: salmon;
-          
-        }
-        p.five span{
-            background-color: blue;
-            display: inherit;
-            /*
+      p.five {
+        background-color: salmon;
+      }
+      p.five span {
+        background-color: blue;
+        display: inherit;
+        /*
             inherits parent p 
             display property 
             that is inline
 
             */
-        }
-
-     
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Display</h1>
-    <p class="one">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate consequuntur in earum animi aut dolores beatae quisquam aspernatur </p>
+    <p class="one">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate
+      consequuntur in earum animi aut dolores beatae quisquam aspernatur
+    </p>
 
-    <p class="two">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, eum.<span>converting inline to block</span> Sapiente earum distinctio delectus consectetur voluptates dolorum quibusdam minima facere?</p>
-    
-    <p class="three">Lorem ipsum dolor sit amet consectetur, <span>inline block</span>adipisicing elit. Cupiditate consequuntur in earum animi aut dolores beatae quisquam aspernatur exercitationem molestiae.</p>
+    <p class="two">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, eum.
+      <span>converting inline to block</span>
+      Sapiente earum distinctio delectus consectetur voluptates dolorum
+      quibusdam minima facere?
+    </p>
 
-    <p class="four">Lorem, ipsum dolor sit amet consectetur <span>list-item</span> adipisicing elit. Id, eum. Sapiente earum distinctio delectus consectetur voluptates dolorum quibusdam minima facere?</p>
+    <p class="three">
+      Lorem ipsum dolor sit amet consectetur,
+      <span>inline block</span>
+      adipisicing elit. Cupiditate consequuntur in earum animi aut dolores
+      beatae quisquam aspernatur exercitationem molestiae.
+    </p>
 
-    <p class="five">Lorem ipsum dolor sit amet consectetur, <span>inline block</span>adipisicing elit. Cupiditate consequuntur in earum animi aut dolores beatae quisquam aspernatur exercitationem molestiae.</p>
+    <p class="four">
+      Lorem, ipsum dolor sit amet consectetur
+      <span>list-item</span>
+      adipisicing elit. Id, eum. Sapiente earum distinctio delectus consectetur
+      voluptates dolorum quibusdam minima facere?
+    </p>
 
-</body>
+    <p class="five">
+      Lorem ipsum dolor sit amet consectetur,
+      <span>inline block</span>
+      adipisicing elit. Cupiditate consequuntur in earum animi aut dolores
+      beatae quisquam aspernatur exercitationem molestiae.
+    </p>
+  </body>
 </html>

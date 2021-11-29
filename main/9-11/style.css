@@ -1,53 +1,45 @@
-.red-text{
-    color:red;
-
+.red-text {
+  color: red;
 }
 
-.blue-text{
-    color:#0000FF;
-
+.blue-text {
+  color: #0000ff;
 }
 
-.green-text{
-    color:rgba(0,225,0, 1);
+.green-text {
+  color: rgba(0, 225, 0, 1);
 }
 
-.big-text{
-    font-size: 500%;
+.big-text {
+  font-size: 500%;
 }
 
-.small-text{
-    font-size: 70%;
+.small-text {
+  font-size: 70%;
 }
 
-.light-text{
-    font-weight: light;
-
+.light-text {
+  font-weight: light;
 }
 
-.capital-text{
-    text-transform: uppercase;
-
+.capital-text {
+  text-transform: uppercase;
 }
 
 input {
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-h1{
-    font-weight: 200;
+h1 {
+  font-weight: 200;
 }
 
-body{
-    background-color: rgb(169, 179, 182);
+body {
+  background-color: rgb(169, 179, 182);
 }
 
-button{
-    margin-top:20px;
+button {
+  margin-top: 20px;
 }
-
-
-
-

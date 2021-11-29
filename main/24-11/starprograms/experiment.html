@@ -1,87 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script text="text/javascript">
-        for (var i=1; i<=4; i++)
-        {
-            for( var j=1; j<=i; j++)
-            {
-                document.write("x");
-            }
-            document.write("<br>");
+      for (var i = 1; i <= 4; i++) {
+        for (var j = 1; j <= i; j++) {
+          document.write('x')
         }
-        
-        for (var i=1; i<=3; i++)
-        {
-            for( var j=3; j>=i; j--)
-            {
-                document.write("o");
-            }
-            document.write("<br>");
-        }
+        document.write('<br>')
+      }
 
-        /*
+      for (var i = 1; i <= 3; i++) {
+        for (var j = 3; j >= i; j--) {
+          document.write('o')
+        }
+        document.write('<br>')
+      }
+
+      /*
         now join these together
         */
-        for (var i=1; i<=4; i++)
-        {
-            for( var j=4; j>=i; j--)
-            {
-                document.write("&nbsp ");
-            }
-            for( var j=1; j<=i; j++)
-            {
-                document.write("x");
-            }
-            document.write("<br>");
-
-            
+      for (var i = 1; i <= 4; i++) {
+        for (var j = 4; j >= i; j--) {
+          document.write('&nbsp ')
         }
+        for (var j = 1; j <= i; j++) {
+          document.write('x')
+        }
+        document.write('<br>')
+      }
 
-        /*
+      /*
         now for the second part of the pyramid
 
         */
-        for (var i=1; i<=5; i++)
-        {
-            for( var j=1; j<=i; j++)
-            {
-                document.write("x");
-            }
-            document.write("<br>");
+      for (var i = 1; i <= 5; i++) {
+        for (var j = 1; j <= i; j++) {
+          document.write('x')
         }
+        document.write('<br>')
+      }
 
-        /*
+      /*
          the pyramid 
         */
 
-        for (var i=1; i<=5; i++)
-        {
-            for( var j=4; j>=i; j--)
-            {
-                document.write("&nbsp ");
-            }
-            for( var k=1; k<(i*2); k++)
-            {
-                document.write("x");
-            }
-            document.write("<br>");
-            
-   
+      for (var i = 1; i <= 5; i++) {
+        for (var j = 4; j >= i; j--) {
+          document.write('&nbsp ')
         }
-
-       
-
-
+        for (var k = 1; k < i * 2; k++) {
+          document.write('x')
+        }
+        document.write('<br>')
+      }
     </script>
-    
-
-
-</body>
+  </body>
 </html>

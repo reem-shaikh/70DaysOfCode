@@ -1,84 +1,81 @@
 /*google fonts */
- @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Mukta:wght@300&family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600&family=Roboto+Condensed:wght@300;400&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Mukta:wght@300&family=Playfair+Display:ital@1&family=Poppins:wght@300;400;500;600&family=Roboto+Condensed:wght@300;400&display=swap");
 
-section{
-    background-image: url('https://images.pexels.com/photos/1086584/pexels-photo-1086584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+section {
+  background-image: url("https://images.pexels.com/photos/1086584/pexels-photo-1086584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-
-label{
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
+label {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
 }
 
-#form{
-    padding:5px; border-radius: 3px; box-shadow: 5px 5px;
-    opacity: 0.8;
+#form {
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: 5px 5px;
+  opacity: 0.8;
 }
 
-
-
-.hov:hover a{
-    color:rgba(121,126,246,0.9);
-} 
-
-.text:hover a{
-    color:magenta;
+.hov:hover a {
+  color: rgba(121, 126, 246, 0.9);
 }
 
-.input-box button:hover{
-    background-color: white;
+.text:hover a {
+  color: magenta;
 }
 
-
-.input-box button{
-    box-shadow: 2px 2px;
-    border-radius: 5px;
+.input-box button:hover {
+  background-color: white;
 }
 
-
-section{
-    position:relative;
-    width:100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* background-image: ('https://images.pexels.com/photos/1086584/pexels-photo-1086584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
-
-    background-size:cover;
-    background-position:center;
+.input-box button {
+  box-shadow: 2px 2px;
+  border-radius: 5px;
 }
 
-header{
-    position:relative;
-    top:0;
-    width:100%;
-    padding:30px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* background-image: ('https://images.pexels.com/photos/1086584/pexels-photo-1086584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
+
+  background-size: cover;
+  background-position: center;
 }
 
-header .logo{
-    postion:relative;
-    color:white;
-    font-size:30px;
-    text-decoration: none;
-    text-transform:uppercase;
-    font-weight: 800;
-    letter-spacing: 1px;
+header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header .navigation a{
-    /* color: rgba(121,126,246,0.7);
+header .logo {
+  postion: relative;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+header .navigation a {
+  /* color: rgba(121,126,246,0.7);
     text-transform: uppercase;
     background-color: rgba(121,126,246,0.1);
     text-decoration: none;
@@ -86,102 +83,97 @@ header .navigation a{
 
     letter-spacing: 2px;
     font-weight: 900; */
-    background-color: rgba(121,126,246,0.1);
-    color: #551A8B;
+  background-color: rgba(121, 126, 246, 0.1);
+  color: #551a8b;
 
-    padding:5px 5px;
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-weight: 700;
-    height:3px;
-    font-size:19px;
-  
-
+  padding: 5px 5px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: 700;
+  height: 3px;
+  font-size: 19px;
 }
 
-
-header .navigation a:not(:last-child){
-    margin-right: 30px;
+header .navigation a:not(:last-child) {
+  margin-right: 30px;
 }
 
-header .navigation a:hover{
-    background:lightgrey;
-   
+header .navigation a:hover {
+  background: lightgrey;
 }
-.content{
-    max-width: 650px;
-    margin: 50px 100px;
-}
-
-.content .info h2{
-   color:pink;
-   font-size:55px;
-   text-transform:uppercase;
-   font-weight:800;
-   letter-spacing: 2px;
-   line-height: 60px;
-   margin-bottom: 30px;
-   border-radius: 5px;
+.content {
+  max-width: 650px;
+  margin: 50px 100px;
 }
 
-.content .info h2 span{
-    color:magenta;
-    font-size:50px;
-    font-weight:600;
+.content .info h2 {
+  color: pink;
+  font-size: 55px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 60px;
+  margin-bottom: 30px;
+  border-radius: 5px;
 }
 
-.content .info p{
-    font-weight: 100;
+.content .info h2 span {
+  color: magenta;
+  font-size: 50px;
+  font-weight: 600;
 }
 
-.content .info-btn{
-    /* background:transparent; */
-    background-color: rgba(121,126,246,0.1);
-    padding:10px 10px;
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-weight: 900;
-    transition-property: background;
+.content .info p {
+  font-weight: 100;
 }
 
-.content .info-btn:hover{
-    background-color: rgba(121,126,246,0.9);
+.content .info-btn {
+  /* background:transparent; */
+  background-color: rgba(121, 126, 246, 0.1);
+  padding: 10px 10px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: 900;
+  transition-property: background;
 }
 
-.media-icons a{
-    color:blue;
-    position:relative;
-
-    /*to make icons zoom when you hover over it */
-    transition:0.3s;
-    transition-property: transform;
-   
+.content .info-btn:hover {
+  background-color: rgba(121, 126, 246, 0.9);
 }
 
-.media-icons a:hover{
-    transform: scale(1.5);
+.media-icons a {
+  color: blue;
+  position: relative;
+
+  /*to make icons zoom when you hover over it */
+  transition: 0.3s;
+  transition-property: transform;
 }
-   /*the transform property css ends here */
-.media-icons{
-    display:flex;
-    font-size:25px;
+
+.media-icons a:hover {
+  transform: scale(1.5);
+}
+/*the transform property css ends here */
+.media-icons {
+  display: flex;
+  font-size: 25px;
 }
 
 /*this code is for adding text over video */
-.container { position:relative; }
+.container {
+  position: relative;
+}
 .container video {
-    position:relative;
-    z-index:0;
+  position: relative;
+  z-index: 0;
 }
 .overlay {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
-
-

@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="text/javascript">
-    
-       
-        for(i=1; i<=5; i++)
-        {
-            // star = "";
-            for(j=5; j>=i; j--)
-            {
-                document.write("*");
-            }
-            document.write("<br>");
-            // document.write('<br>');
+      for (i = 1; i <= 5; i++) {
+        // star = "";
+        for (j = 5; j >= i; j--) {
+          document.write('*')
         }
-/*
+        document.write('<br>')
+        // document.write('<br>');
+      }
+      /*
 
 *****
 ****
@@ -31,13 +27,11 @@
 
 */
 
-    for(i=1; i<=5; i++)
-        {
-            // star = "";
-            for(j=4; j>=i; j--)
-            {
-                document.write('&nbsp ');
-                /*
+      for (i = 1; i <= 5; i++) {
+        // star = "";
+        for (j = 4; j >= i; j--) {
+          document.write('&nbsp ')
+          /*
                 note that because we entered a space after &nbsp thats why it alligns to the rhs 
                         *
                        **
@@ -52,17 +46,15 @@
                 gives space without breaking into new line
 
                 */
-            }
-            
-            for(k=1; k<=i; k++)
-            {
-                document.write("*");
-            }
-            document.write("<br>");
-
         }
 
-/*
+        for (k = 1; k <= i; k++) {
+          document.write('*')
+        }
+        document.write('<br>')
+      }
+
+      /*
 
     *
    **
@@ -103,37 +95,28 @@ i | i<=5 | j=4 | j>=i | k<=i
 
 */
 
-        for(i=1; i<=7; i++)
-        {
-            // star = "";
-            for(j=6; j>=i; j--)
-            {
-                document.write('&nbsp');
-                
-            }
-            
-            for(k=1; k<=i; k++)
-            {
-                document.write("*");
-            }
-            document.write("<br>");
-
+      for (i = 1; i <= 7; i++) {
+        // star = "";
+        for (j = 6; j >= i; j--) {
+          document.write('&nbsp')
         }
 
-
-
-        for(i=5; i>=1; i--)
-        {
-            // star = "";
-            for(j=5; j>=i; j--)
-            {
-                document.write("*");
-            }
-            document.write("<br>");
-            // document.write('<br>');
+        for (k = 1; k <= i; k++) {
+          document.write('*')
         }
+        document.write('<br>')
+      }
 
-        /*
+      for (i = 5; i >= 1; i--) {
+        // star = "";
+        for (j = 5; j >= i; j--) {
+          document.write('*')
+        }
+        document.write('<br>')
+        // document.write('<br>');
+      }
+
+      /*
 
         logic:
         i | i>=1 | j | j>=i
@@ -170,19 +153,16 @@ i | i<=5 | j=4 | j>=i | k<=i
 *****
 
 */
-        for(var i=1; i<=5; i++)
-        {
-            for(var j=1; j<=i; j++)
-            {
-                document.write('&nbsp ');
-            }
-            for(k=5; k>=i; k--)
-            {
-                document.write("*");
-            }
-            document.write("<br>");
+      for (var i = 1; i <= 5; i++) {
+        for (var j = 1; j <= i; j++) {
+          document.write('&nbsp ')
         }
-/*
+        for (k = 5; k >= i; k--) {
+          document.write('*')
+        }
+        document.write('<br>')
+      }
+      /*
   *****
    ****
     ***
@@ -192,6 +172,5 @@ i | i<=5 | j=4 | j>=i | k<=i
 
 */
     </script>
-    
-</body>
+  </body>
 </html>

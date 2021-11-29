@@ -1,204 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        background-image: url('https://thumbs.gfycat.com/FaithfulGreatApisdorsatalaboriosa-max-1mb.gif ');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
 
-body { 
-    background-image:url('https://thumbs.gfycat.com/FaithfulGreatApisdorsatalaboriosa-max-1mb.gif '); background-repeat:no-repeat;
-    background-size:cover; 
-    
-    }
+      .flexcontainer {
+        flex-wrap: wrap;
+        gap: 10px;
 
-
-      
-        .flexcontainer{
-            flex-wrap: wrap;
-            gap:10px;
-
-            /*gives gap btw column gap 
+        /*gives gap btw column gap 
             and top row */
-            /* 
+        /* 
             column-gap: 20px;
             row-gap:20px;
              */
 
+        display: flex;
+        flex-direction: row;
 
-            display: flex;
-            flex-direction: row;
+        justify-content: center;
+      }
 
-            justify-content:center;
-        }
-        
-     
-        .container{
-            display:flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin: 40px 20px 0 50px;
-            padding-bottom: 30px;
-            font-size: 30px;
-        }
-        
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 40px 20px 0 50px;
+        padding-bottom: 30px;
+        font-size: 30px;
+      }
 
-        .container .heading {
-            color:grey;
-            font-size: 15px;
-        }
+      .container .heading {
+        color: grey;
+        font-size: 15px;
+      }
 
-    h3{
-    font-family:'Poppins', sans-serif;
-    font-size: 3em;
-    color: rgb(78, 74, 74);
-    cursor:pointer;
+      h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3em;
+        color: rgb(78, 74, 74);
+        cursor: pointer;
+      }
 
-}
+      h3 span {
+        transition: 0.5s;
+      }
 
-h3 span{
-    transition: 0.5s;
-}
+      h3:hover span:nth-child(2n) {
+        color: #2c2c54;
+      }
 
-h3:hover span:nth-child(2n)
-{
-    color: #2c2c54;
-}
+      h3:hover span:nth-child(2n-1) {
+        margin-right: 10px;
+      }
 
+      h3:hover span {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff,
+          0 0 120px #fff, 0 0 160px #fff;
+      }
 
-h3:hover span:nth-child(2n-1)
-{
-    margin-right: 10px;
-}
+      .flex1 {
+        width: 300px;
+        height: 300px;
+        box-shadow: 5px 5px;
+        transition: 0.5s;
+        cursor: pointer;
+      }
 
-h3:hover span{
-    color: #fff;
-    text-shadow: 0 0 10px #fff,
-                 0 0 20px #fff,
-                 0 0 40px #fff,
-                 0 0 80px #fff,
-                 0 0 120px #fff,
-                 0 0 160px #fff;
-}
+      .flex2 {
+        width: 300px;
+        height: 300px;
 
+        box-shadow: 5px 5px;
+        transition: 0.5s;
+        cursor: pointer;
+      }
 
-        .flex1{
-            width:300px;
-            height:300px;
-            box-shadow:5px 5px;
-            transition: 0.5s;
-            cursor:pointer;
-           
-        }
+      .flex3 {
+        width: 300px;
+        height: 300px;
 
-    
-        .flex2{
-            width:300px;
-            height:300px;
+        box-shadow: 5px 5px;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      .flex4 {
+        width: 300px;
+        height: 300px;
 
+        box-shadow: 5px 5px;
+        transition: 0.5s;
+        cursor: pointer;
+      }
 
-            box-shadow:5px 5px;
-            transition: 0.5s;
-            cursor:pointer;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .flex3{
-            width:300px;
-            height:300px;
+      .flex1 img,
+      .flex1 img,
+      .flex2 img,
+      .flex3 img {
+        width: 75%;
+        transform: scale(1);
+        transition: 0.3s ease-in-out;
+        /* cursor:zoom-in; */
+      }
 
-            box-shadow:5px 5px;
-            transition: 0.5s;
-            cursor:pointer;
-          
-        }
-        .flex4{
-            width:300px;
-            height:300px;
-
-            box-shadow:5px 5px;
-            transition: 0.5s;
-            cursor:pointer;
-           
-        }
-
-      
-       
-        *{
-            margin:0;
-            padding:0;
-            box-sizing: border-box;
-        }
-
-        .flex1 img, .flex1 img, .flex2 img, 
-        .flex3 img{
-            width:75%;
-            transform: scale(1);
-            transition: 0.3s ease-in-out;
-            /* cursor:zoom-in; */
-            
-        }
-
-        img:hover{
-            transform: scale(1.5);
-        }
-
-      
+      img:hover {
+        transform: scale(1.5);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="heading">
-            <h3>
-                <span>Photo</span>
-                <span>Gallery</span>
-            </h3>
-        </div>
+      <div class="heading">
+        <h3>
+          <span>Photo</span>
+          <span>Gallery</span>
+        </h3>
+      </div>
     </div>
-  
 
-    <div class="flexcontainer" >
-       <img src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"  alt="" class="flex1" /> 
-       <img src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg"  alt="" class="flex2"/>
-       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR44rgcccLv3qbBBh8rCAADkLhI6rU2-BzqEQ&usqp=CAU"  alt="" class="flex3"/>
-       <img src="https://www.nawpic.com/media/2020/neon-purple-nawpic-e1612120820817.jpg "  alt="" class="flex4"/>
-       
-      
-    </div>
-    <br>
     <div class="flexcontainer">
-        <img src="https://i.pinimg.com/736x/af/4b/ed/af4bed0abb2fc8f41e225de686bdeeec.jpg"  alt="" class="flex1"/> 
-       <img src="https://i.pinimg.com/736x/ce/74/0c/ce740cf1971bb827ae7a61c74cca29aa.jpg"  alt="" class="flex2"/>
-       <img src="https://p.favim.com/orig/2019/02/15/neon-purple-aesthetics-aesthetics-Favim.com-6898023.jpg "  alt="" class="flex3"/>
-       <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX38272426.jpg "  alt="" class="flex4"/>
-        
-
-      
+      <img
+        src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"
+        alt=""
+        class="flex1"
+      />
+      <img
+        src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg"
+        alt=""
+        class="flex2"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR44rgcccLv3qbBBh8rCAADkLhI6rU2-BzqEQ&usqp=CAU"
+        alt=""
+        class="flex3"
+      />
+      <img
+        src="https://www.nawpic.com/media/2020/neon-purple-nawpic-e1612120820817.jpg "
+        alt=""
+        class="flex4"
+      />
     </div>
-    <br>
- 
+    <br />
     <div class="flexcontainer">
-        <img src="https://i.pinimg.com/564x/d4/31/c4/d431c4e728ff2e31b061c5fe6629e9e2.jpg "  alt="" class="flex1"/> 
-        <img src="https://i.pinimg.com/736x/67/90/50/67905015ee86a1a9cd8283d4d99a6a8e.jpg "  alt="" class="flex2"/>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarbUklHiZ6rujjkhWV7aCqEIsVhNBvKl1hj7P_TbOu3zQCJosv3eSu9fcNBtmfQyecRE&usqp=CAU "  alt="" class="flex3"/>
-        <img src="https://i.pinimg.com/originals/3a/99/cc/3a99cc2bad0444a0425ed02fb984e713.jpg "  alt="" class="flex4"/>
-      
+      <img
+        src="https://i.pinimg.com/736x/af/4b/ed/af4bed0abb2fc8f41e225de686bdeeec.jpg"
+        alt=""
+        class="flex1"
+      />
+      <img
+        src="https://i.pinimg.com/736x/ce/74/0c/ce740cf1971bb827ae7a61c74cca29aa.jpg"
+        alt=""
+        class="flex2"
+      />
+      <img
+        src="https://p.favim.com/orig/2019/02/15/neon-purple-aesthetics-aesthetics-Favim.com-6898023.jpg "
+        alt=""
+        class="flex3"
+      />
+      <img
+        src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX38272426.jpg "
+        alt=""
+        class="flex4"
+      />
     </div>
-    <br>
-   
+    <br />
+
     <div class="flexcontainer">
-        <img src="https://s11.favim.com/orig/7/724/7241/72415/purple-aesthetic-neon-light-neon-purple-aesthetic-Favim.com-7241564.jpg "  alt="" class="flex1"/> 
-       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzR1yyNNuXkx5-96ncI2Wmnhfyp_7aYjPbwKkxAhB8hoquF1LxqGqR2btnsYrQz9O9NQ&usqp=CAU "  alt="" class="flex2"/>
-       <img src="https://data.whicdn.com/images/307971477/original.jpg "  alt="" class="flex3"/>
-       <img src="https://p.favim.com/orig/2019/02/27/aesthetic-dark-purple-neon-Favim.com-6937005.jpg "  alt="" class="flex4"/>
-      
+      <img
+        src="https://i.pinimg.com/564x/d4/31/c4/d431c4e728ff2e31b061c5fe6629e9e2.jpg "
+        alt=""
+        class="flex1"
+      />
+      <img
+        src="https://i.pinimg.com/736x/67/90/50/67905015ee86a1a9cd8283d4d99a6a8e.jpg "
+        alt=""
+        class="flex2"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarbUklHiZ6rujjkhWV7aCqEIsVhNBvKl1hj7P_TbOu3zQCJosv3eSu9fcNBtmfQyecRE&usqp=CAU "
+        alt=""
+        class="flex3"
+      />
+      <img
+        src="https://i.pinimg.com/originals/3a/99/cc/3a99cc2bad0444a0425ed02fb984e713.jpg "
+        alt=""
+        class="flex4"
+      />
     </div>
-    <br>
+    <br />
 
-    <br>
+    <div class="flexcontainer">
+      <img
+        src="https://s11.favim.com/orig/7/724/7241/72415/purple-aesthetic-neon-light-neon-purple-aesthetic-Favim.com-7241564.jpg "
+        alt=""
+        class="flex1"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzR1yyNNuXkx5-96ncI2Wmnhfyp_7aYjPbwKkxAhB8hoquF1LxqGqR2btnsYrQz9O9NQ&usqp=CAU "
+        alt=""
+        class="flex2"
+      />
+      <img
+        src="https://data.whicdn.com/images/307971477/original.jpg "
+        alt=""
+        class="flex3"
+      />
+      <img
+        src="https://p.favim.com/orig/2019/02/27/aesthetic-dark-purple-neon-Favim.com-6937005.jpg "
+        alt=""
+        class="flex4"
+      />
+    </div>
+    <br />
 
-   
-</body>
+    <br />
+  </body>
 </html>

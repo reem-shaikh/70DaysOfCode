@@ -1,109 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-       
-       
-        .wrapper{
-            margin-left: 550px;
-            margin-top: 150px;
+      .wrapper {
+        margin-left: 550px;
+        margin-top: 150px;
 
-            height:100px;
-            width:100px;
-            border-radius:0px;
-            
-            padding-right:190px;
-            padding-left: 80px;
-            padding-bottom:200px;
-            padding-top: 120px;
-            background-color: #2c2c54;
-            
-        }
+        height: 100px;
+        width: 100px;
+        border-radius: 0px;
 
-        .circle{
-            height:0px;
-            width:0px;
-            border-radius: 50%;
+        padding-right: 190px;
+        padding-left: 80px;
+        padding-bottom: 200px;
+        padding-top: 120px;
+        background-color: #2c2c54;
+      }
 
-            border-style: solid;
-            border-color: #ffdd59;
-            border-width:100px;
+      .circle {
+        height: 0px;
+        width: 0px;
+        border-radius: 50%;
 
-            border-bottom-color: #fff200;
+        border-style: solid;
+        border-color: #ffdd59;
+        border-width: 100px;
 
-            border-top-color:#fffa65;
-            border-right-color:transparent;
-            background-color: transparent;
+        border-bottom-color: #fff200;
 
-        }
+        border-top-color: #fffa65;
+        border-right-color: transparent;
+        background-color: transparent;
+      }
 
-        .wrapper-pac{
-            margin-left:590px;
-            margin-top:130px;
-            margin-bottom:-100px;
-        }
+      .wrapper-pac {
+        margin-left: 590px;
+        margin-top: 130px;
+        margin-bottom: -100px;
+      }
 
-    h1{
-    font-family:'Poppins', sans-serif;
-    font-size: 3em;
-    color: rgb(78, 74, 74);
-    cursor:pointer;
+      h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3em;
+        color: rgb(78, 74, 74);
+        cursor: pointer;
+      }
 
-}
+      h1 span {
+        transition: 0.5s;
+      }
 
-h1 span{
-    transition: 0.5s;
-}
+      h1:hover span:nth-child(2n) {
+        color: #2c2c54;
+      }
 
-h1:hover span:nth-child(2n)
-{
-    color: #2c2c54;
-}
+      h1:hover span:nth-child(2n-1) {
+        margin-right: 10px;
+      }
 
+      h1:hover span {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff,
+          0 0 120px #fff, 0 0 160px #fff;
+      }
 
-h1:hover span:nth-child(2n-1)
-{
-    margin-right: 10px;
-}
-
-h1:hover span{
-    color: #fff;
-    text-shadow: 0 0 10px #fff,
-                 0 0 20px #fff,
-                 0 0 40px #fff,
-                 0 0 80px #fff,
-                 0 0 120px #fff,
-                 0 0 160px #fff;
-}
-
-body{
-    background-color: black;
-}
-
+      body {
+        background-color: black;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper-pac">
-    <h1 >
-    <span>P</span>
-    <span>A</span>
-    <span>C</span>
-    <span>M</span>
-    <span>A</span>
-    <span>N</span>
-
-
-    </h1>
+      <h1>
+        <span>P</span>
+        <span>A</span>
+        <span>C</span>
+        <span>M</span>
+        <span>A</span>
+        <span>N</span>
+      </h1>
     </div>
 
     <div class="wrapper">
-    <div class="circle"></div>
+      <div class="circle"></div>
     </div>
- 
-    
-</body>
+  </body>
 </html>

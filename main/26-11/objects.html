@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Objects</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
+      var arr = ['element', 'another', false, 10.5, -400]
 
-        var arr = ['element', 'another', false, 10.5, -400];
+      var arr1 = ['element', 'another', false, 10.5, -400]
+      var arr2 = ['element', 'another', 30, 10.5, -400]
+      //in arrays sequence matters
+      //because arr1[2]!=arr2[2]
+      //thats why we use objects
 
-        var arr1 = ['element', 'another', false, 10.5, -400];
-        var arr2 = ['element', 'another', 30, 10.5, -400];
-        //in arrays sequence matters
-        //because arr1[2]!=arr2[2]
-        //thats why we use objects
+      //objects are key:value pair
+      // 0th index : element
+      // 1st index : another
+      // 2nd index : false
 
+      //object obj
+      //properties are key:value pairs
+      // var obj = {
+      //     'key_0' : 'element',
+      //     'key_1' : 'another',
 
-        //objects are key:value pair 
-        // 0th index : element 
-        // 1st index : another
-        // 2nd index : false 
+      // };
+      //cannot have space in key/value
 
-        //object obj 
-        //properties are key:value pairs
-        // var obj = {
-        //     'key_0' : 'element',
-        //     'key_1' : 'another',
-            
-        // };
-        //cannot have space in key/value 
+      var profile = {
+        name: 'Geekster',
+        email: 'hello@geekster.in',
+        role: 'teacher',
+      }
+      console.log(profile)
 
-        var profile = {
-            'name' : 'Geekster',
-            'email':'hello@geekster.in',
-            'role' : 'teacher',
-        };
-        console.log(profile);
-
-        /*
+      /*
 
 {name: 'Geekster', email: 'hello@geekster.in', role: 'teacher'}
 email: "hello@geekster.in"
@@ -49,22 +47,21 @@ role: "Student"
 
         */
 
-        //in objects you dont have to remember the indices becaue value is identified by keys 
+      //in objects you dont have to remember the indices becaue value is identified by keys
 
-        //in array called element 
-        //in objects we call it property 
+      //in array called element
+      //in objects we call it property
 
-  
-        console.log("access object pty");
-        //access your object property 
-        var r = profile.role;
-        console.log("r",r);
-//r teacher
+      console.log('access object pty')
+      //access your object property
+      var r = profile.role
+      console.log('r', r)
+      //r teacher
 
-        //update a property value 
-        profile.role = "Student";
-        console.log("updated",profile);
-/*
+      //update a property value
+      profile.role = 'Student'
+      console.log('updated', profile)
+      /*
 {name: 'Geekster', email: 'hello@geekster.in', role: 'Student'}
 email: "hello@geekster.in"
 name: "Geekster"
@@ -72,11 +69,11 @@ role: "Student"
 [[Prototype]]: Object
 
 */
-        console.log("add new pty");
-        //how to add a new property 
-        profile.subject = "javascript";
-        console.log(profile);
-/*
+      console.log('add new pty')
+      //how to add a new property
+      profile.subject = 'javascript'
+      console.log(profile)
+      /*
 {name: 'Geekster', email: 'hello@geekster.in', role: 'Student', subject: 'javascript'}
 email: "hello@geekster.in"
 name: "Geekster"
@@ -85,24 +82,24 @@ role: "Student"
 
 */
 
-        console.log("get length");
-        //Get length of an object 
-        //get list of all keys of an object and then get length
-        var k = Object.keys(profile);
-        console.log("k",k);
-//length: 4
+      console.log('get length')
+      //Get length of an object
+      //get list of all keys of an object and then get length
+      var k = Object.keys(profile)
+      console.log('k', k)
+      //length: 4
 
-        var len = k.length;
-        console.log("len",len);
-        //return list of all available keys 
-//len 4
+      var len = k.length
+      console.log('len', len)
+      //return list of all available keys
+      //len 4
 
-        console.log("getting values of object");
-        //get all values of an object 
-        var val = Object.values(profile);
-        console.log("val",val);
-        //return all values of the object 
-/*
+      console.log('getting values of object')
+      //get all values of an object
+      var val = Object.values(profile)
+      console.log('val', val)
+      //return all values of the object
+      /*
 (4) ['Geekster', 'hello@geekster.in', 'Student', 'javascript']
 0: "Geekster"
 1: "hello@geekster.in"
@@ -114,17 +111,16 @@ length: 4
 
 */
 
-        console.log("properties of object");
-        //show all properties of an object 
-        for(var i=0; i< val.length; i++)
-        {
-            var str = k[i] + ":" + val[i];
+      console.log('properties of object')
+      //show all properties of an object
+      for (var i = 0; i < val.length; i++) {
+        var str = k[i] + ':' + val[i]
 
-            console.log("keys", k[i]);
-            console.log("value",val[i]);
-            console.log("string",str);
-        }
-/*
+        console.log('keys', k[i])
+        console.log('value', val[i])
+        console.log('string', str)
+      }
+      /*
 keys name
 objects.html:124 value Geekster
 objects.html:125 string name:Geekster
@@ -139,16 +135,13 @@ objects.html:124 value javascript
 objects.html:125 string subject:javascript
 */
 
-        //delete a property 
-        console.log("delete");
-        delete profile.subject;
-        console.log("deleted",profile);
-/*
+      //delete a property
+      console.log('delete')
+      delete profile.subject
+      console.log('deleted', profile)
+      /*
 deleted {name: 'Geekster', email: 'hello@geekster.in', role: 'Student'}
 */
-
-
     </script>
-    
-</body>
+  </body>
 </html>

@@ -15,40 +15,40 @@
       //4.can edit any item: update
       //5.delete any item: splice
 
-      var todo = [];
+      var todo = []
 
       function show_List() {
         for (var i = 0; i < todo.length; i++) {
-          console.log(todo[i]);
+          console.log(todo[i])
         }
       }
 
       function add_todo_item(new_item) {
-        todo.push(prompt("enter first todo item"));
-        todo.push(prompt("enter second todo item"));
+        todo.push(prompt('enter first todo item'))
+        todo.push(prompt('enter second todo item'))
       }
 
       function task_done() {
-        var c = prompt("enter task that is completed");
+        var c = prompt('enter task that is completed')
 
         if (c == 0) {
-          todo[0] = "learn JS ✓";
-        } else c == 1;
+          todo[0] = 'learn JS ✓'
+        } else c == 1
         {
-          todo[1] = "complete assignments ✓ ";
+          todo[1] = 'complete assignments ✓ '
         }
       }
 
       function task_edit() {
-        todo[0] = prompt("enter task 1");
-        todo[1] = prompt("enter task 2");
+        todo[0] = prompt('enter task 1')
+        todo[1] = prompt('enter task 2')
       }
 
       function delete_item() {
-        var i = parseInt(prompt("enter what element to start deletion from"));
-        var j = parseInt(prompt("enter till what element should be deleted"));
+        var i = parseInt(prompt('enter what element to start deletion from'))
+        var j = parseInt(prompt('enter till what element should be deleted'))
 
-        todo.splice(i, j);
+        todo.splice(i, j)
       }
     </script>
   </body>

@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reverse Star</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="text/javascript">
-        /*reverse star program 
+      /*reverse star program 
         printing in console
         */
-        for(i=1; i<=5; i++)
-        {
-            star = "";
-            for(j=5; j>=i; j--)
-            {
-                star = star + "*";
-                // document.write('*');
-            }
-            console.log(star);
-            // document.write('<br>');
+      for (i = 1; i <= 5; i++) {
+        star = ''
+        for (j = 5; j >= i; j--) {
+          star = star + '*'
+          // document.write('*');
         }
+        console.log(star)
+        // document.write('<br>');
+      }
 
-/*
+      /*
 printing on page 
 *****
 ****
@@ -33,18 +31,15 @@ printing on page
 
 
 */
-        for(i=1; i<=5; i++)
-        {
-            star = "";
-            for(j=5; j>=i; j--)
-            {
-             document.write('*');
-            }
-            document.write('<br>');
+      for (i = 1; i <= 5; i++) {
+        star = ''
+        for (j = 5; j >= i; j--) {
+          document.write('*')
         }
+        document.write('<br>')
+      }
 
-
-/*
+      /*
 
 11111
 2222
@@ -53,18 +48,16 @@ printing on page
 5
 
 */
-        for(i=1; i<=5; i++)
-        {
-            star = "";
-            for(j=5; j>=i; j--)
-            {
-                document.write(i);
-            }
-            document.write("<br>");
-            // document.write('<br>');
+      for (i = 1; i <= 5; i++) {
+        star = ''
+        for (j = 5; j >= i; j--) {
+          document.write(i)
         }
+        document.write('<br>')
+        // document.write('<br>');
+      }
 
-/*
+      /*
 
 54321
 5432
@@ -73,17 +66,15 @@ printing on page
 5
 
 */
-        for(i=1; i<=5; i++)
-        {
-            star = "";
-            for(j=5; j>=i; j--)
-            {
-                document.write(j);
-            }
-            document.write("<br>");
-            // document.write('<br>');
+      for (i = 1; i <= 5; i++) {
+        star = ''
+        for (j = 5; j >= i; j--) {
+          document.write(j)
         }
-/*
+        document.write('<br>')
+        // document.write('<br>');
+      }
+      /*
 Logic:
 i  |  j>=i
 1     5>=1
@@ -125,7 +116,5 @@ i  |  j>=i
 
 */
     </script>
-
-    
-</body>
+  </body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Functions</title>
-</head>
-<body>
+  </head>
+  <body>
     <!--
         ()- write input of function 
         {}- write code you want to execute 
@@ -14,43 +14,38 @@
     -->
 
     <script>
-        //function to add two numbers 
-        function sum(a, b)
+      //function to add two numbers
+      function sum(a, b) {
         //FORMAL/ ACTUAL PARAMETERS
-        {
-            var sum = a+b;
-            console.log("sum done");
+        var sum = a + b
+        console.log('sum done')
 
-            //return- the output of function
-            return sum;
-            console.log("after return");
+        //return- the output of function
+        return sum
+        console.log('after return')
 
-            //anything written after return will never be executed
+        //anything written after return will never be executed
+      }
 
-        }
+      var num1 = prompt('enter num1')
+      var num2 = prompt('enter num2')
+      //prompt always returns a string
 
-        var num1 = prompt("enter num1");
-        var num2 = prompt
-        ("enter num2");
-        //prompt always returns a string
+      var a = parseInt(num1)
+      var b = parseInt(num2)
+      //parseInt is inbiult function
+      //ASCII value to convert string to number manually
 
-        var a = parseInt(num1);
-        var b = parseInt(num2);
-        //parseInt is inbiult function 
-        //ASCII value to convert string to number manually
+      //var a = parseInt(prompt("enter number"))
 
-       //var a = parseInt(prompt("enter number"))
+      //functions need to be called / invoked
+      var fin = sum(a, b)
+      //ARGUMENT
 
-        //functions need to be called / invoked 
-        var fin = sum(a, b);
-        //ARGUMENT
+      //since function is returning we need to save it somewhere
+      // i.e var
 
-        //since function is returning we need to save it somewhere 
-        // i.e var 
-
-        console.log(fin);
-
+      console.log(fin)
     </script>
-    
-</body>
+  </body>
 </html>

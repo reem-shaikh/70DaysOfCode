@@ -1,82 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        div{
-            height: 100px;
-            width: 100px;
-            background-color: pink;
-            border-radius: 50%;
-        }
+      div {
+        height: 100px;
+        width: 100px;
+        background-color: pink;
+        border-radius: 50%;
+      }
 
-        img{
-            width:100px;
-            height:100px;
-            border-radius:50%;
-        }
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
 
-        .square{
-            height:100px;
-            width:100px;
-            border-radius:0px;
-        }
+      .square {
+        height: 100px;
+        width: 100px;
+        border-radius: 0px;
+      }
 
-        .circle{
-            height:100px;
-            width:100px;
-            border-radius: 50%;
-        }
+      .circle {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+      }
 
-        .triangle{
-            height:0px;
-            width:0px;
-            border-radius: 0px;
+      .triangle {
+        height: 0px;
+        width: 0px;
+        border-radius: 0px;
 
-            border-style: solid;
-            border-color: transparent;
-            border-width:100px;
+        border-style: solid;
+        border-color: transparent;
+        border-width: 100px;
 
-            border-bottom-color: blue;
+        border-bottom-color: blue;
 
-            border-top-color:transparent;
-            border-right-color:transparent;
-            background-color: transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        background-color: transparent;
+      }
 
-        }
+      .replace {
+        display: none;
+      }
 
-        .replace{
-            display: none;
+      button:active ~ .replace {
+        display: block;
+      }
 
-        }
-
-        button:active ~ .replace{
-            display: block;
-
-        }
-
-        button:active ~ .default{
-            display: none;
-
-        }
+      button:active ~ .default {
+        display: none;
+      }
     </style>
-</head>
-<body>
-    <div >
-        <img src="https://images.pexels.com/photos/8566489/pexels-photo-8566489.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
-
+  </head>
+  <body>
+    <div>
+      <img
+        src="https://images.pexels.com/photos/8566489/pexels-photo-8566489.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt=""
+      />
     </div>
     <div class="circle"></div>
     <div class="square"></div>
     <div class="triangle"></div>
 
-    <br>
+    <br />
     <button>click me</button>
     <div class="default"><span>default text</span></div>
     <div class="replace"><span>replacement text</span></div>
-    
-</body>
+  </body>
 </html>

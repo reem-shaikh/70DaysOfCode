@@ -5,31 +5,29 @@ you need to open developer tools and refresh to uncache it -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <style>
+      .red-style {
+        color: red;
+      }
 
-        .red-style{
-            color:red;
-        }
+      .green-style {
+        color: green;
+      }
 
-        .green-style{
-            color:green;
-        }
-
-        #id{
-            color:orange;
-        }
-
+      #id {
+        color: orange;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <!--
+      <!--
           
         inline css higher priorty than class
         and id
@@ -39,21 +37,17 @@ you need to open developer tools and refresh to uncache it -->
         whats written 
         later will take more priorty-->
 
-        <p id="id" class="red-style green-style"
-        
-        style="color:blue;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis perferendis, totam voluptates earum libero voluptate dolorum nisi dolores 
-        </p>
+      <p id="id" class="red-style green-style" style="color: blue;">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+        perferendis, totam voluptates earum libero voluptate dolorum nisi
+        dolores
+      </p>
 
-        <p id="id" class="red-style green-style" >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis perferendis, totam voluptates earum libero voluptate dolorum nisi dolores 
-        </p>
-
-
-
-
-
+      <p id="id" class="red-style green-style">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+        perferendis, totam voluptates earum libero voluptate dolorum nisi
+        dolores
+      </p>
     </div>
-    
-</body>
+  </body>
 </html>

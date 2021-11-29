@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="text/javascript">
-        
-        var a= prompt("enter number");
-        var num= parseInt(a);
+      var a = prompt('enter number')
+      var num = parseInt(a)
 
-        for (var i=1; i<=num; i++)
-        {
-            for( var j=num; j>=i; j--)
-            {
-                document.write("&nbsp ");
-            }
-            for( var k=1; k<(i*2); k++)
-            {
-                document.write("*");
-            }
-            document.write("<br>");
-            
-   
+      for (var i = 1; i <= num; i++) {
+        for (var j = num; j >= i; j--) {
+          document.write('&nbsp ')
         }
+        for (var k = 1; k < i * 2; k++) {
+          document.write('*')
+        }
+        document.write('<br>')
+      }
     </script>
-    
-</body>
+  </body>
 </html>

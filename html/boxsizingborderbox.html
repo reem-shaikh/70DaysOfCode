@@ -5,98 +5,88 @@
 
 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .container{
-            max-width: 600px;
-            margin: 0 auto;
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-        }
+      .row {
+        width: 100%;
+      }
 
-        .row{
+      .col {
+        display: inline-block;
+        width: 32%;
+        height: 200px;
 
-            width:100%;
+        /* drop to next line */
+        padding: 20px;
+        border: 1px solid red;
 
-        }
+        /*because its set to default box model */
+        box-sizing: content-box;
+      }
 
-        .col {
-            display: inline-block;
-            width:32%;
-            height:200px;
+      /*box model prperty */
+      .container1 {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-            /* drop to next line */
-            padding:20px;
-            border:1px solid red;
+      .row1 {
+        width: 100%;
+      }
 
-            /*because its set to default box model */
-            box-sizing: content-box;
-        }
+      .col1 {
+        display: inline-block;
+        width: 32%;
+        height: 200px;
 
-        /*box model prperty */
-        .container1{
-            max-width: 600px;
-            margin: 0 auto;
+        /* drop to next line */
+        padding: 20px;
+        border: 1px solid red;
 
-        }
-
-        .row1{
-
-            width:100%;
-
-        }
-
-        .col1 {
-     
-            display: inline-block;
-            width:32%;
-            height:200px;
-
-            /* drop to next line */
-            padding:20px;
-            border:1px solid red;
-
-            /*border box places 
+        /*border box places 
             all in same line
             it enlarges width and height to max */
-            box-sizing: border-box;
-        }
+        box-sizing: border-box;
+      }
 
-       /*to make all elements border-box by default 
+      /*to make all elements border-box by default 
        do this
        */
-       /* html{
+      /* html{
            box-sizing: border-box;
        }
 
        *, *::before, *::after {
            box-sizing: inherit;
        } */
-
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main class="container">
-        <div class="row">
-            <div class="col"> one </div>
-            <div class="col"> two </div>
-            <div class="col"> three </div>
-        </div>
+      <div class="row">
+        <div class="col">one</div>
+        <div class="col">two</div>
+        <div class="col">three</div>
+      </div>
     </main>
 
     <main class="container1">
-        <div class="row1">
-            <div class="col1"> one </div>
-            <div class="col1"> two </div>
-            <div class="col1"> three </div>
-        </div>
+      <div class="row1">
+        <div class="col1">one</div>
+        <div class="col1">two</div>
+        <div class="col1">three</div>
+      </div>
     </main>
-    
-</body>
+  </body>
 </html>

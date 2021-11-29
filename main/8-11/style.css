@@ -1,98 +1,93 @@
 * {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 body {
   /* background-image: url('https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
 
-  background-image: url('https://images.pexels.com/photos/816608/pexels-photo-816608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-image: url("https://images.pexels.com/photos/816608/pexels-photo-816608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 header {
   background-color: black;
   height: 70px;
-  text-align:center;
-  }
+  text-align: center;
+}
 
 a {
-text-decoration: none;
-color:white;
-padding-right:50px;
+  text-decoration: none;
+  color: white;
+  padding-right: 50px;
 }
 
 nav {
-width: 100%;
-float: right;
-text-align: center;
-line-height: 70px;
+  width: 100%;
+  float: right;
+  text-align: center;
+  line-height: 70px;
 
-font-size:large;
-background-color: black;
+  font-size: large;
+  background-color: black;
 }
 
-*{
-text-align: center;
+* {
+  text-align: center;
 }
 
-footer{
-background-color: rgb(37, 27, 27);
-margin-top: 800px;
-padding: 20px;
-line-height:20px;
-text-align: center; 
-color: whitesmoke;
+footer {
+  background-color: rgb(37, 27, 27);
+  margin-top: 800px;
+  padding: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: whitesmoke;
 }
 
 #brand {
-width:40% ;
-color:white;
-float: left;
-text-align: center;
-line-height: 70px;
+  width: 40%;
+  color: white;
+  float: left;
+  text-align: center;
+  line-height: 70px;
 }
 
-td{
- width: 20%;
- 
+td {
+  width: 20%;
 }
 
 aside {
-width: 50%;
-padding-left: 15px;
-margin-bottom: 80px;
-margin-left: 15px;
-float: right;
-font-style: italic;
-color:white;
+  width: 50%;
+  padding-left: 15px;
+  margin-bottom: 80px;
+  margin-left: 15px;
+  float: right;
+  font-style: italic;
+  color: white;
 }
 
-article{
-float:left;
-width:50%;
+article {
+  float: left;
+  width: 50%;
 }
 
-.color{
-  color:white;
-
+.color {
+  color: white;
 }
 
-h1{
+h1 {
   line-height: 60px;
   color: white;
-  display:inline;
+  display: inline;
 }
 
-h2{
-  display:block;
-
+h2 {
+  display: block;
 }
 
-ul{
+ul {
   list-style-type: none;
 }
 
-
-aside{
-  margin-top:50px;
-
+aside {
+  margin-top: 50px;
 }

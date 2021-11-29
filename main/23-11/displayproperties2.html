@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>inline and block elements</title>
 
     <style>
-
-        div, span{
-            border:1px solid blue;
-            width:100px;
-            height:50px;
-            display: inline-block;
-        }
-
-    
+      div,
+      span {
+        border: 1px solid blue;
+        width: 100px;
+        height: 50px;
+        display: inline-block;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!--
         block elements:
         paragraph is a block element
         li, div
     -->
     <p style="border: 2px solid red;">this is a paragraph</p>
-    <p style="border:2px solid blue;">this is a paragraph</p>
+    <p style="border: 2px solid blue;">this is a paragraph</p>
 
     <!--inline elements: only occupies the required width
         span tag, a, img
         is inline-->
-    <span style="border:2px solid green; width:100px; height:50px; margin-bottom: 15px;">this is para</span>
-    <span style="border:2px solid darkgreen">this is para</span>
+    <span
+      style="
+        border: 2px solid green;
+        width: 100px;
+        height: 50px;
+        margin-bottom: 15px;
+      "
+    >
+      this is para
+    </span>
+    <span style="border: 2px solid darkgreen;">this is para</span>
 
     <!--you cannot set 
     height
@@ -49,6 +56,5 @@ can be implemented on both block and inline elements-->
     <div>block element</div>
     <span>inline element</span>
     <span>inline element</span>
-
-</body>
+  </body>
 </html>

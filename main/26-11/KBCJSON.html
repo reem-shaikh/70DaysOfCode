@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KBC</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="text/javascript">
-        //list of 15 questions 
-        //with 4 options each 
+      //list of 15 questions
+      //with 4 options each
 
-        //question (object)
-        //1. QS (text/ audio/ video) (properties)
-        //2. list of 4 options
-            //array with 4 elements 
-            //single element is a string
-        //3. correct answer 
-        //4. price amount 
+      //question (object)
+      //1. QS (text/ audio/ video) (properties)
+      //2. list of 4 options
+      //array with 4 elements
+      //single element is a string
+      //3. correct answer
+      //4. price amount
 
-//this is the right / better way 
-//to write this
+      //this is the right / better way
+      //to write this
 
-//JAVASCRIPT OBJECT NOTATION --> JSON 
-//Json is structure of nesting of stuff, objects of arrays and different datatypes
+      //JAVASCRIPT OBJECT NOTATION --> JSON
+      //Json is structure of nesting of stuff, objects of arrays and different datatypes
 
-//OBJECT NOTATION: OBJECT INSIDE OBJECT 
-                // ARRAY INSIDE OBJECT 
+      //OBJECT NOTATION: OBJECT INSIDE OBJECT
+      // ARRAY INSIDE OBJECT
 
-        var question_list = [
-            {
-'text' : "which subject we are studying?",
+      var question_list = [
+        {
+          text: 'which subject we are studying?',
 
-'options' : ['html', 'css', 'js', 'react'],
-//we can create array inside object 
+          options: ['html', 'css', 'js', 'react'],
+          //we can create array inside object
 
-'correct_answer' : 'javascript',
-'price_amount': 1000
+          correct_answer: 'javascript',
+          price_amount: 1000,
+        },
+      ]
 
-                
-            }
-        ];
-        
-console.log(question_list);    
-
-
-        
-
-
-
+      console.log(question_list)
     </script>
-    
-</body>
+  </body>
 </html>

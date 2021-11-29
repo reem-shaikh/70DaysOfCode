@@ -4,31 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Factorial</title>
 </head>
 <body>
     <script>
+ function fact(num) {
+        var factorial = 1;
 
-const n = parseInt(prompt('Enter a positive integer: '));
+        for (num; num >= 1; num--) {
+          factorial = factorial * num;
+        }
+        return factorial;
+      }
 
-
-if (n < 0) {
-    console.log('Error! ');
-}
-
-else if (n === 0) {
-    console.log(`factorial is 1.`);
-}
-
-
-else {
-    let fact = 1;
-    for (i = 1; i <= n; i++) {
-        fact = fact * i;
-    }
-    console.log(`The factorial is ${fact}.`);
-
-}
+      var num = parseInt(prompt("enter the number to calculate factorial"));
+      var fact_num = fact(num);
+      console.log(fact_num);
     </script>
 </body>
 </html>

@@ -86,23 +86,24 @@
 
 -->
 
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attributes</title>
-</head>
-<body>
-    <form accept-charset="utf-8"
-    action="" method="post"
-    name="login-form"
-    novalidate
-    target="_blank">
-<!--accept-chaarset is assigned by default 
+  </head>
+  <body>
+    <form
+      accept-charset="utf-8"
+      action=""
+      method="post"
+      name="login-form"
+      novalidate
+      target="_blank"
+    >
+      <!--accept-chaarset is assigned by default 
         it contains all the ch encodings that are required for form submission
     
     it can also be specified in head section, like we did above
@@ -111,35 +112,30 @@
 UTF: character encoding for unicode 
 ISO-8859-1: character encoding for latin alphabet 
 -->
-        First Name:<input type="text" autocomplete="on" 
-        name="fname" 
+      First Name:
+      <input
+        type="text"
+        autocomplete="on"
+        name="fname"
         placeholder="enter name"
-     
-        />
-        <!--name
+      />
+      <!--name
           tells server from which name data was input 
         -->
-        <br>
-        <br>
-        <input type="text" autofocus />
-        <br>
-        <br>
-        <input type="email"
-        name="email" 
-        multiple>
-        <!--if you want to 
+      <br />
+      <br />
+      <input type="text" autofocus />
+      <br />
+      <br />
+      <input type="email" name="email" multiple />
+      <!--if you want to 
         take more than one value in same field 
     you can use multiple-->
-    <input type="file"
-    name="file" multiple>
-    <br>
-    <br>
+      <input type="file" name="file" multiple />
+      <br />
+      <br />
 
-
-
-        <input type="submit" >
-
+      <input type="submit" />
     </form>
-    
-</body>
+  </body>
 </html>

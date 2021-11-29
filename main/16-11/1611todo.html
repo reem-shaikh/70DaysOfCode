@@ -1,66 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-       
-       tr:nth-child(odd){
-           background-color: darkcyan;
+      tr:nth-child(odd) {
+        background-color: darkcyan;
+      }
 
-       }
+      tr:nth-child(even) {
+        background-color: darkmagenta;
+      }
 
-       tr:nth-child(even){
-           background-color: darkmagenta;
+      tr:nth-child(4) {
+        background-color: darkolivegreen;
+      }
 
-       }
+      td {
+        font-size: 70px;
+      }
 
-       tr:nth-child(4){
-          background-color: darkolivegreen;
-       }
+      /*n starts with 0 */
+      tr:nth-child(2n)
+       /* 0, 2, 4, 6, 8 */ {
+        color: darkred;
+      }
 
-       td{
-           font-size: 70px;
-       }
-
-       /*n starts with 0 */
-       tr:nth-child(2n)
-       /* 0, 2, 4, 6, 8 */
-       {
-           color:darkred;
-
-       }
-
-       tr:nth-child(2n+1) /*odd */
-       {
-           color: orangered;
-       }
+      tr:nth-child(2n+1) /*odd */ {
+        color: orangered;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!---->
     <table border="1">
-        <tbody>
-            <tr class="light"> 
-                <td>table item </td>
-            </tr>
-            <tr class="dark"> 
-                <td>table item </td>
-            </tr>
-            <tr class="light"> 
-                <td> table item</td>
-            </tr>
-            <tr class="dark"> 
-                <td> table item</td>
-            </tr>
-            <tr class="light"> 
-                <td> table item</td>
-            </tr>
-        </tbody>
+      <tbody>
+        <tr class="light">
+          <td>table item</td>
+        </tr>
+        <tr class="dark">
+          <td>table item</td>
+        </tr>
+        <tr class="light">
+          <td>table item</td>
+        </tr>
+        <tr class="dark">
+          <td>table item</td>
+        </tr>
+        <tr class="light">
+          <td>table item</td>
+        </tr>
+      </tbody>
     </table>
-    
-</body>
+  </body>
 </html>

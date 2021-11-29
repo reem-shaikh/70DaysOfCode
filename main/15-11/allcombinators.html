@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>other types of combination selectors</title>
     <!--
         cobination selectors:
@@ -15,88 +15,82 @@
         -and                div.class
     -->
     <style>
-        /*and selector */
-        div.class{
-            color:purple;
-        }
+      /*and selector */
+      div.class {
+        color: purple;
+      }
 
-        /* or selector */
-        span, li{
-            background-color:blue; 
-        }
+      /* or selector */
+      span,
+      li {
+        background-color: blue;
+      }
 
-        /*descendant selector:
+      /*descendant selector:
         as long as its inside div 
         its going to add styling to it*/
-        ul li{
-         background-color: springgreen;
-        }
+      ul li {
+        background-color: springgreen;
+      }
 
-        div b{
-            background-color: violet;
+      div b {
+        background-color: violet;
+      }
 
-        }
-
-        /*direct child
+      /*direct child
         b is not direct child of div thats why its not accepting */
-        div > b{
-            background-color: yellow;
+      div > b {
+        background-color: yellow;
+      }
 
-        }
+      /* b is direct child of span */
+      span > b {
+        background-color: yellow;
+      }
 
-        /* b is direct child of span */
-        span > b{
-            background-color: yellow;
-
-        }
-
-        /* sibling selectors
+      /* sibling selectors
         it selects elements on the same level 
         and after that element */
 
-        /*generalised sibling */
-        li.red ~ li{
-            /* background-color: turquoise; */
-        }
+      /*generalised sibling */
+      li.red ~ li {
+        /* background-color: turquoise; */
+      }
 
-        /*adjacent sibling
+      /*adjacent sibling
         only checks element directy after */
-        li.red + li{
-            /* background-color: yellow; */
-        }
-
-  
-  </style>
-</head>
-<body>
+      li.red + li {
+        /* background-color: yellow; */
+      }
+    </style>
+  </head>
+  <body>
     <div class="class">this is div tag</div>
     <div>Lorem, ipsum dolor.</div>
     <span class="class">this is span tag</span>
 
     <ul>
-        <li class="red">
-           item 1
-        </li>
+      <li class="red">
+        item 1
+      </li>
 
-        <li>
+      <li>
         item 2
-        </li>
+      </li>
 
-        <li>
+      <li>
         item 3
-        </li>
+      </li>
 
-        <li>
+      <li>
         item 4
-        </li>
+      </li>
     </ul>
 
     <div>
-        <span>
-            <b>nested text</b>
-        </span>
+      <span>
+        <b>nested text</b>
+      </span>
     </div>
-
-    
-</body>
+  </body>
 </html>
