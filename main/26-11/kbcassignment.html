@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+         //list of 15 questions
+        //with 4 options each
+
+        //question (object)
+        //1. QS (text/ audio/ video) (properties)
+        //2. list of 4 options
+        //array with 4 elements
+        //single element is a string
+        //3. correct answer
+        //4. price amount
+
+          //the assignment starters
+        var kbc =
+          {
+            'current_question_no' : 0,
+            'print_question' : function ()
+            {
+              //print next question on console
+              
+            },
+
+            'select_answer': function(answer)
+            {
+              //checks whether answer is right or not
+              //correct- increement counter
+              //incorrect- show message showing you have lost and end the game
+            },
+
+          question_list = [
+          {
+          text: 'which subject we are studying?',
+
+          options: ['html', 'css', 'js', 'react'],
+          //we can create array inside object
+
+          correct_answer: 'js',
+          price_amount: 1000,
+          }
+      ],
+
+        'winning_prize' : 0,
+
+        };
+    </script>
+  </body>
+</html>

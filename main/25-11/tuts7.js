@@ -60,9 +60,29 @@ console.log(marks);
 //3. splice 
 //remove element from position 
 //start index, remove these number of elements 
+//splice(start, end)
 marks.splice(1, 2);
 console.log(marks);
 // (3) [12, 34, 56]
+
+//4. Slice 
+//remove elements from existing array and place it in a new array
+//slice(start, end) 
+var newarr = ["sanjay", "aman", "rehman", "rahul", "karan"];
+
+//1. between two elements
+var nb = newarr.slice(1,4);
+//between 1 and 4
+document.write(nb, "<br>");
+//aman,rehman,rahul
+
+//2. starting from one element
+var nb = newarr.slice(1);
+//between 1 and 4
+document.write(nb);
+//aman,rehman,rahul,karan
+
+
 
 //reverse array 
 marks.reverse();

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Functions</h2>
+    <script>
+
+        //when we call a function
+        //saves a, b parameter value in a function
+        function sum(a, b)
+        {
+            c = a+b;
+            console.log(c);
+        }
+        sum(10,14);
+
+        //function can be assigned in a variable
+        //saves entire function in the variable sum 
+        var sum = function (a, b)
+        {
+            c = a+b;
+            console.log(c);
+        }
+        sum(11,14);
+
+
+        //we can also save it as an object property 
+
+        var obj = {
+            'key1' : 'something',
+            //key can also store a function 
+            //key can be stored 
+            //as an element of an array
+
+            'key2' : function(a, b) 
+            //function defination 
+            {
+                var sum = a+b;
+                return sum;
+            },
+            //calling outside function in the object 
+            'sum' : sum,
+        }
+        console.log(obj);
+        //console -> global object 
+        //log -> function 
+
+        //to call the function in the object
+        var s = obj.key2(10, 20);
+        console.log("sum of function",s);
+
+        //calling the function 
+        console.log(obj.sum(40,50));
+    
+
+        //approach without creating a class 
+        /*
+        var console = {
+            'error' : function() {},
+            'log' : function() {},
+             etc...
+        }
+
+
+        */
+    </script>
+</body>
+</html>

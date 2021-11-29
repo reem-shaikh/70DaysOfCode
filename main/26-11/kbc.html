@@ -7,6 +7,7 @@
     <title>KBC</title>
   </head>
   <body>
+    <!--create an object -->
     <script type="text/javascript">
       //list of 15 questions
       //with 4 options each
@@ -21,19 +22,20 @@
 
       var question_list = [{}]
       var single_qs = {
-        text: 'which subject we are studying?',
+        'text': 'which subject we are studying?',
 
-        options: ['html', 'css', 'js', 'react'],
+        'options': ['html', 'css', 'js', 'react'],
         //we can create array inside object
 
-        correct_answer: 'js',
-        price_amount: 1000,
+        'correct_answer': 'js',
+        'price_amount': 1000,
       }
 
       question_list.push(single_qs)
       console.log('single_qs', single_qs)
 
       console.log('qs list', question_list)
+      console.log(single_qs.text);
 
       /*
 

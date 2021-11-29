@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocks and Scopes</title>
+</head>
+<body>
+    <!--
+        ✅Block 
+        collection of instructions combined together 
+
+        Any code written inside a pair of curly brackets- Block
+
+        function fn_name (parameter)
+        {
+            Functional Block code 
+        }
+
+    -->
+    <script>
+
+        //Block of code
+        {
+        var a = 10;
+        console.log(a);
+        }
+
+        //can only access elements in its scope 
+        var abcd = function(param)
+        {
+            var inner_variable = 10; 
+            console.log("inner var",inner_variable);
+            console.log("param",param)
+        }
+
+        abcd("string");
+
+        var function1 = abcd("string2");
+        console.log(function1);
+
+        //console.log(inner_variable);
+        //shows error because we cannot access any content outside of its scope 
+
+
+        //1. variables have Functional scope
+        function modJs(love)
+        //function scope starts
+        {
+            if(love)
+            {
+                var name = "Reem";
+                var sname = "shaikh";
+
+                console.log(name + sname);
+            }
+
+        }//function scope ends
+        modJs(true);
+
+        //trying to access var outside block scope 
+        function modJs(love){
+            if(love)
+            {
+                var name = "Reem";
+                var sname = "shaikh";
+            }
+            
+            console.log(name + sname);
+
+        }//function scope ends
+        modJs(true);
+
+
+        //2. Let and const have block scope
+        //trying to access let inside block scope 
+        function modJs(love){
+            if(love)
+            {
+                let name = "Reem";
+                let sname = "shaikhs";
+
+                console.log(name + sname);
+            }
+
+        }//function scope ends
+        modJs(true);
+
+        //trying to access et outside block scope 
+        function modJs(love){
+            if(love)
+            {
+                let name = "Reem";
+                let sname = "shaikhs";
+            }
+            console.log(name + sname);
+
+        }//function scope ends
+        modJs(true);
+        /*
+    block.html:101 Uncaught ReferenceError: sname is not defined
+    at modJs (block.html:101)
+    at block.html:62
+
+        */
+
+    </script>
+    <!--
+        Scope:
+         at what level is the data available
+        - Functional 
+        - Block 
+    -->
+    
+</body>
+</html>

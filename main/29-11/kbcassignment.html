@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //question 1
+         var kbc1 =
+          {
+          
+          'current_question_no' : 1,
+          'print_question' : function ()
+            {
+              //print next question on console
+
+            },
+
+          'question_list' : [
+          {
+          text: 'which subject we are studying?',
+
+          options: ['html', 'css', 'js', 'react'],
+          //we can create array inside object
+
+          correct_answer: 'js',
+          price_amount: 1000,
+          }
+      ],
+
+        };
+
+        console.log(kbc1);
+        console.log("current question number",kbc1.current_question_no);
+        console.log("winning price",kbc1.winning_prize);
+        console.log("question list",kbc1.question_list);
+
+        
+
+
+         //question 2
+         var kbc2 =
+          {
+          
+          'current_question_no' : 2,
+
+          'question_list' : [
+          {
+          text: 'which subject we are studying?',
+
+          options: ['html', 'css', 'js', 'react'],
+          //we can create array inside object
+
+          correct_answer: 'js',
+          price_amount: 1000,
+          }
+      ],
+
+        };
+
+        console.log(kbc2);
+        console.log("current question number",kbc2.current_question_no);
+        console.log("winning price",kbc2.winning_prize);
+
+       
+
+
+
+    </script>
+    
+</body>
+</html>

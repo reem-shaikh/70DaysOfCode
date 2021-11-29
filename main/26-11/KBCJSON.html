@@ -28,19 +28,28 @@
       //OBJECT NOTATION: OBJECT INSIDE OBJECT
       // ARRAY INSIDE OBJECT
 
-      var question_list = [
-        {
-          text: 'which subject we are studying?',
+      var question_list = [{
+  
+        "text" : "which subject we are studying?",
 
-          options: ['html', 'css', 'js', 'react'],
-          //we can create array inside object
+        "options": ['html', 'css', 'js', 'react'],
+        //we can create array inside object
 
-          correct_answer: 'javascript',
-          price_amount: 1000,
-        },
-      ]
+        "correct_answer" : 'js',
+        "price_amount" : 1000,
+      }];
 
-      console.log(question_list)
+      console.log(question_list);
+      console.log(question_list.options);
+
+      // let myJsonStr = JSON.stringify(question_list);
+      // console.log(myJsonStr);
+
+      
+
+
+     
+    
     </script>
   </body>
 </html>

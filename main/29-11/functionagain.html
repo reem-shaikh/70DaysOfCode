@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Function again</h2>
+    <script>
+        function mul(a,b)
+        {
+            let total = a*b;
+            return total;
+        }
+
+        var multiplication = mul(10,20);
+        console.log(multiplication);
+
+        //function as a variable reference 
+        //used mostly in industry approach 
+        var mul = function (a,b)
+        {
+            let total = a*b;
+            return total;
+        }
+
+        var multiplication = mul(10,20);
+        console.log(multiplication);
+
+
+        //function as value in an object 
+        var calculator = {
+            'mul' : mul,
+            'div' : "",
+            'sum' : "",
+            'diff': "",
+
+        };
+
+        //calling the function inside the object
+        var multiplication = calculator.mul(10,20);
+        console.log(multiplication);
+
+
+        //create calculator object with 4 different functionalities 
+
+        //similarly we can even define function inside a key in the object 
+        var calculator = {
+            //calculator objects
+
+            'mul' : function (a,b)
+            {
+            let total = a*b;
+            return total;
+            },
+
+            'div' : function(a,b)
+            {
+            let total = a/b;
+            return total;
+            },
+
+            'sum' : function(a,b)
+            {
+            let total = a+b;
+            return total;
+            },
+            'diff': function(a,b)
+            {
+            let total = a-b;
+            return total;
+            },
+
+        };
+
+        var multiplication = calculator.mul(10,30);
+        console.log(multiplication);
+
+        var addition = calculator.sum(10,30);
+        console.log(addition);
+
+        var divide = calculator.div(10,30);
+        console.log(divide);
+        
+        var difference = calculator.diff(10,30);
+        console.log(difference);
+
+       
+
+
+    </script>
+</body>
+</html>

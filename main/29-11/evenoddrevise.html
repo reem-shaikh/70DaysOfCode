@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+var num = prompt("enter the number");
+num = parseInt(num);
+// num = Math.round(num);
+//string is a collection/array of characters
+
+var sumodd = 0;
+var sumeven = 0;
+
+       while(num > 0)
+       {
+           var digit = num % 10;
+           num = num/ 10;
+           num = parseInt(num);
+
+           console.log(digit);
+           var rem = digit % 2;
+           //checking if modulo is even or odd 
+
+           if(rem == 0)
+           {
+               sumeven = sumeven + digit;
+           }
+           else
+           {
+               sumodd = sumodd + digit;
+           }
+
+       }
+       console.log("sumeven",sumeven);
+       console.log("sumodd",sumodd);
+    </script>
+</body>
+</html>
