@@ -114,8 +114,8 @@ you can do this:-
    we defined a Json object container named "question_list"
 
      
-      var question_list = [{}]
-      var single_qs = {
+         var question_list = [{}]
+         var single_qs = {
         'text': 'which subject we are studying?',
 
         'options': ['html', 'css', 'js', 'react'],
