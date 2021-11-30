@@ -1,67 +1,11 @@
-1. what is a programming language?
-   used to communicate human to machine
-   converts code to binary language
-
-   we give certain instructions to the machine namely algo
-
-2. Algorithm- 
-   machine undestandable code
-   - logic of functionality that we want to execute 
-
-   set of steps which are to be executed by the machine 
-
-3. Pseudo code 
-   blueprint of our program
-
-pseudo -> false/ fake
-
-used to convey logic
-steps of instructions written in plain english, so that it can be communicated with humans 
-
-eg: calculate sum of two numbers 
-1. take input of number 1 
-2. take input of number 2
-3. make addition of number 1 and number 2 and save it in sum variable 
-
-Q. sort the data and search on it 
-- 2 different algos that are combined to make a single program 
-
-Q. whether number 1 can be divided by number 2 or not 
-1. take input of num1
-2. take input of num2 
-3. check whether num2 is 0 or not
-  3.1 cannot divide by 0 
-4. num2 / num1 and store the remainder in "rem" variable
-5. if rem==0 
-  5.1 output: number is divisible
-6. otherwise (else)
-  6.1 output: number is not divisible 
-
-1/2 - false
-3/0 - undefined
-8/4 - true
-
-Q. display number 1,2,3,4,5,6.. upto n 
-1. take input of n 
-2. set 1 to a variable called "i"
-3. start a loop from 1 to n 
-   while(i<n)
-3.1 output i 
-3.2 increase the value of i by 1 
-
-4. end of execution
-
-psuedo code: you need to explain code to someone else 
-
-
-✅what can JS do?
+## ✅what can JS do?
 JS is universal language.
 
 give functionality in webpage. both:
 - frontend (client side)
 - backend (server side)
 
-use cases:
+### use cases:
 - filter results on fipkart 
 - change language on web page 
 - automatically load google autocomplete
@@ -71,22 +15,27 @@ can create
 - web apps
 - iot 
 
-🔳interview questions.
+## 🔳interview questions.
+### Difference between java and js
 
 ✅Java
+```bash
 - OOP programming language
 - requires jvm, run on vrtual machine 
 
 - compiler language
   COMPILED INTO SINGLE FILE 
   AND THEN EXECUTED 
+```
 
 
 ✅Js
+```bash
 - OOP scripting language 
 - runs on browser only 
 - intrepreted language- 
   EXECUTED LINE BY LINE 
+```
 
 HLL -UNDESTANDABLE BY HUMANS 
 - JAVA, C, CPP, PYTHON etc 
@@ -96,21 +45,21 @@ LLL -UNDESTANDABLE BY MACHINES
 
 process of compiling converts HLL -> LLL
 
-Q. Intrepreted vs Compile code.
+## Q. Intrepreted vs Compile code.
 
 Programming language= 
   scripting language 
 + compiler language
 
 
-✅Scripting Language
+## ✅Scripting Language
 Intrepreted 
 line by line conversion HLL -> LLL 
 - its slower because it has to execute with every line of code everytime a the code is revamped 
 
 eg: CSS, JS, RUBY, PYTHON, PHP, VBA, ES, TYPESCRIPT
 
-✅Compiler Language
+## ✅Compiler Language
 Compiled
 completely source code compiled from HLL -> LLL
 - compiled is faster because its executed once when file is saved and run 
@@ -126,7 +75,7 @@ int another = 10;
 another = false;
 ❌throws error, because were assigning a boolean value to int code 
 
-✅loosely typed programming language/ dyanamically typed
+## ✅loosely typed programming language/ dyanamically typed
 **type of data being stored in a variable can changed at any point of time** 
 
 JS is loosely typed. it doesnt care what datatype your storing in variable
