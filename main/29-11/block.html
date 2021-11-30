@@ -60,6 +60,7 @@
         modJs(true);
 
         //trying to access var outside block scope 
+        //var has functional scope so it doesnt show any error both in block and functional scope 
         function modJs(love){
             if(love)
             {
@@ -87,7 +88,7 @@
         }//function scope ends
         modJs(true);
 
-        //trying to access et outside block scope 
+        //trying to access it outside block scope 
         function modJs(love){
             if(love)
             {

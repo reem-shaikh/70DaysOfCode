@@ -31,45 +31,66 @@
       // console.log(pi);
       // type error
 
+
+      //within the block scope
+      function modJS(str1) {
+        if (str1) {
+          let name = 'Reem'
+          const sname = 'Shaikh'
+          console.log(name + sname)
+          
+        } //block scope
+      } //function scope
+
+      modJS(true)
+
+      //outside the block scope 
       function modJS(str1) {
         if (str1) {
           let name = 'Reem'
           const sname = 'Shaikh'
 
-          console.log(name + sname)
-        } //block scope
-      } //function scope
-
-      modJS(true)
-
-      //difference btw var and let
-      //when we declare var outside the block scope, then still we will get the output because
-
-      //var has function scope
-      // function modJS(str1){
-      //         if(str1)
-      //         {
-      //         var name = "Reem";
-      //         var sname = "Shaikh";
-
-      //         }//block scope
-      //         console.log(name + sname);
-
-      //     }//function scope
-
-      // modJS(true);
-
-      //however with let and const the output wont be shown because they are block scoped and the console.log is defined outside its scope
-      function modJS(str1)
-       {
-        if (str1) {
-          let name = 'Reem'
-          const sname = 'Shaikhs'
+          
         } //block scope
         console.log(name + sname)
       } //function scope
 
       modJS(true)
+      /*
+    letvarconst.html:41 Uncaught ReferenceError: sname is not defined
+    at modJS (letvarconst.html:41)
+    at letvarconst.html:44
+    */
+
+      //difference btw var and let
+      //when we declare var outside the block scope, then still we will get the output because
+
+      //var has function scope
+      function modJS(str1){
+              if(str1)
+              {
+              var name = "Reem";
+              var sname = "Shaikh";
+
+               }//block scope
+              console.log(name + sname);
+
+           }//function scope
+
+      modJS(true);
+
+      //however with let and const the output wont be shown because they are block scoped and the console.log is defined outside its scope
+      function modJS(str1)
+      {
+         if (str1) {
+          let name = 'Reem'
+          const sname = 'Shaikhs'
+        } //block scope
+         console.log(name + sname)
+      } //function scope
+
+    modJS(true)
+    
     </script>
   </body>
 </html>

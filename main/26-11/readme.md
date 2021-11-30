@@ -1,5 +1,5 @@
 1. Object
-   > > blueprint
+   >> blueprint
    - used to call function
 
 > seperate DS in JS
@@ -19,8 +19,8 @@ JavaScript uses objects for other things They can be object constructors and nam
 - uses index
 - sequence of elements is important
 
-> > Use this when you will have a list of data you want
-> > eg:
+>> Use this when you will have a list of data you want
+>> eg:
 
 - todo
 - chat message list
@@ -32,8 +32,8 @@ JavaScript uses objects for other things They can be object constructors and nam
 - used the concept of keys (can be custom defined)
 - sequence is not important
 
-> > use this when you have to store properties of something
-> > eg:
+>> use this when you have to store properties of something
+>> eg:
 
 - properties of amazon products
 - properties of logged in user
@@ -121,7 +121,7 @@ score: 99.89
 
     Data we requested is either 
    - static 
-   - dyanamic 
+   - dyanamic (dyanamically generated)
 
    2. Response 
    Data resturned in response to the request made at client side from 
@@ -195,6 +195,15 @@ protocols for different services:
    "heart", "earth"
 
 ## Function scope VS Block scoped
+ ✅Block 
+   collection of instructions combined together 
+
+   Any code written inside a pair of curly brackets- Block
+
+  Scope:
+   at what level is the data available
+   - Functional 
+   - Block 
 
 function modjs(str1)
 **function scope starts**
@@ -213,28 +222,76 @@ modJS(true);
 Keywords:
 
 1.  Var
-    var name = "vinod";
-    name = "thapa";
-    console.log(name);
+    can be defined anywhere in between 
+    1. block scope 
+    2. function scope 
+   
+   1. In between Block scope 
+    ```bash
+    function modJs()
+    {
+    if(str1){
+    var name = "reem";
+    name = "shaikh";
+    console.log(name + sname);
+    } //block scope
+    } //function scope
+    ```
+     //reem shaikh 
 
-   //thapa
+   2. In between Functional scope 
+    ```bash
+    function modJs()
+    {
+    if(str1){
+    var name = "reem";
+    name = "shaikh";
+    }
+    console.log(name + sname);
+    }
+    ```
+   //reem shaikh
 
-    **function scoped**
 2.  Let
-    let name = "reem";
-    name = "thapa";
-    console.log(name);
-    
-    //thapa
+    can be defined only in between block scope 
 
-   **block scoped**
-   if console.log is outside block scope it'll show error.
+    ```bash
+    function modJs()
+    {
+    if(str1){
+    let name = "reem";
+    const sname = "shaikh";
+    console.log(name + sname);
+    } 
+    }
+    ```
+    
+    //reem  **block scoped**
+
+❌if console.log is outside block scope it'll show error.
+   ```bash
+    function modJs()
+    {
+    if(str1){
+    let name = "reem";
+    const sname = "shaikh";
+    } //block scope ends
+    console.log(name + sname);
+    } //function scope ends
+    ```
+
 
 3. Const
-   Fixed Value
+   Can only be declared inside the block scope
+   Fixed Value - Value cannot be updated 
+   {
+   if(str1){
    const pi = "3.14";
    pi = "2.3";
    console.log(pi);
-   // type error
 
-   **block scoped**
+    } //block scope ends
+    } //function scope ends
+    ```
+
+ 
