@@ -164,11 +164,12 @@ you can do this:-
         "correct_answer" : 'js',
         "price_amount" : 1000,
     }];
+
     ```
 
     console.log(question_list);
 
-    ``bash
+    ```bash
     Array(1)
     0: {text: 'which subject we are studying?', options: Array(4), correct_answer: 'js', price_amount: 1000}
     length: 1
@@ -194,7 +195,7 @@ you can do this:-
 
 >> we define question_list as an object inside kbc
 
-   ```bash 
+     ```bash 
      var kbc =
           {
 
@@ -210,8 +211,7 @@ you can do this:-
           }
       ],
 
-        };
-   ```
+        }; ```
 
 >>we add more objects inside it 
    ```bash
@@ -246,9 +246,8 @@ you can do this:-
 
         'winning_prize' : 0,
 
-        };
+        }; ```
 
-   ```
    console.log(kbc);
 
    ```bash
@@ -263,9 +262,7 @@ you can do this:-
 
    select_answer: ƒ (answer)
    winning_prize: 0
-   [[Prototype]]: Object
-
-   ```
+   [[Prototype]]: Object ```
 
 
      
