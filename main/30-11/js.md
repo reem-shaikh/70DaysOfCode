@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 ## ✅what can JS do?
-=======
-✅what can JS do?
->>>>>>> 7bc0fc50437dae4d25697793a1915b018c356b46
 JS is universal language.
 
 give functionality in webpage. both:
