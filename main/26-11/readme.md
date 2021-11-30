@@ -12,7 +12,6 @@ In object, we can define own keys
 JavaScript uses objects for other things They can be object constructors and namespaces Python dictionaries just hold data.
 
 # Arrays Vs Objects
-
 ## Arrays
 
 - collection of elements
@@ -179,10 +178,7 @@ protocols for different services:
 
 
 
-
-
-
-> > Assignment:
+>> Assignment:
 
 1. write a program to calculate factorial of a number
    Factorial of 5 = 1*2*3*4*5 = 120
