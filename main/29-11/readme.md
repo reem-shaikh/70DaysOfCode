@@ -126,7 +126,7 @@ you can do this:-
       }
    
 
-    question_list.push(single_qs)
+       question_list.push(single_qs)
     //pushing single_qs array into question_list 
     console.log('single_qs list', single_qs)
 
@@ -138,7 +138,7 @@ you can do this:-
     [[Prototype]]: Object
   
 
-    console.log('qs list', question_list)
+       console.log('qs list', question_list)
 
    
     (2) [{…}, {…}]
@@ -166,7 +166,7 @@ you can do this:-
 
   
 
-    console.log(question_list);
+        console.log(question_list);
 
     
     Array(1)
@@ -244,7 +244,7 @@ you can do this:-
 
         };
 
-   console.log(kbc);
+        console.log(kbc);
 
  
    {current_question_no: 0, question_list: Array(1), winning_prize: 0, print_question: ƒ, select_answer: ƒ}
