@@ -1,3 +1,151 @@
+1. what is a programming language?
+   used to communicate human to machine
+   converts code to binary language
+
+   we give certain instructions to the machine namely algo
+
+2. Algorithm- 
+   machine undestandable code
+   - logic of functionality that we want to execute 
+
+   set of steps which are to be executed by the machine 
+
+3. Pseudo code 
+   blueprint of our program
+
+pseudo -> false/ fake
+
+used to convey logic
+steps of instructions written in plain english, so that it can be communicated with humans 
+
+eg: calculate sum of two numbers 
+1. take input of number 1 
+2. take input of number 2
+3. make addition of number 1 and number 2 and save it in sum variable 
+
+Q. sort the data and search on it 
+- 2 different algos that are combined to make a single program 
+
+Q. whether number 1 can be divided by number 2 or not 
+1. take input of num1
+2. take input of num2 
+3. check whether num2 is 0 or not
+  3.1 cannot divide by 0 
+4. num2 / num1 and store the remainder in "rem" variable
+5. if rem==0 
+  5.1 output: number is divisible
+6. otherwise (else)
+  6.1 output: number is not divisible 
+
+1/2 - false
+3/0 - undefined
+8/4 - true
+
+Q. display number 1,2,3,4,5,6.. upto n 
+1. take input of n 
+2. set 1 to a variable called "i"
+3. start a loop from 1 to n 
+   while(i<n)
+3.1 output i 
+3.2 increase the value of i by 1 
+
+4. end of execution
+
+psuedo code: you need to explain code to someone else 
+
+
+✅what can JS do?
+JS is universal language.
+
+give functionality in webpage. both:
+- frontend (client side)
+- backend (server side)
+
+use cases:
+- filter results on fipkart 
+- change language on web page 
+- automatically load google autocomplete
+
+can create 
+- mobile apps
+- web apps
+- iot 
+
+🔳interview questions.
+
+✅Java
+- OOP programming language
+- requires jvm, run on vrtual machine 
+
+- compiler language
+  COMPILED INTO SINGLE FILE 
+  AND THEN EXECUTED 
+
+
+✅Js
+- OOP scripting language 
+- runs on browser only 
+- intrepreted language- 
+  EXECUTED LINE BY LINE 
+
+HLL -UNDESTANDABLE BY HUMANS 
+- JAVA, C, CPP, PYTHON etc 
+
+LLL -UNDESTANDABLE BY MACHINES
+- assembly code
+
+process of compiling converts HLL -> LLL
+
+Q. Intrepreted vs Compile code.
+
+Programming language= 
+  scripting language 
++ compiler language
+
+
+✅Scripting Language
+Intrepreted 
+line by line conversion HLL -> LLL 
+- its slower because it has to execute with every line of code everytime a the code is revamped 
+
+eg: CSS, JS, RUBY, PYTHON, PHP, VBA, ES, TYPESCRIPT
+
+✅Compiler Language
+Compiled
+completely source code compiled from HLL -> LLL
+- compiled is faster because its executed once when file is saved and run 
+
+eg: SCSS, SASS, JAVA, KOTLIN
+
+
+✅Strongly typed programming language
+first time assignment, we have to give data type, it cannot be changed in future.
+
+eg: java code
+int another = 10;
+another = false;
+❌throws error, because were assigning a boolean value to int code 
+
+✅loosely typed programming language/ dyanamically typed
+**type of data being stored in a variable can changed at any point of time** 
+
+JS is loosely typed. it doesnt care what datatype your storing in variable
+
+       var another= 10;
+       console.log(another);
+
+       another= "string"; //updating with datatype string
+       console.log(another);
+
+       another= false; //updating with datatype string
+       console.log(another);
+
+       number1 = "sting"
+       console.log(number1)
+
+       number1= false;
+       console.log(number1)
+
 
 ## JavaScript: 
 used both in frontend and backend 
@@ -227,7 +375,7 @@ in JS, array is a collection of multiple datatypes of elements.
 var arr = [1,"reem",3,4,5.55];
 console.log(arr);
 ```
-### Array methods 
+# Array methods 
 
 ## Creating a new array 
 
@@ -263,7 +411,7 @@ arr.sort();
 arr.toString();
 ```
 
-# Update an array index 
+## Update an array index 
         ```bash
         arr[1] = 20;
         console.log(arr);
@@ -275,32 +423,32 @@ arr.toString();
 
         ```
 
-# Length of the array 
+## Length of the array 
         ```bash
         var l = arr.length;
         console.log(l);
         ```
 
-# Append to an array 
+## Append to an array 
         ```bash
         arr.push("new element", "new element 2");
         console.log(arr);
         ```
 
-# Display elements in the array 
+## Display elements in the array 
         ```bash
         for(var i=0; i<arr.length; i++)
         {
             console.log(arr[i]);
         }
         ```
-# Boolean array or not 
+## Boolean array or not 
 ```bash
 console.log(Array.isArray(arr)); //true 
 console.log(Array.issArray('dsfs')); //false
 ```
 
-# which index in the array, is the element located?
+## which index in the array, is the element located?
 const marks = [12, 23, 23, 34, 56];
 
 ```bash
@@ -308,7 +456,7 @@ let value = marks.indexOf(12);
 console.log(value); //index0
 ```
 
-# Deleting elements from the array 
+## Deleting elements from the array 
 
 1. pop 
    remove element from end
@@ -363,7 +511,7 @@ var newarr = ["sanjay", "aman", "rehman", "rahul", "karan"];
      //aman,rehman,rahul,karan
 
 
-# Reversing array 
+## Reversing array 
 ```bash
 marks.reverse();
 console.log(marks);
@@ -371,7 +519,7 @@ console.log(marks);
 
 // (3) [12, 34, 56]
 
-# Concatenation
+## Concatenation
   2nd array concatenated to first array
 let marks1 = [10,20,30];
 let marks2 = [1,2,3,4];
@@ -382,7 +530,44 @@ console.log(marks1);
 ```
 // (7) [10, 20, 30, 1, 2, 3, 4]
 
-# map function
+
+## Concatenating 
+### 1. two strings
+```bash
+var str1 = prompt('enter str 1') //ab
+var str2 = prompt('enter str 2') //cd
+var con = str1 + str2
+alert(con) //abcd
+```
+
+## 2. adding two numbers
+```bash
+var str1 = 10
+var str2 = 20
+var con = str1 + str2
+console.log(con) //30
+```
+
+## 3. adding number + string 
+```bash
+var str1 = 'string'
+var str2 = 20
+var con = str1 + str2
+console.log(con) //string20
+```
+
+## convert string to num
+```bash
+var a = prompt('enter a')     //5
+var b = prompt('enter b')    //4
+var num1 = parseInt(a)      //converts to int
+var num2 = parseInt(b)
+var con = num1 + num2     //9
+alert(con)
+```
+
+
+## map function
   works like the for loop 
 
 var a = [1, 3, 5, 8];
@@ -450,6 +635,42 @@ console.log(!false);          //true
 console.log(!true);           //false
 ```
 
+### Difference btw =, ==, ===
+## Strict equality Operator (===)
+> Checks DATATYPE and VALUE 
+```bash
+    if ('10' === 10) //comparing string and number 
+    {
+    console.log('same datatype')
+    } else 
+    {
+    console.log('different datatype') //displays this
+    }
+```
+```bash
+    if (10 === 10) 
+    {
+    console.log('same datatype') //displays this
+    } else 
+    {
+    console.log('different datatype')
+    }
+```
+
+## Equality/ Abstract comparison Operator (==)
+> checks only for VALUE, doesn't care about DATATYPE
+```bash
+    if ('10' == 10)
+    {
+        console.log('same datatype')  //displays this
+    } else 
+    {
+        console.log('different datatype')
+    }
+```
+
+## Assignment Operator (=)
+> used for assignment
 
 
 # JS Functions 
