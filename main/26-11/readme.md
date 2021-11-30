@@ -69,7 +69,7 @@ JavaScript uses objects for other things They can be object constructors and nam
       - write on console.
 
 
-       myJson = `{ "name": "reem", "score": 99.89, "isAdmin": false }`;
+       myJson = [{ "name": "reem", "score": 99.89, "isAdmin": false }];
 
 
 - **Json object printed on console**
