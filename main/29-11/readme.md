@@ -21,9 +21,9 @@ JS **multi paradigm language**
 >> not strongly typed 
 
         //if you say 
-        ```bash
+
         console.log(arr[10]);
-        ```
+
         it only says undefined in console 
 
 Any Loosely typed language like:
@@ -46,14 +46,14 @@ you can do this:-
 
 1. saves only  a, b *parameter value in a function*
 
-        ```bash
+       
         function sum(a, b)
         {
             c = a+b;
             console.log(c);
         }
         sum(10,14);
-        ```
+        
 
         var addition = sum(10,20);
         console.log(addition);
@@ -62,20 +62,20 @@ you can do this:-
 2. function can be assigned to a variable
     - saves *entire function in the variable "sum"* 
     
-        ```bash
+        
         var sum = function (a, b)
         {
             c = a+b;
             console.log(c);
         }
         sum(11,14);
-        ```
+       
         var addition= sum(10,20);
         console.log(addition);
 
 3. we can also save function as an object property 
 
-        ```bash
+       
         var obj = {
             'key1' : 'something',
 
@@ -88,7 +88,7 @@ you can do this:-
             'sum' : sum, 
             //function as a value in an object 
         }
-        ```
+        
         var object = obj.key2(10,20)
         console.log(key2)
 
@@ -99,21 +99,21 @@ you can do this:-
 **you can also map an external defined function to a key in the object**
 
 > to call the function in the object
-        ```bash
+       
         var s = obj.key2(10, 20);
         console.log("sum of function",s);
-        ```
+        
 
 > calling the function mapped to the key
-        ```bash
+       
         console.log(obj.sum(40,50));
-        ```
+      
     
 # Talking about Json again:
 1. we started off by writing a js object named "single_qs"
    we defined a Json object container named "question_list"
 
-      ```bash
+     
       var question_list = [{}]
       var single_qs = {
         'text': 'which subject we are studying?',
@@ -124,35 +124,34 @@ you can do this:-
         'correct_answer': 'js',
         'price_amount': 1000,
       }
-      ```
+   
 
     question_list.push(single_qs)
     //pushing single_qs array into question_list 
     console.log('single_qs list', single_qs)
 
-    ```bash
     {text: 'which subject we are studying?', options: Array(4), correct_answer: 'js', price_amount: 1000}
     correct_answer: "js"
     options: (4) ['html', 'css', 'js', 'react']
     price_amount: 1000
     text: "which subject we are studying?"
     [[Prototype]]: Object
-    ```
+  
 
     console.log('qs list', question_list)
 
-    ```bash
+   
     (2) [{…}, {…}]
     0: {}
     1: {text: 'which subject we are studying?', options: Array(4), correct_answer: 'js', price_amount: 1000}
     length: 2
     [[Prototype]]: Array(0)
 
-    ```
+   
       
 2. Instead of pushing the object "single_qs" into the object "question_list" we place single_qs inside question_list 
 
-    ```bash
+    
     //Object inside Object is called Object Notation 
     var question_list = [{
   
@@ -165,17 +164,17 @@ you can do this:-
         "price_amount" : 1000,
     }];
 
-    ```
+  
 
     console.log(question_list);
 
-    ```bash
+    
     Array(1)
     0: {text: 'which subject we are studying?', options: Array(4), correct_answer: 'js', price_amount: 1000}
     length: 1
     [[Prototype]]: Array(0)
 
-    ```
+
 
 >> Javascript Object Notation contains 
 1. Object inside object 
@@ -185,17 +184,14 @@ you can do this:-
 # Now coming to the assignment 
 > we take an object kbc and define other objects inside it 
 
-  ```bash
-  var kbc =
-        {
-           
 
-        };
-    ```
+  var kbc =
+        {};
+  
 
 >> we define question_list as an object inside kbc
 
-     ```bash 
+   
      var kbc =
           {
 
@@ -211,10 +207,10 @@ you can do this:-
           }
       ],
 
-        }; ```
+        }; 
 
 >>we add more objects inside it 
-   ```bash
+
     var kbc =
           {
             'current_question_no' : 0,
@@ -246,11 +242,11 @@ you can do this:-
 
         'winning_prize' : 0,
 
-        }; ```
+        };
 
    console.log(kbc);
 
-   ```bash
+ 
    {current_question_no: 0, question_list: Array(1), winning_prize: 0, print_question: ƒ, select_answer: ƒ}
    current_question_no: 0
    print_question: ƒ ()
@@ -262,7 +258,7 @@ you can do this:-
 
    select_answer: ƒ (answer)
    winning_prize: 0
-   [[Prototype]]: Object ```
+   [[Prototype]]: Object 
 
 
      
