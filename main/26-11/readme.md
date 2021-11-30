@@ -63,24 +63,21 @@ JavaScript uses objects for other things They can be object constructors and nam
 1. how to create JS object.
       - open console
       - To write JS object in JSON format. Just create JSon object with
-                 myJson = `{
-
-                }`;
+                 myJson = [{ }];
 
       - add JS code in curly braces
       - write on console.
 
-      ```bash
+
        myJson = `{ "name": "reem", "score": 99.89, "isAdmin": false }`;
-      ```
+
 
 - **Json object printed on console**
 '{ "name": "reem",\n "score": 99.89,\n "isAdmin": false\n}'
 
     - command to convert Json object to JS object
-    ```bash
-    JSON.parse(myJson);
-    ```
+        JSON.parse(myJson);
+    
 
 {name: 'reem', score: 99.89, isAdmin: false}
 isAdmin: false
