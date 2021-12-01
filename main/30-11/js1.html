@@ -4,45 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM</title>
+    
 </head>
 <body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+
     <script>
-//for each 
-var arr = [1,2,3,4,5];
-console.log(arr);
-arr.forEach(function(element)
-{
-console.log(element)
-})
-
-console.log("while loop");
-let j =1;
-//while loop 
-while(j < arr.length)
-{
-   console.log(arr[j]);
-   j++;
-}
-
-console.log("do-while loop");
-let k =1;
-do
-{
-   console.log(arr[k]);
-   k++;
-}
-while(k < arr.length);
-
-let i= 10;
-do
-{
-    i++;
-    console.log(i);
-}
-while(i<20);
-
-
+        var element;
+        element = document.getElementsByTagName("ul")[0]; 
+        console.log(element);
     </script>
+
+
 </body>
 </html>
