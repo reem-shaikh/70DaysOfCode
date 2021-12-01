@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> aa6ba8eb579fd93458073c4cbb64491c09f4fbc5
 ## ✅what can JS do?
 JS is universal language.
 
