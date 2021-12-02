@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kbc</title>
+  </head>
+  <body>
+    <!--create an array of question objects
+    
+    score: based on how many questions the user got right 
+-->
+    <script>
+      var kbc = [
+        {
+          current_question_no: 1,
+          prompt: 'Who became the first Indian woman to score a hat trick in hockey in Olympic history?',
+          option: '\n(a) R \n(b) Gur \n(c) Vandana Katariya',
+          answer: 'c',
+          price_amount: 1000,
+        },
+
+        {
+          current_question_no: 2,
+          prompt: 'Who holds a national record with a timing of 50.79 seconds in womens 400m track events?',
+          option: '\n(a) Red\n(b) Hima Das \n(c) Yellow',
+          answer: 'b',
+          price_amount: 2000,
+        },
+
+        {
+          current_question_no: 3,
+          prompt: 'what color are Strawberries?',
+          option: '\n(a) Red\n(b) Purple \n(c) Orange',
+          answer: 'a',
+          price_amount: 3000,
+        },
+      ]
+
+      //print next question on the console
+      function print_nextquestion() {
+        for (var i = 0; i < kbc.length; i++) {
+          console.log(kbc[i].current_question_no)
+          console.log(kbc[i].prompt)
+          console.log(kbc[i].option)
+        }
+      }
+
+      function calculate_rightanswer() {
+        var score = 0
+        //how many kbc user got right
+
+        for (var i = 0; i < kbc.length; i++) {
+          alert(kbc[i].prompt)
+          //taking users response
+          var response = window.prompt(kbc[i].option)
+
+          //checking if their response matches the answer
+          if (response == kbc[i].answer) {
+            score++
+            alert('correct')
+          } else {
+            alert('wrong')
+            break
+          }
+        }
+
+        //calculating winning price
+        score = parseInt(score)
+        if (score == 1) {
+          alert(kbc[0].price_amount)
+        } else if (score == 2) {
+          alert(kbc[1].price_amount)
+        } else {
+          alert(kbc[2].price_amount)
+        }
+
+        alert('you got' + score + '/' + kbc.length)
+      }
+    </script>
+  </body>
+</html>
