@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Vs Return</title>
+</head>
+<body>
+    <script>
+        function fn()
+        {
+            return "abcd";
+        }
+        //return function output wherever its called 
+
+        //console.log directly print to console 
+
+        function fn1()
+        {
+            console.log("abcd");
+        }
+
+        var a = fn1();
+        a = a + "another string";
+        console.log("fn1",a);
+
+        var a = fn();
+        a = a + "another string";
+        console.log("fn",a);
+
+
+    </script>
+</body>
+</html>

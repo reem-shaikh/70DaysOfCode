@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        this keyword: refers to the object it belongs to 
+    -->
+    <script>
+        //1. when this keyword used alone it represents the global object i.e the window object 
+        // console.log(this);
+
+        /*
+         In Regular function, this refers to the global object (windows object)
+        */
+        // function sum()
+        // {
+        //     var add = 2+2;
+        //     console.log("sum" +add);
+        //     console.log(this);
+        // }
+
+        // sum();
+
+
+
+        // In a method, this refers to the owner object 
+
+        //method is the function inside the object 
+        // const thapa = 
+        // {
+        //     name: "vinod thapa",
+        //     qualif: "mcs",
+        //     sum: function()
+        //     //sum is called method 
+        //     {
+        //         var add = 2+2;
+        //         console.log("add" +add);
+        //         console.log(this);
+        //         console.log("name", this.name);
+        //     }
+        // }
+
+        // thapa.sum();
+
+        //4. in a function in strict mode its undefined 
+        // "use strict"
+
+        // function sum()
+        // {
+        // var add = 2+2;
+        // console.log("sum" +add);
+        // console.log(this);
+        // }
+
+        // sum();
+
+        //1. default binding
+        
+/*
+var myFunction = function() {
+   console.log(this.a);
+}
+
+var a = 5 ;
+myFunction();  
+*/
+
+/*
+function fn()
+{
+    console.log(this.a);
+}
+
+var a = 5; 
+fn();
+*/
+
+
+function fn() {
+console.log('ABCD');
+}
+
+this.fn();
+
+    </script>
+</body>
+</html>

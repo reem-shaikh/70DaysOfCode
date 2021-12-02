@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Vs Break</title>
+</head>
+<body>
+    <script>
+        //return 
+        //stop the current function and return 
+        //stop function call
+
+        //return- returns gets out of the function level 
+
+        function looper()
+        {
+            var num = 10; 
+            var i=0;
+
+            while(i<=num)
+            {   //i<=10
+                
+                //0
+                console.log(i);
+                i = i + 1; 
+                //1
+                //2
+                //3
+                //4
+                //5
+                if (i == 5)
+                {
+                    return;
+                }
+            }
+            console.log("after the loop");
+        }
+
+        looper();
+        //output:
+        //0
+        //1
+        //2
+        //3
+        //4
+
+        //break used inside loops/ conditions 
+        //break just gets out of the loop 
+
+        function looper()
+        {
+            var num = 10; 
+            var i=0;
+
+            while(i<=num)
+            {   //i<=10
+                
+                //0
+                console.log(i);
+                i = i + 1; 
+                //1
+                //2
+                //3
+                //4
+                //5
+                if (i == 5)
+                {
+                    break;
+                }
+            }
+            console.log("after the loop");
+        }
+
+        looper();
+    </script>
+</body>
+</html>

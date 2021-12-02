@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    <script>
+        console.log(a);   //undefined
+        var a = 10; 
+        console.log(a);   //10
+
+/*
+Variable Declaration will be moved at the top (of its function).
+
+- works only with var 
+- happens in the background of variables 
+- applicable for functions and classes
+
+1. Variable Declaration 
+2. Variable Defination 
+
+```bash 
+var a;              //declaration 
+a = 10;             //defination 
+var abcd = 10; 
+console.log(abcd);
+```
+
+- if you have declared, not defined variable
+```bash
+var a;
+console.log(a);
+```
+
+### Why is it undefined? why haven't it crashed, why no error? 
+you should not have access to variable before its defined.
+
+bad practice:
+```bash
+    console.log(a);   //undefined
+    var a = 10; 
+    console.log(a);   //10
+```
+since were writing var a after console.log, hosting happens here 
+and it moves declaration to the top, that's why there is no error 
+shown.
+
+> However, if there was no **var a = 10**
+> then hoisting will not happen and hence it will show error.
+
+```bash
+    console.log(a);   //error
+```
+
+since its a bad practice, let is not allowed for hoisting.
+
+
+*/
+        
+    </script>
+</body>
+</html>

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> aa6ba8eb579fd93458073c4cbb64491c09f4fbc5
 ## ✅what can JS do?
 JS is universal language.
 
@@ -18,6 +14,35 @@ can create
 - mobile apps
 - web apps
 - iot 
+
+
+## Why are we linking script in the body tag of the html file?
+standard practice: mention script tag at the bottom of the body 
+
+- html is rendered/ parsed line by line, we want to improve the loading time
+
+- CSS is loaded before any content is loaded on the page
+
+- JS gives functionality, if we place js on the top, then the content inside the body will be loaded late. 
+
+- So we trade off appearance over performance, and lets the page load with its proper UI, Js might take say a couple seconds more, but until the user interacts with the js functionality the JS will already be loaded.  
+
+## ECMA International
+standardizing company: makes standards  for some programming language like Js
+
+releases scripting standards:ECMAScripts
+Latest release: jAVASCRIPT ES12 release 
+
+***Most important release(2015): ES6***
+> Js follows ECMA standards.
+
+#### What were the features introduced in ES6?
+1. let 
+2. arrow functions 
+3. Destructuring 
+4. spread operators 
+5. promises
+
 
 ## 🔳interview questions.
 ### Difference between java and js
@@ -366,6 +391,21 @@ var n = null;
 console.log(n);
 ```
 
+## Undefined vs Null 
+1. Undefined: declared variable, but not defined yet 
+```bash
+   var a;
+   console.log("a",a);
+```
+
+2. Null: you have defined variable to null. declaring, defining a variable to nothing
+```bash
+    var b = null;
+    console.log("b",b);
+```
+null is a primitive datatype.
+> technically, null is also an object 
+
 7. Arrays 
 collection of elements/ strings/ booleans.
 in JS, array is a collection of multiple datatypes of elements.
@@ -582,6 +622,371 @@ var b = a.map(test);
 console.log(b);
 ```
 // (4) [10, 30, 50, 80]
+
+
+## Hoisting
+Variable Declaration will be moved at the top (of its function).
+
+- works only with var 
+- happens in the background of variables 
+- applicable for functions and classes
+
+1. Variable Declaration 
+2. Variable Defination 
+
+```bash 
+var a;              //declaration 
+a = 10;             //defination 
+var abcd = 10; 
+console.log(abcd);
+```
+
+- if you have declared, not defined variable
+```bash
+var a;
+console.log(a);
+```
+
+### Why is it undefined? why haven't it crashed, why no error? 
+you should not have access to variable before its defined.
+
+bad practice:
+```bash
+    console.log(a);   //undefined
+    var a = 10; 
+    console.log(a);   //10
+```
+since were writing var a after console.log, hosting happens here 
+and it moves declaration to the top, that's why there is no error 
+shown.
+
+> However, if there was no **var a = 10**
+> then hoisting will not happen and hence it will show error.
+
+```bash
+    console.log(a);   //error
+```
+since its a bad practice, let is not allowed for hoisting.
+
+# Keywords 
+## This keyword 
+### this keyword : Context keyword 
+  this keyword: refers to the object it belongs to.
+> this keyword is the reference to the current/parent object 
+
+#### In a method it refers to the owner object 
+#### Alone it refers to the global object 
+
+
+It has differet values depending on where it is used:
+#### 1. when this keyword used alone it represents the global object i.e the window object 
+```bash
+console.log(this);
+
+console:
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+```
+***it will refer to the windows object (which is global object of the browser)***
+
+#### 2. In Regular function, this refers to the global object (windows object)
+#### This is also called Default Binding 
+```bash
+<script>
+       function sum()
+        {
+            var add = 2+2;
+            console.log("sum" +add);
+            console.log(this);
+        }
+    sum();
+</script>
+
+console:
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+```
+
+#### 3. In a method, this refers to the owner object 
+```bash
+const thapa = 
+        {
+            name: "vinod thapa",
+            qualif: "mcs",
+            sum: function()
+            //sum is called method 
+            {
+                var add = 2+2;
+                console.log("add" +add);
+                console.log(this); //this refers to the owner object 
+
+                console.log("name", this.name);
+                //this is called implicit binding 
+                //the object that is standing after the dot is what the keyword 
+                //will be bound to 
+            }
+        }
+
+        thapa.sum();
+
+console:
+add4
+
+thiskeyword.html:43 
+{name: 'vinod thapa', qualif: 'mcs', sum: ƒ}
+name: "vinod thapa"
+qualif: "mcs"
+sum: ƒ ()
+[[Prototype]]: Object
+
+name vinod thapa
+```
+
+### In web browsers, the window object is also the global object:
+```bash
+console.log(this === window); // true
+```
+
+#### This keyword wont work without an object 
+```bash
+function fn()
+{
+    console.log(this);
+}
+
+fn();
+
+console:
+window object 
+```
+
+### over here, were refering to the method function with the help of the object from outside 
+```bash
+ var calculator = {
+            //calculator objects
+
+            'num1': 0,
+            'num2': 0,
+            'mul' : function ()
+            {
+            //refer with help of object name from outside 
+            let product = calculator.num1 * calculator.num2;
+                        
+            return product;
+            },
+
+            'div' : function(a,b)
+            {
+            let total = a/b;
+            return total;
+            },
+
+            'sum' : function(a,b)
+            {
+            let total = a+b;
+            return total;
+            },
+            'diff': function(a,b)
+            {
+            let total = a-b;
+            return total;
+            },
+
+        };
+
+        calculator.num1 = 10;
+        calculator.num2 = 3; 
+
+        var product = calculator.mul();
+        console.log(product);
+```
+
+### better way to write this code, is using the this keyword 
+```bash
+    var calculator = {
+            //calculator objects
+
+            'num1': 0,
+            'num2': 0,
+            'mul' : function ()
+            {
+            let product = this.num1 * this.num2;
+                        
+            return product;
+            },
+
+            'div' : function(a,b)
+            {
+            let total = a/b;
+            return total;
+            },
+
+            'sum' : function(a,b)
+            {
+            let total = a+b;
+            return total;
+            },
+            'diff': function(a,b)
+            {
+            let total = a-b;
+            return total;
+            },
+
+        };
+
+        calculator.num1 = 10;
+        calculator.num2 = 3; 
+
+        var product = calculator.mul();
+        console.log(product);
+
+```
+use this keyword because in case we change the object name from calculator 
+to something else, then we'll have to manually change the inside objects
+
+> Another example of this keyword 
+```bash
+<script>
+        var obj1 = {
+            'key1' : 19,
+            'fun'  : function() 
+            {
+                console.log(this);
+            }
+        };
+
+        obj1.fun();
+
+        var obj2 = {
+            'key2' : 1000,
+            'fun'  : function() 
+            {
+                console.log(this);
+            }
+        };
+
+        obj2.fun();
+</script>
+
+console: //prints the object for both the methods 
+Objectfun: ƒ ()arguments: nullcaller: nulllength: 0name: "fun"prototype: {constructor: ƒ}[[FunctionLocation]]: this.html:13[[Prototype]]: ƒ ()[[Scopes]]: Scopes[1]key1: 19[[Prototype]]: Object
+this.html:25 Objectfun: ƒ ()key2: 1000[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+
+```
+
+#### 4. In a function, in strict mode, this keyword is undefined 
+Js strict mode does not allow default binding 
+```bash
+"use strict"
+
+        function sum()
+        {
+        var add = 2+2;
+        console.log("sum" +add);
+        console.log(this);
+        }
+
+        sum();
+    
+console:
+sum4
+thiskeyword.html:57 undefined
+```
+
+### ways to implement this keyword:
+1. Default binding 
+2. Implicit Binding  
+
+
+## 1. Default Binding
+when default binding applies, it refers to the window. 
+
+we cannot use the this keyword without defining it inside an object, 
+because this will give the windows object 
+```bash
+function fn()
+{
+    console.log(this);
+}
+
+fn();
+
+console:
+window object 
+```
+#### we can call a variable/ function through "this" keyword which has no object
+However, we can call a variable through this keyword 
+```bash
+
+function fn()
+{
+    console.log(this.a);
+}
+
+var a = 5; 
+fn();
+
+console:
+5
+```
+
+we can also call a function through this keyword 
+```bash
+function fn() {
+console.log('ABCD');
+}
+
+this.fn();
+```
+
+## 2. Implicit Binding 
+Implicit Binding is applied when you invoke a
+function in an Object using the dot notation
+```bash
+function foo(){
+	console.log(this.a);
+}
+
+var obj = {
+	a:2,
+	foo:foo
+};
+
+obj.foo();  // 2 
+```
+
+> In a constructor 
+```bash
+function C() {
+  this.a = 37;
+}
+
+var o = new C();
+console.log(o.a); // 37
+
+function C2() {
+  this.a = 37;
+  return {a: 38};
+}
+
+o = new C2();
+console.log(o.a); // 38
+```
+
+#### This keyword refers to the context of execution 
+```bash 
+var john = {
+	name: 'John',
+	greet: function(person) {
+      console.log("Hi " + person +", my name is " + this.name);
+	}
+}
+
+john.greet("Mark");  // Hi Mark, my name is John
+```
+
+Drawback of this keyword:
+sometimes IT BINDS TO WINDOWS OBJECT, SOMETIMES IT BINDS TO THE FUNCtION itself.
+In arrow Keyword nothing in binded. but you cannot use them in method
+
 
 
 # Operators in Js 
@@ -910,195 +1315,8 @@ cannot access html tags.
         element = document; 
         console.log(element);
     </script>
-
-location: Location {ancestorOrigins: DOMStringList, href: 'http://127.0.0.1:5500/main/30-11/js1.html', origin: 'http://127.0.0.1:5500', protocol: 'http:', host: '127.0.0.1:5500', …}
-URL: "http://127.0.0.1:5500/main/30-11/js1.html"
-activeElement: body
-adoptedStyleSheets: []
-alinkColor: ""
-all: HTMLAllCollection(25) [html, head, meta, meta, meta, title, body, div#wrapper, div#header, h1, div#menu, ul#list, li, a, li, a, li, a, div#content, h2, img, p, script, script, style, viewport: meta, wrapper: div#wrapper, header: div#header, menu: div#menu, list: ul#list, …]
-anchors: HTMLCollection []
-applets: HTMLCollection []
-baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
-bgColor: ""
-body: body
-characterSet: "UTF-8"
-charset: "UTF-8"
-childElementCount: 1
-childNodes: NodeList(2) [<!DOCTYPE html>, html]
-children: HTMLCollection [html]
-compatMode: "CSS1Compat"
-contentType: "text/html"
-cookie: ""
-currentScript: null
-defaultView: Window {window: Window, self: Window, document: document, name: '', location: Location, …}
-designMode: "off"
-dir: ""
-doctype: <!DOCTYPE html>
-documentElement: html
-documentURI: "http://127.0.0.1:5500/main/30-11/js1.html"
-domain: "127.0.0.1"
-embeds: HTMLCollection []
-featurePolicy: FeaturePolicy {}
-fgColor: ""
-firstChild: <!DOCTYPE html>
-firstElementChild: html
-fonts: FontFaceSet {onloading: null, onloadingdone: null, onloadingerror: null, ready: Promise, status: 'loaded', …}
-forms: HTMLCollection []
-fragmentDirective: FragmentDirective {}
-fullscreen: false
-fullscreenElement: null
-fullscreenEnabled: true
-head: head
-hidden: false
-images: HTMLCollection [img]
-implementation: DOMImplementation {}
-inputEncoding: "UTF-8"
-isConnected: true
-lastChild: html
-lastElementChild: html
-lastModified: "12/01/2021 14:57:47"
-linkColor: ""
-links: HTMLCollection(3) [a, a, a]
-nextSibling: null
-nodeName: "#document"
-nodeType: 9
-nodeValue: null
-onabort: null
-onanimationend: null
-onanimationiteration: null
-onanimationstart: null
-onauxclick: null
-onbeforecopy: null
-onbeforecut: null
-onbeforepaste: null
-onbeforexrselect: null
-onblur: null
-oncancel: null
-oncanplay: null
-oncanplaythrough: null
-onchange: null
-onclick: null
-onclose: null
-oncontextmenu: null
-oncopy: null
-oncuechange: null
-oncut: null
-ondblclick: null
-ondrag: null
-ondragend: null
-ondragenter: null
-ondragleave: null
-ondragover: null
-ondragstart: null
-ondrop: null
-ondurationchange: null
-onemptied: null
-onended: null
-onerror: null
-onfocus: null
-onformdata: null
-onfreeze: null
-onfullscreenchange: null
-onfullscreenerror: null
-ongotpointercapture: null
-oninput: null
-oninvalid: null
-onkeydown: null
-onkeypress: null
-onkeyup: null
-onload: null
-onloadeddata: null
-onloadedmetadata: null
-onloadstart: null
-onlostpointercapture: null
-onmousedown: null
-onmouseenter: null
-onmouseleave: null
-onmousemove: null
-onmouseout: null
-onmouseover: null
-onmouseup: null
-onmousewheel: null
-onpaste: null
-onpause: null
-onplay: null
-onplaying: null
-onpointercancel: null
-onpointerdown: null
-onpointerenter: null
-onpointerleave: null
-onpointerlockchange: null
-onpointerlockerror: null
-onpointermove: null
-onpointerout: null
-onpointerover: null
-onpointerrawupdate: null
-onpointerup: null
-onprogress: null
-onratechange: null
-onreadystatechange: null
-onreset: null
-onresize: null
-onresume: null
-onscroll: null
-onsearch: null
-onsecuritypolicyviolation: null
-onseeked: null
-onseeking: null
-onselect: null
-onselectionchange: null
-onselectstart: null
-onstalled: null
-onsubmit: null
-onsuspend: null
-ontimeupdate: null
-ontoggle: null
-ontransitioncancel: null
-ontransitionend: null
-ontransitionrun: null
-ontransitionstart: null
-onvisibilitychange: null
-onvolumechange: null
-onwaiting: null
-onwebkitanimationend: null
-onwebkitanimationiteration: null
-onwebkitanimationstart: null
-onwebkitfullscreenchange: null
-onwebkitfullscreenerror: null
-onwebkittransitionend: null
-onwheel: null
-ownerDocument: null
-parentElement: null
-parentNode: null
-pictureInPictureElement: null
-pictureInPictureEnabled: true
-plugins: HTMLCollection []
-pointerLockElement: null
-previousSibling: null
-readyState: "complete"
-referrer: "http://127.0.0.1:5500/main/30-11/js1.html"
-rootElement: null
-scripts: HTMLCollection(2) [script, script]
-scrollingElement: html
-styleSheets: StyleSheetList {0: CSSStyleSheet, length: 1}
-textContent: null
-timeline: DocumentTimeline {currentTime: 5062.96}
-title: "DOM"
-visibilityState: "visible"
-vlinkColor: ""
-wasDiscarded: false
-webkitCurrentFullScreenElement: null
-webkitFullscreenElement: null
-webkitFullscreenEnabled: true
-webkitHidden: false
-webkitIsFullScreen: false
-webkitVisibilityState: "visible"
-xmlEncoding: null
-xmlStandalone: false
-xmlVersion: null
-[[Prototype]]: HTMLDocument
 ```
+
 #### Creating an array and returning all html tags mapped with numbers
 ```bash
 <script>
@@ -1112,7 +1330,7 @@ HTMLAllCollection(23) [html, head, meta, meta, meta, title, body, div#wrapper, 
 
 ```bash
 document.all[2];
-----------------
+
 meta
 ```
 
@@ -1124,213 +1342,6 @@ meta
         element = document.head; 
         console.log(element);
 </script>
-
-accessKey: ""
-ariaAtomic: null
-ariaAutoComplete: null
-ariaBusy: null
-ariaChecked: null
-ariaColCount: null
-ariaColIndex: null
-ariaColSpan: null
-ariaCurrent: null
-ariaDescription: null
-ariaDisabled: null
-ariaExpanded: null
-ariaHasPopup: null
-ariaHidden: null
-ariaKeyShortcuts: null
-ariaLabel: null
-ariaLevel: null
-ariaLive: null
-ariaModal: null
-ariaMultiLine: null
-ariaMultiSelectable: null
-ariaOrientation: null
-ariaPlaceholder: null
-ariaPosInSet: null
-ariaPressed: null
-ariaReadOnly: null
-ariaRelevant: null
-ariaRequired: null
-ariaRoleDescription: null
-ariaRowCount: null
-ariaRowIndex: null
-ariaRowSpan: null
-ariaSelected: null
-ariaSetSize: null
-ariaSort: null
-ariaValueMax: null
-ariaValueMin: null
-ariaValueNow: null
-ariaValueText: null
-assignedSlot: null
-attributeStyleMap: StylePropertyMap {size: 0}
-attributes: NamedNodeMap {length: 0}
-autocapitalize: ""
-autofocus: false
-baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
-childElementCount: 4
-childNodes: NodeList(9) [text, meta, text, meta, text, meta, text, title, text]
-children: HTMLCollection(4) [meta, meta, meta, title, viewport: meta]
-classList: DOMTokenList [value: '']
-className: ""
-clientHeight: 0
-clientLeft: 0
-clientTop: 0
-clientWidth: 0
-contentEditable: "inherit"
-dataset: DOMStringMap {}
-dir: ""
-draggable: false
-elementTiming: ""
-enterKeyHint: ""
-firstChild: text
-firstElementChild: meta
-hidden: false
-id: ""
-innerHTML: "\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>DOM</title>\n    \n"
-innerText: "\n    \n    \n    \n    DOM\n    \n"
-inputMode: ""
-isConnected: true
-isContentEditable: false
-lang: ""
-lastChild: text
-lastElementChild: title
-localName: "head"
-namespaceURI: "http://www.w3.org/1999/xhtml"
-nextElementSibling: body
-nextSibling: text
-nodeName: "HEAD"
-nodeType: 1
-nodeValue: null
-nonce: ""
-offsetHeight: 0
-offsetLeft: 0
-offsetParent: null
-offsetTop: 0
-offsetWidth: 0
-onabort: null
-onanimationend: null
-onanimationiteration: null
-onanimationstart: null
-onauxclick: null
-onbeforecopy: null
-onbeforecut: null
-onbeforepaste: null
-onbeforexrselect: null
-onblur: null
-oncancel: null
-oncanplay: null
-oncanplaythrough: null
-onchange: null
-onclick: null
-onclose: null
-oncontextmenu: null
-oncopy: null
-oncuechange: null
-oncut: null
-ondblclick: null
-ondrag: null
-ondragend: null
-ondragenter: null
-ondragleave: null
-ondragover: null
-ondragstart: null
-ondrop: null
-ondurationchange: null
-onemptied: null
-onended: null
-onerror: null
-onfocus: null
-onformdata: null
-onfullscreenchange: null
-onfullscreenerror: null
-ongotpointercapture: null
-oninput: null
-oninvalid: null
-onkeydown: null
-onkeypress: null
-onkeyup: null
-onload: null
-onloadeddata: null
-onloadedmetadata: null
-onloadstart: null
-onlostpointercapture: null
-onmousedown: null
-onmouseenter: null
-onmouseleave: null
-onmousemove: null
-onmouseout: null
-onmouseover: null
-onmouseup: null
-onmousewheel: null
-onpaste: null
-onpause: null
-onplay: null
-onplaying: null
-onpointercancel: null
-onpointerdown: null
-onpointerenter: null
-onpointerleave: null
-onpointermove: null
-onpointerout: null
-onpointerover: null
-onpointerrawupdate: null
-onpointerup: null
-onprogress: null
-onratechange: null
-onreset: null
-onresize: null
-onscroll: null
-onsearch: null
-onseeked: null
-onseeking: null
-onselect: null
-onselectionchange: null
-onselectstart: null
-onstalled: null
-onsubmit: null
-onsuspend: null
-ontimeupdate: null
-ontoggle: null
-ontransitioncancel: null
-ontransitionend: null
-ontransitionrun: null
-ontransitionstart: null
-onvolumechange: null
-onwaiting: null
-onwebkitanimationend: null
-onwebkitanimationiteration: null
-onwebkitanimationstart: null
-onwebkitfullscreenchange: null
-onwebkitfullscreenerror: null
-onwebkittransitionend: null
-onwheel: null
-outerHTML: "<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>DOM</title>\n    \n</head>"
-outerText: "\n    \n    \n    \n    DOM\n    \n"
-ownerDocument: document
-parentElement: html
-parentNode: html
-part: DOMTokenList [value: '']
-prefix: null
-previousElementSibling: null
-previousSibling: null
-scrollHeight: 0
-scrollLeft: 0
-scrollTop: 0
-scrollWidth: 0
-shadowRoot: null
-slot: ""
-spellcheck: true
-style: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
-tabIndex: -1
-tagName: "HEAD"
-textContent: "\n    \n    \n    \n    DOM\n    \n"
-title: ""
-translate: true
-virtualKeyboardPolicy: ""
-[[Prototype]]: HTMLHeadElement
 ```
 #### Diplays the title name "DOM" specified in the title tag
 ```bash
@@ -1348,235 +1359,6 @@ virtualKeyboardPolicy: ""
         element = document.body; 
         console.log(element);
 </script>
-
-aLink: ""
-accessKey: ""
-ariaAtomic: null
-ariaAutoComplete: null
-ariaBusy: null
-ariaChecked: null
-ariaColCount: null
-ariaColIndex: null
-ariaColSpan: null
-ariaCurrent: null
-ariaDescription: null
-ariaDisabled: null
-ariaExpanded: null
-ariaHasPopup: null
-ariaHidden: null
-ariaKeyShortcuts: null
-ariaLabel: null
-ariaLevel: null
-ariaLive: null
-ariaModal: null
-ariaMultiLine: null
-ariaMultiSelectable: null
-ariaOrientation: null
-ariaPlaceholder: null
-ariaPosInSet: null
-ariaPressed: null
-ariaReadOnly: null
-ariaRelevant: null
-ariaRequired: null
-ariaRoleDescription: null
-ariaRowCount: null
-ariaRowIndex: null
-ariaRowSpan: null
-ariaSelected: null
-ariaSetSize: null
-ariaSort: null
-ariaValueMax: null
-ariaValueMin: null
-ariaValueNow: null
-ariaValueText: null
-assignedSlot: null
-attributeStyleMap: StylePropertyMap {size: 0}
-attributes: NamedNodeMap {length: 0}
-autocapitalize: ""
-autofocus: false
-background: ""
-baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
-bgColor: ""
-childElementCount: 4
-childNodes: NodeList(10) [text, div#wrapper, text, script, text, comment, text, script, text, style]
-children: HTMLCollection(4) [div#wrapper, script, script, style, wrapper: div#wrapper]
-classList: DOMTokenList [value: '']
-className: ""
-clientHeight: 234
-clientLeft: 0
-clientTop: 0
-clientWidth: 734
-contentEditable: "inherit"
-dataset: DOMStringMap {}
-dir: ""
-draggable: false
-elementTiming: ""
-enterKeyHint: ""
-firstChild: text
-firstElementChild: div#wrapper
-hidden: false
-id: ""
-innerHTML: "\n    <div id=\"wrapper\">\n        <div id=\"header\">\n            <h1>heading</h1>\n        </div>\n        <div id=\"menu\">\n            <ul id=\"list\">\n                <li><a href=\"\">home</a></li>\n                <li><a href=\"\">about us</a></li>\n                <li><a href=\"\">contact</a></li>\n            </ul>\n        </div>\n        <div id=\"content\">\n            <h2>sub heading</h2>\n            <img src=\"\" alt=\"\">\n            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>\n        </div>\n    </div>\n\n    <script>\n        var element;\n        element = document.body; \n        console.log(element);\n    </script>\n\n\n<!-- Code injected by live-server -->\n<script type=\"text/javascript\">\n\t// <![CDATA[  <-- For SVG support\n\tif ('WebSocket' in window) {\n\t\t(function () {\n\t\t\tfunction refreshCSS() {\n\t\t\t\tvar sheets = [].slice.call(document.getElementsByTagName(\"link\"));\n\t\t\t\tvar head = document.getElementsByTagName(\"head\")[0];\n\t\t\t\tfor (var i = 0; i < sheets.length; ++i) {\n\t\t\t\t\tvar elem = sheets[i];\n\t\t\t\t\tvar parent = elem.parentElement || head;\n\t\t\t\t\tparent.removeChild(elem);\n\t\t\t\t\tvar rel = elem.rel;\n\t\t\t\t\tif (elem.href && typeof rel != \"string\" || rel.length == 0 || rel.toLowerCase() == \"stylesheet\") {\n\t\t\t\t\t\tvar url = elem.href.replace(/(&|\\?)_cacheOverride=\\d+/, '');\n\t\t\t\t\t\telem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());\n\t\t\t\t\t}\n\t\t\t\t\tparent.appendChild(elem);\n\t\t\t\t}\n\t\t\t}\n\t\t\tvar protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';\n\t\t\tvar address = protocol + window.location.host + window.location.pathname + '/ws';\n\t\t\tvar socket = new WebSocket(address);\n\t\t\tsocket.onmessage = function (msg) {\n\t\t\t\tif (msg.data == 'reload') window.location.reload();\n\t\t\t\telse if (msg.data == 'refreshcss') refreshCSS();\n\t\t\t};\n\t\t\tif (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {\n\t\t\t\tconsole.log('Live reload enabled.');\n\t\t\t\tsessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);\n\t\t\t}\n\t\t})();\n\t}\n\telse {\n\t\tconsole.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');\n\t}\n\t// ]]>\n</script>\n<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style>"
-innerText: "heading\nhome\nabout us\ncontact\nsub heading\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!"
-inputMode: ""
-isConnected: true
-isContentEditable: false
-lang: ""
-lastChild: style
-lastElementChild: style
-link: ""
-localName: "body"
-namespaceURI: "http://www.w3.org/1999/xhtml"
-nextElementSibling: null
-nextSibling: null
-nodeName: "BODY"
-nodeType: 1
-nodeValue: null
-nonce: ""
-offsetHeight: 234
-offsetLeft: 0
-offsetParent: null
-offsetTop: 0
-offsetWidth: 734
-onabort: null
-onafterprint: null
-onanimationend: null
-onanimationiteration: null
-onanimationstart: null
-onauxclick: null
-onbeforecopy: null
-onbeforecut: null
-onbeforepaste: null
-onbeforeprint: null
-onbeforeunload: null
-onbeforexrselect: null
-onblur: null
-oncancel: null
-oncanplay: null
-oncanplaythrough: null
-onchange: null
-onclick: null
-onclose: null
-oncontextmenu: null
-oncopy: null
-oncuechange: null
-oncut: null
-ondblclick: null
-ondrag: null
-ondragend: null
-ondragenter: null
-ondragleave: null
-ondragover: null
-ondragstart: null
-ondrop: null
-ondurationchange: null
-onemptied: null
-onended: null
-onerror: null
-onfocus: null
-onformdata: null
-onfullscreenchange: null
-onfullscreenerror: null
-ongotpointercapture: null
-onhashchange: null
-oninput: null
-oninvalid: null
-onkeydown: null
-onkeypress: null
-onkeyup: null
-onlanguagechange: null
-onload: null
-onloadeddata: null
-onloadedmetadata: null
-onloadstart: null
-onlostpointercapture: null
-onmessage: null
-onmessageerror: null
-onmousedown: null
-onmouseenter: null
-onmouseleave: null
-onmousemove: null
-onmouseout: null
-onmouseover: null
-onmouseup: null
-onmousewheel: null
-onoffline: null
-ononline: null
-onpagehide: null
-onpageshow: null
-onpaste: null
-onpause: null
-onplay: null
-onplaying: null
-onpointercancel: null
-onpointerdown: null
-onpointerenter: null
-onpointerleave: null
-onpointermove: null
-onpointerout: null
-onpointerover: null
-onpointerrawupdate: null
-onpointerup: null
-onpopstate: null
-onprogress: null
-onratechange: null
-onrejectionhandled: null
-onreset: null
-onresize: null
-onscroll: null
-onsearch: null
-onseeked: null
-onseeking: null
-onselect: null
-onselectionchange: null
-onselectstart: null
-onstalled: null
-onstorage: null
-onsubmit: null
-onsuspend: null
-ontimeupdate: null
-ontoggle: null
-ontransitioncancel: null
-ontransitionend: null
-ontransitionrun: null
-ontransitionstart: null
-onunhandledrejection: null
-onunload: null
-onvolumechange: null
-onwaiting: null
-onwebkitanimationend: null
-onwebkitanimationiteration: null
-onwebkitanimationstart: null
-onwebkitfullscreenchange: null
-onwebkitfullscreenerror: null
-onwebkittransitionend: null
-onwheel: null
-outerHTML: "<body>\n    <div id=\"wrapper\">\n        <div id=\"header\">\n            <h1>heading</h1>\n        </div>\n        <div id=\"menu\">\n            <ul id=\"list\">\n                <li><a href=\"\">home</a></li>\n                <li><a href=\"\">about us</a></li>\n                <li><a href=\"\">contact</a></li>\n            </ul>\n        </div>\n        <div id=\"content\">\n            <h2>sub heading</h2>\n            <img src=\"\" alt=\"\">\n            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>\n        </div>\n    </div>\n\n    <script>\n        var element;\n        element = document.body; \n        console.log(element);\n    </script>\n\n\n<!-- Code injected by live-server -->\n<script type=\"text/javascript\">\n\t// <![CDATA[  <-- For SVG support\n\tif ('WebSocket' in window) {\n\t\t(function () {\n\t\t\tfunction refreshCSS() {\n\t\t\t\tvar sheets = [].slice.call(document.getElementsByTagName(\"link\"));\n\t\t\t\tvar head = document.getElementsByTagName(\"head\")[0];\n\t\t\t\tfor (var i = 0; i < sheets.length; ++i) {\n\t\t\t\t\tvar elem = sheets[i];\n\t\t\t\t\tvar parent = elem.parentElement || head;\n\t\t\t\t\tparent.removeChild(elem);\n\t\t\t\t\tvar rel = elem.rel;\n\t\t\t\t\tif (elem.href && typeof rel != \"string\" || rel.length == 0 || rel.toLowerCase() == \"stylesheet\") {\n\t\t\t\t\t\tvar url = elem.href.replace(/(&|\\?)_cacheOverride=\\d+/, '');\n\t\t\t\t\t\telem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());\n\t\t\t\t\t}\n\t\t\t\t\tparent.appendChild(elem);\n\t\t\t\t}\n\t\t\t}\n\t\t\tvar protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';\n\t\t\tvar address = protocol + window.location.host + window.location.pathname + '/ws';\n\t\t\tvar socket = new WebSocket(address);\n\t\t\tsocket.onmessage = function (msg) {\n\t\t\t\tif (msg.data == 'reload') window.location.reload();\n\t\t\t\telse if (msg.data == 'refreshcss') refreshCSS();\n\t\t\t};\n\t\t\tif (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {\n\t\t\t\tconsole.log('Live reload enabled.');\n\t\t\t\tsessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);\n\t\t\t}\n\t\t})();\n\t}\n\telse {\n\t\tconsole.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');\n\t}\n\t// ]]>\n</script>\n<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body>"
-outerText: "heading\nhome\nabout us\ncontact\nsub heading\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!"
-ownerDocument: document
-parentElement: html
-parentNode: html
-part: DOMTokenList [value: '']
-prefix: null
-previousElementSibling: head
-previousSibling: text
-scrollHeight: 234
-scrollLeft: 0
-scrollTop: 0
-scrollWidth: 734
-shadowRoot: null
-slot: ""
-spellcheck: true
-style: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
-tabIndex: -1
-tagName: "BODY"
-text: ""
-textContent: "\n    \n        \n            heading\n        \n        \n            \n                home\n                about us\n                contact\n            \n        \n        \n            sub heading\n            \n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!\n        \n    \n\n    \n        var element;\n        element = document.body; \n        console.log(element);\n    \n\n\n\n\n\t// <![CDATA[  <-- For SVG support\n\tif ('WebSocket' in window) {\n\t\t(function () {\n\t\t\tfunction refreshCSS() {\n\t\t\t\tvar sheets = [].slice.call(document.getElementsByTagName(\"link\"));\n\t\t\t\tvar head = document.getElementsByTagName(\"head\")[0];\n\t\t\t\tfor (var i = 0; i < sheets.length; ++i) {\n\t\t\t\t\tvar elem = sheets[i];\n\t\t\t\t\tvar parent = elem.parentElement || head;\n\t\t\t\t\tparent.removeChild(elem);\n\t\t\t\t\tvar rel = elem.rel;\n\t\t\t\t\tif (elem.href && typeof rel != \"string\" || rel.length == 0 || rel.toLowerCase() == \"stylesheet\") {\n\t\t\t\t\t\tvar url = elem.href.replace(/(&|\\?)_cacheOverride=\\d+/, '');\n\t\t\t\t\t\telem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());\n\t\t\t\t\t}\n\t\t\t\t\tparent.appendChild(elem);\n\t\t\t\t}\n\t\t\t}\n\t\t\tvar protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';\n\t\t\tvar address = protocol + window.location.host + window.location.pathname + '/ws';\n\t\t\tvar socket = new WebSocket(address);\n\t\t\tsocket.onmessage = function (msg) {\n\t\t\t\tif (msg.data == 'reload') window.location.reload();\n\t\t\t\telse if (msg.data == 'refreshcss') refreshCSS();\n\t\t\t};\n\t\t\tif (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {\n\t\t\t\tconsole.log('Live reload enabled.');\n\t\t\t\tsessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);\n\t\t\t}\n\t\t})();\n\t}\n\telse {\n\t\tconsole.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');\n\t}\n\t// ]]>\n\n.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}"
-title: ""
-translate: true
-vLink: ""
-virtualKeyboardPolicy: ""
-[[Prototype]]: HTMLBodyElement
 ```
 
 #### Displays all the collection of anchor tags in the document 
@@ -1677,214 +1459,7 @@ There are certain DOM methods to display HTML dyanamically
         console.log(element);
 </script>
 
-div#header
-accessKey: ""
-align: ""
-ariaAtomic: null
-ariaAutoComplete: null
-ariaBusy: null
-ariaChecked: null
-ariaColCount: null
-ariaColIndex: null
-ariaColSpan: null
-ariaCurrent: null
-ariaDescription: null
-ariaDisabled: null
-ariaExpanded: null
-ariaHasPopup: null
-ariaHidden: null
-ariaKeyShortcuts: null
-ariaLabel: null
-ariaLevel: null
-ariaLive: null
-ariaModal: null
-ariaMultiLine: null
-ariaMultiSelectable: null
-ariaOrientation: null
-ariaPlaceholder: null
-ariaPosInSet: null
-ariaPressed: null
-ariaReadOnly: null
-ariaRelevant: null
-ariaRequired: null
-ariaRoleDescription: null
-ariaRowCount: null
-ariaRowIndex: null
-ariaRowSpan: null
-ariaSelected: null
-ariaSetSize: null
-ariaSort: null
-ariaValueMax: null
-ariaValueMin: null
-ariaValueNow: null
-ariaValueText: null
-assignedSlot: null
-attributeStyleMap: StylePropertyMap {size: 0}
-attributes: NamedNodeMap {0: id, id: id, length: 1}
-autocapitalize: ""
-autofocus: false
-baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
-childElementCount: 1
-childNodes: NodeList(3) [text, h1, text]
-children: HTMLCollection [h1]
-classList: DOMTokenList [value: '']
-className: ""
-clientHeight: 38
-clientLeft: 0
-clientTop: 0
-clientWidth: 734
-contentEditable: "inherit"
-dataset: DOMStringMap {}
-dir: ""
-draggable: false
-elementTiming: ""
-enterKeyHint: ""
-firstChild: text
-firstElementChild: h1
-hidden: false
-id: "header"
-innerHTML: "\n            <h1>heading</h1>\n        "
-innerText: "heading"
-inputMode: ""
-isConnected: true
-isContentEditable: false
-lang: ""
-lastChild: text
-lastElementChild: h1
-localName: "div"
-namespaceURI: "http://www.w3.org/1999/xhtml"
-nextElementSibling: div#menu
-nextSibling: text
-nodeName: "DIV"
-nodeType: 1
-nodeValue: null
-nonce: ""
-offsetHeight: 38
-offsetLeft: 8
-offsetParent: body
-offsetTop: 22
-offsetWidth: 734
-onabort: null
-onanimationend: null
-onanimationiteration: null
-onanimationstart: null
-onauxclick: null
-onbeforecopy: null
-onbeforecut: null
-onbeforepaste: null
-onbeforexrselect: null
-onblur: null
-oncancel: null
-oncanplay: null
-oncanplaythrough: null
-onchange: null
-onclick: null
-onclose: null
-oncontextmenu: null
-oncopy: null
-oncuechange: null
-oncut: null
-ondblclick: null
-ondrag: null
-ondragend: null
-ondragenter: null
-ondragleave: null
-ondragover: null
-ondragstart: null
-ondrop: null
-ondurationchange: null
-onemptied: null
-onended: null
-onerror: null
-onfocus: null
-onformdata: null
-onfullscreenchange: null
-onfullscreenerror: null
-ongotpointercapture: null
-oninput: null
-oninvalid: null
-onkeydown: null
-onkeypress: null
-onkeyup: null
-onload: null
-onloadeddata: null
-onloadedmetadata: null
-onloadstart: null
-onlostpointercapture: null
-onmousedown: null
-onmouseenter: null
-onmouseleave: null
-onmousemove: null
-onmouseout: null
-onmouseover: null
-onmouseup: null
-onmousewheel: null
-onpaste: null
-onpause: null
-onplay: null
-onplaying: null
-onpointercancel: null
-onpointerdown: null
-onpointerenter: null
-onpointerleave: null
-onpointermove: null
-onpointerout: null
-onpointerover: null
-onpointerrawupdate: null
-onpointerup: null
-onprogress: null
-onratechange: null
-onreset: null
-onresize: null
-onscroll: null
-onsearch: null
-onseeked: null
-onseeking: null
-onselect: null
-onselectionchange: null
-onselectstart: null
-onstalled: null
-onsubmit: null
-onsuspend: null
-ontimeupdate: null
-ontoggle: null
-ontransitioncancel: null
-ontransitionend: null
-ontransitionrun: null
-ontransitionstart: null
-onvolumechange: null
-onwaiting: null
-onwebkitanimationend: null
-onwebkitanimationiteration: null
-onwebkitanimationstart: null
-onwebkitfullscreenchange: null
-onwebkitfullscreenerror: null
-onwebkittransitionend: null
-onwheel: null
-outerHTML: "<div id=\"header\">\n            <h1>heading</h1>\n        </div>"
-outerText: "heading"
-ownerDocument: document
-parentElement: div#wrapper
-parentNode: div#wrapper
-part: DOMTokenList [value: '']
-prefix: null
-previousElementSibling: null
-previousSibling: text
-scrollHeight: 38
-scrollLeft: 0
-scrollTop: 0
-scrollWidth: 734
-shadowRoot: null
-slot: ""
-spellcheck: true
-style: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
-tabIndex: -1
-tagName: "DIV"
-textContent: "\n            heading\n        "
-title: ""
-translate: true
-virtualKeyboardPolicy: ""
-[[Prototype]]: HTMLDivElement
+div#header...
 ```
 
 #### 2. document.getElementsByClassName("class name")
@@ -1901,6 +1476,7 @@ HTMLCollection(2) [p.para, p.para]
 length: 2
 [[Prototype]]: HTMLCollection
 ```
+
 ```bash
 //targetting the first paragraph
    <script>
@@ -1930,5 +1506,473 @@ p.para
 
 ul#list
 ```
+
+
+## We either get or set values 
+- set: to change properties of element 
+- get: to fetch value of elements
+
+What can we get and set with DOM?
+1. HTML
+2. text
+3. attribute
+
+### DOM Get Methods:
+1. innerText- returns the text inside the element specified 
+2. innerHTML
+3. getAttribute
+4. getAttributeNode 
+5. Attributes
+
+### DOM Set Methods:
+1. innerText
+2. innerHTML
+3. setAttribute
+4. Attribute
+5. removeAttribute
+
+# DOM Get Methods
+### 1. innerText 
+extracts the text from a given id and returns it
+
+```bash 
+<script>
+        var element;
+        element = document.getElementById("header").innerText; 
+        console.log(element);
+</script>
+
+heading
+```
+
+### 2. innerHTML
+displays all the html inside the tag 
+
+```bash 
+<script>
+        var element;
+        element = document.getElementById("content").innerHTML; 
+        console.log(element);
+</script>
+
+ <h2>sub heading</h2>
+    <img src="" alt="">
+    <img src="" alt="">
+    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+```
+
+### 3. getAttribute
+returns the value of class/ id
+
+```bash 
+//we make following changes in the code 
+
+<body>
+    <div id="wrapper">
+        <div id="header" class="abc" style="border: 1px solid red;" > //added 
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+    <!--all the commands in dom.md -->
+
+    <script>
+        var element;
+        element = document.getElementById("content").getAttribute("para"); 
+        console.log(element);
+    </script>
+
+
+</body>
+```
+
+#### returns the classname 
+```bash 
+ <script>
+        var element;
+        element = document.getElementById("header").getAttribute("class"); 
+        console.log(element);
+</script>
+
+abc 
+```
+
+#### returns the id name 
+```bash 
+<script>
+    var element;
+    element = document.getElementById("header").getAttribute(""); 
+    console.log(element);
+</script>
+
+heading
+```
+
+### 4. getAttributeNode
+returns the property name and value 
+
+```bash
+ <script>
+        var element;
+        element = document.getElementById("header").getAttributeNode("style"); 
+        console.log(element);
+</script>
+
+
+style
+baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
+childNodes: NodeList []
+firstChild: null
+isConnected: false
+lastChild: null
+localName: "style"
+name: "style"
+namespaceURI: null
+nextSibling: null
+nodeName: "style"
+nodeType: 2
+nodeValue: "border: 1px solid red;"
+ownerDocument: document
+ownerElement: div#header.abc
+parentElement: null
+parentNode: null
+prefix: null
+previousSibling: null
+specified: true
+textContent: "border: 1px solid red;"
+value: "border: 1px solid red;"
+[[Prototype]]: Attr
+```
+
+
+```bash
+<script>
+        var element;
+        element = document.getElementById("header").getAttributeNode("style").value; 
+        console.log(element);
+</script>
+
+border: 1px solid red;
+```
+
+### 5. Attributes 
+returns an object 
+
+```bash
+    <script>
+        var element;
+        element = document.getElementById("header").attributes;
+        console.log(element);
+    </script>
+
+NamedNodeMap {0: id, 1: class, 2: style, id: id, class: class, style: style, length: 3}
+0: id
+1: class
+2: style
+class: class
+id: id
+style: style
+length: 3
+[[Prototype]]: NamedNodeMap
+```
+
+```bash
+    <script>
+        var element;
+        element = document.getElementById("header").attributes[1];
+        console.log(element);
+    </script>
+
+class
+baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
+childNodes: NodeList []
+firstChild: null
+isConnected: false
+lastChild: null
+localName: "class"
+name: "class"
+namespaceURI: null
+nextSibling: null
+nodeName: "class"
+nodeType: 2
+nodeValue: "abc"
+ownerDocument: document
+ownerElement: div#header.abc
+parentElement: null
+parentNode: null
+prefix: null
+previousSibling: null
+specified: true
+textContent: "abc"
+value: "abc"
+[[Prototype]]: Attr
+```
+
+#### returned the value of attribute 1 
+```bash
+    <script>
+        var element;
+        element = document.getElementById("header").attributes[1].value;
+        console.log(element);
+    </script>
+
+abc 
+```
+
+# DOM Set Methods
+### 1. innerText
+This doesn't print in the h1 tag format on the viewport 
+
+```bash
+<script>
+    var element
+    element = document.getElementById('header').innerText = "wow";
+    console.log(element)
+</script>
+```
+> to print in h1 tag format we need to use innerHTML
+### 2. innerHTML
+
+```bash
+ <script>
+    var element;
+    document.getElementById('header').innerHTML = "<h1>wow</h1>";
+    element = document.getElementById("header").innerHTML;
+    console.log(element)
+</script>
+```
+
+### 3. setAttribute
+changes attribute (class/id) name.
+> no need to remember index number 
+
+```bash
+//were renaming class="abc" to class="xyz"
+<script>
+    var element;
+    document.getElementById('header').setAttribute("class", "xyz");
+    element = document.getElementById("header").getAttribute("class");
+    console.log(element)
+</script>
+
+xyz
+```
+
+### 4. Attribute 
+we can change value using index numbers 
+
+```bash
+<script>
+    var element;
+    document.getElementById('header').attributes[1].value = "sdf"; 
+    
+    //<div id="header" class="abc" style="border: 1px solid red;">
+
+    //attribute  position 
+    //   id        0 
+    //  class      1 
+    //  style      3
+
+    element = document.getElementById("header").getAttribute("class");
+    console.log(element)
+
+</script>
+
+sdf 
+```
+
+### 5. removeAttribute
+removes a specific property from an attribute.
+
+```bash 
+<script>
+    var element;
+    document.getElementById('header').removeAttribute("style"); 
+    // over here were removing border: 1px solid red on the header class
+
+    
+    //<div id="header" class="abc" style="border: 1px solid red;">
+
+    //attribute  position 
+    //   id        0 
+    //  class      1 
+    //  style      3
+
+    element = document.getElementById("header").getAttribute("class");
+    console.log(element)
+</script>
+```
+
+
+# Javascript Basic Events 
+when we call an event function will be run 
+
+### Button events 
+1. Click 
+2. Double Click 
+3. Right Click 
+
+### Mouse Events 
+4. Mouse Hover 
+5. Mouse Out 
+6. Mouse Down 
+7. Mouse Up 
+
+### Keyboard Events 
+8. Key Press
+9. Key Up 
+
+### windows Events 
+10. Load 
+11. Unload 
+12. Resize 
+13. Scroll 
+
+
+## 1. click
+**onclick* 
+> On clicking on the button, the function will be loaded 
+
+```bash
+<script>
+<head>
+    function hello()
+        {
+            document.write("hello everyone");
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="hello()">click me</button>
+</body>
+```
+## 2. Double click 
+*ondblclick**
+> when clicking on the button twice the function will be loaded 
+
+```bash 
+ <button ondblclick="hello()">click me</button>
+```
+
+## 3. Right Click 
+*oncontextmenu**
+> when right clicking on the button once the function will be loaded 
+
+```bash 
+<button oncontextmenu="hello()">click me</button>
+```
+
+## 4. Mouse Hover 
+*onmouseenter**
+> when hovering over the button the function will be loaded 
+
+```bash
+<button onmouseenter="hello()">click me</button>
+```
+
+## 5. Mouse Out 
+*onmouseout**
+> as long as you hover on the button nothing will be shown, but when you hover out 
+the function will be loaded AKA Event will be called 
+
+```bash
+ <button onmouseout="hello()">click me</button>
+```
+
+## 6. Mouse Down 
+*onmousedown**
+same as onclick.
+
+```bash 
+<button onmousedown="hello()">click me</button>
+```
+
+## 7. Mouse Up 
+*onmouseup**
+as you click on the button, nothing happens, as you release event will be called.
+
+```bash 
+<button onmouseup="hello()">click me</button>
+```
+
+## 8. Key Press
+*onkeypress**
+as soon as you press a keyword key, the function will be executed 
+- works only in forms/ body tag
+
+```bash
+<body onkeypress="hello()">
+ //press any key on the page and event will be called 
+</body>
+```
+
+## 9. Key Up 
+*onkeyup**
+as you press a keyword key, and release it, the function will be executed 
+```bash
+<body onkeyup="hello()">
+</body>
+```
+
+## 10. Load 
+*onload**
+on refreshing the page, event will be triggered 
+
+```bash
+<body onload="hello()">
+</body>
+```
+
+## 11. Unload 
+*onunload**
+before you close the page, event will be triggered 
+
+## 12. Resize 
+*onresize**
+whenever we resize the page, the event will be called 
+```bash
+<body onresize="hello()">
+
+</body>
+```
+## 13. Scroll 
+*onscroll**
+whenver we scroll the event will be called 
+```bash
+<body onscroll="hello()">
+
+</body>
+```
+## Drawback of Basic JS Events 
+A drawback from the Basic JS events was that for adding html event attributes 
+you would have to manually use it on every element in the html file, 
+so in order to make our JS events completely in the js file, we can follow 
+either of these two methods:
+
+
+
 
 
