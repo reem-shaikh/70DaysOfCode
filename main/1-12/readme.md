@@ -1,10 +1,5 @@
 1. Let vs var 
 2. Hoisting 
-3. context (this) keyword 
-4. callback 
-5. string templating
-
-If > closure 
 
 ## Why are we linking script in the body tag of the html file?
 standard practice: mention script tag at the bottom of the body 

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //default behavior 
+        //when function is in an object 
+        // var obj =
+        // {
+        //     'fn' : function() {
+        //         console.log(this);
+        //     }
+        // };
+
+        // obj.fn();
+
+        //behavior when function is not in an object 
+        // function fn1()
+        // {
+        //     console.log(this);
+        // }
+        // fn1();
+
+        //give custom value to the this keyword 
+        //call, apply, bind 
+
+        //call- 
+        //you are going to call a function
+        //going to pass a context manually 
+
+        //change code depending on context of execution
+
+        /*
+        function fn1()
+        {
+            console.log(this);
+        }
+        var obj = {
+            'key1' : "value something",
+            'key2' : "value of another",
+        }
+
+        fn1.call();
+        */
+
+
+        // function sum()
+        // {
+        //     let total = this.num1 + this.num2;
+        //     console.log(total);
+        // }
+
+        // // context 1
+        // var set1 = {
+        //     'num1' : 10,
+        //     'num2' : 40,
+        // }
+
+        // // context 2
+        // var set2 = {
+        //     'num1' : 15,
+        //     'num2' : 20,
+        // }
+
+        // // call wrt context 1
+        // sum.call(set1);
+
+        // // call wrt context 2
+        // sum.call(set2);
+
+        // //call used to specify what custom property do you want to execute 
+        // //over here this keyword points to parent object 
+
+        // sum();
+        // //this keyword points to window
+
+
+        
+//         var obj = {
+//             'fn': function()
+//             {
+//                 console.log(this);
+//                 //this points to obj/ owner 
+//             },
+//             'key1': 'something',
+//         }
+
+//         obj.fn();
+//         // pointing to default object 
+//         /*
+// {key1: 'something', fn: ƒ}
+// fn: ƒ ()
+// key1: "something"
+// [[Prototype]]: Object
+
+
+//         */
+
+//         // custom object 
+//         var obj2 = {
+//             'key2': 2000,
+//             'key1': 1000,
+//         }
+
+//         obj.fn.call(obj2);
+//         // pointing to custom object 
+//     /*
+// {key2: 2000, key1: 1000}
+// key1: 1000
+// key2: 2000
+// [[Prototype]]: Object
+//     */
+//         obj.fn();
+/*
+fn: ƒ ()
+key1: "something"
+[[Prototype]]: Object
+*/
+
+// whenever we have a function 
+// function fn(a, b, c)
+// {
+//     console.log(a);
+//     console.log(b);
+//     console.log(this);
+// }
+
+// let obj = {
+//     'key1' : 'something',
+//     'key2' : 'something',
+// }
+
+// fn.call(obj, 10, 'str');
+//obj is the context object 
+//all args after obj will be mapped to the parameters in function fn(a, b, c)
+
+//in call you individually mention each parameter
+
+// you can pass element using array 
+// however to pass n number of parameters
+// apply makes the process dyanamic 
+// fn.call(obj, 10, 'strr');
+
+// let array_of_params = [20, 'str2'];
+// fn.apply(obj, array_of_params);
+
+function fn(a, b, c)
+{
+    console.log(a);
+    console.log(b);
+    console.log(this);
+};
+
+let obj = {
+    'key1' : 'something',
+    'key2' : 'something',
+};
+
+let new_fn = fn.bind(obj);
+//doesnt execute function
+//it only binds, it does not call
+
+// new_fn(10, 'strr');
+console.log(typeof new_fn);
+
+
+
+    </script>
+</body>
+</html>
