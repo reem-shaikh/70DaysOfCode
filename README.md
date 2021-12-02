@@ -108,8 +108,8 @@ https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/pyramid.html
 https://reem-shaikh.github.io/Geekster-/main/25-11/tdltrial.html
 
 ## 26-11 assignment 
-https://reem-shaikh.github.io/Geekster-/main/main/26-11/anagram.html <br />
-https://reem-shaikh.github.io/Geekster-/main/main/26-11/factorial.html
+https://reem-shaikh.github.io/Geekster-/main/26-11/anagram.html <br />
+https://reem-shaikh.github.io/Geekster-/main/26-11/factorial.html
 
 <!--
 test
@@ -118,6 +118,9 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/fibonacci.html
 https://reem-shaikh.github.io/Geekster-/test/28-11/largernum.html
 https://reem-shaikh.github.io/Geekster-/test/28-11/odd_evensum.html
 https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
+
+29th assignment 
+https://reem-shaikh.github.io/Geekster-/main/29-11/revampedkbc.html
 
 -->
 
