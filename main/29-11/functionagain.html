@@ -87,6 +87,58 @@
         var difference = calculator.diff(10,30);
         console.log(difference);
 
+
+
+
+
+
+
+        //here we try to call individual function with its object 
+        var calculator = {
+            //calculator objects
+            'num1':0,
+            'num2':0,
+
+            'mul' : function ()
+            {
+            let total = calculator.num1*calculator.num2;
+            return total;
+            },
+
+            'div' : function()
+            {
+            let total = calculator.num1/ calculator.num2;
+            return total;
+            },
+
+            'sum' : function()
+            {
+            let total = calculator.num1 + calculator.num2;
+            return total;
+            },
+            'diff': function()
+            {
+            let total = calculator.num1 - calculator.num2;
+            return total;
+            },
+
+        };
+
+        calculator.num1 = 10;
+        calculator.num2 = 3;
+
+        var multiplication = calculator.mul();
+        console.log("product",multiplication);
+
+        var addition = calculator.sum();
+        console.log("addition",addition);
+
+        var divide = calculator.div();
+        console.log("division",divide);
+        
+        var difference = calculator.diff();
+        console.log("difference",difference);
+
        
 
 

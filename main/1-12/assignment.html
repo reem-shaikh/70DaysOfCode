@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator using this keyword</title>
+  </head>
+  <body>
+    <script>
+      var calculator = {
+        //using this keyword
+        num1: 0,
+        num2: 0,
+
+        mul: function () {
+          let total = this.num1 * this.num2
+          return total
+        },
+
+        div: function () {
+          let total = this.num1 / this.num2
+          return total
+        },
+
+        sum: function () {
+          var n = prompt('enter how many numbers your going to add')
+          // n = parseInt(number);
+
+          var values = []
+          var sum = 0
+
+          for (let i = 0; i < n; i++) {
+            this.values[i] = parseInt(prompt('enter num'))
+            sum = sum + this.values[i]
+          }
+
+          return sum
+        },
+
+        diff: function () {
+          let total = this.num1 - this.num2
+          return total
+          
+        },
+      }
+
+    //   var addition = calculator.sum()
+    //   console.log('addition', addition)
+
+      calculator.num1 = 10
+      calculator.num2 = 3
+
+      var multiplication = calculator.mul()
+      console.log('product', multiplication)
+
+      var divide = calculator.div()
+      console.log('division', divide)
+
+      var difference = calculator.diff()
+      console.log('difference', difference)
+
+    </script>
+  </body>
+</html>
