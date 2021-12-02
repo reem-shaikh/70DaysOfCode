@@ -122,6 +122,9 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
 29th assignment 
 https://reem-shaikh.github.io/Geekster-/main/29-11/revampedkbc.html
 
+1st assignment
+https://reem-shaikh.github.io/Geekster-/main/1-12/assignment.html
+
 -->
 
 <!-- micro dev tools: 
