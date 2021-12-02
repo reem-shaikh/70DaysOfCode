@@ -37,8 +37,8 @@ Window {window: Window, self: Window, document: document, name: '', location: L
 ```bash
 const thapa = 
         {
-            name: "vinod thapa",
-            qualif: "mcs",
+            name: "reem shaikh",
+            qualif: "bsc",
             sum: function()
             //sum is called method 
             {
@@ -59,13 +59,13 @@ console:
 add4
 
 thiskeyword.html:43 
-{name: 'vinod thapa', qualif: 'mcs', sum: ƒ}
-name: "vinod thapa"
-qualif: "mcs"
+{name: 'reem shaikh', qualif: 'bsc', sum: ƒ}
+name: "reem shaikh"
+qualif: "bsc"
 sum: ƒ ()
 [[Prototype]]: Object
 
-name vinod thapa
+name reem shaikh
 ```
 
 ### In web browsers, the window object is also the global object:

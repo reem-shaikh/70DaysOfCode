@@ -66,6 +66,9 @@ if(i==10)
 
 console.log("supersecret",supersecret);
 console.log("secret", secret);
+
+console:
+do complex stuff 
 ```
 
 #### Var 
