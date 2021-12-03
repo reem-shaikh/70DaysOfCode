@@ -28,10 +28,8 @@ behavior when function is not in an object
         }
         fn1();
 ```
-this refers to owner, but we want a custom object 
-**give custom value to the this keyword **
-Functions that help us give cutom vale 
-### call, apply, bind 
+## call, apply, bind 
+this refers to owner, but we want a custom object **give custom value to the this keyword **. Functions that help us give cutom value are call, apply, bind
         
 ## call
 call allows us to change code depending on context of execution
