@@ -74,6 +74,7 @@ we can define n number of functions, they wont be called unless you invoke it
    }
 
    return b; // b is returned as a variable 
+   // return c;  //to call c use this return statement instead 
 }
 
 // function call only when its invoked 
@@ -319,9 +320,11 @@ represents html document in a JS object.
 </script>
 
 console:
+document object >
 ```
 
 #### Tree structure of this code 
+```bash
         Html (root) 
 head tag         body tag
 
@@ -330,6 +333,8 @@ head tag         body tag
 3.title element   div {div a{ }} p{}
 4.meta            h5 
                   script 
+```
+
 Node levels:
 parent 
 element 
