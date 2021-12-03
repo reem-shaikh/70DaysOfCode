@@ -223,6 +223,8 @@ function fn(a, b, c)
     console.log(a);
     console.log(b);
     console.log(this);
+    //this returns windows object 
+    //because its not inside an object 
 }
 
 let obj = {
@@ -230,15 +232,30 @@ let obj = {
     'key2' : 'something',
 }
 
-let new_fn = fn.bind(obj);  //doesnt display anything on console 
+console.log("object");
+let func = fn(obj); //this returns the object 
+
+console.log("object without bind",func);
+console.log("without bind function type",typeof func)
+
+ let new_fn = fn.bind(obj);  //doesnt display anything on console 
 // doesnt execute function
-// it only binds, it does not call
+// it only binds the object with the function, it does not call
 
-2. Executing it with the variable you saved it 
-console.log(typeof new_fn); //function
+//2. Executing it with the variable you saved it 
+console.log(typeof new_fn); //console: function
 
-console: 
-function
+console:
+object
+practice.html:13 {key1: 'something', key2: 'something'}
+
+practice.html:14 undefined
+practice.html:15 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+// returns windows object because in the func function console.log(this) is mentioned, which is not defined in an object
+
+practice.html:28 object without bind undefined
+practice.html:29 without bind function type undefined
+practice.html:36 function
 ```
 
 ## callback function
