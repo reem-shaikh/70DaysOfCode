@@ -14,6 +14,9 @@ when function is in an object
         };
 
         obj.fn();
+        
+console:
+Objectfn: ƒ ()[[Prototype]]: Object
 ```
 
 ### Referring to the window object 
