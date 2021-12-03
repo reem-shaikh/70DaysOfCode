@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KBC</title>
+  </head>
+  <body>
+    <script>
+
+      var kbc1 = {
+        current_question_no: 0,
+        print_question: function () {
+          //print next question on console
+          console.log("kbc2", kbc2.question_list[0].text);
+        },
+        //kbc1.print_question();
+
+        select_answer: function (count) {
+          //checks whether answer is right or not
+          //correct- increement counter
+          //incorrect- show message showing you have lost and end the game
+          var score = 0;
+
+          alert(kbc1.question_list[0].text);
+          //taking users response
+          var response = window.prompt(kbc1.question_list[0].options);
+          // console.log(response); // c
+
+          if (response == kbc1.question_list[0].correct_answer) {
+            score++;
+            alert("correct");
+          } else {
+            alert("you lost the game");
+            var count = parseInt(score);
+            return kbc1.winning_prize(count)
+          }
+
+          var count = parseInt(score);
+          // console.log("count", count);
+          return kbc2.select_answer(count);
+        },
+
+        //kbc1.select_answer();
+
+        question_list: [
+          {
+            text: "which subject we are studying right now?",
+            options: "\n(a) Html \n(b) Css \n(c) JavaScript",
+            correct_answer: "c",
+            price_amount: 1000,
+          },
+        ],
+
+        winning_prize: function (count) {
+          if (count == 0) {
+            alert("congratulations, you have won 0Rs");
+          } else if (count == 1) {
+            alert("congratulations, you have won", kbc1.question_list[0].price_amount);
+          } else if (count == 2) {
+            alert("congratulations, you have won", kbc2.question_list[0].price_amount);
+          } else if (count == 3) {
+            alert("congratulations, you have won", kbc3.question_list[0].price_amount);
+          } else {
+            alert("congratulations, you have won", kbc4.question_list[0].price_amount);
+          }
+        },
+        //console.log(kbc1.winning_prize)
+      };
+
+      var kbc2 = {
+        current_question_no: 0,
+        print_question: function () {
+          //print next question on console
+          console.log("kbc3", kbc3.question_list[0].text);
+        },
+
+        select_answer: function (count) {
+          //checks whether answer is right or not
+          //correct- increement counter
+          //incorrect- show message showing you have lost and end the game
+          var score = count;
+
+          alert(kbc2.question_list[0].text);
+          //taking users response
+          var response = window.prompt(kbc2.question_list[0].options);
+          // console.log(response); // b
+
+          if (response == kbc2.question_list[0].correct_answer) {
+            score++;
+            alert("correct");
+          } else {
+            alert("wrong");
+            var count = parseInt(score);
+            return kbc2.winning_prize(count);
+          }
+
+          var count = score;
+          console.log("count", count);
+          return kbc3.select_answer(count);
+        },
+
+        question_list: [
+          {
+            text: "which subject we studied before this?",
+            options: "\n(a) Html \n(b) Css \n(c) JavaScript",
+            correct_answer: "b",
+            price_amount: 2000,
+          },
+        ],
+
+        winning_prize: function (count) {
+          if (count == 0) {
+            alert("congratulations, you have won 0Rs");
+          } else if (count == 1) {
+            alert("congratulations, you have won", kbc1.question_list[0].price_amount);
+          } else if (count == 2) {
+            alert("congratulations, you have won", kbc2.question_list[0].price_amount);
+          } else if (count == 3) {
+            alert("congratulations, you have won", kbc3.question_list[0].price_amount);
+          } else {
+            alert("congratulations, you have won", kbc4.question_list[0].price_amount);
+          }
+        },
+        //console.log(kbc2.winning_prize)
+      };
+
+      var kbc3 = {
+        current_question_no: 0,
+        print_question: function () {
+          //print next question on console
+          console.log("kbc4", kbc4.question_list[0].text);
+        },
+
+        select_answer: function (count) {
+          //checks whether answer is right or not
+          //correct- increement counter
+          //incorrect- show message showing you have lost and end the game
+          var score = count;
+
+          alert(kbc3.question_list[0].text);
+          //taking users response
+          var response = window.prompt(kbc3.question_list[0].options);
+          // console.log(response); 
+
+          if (response == kbc3.question_list[0].correct_answer) {
+            score++;
+            alert("correct");
+          } else {
+            alert("wrong");
+            var count = parseInt(score);
+            return kbc3.winning_prize(count);
+          }
+
+
+          var count = parseInt(score);
+          console.log("count", count);
+          return kbc4.select_answer(count);
+        },
+
+        question_list: [
+          {
+            text: "what is this game about?",
+            options: "\n(a) PubG \n(b) KBC \n(c) Roblox",
+            correct_answer: "b",
+            price_amount: 3000,
+          },
+        ],
+
+        winning_prize: function (count) {
+          if (count == 0) {
+            alert("congratulations, you have won 0Rs");
+          } else if (count == 1) {
+            alert("congratulations, you have won", kbc1.question_list[0].price_amount);
+          } else if (count == 2) {
+            alert("congratulations, you have won", kbc2.question_list[0].price_amount);
+          } else if (count == 3) {
+            alert("congratulations, you have won", kbc3.question_list[0].price_amount);
+          } else {
+            alert("congratulations, you have won", kbc4.question_list[0].price_amount);
+          }
+        },
+      };
+
+      var kbc4 = {
+        current_question_no: 0,
+        print_question: function () {
+          //print next question on console
+          console.log("this is the last question");
+        },
+
+        select_answer: function (count) {
+          //checks whether answer is right or not
+          //correct- increement counter
+          //incorrect- show message showing you have lost and end the game
+          var score = count;
+
+          alert(kbc4.question_list[0].text);
+          //taking users response
+          var response = window.prompt(kbc4.question_list[0].options);
+          // console.log(response); 
+
+          if (response == kbc4.question_list[0].correct_answer) {
+            score++;
+            alert("correct");
+          } else {
+            alert("wrong");
+            var count = parseInt(score);
+            return kbc4.winning_prize(count);
+          }
+
+          var count = parseInt(score);
+          console.log("count", count);
+          return kbc4.winning_prize(count);
+          // return kbc5.select_answer(count);
+        },
+
+        question_list: [
+          {
+            text: "which subject we are going to study next?",
+            options: "\n(a) Advanced Frontend \n(b) Idk \n(c) Depends",
+            correct_answer: "c",
+            price_amount: 4000,
+          },
+        ],
+
+        winning_prize: function (count) {
+          if (count == 0) {
+            alert("congratulations, you have won 0Rs");
+          } else if (count == 1) {
+            alert("congratulations, you have won", kbc1.question_list[0].price_amount);
+          } else if (count == 2) {
+            alert("congratulations, you have won", kbc2.question_list[0].price_amount);
+          } else if (count == 3) {
+            alert("congratulations, you have won", kbc3.question_list[0].price_amount);
+          } else {
+            alert("congratulations, you have won", kbc4.question_list[0].price_amount);
+          }
+        },
+
+      };
+
+      //print all question on the console
+      function print_allquestion() {
+        let i = 0;
+        console.log("kbc1", kbc1.question_list[i].text);
+        console.log("kbc1", kbc1.question_list[i].options);
+        console.log("kbc2", kbc2.question_list[i].text);
+        console.log("kbc2", kbc2.question_list[i].options);
+        console.log("kbc3", kbc3.question_list[i].text);
+        console.log("kbc3", kbc3.question_list[i].options);
+      }
+
+
+    </script>
+  </body>
+</html>
