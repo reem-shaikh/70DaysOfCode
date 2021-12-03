@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator using this keyword</title>
+  </head>
+  <body>
+    <script>
+      var calculator = {
+        //using this keyword
+        num1: 0,
+        num2: 0,
+
+        mul: function (num1, num2) {
+          let total = num1 * num2
+          return total
+        },
+
+        div: function (num1, num2) {
+          let total = num1 / num2
+          return total
+        },
+
+        sum: function () {
+          let total = this.num1 + this.num2
+          return total
+        },
+
+        diff: function (num1, num2) {
+          console.log(num1)
+          console.log(num2)
+          let total = num1 - num2
+          return total
+        },
+      }
+
+      //1. executing call function
+      //1.1 using two contexts 
+      //1.2 using call by parameters 
+
+      // 1.1 using two contexts 
+      // context 1
+      var set1 = {
+        num1: 10,
+        num2: 40,
+      }
+
+      // context 2
+      var set2 = {
+        num1: 15,
+        num2: 20,
+      }
+
+      // call wrt context 1
+      var add = calculator.sum.call(set1)
+      console.log(add)
+
+      // call wrt context 2
+      var add = calculator.sum.call(set2)
+      console.log(add)
+
+      //1.2 calling with parameters
+      let obj = {
+        key1: 'something',
+        key2: 'something',
+      }
+
+     var subtract = calculator.diff.call(obj, 20, 10)
+     console.log(subtract)
+
+     //2. Using apply function
+     //we can pass n number of parameters through the array
+     let array_of_params = [20, 10];
+     var multiply = calculator.mul.apply(obj, array_of_params)
+     console.log(multiply)
+    
+     // 3. Bind 
+     let new_fn = calculator.div.bind(obj);
+     console.log(typeof new_fn);
+
+
+    </script>
+  </body>
+</html>
