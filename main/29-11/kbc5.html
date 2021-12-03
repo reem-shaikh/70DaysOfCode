@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KBC</title>
   </head>
+  <!--
+    console commands
+    for accessing the game:  kbc1.select_answer();
+
+1. the question loads first, click on okay to proceed to the options 
+2. enter a/b/c in the prompt box 
+
+  -->
   <body>
     <script>
       //using this keyword 
@@ -13,7 +21,7 @@
         current_question_no: 0,
         print_question: function () {
           //print next question on console
-          console.log("kbc2", kbc2.question_list[0].text);
+          console.log(kbc2.question_list[0].text);
         },
         //kbc1.print_question();
 
@@ -73,7 +81,7 @@
         current_question_no: 0,
         print_question: function () {
           //print next question on console
-          console.log("kbc3", kbc3.question_list[0].text);
+          console.log(kbc3.question_list[0].text);
         },
 
         select_answer: function (count) {
@@ -130,7 +138,7 @@
         current_question_no: 0,
         print_question: function () {
           //print next question on console
-          console.log("kbc4", kbc4.question_list[0].text);
+          console.log(kbc4.question_list[0].text);
         },
 
         select_answer: function (count) {
