@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object makes constant</title>
+</head>
+<body>
+    <script>
+        //object created as constant
+        const obj = {
+            'key1' : 'value1',
+            'key2' : 'value2',
+            'key3' : 'value3'
+        };
+
+        //❌Illegal
+        //we cannot create a new pointer 
+        //with the same name 
+        /*
+
+        obj = {
+            'new_key' : 'new value'
+        }
+        */
+        //object.html:21 Uncaught TypeError: Assignment to constant variable.
+
+        console.log("obj",obj);
+
+        //objects stored as memory pointer 
+        //they can be changed 
+
+        //we can update existing pointer 
+        obj.key1 = "new value 2"
+        console.log("obj changed",obj)
+
+        //sealing object 
+        //prevents changing of obj properties 
+        //you cannot make changes after this 
+        Object.seal("sealed",obj);
+        //this object is sealed completely 
+
+        //thats why we cant change it 
+        //we cant change or delete or update or edit 
+        delete obj.key2; //wont work
+
+
+    </script>
+</body>
+</html>

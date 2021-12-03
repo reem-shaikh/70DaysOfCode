@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function a()  // function defination
+{
+   console.log("function a is called")
+   let b = function()
+   {
+     console.log("function b call");
+   }
+
+   let c = function()
+   {
+     console.log("function c call");
+   }
+
+   let arr = [b, c]
+   return arr;
+}
+
+// function call only when its invoked 
+let res = a();             //function invoked only when its called
+
+console.log(typeof res);  //console: function
+
+// because its an array were not calling using res()
+console.log(res)
+res[0]();
+//res is an array 
+// [0] - index 
+// () - signifies function invocation
+
+
+
+
+    </script>
+</body>
+</html>

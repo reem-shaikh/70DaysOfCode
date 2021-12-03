@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+</head>
+<body>
+    <script>
+       var sum = function(param1)
+       {
+           console.log("a")
+           var b = function(param2)
+           {
+               console.log("b")
+               var c = function(param3)
+               {
+               var add = param1 + param2 + param3;
+               console.log(add)
+               }
+
+              
+           }
+           return c;
+        
+           
+       }
+
+    sum(10)(20)(30);
+     // (): calls function a()
+     // (): calls function b()
+    </script>
+</body>
+</html>
