@@ -41,6 +41,11 @@ if(n==10)
 
 console.log(secret);
 //we can access this outside its scope 
+
+console:
+10
+practice.html:16 some other complex stuff
+practice.html:19 password
 ```
 
 In some situations we want the variable to be inside the scope only. In secret API keys we dont want it to be leaked to the users 
@@ -67,7 +72,7 @@ do complex stuff
 ```
 
 #### Var 
-> same reference to the memory 
+> both the a variable share the same reference to the memory 
 
 ```bash
 var a = "";
@@ -80,7 +85,7 @@ console.log(a);  //20
 ```
 
 #### let
-> in memory both are stored in different memory locations
+> in memory both the variables are stored in different memory locations
 
 ```bash
 let a = "";
@@ -93,8 +98,9 @@ console.log(a);      //a
 ```
 
 ❌Error 
-> you cannot assign different values for a 
-inside and outside it.
+> you cannot assign different datatypes for a 
+inside and outside it. 
+(eg: var: outside, let: inside the scope)
 
 ```bash
 var a = "a";
@@ -153,8 +159,11 @@ console.log(abcd);
 
 - if you have declared, not defined variable
 ```bash
-var a;
+var a;             //declaration
 console.log(a);
+
+console:
+undefined
 ```
 
 ### Why is it undefined? why haven't it crashed, why no error? 
@@ -438,7 +447,7 @@ console:
 window object 
 ```
 #### we can call a variable/ function through "this" keyword which has no object
-However, we can call a variable through this keyword 
+if we call a variable or a function using dot notation then the variable/ function will be created inside the windows object
 ```bash
 
 function fn()
