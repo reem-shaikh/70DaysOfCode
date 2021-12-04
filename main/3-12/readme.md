@@ -2,12 +2,12 @@
 # Functions
 (till now we've discussed)
 1. as regular Functions
-3. as key value for objects 
-5. pass function to another function 
-6. function as argument  </br>
-7. function as variable 
+2. as key value for objects 
+3. pass function to another function 
+4. function as argument  </br>
+5. function as variable 
 
-## 8. Return function from another function
+## 6. Return function from another function
 
 ```bash
 function a()  // function defination
