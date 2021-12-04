@@ -1485,6 +1485,7 @@ console.log(c1);
 ```
 
 ✅Parameter & Arguments 
+```bash
     function sum(a, b)
     **FORMAL parameters**
    **written inside function defination**
@@ -1509,11 +1510,12 @@ console.log(c1);
         var b = parseInt(num2);
 
     var fin = sum(a, b);
+ 
    **ACTUAL PARAMETERS**
    **called during function invokation**
 
         console.log(fin);
-
+```
 
 # Conditionals in Js 
 1. If Statement 
