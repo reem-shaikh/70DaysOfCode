@@ -2,12 +2,12 @@
 # Functions
 (till now we've discussed)
 1. as regular Functions
-3. as key value for objects 
-5. pass function to another function 
-6. function as argument 
-7. function as variable 
+2. as key value for objects 
+3. pass function to another function 
+4. function as argument  </br>
+5. function as variable 
 
-## 8. Return function from another function
+## 6. Return function from another function
 
 ```bash
 function a()  // function defination
@@ -74,6 +74,7 @@ we can define n number of functions, they wont be called unless you invoke it
    }
 
    return b; // b is returned as a variable 
+   // return c;  //to call c use this return statement instead 
 }
 
 // function call only when its invoked 
@@ -90,6 +91,7 @@ functions.html:16 function b call
 ```
 
 #### calling both b and c together
+#### 1. first were going to call a and b together
 ```bash
 function a()  // function defination
 {
@@ -111,14 +113,109 @@ function a()  // function defination
 // function call only when its invoked 
 let res = a();             //function invoked only when its called
 
-console.log(typeof res);  //console: function
-
-// because its an array were not calling using res()
-console.log(res)
 res[0]();
 //res is an array 
-// [0] - index 
+// [0] - index that signifies b 
 // () - signifies function invocation
+
+console:
+function a is called
+VM108:6 function b call
+```
+#### 1.2 were going to call a and c together
+```bash
+function a()  // function defination
+{
+   console.log("function a is called")
+   let b = function()
+   {
+     console.log("function b call");
+   }
+
+   let c = function()
+   {
+     console.log("function c call");
+   }
+
+   let arr = [b, c]
+   return arr;
+}
+
+// function call only when its invoked
+let res = a();             //function invoked only when its called
+res[1]();
+VM121:3 function a is called
+VM121:11 function c call
+```
+#### 3. were talking about how console.log(res) acts as a pointer to the function
+```bash
+function a()  // function defination
+{
+   console.log("function a is called")
+   let b = function()
+   {
+     console.log("function b call");
+   }
+
+   let c = function()
+   {
+     console.log("function c call");
+   }
+
+   let arr = [b, c]
+   return arr;
+}
+
+// function call only when its invoked
+let res = a();             //function invoked only when its called
+
+console.log("typeof",typeof res);  //console: function
+
+// because its an array were not calling using res()
+console.log("res",res) //this is a pointer 
+res[0]();
+
+console:
+VM240:3 function a is called
+VM240:21 typeof object
+VM240:24 res (2) [ƒ, ƒ] 0: ƒ ()1: ƒ ()length: 2[[Prototype]]: Array(0)
+VM240:6 function b call
+```
+#### 1.4 Calling both b and c together 
+```bash
+function a()  // function defination
+{
+   console.log("function a is called")
+   let b = function()
+   {
+     console.log("function b call");
+   }
+
+   let c = function()
+   {
+     console.log("function c call");
+   }
+
+   let arr = [b, c]
+   return arr;
+}
+
+// function call only when its invoked
+let res = a();             //function invoked only when its called
+
+console.log("typeof",typeof res);  //console: function
+
+// because its an array were not calling using res()
+console.log("res",res)
+res[0]();
+res[1]();
+
+console:
+function a is called
+VM255:21 typeof object
+VM255:24 res (2) [ƒ, ƒ]
+VM255:6 function b call
+VM255:11 function c call
 ```
 
 ## Write function where your function invokation for sum looks like this sum(10)(20)
@@ -319,9 +416,11 @@ represents html document in a JS object.
 </script>
 
 console:
+document object >
 ```
 
 #### Tree structure of this code 
+```bash
         Html (root) 
 head tag         body tag
 
@@ -330,6 +429,8 @@ head tag         body tag
 3.title element   div {div a{ }} p{}
 4.meta            h5 
                   script 
+```
+
 Node levels:
 parent 
 element 
