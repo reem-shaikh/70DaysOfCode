@@ -1,0 +1,48 @@
+<!-- Make a color flipper, means you have some background color and a button on the page. Whenever I click on the button, the color of the background will change. Host that site and paste the link here. * -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Flipper</title>
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+        min-height: 98vh;
+        flex-direction: column;
+        background-color: #040d15;
+      }
+
+      #button {
+        position: relative;
+        display: inline-block;
+        padding: 12px 36px;
+        margin-left: 660px;
+        margin-right: 650px;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 2px;
+        border-radius: 40px;
+        background: linear-gradient(90deg, #0162c8, #55e7fc);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button id="button">Click me</button>
+    </div>
+    <script>
+      let color = ['linear-gradient(90deg, #0162c8, #4C0070)']
+      let button = document.getElementById('button')
+
+      button.addEventListener('click', function () {
+        let container = document.getElementById('container')
+        container.style.background = color
+      })
+    </script>
+  </body>
+</html>
