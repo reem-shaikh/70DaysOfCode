@@ -1,6 +1,4 @@
 
-
-
 <!-- #assignment website prebootcamp:
 >https://reem-shaikh.github.io/Geekster-/html/Foodapp.html/index.html -->
 
@@ -128,6 +126,9 @@ https://reem-shaikh.github.io/Geekster-/main/1-12/prac.html
 2nd assignment
 https://reem-shaikh.github.io/Geekster-/main/2-12/calculator.html
 
+3-12 assignment 
+https://reem-shaikh.github.io/Geekster-/main/3-12/sum.html
+https://reem-shaikh.github.io/Geekster-/main/3-12/count.html
 -->
 
 <!-- micro dev tools: 
