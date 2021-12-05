@@ -118,10 +118,10 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
 ## 29th assignment 
 https://reem-shaikh.github.io/Geekster-/main/29-11/kbc5.html
 
-## 1st assignment
+## 1-12 assignment
 https://reem-shaikh.github.io/Geekster-/main/1-12/prac.html
 
-## 2nd assignment
+## 2-12 assignment
 https://reem-shaikh.github.io/Geekster-/main/2-12/calculator.html
 
 ## 3-12 assignment 
