@@ -116,23 +116,21 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/largernum.html <br />
 https://reem-shaikh.github.io/Geekster-/test/28-11/odd_evensum.html <br/>
 https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
 
-<!--
-29th assignment 
+## 29th assignment 
 https://reem-shaikh.github.io/Geekster-/main/29-11/kbc5.html
 
-1st assignment
+## 1st assignment
 https://reem-shaikh.github.io/Geekster-/main/1-12/prac.html
 
-2nd assignment
+## 2nd assignment
 https://reem-shaikh.github.io/Geekster-/main/2-12/calculator.html
 
-3-12 assignment 
+## 3-12 assignment 
 https://reem-shaikh.github.io/Geekster-/main/3-12/sum.html
 https://reem-shaikh.github.io/Geekster-/main/3-12/count.html
 
-5-12 test
+### 5-12 test
 https://reem-shaikh.github.io/Geekster-/test/5-12test.html
--->
 
 <!-- micro dev tools: 
 launch instance
