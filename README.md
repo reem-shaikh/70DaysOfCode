@@ -129,6 +129,9 @@ https://reem-shaikh.github.io/Geekster-/main/2-12/calculator.html
 3-12 assignment 
 https://reem-shaikh.github.io/Geekster-/main/3-12/sum.html
 https://reem-shaikh.github.io/Geekster-/main/3-12/count.html
+
+5-12 test
+https://reem-shaikh.github.io/Geekster-/test/5-12test.html
 -->
 
 <!-- micro dev tools: 
