@@ -421,4 +421,165 @@ Read:
 2. practice extra assignment questions 
 
 
+## Scope 
+Scope of a variable defines where that variable can be accessed in the code 
+1. local scope 
+   variables defined inside the function 
+   const and let keyword gets defined in local scope 
+
+2. global scope 
+   variables defined outside the function
+   var is defined in global scope.
+ 
+3. Lexical scope 
+   accessing the variables which are declared outside the function call 
+   is lexical scoping. eg: accessing age outside displayAge 
+
+```bash
+<script>
+    var name = "reem"; //global variable 
+    function displayName()
+    {
+        //displayName has its own name variable 
+        console.log(name)
+        
+
+        var age = 20;
+        function displayAge()
+        {   //displayAge does not have its own age variable 
+            console.log(age)
+        }
+        displayAge();
+    }
+    displayName();
+
+</script>
+
+console:
+reem
+20
+```
+same output, when we keep both variables global 
+```bash
+ <script>
+
+    //keeping both variables global 
+    var name = "reem";
+    var age = 20;
+    function displayName()
+    {
+        console.log(name)
+
+        function displayAge()
+        {   
+            console.log(age)
+        }
+        displayAge();
+    }
+    displayName();
+
+</script>
+
+console:
+reem
+20
+```
+### Lexical
+Where in the code, is the variable defined; not where were calling it.
+
+### Lexical Parent 
+where it is written?
+displayAge written inside displayName, displayName is the lexical parent 
+
+### Lexical Environment 
+Scope is directly related to the lexical environment.
+
+1. Local memory of that function (local memory: anything defined inside the function)
+   first displayAge() looks for the age variable in its scope 
+
+2. parent's lexical Environment
+   2.1 if it doesnt find it there, it looks for it in displayAge parent's scope (displayName)
+   2.2 Then it looks for it, in the displayName parent's scope (global execution context)
+   2.3 if the variable is not present globally, then its gives a reference error 
+
+```bash
+<script>
+
+    var name = "reem";
+    //4. if it doesnt find it in lexical parent environment, 
+    // it then checks in the global execution context which is the parent of 
+    // displayName
+
+    function displayName()
+    {
+        //3. then it will look for it in the lexical parent's environment 
+        var age = 20;
+        console.log(name)
+
+        function displayAge()
+        { 
+            //2. it will first look for the variable "age", inside the local memory of the function called, if its not present 
+            console.log(age)
+        }
+        //1. when this function is called 
+        displayAge();
+    }
+    displayName();
+
+</script>
+
+console:
+reem
+20 
+```
+## Scope Chain 
+this mechanism of finding variables through lexical environment scope and if its 
+not available, referencing it to the parent lexical environment is called 
+scope chain 
+
+Every function has a reference to its lexical parent environment, 
+> if it doesnt find in the local memory of displayAge it tries to find it in/ references it to  
+> local memory of displayName which is the lexical parent of displayAge
+> if it doesnt find it in displayName, it tries to find it/ references it to, lexical parent of displayName
+> if it doesnt find it global execution context, it references it to null 
+  which is why it throws reference error : age is not defined 
+
+```bash
+<script>
+    var name = "reem";
+    function displayName()
+    {
+        console.log(name)
+
+        function displayAge()
+        { 
+            console.log(age)
+        }
+        displayAge();
+    }
+    displayName();
+</script>
+
+console:
+reem
+scope.html:19 Uncaught ReferenceError: age is not defined
+at displayAge (scope.html:19)
+at displayName (scope.html:21)
+at scope.html:23
+```
+
+local memory of global execution context 
+1. var name = "reem"
+
+local memory of displayName
+1. var age = 20
+lexical parent: global execution context 
+
+local memory of displayAge
+1. no variables 
+lexical parent: displayName
+``` 
+### You can only check for the variable, from the lexical parent, not the lexical child, according to the scope chain 
+
+
 

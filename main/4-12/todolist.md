@@ -1,19 +1,16 @@
-1. math functions
-
-https://www.youtube.com/watch?v=zKVXQ_RgRJA
-
-https://www.youtube.com/watch?v=azTgmrQaYl0
+1. math functions ✅
 
 2. inheritance in js 
 
-3. why do you need these functions?
+new keyword ✅
+
+3. why do you need these JS functions? ✅
 - Advantages, disadvantages 
 > apply
 > callback 
 > bind 
 > closure 
 > scope chain for closure 
-
 - What are disadvantages of this keyword 
 
 - refer the assignment questions discussed on 2-12
@@ -21,15 +18,16 @@ https://www.youtube.com/watch?v=azTgmrQaYl0
 4. Make notes on this 
 - setinterval 
 - settimeout 
-- arrow functions
+- arrow functions ✅
 - event listeners 
 - What is event Loop?
 - Is JavaScript a case sensitive language?
+- advantages and disadvantages of js 
 
-5. lesically nested functions
+5. lesically nested functions ✅
 Lexically nested function definitions defined within enclosing function
 
-6. complete the counter assignment 
+6. complete the counter assignment  ✅
 
 7. Complete the 30-11 readme.md 
 7.1 Advanced JS Events 

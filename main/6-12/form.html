@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Noticia+Text:ital@0;1&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(230, 230, 230);
+      }
+
+      .container {
+        background-color: rgb(252, 241, 243);
+        padding: 5px;
+        border-radius: 5px;
+      }
+      input,
+      select,
+      textarea {
+        display: block;
+        /* brings the new field on a new line  */
+
+        margin: 4px;
+      }
+      /* four values:
+            top right bottom left 
+               
+            three values 
+               top horizontal bottom 
+
+            two values 
+               top bottom 
+               left right
+
+            one value 
+            for all four values 
+
+            auto- for center allign
+            */
+
+      .inline {
+        display: inline;
+      }
+
+      h2 {
+        font-family: "Meow Script", cursive;
+      }
+
+      h4 {
+        margin: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Admission Form</h2>
+      <!--
+        first name 
+        last name 
+        mail id 
+        contact number 
+        gender 
+        dob 
+        adress
+        degree
+        college name 
+        year of graduation 
+        file upload link 
+    -->
+      <form autocomplete="on" class="container">
+        <h4>Personal Info</h4>
+        <input
+          type="text"
+          name="first name"
+          class="inline"
+          placeholder="first name"
+        />
+
+        <input
+          type="text"
+          name="last name"
+          placeholder="last name"
+          class="inline"
+        />
+        <br />
+        <input type="email" name="mail" placeholder="last name" />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="phone number"
+          class="inline"
+          pattern="[0-9/{4}-[0-9]{3}-[0-9]{3}"
+          required
+        />
+
+        <select name="gender" class="inline">
+          <!--selected- when website is loaded its selected 
+        
+        disabled- you cannot select a disabled -->
+
+          <optgroup label="one">
+            <option selected disabled>male</option>
+            <option>female</option>
+          </optgroup>
+
+          <option>male</option>
+          <option>female</option>
+          <option>male</option>
+          <option>female</option>
+        </select>
+
+        <input type="date" name="dob" placeholder="date" max="2021-01-01" />
+
+        <textarea type="adress" name="address" placeholder="Address">
+        </textarea>
+
+        <h4>Education Info</h4>
+
+        <select>
+          <optgroup label="bachelors">
+            <option>btech</option>
+            <option>be</option>
+            <option>bsc</option>
+          </optgroup>
+          <optgroup label="masters">
+            <option>mtech</option>
+            <option>me</option>
+            <option>msc</option>
+          </optgroup>
+        </select>
+
+        <input
+          type="number"
+          name="grad"
+          class="inline"
+          placeholder="year of grad"
+          min="2019"
+          max="2021"
+        />
+
+        <input
+          type="number"
+          name="percentage"
+          class="inline"
+          placeholder="percentage"
+          min="0"
+          max="100"
+          step="10"
+        />
+        <h4>Checkbox</h4>
+        <input type="checkbox" class="inline" name="check" />
+        Advanced
+        <input type="checkbox" class="inline" name="check" />Advanced
+        <br />
+
+        <h4>Radiobutton</h4>
+        <input type="radio" class="inline" name="Radio1" />
+        Advanced
+        <input type="radio" class="inline" name="Radio1" />
+        Advanced
+
+        <br />
+
+        <input type="file" />
+
+        <hr />
+        <input type="submit" value="apply for admission" class="inline" />
+
+        <input type="reset" class="inline" />
+      </form>
+    </div>
+  </body>
+</html>

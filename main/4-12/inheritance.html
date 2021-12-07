@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       class employee{
+           constructor(name, age, salary)
+           {
+              //1. called first 
+              this.empname = name 
+              this.empage = age
+              this.empsalary = salary
+
+              document.write("constructor " + name + age + salary)  
+           }
+
+           info() //prototype method 
+           {
+             document.write(`
+             <h3>info constructor </h3>
+             ${this.empname} <br>
+             ${this.empage}  <br>
+             ${this.empsalary}`)
+           }
+       }
+
+       class manager extends employee
+       {   
+           
+       }
+       let m = new manager("reem", 20, 1000000);
+  
+       //to call prototype 
+       m.info()
+   </script>
+
+</body>
+</html>

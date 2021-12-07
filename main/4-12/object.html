@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    class student{
+        //2 parameters 
+        constructor(name,age) 
+        { 
+            //we add this property and call it in hello function
+            this.sname = name; 
+            this.sage = age;
+
+            console.log("constructor")
+        }
+
+        hello()         //prototype method 
+        {
+            console.log("hello " + this.sname  + this.sage)     
+        }
+
+        static staticMethod()
+        {
+            console.log("static function")
+        }
+    }
+
+    let a = new student("reem", 20)
+    student.staticMethod()
+    </script>
+
+        
+
+</body>
+</html>

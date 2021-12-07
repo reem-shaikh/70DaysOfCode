@@ -1,530 +1,773 @@
 
-### Javascript Math Methods:
-1. Ceil(x)
-2. floor(x)
-3. round(x)
-4. trunc(x)
-5. max(x,y,z,... n)
-6. min(x,y,x...n)
-7. sqrt(x)
-8. cbrt(x)
-9. pow(x,y)
-10. random()
-11. abs(x)
-12. PI
+### History Of JS
+1. Netscape created JS in 1996 and submitted the code to ECMA
+2. Release one: EcmaScript 1 (1997)
+ECMA (European Computer Manufacturers Association)
+3. Release two: EcmaScript 2 (1998)
+4. Release three: EcmaScript 3 (1999)
+5. Release five: Ecmascript 5(2009)
+   five versions:
+   - Ecmascript 5.1 (2011)
+#### 6. Release 6: Ecmascript 2015 (ES6): major update 
+- new methods 
+- OOPS Concepts 
 
-## 1. ceil(x)
-returns upper value of the number entered.
-```bash
-<script>
-        var a = Math.ceil(5.2);
-        document.write(a)
-        //works when number is in float type 
-</script>
+7. Ecmascript 2016 (ES7)
+8. Ecmascript 2017 (ES8)
+9. Ecmascript 2018 (ES9)
 
-console:
-6
-```
+### Arrow Functions 
+Before ES6 these were 2 methods of defining functions 
 
-#### Dealing with negative values:
-```bash
-var a = Math.ceil(-1.2);
-
-console:
--1
-```
-
-## 2. Floor(x)
-returns downward value of the number entered 
-```bash
-<script>
-        var a = Math.floor(5.2);
-        document.write(a)
-        //works when number is in float type 
-</script>
-
-console:
-5
-```
-```bash
-var a = Math.floor(0.2);
-
-console:
-0
-```
-
-#### Dealing with negative values:
-```bash
-var a = Math.floor(-1.2);
-
-console:
--2
-```
-
-## 3. Round 
-> if the number is below 0.5 it returns the lower value
-> if the number is above 0.5 it returns the greater value
-
-```bash
-<script>
-        var a = Math.round(5.2);
-        document.write(a)
-        //works when number is in float type 
-</script>
-
-console:
-5
-```
-```bash
-<script>
-        var a = Math.round(5.6);
-        document.write(a)
-        //works when number is in float type 
-</script>
-
-console:
-6
-```
-
-## 4. trunc 
-returns the simple integer value irrespective of whats after the decimal value 
-```bash
-<script>
-        var a = Math.trunc(6.2);
-        document.write(a)
-</script>
-
-console:
-6
-```
-```bash
-<script>
-        var a = Math.trunc(8.9);
-        document.write(a)
-</script>
-
-console:
-8
-```
-## 5. max(x, y, z .. n)
-returns highest value of number 
-```bash
-<script>
-        var a = Math.max(8, 10, 2, 20, 25);
-        document.write(a)
-</script>
-
-console:
-25
-```
-## 6. min(x, y, z .. n)
-returns lowest value of number 
-```bash
-<script>
-        var a = Math.min(8, 10, 2, 20, 25);
-        document.write(a)
-</script>
-
-console:
-2
-```
-```bash
-<script>
-        var a = Math.min(-10, -2, 2, 10);
-        document.write(a)
-</script>
-
-console:
--10
-```
-
-## 7. sqrt 
-```bash
-<script>
-        var a = Math.sqrt(4);
-        document.write(a)
-</script>
-
-console:
-2
-```
-
-## 8. cbrt (cubic root)
-```bash
-<script>
-        var a = Math.cbrt(125);
-        document.write(a)
-</script>
-
-console:
-5
-```
-
-## 9. pow(x,y)
-```bash
-<script>
-        var a = Math.pow(4,3);  //4^3 = 4*4*4
-        document.write(a)
-</script>
-
-console:
-64
-```
-
-## 10. random()
-generates a random value between 0 and 1 and returns it 
-```bash
-<script>
-        var a = Math.random();  //every time you refresh page a new value is returned
-        document.write(a)
-</script>
-
-console:
-0.03234444
-```
-## 11. abs()
-returns absolute value
-```bash
-<script>
-        var a = Math.abs(5.25); 
-        document.write(a)
-</script>
-
-console:
-5.25
-```
-#### dealing with negative values
-```bash
-<script>
-        var a = Math.abs(-5.25); 
-        document.write(a)
-</script>
-
-console:
-5.25
-```
-#### we cannot enter string inside this 
-```bash
-<script>
-        var a = Math.abs("hello"); 
-        document.write(a)
-</script>
-
-console:
-Nan
-```
-## 12. PI 
-```bash
-<script>
-        var a = Math.PI; 
-        document.write(a)
-</script>
-
-console:
-3.14....
-```
-
-Math methods Used in:
-1. animation
-2. video game development 
-3. complex web applications 
-
-## Revise call(), apply(), bind()
 ```bash
  <script>
-        function displayName()
-        {
-            console.log('reem');
-        }
-        displayName();
-        //over here, behind the scenes it gets converted to displayName.call()
-        //even if you dont mention displayName.call()
-        //its been converted behind the scenes 
+       //1st method
+       function hello()
+       {
+           console.log("hello")
+       }
+       hello();
+
+       //2. 2nd method 
+       let hello = function(){
+           console.log("hello")
+       }
+       hello();
   </script>
 
 console:
-reem
-```
-```bash
- <script>
-        function displayName()
-        {
-            console.log('reem');
-        }
-        displayName.call();
-        //every function has access to a property named call which can be used to invoke that function
-    </script>
-
-console:
-reem
-```
-```bash
- <script>
-        let participant1 = {
-            name : 'lily',
-            battery : 70, 
-            chargebattery : function()
-            {
-                this.battery = 100;
-            }
-        }
-        participant1.chargebattery();
-        console.log(participant1)
-    </script>
-
-console:
-{name: 'lily', battery: 100, chargebattery: ƒ}
-```
-## Call function 
-used to call methods from participant1 object to participant2 object 
-```bash
- <script>
-        let participant1 = {
-            name : 'lily',
-            battery : 70, 
-            chargebattery : function()
-            {
-                this.battery = 100;
-            }
-        }
-
-        let participant2 = {
-            name : 'john',
-            battery : 30
-        }
-        //we want to use charge battery from participant1 to particpant2 
-        participant1.chargebattery.call(participant2)
-
-        //take chargebattery function from participant1 and use it in participant2
-
-        console.log("participant1", participant1)
-        console.log("participant2", participant2)
-    
-  </script>
-
-console:
-participant1 {name: 'lily', battery: 70, chargebattery: ƒ}
-participant2 {name: 'john', battery: 100}
+hello 
+hello 
 ```
 
-another example v
+### In case of Arrow Functions,
+the code is shortened 
 ```bash
 <script>
-        let participant1 = {
-            name : 'lily',
-            battery : 70, 
-            chargebattery : function(a, b)
-            {
-                this.battery = this.battery + a + b;
-            }
-        }
+      //in case of arrow functions
+      let hello = () => console.log("hello");
 
-        let participant2 = {
-            name : 'john',
-            battery : 30
-        }
-        //1. first were calling participant2 object (30)
-        //2. then were calling the method inside participant1 which passes
-         2 arguments (30 + 20)
-        
-        participant1.chargebattery.call(participant2, 20, 30)
-
-
-        console.log("participant1", participant1)
-        console.log("participant2", participant2)  //30+ 30+ 20
+      hello(); //calling function
 </script>
 
 console:
-participant1 {name: 'lily', battery: 70, chargebattery: ƒ}
-revisefunc.html:30 participant2 {name: 'john', battery: 80}
+hello
 ```
-
-## apply
-takes an array of arguments instead of comma seperated arguments 
+Before ES6 code was written like this 
 ```bash
 <script>
-        let participant1 = {
-            name : 'lily',
-            battery : 70, 
-            chargebattery : function(a, b)
-            {
-                this.battery = this.battery + a + b;
-            }
-        }
-
-        let participant2 = {
-            name : 'john',
-            battery : 30
-        }
-        //1. first were calling participant2 object 
-        //2. second value is the array of arguments
-        participant1.chargebattery.apply(participant2,[ 20, 30] )
-
-
-        console.log("participant1", participant1)
-        console.log("participant2", participant2)
-    
+      let welcome = function(name)
+      {
+          return `hello, ${name}`
+      }
+      console.log(welcome('reem'))
+      //used before ES6 versions 
 </script>
-```
-
-### Bind 
-bind method returns a function, it doesnt immediately invoke it, 
-> you can call it at a later point 
-```bash
- <script>
-        let participant1 = {
-            name : 'lily',
-            battery : 70, 
-            chargebattery : function(a, b)
-            {
-                this.battery = this.battery + a + b;
-            }
-        }
-
-        let participant2 = {
-            name : 'john',
-            battery : 30
-        }
-        participant1.chargebattery.bind(participant2, 20, 30 )
-
-
-        console.log("participant1", participant1)
-        console.log("participant2", participant2)
-        //battery:30 
-        //bind function didnt make any changes 
-    
-  </script>
 
 console:
-participant1 {name: 'lily', battery: 70, chargebattery: ƒ}
-revisefunc.html:28 participant2 {name: 'john', battery: 30}
+hello, reem 
 ```
-#### Bind returns a function, we can invoke at a later point
+However, in ES6 after arrows were introduced these were changes made 
 ```bash
   <script>
-        let participant1 = {
-            name : 'lily',
-            battery : 70, 
-            chargebattery : function(a, b)
-            {
-                this.battery = this.battery + a + b;
-            }
-        }
-
-        let participant2 = {
-            name : 'john',
-            battery : 30
-        }
-        let batterycharge2 = participant1.chargebattery.bind(participant2,20, 30)
-        //this variable "batterycharge2" contains a function we can invoke
-        batterycharge2();
-        console.log(participant2);
-    
+      let welcome = (name) =>
+      {
+          return `hello, ${name}`
+      }
+      console.log(welcome('reem'))
   </script>
 
 console:
-{name: 'john', battery: 80}  //30 + 20 + 30
+hello, reem
 ```
-
-Advantages:
-- this functions help reuse methods of one object in another object 
-
-### When to use call, apply and bind?
-call and apply is immediately invoked, bind is returned and can be immediately invoked 
-at a later stage 
-
-Use .bind() when you want that function to later be called with a certain context,
-useful in events. Use .call() or .apply() when you want to invoke the function
-immediately, and modify the context.
-
-## callback()
-- when we pass a function as an argument 
-- callback function that is to be executed after another function has finished 
-executing 
-
+#### we can call more than one parameters in the function as well
 ```bash
  <script>
-       function funA() 
-       {
-           setTimeout(function()
-           {
-           console.log('welcome a')
-           }, 3000);
-       }
-       function funB() 
-       {
-           console.log('welcome b')
-       }
-
-       funA();
-       funB();
-       //even though we called function a first 
-       // its taking time to load 
-       // and function b is displayed first on the console 
+      let welcome = (name, age) =>
+      {
+          return `hello, ${name} ${age}`
+      }
+      console.log(welcome('reem', 20))
   </script>
 
 console:
-welcome b
-welcome a
+hello, reem 20
 ```
-#### During these situations we use callback,
-because we want function A to be executed first 
-
+#### we can reduce the entire function to a single line 
+we can remove the return statement
 ```bash
-// this example is not denoting callback.
- <script>
-       function funA() 
-       {
-           setTimeout(function()
-           {
-           console.log('welcome a')
-           funB();   //this is not a callback yet, 
-                    //we'll discuss that in next example
-           
-           }, 3000);
-       }
-       function funB() 
-       {
-           console.log('welcome b')
-       }
-
-       funA();
-  </script>
+<script>
+    let welcome = (name, age) => `hello, ${name} ${age}`
+    console.log(welcome('reem', 20))
+</script>
 
 console:
-welcome a 
-welcome b 
+hello, reem 20
 ```
-### Why do we use callback functions?
-JS is an event driven langauge, this means that instead of waiting for a response 
-before moving on (like we did in the first example).
+#### you can remove the parenthesis, if there is only one parameter 
+```bash
+ <script>
+    let welcome = name => `hello, ${name}`
+    console.log(welcome('reem'))
+ </script>
 
-In this case JS will execute other functions which take lesser time to load 
-and display it on the console, even if they are invoked before the function 
-which takes longer time to load 
+ console:
+hello, reem 
+```
 
-to prevent, this sequence why we use callback function, to ensure that 
-the code is executed in the sequence we want it to.
+# OOPS
+introduced in ES6 
+- its a coding style which makes code 
+1. more reusable 
+2. well organised code 
+3. easier to debug 
+4. used in js frameworks
+5. best for medium to large website projects 
+
+### JS is an object oriented programming language 
+OOPS features:
+1. objects
+2. classes
+3. encapsulation
+4. Inheritance 
+
+## 1. Objects and classes 
+
+## Objects 
+##### (object is an instance of a class)
+##### Using class we can create many objects, and they all have values which either have methods and properties
+
+Object is a unique entity with property: value/ method 
+
+## Class
+EcmaScriptES6 provides the keyword class, making it very easy to create class
+Using a class, we can create many objects, and each one of those objects share 
+the same blueprint/ the same methods and properties that is encapsulated in that 
+class
+
+Class contains
+1. properties  (declared inside the class)
+2. Methods     (function inside the class/ object)
 
 ```bash
 <script>
-      function person1(friend, callfriend)
-      {
-          console.log(`I'm busy, im with ${friend} i'll call you back`)
+    class hello{
+        //can create properties and methods inside class 
+        message() //method
+        {
+            console.log("method")
+            //you need to create an object to call it 
+        }
+    }
 
-          callfriend()
-      }
+    let a = new hello();
+    //variable 'a' is an object 
 
-      function person2()
-      {
-          console.log("hey, whats up")
-      }
-
-      person1("fuzzy", person2)
-                     //person2 over here denotes callback function
-  </script>
+    a.message();
+</script>
 
 console:
-I'm busy, im with fuzzy i'll call you back
-hey, whats up
+method 
 ```
+We can call multiple methods of the same class using the same defined object 
+```bash
+ <script>
+    class hello{
+        //can create properties and methods inside class 
+        message() //method
+        {
+            console.log("method")
+            //you need to create an object to call it 
+        }
+
+        sorry() //method
+        {
+            console.log("sorry")
+        }
+    }
+
+    let a = new hello();
+    //variable 'a' is an object 
+
+    a.message();   
+    a.sorry();
+</script>
+
+console:
+method
+sorry
+```
+
+### Types of methods in JS 
+1. Constructor 
+Whenever we create a class object constructor is called automatically 
+
+```bash
+ <script>
+    class student{
+        constructor()
+        {
+            console.log("constructor")
+        }
+    }
+
+    //class object created 
+    let a = new student()
+    </script>
+
+console:
+constructor
+```
+
+2. Prototype 
+Its used to calculate variables defined inside constructor 
+
+```bash 
+<script>
+    class student{
+        constructor() //constructor 
+        { 
+            let name;  //property defined 
+            console.log("constructor")
+        }
+
+        hello()  //prototype method 
+        {
+            console.log("hello " + this.name)  
+            //variable is defined inside the constructor      
+        }
+    }
+
+    let a = new student()
+    You have to create an object, before invoking a prototype
+
+    Until you don't invoke the prototype, it wont be called
+    //prototype method call
+    a.name = "reem shaikh"
+    a.hello()
+</script>
+
+console:
+constructor
+hello reem shaikh
+```
+another way to call a prototype 
+```bash
+ <script>
+    class student
+    {
+        constructor(name) //constructor 
+        { 
+            let gname = name;  //property defined 
+            console.log("constructor")
+        }
+
+        hello()  //prototype method 
+        {
+            console.log("hello " + this.name)  
+            //variable is defined inside the constructor      
+        }
+    }
+
+    //the prototype method call is happening inside the object call, because in the constructor we passed the parameter name, instead of simply defining it, in the constructor function
+    let a = new student("reem shaikh")
+  
+    // a.name = "reem shaikh"
+    a.hello()
+ </script>
+
+console:
+ constructor
+ hello reem shaikh
+```
+it also works like this 
+```bash
+<script>
+    class student{
+        constructor() //constructor 
+        { 
+            let sname = name; 
+            //property defined 
+            console.log("constructor")
+        }
+
+        hello()         //prototype method 
+        {
+            console.log("hello " + this.name)  
+            //variable is defined inside the constructor      
+        }
+    }
+    
+    let a = new student();
+  
+    a.name = "reem shaikh"
+    a.hello();
+</script>
+
+console:
+ constructor
+ hello reem shaikh
+```
+
+```bash
+<script>
+    class student{
+        constructor(name) //constructor 
+        { 
+            //we add this property and call it in hello function
+            ✅this.sname = name; 
+
+            console.log("constructor")
+        }
+
+        hello()         //prototype method 
+        {
+            ✅console.log("hello " + this.sname)  
+            //variable is defined inside the constructor      
+        }
+    }
+
+    let a = new student("reem");
+  
+    // a.name = "reem shaikh"
+    a.hello();
+</script>
+
+console:
+constructor
+hello reem
+```
+
+Adding more than 2 parameters 
+```bash
+<script>
+    class student{
+        constructor(name,age)   //2 parameters
+        { 
+            //we add this property and call it in hello function
+            this.sname = name; 
+            this.sage = age;
+
+            console.log("constructor")
+        }
+
+        hello()                //prototype method 
+        {
+            console.log("hello " + this.sname  + this.sage)  
+            //variable is defined inside the constructor      
+        }
+    }
+
+    let a = new student("reem", 20);
+  
+    // a.name = "reem shaikh"
+    a.hello();
+</script>
+
+console:
+constructor
+hello reem20
+```
+We can create many objects with one class 
+```bash
+ <script>
+    class student{
+        //2 parameters 
+        constructor(name,age) 
+        { 
+            //we add this property and call it in hello function
+            this.sname = name; 
+            this.sage = age;
+
+            console.log("constructor")
+        }
+
+        hello()         //prototype method 
+        {
+            console.log("hello " + this.sname  + this.sage)     
+        }
+    }
+
+    let a = new student("reem", 20);
+    a.hello();
+
+    //we can create many objects with one class
+    let b = new student("d", 1);
+    b.hello();
+</script>
+
+console:
+constructor
+hello reem20
+constructor
+hello d1
+```
+
+3. Static 
+you dont need an object, to call a static method
+
+you cannot callstatic method through an object
+```bash
+ <script>
+    class student{
+        //2 parameters 
+        constructor(name,age) 
+        { 
+            //we add this property and call it in hello function
+            this.sname = name; 
+            this.sage = age;
+
+            console.log("constructor")
+        }
+
+        hello()         //prototype method 
+        {
+            console.log("hello " + this.sname  + this.sage)     
+        }
+
+        static staticMethod()
+        {
+            console.log("static function")
+        }
+        //❌we cannot create an object and call it, through the object name,
+        it throws an error 
+    }
+
+    let a = new student("reem", 20)
+    a.staticMethod()
+</script>
+
+console:
+constructor
+Uncaught TypeError: a.staticMethod is not a functionat object.html:36
+```
+However, you can call static method, through the class function 
+```bash 
+ <script>
+    class student{
+        //2 parameters 
+        constructor(name,age) 
+        { 
+            //we add this property and call it in hello function
+            this.sname = name; 
+            this.sage = age;
+
+            console.log("constructor")
+        }
+
+        hello()         //prototype method 
+        {
+            console.log("hello " + this.sname  + this.sage)     
+        }
+
+        static staticMethod()
+        {
+            console.log("static function")
+        }
+    }
+
+    let a = new student("reem", 20)
+    student.staticMethod()
+ </script>
+
+console:
+constructor
+static function
+```
+
+#### Inheritance 
+child class inherits from parent class which contains certain methods and properties 
+> child wants to inherit from parent class 
+> Class vegetables wants to inherit properties/methods from class fruits 
+
+```bash
+ <script>
+        class fruits //base class 
+        {
+            //properties & methods
+        }
+        class vegetables extends fruits 
+        // derived class 
+        {
+            //properties & methods
+        }
+        let f = new fruits(); // can access only fruits properties and methods 
+
+        let v = new vegetables();//can access both vegetables and fruits class and properties 
+ </script>
+```
+example of inheritance 
+```bash
+<script>
+       class employee{
+           constructor(name)
+           {
+              console.log("constructor " + name) 
+           }
+       }
+
+       class manager extends employee
+       {
+
+       }
+
+       //let e = new employee("reem");
+       //constructor automatically called 
+       
+       let m = new manager("reem");
+       //this function is inheriting the base class properties and methods 
+
+ </script>
+
+ console:
+ constructor reem
+```
+However if you try to call a constructor in derived class, it will throw an error 
+```bash
+<script>
+       class employee{
+           constructor(name)
+           {
+              console.log("constructor " + name) 
+           }
+       }
+        class manager extends employee
+       {   constructor()
+           {
+           console.log("manager")
+           }
+       }
+
+
+       let m = new manager("reem");
+       //this function is inheriting the base class properties and methods 
+
+   </script>
+
+console:
+manager 
+
+inheritance.html:22 Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+    at new manager (inheritance.html:22)
+    at inheritance.html:27
+manager @ inheritance.html:22
+(anonymous) @ inheritance.html:27
+```
+### Super() class
+to call both the constructors, we'll use super() class
+```bash 
+<script>
+       class employee{
+           constructor(name)
+           {
+              console.log("constructor " + name) 
+           }
+     }
+
+       class manager extends employee
+       {   constructor()
+           {
+           super()
+           console.log("manager")
+           }
+       }
+       let m = new manager("reem");
+       //this function is inheriting the base class properties and methods 
+
+</script>
+
+console:
+constructor undefined
+manager
+```
+The variable will be displayed in the console, if its defined in the derived class 
+constructor 
+```bash
+<script>
+       class employee{
+           constructor(name)
+           {
+              console.log("constructor " + name) 
+           }
+       }
+
+       class manager extends employee
+       {   constructor(name) ✅
+           {
+           super()
+           console.log("manager" + name)
+           }
+       }
+
+       let m = new manager("reem");
+       //this function is inheriting the base class properties and methods 
+
+</script>
+``` 
+### Inheriting prototype method from derived to base class 
+```bash
+  <script>
+       class employee{
+           constructor(name)
+           {
+              this.empname = name 
+              console.log("constructor " + name) 
+           }
+
+           info() //prototype method 
+           {
+             console.log("info constructor" + this.empname)
+           }
+       }
+
+       class manager extends employee
+       {   
+       }
+
+
+       let m = new manager("reem");
+  
+       //to call prototype 
+       m.info()
+
+ </script>
+
+console:
+constructor reem
+info constructorreem
+```
+### Calling prototype method in the base class to the prototype method in the derived class
+### Using Super keyword 
+
+```bash 
+ <script>
+       class employee{
+           constructor(name)
+           {
+              //1. called first 
+              this.empname = name 
+              console.log("constructor " + name) 
+           }
+
+           info() //prototype method 
+           {
+             console.log("info constructor" + this.empname)
+           }
+       }
+
+       class manager extends employee
+       {   
+           info() //prototype method 
+           {
+             super.info() //called second 
+             console.log("manager info constructor" + this.empname)
+             //called third 
+           }
+       }
+       let m = new manager("reem");
+  
+       //to call prototype 
+       m.info()
+ </script>
+
+console:
+constructor reem
+info constructorreem
+manager info constructorreem
+```
+Passing multiple parameters in the constructor 
+```bash 
+<script>
+       class employee{
+           constructor(name, age, salary)
+           {
+              //1. called first 
+              this.empname = name 
+              this.empage = age
+              this.empsalary = salary
+
+              document.write("constructor " + name + age + salary)  
+           }
+
+           info() //prototype method 
+           {
+             document.write(`
+             <h3>info constructor </h3>
+             ${this.empname} <br>
+             ${this.empage}  <br>
+             ${this.empsalary}`)
+           }
+       }
+
+       class manager extends employee
+       {   
+           
+       }
+       let m = new manager("reem", 20, 1000000);
+  
+       //to call prototype 
+       m.info()
+</script>
+
+document:
+constructor reem201000000
+info constructor
+reem
+20
+1000000
+```
+### 1.1 Object Literal 
+comma seperated list of name-value pairs inside of curly braces 
+    1. name: value 
+    or
+    2. name: method 
+
+```bash
+<script>
+        
+        let car = {
+            name: 'Maruti 800',
+            topSpeed: 89,
+            run: function()
+            {
+                console.log("car is running")
+            }
+        }
+        console.log(car);
+        car.run();
+        car.name;
+</script>
+
+console:
+{name: 'Maruti 800', topSpeed: 89, run: ƒ}
+car is running
+```
+We can create objects in 2 ways 
+1. Through console.log only
+```bash
+var person = {
+    name: "reem",
+    age: 20
+    }
+
+console.log(person.name)
+ 
+console:
+reem 
+```
+
+2. Using new keyword,
+```bash
+var person = {
+    name: "reem",
+    age: 20
+    }
+
+var person = new Object()
+person.name = "reem"
+console.log(person.name)
+ 
+console:
+reem 
+```
+
