@@ -280,4 +280,4 @@ relative: depends on the parent div or window
     
 </body>
 ```
-![](images/css1.png)
+![](images/css1.PNG)
