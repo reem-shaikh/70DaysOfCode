@@ -42,8 +42,7 @@ https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 https://reem-shaikh.github.io/Geekster-/main/12-11/demoassignment/demo.html
 
 
-
-## test 14-11
+### test 
 https://reem-shaikh.github.io/Geekster-/test/14-11formtest.html
 
 
@@ -83,7 +82,7 @@ https://reem-shaikh.github.io/Geekster-/main/18-11/newspaper.html
 **fixed property**
 https://reem-shaikh.github.io/Geekster-/main/19-11/positionfixed.html
 
-## 21st test
+### test
 https://reem-shaikh.github.io/Geekster-/main/21-11/21-11.html
 
 
@@ -116,20 +115,21 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/largernum.html <br />
 https://reem-shaikh.github.io/Geekster-/test/28-11/odd_evensum.html <br/>
 https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
 
-<!--
-29th assignment 
+## 29th assignment 
 https://reem-shaikh.github.io/Geekster-/main/29-11/kbc5.html
 
-1st assignment
+## 1-12 assignment
 https://reem-shaikh.github.io/Geekster-/main/1-12/prac.html
 
-2nd assignment
+## 2-12 assignment
 https://reem-shaikh.github.io/Geekster-/main/2-12/calculator.html
 
-3-12 assignment 
+## 3-12 assignment 
 https://reem-shaikh.github.io/Geekster-/main/3-12/sum.html
 https://reem-shaikh.github.io/Geekster-/main/3-12/count.html
--->
+
+### 5-12 test
+https://reem-shaikh.github.io/Geekster-/test/5-12test.html
 
 <!-- micro dev tools: 
 launch instance
