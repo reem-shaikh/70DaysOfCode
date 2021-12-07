@@ -233,8 +233,7 @@ year of grad remove the side thingies
 add css to the form 
 
 
-
-### Css Measurment Units 
+### Css Measurement Units 
 #### Css Absolute Units
 fixed 
 
@@ -246,7 +245,8 @@ fixed
 6. pc (picas)
 
 #### Css Relative Units 
-relative: depends on the parent div or window
+relative: depends on the parent width or window
+width
 
 1. em 
 2. rem 
@@ -258,8 +258,9 @@ relative: depends on the parent div or window
 8. vmin 
 9. %
 
+## Difference between fixed and relative.
 ### Css Absolute units 
-
+#### 1. px
 ```bash
     <style>
         body{
@@ -280,4 +281,71 @@ relative: depends on the parent div or window
     
 </body>
 ```
+### Fixed: Absolute Units
+Div width is fixed, that's why we have scrollbar when the viewport width is decreased 
 ![](images/css1.PNG)
+
+### Css Relative Units 
+#### 1. %
+
+### Relative: the image adjusts with the viewport
+when viewport size increases, div increases.
+when viewport size decreases, div decreases.
+![](images/css2.PNG)
+```bash
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        #box{
+            border: 1px solid red; 
+            width: 80%;
+            height: 300px;
+            background-color: pink;
+          
+        }
+    </style>
+</head>
+<body>
+    <h1>Css Units</h1>
+    <div id="box"></div>    
+</body>
+```
+-----
+
+> if the container has a parent, the conatiner with the Relative unit adjusts itself with respect to its parent element 
+![](images/css3.PNG)
+
+> manipulate the %, and notice that, 100% of the box width, is max width of the parent container and not of the window container.
+
+```bash
+<style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        #boxouter{
+            border: 1px solid red; 
+            width: 600px;
+            height: 600px;   
+        }
+        /* the parent of box is boxouter */
+
+        #box{
+            border: 6px solid green;
+            background-color: red;
+            height: 300px;
+            width: 50%;
+        }
+</style>
+</head>
+
+<body>
+    <h1>Css Units</h1>
+<div id="boxouter">
+      <div id="box"></div>
+</div>
+```
+-----
+
