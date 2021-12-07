@@ -223,15 +223,10 @@ sans-serif: its much more softer
 
 ```
 
-### To make notes on 
-1. units 
-   calc 
-
 - Assignment 
 hover on button color
 year of grad remove the side thingies 
 add css to the form 
-
 
 ### Css Measurement Units 
 #### Css Absolute Units
@@ -344,8 +339,27 @@ when viewport size decreases, div decreases.
 <body>
     <h1>Css Units</h1>
 <div id="boxouter">
-      <div id="box"></div>
+    <div id="box"></div>
 </div>
 ```
 -----
+### Relative Units 
+1. em 
+> If there is no font-size mention in the parent div, then the value of font-size in the child div styling will be taken 
+![](images/css4.PNG)
 
+> If there is a font-size mention in the parent div, and if the font-size if also mentioned in the child div, then the font-size of the parent will be taken
+![](images/css5.PNG)
+
+Note that: 1em is equavalent to 28px mentioned in the parent (body)
+-----
+
+Note that: 2em is equavalent to (28px x2)mentioned in the parent (body)
+![](images/css6.PNG)
+-----
+
+> setting 0.5em is going to mean half of the font-size we set in the parent.
+
+#### When is 1em = 16px?
+if its parent container is body, then 1em is approximately equavalent to the default font-size of body, and browser's default font-size is 16px. 
+![](images/css7.PNG)
