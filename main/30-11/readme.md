@@ -1138,7 +1138,28 @@ console: // 10 and str is stored in a and b
 this.html:129 str
 this.html:130 Object>
 ```
+The object positioning depends on where "console.log(this)" is placed 
+```bash
+ <script>
+      function fn(a, b, c) {
+        console.log(this);
+        console.log(a);
+        console.log(b);
+   
+      }
 
+      let obj = {
+    'key1' : 'something',
+    'key2' : 'something',
+    }
+
+    fn.call(obj, 10, 20);
+    
+console:
+{key1: 'something', key2: 'something'}
+practice.html:13 10
+practice.html:14 20
+```
 JS Functions can be called through
 - via call and apply
 - as a constructor 
