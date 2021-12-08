@@ -2020,11 +2020,11 @@ abc
 ```bash 
 <script>
     var element;
-    element = document.getElementById("header").getAttribute(""); 
+    element = document.getElementById("header").getAttribute("id"); 
     console.log(element);
 </script>
 
-heading
+header
 ```
 
 ### 4. getAttributeNode
