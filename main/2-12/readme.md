@@ -416,11 +416,6 @@ console:
 Uncaught reference error: b is not defined 
 ```
 
-Read:
-1. Scope Chain for closure:
-2. practice extra assignment questions 
-
-
 ## Scope 
 Scope of a variable defines where that variable can be accessed in the code 
 1. local scope 
@@ -532,6 +527,19 @@ console:
 reem
 20 
 ```
+
+local memory of global execution context 
+1. var name = "reem"
+
+local memory of displayName
+1. var age = 20
+> lexical parent: global execution context 
+
+local memory of displayAge
+1. no variables 
+> lexical parent: displayName
+
+
 ## Scope Chain 
 this mechanism of finding variables through lexical environment scope and if its 
 not available, referencing it to the parent lexical environment is called 
@@ -568,16 +576,6 @@ at displayName (scope.html:21)
 at scope.html:23
 ```
 
-local memory of global execution context 
-1. var name = "reem"
-
-local memory of displayName
-1. var age = 20
-lexical parent: global execution context 
-
-local memory of displayAge
-1. no variables 
-lexical parent: displayName
 ``` 
 ### You can only check for the variable, from the lexical parent, not the lexical child, according to the scope chain 
 
