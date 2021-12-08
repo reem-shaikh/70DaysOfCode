@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(140deg, #71b7e6, #9b59b6);
+        }
+
+        .container{
+            max-width: 700px;
+            width: 100%;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        .container .title{
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before{
+            content: '';
+            position: absolute;
+            left:0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            background: #9b59b6;
+        }
+
+        .container form .user-details{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: space-between;
+        }
+
+        form .user-details .input-box{
+          width: calc(100% / 2 - 20px); 
+          margin: 20px 0 12px 0;
+        }
+
+        .user-details .input-box .user-details
+        {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-details .input-box input{
+            height: 45px;
+            width:100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-size:16px;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid {
+            border-color: #9b59b6;
+        }
+
+        form .gender-details .category{
+            display: flex;
+            width: 80%;
+            justify-content: space-between;
+        }
+
+        .gender-details .category label{
+            display: flex;
+            align-items: center;
+        }
+
+        .gender-details, .category {
+            height: 18px;
+            width: 18px;
+            background: #d9d9d9;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 5px solid transparent;
+            transition: all 0.3 ease;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 20%;
+            outline: none;
+            color: #fff;
+            border: none;
+            font-size:18px;
+            font-weight: 500;
+            border-radius: 15px;
+            padding:10px;
+
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #00d4ff, #0532b3);
+        }
+
+        textarea{
+            margin-top:5px;
+            width:297px;
+            padding: 3px;
+            border-radius: 5px;
+        }
+        
+        .select{
+            height: 45px;
+            width:100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-size:13px;
+        }
+
+        .button input:hover{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            Registration
+        </div>
+        <form action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">
+                       First Name 
+                    </span>
+                    <input type="text" name="firstname"
+                    placeholder="enter your name" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Last Name 
+                    </span>
+                    <input type="text" name="lastname"
+                    placeholder="enter your name" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       email
+                    </span>
+                    <input type="email"
+                    placeholder="enter your email" required
+                    >
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Phone Number
+                    </span>
+                    <input type="tel" name="phone"
+                    placeholder="enter your phone number" pattern="[0-9/{4}-[0-9]{3}-[0-9]{3}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Birthday 
+                    </span>
+                    <input type="date" name="dob"
+                    placeholder="date" max="2002-01-01" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Address 
+                    </span>
+                    <textarea type="address" name="address"
+                    placeholder="enter your address" required>
+                    </textarea>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Year Of Graduation
+                    </span>
+                    <input type="number" name="graduation"
+                     placeholder="year of graduation" min="2018" max="2021" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Percentage
+                    </span>
+                    <input type="number" name="percentage"
+                    min="0" max="100" step="10" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Resume 
+                    </span>
+                    <input type="file"
+                    required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Education Information 
+                    </span>
+                    
+                    <select class="select">
+                      <optgroup label="bachelors">
+                        <option>btech</option>
+                        <option>be</option>
+                        <option>bsc</option>
+                      </optgroup>
+                      <optgroup label="masters">
+                        <option>mtech</option>
+                        <option>me</option>
+                        <option>msc</option>
+                      </optgroup>
+                    </select>
+                    
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Gender
+                    </span>
+                    <select class="select">
+                        <optgroup label="">
+                          <option selected disabled>male</option>
+                          <option>female</option>
+                        </optgroup>
+              
+                        <option>others</option>
+                      </select>   
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                       Degree Name 
+                    </span>
+                    <input type="text" name="degree"
+                    placeholder="enter your Degree name" required>
+                </div>
+
+            </div>
+            <!--user details end-->
+            <div class="button" style="margin-top:30px;">
+                <input type="submit" />
+                <input type="reset" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

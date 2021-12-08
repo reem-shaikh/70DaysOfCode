@@ -14,6 +14,9 @@
 1. Why do we write css links on top?
 we want to optimise page and make it look good thats why css link is in top 
 and script link is at the bottom
+> Improvement in UI, the style is already available when HTML is loaded 
+
+> Trade off performance, we are not loading unnecessary functionality before.
 
 2. What does name property do?
             1. helps identify data for reference
@@ -37,196 +40,22 @@ serif: used in print media, has sharp edges, stroke endings are identifiers for 
 serif 
 sans-serif: its much more softer 
 
-```bash
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Noticia+Text:ital@0;1&display=swap"
-      rel="stylesheet"
-      crossorigin="anonymous" />
-      
-    <title>Document</title>
-    <style>
-      body {
-        background-color: rgb(230, 230, 230);
-      }
-
-      .container {
-        background-color: rgb(252, 241, 243);
-        padding: 5px;
-        border-radius: 5px;
-      }
-      input,
-      select,
-      textarea {
-        display: block;
-        /* brings the new field on a new line  */
-
-        margin: 4px;
-      }
-      /* four values:
-            top right bottom left 
+7. margin 
+7.1 four values:
+  top right bottom left 
                
-            three values 
-               top horizontal bottom 
+7.2 three values 
+  top horizontal bottom 
 
-            two values 
-               top bottom 
-               left right
+7.3 two values 
+  top bottom 
+  left right
 
-            one value 
-            for all four values 
+7.4 one value 
+  for all four values 
 
-            auto- for center allign
-            */
-
-      .inline {
-        display: inline;
-      }
-
-      h2 {
-        font-family: "Meow Script", cursive;
-      }
-
-      h4 {
-        margin: 0.8em;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <h2>Admission Form</h2>
-      <!--
-        first name 
-        last name 
-        mail id 
-        contact number 
-        gender 
-        dob 
-        adress
-        degree
-        college name 
-        year of graduation 
-        file upload link 
-    -->
-      <form autocomplete="on" class="container">
-        <h4>Personal Info</h4>
-        <input
-          type="text"
-          name="first name"
-          class="inline"
-          placeholder="first name"
-        />
-
-        <input
-          type="text"
-          name="last name"
-          placeholder="last name"
-          class="inline"
-        />
-        <br />
-        <input type="email" name="mail" placeholder="last name" />
-
-        <input
-          type="tel"
-          name="phone"
-          placeholder="phone number"
-          class="inline"
-          pattern="[0-9/{4}-[0-9]{3}-[0-9]{3}"
-          required
-        />
-
-        <select name="gender" class="inline">
-          <!--selected- when website is loaded its selected 
-        
-        disabled- you cannot select a disabled -->
-
-          <optgroup label="one">
-            <option selected disabled>male</option>
-            <option>female</option>
-          </optgroup>
-
-          <option>male</option>
-          <option>female</option>
-          <option>male</option>
-          <option>female</option>
-        </select>
-
-        <input type="date" name="dob" placeholder="date" max="2021-01-01" />
-
-        <textarea type="adress" name="address" placeholder="Address">
-        </textarea>
-
-        <h4>Education Info</h4>
-
-        <select>
-          <optgroup label="bachelors">
-            <option>btech</option>
-            <option>be</option>
-            <option>bsc</option>
-          </optgroup>
-          <optgroup label="masters">
-            <option>mtech</option>
-            <option>me</option>
-            <option>msc</option>
-          </optgroup>
-        </select>
-
-        <input
-          type="number"
-          name="grad"
-          class="inline"
-          placeholder="year of grad"
-          min="2019"
-          max="2021"
-        />
-
-        <input
-          type="number"
-          name="percentage"
-          class="inline"
-          placeholder="percentage"
-          min="0"
-          max="100"
-          step="10"
-        />
-        <h4>Checkbox</h4>
-        <input type="checkbox" class="inline" name="check" />
-        Advanced
-        <input type="checkbox" class="inline" name="check" />Advanced
-        <br />
-
-        <h4>Radiobutton</h4>
-        <input type="radio" class="inline" name="Radio1" />
-        Advanced
-        <input type="radio" class="inline" name="Radio1" />
-        Advanced
-
-        <br />
-
-        <input type="file" />
-
-        <hr />
-        <input type="submit" value="apply for admission" class="inline" />
-
-        <input type="reset" class="inline" />
-      </form>
-    </div>
-  </body>
-</html>
-
-```
-
-- Assignment 
-hover on button color
-year of grad remove the side thingies 
-add css to the form 
+7.5 auto- for center allign
+  
 
 ### Css Measurement Units 
 #### Css Absolute Units
@@ -344,17 +173,26 @@ when viewport size decreases, div decreases.
 ```
 -----
 ### Relative Units 
-1. em 
+# 1. em 
 > If there is no font-size mention in the parent div, then the value of font-size in the child div styling will be taken 
 ![](images/css4.PNG)
 
 > If there is a font-size mention in the parent div, and if the font-size if also mentioned in the child div, then the font-size of the parent will be taken
+
+##### Note that: 1em is equavalent to 28px mentioned in the parent (body)
 ![](images/css5.PNG)
 
-Note that: 1em is equavalent to 28px mentioned in the parent (body)
+> another example:
+##### In this case, were using the styling parent container of div #box 
+![](images/css8.PNG)
+> 1em = 12px (in this context)
+
+##### When we change the em value of div #box 
+![](images/css9.PNG)
+> 2em = 24px (since 1em = 12px)
 -----
 
-Note that: 2em is equavalent to (28px x2)mentioned in the parent (body)
+##### Note that: 2em is equavalent to (28px x2)mentioned in the parent (body)
 ![](images/css6.PNG)
 -----
 
@@ -363,3 +201,33 @@ Note that: 2em is equavalent to (28px x2)mentioned in the parent (body)
 #### When is 1em = 16px?
 if its parent container is body, then 1em is approximately equavalent to the default font-size of body, and browser's default font-size is 16px. 
 ![](images/css7.PNG)
+-----
+
+#### Applying em on width as well 
+![](images/css11.PNG)
+-----
+
+# 2. rem (Relative em)
+Same as em, except, it doesn't take the value of the parent, it takes the value of the root tag (<html>)
+it will treat 
+> 1rem = 16px
+irrespective of what the parent's font-size is, because 16px is default font-size value of the browser 
+
+### rem works according to the root 
+root (html)
+![](images/css10.PNG)
+
+### we can add values to the root tag(html)
+> #box takes the font-size of the root tag 
+![](images/css12.PNG)
+------
+
+## 3. vw & vh (viewport width, viewport height)
+Relative to the (browser width/height (viewport))
+> vw- total width of the browser 
+> vh- total height of the browser 
+
+#### As we resize the browser/ viewport, the vh and vw changes
+It doesn't change wrt to the parent container, it only changes wrt the viewport 
+![](images/css13.PNG)
+

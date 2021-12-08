@@ -14,13 +14,14 @@
     <title>Document</title>
     <style>
       body {
-        background-color: rgb(230, 230, 230);
+        background-image: url('https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
       }
 
       .container {
-        background-color: rgb(252, 241, 243);
-        padding: 5px;
+        background-color: white;
+        padding: 35px;
         border-radius: 5px;
+
       }
       input,
       select,
@@ -30,21 +31,11 @@
 
         margin: 4px;
       }
-      /* four values:
-            top right bottom left 
-               
-            three values 
-               top horizontal bottom 
 
-            two values 
-               top bottom 
-               left right
-
-            one value 
-            for all four values 
-
-            auto- for center allign
-            */
+      form{
+        margin-left:500px;
+        margin-right: 470px;
+      }
 
       .inline {
         display: inline;
@@ -52,17 +43,18 @@
 
       h2 {
         font-family: "Meow Script", cursive;
+        font-size: 30px;
+        text-align: center;
       }
 
       h4 {
         margin: 0.8em;
       }
+
     </style>
   </head>
   <body>
-    <div>
-      <h2>Admission Form</h2>
-      <!--
+       <!--
         first name 
         last name 
         mail id 
@@ -75,6 +67,8 @@
         year of graduation 
         file upload link 
     -->
+    <div>
+      <h2>Admission Form</h2>
       <form autocomplete="on" class="container">
         <h4>Personal Info</h4>
         <input
@@ -120,7 +114,7 @@
 
         <input type="date" name="dob" placeholder="date" max="2021-01-01" />
 
-        <textarea type="adress" name="address" placeholder="Address">
+        <textarea type="address" name="adress" placeholder="Address">
         </textarea>
 
         <h4>Education Info</h4>
@@ -172,6 +166,8 @@
 
         <input type="file" />
 
+        <br>
+        <br>
         <hr />
         <input type="submit" value="apply for admission" class="inline" />
 
