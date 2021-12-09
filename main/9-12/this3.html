@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Keyword</title>
+</head>
+<body>
+    <button id="abcd">click em</button>
+    <button id="abcd1">click em</button>
+    <!--
+        this keyword 
+        represents owner object 
+
+        context of execution
+    -->
+    
+    <script>
+
+   function fn1()
+   {
+       console.log(this);
+
+       //cannot update value of this keyword 
+       //this = 1; 
+       //throws exception 
+
+       //to update value of execution
+       //we use the object 
+       //to change object of execution using call function
+
+       //  fn1.call(btn_obj);
+
+       //context of execution
+       //which owner is having the function call
+
+       //context- who is the parent object 
+   }
+
+   let btn_obj = {
+       'id' : 'abcdss',
+       'classes' : 'bcshsj',
+   }
+
+   fn1();
+   //gives window global object 
+
+   //fn1 as a callback object 
+   fn1.call(btn_obj);
+
+   /*
+   Objectclasses: "bcshsj"id: "abcdss"[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+this3.html:67 Live reload enabled.
+
+
+   */
+
+
+
+    </script>
+</body>
+</html>

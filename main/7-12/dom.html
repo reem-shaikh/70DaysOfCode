@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+   <div id="wrapper">
+       <div id="header" class="abc" style="color:red;"
+       onclick="xyz()">
+           <h1>hi</h1>
+       </div>
+       <div id="menu">
+           <ul>
+               <li><a href="">home</a></li>
+               <li><a href="">about</a></li>
+               <li><a href="">contact</a></li>
+           </ul>
+       </div>
+       <div id= "content">
+           <h2> sub heading</h2>
+           <img src="" alt="" />
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+
+           <ul class="list">
+               <li>Lorem ipsum dolor sit. </li>
+               <li>Lorem ipsum dolor sit amet.</li>
+           </ul>
+       </div>
+   </div>
+</body>
+
+   <script>
+       //1. innerText
+      var element2;
+       element2 = document.getElementById("header").innerText = "<h1>wowza</h1>";
+       //adds this text on viewport <h1>wowza</h1>
+
+       //2. innerHTML
+       var element;
+       element = document.getElementById("header").innerHTML = "<h1>wow</h1>";
+       //adds wow with styling <h1> on viewport 
+       
+       //3. setAttribute 
+       var element2;
+       document.getElementById("header").setAttribute("class", "xyz"); 
+       element2 = document.getElementById("header").getAttribute("class");
+       console.log(element2)  //xyz
+
+       //4. attributes 
+       var element3 = document.getElementById("header").attributes; 
+       console.log(element3);
+/*
+NamedNodeMap {0: id, 1: class, 2: style, 3: onclick, id: id, class: class, style: style, onclick: onclick, length: 4}
+
+*/
+      var element3 = document.getElementById("header").attributes[1].value = "hjk"; 
+      console.log(element3); //hjk
+
+      //5. removeAttribute 
+      //removes the attribute, duh 
+      var element3 = document.getElementById("header").removeAttribute("style"); 
+      console.log(element3);
+      //styling from the viewport is removed 
+
+
+
+
+
+
+  
+
+
+
+   </script>
+
+</body>
+</html>

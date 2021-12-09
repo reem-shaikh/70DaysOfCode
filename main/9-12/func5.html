@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        closure:
+        nesting of functions
+
+        Akshay Saini.
+    -->
+    <script>
+           function outer(a)
+        {
+            function inner1(b)
+            {
+                console.log("a inner",a);
+                console.log("b inner",b); 
+                //b is defined only within our given function 
+            }
+
+            return inner1;
+        }
+
+        let x = outer("outer argument");
+        //x("inner argument");
+        console.log(x);
+
+    </script>
+<!--
+    x stores the reference 
+    ƒ inner1(b)
+            {
+                console.log("a inner",a);
+                console.log("b inner",b);  
+            }
+-->
+
+</body>
+</html>

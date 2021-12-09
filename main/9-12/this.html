@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Keyword</title>
+</head>
+<body>
+
+    <!--
+        this keyword 
+        represents owner object 
+
+        context of execution
+    -->
+    
+    <script>
+        let cal = {
+            'num1' : 10, 
+            'num2' : 20,
+            'num3' : "30",
+            'sum' : function()
+            {
+                let add = this.num1 + this.num2;
+                console.log(add);
+                        
+            },
+
+        'stringsum' : function()
+            {
+                let add = this.num1 + this.num3;
+                console.log(add);
+
+            },
+        'showthis': function()
+        {
+            console.log(this);
+        }
+        }
+
+        cal.sum(); //30
+
+        cal.showthis();
+        /*
+{num1: 10, num2: 20, num3: '30', sum: ƒ, stringsum: ƒ, …}
+num1: 10
+num2: 20
+num3: "30"
+showthis: ƒ ()
+stringsum: ƒ ()
+sum: ƒ ()
+[[Prototype]]: Object
+
+        */
+
+        //if one of them was string the output would be a string
+        cal.stringsum(); //1030
+
+    </script>
+</body>
+</html>
+
+

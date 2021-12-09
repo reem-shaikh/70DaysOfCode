@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Keyword</title>
+</head>
+<body>
+    <button id="abcd">click em</button>
+    <button id="abcd1">click em</button>
+    <!--
+        this keyword 
+        has a default behavior 
+        - context of execution 
+        - owner object 
+
+    -->
+    
+    <script>
+
+        function fn()
+        {
+            console.log(this);
+            //when we click on the first button it outputs this 
+            /*
+            <button id="abcd">click em</button>
+
+            */
+
+        //alert("button clicked");
+        //displays a pop box displaying button clicked 
+
+        }
+
+        //add same event listener to both of our button
+        var x = document.getElementById('abcd');
+        x.addEventListener('click', fn);
+
+
+        var x = document.getElementById('abcd1');
+
+        x.addEventListener('click', fn);
+
+        /*
+        x is the variable which is referencing the button with specific ID, x.
+        
+        addEventListener is telling it to what to do when it is clicked
+        */
+
+
+
+
+    </script>
+</body>
+</html>

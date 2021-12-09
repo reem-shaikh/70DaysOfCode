@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        what is a function?
+        set of instructions combined together 
+
+        example of block of code 
+
+        which gives reusability 
+
+        its a functionality 
+
+        peice of code which performs a specific functionality/ 
+        specific task
+    -->
+    
+    <script>
+        //function defination/ declaration
+
+        //function declation because were declaring function in it 
+        function sum(a,b)
+        {
+            return a+b;
+        }
+
+        let a = sum;
+        console.log(a);
+        //returns reference of the function, pointer to the function, not executing it
+
+/*
+ƒ sum(a,b)
+        {
+            return a+b;
+        }
+
+*/
+
+//invokation needs a round bracket 
+//round brackets important for execution
+let b = sum(10, 20);
+console.log(b);
+
+    </script>
+</body>
+</html>

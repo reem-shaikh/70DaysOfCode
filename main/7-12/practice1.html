@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        since we dont want any js in inline html (adding basic js events in button tag), 
+        
+        thats why were creating a seperate JS file and using DOM manipulation to get the same result  
+    
+    i.e 
+    1. when your clicking on 'Add new task'
+    2. an alert popped up saying 
+    'button clicked'
+-->
+    <h2>Task List</h2>
+    <input type="text"
+    placeholder="enter task" />
+    <button id="add_task_button">Add New Task</button>
+    <ul>
+        <li>Task 1</li>
+        <li>Task 2</li>
+    </ul>
+
+    <script>
+        let tasks = []; //initially no task 
+
+        //getting element based on the ID 
+        let btn = document.getElementById('add_task_button');
+
+        let fn = function()
+        {
+           alert('button clicked')
+        }
+
+        //attaching an event listener 
+        btn.addEventListener('click', fn)
+        //when you click on the button function fn is called 
+
+    
+      
+    </script>
+</body>
+</html>

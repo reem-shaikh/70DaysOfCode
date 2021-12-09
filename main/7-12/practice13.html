@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul button{
+            margin-left: 15px;
+        }
+
+    </style>
+</head>
+<body>
+<!--
+    1. we created a ❌ emoticon besides the new_elem using appendChild (inside the display fucntion), 
+    and we added and event listener which calls the delete function
+
+    2. we created a delete function and created a popup alert message to test it 
+-->
+
+
+    <h2>Task List</h2>
+
+    <!--added name-->
+    <input type="text"
+    name="task"
+    placeholder="enter task" />
+    <button id="add_task_button">Add New Task</button>
+    <ul id="task_list">
+       <!--no li defined here-->
+    </ul>
+
+    <script>
+        let tasks = []; //initially no task 
+
+        //getting element based on the ID 
+        let btn = document.getElementById('add_task_button');
+
+        //check in function which btnid is clicked 
+        let delete_task = function (event)
+        //event is an object of click 
+
+        //how do we differentiate which button was clicked 
+        {
+            console.log(event);
+/*
+event object returns all this info related to event on console:
+
+isTrusted: true
+altKey: false
+altitudeAngle: 1.5707963267948966
+azimuthAngle: 0
+bubbles: true
+button: 0
+buttons: 0
+cancelBubble: false
+cancelable: true
+clientX: 124
+clientY: 113
+composed: true
+ctrlKey: false
+currentTarget: null
+defaultPrevented: false
+detail: 1
+eventPhase: 0
+fromElement: null
+height: 1
+isPrimary: false
+layerX: 124
+layerY: 113
+metaKey: false
+movementX: 0
+movementY: 0
+offsetX: 21
+offsetY: 6
+pageX: 124
+pageY: 113
+path: (7) [button#abcd, li, ul#task_list, body, html, document, Window]
+pointerId: 1
+pointerType: "mouse"
+pressure: 0
+relatedTarget: null
+returnValue: true
+screenX: 124
+screenY: 216
+shiftKey: false
+sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}
+srcElement: button#abcd
+tangentialPressure: 0
+✅target: button#abcd
+tiltX: 0
+tiltY: 0
+timeStamp: 7207.300000011921
+toElement: null
+twist: 0
+type: "click"
+view: Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+which: 1
+width: 1
+x: 124
+y: 113
+[[Prototype]]: PointerEvent
+
+*/
+
+//note, that we'll be using target property in practice 14
+            alert('delete function called');
+
+        }
+
+        //loop on the list and create elements 
+        //and push to tasks[] array 
+        let display = function ()
+        {
+            let ul = document.getElementById('task_list');
+            //returns list of elements which have the same idname
+
+            ul.innerText = "";
+
+            for(let i=0; i < tasks.length; i++)
+            {
+                let single_task = tasks[i];
+                
+                //create element li inside the document 
+                // document.createElement('li');
+
+                //store it in a reference 
+                let new_elem = document.createElement('li');
+
+                new_elem.innerText = single_task;
+                //value we entered in the input field should be assigned to the innerText of new_elem.
+
+                //it should be assigned inside the <li> tags 
+
+                //until now its only linked in the memory we have to attach it to DOM 
+
+                //in ul, we have to append a newChild li evrytime we enter a value in the input field 
+
+                // to do this, we need to get a reference of the ul, we'll add a id name to the ul tag above and define it, in our display function before we start the loop
+
+                //the value user enters in the input field will now be appended to the last index of the ul 
+
+                //created a X button 
+                let btn = document.createElement('button');
+                btn.innerText = "❌";
+                //creating an element button and placing it besides new_elem
+
+                //adding event listener 
+                btn.addEventListener('click', delete_task);
+
+                //adding an id to differentiate which button of which task is clicked on 
+                btn.id = "abcd";
+                //all buttons will have the same id 
+
+                new_elem.appendChild(btn);
+                //append button on the new_elem
+
+                ul.appendChild(new_elem);
+
+            }
+        }
+
+        let fn = function()
+        {
+           //when we click on a button it should add a new task 
+           
+           //1. fetch what value you want to add 
+           let input = document.getElementsByName('task')[0].value;
+
+           tasks.push(input);
+  
+           display();
+           //calling the display function from here, because we want to enter the values in console to the viewport 
+        }
+
+        //attach an event listener 
+        btn.addEventListener('click', fn)
+        //when button is clicked fn function is called 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>function inside function</h1>
+    <!--
+        important question:
+        
+    -->
+    <script>
+    
+        function outer(a)
+        {
+            var secretkey = "10";
+            console.log("a outer",a);
+            //you can access a both inner and outside 
+
+            function inner1()
+            {
+                console.log("a inner",a);
+
+                console.log(secretkey);
+                //you can access secretkey only in the inner functions 
+            }
+
+           
+            return inner1;
+        }
+
+        let x = outer("argument");
+        x();
+    </script>
+
+<!--
+console:
+a outer argument
+fun3.html:21 a inner argument
+fun3.html:24 10
+-->
+</body>
+</html>

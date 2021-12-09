@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<!--were adding the value specified in the console to the viewport -->
+
+    <h2>Task List</h2>
+
+    <!--added name-->
+    <input type="text"
+    name="task"
+    placeholder="enter task" />
+    <button id="add_task_button">Add New Task</button>
+    <ul>
+        <li>Task 1</li>
+        <li>Task 2</li>
+    </ul>
+
+    <script>
+        let tasks = []; //initially no task 
+
+        //getting element based on the ID 
+        let btn = document.getElementById('add_task_button');
+
+        let fn = function()
+        {
+           //when we click on a button it should add a new task 
+           
+           //1. fetch what value you want to add 
+           let input = document.getElementsByName('task')[0].value;
+
+           tasks.push(input);
+  
+           display();
+           //calling the display function from here, because we want to enter the values in console to the viewport 
+        }
+
+    
+        //loop on the list and create elements 
+        let display = function ()
+        {
+            for(let i=0; i < tasks.length; i++)
+            {
+                console.log(tasks[i]);
+            }
+        }
+
+//tasks.length = number of elements you entered in the field and hit enter 
+
+//for example 
+/*
+In the input field we entered 
+task 3, click button 
+task 4, click button
+task 5, click button
+
+then in console we entered these commands
+> console.log(tasks);
+VM163:1 (3) ['task 3', 'task 4', 'task 5']
+
+> console.log(tasks.length);
+VM185:1 3
+
+*/
+
+/*
+when we enter console.log(tasks[i])
+after adding those 3 tasks,
+every time we add a task in the field, 
+it simultanously adds that entered value to the console, but it also shows all the values we entered before it 
+
+1. when we enter "task 3" in the input field 
+console:
+practice7.html:52 task 3            (0)
+
+2. when we enter "task 4" in the input
+console:
+practice7.html:52 task 3            (0)
+practice7.html:52 task 4            (1)
+
+3. when we enter "task 5" in the input
+console:
+practice7.html:52 task 3            (0)
+practice7.html:52 task 4            (1)
+practice7.html:52 task 5            (2)
+
+3. when we enter "task 6" in the input
+console:
+practice7.html:52 task 3
+practice7.html:52 task 4
+practice7.html:52 task 5
+practice7.html:52 task 6
+
+> console.log(tasks);
+VM3255:1 (3) 
+['task 3', 'task 4', 'task 5']
+0: "task 3"
+1: "task 4"
+2: "task 5"
+3: "task 6"
+length: 3
+[[Prototype]]: Array(0)
+undefined
+
+> console.log(tasks[0]);
+VM3324:1 task 3
+*/
+
+        
+        
+        
+        
+
+        //attach an event listener 
+        btn.addEventListener('click', fn)
+        //when button is clicked fn function is called 
+
+        
+
+    
+      
+    </script>
+</body>
+</html>

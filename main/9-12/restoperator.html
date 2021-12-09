@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        in JS you can pass something called rest operator
+    -->
+    
+    <script>
+        function fn1(...x)
+        {
+            console.log(x);
+        }
+
+        fn1(2, 1, 32, 23, 223);
+        //you can pass n number of parameters as an array
+
+/*
+(5) [2, 1, 32, 23, 223]
+0: 2
+1: 1
+2: 32
+3: 23
+4: 223
+length: 5
+[[Prototype]]: Array(0)
+
+*/
+
+        fn1.call(1, 23, "djdj");
+/*
+(2) [23, 'djdj']
+0: 23
+1: "djdj"
+length: 2
+[[Prototype]]: Array(0)
+
+
+
+*/
+        fn1.apply(1, []);
+//you can pass parameters as an array, 
+// this is DYANAMIC
+
+/*
+[]length: 0[[Prototype]]: Array(0)
+*/
+
+//bind returns a function reference 
+//used to target a particular object 
+//you can later execute it 
+
+let ref = fn1.bind(133);
+
+    </script>
+</body>
+</html>

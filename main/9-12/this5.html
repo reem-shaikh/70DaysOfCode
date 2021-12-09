@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let complex_obj = {
+            'key1' : 'value 1',
+            'key2' : 'value2',
+            'complex_key' : {
+                'innerkey1': 'inner value 1',
+                'innerkey2': 'inner value 2',
+                'inner_fn': function()
+                {
+                    console.log(this);
+                }
+    
+            },
+            //console.log(this);
+            //it will target the entire object 
+            'out_fn': function()
+                {
+                    console.log(this);
+                }
+
+        }
+
+        complex_obj.complex_key.inner_fn();
+        //refers to immediate owner 
+        //i.e complex_key
+
+        complex_obj.out_fn();
+/*
+console:
+
+        {
+    "key1": "value 1",
+    "key2": "value2",
+    "complex_key": {
+        "innerkey1": "inner value 1",
+        "innerkey2": "inner value 2"
+    }
+}
+
+
+*/
+
+//customized behavior 
+//change pointer of this to point to custom data 
+
+//this data will be sent using call/ apply/ bind 
+
+//first argument will be this pointer 
+    </script>
+</body>
+</html>

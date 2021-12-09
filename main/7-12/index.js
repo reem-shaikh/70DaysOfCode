@@ -1,99 +1,79 @@
-// adding a new data is comparatively easy (arr.push)
+// In arrays, adding a new data is comparatively easy. (arr.push)
+// In object, we get more versatality, we can add stuff like done flag (to mark as done).
 
-//in object we get more versatility, we can add stuff like done flag to mark as done 
+// Looping through an array is more easy than looping through an object.
 
-//a single task can be represented by an object because we are going to have multiple properties of that task 
+// A single task can be represented by an Object. Because we are going to have multiple porperties of that task. (Such as priority, category, mark as done).
 
-//looping through array is easier than looping through object 
+// The task list will be an array of individual task objects.
 
-//Collection of objects stored in array 
-
-//task list will be an array of individual task objects 
+// Finally our DS -> Array of Objects.
 
 let tasks = [];
 
-let btn = document.getElementById('addtaskbutton');
-//getelementbyid: returns single element
+let btn = document.getElementById('add_task_button');
+// let btn1 = document.querySelector('#add_task_button');
+// console.log(btn);
+// console.log(btn1);
 
-//delete function
-//attached as an event handler 
-//event is an object of event, which we might use or we do not 
-
-//when js calls event handler it will pass this
-let delete_task = function(event)
-{
-    //when you click on the ❌ on the console event will be shown  
-    //console.log(event);
-
-    //console.log(event.target)
-    //it tells which button it was clicked on 
-
+let delete_task = function (event) {
     let id = event.target.id;
-
     let element_id = `li_${id}`;
+    
     let elem = document.getElementById(element_id);
-  
     console.log(elem);
     elem.remove();
 
-    // alert('delete func call');
     let arr = id.split("_");
     let index = arr[1];
     console.log(index);
-    //returns index of the deleted element 
 
     tasks.splice(index, 1);
 }
 
-//loop the list and create elements
-let display = function()
-{
-    let ul = document.getElementById('task_list');
-    //reference to ul 
-    
-    ul.innerText = "";
-    //clearing out ul 
+let edit_task = function(event) {
+    let id = event.target.id;
+    let index = id.split("_")[1];
+    let edit_task = prompt("Enter the updated Task");
+    tasks[index] = edit_task;
+    display();
+}
 
-    for(let i=0; i<tasks.length; i++)
-    //loop the list 
-    {
+let display = function () {
+    // let ul_list = document.getElementsByTagName
+    // let ul_list = document.getElementsByClassName('list');
+    let ul = document.getElementById('task_list');
+    ul.innerText = "";
+    for(let i = 0; i < tasks.length; i++) {
         let single_task = tasks[i];
 
-        //new_elem is stored in the memory reference 
-
         let new_elem = document.createElement('li');
-        //create new element as a list
-
         new_elem.innerText = single_task;
-        //new element = single task
-
-        //appendChild: insert new li inserted at last of list 
 
         let btn = document.createElement('button');
-
         btn.innerText = "❌";
-
         btn.addEventListener('click', delete_task);
-        //popup shows up when we click on ❌
+
+        let edit_btn = document.createElement('button');
+        edit_btn.innerText = '📝';
+        edit_btn.addEventListener('click', edit_task);
+
+
+        edit_btn.id = `edit_${i}`;        
         btn.id = `btn_${i}`;
         new_elem.id = `li_btn_${i}`;
 
         new_elem.appendChild(btn);
-
+        new_elem.appendChild(edit_btn);
         ul.appendChild(new_elem);
-        //append new element as child to the list 
     }
 }
 
-let fn = function()
-{
+let add_task = function () {
     let input = document.getElementsByName('task')[0];
-    //getelementbyname: this returns list of elements
-
     let val = input.value;
     tasks.push(val);
     display();
 }
 
-btn.addEventListener('click', fn);
-
+btn.addEventListener('click', add_task);
