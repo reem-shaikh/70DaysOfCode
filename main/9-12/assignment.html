@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--
+        we tried this with basic JS events/ event handlers 
+    -->
+  </head>
+  <body>
+    <label>Enter a number</label>
+    <input type="text" id="n1" />
+    <br />
+    <br />
+    <label>Enter a second number</label>
+    <input type="text" id="n2" />
+
+    <br />
+    <br />
+
+    <label>Enter a third number</label>
+    <input type="text" id="n3" />
+
+    <br />
+    <br />
+    <input type="button" value="Addition" onclick="add()" />
+    <div id="res"></div>
+
+    <script>
+      function add() {
+        var n1 = parseInt(document.getElementById('n1').value)
+        var n2 = parseInt(document.getElementById('n2').value)
+        var n3 = parseInt(document.getElementById('n3').value)
+
+        sum = n1 + n2 + n3;
+        document.getElementById('res').innerHTML = sum
+      }
+    </script>
+  </body>
+</html>

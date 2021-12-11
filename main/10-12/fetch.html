@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+        Asynchronous function:
+
+        Fetch: 
+        1. get something from network data/ server
+    
+        2. returns a promise
+        2.1. states
+        2.2. callback 
+    
+        we'll use an API called reqres,
+        this returns a JSON 
+        https://reqres.in/api/user
+
+        ----
+        JSON: Js object notation
+        way of representing object data 
+
+        nesting of objects (objects of objects)
+
+        JSON used in:
+        network data 
+        backend
+        network communications 
+        -----
+        
+    -->
+   
+<script>
+    // 1. fetch data using url 
+    // fetch("https://reqres.in/api/user")
+
+    // 2. Fetch returns a promise
+
+    //when it returns a promise, we fetch the response 
+    fetch("https://reqres.in/api/user").then(function(response){
+        console.log(response);
+        //network response
+    });
+
+    //to get the response in json format 
+    fetch("https://reqres.in/api/user").then(function(response){
+        console.log(response.json());
+    });
+
+    //how to check if an asynchronous function returns a promise or not 
+    let r = fetch("https://reqres.in/api/user");
+    console.log(r);
+
+    //console: Promise {<pending>}
+
+    //when promise is fullfilled, then 
+    r.then(function(response){
+      console.log(response.json());
+    }, function(error)
+    //when promise is not fulfilled
+    {
+        console.log(error);
+    });
+
+    //.then takes 2 callbacks 
+    //.then(onsuccess, onerror)
+
+    
+
+</script>
+
+  
+</body>
+</html>

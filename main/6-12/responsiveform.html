@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Form</title>
     <style>
         *{
             box-sizing: border-box;
@@ -13,7 +13,7 @@
 
         body{
             display: flex;
-            height: 100vh;
+            height: 140vh;
             justify-content: center;
             align-items: center;
             background: linear-gradient(140deg, #71b7e6, #9b59b6);
@@ -22,9 +22,12 @@
         .container{
             max-width: 700px;
             width: 100%;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.2);
             padding: 25px 30px;
             border-radius: 5px;
+            margin-bottom: 40px;
+            box-shadow: 5px 5px rgb(113, 113, 216);
+
         }
 
         .container .title{
@@ -105,8 +108,10 @@
             border: none;
             font-size:18px;
             font-weight: 500;
-            border-radius: 15px;
-            padding:10px;
+            border-radius: 5px;
+            padding:5px;
+            margin-top:10px;
+            margin-right: 10px;
 
             letter-spacing: 1px;
             background: linear-gradient(135deg, #00d4ff, #0532b3);
@@ -131,6 +136,15 @@
 
         .button input:hover{
             background: red;
+        }
+
+        .box{
+            margin-top:10px;
+        }
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-inner-spin-button{
+            -webkit-appearance: none;
         }
 
     </style>
@@ -258,8 +272,26 @@
                     placeholder="enter your Degree name" required>
                 </div>
 
+                <div class="box">
+                    <span class="details">
+                       Preference:
+                    </span> 
+               
+                    <input type="checkbox" class="inline" name="course_name" />Web
+                    <input type="checkbox" class="inline" name="course_name" />DSA
+                </div>
+
+                <div class="box">
+                    <span class="details"
+                    >
+                       Choose:
+                    </span> 
+                    <input type="radio" class="inline" name="course_type" />Fundamentals
+                    <input type="radio" class="inline" name="course_type" />Advanced
+                    
+                </div>
             </div>
-            <!--user details end-->
+
             <div class="button" style="margin-top:30px;">
                 <input type="submit" />
                 <input type="reset" />

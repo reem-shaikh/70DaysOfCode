@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //setting  parameter as a function 
+        
+        function prom(complete)
+        // function returns a promise
+        {
+            return new Promise(function(resolve, reject)
+            {
+            if(complete)
+            {
+                resolve("succesful promise");
+            }
+            else
+            {
+                reject("failed promise");
+            }
+
+        });
+    }
+
+        console.log(prom(true));
+        //add value over here 
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <!--
+        Async keyword 
+        use to tell fucntion its an asynchronous function,  it returns a promise 
+
+        await keyword:
+        wait for the execution to complete,
+        wait till the promise is resolved. 
+
+        we can use async without using await keyword
+    -->
+    <script>
+        async function fn()
+        {
+            console.log("this is an async function")
+        }
+
+        fn();
+
+        //we cannot use await keyword without using async function
+        //cannot be used in normal functions 
+
+        async function fn1()
+        {
+            let r = await fetch("https://reqres.in/api/user");
+            console.log("this is an async await function")
+        }
+
+        fn1();
+
+
+    </script>
+</body>
+</html>

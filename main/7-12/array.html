@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script> 
+    var arr = [
+        // 0     1      2
+        ["reem", 20, "female"], //0
+        ["reem", 20, "female"], //1
+        ["reem", 20, "female"], //2
+        ["reem", 20, "female"]  //3
+    ];
+
+document.write("<table border= '1px'>");
+    //outer loop (row)
+    for(var a=0; a<4; a++)
+    {
+        document.write("<tr>");
+        //inner loop (column)
+        for(var b=0; b<3; b++)
+        {
+            document.write("<td>" + arr[a][b] + "</td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+    </script>
+  </body>
+</html>

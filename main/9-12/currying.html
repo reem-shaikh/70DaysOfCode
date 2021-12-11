@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--currying in javascript
+Currying is a technique of evaluating function with multiple arguments, into sequence of functions with single argument.
+-->
+<body>
+    
+    <script>
+        //1. currying with help of bind method 
+        let multiply = function(x, y)
+        {
+            console.log(x * y);
+        }
+
+        let multiplybytwo = multiply.bind(this, 2);
+        //bind creates copy of multiply method 
+
+        //2 will be set as x in multiply()
+
+        multiplybytwo(5);
+        //5 stores in y
+
+        //2. currying with help of closure 
+
+        let add = function(x)
+        {
+            return function(y)
+            {
+                console.log(x + y);
+            }
+        }
+
+        let sum = add(2);
+        sum(3);
+
+
+    </script>
+</body>
+</html>

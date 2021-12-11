@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 id="heading"> Heading </h2>
+    <!--
+        asynchronous JS  
+        1. setTimeOut
+        execute passed callback (pass fucntion as parameter)
+        after the specified delay 
+    -->
+    <script>
+        
+        function fn()
+        {
+            console.log("this is a function");
+        }
+
+        setTimeout(fn, 5000);
+        // the function will print on console after 5 seconds 
+
+
+        console.log("this is a written before  the set timeout")
+        // this will be printed on console before the function fn 
+
+        // its not executing in sequence its written 
+
+        //its executing on a sequence based on the timeout 
+
+        function fn1()
+        {
+            let a = document.getElementById("heading");
+            a.style.display = 'initial';
+            // changing display value to what it was initially after 3 seconds
+        }
+        // initially hidden, after3 seconds it loads to its initial value 
+
+        setTimeout(fn1, 3000);
+
+
+        function fn2()
+        {
+            console.log("this is a function");
+        }
+
+        // execute this callback (fn2) after 0 millseconds 
+        setTimeout(fn2, 0);
+        // the function will print on console after 0 ms
+
+
+        console.log("this is a written before  the set timeout")
+        //even if setTimeout(fn, 0);
+        //settimeout is an asynchronous function, which means it will never be called immediately 
+
+        /*
+        console:
+        this is a written before  the set timeout
+        this is a function
+        */
+
+        //whichever is written first will be given priorty 
+        function fn3()
+        {
+            console.log("this is f3");
+        }
+        function fn4()
+        {
+            console.log("this is f4");
+        }
+
+
+        setTimeout(fn3, 0);
+        setTimeout(fn4, 0);
+
+        /*
+        console:
+        this is f3
+        this is f4
+
+        */
+
+    </script>   
+</body>
+</html>

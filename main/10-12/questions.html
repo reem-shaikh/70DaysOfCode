@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       span {
+           display: block;
+       }
+   </style>
+</head>
+<body>
+    <h2> difference between 3 selectors </h2>
+    <span id="abcd">element with ID abcd</span>
+    <span class="anything">element with class abcd</span>
+
+    <script>
+// 1. document.getElementById();
+// find element by id and return it 
+
+// 2. document.querySelector();
+// pass the css query 
+
+// 3. document.querySelectorAll();
+
+
+
+// 1. document.getElementbyId
+// select first element with id: abcd 
+let r = document.getElementById('abcd');
+// adding styling 
+r.style.color = "red";
+console.log("by id", r);
+/*
+console:
+by id span#abcd
+*/
+
+// Query Selector gives power to be dyanamic.
+
+// 2. document.querySelector();
+// general selector
+//can pass both id and class and tags 
+
+//select first element it finds and it breaks/ exits 
+let s = document.querySelector("#abcd");
+console.log("query selector class", s);
+/*
+console:
+query selector class span#abcd
+*/
+
+let t = document.querySelector(".anything");
+console.log("query selector id", t);
+/*
+console:
+query selector id span.anything
+*/
+
+let m = document.querySelector("span");
+console.log("span query selector", m);
+/*
+console:
+span query selector span#abcd
+*/
+
+// 3. document.querySelectorAll()
+//select all of the elements 
+
+let v = document.querySelectorAll("span");
+console.log("query selector All", v);
+/*
+console:
+query selector All 
+NodeList(2) [span#abcd, span.anything]
+0: span#abcd
+1: span.anything
+length: 2
+[[Prototype]]: NodeList
+*/
+
+//and condition
+let h = document.querySelectorAll("span.anything");
+console.log("query selector All", h);
+/*
+console:
+query selector All 
+NodeList [span.anything]
+0: span.anything
+length: 1
+[[Prototype]]: NodeList
+*/
+
+// or condition
+// select either span or h2
+let w = document.querySelectorAll("span , h2");
+console.log("query selector All", w);
+
+</script>
+
+<!--
+    node list
+    list of all html elements it returns 
+-->
+
+</body>
+</html>

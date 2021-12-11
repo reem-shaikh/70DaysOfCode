@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyanamically fill the table</title>
+</head>
+<body>
+    <!--fetch data from website (reqres) and fill it in the table 
+    dyanamically based on the response of the API call-->
+    <table id="table">
+
+    </table>
+    
+
+    <!---
+        display the data 
+        dyanamically fill the table 
+
+        <table>
+            <thead> </thead>
+
+            <tbody> 
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+            </tbody>
+
+        </table>
+    -->
+    <script>
+    //to get the response in json format 
+    let r = fetch("https://reqres.in/api/user");
+
+    //when promise is fullfilled, then 
+    let s = r.then(function(response){
+      return response.json();
+    });
+
+    s.then(function(a){
+        //console.log(data);
+        //return the data if the promise is fulfilled 
+
+        displayData(a.data);
+        //you can access data on line51 from line48, due to hoisting (works both on variables and functions)
+    });
+
+    function displayData(data)
+    {
+        //console.log(data);
+        data.forEach(function(element){
+             console.log(element);
+
+             //were inserting these values in table 
+             document.createElement('tr');
+             document.createElement('td');
+        });
+    }
+    </script>
+
+</body>
+</html>
