@@ -148,7 +148,9 @@ https://github.com/reem-shaikh/Geekster-/blob/master/main/9-12/assignment6.html
 git: https://reem-shaikh.github.io/Geekster-/main/10-12/fetch2.html
 https://github.com/reem-shaikh/Geekster-/blob/master/main/10-12/fetch2.html
 
-
+## 11-12 assignment 
+git: https://reem-shaikh.github.io/Geekster-/main/11-12/blog.html
+https://github.com/reem-shaikh/Geekster-/blob/master/main/11-12/blog.html
 -->
 <!-- micro dev tools: 
 launch instance
