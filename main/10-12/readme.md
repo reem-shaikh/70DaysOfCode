@@ -85,8 +85,8 @@ To understand this, lets first understand promise method
 2. promise: fulfilled 
 3. promise: rejected
 
-1. What is a promise?
-A method in JS, which can give 2 outcomes, for a condition specified 
+>> What is a promise?
+> A method in JS, which can give 2 outcomes, for a condition specified 
 1. promise(): fulfilled 
 >> this means promise is resolve()
 
