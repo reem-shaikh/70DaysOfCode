@@ -15,8 +15,6 @@ https://reem-shaikh.github.io/Geekster-/main/8-11/login.html
 **registration form:**
 https://reem-shaikh.github.io/Geekster-/main/8-11/register.html
 
-
-
 ## 10-11 assignment 
 **teams wiki clone:**
 https://reem-shaikh.github.io/Geekster-/main/11-11/index.html
@@ -131,27 +129,21 @@ https://reem-shaikh.github.io/Geekster-/main/3-12/count.html
 ### 5-12 test
 https://reem-shaikh.github.io/Geekster-/test/5-12test.html
 
-<!--
 ## 6-12 assignment
-git: https://reem-shaikh.github.io/Geekster-/main/6-12/responsiveform.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/6-12/responsiveform.html
+https://reem-shaikh.github.io/Geekster-/main/6-12/responsiveform.html
 
 ## 7-12 assignment
-git: https://reem-shaikh.github.io/Geekster-/main/7-12/practice18.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/7-12/practice18.html
+https://reem-shaikh.github.io/Geekster-/main/7-12/practice18.html
 
 ## 9-12 assignment
-git: https://reem-shaikh.github.io/Geekster-/main/9-12/assignment6.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/9-12/assignment6.html
+https://reem-shaikh.github.io/Geekster-/main/9-12/assignment6.html
 
 ## 10-12 assignment
-git: https://reem-shaikh.github.io/Geekster-/main/10-12/fetch2.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/10-12/fetch2.html
+https://reem-shaikh.github.io/Geekster-/main/10-12/fetch2.html
 
 ## 11-12 assignment 
-git: https://reem-shaikh.github.io/Geekster-/main/11-12/blog.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/11-12/blog.html
--->
+https://reem-shaikh.github.io/Geekster-/main/11-12/blog.html
+
 <!-- micro dev tools: 
 launch instance
 got to live server: 127.0.0.1:5000/ which is the root and navigate to your file
