@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+        Use This api "https://meme-api.herokuapp.com/gimme" . Fetch data from this api and get url of meme from that data and show the meme on Forntend. Give hosted link here . *
+    -->
+    <div id="response_div"></div>
+    <script>
+      let a = fetch('https://meme-api.herokuapp.com/gimme')
+      console.log(a)
+
+      let b = a.then(function (response) {
+        //converting response (plain text) to json format
+        return response.json()
+      })
+
+      console.log(b)
+
+      b.then(function (data) {
+        fn(data)
+      })
+
+      function fn(data) {
+        let image = document.createElement('img')
+        image.src = 'https://i.redd.it/3mao02uvfy481.jpg'
+
+        let div = document.getElementById('response_div')
+        div.appendChild(image)
+      }
+    </script>
+  </body>
+</html>
