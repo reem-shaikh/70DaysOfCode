@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //using function expression (anonymous)
+        let welcome = function(name)
+        {
+            return `hii ${name}` ;
+        }
+
+        console.log(welcome("reeem"));
+
+        //using arrow function 
+        let welcomes = (name, age) => 
+        {
+            return `hii ${name} - ${age}` ;
+        }
+
+        console.log(welcomes("reeem", 20));
+
+        //for single line code you dont need curly braces and remove return 
+        let welcomes1 = (name, age) => `hii ${name} - ${age}` ;
+
+        console.log(welcomes1("reeem", 20));
+
+    </script>
+
+</body>
+</html>

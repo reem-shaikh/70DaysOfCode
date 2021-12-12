@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Meow+Script&family=Noticia+Text:ital@0;1&display=swap"
+    rel="stylesheet" crossorigin="anonymous"
+    />
+
+    <title>Technical Ayush jI</title>
+    <style>
+      body {
+        background-color: #f1f1f1;
+      }
+
+      h2{
+        font-family: 'Lobster', cursive;
+      }
+      .header, .card {
+        background-color: #ffffff;
+      }
+
+      .header{
+          position: sticky;
+          top: 0;
+      }
+
+      .container{
+          display: flex;
+      }
+      /*
+      to resize the vw, we use flex property
+      > flex-basis 
+      */
+
+      .leftcontent{
+          flex-basis: 70vw;
+        /* using float:left over here was 
+          making the navbar remove the sticky property  */
+
+      }
+
+      .card{
+          margin: 5px 0px;
+       /* top/ bottom left/right */
+      }
+    </style>
+    <!--in position;fixed content behidn navbar wont be visible -->
+  </head>
+  <body>
+    <div class="header">
+      <h2>Technical AyushJi</h2>
+    </div>
+    <!--card: div with bg-color:whire-->
+    <div class="container">
+    <div class="leftcontent">
+        <div class="card">
+           <h4>title</h4>
+           <img />
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, ipsa!</p>
+        </div>
+        <div class="card">
+            <h4>title</h4>
+            <img />
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, ipsa!</p>
+         </div>
+    </div>
+
+    <div class="rightcontent">
+    </div>
+        
+    </div>
+    <!--container class works -->
+    <script></script>
+  </body>
+</html>

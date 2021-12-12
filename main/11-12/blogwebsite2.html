@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Meow+Script&family=Noticia+Text:ital@0;1&display=swap"
+    rel="stylesheet" crossorigin="anonymous"
+    />
+
+    <title>Technical Ayush jI</title>
+    <!--
+        images
+        pxels
+        pixabay
+    -->
+    <style>
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+      }
+
+      h2{
+        font-family: 'Lobster', cursive;
+        margin: 0;
+      }
+
+      h2, h4{
+          margin: 0px;
+      }
+      .header, .card {
+        background-color: #ffffff;
+      }
+
+      .header{
+          position: sticky;
+          top: 0;
+      }
+
+      .container{
+          display: flex;
+        /* 
+        use display:flex;
+        if you want section right sticky to stick on top,
+
+        in display: table, section right is not sticking on top
+        */
+      }
+     /*
+     instead of using 
+     display:flex in .container 
+     and 
+     flex-basis: 70vw in .leftcontent
+
+     we can use tjese properties 
+     display:table / display:flex in .container 
+     and 
+
+     width: 70%;
+     float: left;
+     in .leftcontent
+     */
+
+      .leftcontent{
+          padding: 5px;
+          width: calc(70% - 10px);
+          float: left;
+      }
+/*
+calc is a mathematical function which will calculate for you dyanamically, you dont have to hard code 
+because note that:
+
+      viewport:
+           left          right
+           70%           30%
+padding>  5px  5px      5px  5px
+there is additional 10px on both sides 
+      
+so were removing the additional 10px from both .leftcontent andd .rightcontent 
+
+*/
+
+      .card{
+          margin: 5px 0px;
+       /* top/ bottom left/right */
+      }
+
+      .rightcontent{
+          padding: 5px;
+          width: calc(30% - 10px);
+          float: right;
+      }
+
+      .card-right-sticky{
+          position: sticky;
+          top: 0px;
+      }
+
+    </style>
+    <!--in position;fixed content behidn navbar wont be visible -->
+  </head>
+  <body>
+    <div class="header">
+      <h2>Technical AyushJi</h2>
+    </div>
+    <!--card: div with bg-color:white-->
+<div class="container">
+    <div class="leftcontent">
+        <div class="card">
+           <h4>title</h4>
+           <img src="calcss.PNG" style="width:100%;" alt="img" />
+           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, ipsa!</p>
+        </div>
+        <!--card 1 ends -->
+        <div class="card">
+            <h4>title</h4>
+            <img src="calc2.PNG" style="width:100%;" alt="img" />
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, ipsa!</p>
+         </div>
+         <!--card 2 ends -->
+    </div>
+    <!--left content ends -->
+
+    <div class="rightcontent">
+        <div class="card">
+            <h4>About Me</h4>
+            <img src="calc2.PNG" style="width:100%;" alt="img"/>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, totam.</p>
+        </div>
+
+        <!--keep section as sticky-->
+        <div class="card-right-sticky">
+            <h5>sections</h5>
+            <ul>
+                <li>lorem</li>
+                <li>ipsum</li>
+                <li>lorem</li>
+                <li>ipsum</li>
+            </ul>
+
+        </div>
+    </div>
+    <!--right content ends-->
+</div>
+    <!--container class  ends -->
+    <script></script>
+  </body>
+</html>

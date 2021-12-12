@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+    <div id="response_div"></div>
+    <script>
+        //start execution of the network call URL and return a promise 
+        let a = fetch('https://jsonplaceholder.typicode.com/todos/1');
+        //json placeholder API
+
+        console.log(a);
+        // "a" is an object of fetch, it returns a promise 
+
+        // .then (callback functions) will return the promise
+        let b = a.then(function(response){
+            //converting response (plain text) to json format 
+            return response.json();
+            //for network request, you have to convert to json
+        });
+        //once we enter into promise universe, we can not go back 
+        //we only have an option to call a non promise function
+        console.log(b);
+
+        // example:
+        // let c = b.then(function(){
+        //      return "string";
+        // });
+        // console.log(c);
+        //this wont return a string, it will only return a promise 
+
+        b.then(function(data){
+            fn(data);
+            //display function 
+        });
+
+        //this function displays data 
+        function fn(data)
+        {
+            let h2 = document.createElement('h2');
+            h2.innerText = `UserID: ${data.id}`;
+
+            let h3 = document.createElement('h3');
+            h3.innerText = `UserID: ${data.title}`;
+            // title and id are objects, that are  returned from fetch API call
+
+            let div = document.getElementById('response_div');
+            div.appendChild(h2);
+            div.appendChild(h3);
+
+            //append - add to same level 
+            //can append both strings and node 
+            // example, this works in append 
+            //div.append("sample string")
+
+            //appendChild - add to child level 
+            //only append a node 
+            // example, this doesnt works in appendChild 
+            //div.appendChild("sample string")
+            //console: //script will crash
+
+            console.log(data);
+        }
+    </script>
+</body>
+</html>

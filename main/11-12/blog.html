@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        font-family: Verdana, sans-serif;
+        font-weight: lighter;
+      }
+
+      .leftcontent {
+        padding: 5px;
+        width: calc(70% - 10px);
+        float: left;
+      }
+
+      .rightcontent {
+        padding: 5px;
+        width: calc(30% - 10px);
+        float: right;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      section {
+        padding: 2rem 7%;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 7%;
+      }
+
+      .header .logo {
+        color: black;
+        font-size: 2.5rem;
+        margin-right: auto;
+      }
+
+      .header .logo span {
+        color: red;
+      }
+
+      .header .navbar a {
+        margin-right: 2rem;
+        font-size: 1.7rem;
+        text-transform: capitalize;
+      }
+
+      .header .navbar a:hover {
+        color: red;
+      }
+
+      #menu-bars {
+        display: none;
+      }
+
+      .banner {
+        min-height: 80vh;
+        display: grid;
+        place-items: center;
+        padding-top: 8rem;
+      }
+
+      .banner .content {
+        text-align: center;
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        max-width: 50rem;
+      }
+
+      .banner .content h3 {
+        font-size: 4rem;
+        color: black;
+        text-transform: uppercase;
+      }
+
+      .banner .content p {
+        font-size: 1.7rem;
+        color: grey;
+        padding: 1rem 0;
+        line-height: 1.5;
+      }
+
+      .container {
+        display: flex;
+        background: #eee;
+      }
+
+      .container .leftcontent .card {
+        width: 100%;
+        padding: 2rem;
+        background: #fff;
+
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .container .leftcontent .card .image {
+        height: 40rem;
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+      }
+
+      .container .leftcontent .card .date {
+        padding-top: 2rem;
+        font-size: 1.5rem;
+        color: red;
+      }
+
+      .container .leftcontent .card .title {
+        padding-top: 1.5rem;
+        font-size: 2.5rem;
+        color: black;
+      }
+
+      .container .leftcontent .card .text {
+        font-size: 1.6rem;
+        line-height: 1.7;
+        padding: 1rem 0;
+      }
+
+      .container .rightcontent .box {
+        border-radius: 0.5rem;
+        background: #fff;
+        margin-bottom: 1.5rem;
+      }
+
+      .container .rightcontent .box .title {
+        padding: 1.5rem;
+        font-size: 2rem;
+        color: #fff;
+        background: black;
+        text-transform: capitalize;
+      }
+
+      .container .rightcontent .box .about {
+        text-align: center;
+        padding: 1rem 1.5rem;
+      }
+
+      .container .rightcontent .box .about img {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 1rem 0;
+      }
+
+      .container .rightcontent .box .about h3 {
+        color: red;
+        font-size: 2rem;
+      }
+
+      .container .rightcontent .box .about p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        padding: 1rem;
+      }
+
+      .container .rightcontent .box .about {
+        padding: 1rem 0;
+      }
+
+      .container .rightcontent .box .about a {
+        height: 4rem;
+        line-height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        background: black;
+        color: #fff;
+        font-size: 1.7rem;
+        margin: 0 0.1rem;
+      }
+
+      .container .rightcontent .box .about a:hover {
+        background: red;
+      }
+
+      .container .rightcontent .box .rightcard {
+        padding: 1rem 2rem;
+      }
+
+      .container .rightcontent .box .rightcard a {
+        padding: 1rem 0;
+        display: block;
+      }
+
+      .container .rightcontent .box .rightcard a h3 {
+        color: black;
+        font-size: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      .container .rightcontent .box .rightcard a span {
+        font-size: 1.5rem;
+      }
+
+      .container .rightcontent .box .rightcard a span i {
+        padding-right: 0.2rem;
+      }
+
+      .container .rightcontent .box .rightcard a:hover h3 {
+        color: red;
+      }
+
+      .rightcard{
+        position: sticky;
+        top: 0px;
+      }
+
+      .footer .credit {
+        text-transform: capitalize;
+        font-size: 1 rem;
+        color: gray;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      .footer .credit span {
+        color: red;
+      }
+
+      .footer {
+        padding: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header section starts  -->
+
+    <header class="header">
+      <a href="#" class="logo"><span>Reem</span>Shaikh</a>
+
+      <nav class="navbar">
+        <a href="#banner">banner</a>
+        <a href="#posts">my posts</a>
+        <a href="#contact">contact me</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+      </div>
+    </header>
+
+    <section class="container" id="posts">
+      <div class="leftcontent">
+        <div class="card">
+          <img
+            src="https://images.pexels.com/photos/7672877/pexels-photo-7672877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 "
+            alt=""
+            class="image"
+          />
+
+          <h3 class="title">blog title goes here</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+            molestias rerum numquam, quos aut est culpa quisquam excepturi sed a
+            inventore dicta tempore consequuntur possimus magnam corporis cum
+            doloremque quasi fugiat exercitationem aliquid cupiditate pariatur.
+            Dolor laboriosam voluptatem ex praesentium magni error debitis
+            maxime alias autem distinctio. Fuga, esse velit!
+          </p>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            reiciendis fugiat quas nemo quia omnis repellat obcaecati quaerat
+            voluptates fuga error dicta cupiditate pariatur soluta dolorum quis
+            eum quibusdam quam?
+          </p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.pexels.com/photos/7662612/pexels-photo-7662612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 "
+            alt=""
+            class="image"
+          />
+          <h3 class="title">blog title goes here</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+            molestias rerum numquam, quos aut est culpa quisquam excepturi sed a
+            inventore dicta tempore consequuntur possimus magnam corporis cum
+            doloremque quasi fugiat exercitationem aliquid cupiditate pariatur.
+            Dolor laboriosam voluptatem ex praesentium magni error debitis
+            maxime alias autem distinctio. Fuga, esse velit!
+          </p>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            reiciendis fugiat quas nemo quia omnis repellat obcaecati quaerat
+            voluptates fuga error dicta cupiditate pariatur soluta dolorum quis
+            eum quibusdam quam?
+          </p>
+        </div>
+      </div>
+
+      <!-- right section starts-->
+      <div class="rightcontent">
+        <div class="box">
+          <h3 class="title">about me</h3>
+          <div class="about">
+            <img
+              src="https://images.pexels.com/photos/7662940/pexels-photo-7662940.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 "
+              alt=""
+            />
+            <h3>Reem Shaikh</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Similique, officia.
+            </p>
+          </div>
+        </div>
+
+        <div class="box" style="position:sticky; top:0;">
+          <h3 class="title">popular posts</h3>
+          <div class="rightcard">
+            <a href="#">
+              <h3>01. blog title goes here</h3>
+            </a>
+            <a href="#">
+              <h3>02. blog title goes here</h3>
+            </a>
+            <a href="#">
+              <h3>03. blog title goes here</h3>
+            </a>
+            <a href="#">
+              <h3>04. blog title goes here</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- right section ends-->
+    </section>
+
+    <!-- container section ends -->
+
+    <section class="footer">
+      <div class="credit">
+        created by <span>Reem Shaikh</span> | all rights reserved
+      </div>
+    </section>
+  </body>
+</html>

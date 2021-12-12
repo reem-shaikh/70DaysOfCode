@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+   
     <script>
         //setting  parameter as a function 
         
@@ -16,6 +16,10 @@
         {
             return new Promise(function(resolve, reject)
             {
+            console.log("fetching data, please wait")
+
+            
+        setTimeout( () => {
             if(complete)
             {
                 resolve("succesful promise");
@@ -24,26 +28,19 @@
             {
                 reject("failed promise");
             }
-
+        }, 1000)
+          
         });
     }
 
-    //function when condition is fulfilled
-    let onfulfilment = (result) => {
+    //method chaining
+    //if condition is resolved, then function will be called; if condition is rejected, catch function will be called 
+    prom(true).then((result) => {
         console.log(result)
-        // result = succesful promise
-    }
-
-    //function when condition is rejected 
-    let onRejection = (error) => {
+    }).catch((error) => {
         console.log(error)
-        // error = failed promise
-    }
-
-    //then and catch are inbiult functions
-    prom(true).then(onfulfilment);
-    prom(true).catch(onRejection);
-
+    });
+    
     </script>
     
 </body>
