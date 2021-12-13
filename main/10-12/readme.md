@@ -3,7 +3,7 @@ This was how we used functions before ES6
 1. function Declaration
 2. function Expression 
 
-1. Function Declaration
+## 1. Function Declaration
 ```bash 
 function hello()
 {
@@ -12,11 +12,11 @@ function hello()
 
 hello();
 ```
-2. Function expression 
+## 2. Function expression 
 2.1. anonymous 
 2.2. named 
 
-2.1 Function expression (anonymous)
+### 2.1 Function expression (anonymous)
 Function Expression  allows us to create an anonymous function which doesn’t 
 have any function name
 ```bash 
@@ -28,7 +28,7 @@ let hello = function()
 hello();
 ```
 
-2.2 Function expression (named)
+### 2.2 Function expression (named)
 ```bash 
 <script>
     var calMul = function Mul(x, y){
@@ -80,20 +80,20 @@ hii reeem - 20
 To understand this, lets first understand promise method 
 (introduced in JS E6 version)
 
-3 stages of promise:
+### 3 stages of promise:
 1. promise: pending (not yet fulfilled )
 2. promise: fulfilled 
 3. promise: rejected
 
 >> What is a promise?
 > A method in JS, which can give 2 outcomes, for a condition specified 
-1. promise(): fulfilled 
+#### 1. promise(): fulfilled 
 >> this means promise is resolve()
 
 if its resolved, we can use a JS function, then()
 which is a callback function
 
-2. promise(): rejected
+#### 2. promise(): rejected
 >> this means promise is reject()
 
 if its rejected, we can use a JS function, catch(),
@@ -107,20 +107,20 @@ let prom = new Promise(function()
 {
 });
 ```
-The function can take parameters:
+#### The function can take parameters:
 1. resolve
 2. reject
 
 based on whether promise is accepted 
 or not.
 
-1. If promise is accepted, call resolve() function
+### 1. If promise is accepted, call resolve() function
 ```bash 
 let prom = new Promise(function(resolve)
 {
 });
 ```
-2. If promise is declined, call reject() function
+### 2. If promise is declined, call reject() function
 ```bash 
 let prom = new Promise(function(reject)
 {
@@ -151,8 +151,7 @@ else
 });
 ```
 #### Whenever resolve() or reject() return something it will be stored in these functions
-1. Whenever resolve() function returns something, it will be stored 
-in this result variable
+##### 1. Whenever resolve() function returns something, it will be stored in this result variable
 ```bash 
 let onfulfilment = (result) => { console.log(result); }
 ```
@@ -163,7 +162,7 @@ let onfulfilment = function(result)
    console.log(result)
 }
 ```
-2. Whenever reject() function returns something, it will be stored 
+##### 2. Whenever reject() function returns something, it will be stored 
 in this error variable 
 ```bash 
 let onRejection = (error) => { console.log(error); }
@@ -174,6 +173,7 @@ let onRejection = function(error)
 {
    console.log(error)
 }
+```
 
 #### Now, to call these functions, JS has inbiult callback functions called
 1. then 
@@ -194,7 +194,7 @@ prom.catch(onRejection)
 ```
 
 examples 
-1. When value entered is true 
+#### 1. When value entered is true 
 ```bash 
     <script>
         let complete = true; 
@@ -220,7 +220,7 @@ examples
 console:
 Promise {<fulfilled>: 'succesful promise'}
 ```
-2. When value entered is false 
+#### 2. When value entered is false 
 ```bash 
  <script>
         let complete = false; 
@@ -246,9 +246,9 @@ Promise {<fulfilled>: 'succesful promise'}
 console:
 Promise {<rejected>: 'failed promise'}
 ```
-embedding parameter in a function -> callback function 
-and returning the value in the console.log 
-1. when value entered is true 
+#### Embedding parameter in a function -> callback function 
+     returning the value in the console.log 
+##### 1. when value entered is true 
 ```bash 
     <script>
     //setting  parameter as a function 
@@ -275,7 +275,7 @@ and returning the value in the console.log
     </script>
 ```
 
-2. When value entered is false 
+##### 2. When value entered is false 
 ```bash 
    <script>
         //setting  parameter as a function 
@@ -365,7 +365,7 @@ succesful promise
 ## Pending promise 
 illustration
 
-1. When complete is true 
+#### 1. When complete is true 
 ```bash 
     <script>
         //setting  parameter as a function 
@@ -423,7 +423,7 @@ is displayed twice
 Succesful promise is loaded a second after, according to timeout manipulation
 ```
 
-2. When complete is false 
+#### 2. When complete is false 
 ```bash 
     <script>
         //setting  parameter as a function 
@@ -483,10 +483,10 @@ we can minimize it to one line
 ```bash 
 prom(false).then(onfulfilment).catch(onRejection);
 ```
-if condition is true, promise resolved, then "this" function will be called; 
-if condition is false, promise rejected, then "catch" function will be called 
+> if condition is true, promise resolved, then "this" function will be called; 
+> if condition is false, promise rejected, then "catch" function will be called 
 
-In this case, pending promise will be printed only one time 
+#### In this case, pending promise will be printed only one time 
 ```bash 
     <script>
         //setting  parameter as a function 
