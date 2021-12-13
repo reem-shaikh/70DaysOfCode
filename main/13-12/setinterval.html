@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer app</title>
+</head>
+<body>
+    <p id="timer_op">0</p>
+    <button id="stop">stop ♾️ - clearInterval</button>
+    <button id="resume">resume</button>
+    <button id="clear">stop once - cleartimeout</button>
+    <br>
+    <button id="reset">Reset</button>
+    <button id="restart">restart</button>
+    <!--stop execution and set counter to 0-->
+    
+    <script>
+        let counter = 0;
+        //let setInterval_id = null;
+
+        let cb = function()
+        {
+            counter++;
+            console.log(counter)
+            document.getElementById('timer_op').innerText = counter;
+        }
+        // anonymous function
+        // function doesnt have a name 
+        // its called using a reference cb 
+
+        let id2 = setInterval(cb, 1000);
+        //both setinterval and settimeout returns an identifier 
+
+
+        let btn = document.getElementById('stop');
+        btn.addEventListener('click', function(){
+            clearInterval(id2);
+            // for clearing set interval
+
+            // when your fetching more than once 
+        })
+
+
+        let btn2 = document.getElementById('resume');
+        btn2.addEventListener('click', function(){
+            id2 = setInterval(cb, 1000);
+            this.innerText = "Resume";
+        })
+
+
+        let btn3 = document.getElementById('clear');
+        btn3.addEventListener('click', function(){
+            clearTimeout(id2);
+            // same as clearInterval 
+            // for clearing set timeout 
+
+            // when your only fetching once 
+        })
+
+        let btn4 = document.getElementById('reset');
+        btn4.addEventListener('click', function(){
+            clearInterval(id2);
+            counter = 0;
+            document.getElementById('timer_op').innerText = counter;
+        })
+
+        let btn5 = document.getElementById('restart');
+        btn5.addEventListener('click', function(){
+            counter = 0;
+            document.getElementById('timer_op').innerText = counter;
+        })
+    </script>
+</body>
+</html>

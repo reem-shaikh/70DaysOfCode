@@ -9,37 +9,36 @@
 <body>
    
     <script>
-        //setting  parameter as a function 
+        //setting  a and b as parameters 
         
-        function prom(complete)
+        function prom(a, b)
         // function returns a promise
         {
             return new Promise(function(resolve, reject)
             {
             console.log("fetching data, please wait")
 
-            
+        var c = a / b;   
         setTimeout( () => {
-            if(complete)
+            if(c) 
+            //if a value reaches c, resolve function will be shown 
             {
-                resolve("succesful promise");
+                resolve(`succesful calculation: ${c}`);
             }
             else
             {
-                reject("failed promise");
+                reject("failed to calculate");
             }
         }, 1000)
           
         });
     }
 
-    //method chaining
-    //if condition is resolved, then function will be called; if condition is rejected, catch function will be called 
-    prom(false).then((result) => { console.log(result)
+    prom(0,5).then((result) => {
+        console.log(result)
     }).catch((error) => {
         console.log(error)
     });
-
     
     </script>
     

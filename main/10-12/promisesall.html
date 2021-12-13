@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let p1 = new Promise(function(resolve, reject){
+            console.log("first promise");
+            resolve("successful promise");
+        });
+
+        let p2 = new Promise(function(resolve, reject){
+            console.log("second promise");
+            resolve("failed promise");
+        });
+
+        Promise.all([p1,p2]).then(
+            function (result)
+            {
+                console.log(`${result}`)
+            }
+        ).catch(
+            function (error)
+            {
+                console.log(`${error}`)
+            }
+        );
+        //we can pass an array of promises
+        //you dont have to seperately pass then and catch for promise 
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <!--Jquery CDN link-->
+</head>
+<body>
+    
+    
+    <script>
+        function prom()
+        //function returns a promise
+        {
+            return new Promise(function(resolve, reject)
+            //taking resolve and reject as parameters 
+            {
+            console.log("fetching data, please wait");
+ 
+        setTimeout( () => {
+          $.get( "https://jsonplaceholder.typicode.com/posts",function(data)
+          {
+              resolve(data);
+              //calling resolve function
+
+          }).fail(err => {
+              reject("failed to load json")
+              //calling reject function
+          });
+
+        //integrating error message 
+        }, 1000)
+          
+        });
+    }
+
+    prom().then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    });
+    
+    </script>
+</body>
+</html>
