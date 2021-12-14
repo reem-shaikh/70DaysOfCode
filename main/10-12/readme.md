@@ -902,8 +902,8 @@ operations, and can sometimes improve speed and performance over individual APIs
 2. SOAP - simple object access 
 3. RPC - remote procedural call (RPC) 
 RPC can employ two different languages, JSON and XML, for coding; these APIs are dubbed JSON-RPC and XML-RPC, respectively.
-> XML-RPC  < br />
-> JSON-RPC 
+-  XML-RPC  
+-  JSON-RPC 
 
 #### Web server vs application server 
 case: we have a script.js file which adds adds two numbers and returns the sum
