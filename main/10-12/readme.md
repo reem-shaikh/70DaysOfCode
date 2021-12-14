@@ -350,7 +350,7 @@ example:
     //then and catch are inbiult functions
 
     // when complete is true
-    prom(true).then(onfulfilment);
+    prom(true).then(onfulfilment); 
     ✅ if promise is returned, then return the result in onfulfilment function 
 
     // when complete is false 
@@ -568,7 +568,7 @@ Were doing this to minimize the code.
         });
     }
 
-    ✅ Removed onfulfilment function from here 
+    ✅ Removed onfulfilment function from here  < br />
     ✅ Removed onRejection function from here 
   
     //prom(true).then(✅onfulfilment).catch(✅onRejection);
@@ -902,8 +902,8 @@ operations, and can sometimes improve speed and performance over individual APIs
 2. SOAP - simple object access 
 3. RPC - remote procedural call (RPC) 
 RPC can employ two different languages, JSON and XML, for coding; these APIs are dubbed JSON-RPC and XML-RPC, respectively.
->  XML-RPC 
->  JSON-RPC 
+> XML-RPC  < br />
+> JSON-RPC 
 
 #### Web server vs application server 
 case: we have a script.js file which adds adds two numbers and returns the sum
@@ -1262,11 +1262,12 @@ D - delete data
 console:
 (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 ```
-
+```bash
 ✅1. data will be returned in text format if you write this 
     return response;
 ✅2. data will be returned in json format if you write this 
     return response.json();
+```
 
 ### Fetching API, and printing on the document 
 - get this API from  https://jsonplaceholder.typicode.com/
