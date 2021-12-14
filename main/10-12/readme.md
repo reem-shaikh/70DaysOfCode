@@ -568,7 +568,7 @@ Were doing this to minimize the code.
         });
     }
 
-    ✅ Removed onfulfilment function from here  < br />
+    ✅ Removed onfulfilment function from here  
     ✅ Removed onRejection function from here 
   
     //prom(true).then(✅onfulfilment).catch(✅onRejection);
