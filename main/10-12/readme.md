@@ -1314,6 +1314,399 @@ title nesciunt quas odio ....
 (woops, there are like more...)
 ```
 
+### How to save data on server using CRUD ?
+Syntax:
+```bash 
+<script> 
+      fetch(file / URL, 
+      {
+          method: "POST",
+          body: data, 
+          header : {
+              'Content-type': 'application/json',
+          },
+      });
+</script>
+```
+Different methods to CRUD data on the server. 
+## 1. method
+1. method: "POST"   (for inserting data)
+2. method: "GET"    (for reading data)
+3. method: "PUT"    (update server data)
+4. method: "DELETE" (for deleting data)
+
+## 2. body 
+pass data that we want to save on the server 
+```bash 
+body: data, 
+```
+> Data can be in three forms 
+1. form data 
+2. json data 
+3. text 
+
+## 3. header 
+In header we specify what kind of data were passing through the server 
+> here is what, you need to specify for different data 
+1. form data 
+```bash 
+'Content-type': 'application/x-www-form-urlencoded',
+```
+
+2. JSON data
+```bash 
+'Content-type': 'application/json',
+```
+
+##### In JSON placeholder API website, scroll down, to guide 
+click on guide, which redirects you to this page 
+https://jsonplaceholder.typicode.com/guide/
+(these are fake data for testing)
+
+This page contains different JSON API.
+## 1. Data passed in JSON format 
+#### 1.1 Get/ read a resource 
+using method: 'GET'
+```bash 
+<script> 
+      fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method : 'GET',
+      })
+      
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+    
+</script>
+
+console:
+{userId: 1, 
+id: 1,
+title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'}
+body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+```
+#### 1.2 Create a resource 
+using method: 'POST'
+```bash 
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({  ✅this is a JS object 
+    title: 'foo',           ✅It cannot be send on the server directly 
+    body: 'bar',            ✅that's why we convert it to JSON using 
+    userId: 1,                 JSON.stringify()
+  }),
+    headers: {              
+    'Content-type': 'application/json; charset=UTF-8',
+    },                       
+})
+
+.then((response) => response.json())
+.then((json) => console.log(json));
+
+console:
+Object >
+body: "bar"
+id: 101
+title: "foo"
+userId: 1
+```
+Why do we convert JS object to JSON?
+✅Data send on server is in JSON, because it can easily be read by any 
+programming language. 
+
+#### 1.3 Update a resource 
+using method: 'PUT'
+```bash 
+<script>
+    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        method: 'PUT',
+        body: JSON.stringify({
+          id: 1,
+          title: 'feona',
+          body: 'bary',
+          userId: 2,
+        }),
+
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+    
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+</script>
+
+console:
+body: "bary"
+id: 1
+title: "feona"
+userId: 2
+```
+#### 1.4 Delete a resource 
+using method: "DELETE"
+```bash 
+<script> 
+      fetch('https://jsonplaceholder.typicode.com/posts/1', 
+      {
+      method: 'DELETE',
+      });
+</script>
+```
+### JS Async function 
+To remove drawbacks of promise(), Async function was returned.
+
+#### Drawbacks of promise()
+1. we had to declare resolve() and reject() inside promise function as parameters, 
+upon calling them, then or catch function would automatically be called, based on whether 
+the promise is fulfilled or rejected 
+```bash 
+    <script>
+        //setting  parameter as a function 
+        
+        function prom(complete)
+        // function returns a promise
+        {
+            return new Promise(function(resolve, reject)
+            {
+            if(complete)
+            {
+                resolve("succesful promise");
+            }
+            else
+            {
+                reject("failed promise");
+            }
+
+        });
+    }
+
+    //function when condition is fulfilled
+    let onfulfilment = function(result) {
+        console.log(result)
+        // result = succesful promise
+    }
+
+    //function when condition is rejected 
+    let onRejection = function(error) {
+        console.log(error)
+        // error = failed promise
+    }
+
+    //then and catch are inbiult functions
+    prom(true).then(onfulfilment);
+    prom(true).catch(onRejection);
+
+    </script>
+```
+Async function works in asynchronous mode in the background 
+
+> Example 
+```bash 
+ <script>
+        //when you add async before a normal function, it returns a promise 
+        async function test()
+        {
+            return "hello";
+        }
+        console.log(test());
+
+    </script>
+
+console:
+Promise {<fulfilled>: 'hello'}
+[[Prototype]]: Promise
+[[PromiseState]]: "fulfilled"
+[[PromiseResult]]: "hello"
+```
+> Elaborating example
+```bash 
+    <script>
+        //when you add async before a normal function, it returns a promise 
+        async function test()
+        {
+            return "hello";
+            //this value passed to then function 
+        }
+        test().then(function(result)
+        {
+             console.log(result)
+        });
+
+    </script>
+
+console:
+hello
+```
+Using arrow function
+```bash 
+ <script>
+        let test = async () => "hello";
+        //storing function in variable test 
+
+        test().then(function(result){
+             console.log(result)
+        });
+
+</script>
+
+console:
+hello
+```
+## Await method 
+```bash 
+ <script>
+        ✅ await method can be added on any line
+        ✅ used inside async function  
+
+        async function test(){
+            console.log("A");
+            await console.log("B"); 
+            //await function- tells to wait after B 
+            console.log("C");
+        }
+
+        test();
+        console.log("D");
+        console.log("E"); 
+
+    </script>
+
+console:
+await1.html:10 A
+await1.html:17 B
+await1.html:23 D
+await1.html:24 E
+await1.html:19 C
+```
+example 2 
+```bash 
+<script>
+        async function test(){
+            console.log("2");
+            await console.log("3"); 
+            //await function- tells to wait after 3 and execute code below this function before coming back to execute this code  
+            console.log("5");
+        }
+
+        console.log("1"); ✅1st this is executed
+        test();           ✅executed till await function
+        console.log("4"); ✅executed after await function 
+                          ✅pointer goes back to the code after await function 
+</script>
+
+console:
+1
+2
+3
+4
+5
+```
+> When is await method mainly used?
+its mainly used when were fetching data from server using fetch() method (fetches data on the server)
+and we want to pause the fetch command midway and resume it sometime later. 
+
+> example 1
+```bash 
+<script>
+      async function test() {
+        console.log("1");         ✅2. 1 printed on console 
+
+        console.log("2")          ✅3. 2 printed on console 
+        let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+                                  ✅4. doesnt print response, because pointer hasnt 
+                                   yet encountered the the return response statement 
+                                  ✅5. pointer jumps outside the function 
+        console.log("4")          ✅8. 4 printed on console
+        return response;          ✅9. response object printed on console 
+
+      }
+
+      test().then(function(result)✅1. test function called first 
+      { 
+             console.log(result)
+      });
+
+      console.log("3")             ✅6. 3 is printed on console 
+                                   ✅7. pointer jumps back to the test() 
+</script>
+
+console:
+await3.html:12 1
+await3.html:14 2
+await3.html:27 3
+await3.html:17 4
+await3.html:24 Response {type: 'cors', url: 'https://jsonplaceholder.typicode.com/posts', redirected: false, status: 200, ok: true, …}
+```
+> example 2
+```bash 
+<script>
+      async function test() {
+        console.log("1");         ✅3. 1 printed on console 
+
+        console.log("2")          ✅4. 2 printed on console 
+        let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+                                  ✅5. doesnt print response, because pointer hasnt 
+                                   yet encountered the the return response statement 
+                                  ✅6. pointer jumps outside the function 
+
+        console.log("4")          ✅9. 4 printed on console
+        return response;          ✅10. response object printed on console 
+
+      }
+
+      console.log("3")            ✅1. 3 printed on console first 
+
+      test().then(function(result)✅2. test function called first 
+      { 
+             console.log(result)
+      });
+
+      console.log("5")            ✅7. printed 5 on console 
+                                  ✅8. jumps back in test()
+</script>
+
+console:
+await3.html:12 3
+await3.html:14 1
+await3.html:27 2
+await3.html:27 5
+await3.html:17 4
+await3.html:24 Response {type: 'cors', url: 'https://jsonplaceholder.typicode.com/posts', redirected: false, status: 200, ok: true, …}
+```
+> example 3 
+```bash 
+<script>
+    //using try-catch
+      async function test() {
+
+        try{
+        let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        return response.json();
+        }
+
+        catch(error)
+        {
+           console.log("errorrrrrrr");
+        }
+
+      } 
+      test().then(function(result)
+      //if code works properly thiswill be invoked
+      {
+          console.log(result);
+
+      }).catch(function(error){
+          //if there is any error it will be printed over here 
+          console.log(error);
+          ✅ if there is any error, the error message from top will be printed 
+      });
+      
+</script>
+```
+
+
 
 
 

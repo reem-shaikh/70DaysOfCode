@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          async function test(){
+            console.log("2"); 
+            await console.log("3"); 
+            //await function- tells to wait after 3 and execute code below this function before coming back to execute this code  
+            console.log("5");
+        }
+
+        console.log("1");
+        test();
+        console.log("4"); 
+    </script>
+</body>
+</html>
