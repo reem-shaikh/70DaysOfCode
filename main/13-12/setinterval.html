@@ -37,26 +37,20 @@
         let btn = document.getElementById('stop');
         btn.addEventListener('click', function(){
             clearInterval(id2);
-            // for clearing set interval
-
-            // when your fetching more than once 
+            //clearInterval used to clear setInterval 
         })
-
 
         let btn2 = document.getElementById('resume');
         btn2.addEventListener('click', function(){
             id2 = setInterval(cb, 1000);
-            this.innerText = "Resume";
+            this.innerText = "resume";
+            // how does resume work?
         })
-
 
         let btn3 = document.getElementById('clear');
         btn3.addEventListener('click', function(){
             clearTimeout(id2);
-            // same as clearInterval 
-            // for clearing set timeout 
-
-            // when your only fetching once 
+            //used for clearing settimeout 
         })
 
         let btn4 = document.getElementById('reset');
@@ -70,6 +64,8 @@
         btn5.addEventListener('click', function(){
             counter = 0;
             document.getElementById('timer_op').innerText = counter;
+            id2 = setInterval(cb, 1000);
+            //we specify to start the interval again 
         })
     </script>
 </body>

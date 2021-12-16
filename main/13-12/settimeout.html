@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <button onclick="stopAnim()">stop animation</button>
+    <script>
+        var id = setTimeout(Anim, 3000);
+        //anim function starts after 3s
+
+        function Anim()
+        {
+           var target = document.getElementById("test");
+           target.style.width = "500px";
+           //after 3s width increases to 500px
+        }
+
+        function stopAnim()
+        {
+            clearInterval(id);
+            //when you click on this the animation stops even after 3seconds
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="timerop">0</p>
+    <button id="resume">resume timer</button>
+    <button id="restart">restart timer</button>
+    <button id="pause">pause timer</button>
+    <button id="reset">reset timer</button>
+    <script>
+        let counter = 0;
+
+        let cb = function()
+        {
+            console.log("this is a callback")
+            counter++;
+            //counter = counter + 1
+            // counter += 1
+
+            console.log(counter)
+            document.getElementById('timerop').innerText = counter
+        }
+
+        let id1 = setInterval(cb, 1000);
+
+
+        //resume
+        let btn2 = document.getElementById('resume');btn2.addEventListener('click', function(){
+            id1 = setInterval(cb, 1000)
+            //it resumes from where we last left
+            //counter value is updated it doesnt reset the value to 0 
+            this.innerText = "Resume"
+        })
+
+        //pause 
+        let btn3 = document.getElementById('pause');
+        btn3.addEventListener('click', function(){
+            clearInterval(id1)
+            //it stops at the number we paused, it doesnt turn the counter to 0
+        })
+
+
+        //reset- set counter to 0
+        let btn5 = document.getElementById('reset');
+        btn5.addEventListener('click', function(){
+            clearInterval(id1)
+            counter = 0 
+            document.getElementById('timerop').innerText = counter 
+        })
+
+        //restart- start count from 0 
+        let btn6 = document.getElementById('restart');
+        btn6.addEventListener('click', function(){
+             counter = 0 
+             document.getElementById('timerop').innerText = counter
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--set timeout: this function is only executed once,
+        cleartimeout: cancels the timeout of the settimeout
+        
+        setInterval: this function keeps executing at the interval mentioned 
+        clearinterval: stops the setinterval at this point 
+
+    -->
+    <p id="time">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus dicta architecto ipsa tenetur, doloremque vel? Corporis placeat sequi nobis ab illo magni doloribus. </p>
+    <button onclick="stopAnim()">clear timeout</button>
+
+    <p id="time2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus dicta architecto ipsa tenetur, doloremque vel? Corporis placeat sequi nobis ab illo magni doloribus. </p>
+    <button onclick="stopInterval()">clear interval</button>
+    <script>
+
+        var id = setTimeout(function(){
+            document.getElementById("time").style = 'color:red'; 
+        }, 5000);
+
+        function stopAnim()
+        {
+            clearTimeout(id);
+        }
+
+        var id1 = setInterval(function(){
+            document.getElementById("time2").style = 'color:red'; 
+        }, 5000);
+
+        function stopInterval()
+        {
+            clearInterval(id1);
+        }
+
+
+
+    </script>
+</body>
+</html>

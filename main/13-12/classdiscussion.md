@@ -18,7 +18,6 @@ clearinterval vs cleartimeout
 
 8. BOM (Browser object model)
 parent of DOM IS BOM 
-
 > anything in DOM is part of BOM 
 
 Under the hood, DOM is BOM's child
@@ -40,27 +39,8 @@ to connect contact form to mail
 - https://www.youtube.com/watch?v=qZ1EFnFOGvE
 https://www.youtube.com/watch?v=iuGPFbLlKYQ
 
-To do list 
-fetch() finish 
-await and async 
-
-learn BOM
-properties of BOM
-
-complete promises 
-
 CSSOM - css object model 
 object of all CSS properties and selectors 
 this is also a tree like structure 
-
-Render Tree 
-combination oF DOM + CSSOM 
-
-Assignment app 
-style the timer app 
-
-learn all timer functions 
-
-deep and shallow copy 
 
 

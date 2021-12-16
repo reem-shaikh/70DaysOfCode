@@ -783,6 +783,26 @@ eg: file server runs on FTP protocol
 Once the **client identifies the protocol**, it can then connect the devices and 
 exchange information between them over the network.
 
+### http methods 
+basic operations in website: CRUD 
+
+#### Safe method 
+when you fetch data, the data on server is not changing
+1. get-   - get resource from server 
+
+#### Unsafe method 
+when you do manipulations, data on server is changing 
+2. post   - create new data in the server database
+3. put    - update resource
+4. delete - delete resource 
+
+```bash 
+Create - Post
+Read - Get
+Update - Put
+Delete - Delete
+```
+
 ## JSON (Javascript Object Notation)
 Data exchange format. (like XML)
 > used to store and exchange data 
@@ -1021,6 +1041,36 @@ while client requests the server for a file, AJAX sends **XMLHttpRequest** in th
 - .json data 
 
 ***AJAX uses XMLHttpRequest (XHR object (inbiult object)) - which contains methods and utility functions***
+
+
+> XHR object ensures that changes are loaded on the page, without refreshing 
+```bash
+There are 5 states involved while data is passed through XHR object in the background
+
+Ready state is basically a code number assorted to each state/ each step 
+of the data request- response process.
+
+These 5 state (code numbers) are called readyState
+- 0: no request sent to the server 
+- 1: client-server connection establishment 
+- 2: request recieved to server 
+- 3: server processes request 
+- 4: response sent from server 
+
+Response sent from the server contains:
+Based on the data, we asked from the server, it returns the data format:
+1. status
+code which tells whether the response we recieved, is proper or not 
+- 200: "ok"            ✅server responded with what we requested for 
+- 403: "forbidden"     ✅server is not responding due to technical issues 
+- 404: "not found"     ✅server has not recieved the file were requesting for 
+
+2. responseText 
+returns text
+
+3. responseXML 
+returns XML
+```
  
 ##### Advantages of AJAX:
 1. We can add a particular change in the page, and it gets integrated in the page without externally loading it 

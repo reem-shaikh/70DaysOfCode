@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openWindow()">Open window</button>
+    <button onclick="closeWindow()">close window</button>
+    <button onclick="resizeWindow()">resize to</button>
+    <button onclick="resizebyWindow()">resize by</button>
+    
+    <script>
+        let myWindow;
+        function openWindow()
+        {
+            myWindow = window.open("", "", "width=500px, height=200px, left=100px, top=200px");
+
+            myWindow.document.write("<p>this is a document </p>");
+        } 
+
+        function closeWindow()
+        {
+            myWindow.close();
+        }
+
+        function resizeWindow()
+        {
+            myWindow.resizeTo(400, 400);
+            // resizeTo(width, height) 
+        }
+
+        function resizebyWindow()
+        {  //takes relative value 
+            //if the browser width is 100px x 100px (height x width)
+            //resizeby will increase the browser with by 150px x 150px in this case 
+            myWindow.resizeBy(150, 150)
+
+            //so the final browser dimensions will be  250px x 250px 
+        }
+       
+    </script>
+
+</body>
+</html>
