@@ -1,0 +1,16 @@
+/* same selector level */
+p {
+    color: red
+}
+
+p{
+    color: black
+}
+
+.abcd{
+    color: violet !important;
+}
+
+#id{
+    color:red !important;
+}

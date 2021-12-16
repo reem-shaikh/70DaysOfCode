@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--count number of words in a string-->
+    <h2>question</h2>
+    <input type="text" placeholder="enter a string" id="input">
+    <button id="take_input">calc</button>
+    <p id="output"></p>
+
+    <script>
+        let btn = document.getElementById('take_input');
+        btn.addEventListener('click', function(){
+            let inp = document.getElementById('input');
+
+            let str = inp.value;
+            console.log("str", str)
+
+            let word_count = calcwordcount(str);
+            let p = document.getElementById('output');
+            p.innerText = word_count;
+
+        });
+
+        // hello from the dark side 
+        function calcwordcount(str)
+        {
+        // 1. string split 
+        // split string into array based on the delimeter (like space)
+
+        //In order to calculate the number of words, we need to first split the array into an array of words 
+            let word_arr = str.split(" ");
+            // 2. go ch by ch, count spaces 
+
+            // to fix empty spaces when we give more than 1 space in the input field 
+            word_arr = word_arr.filter(function(word){
+                if(word.length > 0)
+                {
+                    return true
+                }
+                else
+                { 
+                    return false 
+                }
+            });
+            let word_count = word_arr.length; 
+
+            console.log("array", word_arr)
+            console.log("length", word_arr.length)
+
+            return word_count;
+        }
+
+        
+    </script>
+</body>
+</html>
