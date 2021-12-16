@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // rest operator 
+        // convert rest values into an array 
+        // however it works only on multiple values, not on array
+
+        // for example, if we pass args in form of array 
+        // it will consider the array as one element 
+
+        /*
+        function sum(name, ...args)
+        {
+            console.log(args)
+            document.write(`${name}`)
+
+            let sum = 0 
+            for(let i in args)
+            {
+                sum = sum + args[i]
+            }
+
+            document.write(sum + "<br>")
+
+        }
+
+        var arr = [20, 30, 40 ]
+        sum("reem", arr)
+
+        */
+
+        // Rest operator used in fucntion declaration
+        // spread operator used only during calling 
+
+        // thats why we use SPREAD OPERATORS 
+        // spread the array into multiple arguments 
+
+        function sum(name, ...args)
+        // rest operator 
+        {
+            console.log(args)
+            document.write(`${name}`)
+
+            let sum = 0 
+            for(let i in args)
+            {
+                sum = sum + args[i]
+            }
+
+            document.write(sum + "<br>")
+
+        }
+        var arr = [20, 30, 40 ]
+        sum("reem", ...arr)
+        // spread operator 
+
+
+        //eg2:
+        var arr1 = [10,20,30]
+        console.log(...arr1) 
+
+        //converted into array 
+        console.log([...arr1])
+
+        //copying arr1 into arr2 
+        var arr2 = arr1;
+        arr1.push(50)
+        console.log("arr1", arr1)
+        console.log("arr2", arr2)
+
+        //change made in arr1 is also shown in arr2
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

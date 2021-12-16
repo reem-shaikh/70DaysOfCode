@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multi dimensional array</title>
+  </head>
+  <body>
+    <!--array inside array-->
+
+    <script>
+    /*
+      var arr = [
+       //   0     1     2
+        ["reem", 20, "female"],  //0
+        ["abcd", 20, "female"],  //1
+        ["xyz", 20, "female"],   //2
+      ];
+
+      for (var a = 0; a < 4; a++) {
+        for (var b = 0; b < 4; b++) {
+         document.write(arr[a][b] + " ")
+        }
+        document.write("<br>")
+      }
+    */
+
+
+
+      var arr2 = [
+       //   0     1     2
+        ["reem", 20, "female"],  //0
+        ["abcd", 20, "female"],  //1
+        ["xyz", 20, "female"],   //2
+      ];
+
+      document.write("<table border='1px'>");
+      for (var a = 0; a < 4; a++) 
+      {
+        document.write("<tr>")
+        for (var b = 0; b < 4; b++) {
+         document.write("<td>" + arr2[a][b] + "</td>")
+        }
+        document.write("</tr>")
+      }
+      document.write("</table")
+    </script>
+  </body>
+</html>

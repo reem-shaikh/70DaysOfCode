@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Array methods/ functions 
+    -->
+    
+    <script>
+        var a = ["abcd", 20, "female"]
+
+        //modify 
+        a[0] = "reha"
+        document.write("modify " + a + "<br>")
+
+        //delete 
+        delete a[1]
+        document.write("deleted array: " + a + "<br>")
+
+        //sort 
+        var b = ["sanjay", "aman", "rehman", "karan"]
+        document.write("unsorted array: ", b)
+        document.write("<br>")
+
+        b.sort()
+        document.write("sorted b array: ", b)
+
+        document.write("<br>")
+
+        //reverse - print the reverse array 
+        b.reverse();
+        document.write("reversed: ", b, "<br>")
+
+        //pop - deletes last value of array
+        b.pop()
+        document.write("popped: ", b, "<br>")
+
+        //push - add an element at last of array
+        b.push("rahul")
+        document.write("pushed: ", b, "<br>")
+
+        //shift - delete first value in array
+        b.shift() 
+        document.write("shift: ", b, "<br>")
+
+        //unshift- adds on first index
+        b.unshift("kiran") 
+        document.write("unshift: ", b, "<br>")
+
+        //concat- add two array into one 
+        var c = ["riya", "geetika"]
+        var d = c.concat("rahul")
+
+        document.write("concat string method1: ", d, "<br>")
+
+        var e = ["kripa"]
+        var f = c.concat(e);
+        document.write("concat string method2: ", f, "<br>")
+
+        //join - array to string conversion
+        var g = f.join(" / ");
+        document.write("join: ", g, "<br>")
+
+        //slice(start, end) - to fetch values 
+        document.write("array: ", b, "<br>")
+        // start value - included 
+        // end value - not included 
+        var h = b.slice(1, 3)
+        document.write("sliced: ", h, "<br>")
+
+        //splice (index, how many (optional), new value)
+        // can insert 
+        // can delete 
+
+        //doesnt create new array, makes changes on existing array only
+        h.splice(1, 0, "neha", "liya")
+        document.write("spliced: ", h, "<br>")
+        // 0 indicates value is not deleted
+
+
+        h.splice(1, 1, "riya")
+        document.write("spliced deleting: ", h, "<br>")
+        // 1 indicates value is deleted at 1st index and replaced by new value
+
+        //isArray - is it array or not?
+        var arr1 = ["sanjay", "aman"]
+        var arr2 = 20
+
+        var arr3 = Array.isArray(arr2)
+        document.write("isarray: ", arr3, "<br>")
+
+        if(Array.isArray(arr1) == true)
+        {
+            document.write("this is an array" + "<br>")
+        }else{
+            document.write("not an array")
+        }
+
+        //indexOf(searchitem, start the search) - what is the index 
+
+        //starts search from start
+        var arr5 = ["sanjay", "aman", "rehman", "arman", "aman"]
+        document.write("arr5: ", arr5, "<br>")
+
+        var j = arr5.indexOf("aman");
+        document.write("index of aman:", j, "<br>")
+
+        var j = arr5.indexOf("aman", 2);
+        document.write("index of aman :", j, "<br>")
+
+        //lastIndexOf(searchitem, start)
+
+        //starts search from end 
+        var j1 = arr5.lastIndexOf("aman")
+        document.write("lastindex of aman:", j1, "<br>")
+
+        //indexing starts from end
+
+        //   4         3        2        1        0
+        //["sanjay", "aman", "rehman", "arman", "aman"]
+        var j1 = arr5.lastIndexOf("aman")
+        document.write("lastindex of aman  :", j1, "<br>")
+
+
+        //includes(search item)
+        document.write("arr5: ", arr5, "<br>")
+        var v = arr5.includes("arman")
+        document.write("is it included? ", v, "<br>")
+
+        //some - even if one value is true, it returns true 
+        var ages = [10,20,30]
+        var adultage = 18
+
+        var k = ages.some(checkadult)
+        document.write("some",k + "<br>")
+
+        // need to create a function to use some()
+        function checkadult(age)
+        {
+            return age >= 18;
+            //test every value in ages[] if its greater than 18, if any value satisfies it returns true 
+        }
+
+
+        //every - all values are true, then it returns true 
+        var l = ages.every(checkadult1)
+        document.write("every", l + "<br>")
+
+        // need to create a function to use some()
+        function checkadult1(age)
+        {
+            return age >= 18;
+            //test every value in ages[] if its greater than 18, if any value satisfies it returns true 
+        }
+
+        //find - search on basis of a condition, return first element which satisfies the condition 
+        var find = ages.find(checkadult1)
+        document.write("find: ", find + "<br>")
+
+        //findIndex - returns first index of the element that satisfies the condition 
+        var findindex = ages.findIndex(checkadult1)
+        document.write("findindex: ", findindex + "<br>")
+
+        //filter(functionnname) - whichever element satisfies the condtiion gets added to a new array 
+        document.write("ages", ages, "<br>")
+        var filter = ages.filter(checkAdult)
+        document.write("filter ", filter, "<br>")
+
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+        //toString - convert array to string and return the result 
+        document.write("ages: array ", ages, "<br>")
+        ages.toString()
+        document.write("ages: string ", ages, "<br>")
+
+        //valueOf - returns the array 
+        // same as document.write 
+        document.write("array B: ", b, "<br>")
+        document.write("value of: ", b.valueOf(), "<br>")
+
+        //fill - fill array with same static value 
+        b.fill("sam")
+        document.write("fill:", b, "<br>")
+
+        //typeof keyword 
+        document.write("typeof", typeof(ages), "<br>")
+        document.write("ages ", ages, "<br>")
+
+        //loops:
+        //forEach
+        ages.forEach(function(value, index){
+            document.write(index + " : " + value + "<br>")
+        });
+
+
+        //for in loop - used for object printing 
+        var obj = {
+            // key   : value 
+            firstName: "reem",
+            age: 20, 
+            country: "india"
+        }; 
+
+        //instead of printing this individually like this 
+        //console.log(a.firstName)
+        //console.log(a.age)
+        //console.log(a.country)
+
+        for(var key in obj)
+        {
+            document.write(obj[key] + "<br>")
+
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

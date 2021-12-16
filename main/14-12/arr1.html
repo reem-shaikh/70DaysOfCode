@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var arr = [10, 20, 30, 40, 50];
+        document.write(arr)
+        //10, 20, 30, 40, 50
+
+        var sum = 0
+        document.write("<ul>")
+        for(var a = 0; a <= 4; a++)
+        {
+            document.write("<li>" + arr[a] + "</li>")
+            sum = sum + arr[a]
+        }
+        document.write("</ul>")
+        document.write("sum" + sum)
+/*
+10
+20
+30
+40
+50
+
+sum150
+*/
+
+      //another way to create array 
+      // var a = new Array()
+      // constructor method to create an array 
+
+
+      //var arr2 = new Array(10, "harry", true);
+
+      //if you dont know what values to store in this, you can leave it empty 
+      var arr2 = new Array();
+    //   arr2[0] = 10;
+    //   arr2[1] = "harry";
+    //   arr2[3] = true;
+
+      //how to get value from user 
+      for(var g = 0; g < 3; g++)
+      {
+          arr2[g] = prompt("enter the value");
+      }
+
+      for(var a = 0; a < 3; a++)
+      {
+          document.write(arr2[a] + " ")
+      }
+      
+
+
+    </script>
+</body>
+</html>
