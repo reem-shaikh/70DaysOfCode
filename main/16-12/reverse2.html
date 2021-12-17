@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse without using strings</title>
+  </head>
+  <body>
+    <input type="number" id="input" placeholder="enter a number"/>
+    <button id="calculate">click me</button>
+    <p id="output"></p>
+
+    <script>
+      let btn = document.getElementById("calculate");
+      btn.addEventListener("click", function () {
+        let inp = document.getElementById("input");
+        let num = inp.value;
+
+        let op = reverseStr(num);
+        let p = document.getElementById("output");
+        p.innerText = op;
+      });
+
+      function reverseStr(num) {
+        //const num = "100";
+        let output = "";
+        for (let i = num.length - 1; i >= 0; i--) {
+          output = output + num[i];
+        }
+        return output;
+      }
+
+      console.log(reverseStr(num));
+    </script>
+  </body>
+</html>

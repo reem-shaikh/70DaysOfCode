@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--string methods-->
+    <script>
+        var str = "hi, i am a string";
+
+        //1. length
+        var a = str.length;
+        document.write("string is" + str + "<br>")
+        document.write("length of string " + a + "<br>")
+
+        //2. toLowerCase()
+        var b = str.toLowerCase();
+        document.write("lowercase string " + b + "<br>")
+
+        //3. toUpperCase()
+        var b = str.toUpperCase();
+        document.write("lowercase string " + b + "<br>")
+
+        //4. includes()
+        //true - if returns
+        var b = str.includes("am");
+        document.write("includes am?" + b + "<br>")
+
+        var b = str.includes("the");
+        document.write("includes the?" + b + "<br>")
+
+        //case sensitive function 
+        var b = str.includes("Am");
+        document.write("includes Am?" + b + "<br>")
+
+        //5. startsWith()
+        var b = str.startsWith("Am");
+        document.write("startswith Am? " + b + "<br>")
+
+        var b = str.startsWith("hi");
+        document.write("startswith hi? " + b + "<br>")
+
+        // case sensitive 
+        var b = str.startsWith("Hi");
+        document.write("startswith Hi? " + b + "<br>")
+
+        //6. endsWidth()
+        var b = str.endsWith("string");
+        document.write("endswith string? " + b + "<br>")
+
+        //7. search - returns start index of the element we enetered if its found 
+
+        var b = str.search("string");
+        document.write("search " + b + "<br>")
+
+        var b = str.search("str");
+        document.write("str " + b + "<br>")
+
+        //if it doesnt find the elemnt it returns -1 
+        var b = str.search("ty");
+        document.write("search " + b + "<br>")
+
+        //8. match - create an array of the matching string 
+        str1 = "hi string, i am a string "
+        var b = str1.match(/string/g);
+        document.write("match " + b + "<br>")
+
+        //9.indexOf()
+        var b = str1.indexOf("string");
+        document.write("indexof " + b + "<br>")
+
+        //9.lastIndexOf()
+        var b = str1.lastIndexOf("string");
+        document.write("lastindexof " + b + "<br>")
+
+        //10. replace()
+
+        //replaces the first
+        var b = str1.replace("string", "str");
+        document.write("replaced " + b + "<br>")
+
+        //using REGEX to replace all
+        var b = str1.replace(/string/g, "str");
+        document.write("replaced all" + b + "<br>")
+
+        //11. trim()
+        var str2 = "     javascript   "
+        console.log(str2)
+        //spaces displayed only on console, not on document 
+
+        var a = str2.trim();
+        console.log("trimmed", a)
+
+        //trimLeft()
+        var a = str2.trimLeft();
+        console.log("trim left", a)
+
+        //trimRight()
+        var a = str2.trimRight();
+        console.log("trim Right", a)
+
+        //12. charAt()
+        // return character at 3rd position
+        document.write(str1 + "<br>")
+        var b = str1.charAt(3);
+        document.write("charAt " + b + "<br>")
+
+        //every character on keyboard has a unique character code called ASCII code
+
+        //13. charCodeAt()
+        // returns ASCII code of ch
+        document.write(str1 + "<br>")
+        var b = str1.charCodeAt(1);
+        document.write("charcode of i " + b + "<br>")
+
+        //14. fromCharCode()
+        // returns ch of the given ASCII code 
+
+        //string is an inbiult object 
+        var b = String.fromCharCode(65);
+        document.write("ch code of 65 " + b + "<br>")
+
+        //15. concat()
+        // to merge two strings 
+        str3 = "hi yo"
+        str4 = "wassup"
+        var a = str3.concat(str4);
+        document.write("concat 2 strings " + a + "<br>")
+
+        document.write("str1 "+ str1 + "<br>")
+        document.write("str3 "+ str3 + "<br>")
+        document.write("str4 "+ str4 + "<br>")
+
+        var a = str2.concat(str3, str4)
+        document.write("merging 3 strings " + a + "<br>")
+
+        //16. split()
+        //convert every string to an array 
+        var a = str.split(" ");
+        document.write("split based on spaces " + a + "<br>")
+
+        // 17.repeat()
+        // repeats string the number of times you mentioned 
+
+        //repeats string 2 times 
+        var a = str.repeat(2);
+        document.write("repeat " + a + "<br>")
+
+        //18.slice()
+        document.write("str " + str + "<br>")
+        //returns character between 6 - 12 (doesnt include the 12th index)
+        
+        // 0 1 2 3 4 5 6 7 8 9 10 11 12
+        // h i ,   i   a m   a     s  t 
+
+        var a = str.slice(6, 12);
+        document.write("slice " + a + "<br>")
+        // am a s
+
+        //19.substr()
+        //returns string after 4 till (5 words)
+        var a = str.substr(4, 5);
+        document.write("substr " + a + "<br>")
+
+        //20.substring()
+        //like slice 
+        var a = str.substring(6, 12);
+        document.write("substring " + a + "<br>")
+
+
+        //21.toString()
+        //convert to string 
+        var a = str.toString();
+        document.write("tostring " + a + "<br>")
+
+        //22.valueOf()
+        //print string as it is 
+        //same as document.write
+        var a = str.valueOf();
+        document.write("Valueof " + a + "<br>")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
