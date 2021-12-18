@@ -579,19 +579,19 @@ num = sum of cubes of its digits
 ```
 
 ## Reversing 
-1. reverse a string 
+#### 1. reverse a string 
 Hello world 
-dlrow olleh
+> dlrow olleh
 
-2. reverse words 
+#### 2. reverse words 
 hello world 
-world hello 
+> world hello 
 
-3. reverse letters in the word
+#### 3. reverse letters in the word
 Hello world 
-olleh dlrow 
+> olleh dlrow 
 
-4. Reverse Number 
+#### 4. Reverse Number 
 1000
 0001
 
