@@ -146,14 +146,14 @@ https://reem-shaikh.github.io/Geekster-/main/11-12/blog.html
 
 ## 16-12 assignment
 > https://reem-shaikh.github.io/Geekster-/main/17-12/assignment/anagram.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/17-12/assignment/anagram.html
+> https://github.com/reem-shaikh/Geekster-/blob/master/main/17-12/assignment/anagram.html
 
 ## 17-12 assignment
 > https://reem-shaikh.github.io/Geekster-/main/17-12/assignment/armstrong.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/17-12/assignment/armstrong.html
+> https://github.com/reem-shaikh/Geekster-/blob/master/main/17-12/assignment/armstrong.html
 
 > https://reem-shaikh.github.io/Geekster-/main/17-12/assignment/revnum.html
-https://github.com/reem-shaikh/Geekster-/blob/master/main/17-12/assignment/revnum.html
+> https://github.com/reem-shaikh/Geekster-/blob/master/main/17-12/assignment/revnum.html
 
 <!-- micro dev tools: 
 launch instance
