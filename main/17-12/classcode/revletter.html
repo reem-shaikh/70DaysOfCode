@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" />
+    <button id="button">Reverse the string</button>
+    <p id="output"></p>
+
+    <script>
+        let btn = document.getElementById('button').addEventListener('click', function(){
+            let inp = document.getElementById('input')
+            let str = inp.value 
+
+        //split whole string into array of word
+        //reverse each of the word 
+        //join the array back into the output string
+
+            let word_arr = str.split(" ")
+
+            //map - loop over word_arr
+            //for each single word it will execute reversestring logic 
+            word_arr = word_arr.map(function(singleword){
+                return reverseString(singleword)
+            });
+
+            //join array and return a string    
+            let reversed_str = word_arr.join(' ')
+
+            //let reversed_str = reverseString(str)
+
+            let op = document.getElementById('output')
+            op.innerText = reversed_str;
+        });
+
+        function reverseString(str)
+        {
+            let output_str = ""
+
+            for(let i = str.length; i >= 0; i--)
+            {
+                let single_ch = str.charAt(i)
+                console.log("singlech", single_ch)
+
+                output_str += single_ch
+            }
+            return output_str
+        }
+    </script>
+
+</body>
+</html>

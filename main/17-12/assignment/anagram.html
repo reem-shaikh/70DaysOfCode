@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram</title>
+</head>
+<body>
+    <input id="input1" />
+    <input id="input2" />
+    <button id="button">Anagram</button>
+    <p id="output"></p>
+
+    <script>
+        let btn = document.getElementById('button').addEventListener('click', function(){
+            let inp1 = document.getElementById('input1')
+            let str1 = inp1.value 
+            let inp2 = document.getElementById('input2')
+            let str2 = inp2.value 
+
+            let anagram = isAnagram(str1, str2)
+
+            let op = document.getElementById('output')
+            op.innerText = anagram;
+        });
+
+        function isAnagram(str1, str2)
+        {
+            let sorted1 = str1.split('').sort().join('').toLowerCase()
+            //split (5) ['h', 'e', 'l', 'l', 'o']
+
+            //sort (5) ['e', 'h', 'l', 'l', 'o']
+
+            //join: ehllo
+
+            //lowercase: ehllo
+
+            let sorted2 = str2.split('').sort().join('').toLowerCase()
+
+            return (sorted1 === sorted2)
+        }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Array methods 
+        var a = [1, 3, 5, 8]
+        //1. map 
+        //apply same opration on all the values 
+        let b = a.map(function(x){
+            return x*10
+        });
+
+        document.write("map: ", b, "<br>")
+
+        //Array of objects 
+        var arr = [
+            {fname : "reem",
+             lname : "shaikh"},
+            {fname : "reem",
+             lname : "shaikh"},
+        ];
+
+        let c = arr.map(function(x){
+            return x.fname + " " + x.lname
+        });
+
+        //extract objects and create an array 
+        document.write("array of objects: ", c, "<br>")
+        
+        //2. some 
+        //returns true if even one element satisfies the condition
+        var ages = [10, 13, 18, 20]
+        var adultAge = 18 
+
+        var k = ages.some(checkAdult)
+        document.write("some: ", k, "<br>")
+
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+        //3. every 
+        //returns true if every element satisfies the condition
+        var ages = [10, 13, 18, 20]
+        var adultAge = 18 
+
+        var l = ages.every(checkAdult)
+        document.write("every: ", l, "<br>")
+
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+        //4. fill 
+        var arr2 = ['reem', 'rum']
+        arr2.fill('reemie')
+
+        document.write("fill method:", arr2, "<br>")
+
+
+        //5. filter 
+        //traverses through entire array and return the value which satisfies the condition 
+
+        var o = ages.filter(checkAdult)
+        document.write("filter method:", o, "<br>")
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+        //6. find 
+        //returns first value which passes the test
+
+        var oo = ages.find(checkAdult)
+        document.write("find method:", oo, "<br>")
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+        //6. findIndex() 
+        //returns first value index which passes the test
+ 
+        var ooo = ages.findIndex(checkAdult)
+        document.write("findindex method:", ooo)
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

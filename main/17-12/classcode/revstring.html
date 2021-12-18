@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" />
+    <button id="button">Reverse the string</button>
+    <p id="output"></p>
+
+    <script>
+        let btn = document.getElementById('button').addEventListener('click', function(){
+            let inp = document.getElementById('input')
+            let str = inp.value 
+
+            let reversed_str = reverseString(str)
+
+            let op = document.getElementById('output')
+            op.innerText = reversed_str;
+        });
+
+        function reverseString(str)
+        {
+            let output_str = ""
+
+            for(let i = str.length; i >= 0; i--)
+            {
+                let single_ch = str.charAt(i)
+                console.log("singlech", single_ch)
+
+                output_str += single_ch
+            }
+            return output_str
+        }
+
+
+    </script>
+
+</body>
+</html>

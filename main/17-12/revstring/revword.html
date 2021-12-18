@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        my name is reem
+
+        output:
+        reem is name my 
+
+        1. split(" ") - splits string to an array 
+        'my' 'name' 'is' 'reem'
+
+        2. reverse - reverse the array 
+        'reem' 'is' 'name' 'my'
+
+        3. join 
+    -->
+
+    <script>
+        const str = "my name is reem"
+        console.log(typeof str)
+        
+        //✅convert string to array 
+        //✅splits sentence into 2 words based on space 
+        const newStr = str.split(" ")
+        console.log("reversed", newStr.reverse())
+        
+        //✅join the array to string 
+        const joinstr = newStr.join(' ')
+
+        console.log(joinstr)
+        console.log(typeof joinstr)
+    </script>
+
+</body>
+</html>

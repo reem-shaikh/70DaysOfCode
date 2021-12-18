@@ -1,4 +1,64 @@
 
+
+##  REGEX
+pattern matching/ string matching 
+
+> used for 
+1. email validation 
+2. password validation 
+
+```bash 
+pattern       character includes 
+  [abc]           a / b / c 
+  [^abc]          any ch except a/b/c  
+  [a-z]           a - z 
+  [A-Z]           A - Z  
+  [a-z A-Z]       a-z, A-Z
+  [0-9]           0-9
+   
+```
+
+Quantifiers: signify repetetion
+```bash 
+pattern            meaning
+[ ]                occurs 1 time 
+[ ]?               occurs 0 or 1 times 
+[ ]+               occurs 1 or more times 
+[ ]*               occurs 0 or more times 
+[ ]{n}             occurs n times 
+[ ]{n, }           occurs n or more times 
+[ ]{y,z}           occurs atleast y times, but less than z times 
+
+```
+
+REGEX Meta characters: short form 
+/- treats character as search character 
+```bash 
+instead of writing this           you can write this 
+[0-9]                             \d 
+[^0-9]                            \D
+[a-zA-Z_0-9]                      \w
+[^ a-zA-Z_0-9]                    \W
+```
+
+#### Examples
+1. mobile number 
+start with 8 or 9, total digit 10 
+#### [8 9][0 - 9]{9}
+
+2. first character uppercase, contains lowercase alphabet, only one digtit allowed in between
+#### [A-Z][a-z]* [0-9] [a-z]*
+
+3. email ID 
+hi.123 @ gmail . com 
+#### [a-zA-Z0-9_ \- \. ]+ [@] [a-z]+ [\.][a-z]{2,3}
+
+> - has predifined meaning attached to it, thats why we use it like \-
+
+
+------
+
+
 ### Interview questions 
 > var creates one variable, which it keeps updating 
 ```bash 

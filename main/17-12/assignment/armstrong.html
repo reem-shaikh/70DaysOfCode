@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input" />
+    <button id="button">Armstrong</button>
+    <p id="output"></p>
+
+    <script>
+      let btn = document
+        .getElementById('button')
+        .addEventListener('click', function () {
+          let inp = document.getElementById('input')
+          let num = parseInt(inp.value)
+
+          let armstrong_str = Armstrong(num)
+
+          let op = document.getElementById('output')
+          op.innerText = armstrong_str
+        });
+
+      function Armstrong(num) {
+        var temp = num
+        var sum = 0
+
+        while (temp > 0) {
+          var digit = temp % 10
+          sum = sum + digit ** 3
+          temp = parseInt(temp / 10)
+        }
+
+        if (sum == num) {
+          return 'its an armstrong number'
+        } else {
+          return'not an armstrong number'
+        }
+      }
+    </script>
+  </body>
+</html>

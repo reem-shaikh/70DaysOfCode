@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Num</title>
+</head>
+<body>
+    <!--reversing number 
+    when we enter 2020 in input field, it returns 0202 -->
+    <input type="number" id="input">
+    <button id="calculate">click me</button>
+    <p id="output"></p>
+
+    <script>
+        let btn = document.getElementById('calculate');
+        btn.addEventListener('click', function(){
+            let inp = document.getElementById('input')
+            let num = parseInt(inp.value)
+
+            let op = reverseNum(num)
+            let p = document.getElementById('output')
+            p.innerText = op 
+        });
+
+        function reverseNum(num)
+        {
+            let op = 1
+            while(num > 0)
+            {
+                let single_digit = num % 10
+                // 134 % 10 = 4 
+                // 13 % 10 = 3 
+                // 1 % 10 = 1
+
+
+                console.log(single_digit)
+                num = Math.floor(num / 10)
+                // 134 / 10 = 13 
+                // 13 / 10 = 1
+                // 1 % 10 = 0
+
+                op = op*10 + single_digit
+            }
+
+            // converted number to string
+            op = op.toString();
+            console.log(typeof op)  //string        
+            op = op.substring(1)
+            return op
+        }
+    </script>
+</body>
+</html>
