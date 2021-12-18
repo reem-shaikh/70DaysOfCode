@@ -374,7 +374,7 @@ fill method:reemie,reemie
 document:
 filter method:18,20
 ```
-6. find 
+6. find() 
 ```bash 
 //returns first value which passes the test
 
@@ -389,7 +389,7 @@ document:
 find method:18
 ```
 
-7. findIndexOf 
+7. findIndexOf() 
 ```bash 
  //returns first value index which passes the test
  
@@ -593,7 +593,7 @@ Hello world
 
 #### 4. Reverse Number 
 1000
-0001
+> 0001
 
 ### 1. reversing a string 
 - we can call reverse function on an array only 
