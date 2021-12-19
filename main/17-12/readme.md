@@ -374,7 +374,7 @@ fill method:reemie,reemie
 document:
 filter method:18,20
 ```
-6. find 
+6. find() 
 ```bash 
 //returns first value which passes the test
 
@@ -389,7 +389,7 @@ document:
 find method:18
 ```
 
-7. findIndexOf 
+7. findIndexOf() 
 ```bash 
  //returns first value index which passes the test
  
@@ -579,21 +579,21 @@ num = sum of cubes of its digits
 ```
 
 ## Reversing 
-1. reverse a string 
+#### 1. reverse a string 
 Hello world 
-dlrow olleh
+> dlrow olleh
 
-2. reverse words 
+#### 2. reverse words 
 hello world 
-world hello 
+> world hello 
 
-3. reverse letters in the word
+#### 3. reverse letters in the word
 Hello world 
-olleh dlrow 
+> olleh dlrow 
 
-4. Reverse Number 
+#### 4. Reverse Number 
 1000
-0001
+> 0001
 
 ### 1. reversing a string 
 - we can call reverse function on an array only 
