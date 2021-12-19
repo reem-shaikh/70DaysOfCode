@@ -19,35 +19,25 @@
 
     function makePattern(num)
     {
-        //let str = ""
-        for(let i=1; i<num; i++)
-        { 
+        if(num%2 == 0)
+        {
+            alert("please enter an odd number")
+            return 
+        }
+        for(let i=1; i<=num; i++)
+        {
+            let str = ""
             for(let j=1; j<=i; j++)
             {
-                document.write("&nbsp ")
-                //str = str + " "
+                //console.log("&nbsp ")
+                str = str + " "
             }
             for(let k=num; k>i*2; k--)
             {
-                document.write("*")
-                //str = str + "*"
+                //console.log("*")
+                str = str + "*"
             }
-           document.write("<br>")
-           //console.log(str)
-        }
-        for(let i=1; i<(num/2); i++)  
-        {
-            for(let j=(num/2); j>=i; j--)
-            {
-                document.write("&nbsp ")
-                //str = str + " "
-            }
-            for(let k=1; k<i*2; k++)
-            {
-                document.write("*")
-                //str = str + "*"
-            }
-            document.write("<br>")
+            console.log(str)
         }
     }
     </script>

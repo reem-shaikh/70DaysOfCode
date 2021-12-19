@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="input" placeholder="enter" />
+    <button id="button">button</button>
+    <script>
+      let btn = document.getElementById('button')
+      btn.addEventListener('click', function () {
+        let inp = document.getElementById('input')
+        let num = parseInt(inp.value)
+        makePattern(num)
+      })
+
+      function makePattern(num) {
+        for (let i = 1; i <= num; i++) {
+          for (let j = num - 1; j >= i; j--) {
+            document.write('&nbsp ')
+          }
+          for (let k = 1; k < i * 2; k++) {
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+        for (let i = 1; i <= num * 2; i++) {
+          for (let j = 1; j <= i; j++) {
+            document.write('&nbsp ')
+          }
+          for (let k = num * 2; k > i * 2; k--) {
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+      }
+    </script>
+  </body>
+</html>

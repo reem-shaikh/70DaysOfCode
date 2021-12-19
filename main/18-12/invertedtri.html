@@ -7,11 +7,12 @@
     <title>Inverted triangle</title>
 </head>
 <body>
+    <!--class code -->
     <input type="number" id="input" placeholder="enter" />
     <button id="button">button</button>
     <script>
         let btn = document.getElementById('button')
-        btn.addEventListener('clcik', function(){
+        btn.addEventListener('click', function(){
             let inp = document.getElementById('input')
             let num = parseInt(inp.value)
             makePattern(num)

@@ -1,4 +1,553 @@
 
+## Star Patterns 
+### 1. simple star pattern 
+```bash
+               i      j         j<=i
+*              1      1                    
+**             2      1 2
+***            3      1 2 3
+****           4      1 2 3 4
+*****          5      1 2 3 4 5
+<script>
+
+    for(i=1; i<=5; i++)
+    {
+        for(j=1; j<=i; j++)
+        {
+            document.write('*')
+        }
+
+        document.write('<br>')
+    }
+</script>
+```
+```bash
+1
+12
+123
+1234
+12345
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=1; j<=i; j++)
+            {
+                document.write(j)
+            }
+            document.write('<br>')
+        }
+    </script>
+```
+
+```bash
+1
+22
+333
+4444
+55555
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=1; j<=i; j++)
+            {
+                document.write(i)
+            }
+            document.write('<br>')
+        }
+    </script>
+
+```
+
+```bash
+1
+11
+111
+1111
+11111
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=1; j<=i; j++)
+            {
+                document.write(1)
+            }
+            document.write('<br>')
+        }
+    </script>
+```
+## 2. Reverse Star Pattern 
+```bash
+               i        j              j>=i 
+*****          1        1 2 3 4 5     
+****           2        1 2 3 4
+***            3        1 2 3 
+**             4        1 2
+*              5        1
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=5; j>=i; j--)
+            {
+                document.write('*')
+            }
+            document.write('<br>')
+        }
+    </script>
+```
+
+```bash
+54321
+5432
+543
+54
+5
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=5; j>=i; j--)
+            {
+                document.write(j)
+            }
+            document.write('<br>')
+        }
+    </script>
+```
+
+```bash
+11111
+2222
+333
+44
+5
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=5; j>=i; j--)
+            {
+                document.write(i)
+            }
+            document.write('<br>')
+        }
+    </script>
+```
+### 3. Stars on the opposite side 
+```bash
+
+####*            
+###**
+##***
+#****
+*****
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=4; j>=i; j--)
+            {
+                document.write('#')
+            }
+            
+            for(k=1; k<=i; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+
+```
+
+```bash
+                 i     k            k<=i
+    *            1     1           
+   **            2     1 2
+  ***            3     1 2 3 
+ ****            4     1 2 3 4
+*****            5     1 2 3 4 5
+1. print spaces 
+2. print stars 
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=4; j>=i; j--)
+            {
+                document.write('&nbsp')
+            }
+            
+            for(k=1; k<=i; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+```bash
+    1
+   12
+  123
+ 1234
+12345
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=4; j>=i; j--)
+            {
+                document.write('&nbsp ')
+            }
+            
+            for(k=1; k<=i; k++)
+            {
+                document.write(k)
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+```bash
+     1
+    22
+   333
+  4444
+ 55555
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=4; j>=i; j--)
+            {
+                document.write('&nbsp ')
+            }
+            
+            for(k=1; k<=i; k++)
+            {
+                document.write(i)
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+### 4. Reverse on opposite side 
+```bash 
+              i    j
+*****         5    1 2 3 4 5
+ ****         4    2 3 4 5
+  ***         3    3 4 5 
+   **         2    4 5
+    *         1    5
+1. print spaces 
+2. print stars 
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(k=5; k>=i; k--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+```bash 
+54321
+ 5432
+  543
+   54
+    5
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(k=5; k>=i; k--)
+            {
+                document.write(k)
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+```bash 
+11111
+ 2222
+  333
+   44
+    5
+
+    <script>
+        for(i=1; i<=5; i++)
+        {
+            for(j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(k=5; k>=i; k--)
+            {
+                document.write(i)
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+### 5. Combining star patterns 
+```bash 
+*
+**
+***
+****
+*****
+*****
+****
+***
+**
+*
+    <script>
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=5; j>=i; j--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }  
+    </script>
+```
+```bash 
+         *
+        **
+       ***
+      ****
+     *****
+     *****
+      ****
+       ***
+        **
+         *
+
+    <script>
+        //top triangle 
+        //spaces 
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=5; j>=i; j--)
+            {
+                document.write("&nbsp ")
+            }
+            //stars 
+            for(k=1; k<=i; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+        //bottom triangle 
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=5; k>=i; k--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }       
+    </script>
+```
+```bash 
+         *
+        **
+       ***
+      ****
+     *****
+      ****
+       ***
+        **
+         *
+         
+    <script>
+        //top triangle 
+        //spaces 
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=5; j>=i; j--)
+            {
+                document.write("&nbsp ")
+            }
+            //stars 
+            for(k=1; k<=i; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+        //bottom triangle 
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            ✅k=4 here is where the change is made 
+            for(let k=4; k>=i; k--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }       
+    </script>
+```
+### 6. triangle alligned in center 
+```bash 
+        *
+       ***
+      *****
+     *******
+    *********
+
+    <script>
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=5; j>=i; j--)
+            {
+                document.write("&nbsp ")
+            }
+            
+            for(let k=1; k<i*2; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+### 7. inverted trinagle alligned in center 
+```bash 
+  *******
+   *****
+    ***
+     *
+
+    <script>
+        for(let i=1; i<=9; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            ✅k>i*2 (this is the only difference from last code)
+            for(let k=9; k>i*2; k--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+### 8. Diamond pattern 
+```bash 
+        *
+       ***
+      *****
+     *******
+    *********
+     *******
+      *****
+       ***
+        *
+
+    <script>
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=4; j>=i;j--)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=1; k<i*2; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+        for(let i=1; i<=9; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=9; k>i*2; k--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+```
+> with spaces 
+```bash
+          *
+         * *
+        * * *
+       * * * *
+      * * * * *
+      * * * * *
+       * * * *
+        * * *
+         * *
+          *
+
+    <script>
+        for(let i=1; i<6; i++)
+        {
+            for(let j=5; j>=i; j--)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=1; k<=i; k++)
+            {
+                document.write(" *")
+            }
+            document.write("<br>")
+        }
+        for(let i=1; i<=5; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=5; k>=i; k--)
+            {
+                document.write(" *")
+            }
+            document.write("<br>")
+        }
+    </script>
+
+```
+
 ## Write a program to print inverted triangle 
 Testcases:
 ```bash
@@ -39,7 +588,7 @@ each row is by default an empty string
 ```
 
 #### Difference between JS and JAVA 
-JS- scripting language 
+### JS- scripting language 
 - dyanamically/ loosely typed 
 - intrepreted
 - cross platform (browser, server, mobile app, desktop app)
@@ -55,7 +604,7 @@ What is paradigm?
 ```
 - single threaded 
 
-JAVA - programming language 
+### JAVA - programming language 
 - strongly/ statiscally typed 
 - compiled 
 - cross platform (browser, server, mobile app, desktop app)
@@ -144,32 +693,3 @@ js will automatically convert datatype to operate. this is called type coercion.
     console:
     156
 ```
-### BEDMAS 
-- brackets 
-- exponents 
-- division 
-- multiplication 
-- addition 
-- subtraction 
-
-### to do list 
-1. chaining
-2. closure 
-3. callback 
-4. var vs let 
-5. callback hell 
-6. fetch 
-7. promises 
-8. api 
-9. asynchronous programming 
-10. hoisting 
-11. call/ apply/ bond 
-12. anagram 
-13. coding 
-- remove a duplicate element 
-- reverse a string with words 
-- largest substring in a string 
-- largest subset from an array 
-
-- code 
-have the function largest four (arr) take the array of integers stored in arr and find the four largest elements and return their sum.for example: arr is [4,5,-2,3,1,2,6,6] then the four largest elements in this is 6,6,4,5 total sum is 21?

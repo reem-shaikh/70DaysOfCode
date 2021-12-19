@@ -19,33 +19,15 @@
 
     function makePattern(num)
     {
-        //let str = ""
-        for(let i=1; i<num; i++)
-        { 
+        for(let i=1; i<=num; i++)
+        {
             for(let j=1; j<=i; j++)
             {
                 document.write("&nbsp ")
-                //str = str + " "
             }
             for(let k=num; k>i*2; k--)
             {
                 document.write("*")
-                //str = str + "*"
-            }
-           document.write("<br>")
-           //console.log(str)
-        }
-        for(let i=1; i<(num/2); i++)  
-        {
-            for(let j=(num/2); j>=i; j--)
-            {
-                document.write("&nbsp ")
-                //str = str + " "
-            }
-            for(let k=1; k<i*2; k++)
-            {
-                document.write("*")
-                //str = str + "*"
             }
             document.write("<br>")
         }
