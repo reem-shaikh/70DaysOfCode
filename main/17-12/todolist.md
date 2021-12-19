@@ -1,5 +1,3 @@
-assignments revamp to sirs level 
-
 1. anagram 17-12
 2. armstrong 17-12
 

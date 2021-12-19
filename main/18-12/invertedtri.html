@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverted triangle</title>
+</head>
+<body>
+    <input type="number" id="input" placeholder="enter" />
+    <button id="button">button</button>
+    <script>
+        let btn = document.getElementById('button')
+        btn.addEventListener('clcik', function(){
+            let inp = document.getElementById('input')
+            let num = parseInt(inp.value)
+            makePattern(num)
+        });
+
+        function makePattern(num)
+        {
+            if(n % 2 == 0)
+            {
+                alert("please enter odd numbers")
+                return;
+            }
+            //num = 5 
+            //math.ceil(5/2) = math.ceil(2.5) = 3
+            for(let i = 0; i <= Math.ceil(num/2); i++)
+            {
+                let str = ""
+                //for spaces 
+                for(let j = 0; j < i; j++)
+                {
+                    str = str + " "
+                }
+
+                //for stars 
+                for(let j = 0; j < n-(2*i); j++)
+                {
+                   str = str + "*"
+                }
+                console.log(str)
+
+            }
+       
+        }
+
+    </script>
+</body>
+</html>
