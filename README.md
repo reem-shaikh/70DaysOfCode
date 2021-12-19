@@ -151,10 +151,19 @@ https://reem-shaikh.github.io/Geekster-/main/17-12/assignment/revnum.html
 https://reem-shaikh.github.io/Geekster-/main/17-12/assignment/armstrong.html </br>
 https://reem-shaikh.github.io/Geekster-/main/17-12/assignment/anagram.html
 
-<!--
 ## 19-12 test 
 https://reem-shaikh.github.io/Geekster-/test/19-12/19-12.html
--->
+
+## 18-12 assignment
+https://reem-shaikh.github.io/Geekster-/main/18-12/star1.html </br>
+https://github.com/reem-shaikh/Geekster-/blob/master/main/18-12/star1.html
+
+https://reem-shaikh.github.io/Geekster-/main/18-12/star2.html  </br>
+https://github.com/reem-shaikh/Geekster-/blob/master/main/18-12/star2.html
+
+https://reem-shaikh.github.io/Geekster-/main/18-12/assignment.md  </br>
+https://github.com/reem-shaikh/Geekster-/blob/master/main/18-12/assignment.md
+
 <!-- micro dev tools: 
 launch instance
 got to live server: 127.0.0.1:5000/ which is the root and navigate to your file
