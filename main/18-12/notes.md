@@ -3300,7 +3300,7 @@ js1.html:41 19
 js1.html:41 20
 ```
 
-### DOM manipulation (Document Object Model)
+### DOM (Document Object Model)
 document is used to access HTML page elements to add dyanamic properties to it.
 
 ### DOM manipulation
