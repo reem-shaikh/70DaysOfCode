@@ -8,6 +8,7 @@
 ***            3      1 2 3
 ****           4      1 2 3 4
 *****          5      1 2 3 4 5
+
 <script>
 
     for(i=1; i<=5; i++)
@@ -16,8 +17,7 @@
         {
             document.write('*')
         }
-
-        document.write('<br>')
+       document.write('<br>')
     }
 </script>
 ```
@@ -564,6 +564,40 @@ Testcases:
     *        5  4space    1       n-8  8     2*4=8         9-8=1
 
 each row is by default an empty string 
+
+<body>
+    <input type="number" id="input" placeholder="enter" />
+    <button id="button">button</button>
+    <script>
+        let btn = document.getElementById('button')
+        btn.addEventListener('click', function(){
+            let inp = document.getElementById('input')
+            let num = parseInt(inp.value)
+            makePattern(num)
+        });
+
+    function makePattern(num)
+    {
+        if(num % 2 == 0)
+            {
+                alert("please enter odd numbers")
+                return;
+            }
+            
+        for(let i=1; i<=num; i++)
+        {
+            for(let j=1; j<=i; j++)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=num; k>i*2; k--)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    }
+    </script>
 ```
 
 ### Write a program to print the pattern 
@@ -575,6 +609,53 @@ each row is by default an empty string
   *
  ***
 *****
+
+<body>
+    <input type="number" id="input" placeholder="enter" />
+    <button id="button">button</button>
+    <script>
+        let btn = document.getElementById('button')
+        btn.addEventListener('click', function(){
+            let inp = document.getElementById('input')
+            let num = parseInt(inp.value)
+            makePattern(num)
+        });
+
+    function makePattern(num)                          //testcases:
+    {                                                 //5  num                              //6
+        if(num%2==0)
+        {
+            alert("enter odd numbers")
+            return;
+        }
+        for(let i=1; i<= Math.ceil(num/2); i++)       //3  num/2  5/2 = 2.5                 //6.2 = 3
+        //Math.ceil(num/2)
+        {
+            for(let j= 2; j<=i; j++)                  //2 space starts with 2nd index       //2
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=num+2; k>i*2; k--)              //7  num+2                            //8
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+        for(let i=1; i<= Math.ceil(num/2); i++)       //3  Math.ceil(num/2)                //6/2 = 3
+        {
+            for(let j=Math.floor(num/2); j>=i; j--)   //2  Math.floor(num/2)
+            {
+                document.write("&nbsp ")
+            }
+            for(let k=1; k<i*2; k++)
+            {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    }
+    </script>
+</body>
 ```
 
 ### Diamond pattern 
@@ -585,6 +666,41 @@ each row is by default an empty string
  *****
   ***
    *
+
+<body>
+    <input type="number" id="input" placeholder="enter" />
+    <button id="button">button</button>
+    <script>
+      let btn = document.getElementById('button')
+      btn.addEventListener('click', function () {
+        let inp = document.getElementById('input')
+        let num = parseInt(inp.value)
+        makePattern(num)
+      })
+
+      function makePattern(num) {
+        for (let i = 1; i <= num; i++) {           //5
+          for (let j = num - 1; j >= i; j--) {     //4 
+            document.write('&nbsp ')
+          }
+          for (let k = 1; k < i * 2; k++) {
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+        for (let i = 1; i <= (num * 2 - 1); i++) {   //9
+          for (let j = 1; j <= i; j++) {
+            document.write('&nbsp ')
+          }
+          for (let k = (num * 2 - 1); k > i * 2; k--) //9
+          {
+            document.write('*')
+          }
+          document.write('<br>')
+        }
+      }
+    </script>
+  </body>
 ```
 
 #### Difference between JS and JAVA 

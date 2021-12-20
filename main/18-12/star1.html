@@ -17,24 +17,29 @@
             makePattern(num)
         });
 
-    function makePattern(num)
-    {                                                 //5  num
-        for(let i=1; i<= Math.ceil(num/2); i++)       //3  num/2  5/2 = 2.5 
+    function makePattern(num)                          //testcases:
+    {                                                 //5  num                              //6
+        if(num%2==0)
+        {
+            alert("enter odd numbers")
+            return;
+        }
+        for(let i=1; i<= Math.ceil(num/2); i++)       //3  num/2  5/2 = 2.5                 //6.2 = 3
         //Math.ceil(num/2)
         {
-            for(let j= 2; j<=i; j++)                  //2 space starts with 2nd index 
+            for(let j= 2; j<=i; j++)                  //2 space starts with 2nd index       //2
             {
                 document.write("&nbsp ")
             }
-            for(let k=num+2; k>i*2; k--)               //7  num+2
+            for(let k=num+2; k>i*2; k--)               //7  num+2                           //8
             {
                 document.write("*")
             }
             document.write("<br>")
         }
-        for(let i=1; i<= Math.ceil(num/2); i++)        //3  Math.ceil(num/2)
+        for(let i=1; i<= Math.ceil(num/2); i++)        //3  Math.ceil(num/2)                //6/2 = 3
         {
-            for(let j=Math.floor(num/2) ; j>=i; j--)   //2  Math.floor(num/2)
+            for(let j=Math.floor(num/2); j>=i; j--)    //2  Math.floor(num/2)
             {
                 document.write("&nbsp ")
             }
