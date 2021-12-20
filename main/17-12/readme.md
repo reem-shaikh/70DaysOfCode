@@ -1,5 +1,5 @@
 
-### Array methods 
+### string methods 
 var str = "hi, i am a string";
 
 1. length
