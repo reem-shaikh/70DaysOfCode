@@ -18,8 +18,8 @@
       })
 
       function makePattern(num) {
-        for (let i = 1; i <= num; i++) {
-          for (let j = num - 1; j >= i; j--) {
+        for (let i = 1; i <= num; i++) {           //5
+          for (let j = num - 1; j >= i; j--) {     //4 
             document.write('&nbsp ')
           }
           for (let k = 1; k < i * 2; k++) {
@@ -27,11 +27,12 @@
           }
           document.write('<br>')
         }
-        for (let i = 1; i <= num * 2; i++) {
+        for (let i = 1; i <= (num * 2 - 1); i++) {   //9
           for (let j = 1; j <= i; j++) {
             document.write('&nbsp ')
           }
-          for (let k = num * 2; k > i * 2; k--) {
+          for (let k = (num * 2 - 1); k > i * 2; k--) //9
+          {
             document.write('*')
           }
           document.write('<br>')

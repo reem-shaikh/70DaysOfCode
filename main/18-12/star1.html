@@ -18,34 +18,29 @@
         });
 
     function makePattern(num)
-    {
-        //let str = ""
-        for(let i=1; i<num; i++)
-        { 
-            for(let j=1; j<=i; j++)
+    {                                                 //5  num
+        for(let i=1; i<= Math.ceil(num/2); i++)       //3  num/2  5/2 = 2.5 
+        //Math.ceil(num/2)
+        {
+            for(let j= 2; j<=i; j++)                  //2 space starts with 2nd index 
             {
                 document.write("&nbsp ")
-                //str = str + " "
             }
-            for(let k=num; k>i*2; k--)
+            for(let k=num+2; k>i*2; k--)               //7  num+2
             {
                 document.write("*")
-                //str = str + "*"
             }
-           document.write("<br>")
-           //console.log(str)
+            document.write("<br>")
         }
-        for(let i=1; i<(num/2); i++)  
+        for(let i=1; i<= Math.ceil(num/2); i++)        //3  Math.ceil(num/2)
         {
-            for(let j=(num/2); j>=i; j--)
+            for(let j=Math.floor(num/2) ; j>=i; j--)   //2  Math.floor(num/2)
             {
                 document.write("&nbsp ")
-                //str = str + " "
             }
             for(let k=1; k<i*2; k++)
             {
                 document.write("*")
-                //str = str + "*"
             }
             document.write("<br>")
         }
