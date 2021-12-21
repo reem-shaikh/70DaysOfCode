@@ -410,49 +410,243 @@ hi.123 @ gmail . com
 
 ------
 
-#### Dates in JS
+### Math methods in JS 
+```bash 
+1. ceil(x)
+2. floor(x)
+3. round(x)
+4. trunc(x)
+5. max(x,y,z... n)
+6. min(x,y,z... n)
+7. sqrt(x)
+8. cbrt(x)
+9. pow(x, y)
+10. random()
+11. abs(x)
+12. PI 
+```
+```bash 
+    <script>
+        1. ceil(x)
+        //works for float values
+        //returns upper value of nearest integer 
+        var a = Math.ceil(5.2)
+        document.write("ceil 5.2: " + a + "<br>")
+✅ceil 5.2: 6
+
+        var a = Math.ceil(-5.2)
+        document.write("ceil -5.2:  " + a + "<br>")
+✅ceil -5.2: -5
+
+        2. floor(x)
+        //returns lower value of nearest integer 
+        var a = Math.floor(5.2)
+        document.write("floor 5.2: " + a + "<br>")
+✅floor 5.2: 5
+
+        var a = Math.floor(-5.2)
+        document.write("floor -5.2:  " + a + "<br>")
+✅floor -5.2: -6
+
+        3. round(x)
+        //if more than 0.5 value returns upper value 
+        //if less than 0.5 value returns lower value 
+        var a = Math.round(5.2)
+        document.write("round 5.2: " + a + "<br>")
+✅round 5.2: 5
+
+        var a = Math.round(5.6)
+        document.write("round 5.6: " + a + "<br>")
+✅round 5.6: 6
+
+        var a = Math.round(-5.2)
+        document.write("round -5.2:  " + a + "<br>")
+✅round -5.2: -5
+
+        4. trunc(x)
+        //returns the integer value, it skips the value after the . 
+        var a = Math.trunc(5.2)
+        document.write("trunc 5.2: " + a + "<br>")
+✅trunc 5.2: 5
+
+        var a = Math.trunc(-5.2)
+        document.write("trunc -5.2:  " + a + "<br>")
+✅trunc -5.2: -5
+
+        5. max 
+        //returns the max value 
+        var a = Math.max(8, 10, 2, 50, 25)
+        document.write("max: " + a + "<br>")
+✅max: 50
+
+        6. min
+        //returns the min value 
+        var a = Math.min(8, 10, 2, 50, 25)
+        document.write("min: " + a + "<br>")
+✅min: 2
+
+        7. sqrt  
+        //returns the sqrt
+        var a = Math.sqrt(4)
+        document.write("sqrt of 4: " + a + "<br>")
+✅sqrt of 4: 2
+
+        8. cbrt 
+        //returns the cubic root 
+        var a = Math.cbrt(125)
+        document.write("cbrt of 125: " + a + "<br>")
+✅cbrt of 125: 5
+
+        9. pow(x, y)
+        //x ^y
+        var a = Math.pow(4, 2)
+        document.write("pow 4^2: " + a + "<br>")
+✅pow 4^2: 16
+
+        10. random()
+        //returns random value between 0 and 1 
+        var a = Math.random()
+        document.write("random value: " + a + "<br>")
+✅random value: 0.1082973418709936
+
+        11. abs(x)
+        //returns absolute value (positive value)
+        var a = Math.abs(5.25)
+        document.write("absolute value of 5.25: " + a + "<br>")
+✅absolute value of 5.25: 5.25
+
+        var a = Math.abs(-5.25)
+        document.write("absolute value of -5.25: " + a + "<br>")
+✅absolute value of -5.25: 5.25
+
+        12. PI 
+        var a = Math.PI;
+        document.write("PI: " + a + "<br>")
+✅PI: 3.141592653589793
+
+    </script>
+```
+
+#### Date method in JS 
+> To create a date object you need to equate your variable to new Date()
 ```bash
 let myDate = new Date();
 console.log(myDate);
-```
-Wed Dec 01 2021 12:50:39 GMT+0530 (India Standard Time)
 
->> Date Methods
+console:
+Tue Dec 21 2021 21:26:31 GMT+0530 (India Standard Time)
+```
+- myDate is now a date object 
+### Javascript Math method:
+```bash 
+1. toDatString
+2. getDate 
+3. getFullYear 
+4. getMonth 
+5. getDay 
+6. getHours 
+7. getMinutes 
+8. getSeconds 
+9. getMilliseconds 
+10. setDate 
+11. setFullYear 
+12. setHours 
+13. setMilliseconds 
+14. setMinutes 
+15. setMonth 
+16. setSeconds 
+```
 ```bash
-console.log(myDate.getTime());
-```
-1638343239484
+    <script>
+        //fetches data from the system, not the server 
+        var myDate = new Date()
+        document.write(myDate + "<br>")
+✅Tue Dec 21 2021 21:26:31 GMT+0530 (India Standard Time)
 
-```bash
-console.log(myDate.getFullYear());
-```
-2021
+        1. toDateString
+        //day month year 
+        document.write("toDateString: " + myDate.toDateString() + "<br>")
+✅toDateString: Tue Dec 21 2021
 
-```bash
-console.log(myDate.getDay());
-```
-3
+        2. getDate
+        //todays date 
+        document.write("getDate: " + myDate.getDate() + "<br>")
+✅getDate: 21
 
-```bash
-sunday:    0
-monday:    1
-tuesday:   2
-wednesday: 3
-thurday:   4
-friday:    5
-saturday:  6
-```
+        3. getFullYear
+        //current year 
+        document.write("getFullYear: " + myDate.getFullYear() + "<br>")
+✅getFullYear: 2021
 
-```bash
-console.log(myDate.getMinutes());
-```
-50
+        4. getMonth
+        //current month 
+        document.write("getMonth: " + myDate.getMonth() + "<br>")
+✅getMonth: 11
 
-```bash
-console.log(myDate.getHours());
-```
-12
+        5. getDay
+        //what day it is? 
+        document.write("getDay: " + myDate.getDay() + "<br>")
+        //prints 1 for sunday 
+✅getDay: 2
 
+        6. getHours
+        //returns the current hour 
+        document.write("getHours: "+ myDate.getHours() + "<br>")
+✅getHours: 21
+
+        7. getMinutes
+        //returns the current min in the current time 
+        document.write("getMinutes: "+ myDate.getMinutes() + "<br>")
+✅getMinutes: 28
+
+        8. getSeconds
+        //returns the current second in the current time 
+        document.write("getSeconds: "+ myDate.getSeconds() + "<br>")
+✅getSeconds: 9
+
+        9. getMilliSeconds
+        //returns the current millisecond in the current time 
+        document.write("getmilliseconds: " + myDate.getMilliseconds() + "<br>")
+✅getmilliseconds: 79
+
+        10. setDate 
+        //it prints the details on this day 
+        myDate.setDate(4)
+        document.write("setDate: " + myDate + "<br>")
+✅setDate: Sat Dec 04 2021 21:29:44 GMT+0530 (India Standard Time)
+
+        11. setFull
+        //it prints exactly what was the time stat of this day at 2020
+        myDate.setFullYear(2020)
+        document.write("setFull: " + myDate + "<br>")
+✅setFull: Fri Dec 04 2020 21:30:05 GMT+0530 (India Standard Time)
+
+        12. setMonth 
+        //it prints the month with the date we specified with setDate 
+        myDate.setMonth(6)
+        document.write("setMonth: " + myDate + "<br>")
+✅setMonth: Sat Jul 04 2020 21:31:19 GMT+0530 (India Standard Time)
+
+        13. setHours 
+        //sets the specified hour on the last date object reference 
+        myDate.setHours(14)
+        document.write("setHours: " + myDate + "<br>")
+✅setHours: Sat Jul 04 2020 14:31:32 GMT+0530 (India Standard Time)
+
+        14. setMinutes
+        //sets the specified minute on the last date object reference 
+        myDate.setMinutes(14)
+        document.write("setHours: " + myDate + "<br>")
+✅setMinutes: Sat Jul 04 2020 14:14:02 GMT+0530 (India Standard Time)
+
+        15. setSeconds 
+        //sets the specified second on the last date object reference 
+        myDate.setSeconds(14)
+        document.write("setHours: " + myDate + "<br>")
+✅setSeconds: Sat Jul 04 2020 14:14:14 GMT+0530 (India Standard Time)
+
+    </script>
+```
 
 3. Object
 ```bash
@@ -3303,10 +3497,41 @@ console.log(!true);           //false
 ## Assignment Operator (=)
 > used for assignment
 
-
 # JS Functions 
 DRY: Do not repeat yourself 
 
+Functions are a set of instructions combined together 
+> example of block of code 
+
+- It gives reusability 
+- peice of code which performs a specific functionality/ specific task
+
+1. function without parameter 
+```bash
+function functionname()     //function declaration
+{
+    document.write("hi")
+}
+
+functionname()             //function invokation 
+
+document:
+hi
+```
+2. function with parameter 
+```bash 
+function functionname(a, b)
+{
+    document.write(a + b)
+}
+
+functionname(20, 30)
+
+document:
+50
+```
+3. functions with return value 
+- value will be returned to c1 variable, when function is called 
 ```bash
 function avg(a, b)
 {
@@ -3314,17 +3539,15 @@ return (a + b)/2;
 }
 
 c1 = avg(4,6);
-console.log(c1);
+document.write(c1)
+
+document:
+5
 ```
-set of instructions combined together 
-> example of block of code 
-
-- It gives reusability 
-- peice of code which performs a specific functionality/ specific task
-
+> example 
 ```bash 
 <script>
-        //function defination/ declaration
+        ✅function defination/ declaration
         //its also called function declaration, because were declaring function in it 
         
         function sum(a,b)
@@ -3332,17 +3555,20 @@ set of instructions combined together
             return a+b;
         }
 
-        ✅this is not function invokation/ execution 
+        ✅this is not function invokation 
         let a = sum;      
         console.log(a);
         ✅returns reference of the function, 
-        ✅this is pointer to the function, its not executing it
+        ✅this is pointer to the function, its not executing the code 
+        ✅execution means when code is parsed line by line 
 
         //let a = sum()
-        ✅this is function execution
+        ✅this is function invokation
 
 //function invokation, needs a round bracket 
 //round brackets important for execution
+
+✅function invokation 
 let b = sum(10, 20);
 console.log(b);
 

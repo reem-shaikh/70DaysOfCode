@@ -1,25 +1,21 @@
-3. convert it to console log outputs 
-4. finish creating notes for the specified
+revise the to do list readme 
 
-complete 9th lecture with notes 
-revise the to do list readme with lectures if neccesaary 
+revise from 
+DOM and add the rest of the code
 
-complete leftover DOM and revise previous 
+revise from fetch etc 
+async and await 
+ajax 
 
-### Make notes on 
-1. chaining
-2. closure 
-3. callback 
-4. var vs let 
+complete 9th lecture 
+OOps 
+
+add interview qs codes discussed in class to the notes 
+make notes on all this:
+
 5. callback hell 
-6. fetch 
-7. promises 
-8. api 
+
 9. asynchronous programming 
-10. hoisting 
-11. call/ apply/ bond 
-12. anagram 
-13. coding 
 - remove a duplicate element 
 - reverse a string with words 
 - largest substring in a string 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //fetches data from the system, not the server 
+        var myDate = new Date()
+        document.write(myDate + "<br>")
+
+        //toDateString
+        //day month year 
+        document.write("toDateString: " + myDate.toDateString() + "<br>")
+
+        //getDate
+        //todays date 
+        document.write("getDate: " + myDate.getDate() + "<br>")
+
+        //getFullYear
+        //current year 
+        document.write("getFullYear: " + myDate.getFullYear() + "<br>")
+
+        //getMonth
+        //current month 
+        document.write("getMonth: " + myDate.getMonth() + "<br>")
+
+        //getDay
+        //what day it is? 
+        document.write("getDay: " + myDate.getDay() + "<br>")
+        //prints 1 for sunday 
+
+        //getHours
+        //returns the current hour 
+        document.write("getHours: "+ myDate.getHours() + "<br>")
+
+        //getMinutes
+        //returns the current min in the current time 
+        document.write("getMinutes: "+ myDate.getMinutes() + "<br>")
+
+        //getSeconds
+        //returns the current second in the current time 
+        document.write("getSeconds: "+ myDate.getSeconds() + "<br>")
+
+        //getMilliSeconds
+        //returns the current millisecond in the current time 
+        document.write("getmilliseconds: " + myDate.getMilliseconds() + "<br>")
+
+        //setDate 
+        //it prints the details on this day 
+        myDate.setDate(4)
+        document.write("setDate: " + myDate + "<br>")
+
+        //setFull
+        //it prints exactly what was the time stat of this day at 2020
+        myDate.setFullYear(2020)
+        document.write("setFull: " + myDate + "<br>")
+
+        //setMonth 
+        //it prints the month with the date we specified with setDate 
+        myDate.setMonth(6)
+        document.write("setMonth: " + myDate + "<br>")
+
+        //setHours 
+        //sets the specified hour on the last date object reference 
+        myDate.setHours(14)
+        document.write("setHours: " + myDate + "<br>")
+
+        //setMinutes
+        //sets the specified minute on the last date object reference 
+        myDate.setMinutes(14)
+        document.write("setMinutes: " + myDate + "<br>")
+
+        //setSeconds 
+        //sets the specified second on the last date object reference 
+        myDate.setSeconds(14)
+        document.write("setSeconds: " + myDate + "<br>")
+    </script>
+
+</body>
+</html>
