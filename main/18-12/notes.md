@@ -383,7 +383,8 @@ pattern            meaning
 ```
 
 REGEX Meta characters: short form 
-/- treats character as search character 
+> /  treats character as search character 
+
 ```bash 
 instead of writing this           you can write this 
 [0-9]                             \d 
@@ -405,7 +406,7 @@ hi.123 @ gmail . com
 #### [a-zA-Z0-9_ \- \. ]+ [@] [a-z]+ [\.][a-z]{2,3}
 
 > - has predifined meaning attached to it, thats why we use it like \-
-
+> . has predifined meaning attached to it, thats why we use it like \.
 
 ------
 
@@ -470,6 +471,7 @@ Advanced version of arrays
 ```bash 
  <script>
             var a = {
+               //key: value 
               //property: value
                 fname : 'reem',
                 lname : 'shaikh',
@@ -547,45 +549,6 @@ console:
 reem
 ```
 
-## Array of objects 
-adding objects inside array
-
-```bash 
- <script>
-          var student = [
-              {name :'reem', age :20},
-              {name :'abcd', age :20},
-              {name :'efgh', age :20},
-          ];
-          console.log(student);
-</script>
-
-console:
-(3) [{…}, {…}, {…}]0: {name: 'reem', age: 20}1: {name: 'abcd', age: 20}2: {name: 'efgh', age: 20}length: 3[[Prototype]]: Array(0)
-```
-Printing using for loop 
-```bash
- <script>
-          var student = [
-              {name :'reem', age :20},
-              {name :'abcd', age :20},
-              {name :'efgh', age :20},
-          ];
-          console.log(student);
-
-          //printing in a loop
-          for(var a=0; a < student.length; a++ )
-          {
-              document.write(student[a].name + " " + student[a].age + " " + "<br>");
-          }
-</script>
-
-viewport:
-reem 20
-abcd 20
-efgh 20
-```
-
 4. Boolean
 ```bash
 var a = true;
@@ -593,7 +556,7 @@ console.log(a);
 ```
 
 5. Undefined 
-created a variable and didnt mention what variable to return.
+created a variable and didnt assign a value 
 ```bash
 var und;
 console.log(und);
@@ -601,7 +564,7 @@ console.log(und);
 undefined
 
 6. null 
-nothing in placed inside this variable 
+created a variable and assigned nothing as the value 
 ```bash
 var n = null; 
 console.log(n);
@@ -614,7 +577,7 @@ console.log(n);
    console.log("a",a);
 ```
 
-2. Null: you have defined variable to null. declaring, defining a variable to nothing
+2. Null: you have defined variable to null. defining a variable to nothing
 ```bash
     var b = null;
     console.log("b",b);
@@ -623,18 +586,14 @@ null is a primitive datatype.
 > technically, null is also an object 
 
 3. NaN: This property indicates that a value is not a legal number.
-js has given datatype a number, but value could not be decided 
+> js has given datatype a number, but value could not be decided 
 > parseInt() - function which takes a string and returns a number equavalent
 ```bash 
-let n = parseInt("abcd");
+let n = "abcd";
+//declared    //defined 
 
 console:
-undefined
-
-typeof n;
-
-console:
-'number'
+undefined 
 
 console.log(parseInt(n))
 
@@ -642,15 +601,15 @@ console:
 VM430:1 NaN
 ```
 
-### 7. Arrays 
-collection of elements/ strings/ booleans.
+## 7. Arrays 
 in JS, array is a collection of multiple datatypes of elements.
+> collection of elements/ strings/ booleans.
 ```bash
 var arr = [1,"reem",3,4,5.55];
 console.log(arr);
 ```
-## Arrays 
-container/ special variable which can hold more than one datatype
+
+> Array is a container/ special variable which can hold more than one datatype
 Values are stored in indices.
 ```bash 
  <script>
@@ -658,6 +617,10 @@ Values are stored in indices.
 
       for (var a = 0; a <= 3; a++) {
         document.write(arr[a] + '<br>')
+        //0
+        //1
+        //2
+        //3
       }
  </script>
 
@@ -667,22 +630,23 @@ shaikh
 20
 india
 ```
+### Creating Array without new keyword 
 ```bash 
 <script>
       var arr = [ 10, 30, 20, 40];
       var sum = 0;
 
       for (var a = 0; a <= 3; a++) {
-        sum = sum + arr[1]
+        sum = sum + arr[a]
       }
       
       document.write(sum);
 </script>
 
 viewport:
-120
+100
 ```
-Another way to create array
+### Another way to create array using new keyword 
 ```bash
       var arr = new Array('reem', 'shaikh', 20, 'india')
 
@@ -690,7 +654,7 @@ Another way to create array
         document.write(arr[a] + '<br>')
       }
 ```
-Using static value:
+### Using static value in new keyword:
 ```bash 
 <script>
     //we can add unlimited values in this 
@@ -705,7 +669,7 @@ Using static value:
 </script>
 ```
 
-Adding dyanamic values:
+### Adding dyanamic values through new keyword 
 ```bash
 <script> 
     var arr = new Array(3);
@@ -727,7 +691,7 @@ true
 ```
 
 ## Multidimensional Arrays 
-Array inside array 
+> Array inside array 
 ```bash 
     <script> 
     var arr = [
@@ -790,7 +754,78 @@ reem	20	female
 reem	20	female
 reem	20	female
 ```
+
+## Array of objects 
+> objects inside array
+
+```bash 
+ <script>
+          var student = [
+              {name :'reem', age :20},
+              {name :'abcd', age :20},
+              {name :'efgh', age :20},
+          ];
+          console.log(student);
+</script>
+
+console:
+(3) [{…}, {…}, {…}]0: {name: 'reem', age: 20}1: {name: 'abcd', age: 20}2: {name: 'efgh', age: 20}length: 3[[Prototype]]: Array(0)
+```
+Printing using for loop 
+```bash
+ <script>
+          var student = [
+              {name :'reem', age :20},
+              {name :'abcd', age :20},
+              {name :'efgh', age :20},
+          ];
+          console.log(student);
+
+          //printing in a loop
+          for(var a=0; a < student.length; a++ )
+          {
+              document.write(student[a].name + " " + student[a].age + " " + "<br>");
+          }
+</script>
+
+viewport:
+reem 20
+abcd 20
+efgh 20
+```
+### Objects inside objects 
+JSON 
+
+### Array inside objects 
+
+-----
+
 ## All string methods 
+```bash
+1. length 
+2. toLowerCase 
+3. toUpperCase
+4. includes
+5. startsWith
+6. endsWith 
+7. search 
+8. match 
+9. indexOf 
+10. lastindexOf 
+11. replace
+12. trim 
+13. charAt 
+14. charCodeAt 
+15. fromCharCode 
+16. concat 
+17. split 
+18. repeat 
+19. slice 
+20. substr 
+21. substring 
+22. toString 
+23. valueOf 
+```
 var str = "hi, i am a string";
 
 1. length
@@ -920,7 +955,7 @@ document:
 replaced hi str, i am a string
 replaced allhi str, i am a str
 ```
-11. trim()
+12. trim()
 ```bash
     var str2 = "     javascript   "
     console.log(str2)
@@ -939,20 +974,20 @@ replaced allhi str, i am a str
     var a = str2.trimRight();
     console.log("trim Right", a)
 ```
-12. charAt()
+13. charAt()
 ```bash
     // return character at 3rd position
     document.write(str1 + "<br>")
     var b = str1.charAt(3);
     document.write("charAt " + b + "<br>")
 
-    //every character on keyboard has a unique character code called ASCII code
-
 document:
 hi string, i am a string
 charAt s
 ```
-13. charCodeAt()
+> every character on keyboard has a unique character code called ASCII code
+
+14. charCodeAt()
 ```bash
     // returns ASCII code of ch
     document.write(str1 + "<br>")
@@ -963,7 +998,7 @@ document:
 hi string, i am a string
 charcode of i 105
 ```
-14. fromCharCode()
+15. fromCharCode()
 ```bash
     // returns ch of the given ASCII code 
 
@@ -974,7 +1009,7 @@ charcode of i 105
 document:
 ch code of 65 A
 ```
-15. concat()
+16. concat()
 ```bash
     // to merge two strings 
     str3 = "hi yo"
@@ -996,16 +1031,30 @@ str3 hi yo
 str4 wassup
 merging 3 strings javascript hi yowassup
 ```
-16. split()
+17. split()
 ```bash
     //convert every string to an array 
     var a = str.split(" ");
     document.write("split based on spaces " + a + "<br>")
+    console.log(a)
+
+     // 0 1 2 3 4 5 6 7 8 9 10 11 12
+     // h i ,   i   a m   a     s  t 
 
 document:
-split based on spaces hi,,i,am,a,string
+split based on spaces hi,i,am,a,string
+
+console:
+(5) ['hi,', 'i', 'am', 'a', 'string']
+0: "hi,"
+1: "i"
+2: "am"
+3: "a"
+4: "string"
+length: 5
+[[Prototype]]: Array(0)
 ```
-17. repeat()
+18. repeat()
 ```bash
     // repeats string the number of times you mentioned 
 
@@ -1016,7 +1065,7 @@ split based on spaces hi,,i,am,a,string
 document:
 repeat hi, i am a stringhi, i am a string
 ```
-18. slice()
+19. slice()
 ```bash
     document.write("str " + str + "<br>")
     //returns character between 6 - 12 (doesnt include the 12th index)
@@ -1032,7 +1081,7 @@ document:
 str hi, i am a string
 slice am a s
 ```
-19. substr()
+20. substr()
 ```bash
     //returns string after 4 till (5 words)
     var a = str.substr(4, 5);
@@ -1046,8 +1095,9 @@ substr i am
 ```
 20. substring()
 ```bash
-    //slice is used for arrays 
-    //substring is used for strings  
+    //slice is preferrably, used for arrays 
+    //substring is preferrably, used for strings  
+
     var a = str.substring(6, 12);
     document.write("substring " + a + "<br>")
 
@@ -1055,6 +1105,7 @@ document:
 substring am a s
 ```
 21. toString()
+why are we converting string to string? 
 ```bash
     //convert to string 
     var a = str.toString();
@@ -1074,7 +1125,324 @@ document:
 Valueof hi, i am a string
 ```
 ### array methods 
-1. map()
+```bash
+1. modify 
+2. delete 
+3. sort 
+4. reverse 
+5. pop 
+6. push 
+7. shift 
+8. unshift 
+9. concat 
+10. join 
+11. slice 
+12. splice 
+13. isArray 
+14. indexOf
+15. lastindexOf 
+16. includes 
+17. some 
+18. every 
+19. find 
+20. findindex 
+21. filter 
+22. tostring
+23. valueof 
+24. map 
+25. fill 
+26. findindexOf 
+
+```
+1. modify 
+```bash 
+var a = ["reem", 20, "it"];
+a[1] = 19;
+document.write("modified: " + a + "<br>")
+
+document:
+modified: reem,19,it
+```
+2. delete 
+```bash 
+delete a[1]
+document.write("deleted: " + a + "<br>")
+
+document:
+deleted: reem,,it
+```
+
+3. sort
+```bash 
+var arr = ["sanjay", "aman", "rehman", "karan"]
+document.write("arr before sorting: " + arr + "<br>")
+arr.sort()
+document.write("arr after sorting: " + arr + "<br>")
+
+document:
+arr before sorting: sanjay,aman,rehman,karan
+arr after sorting: aman,karan,rehman,sanjay
+```
+
+4. reverse 
+```bash 
+document.write("arr before reverse: " + arr + "<br>")
+arr.reverse()
+document.write("arr after reverse: " + arr + "<br>")
+
+document:
+arr before reverse: aman,karan,rehman,sanjay
+arr after reverse: sanjay,rehman,karan,aman
+```
+
+5. pop 
+```bash 
+document.write("arr before pop: " + arr + "<br>")
+arr.pop()
+document.write("arr after pop: " + arr + "<br>")
+
+document:
+arr before pop: sanjay,rehman,karan,aman
+arr after pop: sanjay,rehman,karan
+```
+6. push 
+```bash 
+        document.write("arr before push: " + arr + "<br>")
+        arr.push("ronald")
+        document.write("arr after push: " + arr + "<br>")
+
+document:
+arr before push: sanjay,rehman,karan
+arr after push: sanjay,rehman,karan,ronald
+```
+7. shift 
+```bash 
+       //opposite of pop 
+       //delete the first index 
+        document.write("arr before shift: " + arr + "<br>")
+        arr.shift()
+        document.write("arr after shift: " + arr + "<br>")
+
+document:
+arr before shift: sanjay,rehman,karan,ronald
+arr after shift: rehman,karan,ronald
+```
+8. unshift 
+```bash 
+        //unshift - opposite of push 
+        //adding to first index 
+        document.write("arr before unshift: " + arr + "<br>")
+        arr.unshift("loki")
+        document.write("arr after unshift: " + arr + "<br>")
+
+document:
+arr before unshift: rehman,karan,ronald
+arr after unshift: loki,rehman,karan,ronald
+```
+9. concat 
+```bash 
+        var arr1 = ["rahul", "saloni"]
+        document.write("arr value " + arr + "<br>")
+        document.write("arr1 value " + arr1 + "<br>")
+        var c = arr.concat(arr1);
+        document.write("arr after concat: " + c + "<br>")
+
+document:
+arr value loki,rehman,karan,ronald
+arr1 value rahul,saloni
+arr after concat: loki,rehman,karan,ronald,rahul,saloni
+```
+10. join 
+```bash 
+        var d = c.join(" ")
+        document.write("join: " + d + "<br>")
+
+document:
+join: loki rehman karan ronald rahul saloni
+```
+11. slice 
+```bash 
+        //slice - makes changes in a new created array
+        document.write("arr before slice: " + arr + "<br>")
+        var s = arr.slice(1, 4)
+        document.write("arr after slice: " + s + "<br>")
+
+document:
+arr before slice: loki,rehman,karan,ronald
+arr after slice: rehman,karan,ronald
+```
+12. splice 
+```bash 
+        //splice - makes changes in existing array
+        document.write("arr before splice: " + arr + "<br>")
+        // loki,rehman,karan,ronald
+        //  0      1     2     3
+
+        arr.splice(2, 0, "neha", "smriti")
+        //these values added at 2nd position 
+        //0 indicates we dont want to delete the elemnent at 2nd position 
+        document.write("arr after splice: " + arr + "<br>")
+
+        //another example 
+        document.write("arr before splice: " + arr + "<br>")
+        // loki,rehman,neha,smriti,neha,smriti,karan,ronald
+        //  0      1     2     3     4    5     6      7
+
+        arr.splice(2, 1, "kartik")
+        //these values added at 2nd position 
+        //1 indicates that were deleting the elemnent at 2nd position 
+        document.write("arr after splice: " + arr + "<br>")
+
+document:
+arr before splice: loki,rehman,karan,ronald
+arr after splice: loki,rehman,neha,smriti,karan,ronald
+
+arr before splice: loki,rehman,neha,smriti,karan,ronald
+arr after splice: loki,rehman,kartik,smriti,karan,ronald
+```
+13. isArray 
+```bash 
+        //isArray
+        var I = Array.isArray(arr)
+        document.write("Is arr an array: " + I + "<br>")
+
+        var g = 10
+        document.write("g: " + g + "<br>")
+        var ii = Array.isArray(g)
+        document.write("Is g an array: " + ii + "<br>")
+
+document:
+Is arr an array: true
+g: 10
+Is g an array: false
+```
+14. indexOf
+```bash 
+        //indexOf (search item, start)
+        //search from starting 
+        var b = arr.indexOf("kartik")
+        document.write("index of kartik: " + b + "<br>")
+
+document:
+index of kartik: 2
+```
+15. lastindexOf 
+```bash 
+        //lastindexof - returns last index of the matching element 
+        var j = arr.lastIndexOf("rehman", 1)
+        document.write("lastindex of rehman: " + j + "<br>")
+
+document:
+lastindex of rehman: 1
+```
+16. includes 
+```bash 
+        //includes - is it included or not?
+        var h = arr.includes("kartik")
+        document.write("lis kartik included: " + h + "<br>")
+
+document:
+lis kartik included: true
+```
+17. some() 
+```bash 
+//returns true if even one element satisfies the condition
+var ages = [10, 13, 18, 20]
+var adultAge = 18 
+
+var k = ages.some(checkAdult)
+document.write("some: ", k, "<br>")
+
+function checkAdult(age)
+{
+   return age >= 18
+}
+
+document:
+some: true
+```
+
+18. every()
+```bash 
+//returns true if every element satisfies the condition
+var ages = [10, 13, 18, 20]
+var adultAge = 18 
+
+var l = ages.every(checkAdult)
+document.write("every: ", l)
+
+function checkAdult(age)
+ {
+   return age >= 18
+ }
+
+document:
+every: false
+```
+19. find() 
+```bash 
+//returns first value which passes the test
+
+        var oo = ages.find(checkAdult)
+        document.write("find method:", oo, "<br>")
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+document:
+find method:18
+```
+20. findindex 
+```bash 
+        //returns first value which satisfies the condition 
+        var ages = [10, 23, 19, 20]
+        document.write("ages: " + ages + "<br>")
+
+        var kk = ages.findIndex(checkAdult)
+        document.write("findindex: " + kk + "<br>")
+
+        function checkAdult(age)
+        {
+            return age>=18
+        }
+
+document:
+findindex: 1
+```
+
+21. filter
+```bash 
+//traverses through entire array and return the value which satisfies the condition 
+
+        var o = ages.filter(checkAdult)
+        document.write("filter method:", o, "<br>")
+        function checkAdult(age)
+        {
+            return age >= 18
+        }
+
+document:
+filter method:18,20
+```
+22. tostring
+```bash 
+        //tostring 
+        var p = arr.toString()
+        document.write("converted to string: " + typeof p + "<br>")
+
+document:
+converted to string: string
+```
+23. valueof
+```bash 
+        document.write("value of: " + arr.valueOf() + "<br>")
+
+document:
+value of: loki,rehman,kartik,smriti,karan,ronald
+```
+
+24. map()
 ```bash
         var a = [1, 3, 5, 8]
         //1. map 
@@ -1104,43 +1472,8 @@ document:
 map: 10,30,50,80
 array of objects: reem shaikh,reem shaikh
 ```
-2. some() 
-```bash 
-//returns true if even one element satisfies the condition
-var ages = [10, 13, 18, 20]
-var adultAge = 18 
 
-var k = ages.some(checkAdult)
-document.write("some: ", k, "<br>")
-
-function checkAdult(age)
-{
-   return age >= 18
-}
-
-document:
-some: true
-```
-
-3. every()
-```bash 
-//returns true if every element satisfies the condition
-var ages = [10, 13, 18, 20]
-var adultAge = 18 
-
-var l = ages.every(checkAdult)
-document.write("every: ", l)
-
-function checkAdult(age)
- {
-   return age >= 18
- }
-
-document:
-every: false
-```
-
-4. fill()
+25. fill()
 ```bash 
 var arr2 = ['reem', 'rum']
 arr2.fill('reemie')
@@ -1149,36 +1482,8 @@ document.write("fill method:", arr2)
 document:
 fill method:reemie,reemie
 ```
-5. filter
-```bash 
-//traverses through entire array and return the value which satisfies the condition 
 
-        var o = ages.filter(checkAdult)
-        document.write("filter method:", o, "<br>")
-        function checkAdult(age)
-        {
-            return age >= 18
-        }
-
-document:
-filter method:18,20
-```
-6. find() 
-```bash 
-//returns first value which passes the test
-
-        var oo = ages.find(checkAdult)
-        document.write("find method:", oo, "<br>")
-        function checkAdult(age)
-        {
-            return age >= 18
-        }
-
-document:
-find method:18
-```
-
-7. findIndexOf() 
+26. findIndexOf() 
 ```bash 
  //returns first value index which passes the test
  
@@ -1194,12 +1499,8 @@ findindex method:2
 ```
 
 ### Difference between slice and substring 
-slice is an array method 
-substring defined for string functions. more robust
-
-### Difference between forEach and map 
-foreach - used for loop and accessing values 
-map - used for loop and update 
+> slice is an array method 
+> substring defined for string functions. more robust
 
 ## Loops 
  1. forEach 
@@ -1238,6 +1539,11 @@ reem
 20
 india
  ```
+
+### Difference between forEach and map 
+foreach - used for loop and accessing values 
+map - used for loop and update 
+
 -----
 ## Hoisting
 Variable Declaration will be moved at the top (of its function).
@@ -1419,7 +1725,7 @@ console:
 constructor
 hello reem shaikh
 ```
-another way to call a prototype 
+> another way to call a prototype 
 ```bash
  <script>
     class student
@@ -1430,7 +1736,7 @@ another way to call a prototype
             console.log("constructor")
         }
 
-        hello()  //prototype method 
+        hello()           //prototype method 
         {
             console.log("hello " + this.name)  
             //variable is defined inside the constructor      
@@ -1438,6 +1744,7 @@ another way to call a prototype
     }
 
     //the prototype method call is happening inside the object call, because in the constructor we passed the parameter name, instead of simply defining it, in the constructor function
+
     let a = new student("reem shaikh")
   
     // a.name = "reem shaikh"
@@ -1574,7 +1881,7 @@ hello d1
 3. Static 
 you dont need an object, to call a static method
 
-you cannot callstatic method through an object
+> you cannot call staticmethod() through an object
 ```bash
  <script>
     class student{
@@ -1609,7 +1916,7 @@ console:
 constructor
 Uncaught TypeError: a.staticMethod is not a functionat object.html:36
 ```
-However, you can call static method, through the class function 
+> However, you can call static method, through the class function 
 ```bash 
  <script>
     class student{
@@ -1643,7 +1950,6 @@ constructor
 static function
 ```
 
-
 #### Inheritance 
 child class inherits from parent class which contains certain methods and properties 
 > child wants to inherit from parent class 
@@ -1651,12 +1957,12 @@ child class inherits from parent class which contains certain methods and proper
 
 ```bash
  <script>
-        class fruits //base class 
+        class fruits                  //base class 
         {
             //properties & methods
         }
         class vegetables extends fruits 
-        // derived class 
+                                     // derived class 
         {
             //properties & methods
         }
@@ -1665,7 +1971,7 @@ child class inherits from parent class which contains certain methods and proper
         let v = new vegetables();//can access both vegetables and fruits class and properties 
  </script>
 ```
-example of inheritance 
+> example of inheritance 
 ```bash
 <script>
        class employee{
@@ -1749,7 +2055,7 @@ console:
 constructor undefined
 manager
 ```
-The variable will be displayed in the console, if its defined in the derived class 
+> The variable will be displayed in the console, if its defined in the derived class 
 constructor 
 ```bash
 <script>
@@ -1844,7 +2150,7 @@ constructor reem
 info constructorreem
 manager info constructorreem
 ```
-Passing multiple parameters in the constructor 
+> Passing multiple parameters in the constructor 
 ```bash 
 <script>
        class employee{
@@ -1944,7 +2250,7 @@ reem
 # Keywords 
 ## This keyword 
 ### this keyword : Context keyword 
-  this keyword: refers to the object it belongs to.
+this keyword: refers to the object it belongs to.
 > this keyword is the reference to the current/parent object 
 
 #### In a method it refers to the owner object 
@@ -2349,7 +2655,8 @@ console:
 This by default points to the owner object 
 
 when we call an event listener with this keyword, under the hood, js will be calling the custom object 
-> This keyword pointing to custom object 'btn_obj' when fn1.call(btn_obj); is caled 
+
+> This keyword pointing to custom object 'btn_obj' when fn1.call(btn_obj); is called 
 
 ```bash 
 <body>
@@ -2444,6 +2751,7 @@ What will this keyword refer to?
 
 console:
 {innerkey1: 'inner value 1', innerkey2: 'inner value 2', inner_fn: ƒ}
+
 inner_fn: ƒ ()
 innerkey1: "inner value 1"
 innerkey2: "inner value 2"
@@ -2498,6 +2806,9 @@ when function is in an object
         };
 
         obj.fn();
+
+console:
+{fn: ƒ}fn: ƒ ()[[Prototype]]: Object
 ```
 
 ### Referring to the window object 
@@ -2508,15 +2819,18 @@ behavior when function is not in an object
             console.log(this);
         }
         fn1();
+
+console:
+window object >
 ```
 this refers to owner, but we want a custom object 
 **give custom value to the this keyword **
-Functions that help us give cutom vale 
+Functions that help us give custom value to this keyword 
 ### call, apply, bind 
         
 ## call
 call allows us to change code depending on context of execution
-you are going to call a function and pass a context manually.
+> you are going to call a function and pass a context manually.
 ```bash
        function fn1()
         {
@@ -2669,8 +2983,6 @@ in call you individually mention each parameter
 function.call(obj, a, b, c ...)
 to improve readibility of code we have apply function
 
-1:14 lec.
-
 ### apply 
 ```bash
 // you can pass any number of elements using array 
@@ -2704,12 +3016,11 @@ this.html:129 str2
 this.html:130 {key1: 'something', key2: 'something'}
 ```
 
-
 ### Bind 
 1. Binding object 
 2. Executing it with the variable you saved it 
 
-Bind/ attach function context to execution 
+> Bind/ attach function context to execution 
 create copy and pointing to variable "new_fn" where were saving it 
 
 in call and apply function is executed,in case of bind function is not executed, 
@@ -2875,7 +3186,8 @@ a is called
 it helps in keeping functions secure. Because function b has its limited scope 
 within curly braces 
 
-if you call b() or c() below a it will give Uncaught reference error 
+if you call b() or c() below a
+> it will give Uncaught reference error 
 because were trying to invoke it outside its scope 
 
 
@@ -3144,7 +3456,6 @@ hello();
 </script>
 ```
 
-
 ✅Parameter & Arguments 
 ```bash
     function sum(a, b)
@@ -3323,9 +3634,9 @@ changes using html
 
 #### How does JS interact with HTML document?
 - Document Object Model 
-When html document is loaded in the browser corresponding to that document 
-there is a new document ina  different format created for JS called DOM,
-JS can easily intrepret DOM format. since it can only operate on objects and 
+> When html document is loaded in the browser corresponding to that document 
+> there is a new document in a  different format created for JS called DOM,
+> JS can easily intrepret DOM format. since it can only operate on objects and 
 cannot access html tags.
 
 > each tag in html is represented as objects in DOM.
@@ -3672,14 +3983,6 @@ returns the value of class/ id
         </div>
     </div>
     <!--all the commands in dom.md -->
-
-    <script>
-        var element;
-        element = document.getElementById("content").getAttribute("para"); 
-        console.log(element);
-    </script>
-
-
 </body>
 ```
 
@@ -3737,11 +4040,9 @@ prefix: null
 previousSibling: null
 specified: true
 textContent: "border: 1px solid red;"
-value: "border: 1px solid red;"
+✅value: "border: 1px solid red;"
 [[Prototype]]: Attr
 ```
-
-
 ```bash
 <script>
         var element;
@@ -3764,7 +4065,7 @@ returns an object
 
 NamedNodeMap {0: id, 1: class, 2: style, id: id, class: class, style: style, length: 3}
 0: id
-1: class
+✅1: class
 2: style
 class: class
 id: id
@@ -3801,7 +4102,7 @@ prefix: null
 previousSibling: null
 specified: true
 textContent: "abc"
-value: "abc"
+✅value: "abc"
 [[Prototype]]: Attr
 ```
 
@@ -3828,8 +4129,8 @@ This doesn't print in the h1 tag format on the viewport
 </script>
 ```
 > to print in h1 tag format we need to use innerHTML
-### 2. innerHTML
 
+### 2. innerHTML
 ```bash
  <script>
     var element;
@@ -3900,7 +4201,8 @@ removes a specific property from an attribute.
 </script>
 ```
 ### Event handler Object 
-    Event e , contains information about the event that has just occured    
+    Event e , contains information about the event that has just occured   
+
 ```bash 
 <body>
     <button id="btn1">button</button>
@@ -4146,8 +4448,7 @@ Using this example
 
     element = document.getElementById("header").getAttribute("class");
     //In the ID:header there is a class, what is its attribute
-    console.log(element)
-    //abc
+    console.log(element)  //abc
 </script>
 
 console:
@@ -4211,7 +4512,7 @@ length: 2
 ```
 
 ### However, querySelector returns only the first class with the given attribute 
-note that its only returning the innertetx of the ul.list 
+note that its only returning the innertext of the ul.list 
 
 ```bash 
 <script>
@@ -4367,6 +4668,9 @@ however, in classList output on console is returned in the form of an array
     console.log(element)
 
 </script>
+
+console:
+output returned in form of array
 ```
 
 ##### 3.1 Methods of classList 
@@ -4615,6 +4919,7 @@ also contains content
 contains all style of the page 
 **On html dom, style is done using CSSOM**
 The CSS Object Model is a set of APIs allowing the manipulation of CSS from JavaScript. It is much like the DOM, but for the CSS rather than the HTML.
+
 > eg: margin, padding, color, border etc 
 
 ```bash 
@@ -4626,7 +4931,6 @@ document.body.style.backgroundColor = 'lightblue';
 contains everything that is rendered on the page 
 (structure + style)
 
-![](images/image2.PNG)
 (only captures/ renders visible content from the CSSOM)
 
 ## BOM (browser object model)
@@ -4894,6 +5198,7 @@ console:
 VM179:1 Location {ancestorOrigins: DOMStringList, href: 'http://127.0.0.1:5500/main/13-12/bom4.html', origin: 'http://127.0.0.1:5500', protocol: 'http:', host: '127.0.0.1:5500', …}
 ```
 To get value from the URL bar/ location bar there are certain 
+
 #### Location object properties:
 - hash 
 - host 
@@ -5038,17 +5343,19 @@ history.go(-1);
 viewport:
 goes one page backwards 
 ```
-
-
 ----
+
 # Functions
 (till now we've discussed)
 1. as regular Functions
-2. as key value for objects 
+2. as key value (methods) for objects 
 3. pass function to another function 
-4. function as argument  </br>
-5. function as variable 
+4. function as argument -> callback function</br>
 
+5. function as variable 
+```bash 
+const x = function (a, b) {return a * b};
+```
 ## 6. Return function from another function
 
 ```bash
@@ -5064,7 +5371,9 @@ function a()  // function defination
 }
 
 // function call only when its invoked 
-let res = a();             //function invoked only when its called
+
+let res = a();             
+// function invoked only when its called
 // function saved as a data in a variable res 
 
 console.log(typeof res);  //console: function
@@ -5090,13 +5399,15 @@ let fn = function()
 }
 console.log(fn); //this is a pointer to the function 
 
-fn(); //this is invokation; contain round brackets 
+fn();           //this is invokation; contain round brackets 
 
 console:
 ƒ ()
 {
     console.log("func")
 }
+
+func
 ```
 
 Multiple functions:
@@ -5116,11 +5427,14 @@ we can define n number of functions, they wont be called unless you invoke it
    }
 
    return b; // b is returned as a variable 
-   // return c;  //to call c use this return statement instead 
+
+   // return c;  
+   //to call c use this return statement instead 
 }
 
 // function call only when its invoked 
-let res = a();             //function invoked only when its called
+let res = a();             
+//function invoked only when its called
 
 console.log(typeof res);  //console: function
 
@@ -5153,7 +5467,8 @@ function a()  // function defination
 }
 
 // function call only when its invoked 
-let res = a();             //function invoked only when its called
+let res = a();             
+//function invoked only when its called
 
 res[0]();
 //res is an array 
@@ -5185,6 +5500,7 @@ function a()  // function defination
 
 // function call only when its invoked
 let res = a();             //function invoked only when its called
+
 res[1]();
 VM121:3 function a is called
 VM121:11 function c call
@@ -5279,7 +5595,7 @@ sum (10) (20)
            return b;
        }
 
-       // saving in variable and calling it  
+       // saving in variable "res" and calling it  
        let res = a();
        res();
 
@@ -5354,26 +5670,29 @@ when you copy object there are 2 different approaches you can do
         key 2 : value2,
   }
 ```
+
 1. Create a clone (shallow copy)
 two different objects clone of each other 
 picking data from obj1 and creating a new object obj2 which is clone of it 
 if you make change in obj2, it will change in obj1 too
+
 only creates a new reference 
 creates a new memory pointer, doesnt create a new object 
 
 real world uses of shallow copy 
-excel sheet: obj2 makes change, obj1 can see it 
+- excel sheet: two people share the same excel sheet 
+(obj2 makes change, obj1 can see it)
 
 2. create a reference (deep copy)
 one object obj3, 2 pointers to that object say obj1 and 
 obj2 
 
-changes made in obj3, simultanously change will be
+changes made in obj3 (template), simultanously change will be
 made in obj1 and obj2 
+- changes made in obj1/ obj2. it wont affect the obj3
 
 real world use cases of deep copy:
-google docs -> templates --> you create a clone of resume templates, 
-        the original resume template wont be affected 
+google docs -> templates --> you create a clone of resume templates, the original resume template wont be affected 
 
 ```bash
  let obj1 = {
@@ -5415,6 +5734,7 @@ copy.html:24 Object>
         obj = {
             'new_key' : 'new value'
         }
+
         */
         //object.html:21 Uncaught TypeError: Assignment to constant variable.
 
@@ -5474,7 +5794,7 @@ behavior when function is not in an object
         fn1();
 ```
 ## call, apply, bind 
-this refers to owner, but we want a custom object **give custom value to the this keyword **. Functions that help us give cutom value are call, apply, bind
+this refers to owner, but we want a custom object **give custom value to the this keyword **. Functions that help us give custom value are call, apply, bind
         
 ## call
 call allows us to change code depending on context of execution
@@ -5925,11 +6245,11 @@ reem
 20
 ```
 ### Lexical
-Where in the code, is the variable defined; not where were calling it.
+Where in the code, is the variable defined; not where were calling it. the scope in which we can access that variable is called lexical scope 
 
 ### Lexical Parent 
 where it is written?
-displayAge written inside displayName, displayName is the lexical parent 
+> displayAge written inside displayName, displayName is the lexical parent 
 
 ### Lexical Environment 
 Scope is directly related to the lexical environment.
@@ -5987,7 +6307,8 @@ local memory of displayAge
 ##### Lexical scope 
 relative scope - scope within which we can access 
 > The process of finding lexical scope (scope where the variable is present) is called scope chaining 
-> what is lexical scope wrt 2 lines of code.
+
+> what is lexical scope wrt 2 lines of code?
 ```bash 
 <script>
 //reference scope where all required variables/ functions/ constants are available 
@@ -6323,6 +6644,9 @@ Before ES6 these were 2 methods of defining functions
        hello();
 
        //2. 2nd method 
+       //anonymous function 
+       //hello is not the function name, its the reference
+
        let hello = function(){
            console.log("hello")
        }
@@ -6421,7 +6745,7 @@ Why did the need for REST operator emerge?
         sum(20,30);
         //sum(20, 30, 40)
 
-        //only works with 2 parameters to resolve this issue 
+        //this function only works with 2 parameters to resolve this issue 
         //JS ES6 introduced REST Operators 
 ```
 ```bash 
@@ -6659,13 +6983,12 @@ function to stop the interval at a particular time
           ✅ after 0.5s the animation stops 
           if(a == 500)
           {
-              //animation stops after 200ms
+              //animation stops after 500ms
               clearInterval(id)
           }
           var target = document.getElementById('test');
           target.style.marginLeft = a + 'px';
-          ✅ a+10 runs 50 times at an interval of 0.1s 
-          ✅ by the end of 0.5s, the value of a reaches 500 (10 x 50)
+          ✅ by the end of 0.5s, the value of a reaches 500 (10(increases by 10 every run) x 50 (runs 50 times))
       }   
     </script>
 </body>
@@ -6934,7 +7257,7 @@ Promise {<rejected>: 'failed promise'}
 ##### 1. when value entered is true 
 ```bash 
     <script>
-    //setting  parameter as a function 
+    //setting  function as a parameter 
         
         function prom(complete)
         // function returns a promise
@@ -7414,8 +7737,7 @@ the server,fetches resource from database and returns the respsonse.
 web browser 
 
 #### Server 
-centralised machine that provides services to clients, clients connect thrugh 
-over a network 
+centralised machine that provides services to clients, clients connect thrugh over a network 
 
 > Takes request from client and returns a response based on the client's request
 
@@ -7471,7 +7793,7 @@ basic operations in website: CRUD
 
 #### Safe method 
 when you fetch data, the data on server is not changing
-1. get-   - get resource from server 
+1. get- get resource from server 
 
 #### Unsafe method 
 when you do manipulations, data on server is changing 
@@ -7545,8 +7867,8 @@ mainly used in website API
                                                      returns a response                                              
 ```
 
-2. mysql assess the data and returns a response which gets converted in the API, 
-3. data is now sent in the form of json data which can be intrepreted by website, ios app and android app.
+2. mysql assess the data and returns a response 
+3. data is now sent in the form of json data (from API- mysql data converted to JSON) which can be intrepreted by website, ios app and android app.
 3. ios app, website and android app can easily access this data in json format  
 
 ```bash
@@ -7725,7 +8047,6 @@ while client requests the server for a file, AJAX sends **XMLHttpRequest** in th
 
 ***AJAX uses XMLHttpRequest (XHR object (inbiult object)) - which contains methods and utility functions***
 
-
 > XHR object ensures that changes are loaded on the page, without refreshing 
 ```bash
 There are 5 states involved while data is passed through XHR object in the background
@@ -7757,6 +8078,8 @@ returns XML
  
 ##### Advantages of AJAX:
 1. We can add a particular change in the page, and it gets integrated in the page without externally loading it 
+
+> we want to add a change to a specific section of the website, the entire website will not be rendered, only the new change thats made will be sent to the server and integrated to the oage, without the need to load the page 
 
 ## Example with AJAX 
 Data that's fetched from API, through AJAX server 
@@ -7792,6 +8115,7 @@ Data that's fetched from API, through AJAX server
           {
               console.log(data);
           })
+
         ✅ this function is used to fetch data from json API using AJAX 
         ✅ $.get(ajax url, where data should be displayed in AJAX)
 
@@ -7893,7 +8217,7 @@ if promise rejected, then we use, catch function and show error message
 1. resolve(), .then()
 if all promises resolved, then only we use, then function and show success message 
 2. reject(),  .catch()
-if all promises rejected, then we use, catch function and show error message 
+if any promises rejected, then we use, catch function and show error message 
 
 ```bash 
        promise()         promise()          promise()

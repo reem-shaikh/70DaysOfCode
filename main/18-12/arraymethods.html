@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //modify 
+        var a = ["reem", 20, "it"];
+        a[1] = 19;
+        document.write("modified: " + a + "<br>")
+
+        //remove 
+        delete a[1]
+        document.write("deleted: " + a + "<br>")
+
+        //sort 
+        var arr = ["sanjay", "aman", "rehman", "karan"]
+        document.write("arr before sorting: " + arr + "<br>")
+        arr.sort()
+        document.write("arr after sorting: " + arr + "<br>")
+
+        //reverse 
+        document.write("arr before reverse: " + arr + "<br>")
+        arr.reverse()
+        document.write("arr after reverse: " + arr + "<br>")
+
+        //pop 
+        document.write("arr before pop: " + arr + "<br>")
+        arr.pop()
+        document.write("arr after pop: " + arr + "<br>")
+
+        //push -adding to last index 
+        document.write("arr before push: " + arr + "<br>")
+        arr.push("ronald")
+        document.write("arr after push: " + arr + "<br>")
+
+        //shift - opposite of pop 
+        //delete the first index 
+        document.write("arr before shift: " + arr + "<br>")
+        arr.shift()
+        document.write("arr after shift: " + arr + "<br>")
+
+        //unshift - opposite of push 
+        //adding to first index 
+        document.write("arr before unshift: " + arr + "<br>")
+        arr.unshift("loki")
+        document.write("arr after unshift: " + arr + "<br>")
+
+        //concat 
+        var arr1 = ["rahul", "saloni"]
+        document.write("arr value " + arr + "<br>")
+        document.write("arr1 value " + arr1 + "<br>")
+        var c = arr.concat(arr1);
+        document.write("arr after concat: " + c + "<br>")
+
+        //join - array converted to string 
+        var d = c.join(" ")
+        document.write("join: " + d + "<br>")
+
+        //slice - makes changes in a new created array
+        document.write("arr before slice: " + arr + "<br>")
+        var s = arr.slice(1, 4)
+        document.write("arr after slice: " + s + "<br>")
+
+        //splice - makes changes in existing array
+        document.write("arr before splice: " + arr + "<br>")
+        // loki,rehman,karan,ronald
+        //  0      1     2     3
+
+        arr.splice(2, 0, "neha", "smriti")
+        //these values added at 2nd position 
+        //0 indicates we dont want to delete the elemnent at 2nd position 
+        document.write("arr after splice: " + arr + "<br>")
+
+        //another example 
+        document.write("arr before splice: " + arr + "<br>")
+        // loki,rehman,neha,smriti,neha,smriti,karan,ronald
+        //  0      1     2     3     4    5     6      7
+
+        arr.splice(2, 1, "kartik")
+        //these values added at 2nd position 
+        //1 indicates that were deleting the elemnent at 2nd position 
+        document.write("arr after splice: " + arr + "<br>")
+
+
+        //isArray
+        var I = Array.isArray(arr)
+        document.write("Is arr an array: " + I + "<br>")
+
+        var g = 10
+        document.write("g: " + g + "<br>")
+        var ii = Array.isArray(g)
+        document.write("Is g an array: " + ii + "<br>")
+
+        //indexOf (search item, start)
+        //search from starting 
+        var b = arr.indexOf("kartik")
+        document.write("index of kartik: " + b + "<br>")
+
+        //lastindexof - returns last index of the matching element 
+        var j = arr.lastIndexOf("rehman", 1)
+        document.write("lastindex of rehman: " + j + "<br>")
+
+        //includes - is it included or not?
+        var h = arr.includes("kartik")
+        document.write("lis kartik included: " + h + "<br>")
+
+        //findindex
+        //returns first value which satisfies the condition 
+        var ages = [10, 23, 19, 20]
+        document.write("ages: " + ages + "<br>")
+
+        var kk = ages.findIndex(checkAdult)
+        document.write("findindex: " + kk + "<br>")
+
+        function checkAdult(age)
+        {
+            return age>=18
+        }
+
+        //tostring 
+        var p = arr.toString()
+        document.write("converted to string: " + typeof p + "<br>")
+
+        //valueof 
+        document.write("value of: " + arr.valueOf() + "<br>")
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

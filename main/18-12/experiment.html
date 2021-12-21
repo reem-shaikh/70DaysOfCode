@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header" class="abc" style="border: 1px solid red;" > //added 
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+    <!--all the commands in dom.md -->
+
+    <script>
+        function a()  // function defination
+{
+   console.log("function a is called")
+   let b = function()
+   {
+     console.log("function b call");
+   }
+
+   let c = function()
+   {
+     console.log("function c call");
+   }
+
+   return b; // b is returned as a variable 
+
+   // return c;  
+   //to call c use this return statement instead 
+}
+
+// function call only when its invoked 
+let res = a();             
+//function invoked only when its called
+
+console.log(typeof res);  //console: function
+
+res();
+
+    </script>
+
+
+</body>
+</html>
