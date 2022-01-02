@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+    //importance of closure wrt security 
+   const counter = function(){
+       let value = 0;
+
+       //nobody can change these values further in code outside of function 
+       let increement = function(){
+           value++
+       }
+
+       let decreement = function(){
+           value--
+       }
+
+       let getCounter = function(){
+           return value
+       }
+
+       return {
+           increement: increement,
+           decreement: decreement,
+           getCounter: getCounter,
+       }
+   };
+
+   let ctr = counter()
+   ctr.increement()  //1
+   ctr.increement()  //1
+   ctr.decreement()  //-1
+   console.log(ctr.getCounter())  //1
+</script>
+
+</body>
+</html>

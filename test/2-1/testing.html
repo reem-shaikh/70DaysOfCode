@@ -224,28 +224,10 @@ h3 {
   transition: transform 0.7s ease;
 }
 
-.lightbox{
-            display: none;
-            position: fixed;
-            z-index: 999;
-            width: 100%;
-            height: 117%;
-            text-align: center;
-            top: 0;
-            left: 0;
-            background-color: rgba(0,0,0,.8);
-        }
-
-        .lightbox img{
-            max-width:  90%;
-            max-height: 80%;
-            margin-top: 2%;
-        }
-
-        .lightbox:target{
-            outline: none;
-            display: block;
-        }
+/* #image1, #image2{
+  z-index: 1;
+  position: relative;
+} */
 
 
 @media only screen and (max-width: 740px) {
@@ -296,7 +278,7 @@ h3 {
 </head>
   <body>
     <!--photo and gallery placed columnwise using flex-direction: column-->
-    <div class="container" >
+    <div class="container" onclick="resetImg()">
         <header class="header" >
             <div class="branding">
                 <h1 class="title"><a href="#">Flexbox</a></h1>
@@ -325,68 +307,40 @@ h3 {
         </header>
       </div>
       <!--in .box each div.column is going to be assigned a flex-direction: row by default, but if you want we can specify code for that-->
-      <div class="box" onclick="resetImg()">
+      <div class="box">
         <!--creating 4 columns inside .box using flex-direction: column-->
         <div class="column" id="1"  >
           <!--these 4 images in the first column-->
-
-          <a href="#img1">
           <img
             src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"
-            alt="" id="image1"  
-          /></a>
-
-        <a href="#" class="lightbox" id="img1">
-            <img src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg" alt="" />
-        </a>
-
-        <a href="#img2">
+            alt="" id="image1"  onclick="enlargeImg()" 
+          />
           <img
             src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg"
             alt="" id="image2" 
-          /></a>
-
-        <a href="#" class="lightbox" id="img2">
-            <img src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg" alt="" />
-        </a>
-
-
+          />
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR44rgcccLv3qbBBh8rCAADkLhI6rU2-BzqEQ&usqp=CAU"
             style="height: 20%;" id="image3"
-            alt=""/>
-    
-
+            alt=""
+          />
           <img
             src="https://www.nawpic.com/media/2020/neon-purple-nawpic-e1612120820817.jpg"
             alt="" id="image4"
             style="height: 20%;"
-          /> 
-
+          />
         </div>
 
         <div class="column" id="2">
-        <a href="#img5">
           <img
             src="https://i.pinimg.com/736x/af/4b/ed/af4bed0abb2fc8f41e225de686bdeeec.jpg"
             alt="" id="image5" 
           />
-        </a>
-          <a href="#" class="lightbox" id="img5">
-            <img src="https://i.pinimg.com/736x/af/4b/ed/af4bed0abb2fc8f41e225de686bdeeec.jpg" alt="" />
-        </a>
-
-        <a href="#img6">
           <img
             src="https://i.pinimg.com/736x/ce/74/0c/ce740cf1971bb827ae7a61c74cca29aa.jpg"
             alt="" id="image6" 
           />
-        </a>
-        <a href="#" class="lightbox" id="img6">
-            <img src="https://i.pinimg.com/736x/ce/74/0c/ce740cf1971bb827ae7a61c74cca29aa.jpg" alt="" />
-        </a>
-
-        <img
+          <img
             src="https://p.favim.com/orig/2019/02/15/neon-purple-aesthetics-aesthetics-Favim.com-6898023.jpg "
             style="height: 19.7%;" id="image7"
             alt=""
@@ -395,31 +349,18 @@ h3 {
             src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX38272426.jpg "
             alt="" id="image8"
             style="height: 20%;"
-          /> 
+          />
         </div>
 
         <div class="column" id="3">
-        <a href="#img9">
           <img
             src="https://i.pinimg.com/564x/d4/31/c4/d431c4e728ff2e31b061c5fe6629e9e2.jpg "
             alt="" id="image9"
           />
-        </a>
-        <a href="#" class="lightbox" id="img9">
-            <img src="https://i.pinimg.com/564x/d4/31/c4/d431c4e728ff2e31b061c5fe6629e9e2.jpg " alt="" />
-        </a>
-
-
-        <a href="#img10">
           <img
             src="https://i.pinimg.com/736x/67/90/50/67905015ee86a1a9cd8283d4d99a6a8e.jpg "
             alt="" id="image10"
           />
-        </a>
-        <a href="#" class="lightbox" id="img10">
-            <img src="https://i.pinimg.com/736x/67/90/50/67905015ee86a1a9cd8283d4d99a6a8e.jpg" alt="" />
-        </a>
-
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarbUklHiZ6rujjkhWV7aCqEIsVhNBvKl1hj7P_TbOu3zQCJosv3eSu9fcNBtmfQyecRE&usqp=CAU "
             style="height: 14%;" id="image11"
@@ -434,51 +375,39 @@ h3 {
             src="https://data.whicdn.com/images/307971477/original.jpg "
             alt="" id="image13"
             style="height: 13.7%;"
-          /> 
+          />
         </div>
 
         <div class="column" id="4">
-
-        <a href="#img14">
           <img
             src="https://s11.favim.com/orig/7/724/7241/72415/purple-aesthetic-neon-light-neon-purple-aesthetic-Favim.com-7241564.jpg "
             alt="" id="image14"
           />
-        </a>
-        <a href="#" class="lightbox" id="img14">
-            <img src="https://s11.favim.com/orig/7/724/7241/72415/purple-aesthetic-neon-light-neon-purple-aesthetic-Favim.com-7241564.jpg " alt="" />
-        </a>
-
-        <a href="#img15">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzR1yyNNuXkx5-96ncI2Wmnhfyp_7aYjPbwKkxAhB8hoquF1LxqGqR2btnsYrQz9O9NQ&usqp=CAU "
             alt="" id="image15"
           />
-        </a>
-        <a href="#" class="lightbox" id="img15">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzR1yyNNuXkx5-96ncI2Wmnhfyp_7aYjPbwKkxAhB8hoquF1LxqGqR2btnsYrQz9O9NQ&usqp=CAU " alt="" />
-        </a>
-
-         <img
+          <img
             src="https://data.whicdn.com/images/307971477/original.jpg "
             alt="" id="image16"
           />
-          <img src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"
+          <img
+            src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"
             alt="" id="image17"
             style="height: 17%;"
           />
-
           <img
             src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg"
             style="height: 14.7%;" id="image18"
             alt=""
             id="lastimage"
-          /> 
+          />
         </div>
       </div>
     </div>
-<!-- 
+
     <script>
+    // Get the img object using its Id
     img1 = document.getElementById("image1");
     function enlargeImg() {
       img1.style.transform = "scale(1.5)";
@@ -486,13 +415,15 @@ h3 {
       img1.style.marginLeft = "500px";
 
     }
+
+    // Function to reset image size
     function resetImg() {
+      // Set image size to original
       img1.style.transform = "scale(1)";
       img1.style.transition = "transform 0.25s ease";
       img1.style.marginLeft = "0px";
 
     }
-    </script> -->
-
+    </script>
   </body>
 </html>
