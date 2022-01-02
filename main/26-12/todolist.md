@@ -14,6 +14,21 @@
 - 30-12 
 > flipkart responsive 
 
+- 2-01
+### Assignment 
+1. find factorial of number using recursion 
+2. create a lockscreen with a 4 digit pin code 
+(phone type), clicking on specific sequence opens the phone. once unlocked you can simply change the text 
+
+3. create fizzbuzz app
+if any num is divisibled by 3 you should say fizz
+if any num is divisibled by 5 you should say buzz
+
+3 and 5 divisibled say fizz buzz
+
+UI
+input type number and then button.generate firs n numbers in the fizzbuzz series and and display it in a list 
+
 
 1. complete CSS with notes 
 - add all the notes, from the starting to the end 
