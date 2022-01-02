@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outercontainer{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .container{ 
+            background-color: #eee;
+            width: 700px;
+            margin: 70px 0 0 50px; 
+            padding: 10px;
+            border: 3px solid #000;
+            display: grid; 
+            grid-template-columns: 3fr 3fr 3fr;
+            grid-template-rows: 200px 200px; 
+            grid-gap: 15px;
+            grid-auto-rows: 200px;    
+        }
+
+
+
+        .items{
+            color: #fff;
+            font-size: 50px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 5px;
+
+        }
+        .item1{
+            background-color: red;
+            align-self: stretch;
+        }
+
+        .item2{
+            background-color: rgb(53, 53, 129);
+            align-self: center;
+
+        }
+
+        .item3{
+            background-color: pink;
+            /* grid-row: span 2; */
+            align-self: flex-start;
+
+        }
+
+        .item4{
+            background-color: purple;
+            /* grid-column: span 2; */
+            align-self: flex-end;
+
+        } 
+
+        
+        h1{
+            text-align: center;
+        }
+
+        h3{
+            display: list-item;
+            margin-left: 400px;
+            margin-bottom: -30px;
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>implcit & explicit</h1>
+
+    <div class="outercontainer">
+
+    <h3>align-self</h3>
+    <div class="container">
+        <div class="items item1">1</div>
+        <div class="items item2">2</div>
+        <div class="items item3">3</div>
+        <div class="items item4">4</div>
+    </div>
+
+</div>
+</body>
+
+</html>

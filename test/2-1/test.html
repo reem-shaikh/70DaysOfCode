@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto&display=swap'); 
+
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color:white;
+}
+
+.menu-toggle {
+	display: none;
+}
+
+.title {
+	font-family:sans-serif;
+	font-size:60px;
+	font-weight:300;
+	letter-spacing:2px;
+	line-height:1;
+	margin-top:25px;
+	margin-bottom:20px;
+	text-transform:uppercase;
+}
+.title a {
+		text-decoration:none;
+}
+
+body 
+{ font-family: 'Roboto';
+}
+
+.title {
+	font-size: 60px;
+	font-style: normal;
+	font-weight: 300;
+	letter-spacing: 2px;
+	text-align: center;
+	text-transform: none;
+}
+.description {
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 200;
+	letter-spacing: 0px;
+	text-align: center;
+	text-transform: none;
+}
+
+h1 { 
+  font-size: 36px; 
+}
+h2 { 
+  font-size: 30px;
+ }
+
+.main-navigation {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.title a, .description {
+	color: #222222;
+}
+
+html {
+	border:12px solid #111;
+}
+.header {
+	padding-top:2em;
+	padding-bottom:1em;
+}
+
+a {
+	color:inherit;
+	text-decoration:none;
+	transition:all 0.2s ease-in-out;
+}
+a:hover {
+	color:#ccc;
+	text-decoration:none;
+}
+a:active,a:focus {
+	text-decoration: none;
+}
+
+.branding {
+	margin-bottom:1em;
+	text-align:center;
+}
+.title {
+	font-family:sans-serif;
+	font-size:60px;
+	font-weight:300;
+	letter-spacing:2px;
+	line-height:1;
+	margin-top:25px;
+	margin-bottom:20px;
+	text-transform:uppercase;
+}
+.title a {
+		text-decoration:none;
+}
+.description {
+	font-size:14px;
+	font-style:italic;
+	font-weight:300;
+	margin-top:-15px;
+	margin-bottom:35px;
+	padding-top: 0;
+}
+
+menu {
+	display:table;
+	margin:0 auto;
+}
+.main-navigation {
+	background-color:#fff;
+	font-size:14px;
+	font-weight:700;
+	letter-spacing:1px;
+	padding:15px 0;
+	border-top:1px solid;
+	border-bottom:1px solid;
+	text-transform:uppercase;
+}
+.main-navigation a {
+		text-decoration:none;
+}
+.main-navigation ul {
+	list-style:none;
+	margin:0 auto;
+	padding:3px 0;
+}
+.main-navigation li {
+	display:inline;
+	float:left;
+	margin:0 1em;
+	position:relative;
+}
+.main-navigation ul ul {
+	display:none;
+	text-transform:none;
+	box-shadow:none;
+	opacity:0.9;
+	float:left;
+	left:-1em;
+	padding:0.5em 1em;
+	position:absolute;
+	top:1.5em;
+	z-index:99999;
+	padding-top:35px;
+	transition:all 0.3s;
+	font-weight:400;
+  background-color:#fff;
+}
+.main-navigation ul ul li {
+	margin:0;
+	width:150px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+  margin-right: 0px;
+  margin-left: 2px;
+}
+
+.container .heading {
+  width: 50%;
+  padding: 50px;
+}
+
+.container .heading h3 {
+  font-size: 3em;
+  font-weight: bolder;
+  border-bottom: 3px solid #222;
+  padding-bottom: 10px;
+  background-color: black;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3em;
+  color: rgb(78, 74, 74);
+  cursor: pointer;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.column {
+  /* were creating columns inside the rows */
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+}
+
+.column img {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  transition: transform 0.7s ease;
+}
+
+/* img:hover {
+  transform: scale(5.2); 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  width: 50%;
+} */
+
+@media only screen and (max-width: 740px) {
+  #lastimage {
+    height: 13.3%;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .main-navigation li {
+      font-size: 10px;
+      }
+  }
+
+@media only screen and (max-width: 552px) {
+      #lastimage {
+          height: 10%;
+        }
+}
+
+@media only screen and (max-width: 476px) {
+        .main-navigation li {
+        font-size: 8px;
+      }
+}
+
+@media only screen and (max-width: 416px) {
+        #lastimage {
+          height: 1%;
+        }
+
+        .main-navigation li 
+      {
+        font-size: 6px;
+      }
+
+      .title{
+        font-size: 40px;
+      }
+
+      .description{
+        font-size: 10px;
+      }
+}
+
+/* the smallest screen size you can design for is 320px */
+</style>
+</head>
+  <body>
+    <!--photo and gallery placed columnwise using flex-direction: column-->
+    <div class="container">
+        <header class="header" onclick="resetImg()">
+            <div class="branding">
+                <h1 class="title"><a href="#">Flexbox</a></h1>
+                <h2 class="description">Photo Portfolio using Flexbox</h2>
+            </div>
+          <nav class="main-navigation">
+            <div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Elements</a></li>
+                       <li><a href="#">Pages</a>
+                         <ul>
+                          <li><a href="#">Portfolio Item</a></li>
+                          <li><a href="#">Blog Article</a></li>
+                          <li><a href="#">Shop Item</a></li>
+                          <li><a href="#">Portfolio Category</a></li>
+                         </ul>
+                       </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+          </nav>
+        </header>
+      </div>
+      <!--in .box each div.column is going to be assigned a flex-direction: row by default, but if you want we can specify code for that-->
+      <div class="box">
+        <!--creating 4 columns inside .box using flex-direction: column-->
+        <div class="column" id="1">
+          <!--these 4 images in the first column-->
+          <img
+            src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"
+            alt="" id="image1"  onclick="enlargeImg()" 
+          />
+          <img
+            src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg"
+            alt="" id="image2" 
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR44rgcccLv3qbBBh8rCAADkLhI6rU2-BzqEQ&usqp=CAU"
+            style="height: 20%;" id="image3"
+            alt=""
+          />
+          <img
+            src="https://www.nawpic.com/media/2020/neon-purple-nawpic-e1612120820817.jpg"
+            alt="" id="image4"
+            style="height: 20%;"
+          />
+        </div>
+
+        <div class="column" id="2">
+          <img
+            src="https://i.pinimg.com/736x/af/4b/ed/af4bed0abb2fc8f41e225de686bdeeec.jpg"
+            alt="" id="image5"
+          />
+          <img
+            src="https://i.pinimg.com/736x/ce/74/0c/ce740cf1971bb827ae7a61c74cca29aa.jpg"
+            alt="" id="image6"
+          />
+          <img
+            src="https://p.favim.com/orig/2019/02/15/neon-purple-aesthetics-aesthetics-Favim.com-6898023.jpg "
+            style="height: 19.7%;" id="image7"
+            alt=""
+          />
+          <img
+            src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX38272426.jpg "
+            alt="" id="image8"
+            style="height: 20%;"
+          />
+        </div>
+
+        <div class="column" id="3">
+          <img
+            src="https://i.pinimg.com/564x/d4/31/c4/d431c4e728ff2e31b061c5fe6629e9e2.jpg "
+            alt="" id="image9"
+          />
+          <img
+            src="https://i.pinimg.com/736x/67/90/50/67905015ee86a1a9cd8283d4d99a6a8e.jpg "
+            alt="" id="image10"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarbUklHiZ6rujjkhWV7aCqEIsVhNBvKl1hj7P_TbOu3zQCJosv3eSu9fcNBtmfQyecRE&usqp=CAU "
+            style="height: 14%;" id="image11"
+            alt=""
+          />
+          <img
+            src="https://i.pinimg.com/originals/3a/99/cc/3a99cc2bad0444a0425ed02fb984e713.jpg"
+            alt="" id="image12"
+            style="height: 15%;"
+          />
+          <img
+            src="https://data.whicdn.com/images/307971477/original.jpg "
+            alt="" id="image13"
+            style="height: 13.7%;"
+          />
+        </div>
+
+        <div class="column" id="4">
+          <img
+            src="https://s11.favim.com/orig/7/724/7241/72415/purple-aesthetic-neon-light-neon-purple-aesthetic-Favim.com-7241564.jpg "
+            alt="" id="image14"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzR1yyNNuXkx5-96ncI2Wmnhfyp_7aYjPbwKkxAhB8hoquF1LxqGqR2btnsYrQz9O9NQ&usqp=CAU "
+            alt="" id="image15"
+          />
+          <img
+            src="https://data.whicdn.com/images/307971477/original.jpg "
+            alt="" id="image16"
+          />
+          <img
+            src="https://i.pinimg.com/564x/b8/40/5c/b8405cf8639152de0f26a8ab5f10b1f9.jpg"
+            alt="" id="image17"
+            style="height: 17%;"
+          />
+          <img
+            src="https://p.favim.com/orig/2018/10/30/neon-light-purple-neon-violet-Favim.com-6522104.jpg"
+            style="height: 14.7%;" id="image18"
+            alt=""
+            id="lastimage"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+    // Get the img object using its Id
+    img1 = document.getElementById("image1");
+    
+    function enlargeImg() {
+      img1.style.transform = "scale(1.5)";
+      img1.style.transition = "transform 0.25s ease";
+      img1.style.marginLeft = "550px";
+
+    }
+
+    // Function to reset image size
+    function resetImg() {
+      // Set image size to original
+      img1.style.transform = "scale(1)";
+      img1.style.transition = "transform 0.25s ease";
+    }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart clone</title>
+    <!--were working on the top navbar-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar{
+            width: 100vw;
+            /* height: 8vh; */
+            background-color: #2874ef;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-top, .nav-bottom{
+            width: 100vw;
+            height: 5vh;
+        }
+
+        .nav-top{
+            background-color: #2874ef;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-bottom{
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /*
+            box-shadow samples:
+            https://getcssscan.com/css-box-shadow-examples
+            */
+        }
+
+        .top-left{
+            flex: 1;
+            background-color: blue ;
+            height: 100%;
+        }
+
+        .top-right{
+            flex: 1;
+            background-color: lightblue;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        flikart top row   searchbar    more  cart  (nav-top)
+        electronics tv men women flights offerzone (nav-bottom)
+                 |
+        FILTER   |  MOBILE DESC        RATE 
+        (B1)     |  (B2)
+
+        Top row A is divided into 2 parts
+        second row B divided into B1 & B2
+
+        navtop divided into further 2 parts lhs and rhs 
+    -->
+    <nav class="navbar">
+    <!--for easy readibility we use nav -->
+    <div class="nav-top">
+        <div class="top-left"></div>
+        <div class="top-right"></div>
+    </div>
+    <div class="nav-bottom"></div>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.navbar{
+    width: 100vw;
+    display: flex;
+    flex-direction:column;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-top,.nav-bottom{
+    width: 100vw;
+    height: 7vh;
+}
+.nav-top{
+    background-color: #2874ef;
+    display: flex;
+    flex-direction: row;
+}
+.nav-bottom{
+    background-color:#fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+.top-left{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+.top-right{
+    flex:1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.logo{
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.search{
+    width: 280px;
+    height: 50%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.link{
+    text-decoration: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+.dropdown{
+    width: 100px;
+    padding: 5px;
+}
+.link_{
+    text-decoration: none;
+    color: #1e1e1e;
+    font-family: sans-serif;
+    font-size: 2.1rem;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+.ctn-left{
+    height: 100%;
+    background-color:antiquewhite;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ctn-right{
+    height: 100%;
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    
+}
+
+tr{  
+    height: 50px;
+    background-color: red;
+}
+
+td{
+    padding: 90px;
+}
+.item-ctn{
+    width:2300PX;
+    height: 400px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vw;
+}
+
+.item-left{
+    flex: 3;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    font-family: sans-serif;
+}
+.item-right{
+    flex: 1;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-top">
+
+            <div class="top-left">
+                <h2 class="logo">Flipkart</h2>
+                <input placeholder="Enter keyword" class="search" >
+            </div>
+            <div class="top-right">
+                <select class="dropdown">
+                    <option>option-1</option>
+                    <option>option-3</option>
+                    <option>option-2</option>
+                </select>
+                <a href="#" class="link">Explore</a>
+                <a href="#" class="link">Cart</a>
+            </div>
+
+        </div>
+        <div class="nav-bottom">
+            <a href="#" class="link_">link-1</a>
+            <a href="#" class="link_">link-2</a>
+            <a href="#" class="link_">link-3</a>
+            <a href="#" class="link_">link-4</a>
+            <a href="#" class="link_">link-5</a>
+            <a href="#" class="link_">link-6</a>
+            <a href="#" class="link_">link-7</a>
+            <a href="#" class="link_">link-8</a>
+            <a href="#" class="link_">link-9</a>
+            <a href="#" class="link_">link-10</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="ctn-left">
+
+            <table class="placeholders">
+                <tr>
+                    <td>
+                        <label for="test_">Select Item</label>
+                        <input type="checkbox" class="test_">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Item-2</td>
+                </tr>
+                <tr>
+                    <td>Item-3</td>
+                </tr>
+                <tr>
+                    <td>Item-4</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="ctn-right">
+            <div class="item-ctn">
+                <div class="item-left">
+                    <img src="./apple.jpeg" alt="">
+                    <div class="description-ctn">
+                        <h2 class="desc">Apple Iphone</h2>
+                        <h2 class="desc">$2000</h2>
+                        <h2 class="desc">6GB ram</h2>
+                    </div>
+                </div>
+                <div class="item-right">
+                    <h2 class="offers">0% OFF</h2>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>

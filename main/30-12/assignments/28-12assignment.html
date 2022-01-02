@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Tic tac toe</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+      :root {
+        --primary-color: #14bdac;
+      }
+
+      * {
+        box-sizing: border-box;
+        /* eliminates the additional width taken by padding and margin */
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        color: #545454;
+        /* this color used for text inside the game */
+        display: flex;
+        font-family: sans-serif;
+        justify-content: center;
+        /* to center the elements to center */
+      }
+
+      .container {
+        background: var(--primary-color);
+        /* this acts as a container to the grid container */
+        margin: 50px;
+        padding: 50px;
+        border-radius: 25px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .title span {
+        color: #f2ebd3;
+      }
+
+      .utility-ctn {
+        margin-top: 25px;
+        font-size: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 30px;
+      }
+
+      .heading span {
+        color: #f2ebd3;
+      }
+
+      .reset-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      .reset-btn:hover {
+        color: #f2ebd3;
+      }
+
+      .inside-cells {
+        background: #0da192;
+        /* this color is used as a baground container color which shows through the gaps */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 cols */
+        grid-template-rows: repeat(3, 1fr); /* 3 rows */
+        grid-gap: 15px;
+        /* a gap is given between the columns and rows  */
+
+        margin-top: 50px;
+        /*margin-top is to space out from heading container */
+      }
+
+      .inside-cell {
+        background: #14bdac;
+        /* 9 grid items are formed here */
+
+        height: 200px;
+        width: 200px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      /* screensize below 1024px will be applied this responsive styling */
+       @media only screen and (max-width: 1024px) {
+        .inside-cells {
+          margin-top: 25px;
+          grid-gap: 10px;
+        }
+
+        .inside-cell {
+          height: 150px;
+          width: 150px;
+        }
+      } 
+
+    /* screensize below 540px will be applied this responsive styling */
+      @media only screen and (max-width: 540px) {
+        .container {
+          margin: 25px;
+          padding: 25px;
+        }
+
+        .inside-cell {
+          height: 100px;
+          width: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">
+        Tic
+        <span>Tac</span>
+        Toe
+      </h1>
+      <!--using flex in this -->
+      <div class="utility-ctn">
+        <div class="heading">X turn's</div>
+        <div class="reset-btn">reset-btn</div>
+      </div>
+
+      <!--using grid in this-->
+      <div class="inside-cells">
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+        <div class="inside-cell"></div>
+      </div>
+    </div>
+  </body>
+</html>

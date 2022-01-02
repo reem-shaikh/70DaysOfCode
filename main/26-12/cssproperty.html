@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1{
+            background-color: #eee;
+            width: 300px;
+            margin: 50px auto 0;
+            padding: 10px;
+            border: 3px solid #000;
+            display: flex; 
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .container2{
+            background-color: #eee;
+            width: 300px;
+            margin: 50px auto 0;
+            padding: 10px;
+            border: 3px solid #000;
+            display: flex; 
+            flex-direction: row;
+            flex-wrap: wrap-reverse;
+        }
+
+        .container3{
+            background-color: #eee;
+            width: 300px;
+            height:300px;
+            margin: 50px auto 0;
+            margin-bottom: 100px;
+            padding: 10px;
+            border: 3px solid #000;
+            display: flex; 
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .container4{
+            background-color: #eee;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto 0;
+            padding: 10px;
+            border: 3px solid #000;
+            display: flex; 
+            flex-direction: column;
+            flex-wrap: wrap-reverse;
+        }
+
+
+        .items{
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 5px;
+        }
+        .item1{
+            background-color: red;
+        }
+
+        .item2{
+            background-color: lavender;
+        }
+
+        .item3{
+            background-color: pink;
+        }
+
+        .item4{
+            background-color: purple;
+        } 
+
+        h1{
+            text-align: center;
+        }
+
+        h3{
+            display: list-item;
+            margin-left: 100px;
+            margin-bottom: -30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>flex-wrap</h1>
+    <h3>flex-wrap:wrap with flex-direction:row</h3>
+    <div class="container1">
+        <div class="items item1">one</div>
+        <div class="items item2">two</div>
+        <div class="items item3">three</div>
+        <div class="items item4">four</div>
+        <div class="items item1">five</div>
+        <div class="items item2">six</div>
+        <div class="items item3">seven</div>
+        <div class="items item4">eight</div>
+    </div>
+
+    <h3>flex-wrap:wrap-reverse with flex-direction:row </h3>
+    <div class="container2">
+        <div class="items item1">one</div>
+        <div class="items item2">two</div>
+        <div class="items item3">three</div>
+        <div class="items item4">four</div>
+        <div class="items item1">five</div>
+        <div class="items item2">six</div>
+        <div class="items item3">seven</div>
+        <div class="items item4">eight</div>
+    </div>
+
+    <h3>flex-wrap:wrap with flex-direction:column </h3>
+    <div class="container3">
+        <div class="items item1">one</div>
+        <div class="items item2">two</div>
+        <div class="items item3">three</div>
+        <div class="items item4">four</div>
+        <div class="items item1">five</div>
+        <div class="items item2">six</div>
+        <div class="items item3">seven</div>
+        <div class="items item4">eight</div>
+    </div>
+
+
+    <h3>flex-wrap:wrap-reverse with flex-direction:column </h3>
+    <div class="container4">
+        <div class="items item1">one</div>
+        <div class="items item2">two</div>
+        <div class="items item3">three</div>
+        <div class="items item4">four</div>
+        <div class="items item1">five</div>
+        <div class="items item2">six</div>
+        <div class="items item3">seven</div>
+        <div class="items item4">eight</div>
+    </div>
+</body>
+</html>

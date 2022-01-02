@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+    <ul id="list1">
+        <li>orange</li>
+        <li>banana</li>
+        <li>apple</li>
+        <li>grapes</li>
+    </ul>
+
+    <ul id="list2">
+        <li>orange</li>
+        <li>apple</li>
+        <li>pineapple</li>
+    </ul>
+</body>
+<script>
+    //compare childnode[0] of list1 with childnode[0] of list1
+
+    //targetting childnode[0] of list1
+    var target1 = document.getElementById('list1').childNodes[0]
+
+    //targetting childnode[0] of list1
+    var target2 = document.getElementById('list2').childNodes[0]
+
+    var equal = target1.isSameNode(target2)
+    console.log(equal)  
+    //returns false because they might look the same, but they are in 2 seperate lists
+</script>
+</html>

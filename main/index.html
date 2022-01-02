@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+<body>
+    <script>
+       //prototype 
+       const obj = {}
+       console.log(obj)  //returns specific set of functions which you can apply on that object 
+
+
+       //write a function to check whether a number less than 10 is present in array or not 
+
+       //create a new custom functions using prototype 
+       //write function once and its available for every object/array you create 
+    //    Array.prototype.check10 = function() {
+    //        for(let i=0; i<this.length; i++){
+    //            if(this[i]<10)
+    //            {
+    //                return true
+    //            }
+    //        }
+    //        return false 
+    //     }
+    //     console.log(this)
+        //this points to context of execution 
+        //context of execution is the array pointing to it (arr3) & (arr4)
+    
+
+    //    const arr3 = [1, 2, 30, 40]
+    //    console.log(arr3.check10())
+
+    //    const arr4 = [14, 15, 8, 9]
+    //    console.log(arr4.check10())
+       //custom function attached to the entire data structure 
+
+       //write a function to check if a string ch is present in the given string or not 
+    //    String.prototype.contains = function(ch){
+    //     for(let i=0; i< this.length; i++){
+    //         if(this[i] == ch){
+    //             return true 
+    //         }
+    //     }
+    //     return false 
+    // }
+
+    //    const str = "Hello";
+    //    console.log(str.contains('w'))  //check if w present in string or not 
+       
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-size: 17px;
+            padding: 100px 40px 0px 40px;
+        }
+
+        h1{
+            margin-bottom: 30px;
+        }
+
+        p{
+            margin-top: 10px;
+        }
+        /* removes display of this tag */
+        p.one{
+            background-color: aqua;
+            display: none;
+        }
+
+        /* by default, p is block,
+        convert block to inline */
+        p.two{
+            background-color: pink;
+            display: inline;
+        }
+
+        /* by default, p is block,
+        convert inline to block*/
+        span.three{
+            background-color: purple;
+            display: block;
+        }
+
+        /* initial: takes default behavior of that tag */
+        span.four{
+            background-color: blue;
+            display: initial;
+        }
+
+        /* list item - converts to list item*/
+        span.five{
+            background-color: magenta;
+            display: list-item;
+        }
+
+        /*inherit- inherits display property from parent 
+        span (inline element) inherits display property of p(block element) */
+        p.six span{
+            background-color: crimson;
+            display: inherit;
+        }
+
+        /*inline-block- we can set width, height, margin properties with inline-block, this styling cannot be done with either inline or block*/
+        p.seven{
+            background-color: darksalmon;
+            display: inline-block;
+            width: 500px; 
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>display</h1>
+    <p class="one">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quis.</p>
+    <p class="two">Lorem ipsum dolor sit amet consectetur adipisicing elit. In quidem ipsum omnis, fuga voluptate velit. Debitis maxime repellendus alias earum.</p>
+    <span class="three">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quis.</span>
+    <span class="four">Lorem ipsum dolor sit amet consectetur adipisicing elit. In quidem ipsum omnis, fuga voluptate velit. Debitis maxime repellendus alias earum.</span>
+    <span class="five">Lorem ipsum dolor sit amet consectetur adipisicing elit. In quidem ipsum omnis, fuga voluptate velit. Debitis maxime repellendus alias earum.</span>
+    <p class="six"><span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, distinctio!</span></p>
+    <p class="seven">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, totam ut. Nobis adipisci quod non.</p>
+</body>
+</html>

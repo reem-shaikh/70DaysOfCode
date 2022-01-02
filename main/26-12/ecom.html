@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eWorld</title>
+    <!--<link rel="stylesheet" href="index.css" /> -->
+    <style>
+      /* to use var, you need var function 
+        create variable in a psuedo class, known as root 
+        
+        root signifies that it will be available throughout the document 
+
+        var is available only inside the scope, its defined in 
+
+        it helps in reusibility
+        */
+      :root {
+        --white: #ffffff;
+        --psuedo-white: #efefef;
+        --zero-px: 0px;
+        --section-margin-vertical: 1rem;
+      }
+
+      /* type selector */
+      body {
+        margin: var(--zero-px);
+        /* removing margin */
+        background-color: var(--psuedo-white);
+      }
+
+      /* webkit used for adding styling to scrollbar */
+      body::-webkit-scrollbar {
+        width: 2em;
+        background-color: red;
+      }
+
+      h3 {
+        margin: var(--zero-px);
+      }
+
+      nav {
+        background-color: var(--psuedo-white);
+      }
+
+      #carousel {
+        display: flex;
+        margin: var(--section-margin-vertical);
+        /* 
+            margin(top, bottom)
+            margin(top, bottom, right, left)
+            */
+      }
+
+      /* descendant selector */
+      #carousel > img {
+        width: 90vw;
+        margin: auto;
+      }
+
+      /*class selector */
+      .container {
+        display: flex;
+        gap: 1rem;
+        /*
+        gap is used to add gap when display:flex is used
+        gap is both horizontal and vertical when flex-wrap:wrap is used
+
+        margin written in card 
+        */
+        flex-wrap: wrap;
+        /* sends content to next line 
+
+        prevent using scrollbars.
+        
+        by default: flex-wrap: no-wrap 
+        (when we dont mention this property)
+        */
+        justify-content: flex-start;
+      }
+
+      .card {
+        background-color: var(--white);
+        border: 1px solid #ababab;
+        padding: 0.5rem;
+        /* animation 
+            it will give box shadow, for 0.25s after we hover on it 
+            
+            can give seperate animation setting for different properties 
+            
+            if you want to give transition to a specific property you want to animate, mention it here 
+            transition: box-shadow .25s linear;
+
+            if you want to give animation setting for all properties that can be animated, it will be applied to it
+            transition: all 1s linear;
+
+            > how will animation value change wrt tm
+
+timing functions:
+change of speed how you want to animate stuff:
+1. linear 
+2. ease-in 
+3. ease- out 
+
+- linear (anim increase in linear time, constant speed)
+```bash
+transition: all 5s linear 
+```
+- ease in (start slow, end fast)
+```bash
+transition: all 5s ease-in
+```
+- ease out (start fast, end slow)
+```bash
+transition: all 5s ease-out 
+```
+- ease in out (start slow, become fast in the middle, end slow)
+```bash
+transition: all 5s ease-in-out
+```
+            */
+        transition: box-shadow 0.25s linear;
+
+        /* 
+            transform: rotate(90deg)
+            change shape and size of the property
+
+            
+            */
+        cursor: url('joker.png'), pointer;
+        /*
+        cursor- properties:
+                1.n-resize
+                2.not allowed 
+                3.crosshair
+                4.pointer
+                5.none
+
+                url() - to add image to cursor 
+
+                url(), property 
+                this property is fallback property incase css cannot fetch the image you placed in url 
+
+        */
+      }
+
+      .card:hover {
+        box-shadow: -1px 10px 30px 0px rgba(105, 90, 166, 0.75);
+        /* xaxis yaxis zaxis blurr */
+        transform: translate(-1px);
+        /*moving up in 2D   */
+      }
+
+      .card h5 {
+        margin: var(--zero-px);
+        text-align: center;
+      }
+
+      .card span {
+        display: none;
+      }
+
+      .card:hover span {
+        display: initial;
+      }
+      /* only when you hover on cart, it displays the text (buy now) */
+
+      /* grouping selector */
+      nav,
+      section,
+      footer {
+        padding: 1rem;
+      }
+
+      nav h3 {
+        display: inline;
+      }
+
+      .burger {
+        display: none;
+      }
+
+      .sidenav {
+        width: 100px;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background-color: var(--white);
+        z-index: 10;
+        /*
+         side nav doesnt overlap
+          */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .d-none {
+        display: none;
+      }
+
+      .sidenav hr {
+        width: 50%;
+      }
+
+      .f-right{
+
+      }
+
+      @media screen and (max-width: 500px) {
+        .burger {
+          display: initial;
+        }
+
+        .m-hidden{
+            display: none;
+        }
+      }
+
+      #animate {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        height: 100px;
+        width: 50px;
+        background-color: #ff0000;
+        transition: all 1s ease-out;
+      }
+      #animate:hover {
+        left: calc(100vw - 50px);
+      }
+      /* animating css: use transition */
+    </style>
+  </head>
+  <body>
+    <!--
+        nav
+        carousel
+        products
+        footer
+    -->
+    <nav>
+      <h3 class="burger" id="open_sidenav">🍔</h3>
+      <h3>eWorld</h3>
+      <h3 class="f-right m-hidden">login</h3>
+      <h3 class="f-right m-hidden">my account</h3>
+      <div class="sidenav d-none" id="sidenav">
+        <button id="close_sidenav">❌</button>
+        <a>Login</a>
+        <hr />
+        <a>my account</a>
+      </div>
+    </nav>
+    <section id="carousel">
+      <img src="carousel.jpg" alt="carousel" />
+    </section>
+
+    <section id="products">
+      <h3>Recommended products</h3>
+      <div class="container">
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+        <div class="card">
+          <img src="earphones.jpeg" alt="card" />
+          <h5>
+            text
+            <span>(Buy now 🛒 )</span>
+          </h5>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h3>footer</h3>
+    </footer>
+
+    <!--were just testing animation properties here-->
+    <div id="animate"> </div> 
+  </body>
+  <script>
+    let closebtn = document.getElementById('close_sidenav')
+
+    //when we minimize the browser to max-width:500 we can access navbar by clicking on burger icon
+
+    //close button
+    closebtn.addEventListener('click', function () //callback function
+    {
+      let sidenav = document.getElementById('sidenav')
+      sidenav.classList.add('d-none')
+    })
+
+    //open button
+    let open_btn = document.getElementById('open_sidenav')
+    open_btn.addEventListener('click', function () {
+      let sidenav = document.getElementById('sidenav')
+      sidenav.classList.remove('d-none')
+    })
+
+    /*
+The classList property returns the class name(s) of an element, as a DOMTokenList object.
+
+This property is useful to add, remove and toggle CSS classes on an element.
+
+The classList property is read-only, however, you can modify it by using the add() and remove() methods.
+      */
+  </script>
+  <!--<script src="index.js"></script> -->
+</html>

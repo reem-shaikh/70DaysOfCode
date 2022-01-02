@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart clone</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        .navbar{
+            width: 100vw;
+            /* height: 8vh; */
+            background-color: #2874ef;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-top, .nav-bottom{
+            width: 100vw;
+            height: 6vh;
+        }
+
+        .nav-top{
+            background-color: #2874ef;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-bottom{
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /*
+            box-shadow samples:
+            https://getcssscan.com/css-box-shadow-examples
+            */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2vw;
+        }
+
+        .top-left{
+            flex: 3;       /* this flex is a value */
+            height: 100%;
+            display: flex; /* this flex is a property */
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+        }
+
+        .top-right{
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .link{
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.1rem;
+        }
+
+        h1{
+            font-size: 40px;
+            color: #fff;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+        }
+
+        .search{
+            width: 280px;
+            height: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .top-left input{
+            width: 30%;
+            height: 4vh;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .dropdown{
+            width: 100px;
+            padding: 5px;
+        }
+
+        .link_ {
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        .container{
+            width: 100vw;
+            height: 100vh;
+            margin-top: 10px;
+            /* background-color: red; */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw; /* we provided gap in btw them */
+        }
+
+        .ctn-left{
+            background-color: lightcoral;
+            height: 100%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ctn-right{
+            background-color: rgb(179, 36, 36);
+            min-height: 100%;
+            flex: 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1vh;
+        }
+
+        tr{
+            width: 100%;
+            height: 50px;
+            background-color: rgb(233, 221, 221);
+        }
+
+        .item-ctn{
+            width: 500px;
+            height: 400px;
+            background-color: grey;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-left{
+            width: 300px;
+            height: 100%;
+            background-color: lightgreen;
+        }
+
+        .item-right{
+            width: 300px;
+            height: 100%;
+            background-color: rgb(7, 107, 7);
+        }
+    </style>
+</head>
+<body>
+    <!--
+        flikart top row   searchbar    more  cart  (nav-top)
+        electronics tv men women flights offerzone (nav-bottom)
+                 |
+        FILTER   |  MOBILE DESC        RATE 
+        (B1)     |  (B2)
+
+        Top row A is divided into 2 parts
+        second row B divided into B1 & B2
+
+        navtop divided into further 2 parts lhs and rhs 
+    -->
+    <nav class="navbar">
+    <!--for easy readibility we use nav 
+    nav-top
+    nav-bottom
+-->
+    <div class="nav-top">
+        <div class="top-left">
+            <!--logo 
+                searchbar
+            -->
+            <h1 class="logo">Flipkart</h1>
+            <input placeholder="enter keyword" class="search" />
+        </div>
+        <div class="top-right">
+
+            <a href="#" class="link">lorem</a>
+            <a href="#" class="link">lorem</a>
+            <a href="#" class="link">lorem</a>
+
+            <select class="dropdown">
+                <option>option-1</option>
+                <option>option-2</option>
+                <option>option-3</option>
+            </select>
+        </div>
+    </div>
+    <div class="nav-bottom">
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+        <a href="#" class="link_">link-1</a>
+    </div>
+    </nav>
+
+<div class="container">
+    <div class="ctn-left">
+        <!--table inside this-->
+        <table class="placeholders">
+            <tr>
+                <td>
+                    <label for="test">select item</label>
+                    <input type="checkbox" />
+                </td>
+                <td>item 2</td>
+                <td>item 1</td>
+                <td>item 2</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ctn-right">
+        <div class="item-ctn">
+            <div class="item-left">
+                <img src="" alt="" />
+
+            </div>
+            <div class="item-right"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<!--
+    make it responsive 
+    make proper flipkart clone
+-->

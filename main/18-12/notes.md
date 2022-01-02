@@ -1783,10 +1783,11 @@ shown.
 ```
 since its a bad practice, let is not allowed for hoisting.
 
-# OOPS
+# JS feature introduced in JS ES6
+## OOPS (coding methodology)
 introduced in ES6 
 - its a coding style which makes code 
-1. more reusable 
+1. more reusable and modular 
 2. well organised code 
 3. easier to debug 
 4. used in js frameworks
@@ -1801,11 +1802,65 @@ OOPS features:
 
 ## 1. Objects and classes 
 
-## Objects 
+## Objects (key-value pairs)
 (object is an instance of a class)
-##### Using class we can create many objects, and they all have values which either have methods and properties
+##### Using class we can create many objects, and they objects have values which either have methods and properties/key 
 
 Object is a unique entity with property: value/ method 
+### 1.1 Object Literal 
+comma seperated list of name-value pairs inside of curly braces 
+    1. name: value 
+    or
+    2. name: method 
+
+```bash
+<script>
+        
+        let car = {
+            name: 'Maruti 800',
+            topSpeed: 89,
+            run: function()
+            {
+                console.log("car is running")
+            }
+        }
+        console.log(car);
+        car.run();
+        car.name;
+</script>
+
+console:
+{name: 'Maruti 800', topSpeed: 89, run: ƒ}
+car is running
+```
+#### We can create objects in 2 ways:
+1. Through console.log only
+```bash
+var person = {
+    name: "reem",
+    age: 20
+    }
+
+console.log(person.name)
+ 
+console:
+reem 
+```
+
+2. Using new keyword,
+```bash
+var person = {
+    name: "reem",
+    age: 20
+    }
+
+var person = new Object()
+person.name = "reem"
+console.log(person.name)
+ 
+console:
+reem 
+```
 
 ## Class
 EcmaScriptES6 provides the keyword class, making it very easy to create class
@@ -1821,13 +1876,14 @@ Class contains
 <script>
     class hello{
         //can create properties and methods inside class 
-        message() //method
+        message()               ✅method
         {
             console.log("method")
             //you need to create an object to call it 
         }
     }
 
+    ✅we can call the methods, by creating an object of the class
     let a = new hello();
     //variable 'a' is an object 
 
@@ -1841,7 +1897,7 @@ We can call multiple methods of the same class using the same defined object
 ```bash
  <script>
     class hello{
-        //can create properties and methods inside class 
+        ✅we can create properties and methods inside class 
         message() //method
         {
             console.log("method")
@@ -1867,8 +1923,8 @@ sorry
 ```
 
 ### Types of methods in JS 
-1. Constructor 
-Whenever we create a class object constructor is called automatically 
+#### 1. Constructor 
+Whenever we create a class object, constructor is called automatically
 
 ```bash
  <script>
@@ -1879,7 +1935,7 @@ Whenever we create a class object constructor is called automatically
         }
     }
 
-    //class object created 
+    ✅we created a class object 
     let a = new student()
     </script>
 
@@ -1888,21 +1944,22 @@ constructor
 ```
 
 2. Prototype 
-Its used to calculate variables defined inside constructor 
+> its not called automatically, you need to create an object of the class to invoke it 
+> Its used to calculate variables that are defined inside the constructor 
 
 ```bash 
 <script>
     class student{
         constructor() //constructor 
         { 
-            let name;  //property defined 
+            let name;  ✅variable declared in constructor 
             console.log("constructor")
         }
 
         hello()  //prototype method 
         {
             console.log("hello " + this.name)  
-            //variable is defined inside the constructor      
+            ✅variable is defined inside the constructor      
         }
     }
 
@@ -1924,16 +1981,16 @@ hello reem shaikh
  <script>
     class student
     {
-        constructor(name) //constructor 
+        constructor(✅name) //constructor  
         { 
-            let gname = name;  //property defined 
+            ✅this.studentname = name;  //property defined 
             console.log("constructor")
         }
 
-        hello()           //prototype method 
+        hello()            //prototype method 
         {
-            console.log("hello " + this.name)  
-            //variable is defined inside the constructor      
+            console.log("hello " + this.studentname)  
+            ✅variable is defined inside the constructor      
         }
     }
 
@@ -1949,39 +2006,11 @@ console:
  constructor
  hello reem shaikh
 ```
-it also works like this 
-```bash
-<script>
-    class student{
-        constructor() //constructor 
-        { 
-            let sname = name; 
-            //property defined 
-            console.log("constructor")
-        }
-
-        hello()         //prototype method 
-        {
-            console.log("hello " + this.name)  
-            //variable is defined inside the constructor      
-        }
-    }
-    
-    let a = new student();
-  
-    a.name = "reem shaikh"
-    a.hello();
-</script>
-
-console:
- constructor
- hello reem shaikh
-```
 
 ```bash
 <script>
     class student{
-        constructor(name) //constructor 
+        constructor(name)                 //constructor 
         { 
             //we add this property and call it in hello function
             ✅this.sname = name; 
@@ -1989,7 +2018,7 @@ console:
             console.log("constructor")
         }
 
-        hello()         //prototype method 
+        hello()                       //prototype method 
         {
             ✅console.log("hello " + this.sname)  
             //variable is defined inside the constructor      
@@ -2007,36 +2036,38 @@ constructor
 hello reem
 ```
 
-Adding more than 2 parameters 
+> Adding more than 2 parameters 
 ```bash
 <script>
     class student{
-        constructor(name,age)   //2 parameters
+        constructor(✅name, age) //constructor 
         { 
-            //we add this property and call it in hello function
             this.sname = name; 
-            this.sage = age;
-
+            ✅this.sage = age
+            //property defined 
             console.log("constructor")
         }
 
-        hello()                //prototype method 
+        hello()         //prototype method 
         {
-            console.log("hello " + this.sname  + this.sage)  
+            ✅console.log("hello " + this.sname + this.sage)  
             //variable is defined inside the constructor      
         }
     }
-
-    let a = new student("reem", 20);
+    
+    let a = new student();
   
-    // a.name = "reem shaikh"
+    a.sname = "reem shaikh"
+    ✅a.sage = 20
+    
     a.hello();
 </script>
 
 console:
-constructor
-hello reem20
+ constructor
+ hello reem shaikh20
 ```
+
 We can create many objects with one class 
 ```bash
  <script>
@@ -2060,7 +2091,7 @@ We can create many objects with one class
     let a = new student("reem", 20);
     a.hello();
 
-    //we can create many objects with one class
+    ✅we can create many objects with one class
     let b = new student("d", 1);
     b.hello();
 </script>
@@ -2073,7 +2104,8 @@ hello d1
 ```
 
 3. Static 
-you dont need an object, to call a static method
+> you cannot call a static method by creating an object of the class 
+> static method can be called through the class name 
 
 > you cannot call staticmethod() through an object
 ```bash
@@ -2136,7 +2168,7 @@ Uncaught TypeError: a.staticMethod is not a functionat object.html:36
     }
 
     let a = new student("reem", 20)
-    student.staticMethod()
+    ✅student.staticMethod()
  </script>
 
 console:
@@ -2151,18 +2183,19 @@ child class inherits from parent class which contains certain methods and proper
 
 ```bash
  <script>
-        class fruits                  //base class 
+        class fruits                  ✅base class 
         {
             //properties & methods
         }
-        class vegetables extends fruits 
-                                     // derived class 
+        class vegetables extends fruits                         ✅derived class 
         {
             //properties & methods
         }
-        let f = new fruits(); // can access only fruits properties and methods 
+        let f = new fruits(); 
+        ✅can access only fruits properties and methods 
 
-        let v = new vegetables();//can access both vegetables and fruits class and properties 
+        let v = new vegetables();
+        ✅can access both vegetables and fruits class and properties 
  </script>
 ```
 > example of inheritance 
@@ -2183,15 +2216,16 @@ child class inherits from parent class which contains certain methods and proper
        //let e = new employee("reem");
        //constructor automatically called 
        
+       //creating an object, to call the function
        let m = new manager("reem");
-       //this function is inheriting the base class properties and methods 
+       ✅manager function is inheriting the base class properties and methods 
 
  </script>
 
  console:
  constructor reem
 ```
-However if you try to call a constructor in derived class, it will throw an error 
+> However if you try to call a constructor in derived class, it will throw an error 
 ```bash
 <script>
        class employee{
@@ -2206,7 +2240,6 @@ However if you try to call a constructor in derived class, it will throw an erro
            console.log("manager")
            }
        }
-
 
        let m = new manager("reem");
        //this function is inheriting the base class properties and methods 
@@ -2236,8 +2269,8 @@ to call both the constructors, we'll use super() class
        class manager extends employee
        {   constructor()
            {
-           super()
-           console.log("manager")
+           ✅super()
+           console.log("manager" + name)
            }
        }
        let m = new manager("reem");
@@ -2254,6 +2287,7 @@ constructor
 ```bash
 <script>
        class employee{
+           ✅since we didnt declare the variable in the constructor, its not mapping the value, we stored in the object 
            constructor(name)
            {
               console.log("constructor " + name) 
@@ -2269,30 +2303,33 @@ constructor
        }
 
        let m = new manager("reem");
-       //this function is inheriting the base class properties and methods 
+       //derived class is inheriting the base class properties and methods 
 
 </script>
+
+console:
+constructor undefined
+dom.html:22 managerreem
 ``` 
-### Inheriting prototype method from derived to base class 
+### Inheriting prototype method from derived class object 
 ```bash
   <script>
-       class employee{
+       class employee{                     ✅base class 
            constructor(name)
            {
               this.empname = name 
               console.log("constructor " + name) 
            }
 
-           info() //prototype method 
+           info()                       //prototype method 
            {
              console.log("info constructor" + this.empname)
            }
        }
 
-       class manager extends employee
+       class manager extends employee       ✅derived class
        {   
        }
-
 
        let m = new manager("reem");
   
@@ -2305,15 +2342,15 @@ console:
 constructor reem
 info constructorreem
 ```
-### Calling prototype method in the base class to the prototype method in the derived class
-### Using Super keyword 
+### Calling prototype method in the base class from the prototype method in the derived class
+##### Using Super keyword 
 
 ```bash 
  <script>
        class employee{
            constructor(name)
            {
-              //1. called first 
+              ✅1. called first 
               this.empname = name 
               console.log("constructor " + name) 
            }
@@ -2328,9 +2365,8 @@ info constructorreem
        {   
            info() //prototype method 
            {
-             super.info() //called second 
-             console.log("manager info constructor" + this.empname)
-             //called third 
+             super.info() ✅2. called second 
+             console.log("manager info constructor" + this.empname)     ✅3. called third 
            }
        }
        let m = new manager("reem");
@@ -2350,7 +2386,6 @@ manager info constructorreem
        class employee{
            constructor(name, age, salary)
            {
-              //1. called first 
               this.empname = name 
               this.empage = age
               this.empsalary = salary
@@ -2372,10 +2407,16 @@ manager info constructorreem
        {   
            
        }
+
+       ✅maps these values to manager class(derived class)
+       ✅when it doesnt find parameter there 
+       ✅pointer goes to class employee
+       ✅constructor along with these values printed 
        let m = new manager("reem", 20, 1000000);
   
        //to call prototype 
        m.info()
+       ✅values mapped to prototype and printed 
 </script>
 
 document:
@@ -2385,61 +2426,201 @@ reem
 20
 1000000
 ```
-### 1.1 Object Literal 
-comma seperated list of name-value pairs inside of curly braces 
-    1. name: value 
-    or
-    2. name: method 
+### Prototypal inheritance 
+Lets first understand inheritance and prototype 
 
-```bash
-<script>
-        
-        let car = {
-            name: 'Maruti 800',
-            topSpeed: 89,
-            run: function()
+##### Inheritance 
+> Inheritance in JS is a completely different topic 
+> Inheritance is JS is one object trying to access properties of another object 
+
+##### Whenever you create an object/ array/ function, JS attaches some hidden properties and functions, via prototype 
+```bash 
+        let arr = ["akshay", "aditya"]
+        let object = {
+            name: "akshay",
+            city: "dehra dun",
+            getintro: function()
             {
-                console.log("car is running")
+                console.log(this.name + " " + this.city)
             }
         }
-        console.log(car);
-        car.run();
-        car.name;
-</script>
+
+        function fun()
+        {
+
+        }
 
 console:
-{name: 'Maruti 800', topSpeed: 89, run: ƒ}
-car is running
+1. when we type "arr." in console, it shows a list of hidden properties and functions 
+2. when we type "object." in console, it shows a list of hidden properties and functions 
+3. when we type "fun." in console, it shows a list of hidden properties and functions 
 ```
-We can create objects in 2 ways 
-1. Through console.log only
-```bash
-var person = {
-    name: "reem",
-    age: 20
-    }
+> How does this happen?
+whenever we create an object; JS attaches an object (prototype) to your original object, that is how you get access to those properties and methods 
 
-console.log(person.name)
- 
+### Prototype 
+prototype is an object which is attached to each and every method/ object/ array that we define in the code 
+
+> Prototype has these properties, which can be directly accessed by using dot operator .__proto__.
+
+to physically access the prototype (properties and methods) for arrays/ objects/ methods, just add 
+.__proto__. towards the end 
+
+1. arrays 
+```bash 
+arr.__proto__     ✅same as Array.prototype 
+
 console:
-reem 
+[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
 ```
-
-2. Using new keyword,
-```bash
-var person = {
-    name: "reem",
-    age: 20
-    }
-
-var person = new Object()
-person.name = "reem"
-console.log(person.name)
- 
+2. objects 
+```bash            
+object.__proto__   ✅same as arr.__proto__.__proto__
+                   ✅Array.protoype proto
+                   ✅same as Object.prototype 
 console:
-reem 
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+```
+```bash 
+arr.__proto__.__proto_.__proto__
+✅Object.prototype proto
+
+console:
+null 
+```
+3. method 
+```bash 
+fun.__proto__        ✅same as Function.prototype 
+
+console:
+ƒ () { [native code] }
 ```
 
+### Prototype chaining
+This is the protoype chain 
+1. arr.__proto is Array.prototype 
+2. arr.__proto__.__proto__ is object prototype 
+3. arr.__proto__.__proto__.__proto__ is object.prototype's prototype, it returns null 
+
+> Array.prototype same as arr.__proto__
+```bash 
+Array.prototype 
+
+console:
+[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
+```
+
+> object.__proto__ same as arr.__proto__.__proto__
+```bash 
+arr.__proto__.__proto__
+✅Object.prototype 
+
+console:
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+```
+> object.__proto__ same as Object.prototype 
+```bash 
+Object.prototype 
+
+console:
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+```
+> arr.__proto__.__proto__.__proto__
+```bash 
+arr.__proto__.__proto__.__proto__
+✅Object.prototype proto
+
+console:
+null
+```
+> object.__proto__.__proto__
+```bash 
+object.__proto__.__proto__
+✅Object.prototype proto
+
+console:
+null 
+```
+> fun.__proto__ same as Function.prototype
+```bash 
+Function.prototype
+
+console:
+ƒ () { [native code] }
+```
+> fun.__proto__.__proto__ same as Object.prototype
+```bash 
+fun.__proto__.__proto__
+✅Functionprototype proto
+✅Object.prototype
+
+console:
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+```
+> fun.__proto__.__proto__.__proto__
+```bash 
+fun.__proto__.__proto__.__proto__
+✅Object.prototype proto
+
+console:
+null
+```
+> The prototype of Object.prototype is null 
+```bash 
+arr.__proto__                         Array.prototype 
+arr.__proto__.__proto__               Object.prototype
+arr.__proto__.__proto__.__proto.__    null
+
+object.__proto__                      Object.prototype
+object.__proto__.__proto__            null 
+
+fun.__proto__                         Function.prototype 
+fun.__proto__.__proto__               Object.prototype
+fun.__proto__.__proto__.__proto.__    null
+```
+**Note: Everything in JS is an object, down the prototype chain**
+
+#### Prototype inheritance 
+prototype inheritance will give all the functions we create, access to the prototype method 
+```bash 
+    <script>
+        let arr = ["akshay", "aditya"]
+        let object = {
+            name: "akshay",
+            city: "dehra dun",
+            getintro: function()
+            {
+                console.log(this.name + " " + this.city)
+            }
+        }
+
+        ✅Each function you create can access mybind method because we have set mybind onto the Function.prototype 
+
+        Function.prototype.mybind = function()
+        {
+            console.log("abcd")
+        }
+
+        function fun()
+        {
+
+        }
+
+        function fun2()
+        {
+
+        }
+ </script>
+
+console:
+1. When we type this in console, it returns the mybind method
+fun.__proto__.mybind()
+dom.html:23 abcd
+
+2. When we type this in console, it returns the mybind method
+fun2.__proto__.mybind()
+dom.html:23 abcd
+```
 
 # Keywords 
 ## This keyword 
@@ -3837,49 +4018,133 @@ js1.html:41 19
 js1.html:41 20
 ```
 
-### DOM (Document Object Model)
-document is used to access HTML page elements to add dyanamic properties to it.
+### DOM 
+Document object model is a Representation of the HTML document in a different format, so JS can easily intrepret it and manipulate its attributes 
+
+### Essential parts of web development 
+Client- side website creation includes:
+1. html
+- markup language 
+- adds structure to the web page 
+2. CSS 
+- add styles to web page
+3. JS 
+- adds functionality/programming to web page 
+
+#### How does JS interact with HTML document?
+how does JS understand the HTML Document?
+
+> HTML document 
+```bash 
+<html>
+<head>
+  <title>My title</title> 
+</head>
+<body>
+  <h1>heading</h1>
+  <div id="div1">
+    <p class="p1"> p tag1 </p>
+  </div>
+  <div id="div2">
+    <p class="p2"> p tag2 </p>
+  </div>
+</body>
+</html>
+```
+> DOM- JS view 
+```bash 
+              Document 
+                 |
+                HTML 
+                 |
+        -------------------
+         |                |
+        head             body 
+         |                |
+        title        ----------------------------
+         |           |           |              |
+        My title     h1      div id="div1"    div id="div2"
+                     |           |              |
+                   heading     p class="p1"   p class="p2"
+                                 |              |
+                                p tag1         p tag2
+
+```
+
+### Document Object Model 
+
+> When html document is loaded in the browser corresponding to that document 
+> there is a new representation of that document in a  different format created for JS called DOM,
+> each of these tags in html document are converted to its corresponding DOM format, over here, each tag is represented as objects
+> JS can easily intrepret DOM format. since it can only operate on objects and cannot access html tags.
+> document is used to access HTML page elements to add dyanamic properties to it.
+> With the DOM, JavaScript can access and change all the elements of an HTML document.
+
+> each tag in html Document, is represented as objects in DOM.
+> The HTML DOM model is constructed as a tree of Objects:
+```bash 
+              Document 
+                 |
+                HTML 
+                 |
+         -------------------
+         |                |
+        head             body                                 ✅element node 
+         |                |
+        title        ----------------------------
+         |           |           |              |
+        My title     h1      div id="div1"    div id="div2"   ✅attribute node 
+                     |           |              |
+                   heading     p class="p1"   p class="p2"
+                                 |              |
+                                p tag1         p tag2         ✅text node 
+
+```
+> There is a herierchy in DOM. It contains 3 primary nodes.
+1. element node:   <head>, <body>
+2. attribute node:  id/ class 
+3. text node:       content inside element 
 
 ### DOM manipulation
-concept of changing content of DOM (web page) using JS 
-eg: loading and showing video on youtube  
-
-```bash
-//add content to html content 
-document.write()
-```
+DOM manipulations are when we use javascript code perform some activity on the HTML document. JS uses the DOM to access different elements on the website and perform specific tasks like - validations, changes, animations, functions etc.
 
 #### why do we update in JS file not in html file 
 google search is updated through JS functionalities, we cant make dyanamic 
 changes using html 
 
 ### through dom manipulation 
-//we can get the reference
-//we can change the content 
+> we can get the reference of object/node using get methods 
+by getting reference of the node, by using 
+- document.getElementById 
+- document.getElementsByClassName
+- document.getElementsByTagName
 
-
-#### How does JS interact with HTML document?
-- Document Object Model 
-> When html document is loaded in the browser corresponding to that document 
-> there is a new document in a  different format created for JS called DOM,
-> JS can easily intrepret DOM format. since it can only operate on objects and 
-cannot access html tags.
-
-> each tag in html is represented as objects in DOM.
-> There is also a herierchy in DOM. It contains 3 primary nodes.
-1. element node:   <head>, <body>
-2. attribute node:  id/ class 
-3. text node:       content inside element 
+> we can get the reference of the object/node and change the content using set methods 
 
 > we either get or set values 
 - set: to change properties of element 
 - get: to fetch value of elements
 
-
 #### We can target DOM object through the following:
 1. Id: document.getElementById
 2. Class Name: document.getElementsByClassName
 3. Tag Name: document.getElementsByTagName
+
+Other DOM targetting methods:
+1. document
+2. document.all 
+3. document.documentElement
+4. document.head 
+5. document.title 
+6. document.body
+7. document.images 
+8. document.anchors 
+9. document.links 
+10. document.forms 
+11. document.doctype 
+12. document.URL 
+13. document.baseURI 
+14. document.domain 
 
 ```bash
 <!DOCTYPE html>
@@ -3919,9 +4184,11 @@ cannot access html tags.
         </div>
     </div>
 </html>
+</body>
 ```
 
 #### This command converts html code to DOM 
+1. document 
 ```bash
  <script>
         var element;
@@ -3931,6 +4198,7 @@ cannot access html tags.
 ```
 
 #### Creating an array and returning all html tags mapped with numbers
+2. document.all 
 ```bash
 <script>
         var element;
@@ -3938,7 +4206,35 @@ cannot access html tags.
         console.log(element);
 </script>
 
-HTMLAllCollection(23) [html, head, meta, meta, meta, title, body, div#wrapper, div#header, h1, div#menu, ul#list, li, a, li, a, li, a, div#content, h2, img, p, script, viewport: meta, wrapper: div#wrapper, header: div#header, menu: div#menu, list: ul#list, …]0: html1: head2: meta3: meta4: meta5: title6: body7: div#wrapper8: div#header9: h110: div#menu11: ul#list12: li13: a14: li15: a16: li17: a18: div#content19: h220: img21: p22: script23: script24: stylecontent: div#contentheader: div#headerlist: ul#listmenu: div#menuviewport: metawrapper: div#wrapperlength: 25[[Prototype]]: HTMLAllCollection
+HTMLAllCollection(23) [html, head, meta, meta, meta, title, body, div#wrapper, div#header, h1, div#menu, ul#list, li, a, li, a, li, a, div#content, h2, img, p, script, viewport: meta, wrapper: div#wrapper, header: div#header, menu: div#menu, list: ul#list, …]
+0: html
+1: head
+2: meta
+3: meta
+4: meta
+5: title
+6: body
+7: div#wrapper
+8: div#header
+9: h1
+10: div#menu
+11: ul#list
+12: li
+13: a
+14: li
+15: a
+16: li
+17: a
+18: div#content
+19: h2
+20: img
+21: p
+22: script
+23: script
+24: stylecontent: div#contentheader: div#headerlist: ul#listmenu: div#menuviewport: metawrapper: div#wrapper
+
+length: 25
+[[Prototype]]: HTMLAllCollection
 ```
 
 ```bash
@@ -3946,9 +4242,20 @@ document.all[2];
 
 meta
 ```
-
+#### returns root element of the document
+3. document.documentElement
+> in this case, the root is HTML tag. It will therefore return the HTML properties
+```bash 
+<script>
+    var element;
+    element = document.documentElement;
+    console.log(element);   
+</script>
+```
+> The difference between this property and the document.body property, is that the document.body element returns the <body> element, while the document.documentElement returns the <html> element.
 
 ### targetting an element node 
+4. document.head 
 ```bash
 <script>
         var element;
@@ -3957,6 +4264,7 @@ meta
 </script>
 ```
 #### Diplays the title name "DOM" specified in the title tag
+5. document.title 
 ```bash
 <script>
         var element;
@@ -3966,6 +4274,7 @@ meta
 ```
 
 #### Displays everything in the body section of the document format conversion of html document 
+6. document.body 
 ```bash
  <script>
         var element;
@@ -3973,27 +4282,8 @@ meta
         console.log(element);
 </script>
 ```
-
-#### Displays all the collection of anchor tags in the document 
-```bash
-    <script>
-        var element;
-        element = document.links; 
-        console.log(element);
-    </script>
-
-HTMLCollection(3) [a, a, a]0: a1: a2: alength: 3[[Prototype]]: HTMLCollection
-```
-#### Targetting a  specific anchor tag: say at 0'th index; i.e the first anchor tag 
-```bash
-   <script>
-        var element;
-        element = document.links[0]; 
-        console.log(element);
-    </script>
-```
-
 #### Displaying all the images in the document  
+7. document.images 
 ```bash
    <script>
         var element;
@@ -4012,8 +4302,75 @@ HTMLCollection(2) [img, img]0: img1: imglength: 2[[Prototype]]: HTMLCollection
         console.log(element);
     </script>
 ```
+### Displays all the anchors which has name property attached to it 
+8. document.anchors 
+```bash 
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul>
+                <li><a name="1" href="">home</a></li>     ✅name property
+                <li><a name="2" href="">about us</a></li> ✅name property
+                <li><a href="">contact</a></li>
+            </ul>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</html>
+</body>
+<script>
+    var element;
+    element = document.anchors; 
+    console.log(element);   
+</script>
+
+console:
+HTMLCollection(2) [a, a]
+0: a
+1: a
+2: <unreadable>
+length: 2
+[[Prototype]]: HTMLCollection
+```
+
+#### Displays all the collection of anchor tags in the document 
+9. document.links 
+```bash
+    <script>
+        var element;
+        element = document.links; 
+        console.log(element);
+    </script>
+
+HTMLCollection(3) [a, a, a]0: a1: a2: alength: 3[[Prototype]]: HTMLCollection
+```
+#### Targetting a  specific anchor tag: say at 0'th index; i.e the first anchor tag 
+```bash
+   <script>
+        var element;
+        element = document.links[0]; 
+        console.log(element);
+    </script>
+```
 
 #### Displaying doctype
+11. document.doctype 
 ```bash
    <script>
         var element;
@@ -4043,6 +4400,7 @@ textContent: null
 ```
 
 #### Displays the URL of the website 
+12. document.URL 
 ```bash
     <script>
         var element;
@@ -4050,16 +4408,37 @@ textContent: null
         console.log(element);
     </script>
 
-http://127.0.0.1:5500/main/30-11/js1.html
+console:
+http://127.0.0.1:5500/main/18-12/domprac.html
 
-//to display URL we can also use 
-    <script>
-        var element;
-        element = document.baseURI; 
-        console.log(element);
-    </script>
+//to display URL we can also use baseURI 
 ```
+#### returns baseURI of the HTML document
+13. document.baseURI 
+```bash 
+<script>
+    var element;
+    element = document.baseURI;
+    console.log(element);   
+</script>
 
+console:
+http://127.0.0.1:5500/main/18-12/domprac.html
+```
+#### returns domain of the website 
+14. document.domain 
+```bash 
+<script>
+    var element;
+    element = document.domain;
+    console.log(element);   
+</script>
+
+console:
+127.0.0.1
+(in our case its the live server port number, AKA localhost IP adress
+(home network of the PC))
+```
 ### Targetting the attribute node 
 There are certain DOM methods to display HTML dyanamically
 
@@ -4107,6 +4486,14 @@ p.para
         element = document.getElementsByTagName("ul"); 
         console.log(element);
     </script>
+
+console:
+HTMLCollection(2)
+0: ul#list
+1: ul
+list: ul#list
+length: 2
+[[Prototype]]: HTMLCollection
 ```
 
 ```bash
@@ -4128,6 +4515,15 @@ What can we get and set with DOM?
 1. HTML
 2. text
 3. attribute
+> Get methods 
+- getAttribute
+- getAttributeNode 
+- Attributes
+
+> set methods 
+- setAttribute
+- Attribute
+- removeAttribute
 
 ### DOM Get Methods:
 1. innerText- returns the text inside the element specified 
@@ -4154,6 +4550,7 @@ extracts the text from a given id and returns it
         console.log(element);
 </script>
 
+console:
 heading
 ```
 
@@ -4167,13 +4564,15 @@ displays all the html inside the tag
         console.log(element);
 </script>
 
- <h2>sub heading</h2>
-    <img src="" alt="">
-    <img src="" alt="">
-    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+console:
+<h2>sub heading</h2>
+<img src="" alt="">
+<img src="" alt="">
+<p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
 
+<p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
 ```
+> Note that: innerHTML and innerText in get methods are basically the same, however, they are different in set methods.
 
 ### 3. getAttribute
 returns the value of class/ id
@@ -4245,7 +4644,7 @@ returns the property name and value
 </script>
 
 
-style
+style     ✅property name 
 baseURI: "http://127.0.0.1:5500/main/30-11/js1.html"
 childNodes: NodeList []
 firstChild: null
@@ -4476,10 +4875,2581 @@ console.log(n);
 VM403:1 10
 ```
 
-# Event Handlers 
-> Basic JS functions are called event handlers 
-> Javascript Basic Events 
-when we call an event, function will be run 
+# New DOM Targetting methods:
+## 1. querySelector- Targets the first element in css selector
+    document.querySelector(CSS Selector)
+
+## 2. querySelectorAll(CSS Selector)- Targets all elements in css selector
+    document.querySelectorAll(CSS Selector)
+
+Using this example
+```bash
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header" class="abc" style="border: 1px solid red;">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>     
+            </ul>
+
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+    var element; 
+    document.getElementById("header").innerHTML = "<h1>WoW</h1>";
+    //changes heading to wow with the same styling as before, 
+    //in innertext we cannot set the styling
+
+    element = document.getElementById("header").getAttribute("class");
+    //In the ID:header there is a class, what is its attribute
+    console.log(element)  //abc
+</script>
+
+console:
+abc
+```
+
+## 1. Using querySelector
+Targets the first target 
+
+doing this problem using query selector 
+```bash
+<script>
+    var element; 
+    document.querySelector("#header").innerHTML = "<h1>WoW</h1>";
+   //adding # to specify id 
+
+    element = document.querySelector("#header").getAttribute("class");
+    
+    console.log(element)
+</script>
+
+console:
+abc
+```
+## 2. Using querySelectorAll
+Targets all the elements in that attribute
+
+> In case of querySelectorAll it returns all the attributes with the same class name
+
+```bash
+<script>
+    var element; 
+    element = document.querySelectorAll(".list");
+    console.log(element)
+
+</script>
+
+console:
+NodeList(2) [ul.list, p.list]
+0: ul.list
+1: p.list
+length: 2
+[[Prototype]]: NodeList
+```
+#### What is nodeList?
+nodeList is an array of elements that is returned by the method document.querySelectorAll().
+> In this case the class having the classname list is displayed.
+In order to access the list at the 0'th index, we will have to specify its index like this.
+``bash
+<script>
+    var element; 
+
+    element = document.querySelectorAll(".list")[0].innerText;
+    //extracting innertext from the 0th index of the list 
+    //there is ul and p with the same classname .list 
+    //shown in the next example 
+    console.log(element)
+
+</script>
+
+console:
+Lorem, ipsum dolor.
+Lorem ipsum dolor sit amet.
+Lorem ipsum dolor sit amet consectetur.
+```
+> querySelectorAll VS querySelector 
+However, querySelector returns only the first class with the given attribute 
+note that its only returning the innertext of the ul.list 
+```bash 
+<script>
+    var element; 
+
+    element = document.querySelector(".list").innerText;
+    //query selector targets the first one only 
+    
+    console.log(element)
+
+</script>
+
+console:
+Lorem, ipsum dolor.
+Lorem ipsum dolor sit amet.
+Lorem ipsum dolor sit amet consectetur.
+```
+
+## DOM CSS Styling Methods 
+we can get and set css values with these methods 
+
+### 1. Style 
+#### 1.1 Using style to get the element's style 
+```bash
+<script>
+    var element; 
+    element = document.querySelector("#header").style.border;
+    console.log(element)
+</script>
+
+console:
+1px solid red
+```
+
+#### 1.2 Using style to set the element's style 
+```bash 
+<body>
+    <div id="wrapper">
+        <div id="header" class="abc" style="border: 1px solid red; background-color: aquamarine;">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+               
+            </ul>
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+    var element; 
+
+    // to set the style 
+    document.querySelector('#header').style.backgroundColor = "tan";
+    ✅in querySelector or querySelectorAll use # or . to signify the attribute 
+    ✅to specify style properties with 2 names such as background-color, write it as backgroundColor, using camel casing rule 
+
+    // to get the style on console 
+    element = document.querySelector("#header").style.backgroundColor;  
+    console.log(element)
+
+</script>
+
+console:
+tan 
+
+document:
+heading background color is changed to tan
+```
+#### 2. className
+Adds a class to a particular id.
+
+```bash
+<style>
+        .abc{
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header"  style="border: 1px solid red;>
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+               
+            </ul>
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+    var element; 
+    document.querySelector('#header').className = "abc"
+    //a new class abc is created where the id:header 
+
+    document.querySelector('.abc').style.color = "green"
+    //we have set the styling for this new class
+
+    element2 = document.querySelector(".abc").style.color;  
+    console.log(element2)
+
+</script>
+
+console:
+abc
+(output returned in the form of a string)
+
+document:
+heading color is changed to green 
+```
+#### 3. classList 
+In case of className console output was returned in form of a string, 
+> however, in classList output on console is returned in the form of an array 
+
+```bash 
+<script>
+    var element; 
+    document.querySelector('#header').classList = "abc"
+
+    element = document.querySelector("#header").classList;
+   
+    console.log(element)
+
+</script>
+
+console:
+DOMTokenList ['abc', value: 'abc']
+0: "abc"
+length: 1
+value: "abc"
+[[Prototype]]: DOMTokenList
+(output returned in form of array)
+```
+
+##### 3.1 Methods of classList 
+1. add 
+2. remove 
+3. item 
+4. length 
+5. contains(class)
+
+###### 1. Add 
+adds classes 
+```bash 
+   <style>
+        #header{
+            background-color: green;
+        }
+        .xyz{                ✅we added certain style properties for the class we just added through the add method, to test it out 
+            color: plum;     ✅we added .xyz and .abc 
+        }
+        .abc{
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header"  style="border: 1px solid red;">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+               
+            </ul>
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+    var element; 
+    ✅were adding 2 class in the same line #header is defined
+    ✅one with classname: xyz and the other with classname: abc
+
+    document.querySelector('#header').classList.add("xyz");
+    document.querySelector('#header').classList.add("abc");
+
+    //to add more than 2 classes in the same line 
+    //document.querySelector('#header').classList.add("xyz", "efg");
+
+    element = document.querySelector("#header").classList;
+    console.log(element)
+
+</script>
+
+console: added 2 classes
+DOMTokenList(2) ['xyz', 'abc', value: 'xyz abc']
+0: "xyz"
+1: "abc"
+length: 2
+value: "xyz abc"
+[[Prototype]]: DOMTokenList
+
+✅hover to console -> elements and notice on the line id="header" is defined, you will notice this additional peice of code added 
+<div id="header" style="border: 1px solid red;" class="xyz abc">
+```
+###### 2. Remove 
+removes class 
+```bash 
+    <style>
+        #header{
+            background-color: green;
+        }
+        .xyz{
+            color: plum;
+        }
+        .abc{
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header"  style="border: 1px solid red;">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+               
+            </ul>
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+✅adding 2 classes 
+document.querySelector('#header').classList.add("xyz");
+document.querySelector('#header').classList.add("abc");
+
+document.querySelector('#header').classList.remove("abc");
+✅class with classname:abc gave the font-family: cursive property 
+✅note that: now the heading is not cursive in the document anymore 
+
+element = document.querySelector("#header").classList;
+console.log(element)
+
+</script>
+
+console:
+DOMTokenList ['xyz', value: 'xyz']
+0: "xyz"
+length: 1
+value: "xyz"
+[[Prototype]]: DOMTokenList
+
+✅hover to console -> elements and notice on the line id="header" is defined, you will notice this additional peice of code 
+<div id="header" style="border: 1px solid red;" class="xyz">
+✅note that: class:abc is removed. 
+```
+###### 3. length 
+how many classes are there in that specific id
+```bash 
+<script>
+✅2 classes are added 
+document.querySelector('#header').classList.add("xyz");
+document.querySelector('#header').classList.add("abc");
+
+✅how many classes are defined in this id: header 
+element = document.querySelector("#header").classList.length;
+
+console.log(element)
+</script>
+
+console:
+2
+```
+
+###### 4. item(index)
+shows attribute based on their index 
+```bash 
+    <style>
+        .abc{
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header" class="abc xyz efg" style="border: 1px solid red;">
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+               
+            </ul>
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+var element; 
+
+element = document.querySelector('#header').classList.item(1);
+//shows the first class 
+console.log(element)
+</script>
+
+console:
+xyz
+```
+###### 5. contains 
+is the class, were checking for existing or not?
+> returns true if class exists 
+> returns false if class doesnt exist 
+```bash
+    <style>
+        #header{
+            background-color: green;
+        }
+        .xyz{
+            color: plum;
+        }
+        .abc{
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header" class="abc xyz" style="border: 1px solid red;">    ✅note that:we added class="abc xyz" in this line 
+            <h1>heading</h1>
+        </div>
+        <div id="menu">
+            <ul id="list">
+                <li><a href="">home</a></li>
+                <li><a href="">about us</a></li>
+                <li><a href="">contact</a></li>
+            </ul>
+
+            <ul class="list">
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+               
+            </ul>
+            <p class="list">para Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div id="content">
+            <h2>sub heading</h2>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
+        </div>
+    </div>
+</body>
+<script>
+var element;
+document.getElementById("header").addEventListener('click', abc)                 ✅when you click on the header, the function will execute
+
+function abc()
+{
+    var a = document.getElementById("header").classList.contains("abc")          ✅is class:abc present in the line where id:header 
+    console.log(a)
+}
+</script>
+
+When you click on the header 
+console:
+true
+```
+## DOM Create Methods
+#### 1. createElement
+   to add a tag such as <p>, <div>, <ul> in html using JS
+
+```bash
+   In html element technically means 
+   <tagname> content </tagname>
+
+   however, in this context, createElement in DOM, technically means, adding <tagname></tagname>,
+
+   If you want to add content in it, there are append methods 
+```
+#### 2. createTextNode 
+   to add a text in html using Js
+#### 3. createComment
+   to add a comment <!-- --> in html using JS
+
+```bash
+<script>
+       var newElement = document.createElement("p");
+       //p - creates a paragragh tag
+       console.log(newElement);
+
+       var newText = document.createTextNode("this is text");
+       //no word limit for inserting text
+       console.log(newText);
+
+       var newComment = document.createComment("this is a comment");
+       console.log(newComment);
+</script>
+
+console:
+<p></p>
+"this is text"
+<!--this is a comment -->
+```
+## DOM Traversal Methods 
+these methods are used for targetting objects in HTML DOM 
+1. parentNode 
+2. parentElement 
+3. Children 
+4. childNodes 
+5. firstChild 
+6. firstElementChild 
+7. lastChild 
+8. lastElementChild 
+9. nextElementSibling 
+10. nextSibling 
+11. previousElementSibling 
+12. previousSibling 
+
+```bash
+                                                  A                                                              ✅Parent Node 
+                                                  |
+------------------------------------------------------------------------------------------------------
+|                          |                      |                         |                        |
+B                          C                      D                         E                        F           ✅All are siblings
+                        
+Note:
+1. B, C, D, E, F are on the same level, hence they are siblings 
+2. A is the parent element/ node of the siblings 
+3. B is the firstChild and F is the lastChild 
+4. C is the previousSibling of D & E is the nextSibling of D 
+```
+1. parentElement
+returns the parent element 
+```bash
+    <style>
+      #outer {
+        background-color: plum;
+        display: block;
+        padding-bottom: 20px;
+      }
+
+      #container {
+        width: 350px;
+        text-align: center;
+        margin: 30px;
+        background-color: red;
+        height:150px;
+        padding-top: 40px;
+        padding-left: 40px;
+        padding-right: 340px;
+        justify-content: space-around;
+      }
+
+      #left {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: #888;
+      }
+
+      #center {
+        display: inline-block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        background: #888;
+      }
+
+      #right {
+        float: right;
+        width: 100px;
+        height: 100px;
+        background: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">     ✅parent of container is outer
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div>
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    var a = document.getElementById("container").parentElement;
+    ✅what is the parent element of container?
+    console.log(a)
+  </script>
+
+console:
+div#outer  ✅outer is the parent element
+```
+> we can even change styling by targetting the parent element 
+```bash
+  <script>
+    var a = document.getElementById("container").parentElement.style.background = "green";
+    console.log(a)
+  </script>
+
+console:
+green 
+
+document:
+div:outer bg-color is changed to green from plum color 
+```
+2. parentNode 
+the only difference between parentElement and parentNode is that 
+
+> parentElement returns null, if parent is not available 
+```bash
+  <script>
+    var a = document.doctype.parentElement;
+    console.log(a)
+  </script>
+
+console:
+null 
+```
+> parentNode returns something, even if parent is not available 
+```bash
+  <script>
+    var a = document.doctype.parentNode;
+    console.log(a)
+  </script>
+
+console 
+#document (returns document object)
+```
+3. Children 
+Targets all the children in the parent Node 
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div>
+      </div>
+     
+    </div>
+  </body>
+  <script>
+      //target children through parents 
+    var a = document.getElementById("outer").children;
+    console.log(a)
+  </script>
+
+console:
+HTMLCollection(2)
+[h2, div#container, container: div#container]
+0: h2
+1: div#container
+container: div#container
+length: 2
+[[Prototype]]: HTMLCollection
+```
+> another example 
+```bash 
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div>
+      </div>
+     
+    </div>
+  </body>
+  <script>
+      //target children through parents 
+    var a = document.getElementById("container").children;
+    console.log(a)
+  </script>
+
+console:
+HTMLCollection(3) [div#left, div#center, div#right, left: div#left, center: div#center, right: div#right]
+0: div#left
+✅1: div#center
+2: div#right
+center: div#center
+left: div#left
+right: div#right
+length: 3
+[[Prototype]]: HTMLCollection
+```
+> fetches the child at 1'st index 
+```bash 
+  <script>
+      //target children through parents 
+    var a = document.getElementById("container").children[1];
+    console.log(a)
+  </script>
+
+console:
+div#center
+```
+> doing manipulations by targetting the specific child from the parent 
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div>
+      </div>
+     
+    </div>
+  </body>
+  <script>
+      //target children through parents 
+    var a = document.getElementById("container").children[1].style.background = "yellow";
+    console.log(a)
+  </script>
+
+console:
+yellow
+
+document:
+the container on 1st index has bg-color: yellow 
+```
+4. childNodes 
+The only difference between children and childNodes 
+
+> children returns only element nodes 
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+      //target children through parents 
+    var a = document.getElementById("container").children;
+    console.log(a)
+  </script>
+
+console:
+HTMLCollection(3) [div#left, div#center, div#right, left: div#left, center: div#center, right: div#right]
+0: div#left        ✅these are element nodes 
+1: div#center
+2: div#right
+center: div#center
+left: div#left
+right: div#right
+length: 3
+[[Prototype]]: HTMLCollection
+```
+> childNodes returns text node and element nodes as well
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+      //target children through parents 
+    var a = document.getElementById("container").childNodes;
+    console.log(a)
+  </script>
+
+console:
+NodeList(7) [text, div#left, text, div#center, text, div#right, text]
+0: text            ✅these are text nodes
+1: div#left        ✅these are element nodes 
+2: text
+3: div#center
+4: text
+5: div#right
+6: text
+length: 7
+[[Prototype]]: NodeList
+```
+> changing style of the targetted childNode 
+```bash 
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+      //target children through parents 
+    var a = document.getElementById("container").childNodes[1].style.background = "yellow";
+    console.log(a)
+  </script>
+
+console:
+yellow
+
+document:
+id:left container bg-color is yellow 
+```
+5. firstElementChild
+first child of the parent
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    //target children through parents 
+    var a = document.getElementById("container").firstElementChild;
+    console.log(a)
+  </script>
+
+console:
+div#left
+```
+> extract text from the firsstChild 
+```bash
+  <script>
+    //target children through parents 
+    var a = document.getElementById("container").firstElementChild.innerText;
+    console.log(a)
+  </script>
+
+console:
+A
+```
+6. lastElementChild 
+```bash
+  <script>
+    //target children through parents 
+    var a = document.getElementById("container").lastElementChild;
+    console.log(a)
+  </script>
+
+console:
+div#right
+```
+
+7. firstChild 
+Difference between firstChild and firstElementChild is 
+
+> firstElementChild targets only the element nodes
+> firstChild targets both element and text nodes 
+
+##### styling cannot be done on the firstChild of container because it returns a textnode which contains a space and styling cannot be done when spaces are mentioned
+```bash
+  <script>
+    //target children through parents 
+    var a = document.getElementById("container").firstChild;
+    console.log(a)
+  </script>
+
+console:
+#text
+assignedSlot: null
+baseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"
+childNodes: NodeList []
+data: "\n        "         ✅contains space
+firstChild: null
+isConnected: true
+lastChild: null
+length: 9
+nextElementSibling: div#left
+nextSibling: div#left
+nodeName: "#text"
+nodeType: 3
+nodeValue: "\n        "
+ownerDocument: document
+parentElement: div#container
+parentNode: div#container
+previousElementSibling: null
+previousSibling: null
+textContent: "\n        "  ✅contains space 
+wholeText: "\n        "    ✅contains space 
+[[Prototype]]: Text
+```
+##### However, stying can be done on the firstChild of #left because there are no spaces present, however, ironically #left doesnt have any children
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>   ✅styling can be done on the firstChild of let
+        <div id="center">B</div> 
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    //target children through parents 
+    var a = document.getElementById("left").firstChild;
+    console.log(a)
+  </script>
+
+console:
+#text
+assignedSlot: null
+baseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"
+childNodes: NodeList []
+data: "A"                   ✅doesnt contain space
+firstChild: null
+isConnected: true
+lastChild: null
+length: 1
+nextElementSibling: null
+nextSibling: null
+nodeName: "#text"
+nodeType: 3
+nodeValue: "A"
+ownerDocument: document
+parentElement: div#left
+parentNode: div#left
+previousElementSibling: null
+previousSibling: null
+textContent: "A"            ✅doesnt contain space 
+wholeText: "A"              ✅doesnt contain space 
+[[Prototype]]: Text
+```
+8. lastChild 
+Difference between lastChild and lastElementChild is 
+
+> lastElementChild targets only the element nodes
+> lastChild targets both element and text nodes 
+
+```bash
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A
+        </div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    //target children through parents 
+    var a = document.getElementById("container").lastChild;
+    console.log(a)
+  </script>
+
+console:
+#text
+assignedSlot: null
+baseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"
+childNodes: NodeList(0)
+length: 0
+[[Prototype]]: NodeList
+data: " \n      "               ✅contains space
+firstChild: null                ✅styling cant be done
+isConnected: true
+lastChild: null
+length: 8
+nextElementSibling: null
+nextSibling: null
+nodeName: "#text"
+nodeType: 3
+nodeValue: " \n      "
+ownerDocument: document
+parentElement: div#container
+parentNode: div#container
+previousElementSibling: div#right
+previousSibling: div#right
+textContent: " \n      "
+wholeText: " \n      "
+[[Prototype]]: Text
+```
+> however, in this styling can be done 
+```bash
+  <script>
+    //target children through parents 
+    var a = document.getElementById("left").lastChild;
+    ✅but #left does not have a child 
+    console.log(a)
+  </script>
+
+console:
+#text
+assignedSlot: null
+baseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"
+childNodes: NodeList []
+data: "A"                  ✅contains no space
+firstChild: null           ✅styling can be done on #left child
+isConnected: true
+lastChild: null
+length: 1
+nextElementSibling: null
+nextSibling: null
+nodeName: "#text"
+nodeType: 3
+nodeValue: "A"
+ownerDocument: document
+parentElement: div#left
+parentNode: div#left
+previousElementSibling: null
+previousSibling: null
+textContent: "A"
+wholeText: "A"
+[[Prototype]]: Text
+```
+#### conclusion: styling cannot be done on firstChild or lastChild
+
+9. nextElementSibling
+10. previousElementSibling
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    var a = document.getElementById("center").nextElementSibling;
+    console.log(a)
+    var b = document.getElementById("center").previousElementSibling;
+    console.log(b)
+  </script>
+
+console:
+div#right  ✅nextElementSibling
+div#left   ✅previousElementSibling
+```
+> adding styling to the targetted elements 
+```bash
+  <body>
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>
+        <div id="center">B</div>
+        <div id="right">C</div> 
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    var a = document.getElementById("center").nextElementSibling.style.background = "yellow";
+    console.log(a)
+    var b = document.getElementById("center").previousElementSibling.style.background = "green";
+    console.log(b)
+  </script>
+
+console:
+yellow
+green 
+
+document:
+#right bg-color is now yellow
+#left bg-color is now green
+```
+11. nextSibling 
+The only difference between nextSibling and nextElementSibling 
+
+> nextElementSibling returns only element nodes 
+> nextSibling returns element + text nodes, since text nodes contains spaces, styling cannot be done over here 
+
+12. previousSibling
+```bash
+    <div id="outer">
+      <h2>Outer</h2>
+      <div id="container">
+        <div id="left">A</div>    ✅previous sibling
+        <div id="center">B</div>
+        <div id="right">C</div>   ✅next sibling
+      </div>
+     
+    </div>
+  </body>
+  <script>
+    var a = document.getElementById("center").nextSibling;     ✅#right
+    console.log(a)
+    var b = document.getElementById("center").previousSibling; ✅#left
+    console.log(b)
+  </script>
+
+console:
+#text
+assignedSlot: null
+baseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"
+childNodes: NodeList []
+data: "\n        "   ✅contains spaces, styling cannot be done 
+firstChild: null
+isConnected: true
+lastChild: null
+length: 9
+nextElementSibling: div#right
+nextSibling: div#right
+nodeName: "#text"
+nodeType: 3
+nodeValue: "\n        "
+ownerDocument: document
+parentElement: div#container
+parentNode: div#container
+previousElementSibling: div#center
+previousSibling: div#center
+textContent: "\n        "
+wholeText: "\n        "
+[[Prototype]]: Text
+
+#textassignedSlot: nullbaseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"childNodes: NodeList []data: "\n        "firstChild: nullisConnected: truelastChild: nulllength: 9nextElementSibling: div#centernextSibling: div#centernodeName: "#text"nodeType: 3nodeValue: "\n        "ownerDocument: documentparentElement: div#containerparentNode: div#containerpreviousElementSibling: div#leftpreviousSibling: div#lefttextContent: "\n        "wholeText: "\n        "[[Prototype]]: Text
+```
+> previousElementSibling returns only element nodes 
+> previousSibling returns element + text nodes, since text nodes contains spaces, styling cannot be done over here 
+
+## DOM Append methods 
+#### I. Only Append Methods:
+1. appendChild 
+appends a child to the last 
+
+2. insertBefore 
+inserts a child anywhere in between 
+
+#### II. Create and Append methods 
+1. insertAdjacentElement
+2. insertAdjacentHTML
+3. insertAdjacentText 
+
+### I. Append Methods
+#### 1. appendChild 
+The appendChild() method appends a node as the last child of a node.
+```bash
+<body>
+  <div id="test"></div>
+</body>
+<script>
+  var newElement = document.createElement("h3") ✅using DOM create methods
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)               ✅appending newText inside newElement
+
+  console.log(newElement)
+</script>
+
+console:
+h3
+accessKey: ""
+align: ""
+ariaAtomic: null
+ariaAutoComplete: null
+ariaBusy: null
+ariaChecked: null
+ariaColCount: null
+...
+innerHTML: "this is a text"
+innerText: "this is a text"
+...
+outerHTML: "<h3>this is a text</h3>"      ✅text appended inside h3 tags 
+outerText: "this is a text"
+...
+virtualKeyboardPolicy: ""
+[[Prototype]]: HTMLHeadingElement
+```
+> appending text to the div #test tag 
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test"></div>
+</body>
+<script>
+  var newElement = document.createElement("h3") 
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)           ✅text appended inside h3 tag   
+  document.getElementById('test').appendChild(newElement)
+  ✅newElement appended inside #test tag 
+  console.log(newElement)
+</script>
+
+console:
+h3
+accessKey: ""
+align: ""
+...
+baseURI: "http://127.0.0.1:5500/main/18-12/domprac.html"
+childElementCount: 0
+childNodes: NodeList [text]
+...
+outerHTML: "<h3>this is a text</h3>"
+outerText: "this is a text"
+ownerDocument: document
+parentElement: div#test       ✅parent: div#test
+parentNode: div#test
+...
+tagName: "H3"
+textContent: "this is a text"
+title: ""
+translate: true
+virtualKeyboardPolicy: ""
+[[Prototype]]: HTMLHeadingElement
+
+document:
+hola 
+this is a text 
+```
+> Note that: appendchild only appends at last
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var newElement = document.createElement("h3") 
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)              
+  document.getElementById('test').appendChild(newElement)
+  console.log(newElement)
+</script>
+
+document:
+hola
+Lorem ipsum dolor sit.
+this is a text
+
+console -> elements -> body -> div#test
+<div id="test">
+   <p>Lorem ipsum dolor sit.</p>
+  <h3>this is a text</h3>    
+  ✅the appended text at last, after the p tags 
+</div>
+```
+> to add elements midway, instead of the last of the list, we use 
+#### 2. insertBefore
+the insertBefore() method to insert a new child node before a specified, existing, child node.
+
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var newElement = document.createElement("h3") 
+  var newText = document.createTextNode("this is a text") 
+  var newComment = document.createComment("this is just a comment")
+
+  newElement.appendChild(newText)   
+
+  var target = document.getElementById('test')
+  document.getElementById('test').insertBefore(newElement, target.childNodes[0] )
+  ✅insert newElement before childNode[0] i.e <p> tag
+
+  ✅syntax:
+  //insertbefore(what you want to insert, in which id want to insert.before which tag you want to insert)
+
+  console.log(newElement)
+</script>
+
+console -> element -> div#test
+<div id="test">
+    <h3>this is a text</h3>      ✅inserts h3 before <p> tag
+    <p>Lorem ipsum dolor sit.</p>
+</div>
+```
+### II. Create & Append Methods
+```bash
+    Tag                     Tag with text                      Text
+  <p></p>                   <p>this is text</p>            this is text
+     |                              |                            |
+     |                              |                            |
+insertAdjacentElement       insertAdjacentHTML           insertAdjacentText    
+(to create only tag and     (to append tag with          (create text and append it)
+append it )                 text inside it )
+```
+##### DOM insertAdjacent positions:
+- beforebegin - appends before the tag begins
+- afterbegin - appends after the tag begins 
+- beforeend - appends before the tag ends 
+- afterend - appends after the tag ends 
+
+> lets suppose this is div tag which contains the text "this is text"
+> we want to append a new tag with text <h1>this is new text</h1>
+```bash
+
+    <h1>this is new text</h1>        ✅appends before tag begins
+   ---------------------------------
+   |<h1>this is new text</h1>      | ✅appends after the tag begins
+   |                               |
+   | [this is text (div tag)]      |
+   |                               |
+   |<h1>this is new text</h1>      | ✅appends before the tag ends
+   ---------------------------------
+    <h1>this is new text</h1>        ✅appends after the tag ends 
+
+```
+#### 3. insertAdjacentElement 
+1. beforebegin position 
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  //creating element
+  var newElement = document.createElement("h2") 
+
+  //creating text node 
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)
+  //this line adds text node inside tag h2
+
+  //append element inside text node 
+  var target = document.getElementById('test')
+  target.insertAdjacentElement('beforebegin', newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+  //adding newElement before div#test starts
+</script>
+
+console -> elements:
+  <h1>hola</h1>
+  <h2>this is a text</h2>  ✅added before div#test
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+```
+2. afterbegin position
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  //creating element
+  var newElement = document.createElement("h2") 
+
+  //creating text node 
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)
+  //this line adds text node inside tag h2
+
+  //append element inside text node 
+  var target = document.getElementById('test')
+  target.insertAdjacentElement('afterbegin', newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+  //adding newElement after div#test starts
+</script>
+
+console -> elements:
+  <h1>hola</h1>
+  <div id="test">
+    <h2>this is a text</h2>         ✅added after div#test
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+```
+3. beforeend position
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  //creating element
+  var newElement = document.createElement("h2") 
+
+  //creating text node 
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)
+  //this line adds text node inside tag h2
+
+  //append element inside text node 
+  var target = document.getElementById('test')
+  target.insertAdjacentElement('beforebegin', newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+  //adding newElement after div#test starts
+</script>
+
+console -> elements:
+  <h1>hola</h1>        
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+    <h2>this is a text</h2>         ✅added before div#test ends
+  </div>
+```
+4. afterend position 
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  //creating element
+  var newElement = document.createElement("h2") 
+
+  //creating text node 
+  var newText = document.createTextNode("this is a text") 
+
+  newElement.appendChild(newText)
+  //this line adds text node inside tag h2
+
+  //append element inside text node 
+  var target = document.getElementById('test')
+  target.insertAdjacentElement('beforebegin', newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+  //adding newElement after div#test starts
+</script>
+
+console -> elements:
+  <h1>hola</h1>        
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+  <h2>this is a text</h2>         ✅added after div#test ends
+```
+### okay let's now see the positioning in all these cases:
+```bash
+1. beforebegin 
+<h1>hola</h1>
+  <h2>this is a text</h2>           ✅added before div#test
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+</div>
+
+2. afterbegin 
+<h1>hola</h1>
+  <div id="test">
+    <h2>this is a text</h2>         ✅added after div#test
+    <p>Lorem ipsum dolor sit.</p>
+</div>
+
+3. beforeend
+<h1>hola</h1>        
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+    <h2>this is a text</h2>         ✅added before div#test ends
+</div>
+
+4. afterend
+<h1>hola</h1>        
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+<h2>this is a text</h2>              ✅added after div#test ends
+```
+#### 4. insertAdjacentHTML
+1. beforebegin position
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  ✅no need to create element and text nodes because insertAdjacentElement provides a way to add both without using createElement or createTextNode method 
+  //var newElement = document.createElement("h2") 
+  //var newText = document.createTextNode("this is a text") 
+
+  //newElement.appendChild(newText)
+  //this line adds text node inside tag h2
+
+  var target = document.getElementById('test')
+
+  //append element inside text node 
+  var newElement = "<h2>this is heading</h2>";
+
+  target.insertAdjacentHTML("beforebegin", newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element
+  <h1>hola</h1>
+  <h2>this is heading</h2>           ✅added before div#test
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+```
+2. afterbegin position 
+```bash 
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newElement = "<h2>this is heading</h2>";
+  target.insertAdjacentHTML("afterbegin", newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+ <h1>hola</h1>
+  <div id="test">                    ✅added after div#test
+  <h2>this is heading</h2>
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+```
+3. beforeend position 
+```bash 
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newElement = "<h2>this is heading</h2>";
+  target.insertAdjacentHTML("beforeend", newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+ <h1>hola</h1>
+  <div id="test">                    
+    <p>Lorem ipsum dolor sit.</p>
+      <h2>this is heading</h2>         ✅added before div#test ends
+  </div>
+```
+4. afterend position 
+```bash 
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newElement = "<h2>this is heading</h2>";
+  target.insertAdjacentHTML("afterend", newElement)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+ <h1>hola</h1>
+  <div id="test">                    
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+  <h2>this is heading</h2>         ✅added after div#test ends
+```
+#### 5. insertAdjacentText
+1. beforebegin 
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newText = "this is heading";
+  target.insertAdjacentHTML("beforebegin", newText)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+  <h1>hola</h1>
+  ✅this is heading               
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+```
+2. afterbegin 
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newText = "this is heading";
+  target.insertAdjacentHTML("afterbegin", newText)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+  <h1>hola</h1>              
+  <div id="test">
+    ✅this is heading 
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+```
+
+3. beforeend
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newText = "this is heading";
+  target.insertAdjacentHTML("beforeend", newText)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+  <h1>hola</h1>              
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+    ✅this is heading 
+  </div>
+```
+
+4. afterend
+```bash
+<body>
+  <h1>hola</h1>
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+</body>
+<script>
+  var target = document.getElementById('test')
+  var newText = "this is heading";
+  target.insertAdjacentHTML("afterend", newText)
+  //insertAdjacentElement('position', 'which parameter your adding?')
+</script>
+
+console -> element:
+  <h1>hola</h1>              
+  <div id="test">
+    <p>Lorem ipsum dolor sit.</p>
+  </div>
+✅this is heading 
+```
+## DOM replace & remove methods 
+```bash
+1. replaceChild()
+to replace text/ element nodes 
+
+2. removeChild()
+to remove existing text/ element nodes 
+```
+1. replaceChild()
+```bash
+<body>
+  <h1>hola</h1>
+  <ul id="list">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+  </ul>
+</body>
+<script>
+  var newElement = document.createElement("li")
+  var newText = document.createTextNode("E")
+
+  //adds E inside <li> tag
+  newElement.appendChild(newText)
+
+  var target = document.getElementById("list")
+  ✅replace A with E 
+  
+  var oldElement = target.children[0]
+  //console.log(oldElement) //console:A
+
+  target.replaceChild(newElement, oldElement)
+  //replaceChild("new element", "element you want to replace")
+  //replaceChild(E, A)
+
+</script>
+
+console -> elements:
+<ul id="list">
+    <li>E</li>      ✅E replaced A
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+  </ul>
+
+document:
+hola
+*E
+*B
+*C
+*D
+```
+2. removeChild()
+```bash
+<body>
+  <h1>hola</h1>
+  <ul id="list">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+  </ul>
+</body>
+<script>
+
+  //remove child at 0'th index 
+  var target = document.getElementById("list")
+  
+  var oldElement = target.children[0]
+  //console.log(oldElement)   console:A
+
+  target.removeChild(oldElement)
+</script>
+
+console -> elements:
+<ul id="list">     ✅child at 0'th index removed
+    <li>B</li>  
+    <li>C</li>
+    <li>D</li>
+  </ul>
+
+document:
+hola
+*B
+*C
+*D
+```
+## DOM cloneNode()
+copy an element/ text node from one list and paste it in another list 
+
+> Properties of cloneNode:
+1. cloneNode(false) - copies tag only, not the inner text inside it 
+2. cloneNode(true) - copies tag + innertext
+```bash
+<body>
+  <h1>hola</h1>
+  <ul id="list1">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+  </ul>
+
+  <ul id="list2">
+    <li>A</li>
+    <li>B</li>
+  </ul>
+</body>
+<script>
+  //we want to copy <li>C</li> from #list1 and paste it in #list2
+  var target = document.getElementById('list1').children[2]
+
+  //cloning
+  var copyElement = target.cloneNode(true)
+
+  //console.log(copyElement)   //console: <li>C</li>
+
+  //to append in #list2
+  document.getElementById('list2').appendChild(copyElement)
+</script>
+
+console -> elements
+<ul id="list2">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>   ✅C is added to #list2
+</ul>
+
+document:
+hola
+*A
+*B
+*C       ✅C copied from #list1
+*D
+
+*A
+*B
+*C       ✅C copied to #list2
+```
+## DOM contains()
+returns boolean value indicating whether a node is a descendant of a given node
+
+> If the node is not a descendant (child/grandchild) of the parent node, contains returns false 
+```bash
+<body>
+  <div id="test">
+    <h2>Lorem ipsum dolor, sit amet consectetur</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima!</p>
+    <p id="xyz">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptatibus.</p>
+  </div>
+</body>
+<script>
+   //targetting parent element 
+   var parentElement = document.getElementById('test')
+
+   //to target 
+   var target = document.getElementById('abc')
+
+   //is #abc existing in #test or not ?
+   var find = parentElement.contains(target)
+   console.log(find)
+   
+   ✅returns false because #abc is not present in #test
+</script>
+
+console:
+false 
+```
+> If the node is a descendant (child/grandchild) of the parent node, contains returns false 
+```bash
+<body>
+  <div id="test">
+    <h2>Lorem ipsum dolor, sit amet consectetur</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima!</p>
+
+    ✅#xyz is a child of #test
+    <p id="xyz">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptatibus.</p>
+  </div>
+</body>
+<script>
+   //targetting parent element 
+   var parentElement = document.getElementById('test')
+
+   //to target 
+   var target = document.getElementById('xyz')
+
+   //is #xyz existing in #test or not ?
+   var find = parentElement.contains(target)
+   console.log(find)
+   
+   ✅returns true because #xyz is present in #test
+</script>
+
+console:
+true
+```
+## hasAttribute() & hasChildNodes()
+1. hasAttribute()
+returns a Boolean value indicating whether the specified element has the specified attribute or not.
+
+> returns false, if hasAttribute couldn't find the targetted attribute in the same level in which we are searching for 
+```bash
+<body>
+  <div id="test">
+    <h2>Lorem ipsum dolor, sit amet consectetur</h2>
+    <p class="abc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima!</p>
+    <p id="xyz">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptatibus.</p>
+  </div>
+</body>
+
+<script>
+   //targetting the variable 
+   var target = document.getElementById('test')
+
+   //does class exist in the #test ?
+   var find = target.hasAttribute('class')
+   console.log(find) //console:false
+
+   ✅returns false, because it couldnt find a class attribute in the same line as #test
+</script>
+
+console:
+false
+```
+> returns true, if hasAttribute could find the targetted attribute in the same level in which we are searching for 
+```bash
+<body>
+  <div id="test" class="abc">
+  ✅#test and .abc are on the same level 
+    <h2>Lorem ipsum dolor, sit amet consectetur</h2>
+    <p class="abc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima!</p>
+    <p id="xyz">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptatibus.</p>
+  </div>
+</body>
+<script>
+   //targetting the variable 
+   var target = document.getElementById('test')
+
+   //does class exist in the #test ?
+   var find = target.hasAttribute('class')
+   console.log(find) //console:true
+
+   //returns true, because it could find a class attribute in the same line as #test
+</script>
+
+console:
+true 
+```
+2. hasChildNodes()
+boolean value which signifies whether the parent has a childNode or not 
+
+> when parent has childNodes, hasChildNodes() returns true  
+```bash
+<body>
+  <div id="test" class="abc">
+    <h2>Lorem ipsum dolor, sit amet consectetur</h2>
+    <p class="abc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima!</p>
+    <p id="xyz">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, voluptatibus.</p>
+  </div>
+</body>
+<script>
+   //targetting the variable 
+   var target = document.getElementById('test')
+
+   ✅does #test contain childNodes or not?
+   var find = target.hasChildNodes()
+   console.log(find) //console: true
+
+</script>
+
+console:
+true 
+```
+> when parent has no childNodes, hasChildNodes() returns false 
+```bash
+<body>
+  <div id="test" class="abc"></div>
+  ✅Make sure there are no spaces between these div tags, otherwise the console output would be true, even though these div tags have no child, because then, it will consider the white spaces.
+
+</body>
+<script>
+   //targetting the variable 
+   var target = document.getElementById('test')
+
+   //does #test contain childNodes or not?
+   var find = target.hasChildNodes()
+   console.log(find) //console: false 
+
+</script>
+
+console:
+false 
+```
+## DOM isEqualNode()
+we want to compare an element of one list, with an element of another list and check if its same or not, isEqualNode() returns a boolean value
+```bash
+  list 1                  list 2
+* Orange                * Orange 
+* Banana                * pineapple 
+* grapes 
+
+- is the childNode[0] of list1 = childNode[0] of list2?
+```
+> basics:
+#### Attribute VS element VS tag
+```bash
+<div id="something" class="" onclick="">
+  <p>  </p>
+</div>
+```
+
+#### Attribute
+additional properties which are part of your html element
+
+- provides additional information about the tag 
+- contains name= "value"
+- case insensitive 
+- attributes can only be used inside tags 
+```bash
+   <hr color="red">
+   [attribute name = "attribute value"]
+```
+
+#### Element 
+(start tag + text + end tag)
+```bash
+<div id="something" class="" onclick="">  ✅div element
+  <p>  </p>
+</div>
+```
+- everything inside opening and closing tag is element.
+- element contains stuff between the tags
+- element can have children 
+
+#### Tag 
+```bash
+<div id="something" class="" onclick="">  ✅div opening tag
+  <p>  </p>
+</div>                                    ✅div closing tag
+```
+- anything between <> (angular brackets)
+- tag are used to hold html element 
+- tag is singular 
+
+two types of tags:
+1. container tag/ paired tag
+- contains opening and closing tag (eg: <p></p>)
+2. empty tag 
+- contains only opening tag (eg: <br>, <hr>)
+
+```bash
+✅What is node?
+
+Every object in the DOM is a node 
+Node is a DOM object
+- text node: text inside the tags 
+- comment node: comments made in the document 
+- element node: <p></p> / <li></li> / <div></div>
+- attribute node:  id / class
+
+✅What is an attribute?
+<body>
+  <div>
+    <p>hello para</p>
+  </div>
+  <h2 id="myh2" class="myclass" title="somedata">hello</h2>
+</body>
+<script>
+  //accessing the id 
+  var h = document.getElementById('myh2')
+  //what are attributes inside h 
+  console.log(h.attributes)
+  //returns the collection of its attribute collection
+
+</script>
+
+console:
+NamedNodeMap
+0: id      ✅attribute node = attribute name: attribute value
+1: class   ✅attribute node
+2: title   ✅attribute node 
+
+class: class
+id: id
+title: title
+length: 3
+[[Prototype]]: NamedNodeMap
+✅The attributes property returns a collection of the specified node's attributes, as a NamedNodeMap object.
+✅each of these nodes defined inside this NamedNodemap is an attribute node 
+✅In itself, id, class are element nodes, but wrt the attribute property it is, and attribute node 
+```
+> Properties of Node object:
+1. nodeName
+2. nodeValue
+3. nodeType 
+```bash
+1. nodeName 
+The nodeName property returns the name of the specified node.
+
+   Node:                     NodeName property will return
+   Element nodes             Tag name (p / div)
+   Attribute nodes           name of attribute (id / class)
+   Text nodes                name of text node 
+   Comment nodes             name of comment node
+
+This property is read-only.
+
+<body>
+  <div>
+    <p id="para" >hello para
+    </p>
+  </div>
+  <h2 id="myh2" class="myclass" title="somedata">hello</h2>
+  
+</body>
+<script>
+✅element node
+var h = document.getElementById('myh2')
+console.log(h.nodeName)          ✅h2 (returns the tag name)
+
+✅attribute node 
+var k = document.getElementById('para').attributes[0] //id#para
+console.log(k.nodeName)          ✅id (attribute name)
+
+✅text node 
+var l = document.getElementById('para').childNodes[0]
+console.log(l.nodeName)          ✅#text (name of text node)
+</script>
+
+2. nodeValue 
+The nodeValue property sets or returns the node value of the specified node. Alternative to textContent.
+If the node is an element node, the nodeValue property will return null.
+
+<body>
+  <div>
+    <p id="para" >hello para
+    (attribute node = attribute name: attribute value)
+
+    attributename/ node name = id
+    attributevalue/ node value = para
+    </p>
+  </div>
+  <h2 id="myh2" class="myclass" title="somedata">hello</h2>
+  
+</body>
+<script>
+<script>
+  ✅element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeName)         //h2 (returns the tag name)
+  console.log(h.nodeValue)        ✅null
+
+  ✅attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeName)         //id (attribute name)
+  console.log(k.nodeValue)        ✅para (attribute value)
+   
+  ✅text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l.nodeName)         //#text (name of text node)
+  console.log(l.nodeValue)        ✅hello para 
+
+  console.log(l.textContent)      ✅hello para 
+</script>
+
+3. nodeType
+The nodeType property returns the node type, as a number, of the specified node.
+
+   Node:                     NodeType property will return
+   Element node              1 
+   Attribute node            2
+   Text node                 3
+   Comment node              8
+
+This property is read-only.
+
+<body>
+  <div>
+    <p id="para" >hello para
+    </p>
+  </div>
+  <h2 id="myh2" class="myclass" title="somedata">hello</h2>
+  
+</body>
+<script>
+  ✅element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeType)         ✅1   (element node)
+
+  ✅attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeType)         ✅2   (attribute node)
+   
+  ✅text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l.nodeType)         ✅3 (text node)
+</script>
+```
+> here is the entire code 
+```bash
+<body>
+  <div>
+    <p id="para" >hello para </p>
+  </div>
+  <h2 id="myh2" class="myclass" title="somedata">hello</h2>
+  
+</body>
+<script>
+  ✅element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeName)  //h2 (returns the tag name)
+  console.log(h.nodeValue) //null
+  console.log(h.nodeType)  //1   (element node)
+
+  ✅attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeName)  //id (attribute name)
+  console.log(k.nodeValue) //para (attribute value)
+  console.log(k.nodeType)  //2   (attribute node)
+   
+  ✅text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l)
+  console.log(l.nodeName)  //#text (name of text node)
+  console.log(l.nodeValue) //hello para 
+  console.log(l.nodeType)  //3 (text node)
+</script>
+
+```
+
+> Criteria on which boolean value is decided and comparsion of 2 nodes, is done on the following criteria 
+- same NodeType 
+- same NodeName
+- same NodeValue 
+- same childNodes 
+- same attributes
+
+1. nodeType 
+both the lists must be of the same nodetype. Nodetype is decided according to its boolean property 
+
+In a broad sense, it categorizes the type of the node, 
+whether its an element node (could be li, p, div tags) or attribute node (could be id or class) or text node
+
+> not that, broadly h2 and p are element tags 
+```bash
+  ✅element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeType)  //1   (element node)
+
+  var h = document.getElementById('para')
+  console.log(h.nodeType)  //1   (element node)
+
+  ✅attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeType)  //2   (attribute node)
+   
+  ✅text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l.nodeType)  //3 (text node)
+```
+2. nodeName 
+both the lists must be of the same nodeName, both must be embedded in the same tag
+
+> here is an example of what nodename returns:
+```bash
+  ✅element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeName)  //h2 (returns the tag name)
+
+  var h = document.getElementById('para')
+  console.log(h.nodeName)  //p (returns the tag name)
+
+  ✅attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeName)  //id (attribute name)
+  
+  ✅text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l.nodeName)  //#text (name of text node)
+```
+3. nodeValue 
+both the lists must return the same nodeValue 
+
+> example 
+```bash
+  ✅element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeValue) //null
+
+  var h = document.getElementById('para')
+  console.log(h.nodeValue) //null
+
+  ✅attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeValue) //para (attribute value)
+  
+  ✅text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l.nodeValue) //hello para 
+```
+4. childNodes 
+both of the lists must have the same duplicate childnodes
+
+```bash
+var h = document.getElementById('para').childNodes
+console.log(h)
+
+console:
+NodeList [text]
+0: text
+length: 1
+[[Prototype]]: NodeList 
+```
+5. same attribute name and attribute value 
+both of them must have the same attribute with matching attribute name and attribute values  
+
+```bash
+Attribute node = attribute name: attribute value 
+                 id : "idname"
+```
+> isEqualNode()
+The isEqualNode() method checks if two nodes are equal and returns a boolean value 
+
+-  isEqualNode() returns false when the element were comparing in both lists is not equal 
+```bash
+<body>   
+    <ul id="list1">
+        <li>orange</li>
+        <li>banana</li>
+        <li>apple</li>
+        <li>grapes</li>
+    </ul>
+
+    <ul id="list2">
+        <li>Guava</li>
+        <li>orange</li>
+        <li>pineapple</li>
+    </ul>
+</body>
+<script>
+    ✅compare childnode[0] of list1 with childnode[0] of list2
+
+    ✅targetting childnode[0] of list1
+    var target1 = document.getElementById('list1').firstElementChild
+
+    ✅targetting childnode[0] of list1
+    var target2 = document.getElementById('list2').firstElementChild
+
+    var equal = target1.isEqualNode(target2)
+    console.log(equal)  
+    ✅returns false because they are not equal 
+</script>
+
+console:
+false 
+```
+- isEqualNode() returns true when the element were comparing in both lists is equal 
+```bash
+<body>   
+    <ul id="list1">
+        <li>orange</li>
+        <li>banana</li>
+        <li>apple</li>
+        <li>grapes</li>
+    </ul>
+
+    <ul id="list2">
+        <li>orange</li>
+        <li>guava</li>
+        <li>pineapple</li>
+    </ul>
+</body>
+<script>
+    ✅compare childnode[0] of list1 with childnode[0] of list2
+
+    ✅targetting childnode[0] of list1
+    var target1 = document.getElementById('list1').firstElementChild
+
+    ✅targetting childnode[0] of list1
+    var target2 = document.getElementById('list2').firstElementChild
+
+    var equal = target1.isEqualNode(target2)
+    console.log(equal)  
+    ✅returns true because they are equal 
+</script>
+
+console:
+true
+```
+> while isEqualNode is used to compare 2 nodes, and identify whether they are replicas of each other, in every possible way but in 2 different lists
+
+> isSameNode is used to compare 2 nodes in the same list, to identify whether they are in the same node level, i.e in the same element 
+
+### isSameNode()
+> comparing childnode[0] of list1 with childnode[0] of list1
+```bash
+<body>   
+    <ul id="list1">
+        <li>orange</li>
+        <li>banana</li>
+        <li>apple</li>
+        <li>grapes</li>
+    </ul>
+
+    <ul id="list2">
+        <li>orange</li>
+        <li>apple</li>
+        <li>pineapple</li>
+    </ul>
+</body>
+<script>
+    ✅compare childnode[0] of list1 with childnode[0] of list1
+
+    ✅targetting childnode[0] of list1
+    var target1 = document.getElementById('list1').childNodes[0]
+
+    ✅targetting childnode[0] of list1
+    var target2 = document.getElementById('list1').childNodes[0]
+
+    var equal = target1.isSameNode(target2)
+    console.log(equal)  
+    ✅returns true because they are same and in the same list 
+</script>
+
+console:
+true 
+```
+> comparing childnode[0] of list1 with childnode[0] of list2
+```bash
+<body>   
+    <ul id="list1">
+        <li>orange</li>
+        <li>banana</li>
+        <li>apple</li>
+        <li>grapes</li>
+    </ul>
+
+    <ul id="list2">
+        <li>orange</li>
+        <li>apple</li>
+        <li>pineapple</li>
+    </ul>
+</body>
+<script>
+    ✅compare childnode[0] of list1 with childnode[0] of list2
+
+    ✅targetting childnode[0] of list1
+    var target1 = document.getElementById('list1').childNodes[0]
+
+    ✅targetting childnode[0] of list2
+    var target2 = document.getElementById('list2').childNodes[0]
+
+    var equal = target1.isSameNode(target2)
+    console.log(equal)  
+    ✅returns false because they might look the same, but they are in 2 seperate lists
+</script>
+
+console:
+false 
+```
+
+### What are events?
+Any actions that you perform or any occurrence on the browser is an event.
+
+> eg:
+- clicking on a button
+- The user selects a certain element or hovers the cursor over a certain element.
+- The user chooses a key on the keyboard.
+- The user resizes or closes the browser window.
+- A web page finishes loading.
+- A form is submitted.
+- A video is played, paused, or finishes.
+- An error occurs.
+
+> Note: Web events are not part of the core JavaScript language — they are defined as part of the APIs built into the browser.
+
+### For every event, there must be a response, which is curated through event handlers 
+
+### What is event handler?
+When an event is occured, event handlers are triggered. 
+Given below are a bunch of basic JS events, when we ***perform an event, like clicking on the button*** 
+by using ***event attribute called onclick***
+then the event handler (the snippet of code the onclick event is defined in).
+When an event handler is defined in the code, its called ***registering an event handler***
+
+### Types of event handlers
+1. Inline/ HTML event handlers 
+JS and html are in the html document.
+2. Traditional DOM event handlers 
+Js and html are in seperate documents
+3. addeventlisteners and removeeventlisteners 
+4. Using parameters with event handlers and listeners 
+
+## 1. JS basic events / event attributes / browser events / Inline/HTML Event Handlers
 
 ### Button events 
 1. Click 
@@ -4502,11 +7472,12 @@ when we call an event, function will be run
 12. Resize 
 13. Scroll 
 
-
 ## 1. click
 **onclick* 
 > On clicking on the button, the function will be loaded 
 
+- event: clicking on the button 
+- event handler: executed when you click on the button 
 ```bash
 <script>
 <head>
@@ -4618,447 +7589,79 @@ whenver we scroll the event will be called
 
 </body>
 ```
-# New DOM Targetting methods:
-## 1. querySelector- Targets the first element in css selector
-    document.querySelector(CSS Selector)
-
-## 2. querySelectorAll(CSS Selector)- Targets all elements in css selector
-    document.querySelectorAll(CSS Selector)
-
-Using this example
-```bash
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM</title>
-    
-</head>
-<body>
-    <div id="wrapper">
-        <div id="header" class="abc" style="border: 1px solid red;">
-            <h1>heading</h1>
-        </div>
-        <div id="menu">
-            <ul id="list">
-                <li><a href="">home</a></li>
-                <li><a href="">about us</a></li>
-                <li><a href="">contact</a></li>
-            </ul>
-
-            <ul class="list">
-                <li>Lorem, ipsum dolor.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet consectetur.</li>     
-            </ul>
-
-            <p class="list">para Lorem ipsum dolor sit amet.</p>
-        </div>
-        <div id="content">
-            <h2>sub heading</h2>
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-        </div>
-    </div>
-</body>
-<script>
-    var element; 
-    document.getElementById("header").innerHTML = "<h1>WoW</h1>";
-    //changes heading to wow with the same styling as before, 
-    //in innertext we cannot set the styling
-
-    element = document.getElementById("header").getAttribute("class");
-    //In the ID:header there is a class, what is its attribute
-    console.log(element)  //abc
-</script>
-
-console:
-abc
-```
-
-## 1. Using querySelector
-Targets the first target 
-
-doing this problem using query selector 
-```bash
-<script>
-    var element; 
-    document.querySelector("#header").innerHTML = "<h1>WoW</h1>";
-   //adding # to specify id 
-
-    element = document.querySelector("#header").getAttribute("class");
-    
-    console.log(element)
-</script>
-
-console:
-abc
-```
-## 2. Using querySelectorAll
-Targets all the elements in that attribute
-
-``bash
-<script>
-    var element; 
-
-    element = document.querySelectorAll(".list")[0].innerText;
-    //extracting innertext from the 0th index of the list 
-    //there is ul and p with the same classname .list 
-    //shown in the next example 
-    console.log(element)
-
-</script>
-
-console:
-Lorem, ipsum dolor.
-Lorem ipsum dolor sit amet.
-Lorem ipsum dolor sit amet consectetur.
-```
-### In case of querySelectorAll it returns all the attributes with the same class name
-
-```bash
-<script>
-    var element; 
-    element = document.querySelectorAll(".list");
-    console.log(element)
-
-</script>
-
-console:
-NodeList(2) [ul.list, p.list]
-0: ul.list
-1: p.list
-length: 2
-[[Prototype]]: NodeList
-```
-
-### However, querySelector returns only the first class with the given attribute 
-note that its only returning the innertext of the ul.list 
-
+> an example using basic js events 
 ```bash 
-<script>
-    var element; 
-
-    element = document.querySelector(".list").innerText;
-    //query selector targets the first one only 
-    
-    console.log(element)
-
-</script>
-
-console:
-Lorem, ipsum dolor.
-Lorem ipsum dolor sit amet.
-Lorem ipsum dolor sit amet consectetur.
-```
-
-## DOM CSS Styling Methods 
-we can get and set css values with these methods 
-
-### 1. Style 
-
-#### 1.1 Using style to get the element's style 
-```bash
-<script>
-    var element; 
-    element = document.querySelector("#header").style.border;
-    console.log(element)
-</script>
-
-console:
-1px solid red
-```
-
-#### 1.2 Using style to set the element's style 
-```bash 
-<body>
-    <div id="wrapper">
-        <div id="header" class="abc" style="border: 1px solid red; background-color: aquamarine;">
-            <h1>heading</h1>
-        </div>
-        <div id="menu">
-            <ul id="list">
-                <li><a href="">home</a></li>
-                <li><a href="">about us</a></li>
-                <li><a href="">contact</a></li>
-            </ul>
-
-            <ul class="list">
-                <li>Lorem, ipsum dolor.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet consectetur.</li>
-               
-            </ul>
-            <p class="list">para Lorem ipsum dolor sit amet.</p>
-        </div>
-
-        <div id="content">
-            <h2>sub heading</h2>
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-        </div>
-    </div>
-</body>
-<script>
-    var element; 
-
-    // to set the style 
-    document.querySelector('#header').style.backgroundColor = "tan";
-
-    // to get the style on console 
-    element = document.querySelector("#header").style.backgroundColor;  
-    console.log(element)
-
-</script>
-
-console:
-tan 
-```
-#### 2. className
-Adds a class to a particular id.
-
-```bash
-<style>
-        .abc{
-            background-color: crimson;
+    <style type="text/css">
+        button{
+          max-width: auto;
+          border: 3px solid black;
+          font-size: xx-large;
+          margin: auto;
         }
-    </style>
+      </style>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="header"  style="border: 1px solid red;>
-            <h1>heading</h1>
-        </div>
-        <div id="menu">
-            <ul id="list">
-                <li><a href="">home</a></li>
-                <li><a href="">about us</a></li>
-                <li><a href="">contact</a></li>
-            </ul>
-
-            <ul class="list">
-                <li>Lorem, ipsum dolor.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet consectetur.</li>
-               
-            </ul>
-            <p class="list">para Lorem ipsum dolor sit amet.</p>
-        </div>
-
-        <div id="content">
-            <h2>sub heading</h2>
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-        </div>
-    </div>
+    <button onclick = "changeColor()">DataFlair</button> 
+    <p></p>
+  
 </body>
 <script>
-    var element; 
-    document.querySelector('#header').className = "abc"
-    //a new class abc is created where the id:header 
-    //we have set the styling for this new class
+        function changeColor(){
 
-    element = document.querySelector("#header").className;
-   
-    console.log(element)
+        document.querySelector("button").style.backgroundColor = "blue"; //change background color
 
+        document.querySelector("button").style.color = "white"; //change font color
+
+        document.querySelector("p").innerHTML = "Great! The button changed its color." //add text
+      } 
 </script>
 
-console:
-abc
-
-output returned in the form of a string
-```
-#### 3. classList 
-In case of className console output was returned in form of a string, 
-however, in classList output on console is returned in the form of an array 
-
-```bash 
-<script>
-    var element; 
-    document.querySelector('#header').classList = "abc"
-
-    element = document.querySelector("#header").classList;
-   
-    console.log(element)
-
-</script>
-
-console:
-output returned in form of array
-```
-
-##### 3.1 Methods of classList 
-###### 1. Add 
-adds classes 
-```bash 
-<script>
-    var element; 
-    document.querySelector('#header').classList.add("xyz");
-
-    document.querySelector('#header').classList.add("abc");
-
-    //to add more than 2 classes in the same line 
-    //document.querySelector('#header').classList.add("xyz", "efg");
-
-    element = document.querySelector("#header").classList;
-   
-    console.log(element)
-
-</script>
-
-console: added 2 classes
-DOMTokenList(2) ['xyz', 'abc', value: 'xyz abc']
-0: "xyz"
-1: "abc"
-length: 2
-value: "xyz abc"
-[[Prototype]]: DOMTokenList
-```
-###### 2. Remove 
-removes class 
-```bash 
-<script>
-    var element; 
-    document.querySelector('#header').classList.add("xyz");
-
-    document.querySelector('#header').classList.add("abc");
-
-    document.querySelector('#header').classList.remove("abc");
-
-    element = document.querySelector("#header").classList;
-   
-    console.log(element)
-
-</script>
-
-console:
-DOMTokenList ['xyz', value: 'xyz']
-0: "xyz"
-length: 1
-value: "xyz"
-[[Prototype]]: DOMTokenList
-```
-###### 3. length 
-how many classes are there in that specific id
-```bash 
-<script>
-var element; 
-document.querySelector('#header').classList.add("xyz", "efg");
-element = document.querySelector('#header').classList.length;
-//how many classes are there in total?
-
-console.log(element)
-</script>
-
-console:
-2
-```
-
-###### 4. item(index)
-shows attribute based on their index 
-```bash 
-    <style>
-        .abc{
-            background-color: crimson;
-        }
-    </style>
-</head>
-<body>
-    <div id="wrapper">
-        <div id="header" class="abc xyz efg" style="border: 1px solid red;">
-            <h1>heading</h1>
-        </div>
-        <div id="menu">
-            <ul id="list">
-                <li><a href="">home</a></li>
-                <li><a href="">about us</a></li>
-                <li><a href="">contact</a></li>
-            </ul>
-
-            <ul class="list">
-                <li>Lorem, ipsum dolor.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet consectetur.</li>
-               
-            </ul>
-            <p class="list">para Lorem ipsum dolor sit amet.</p>
-        </div>
-
-        <div id="content">
-            <h2>sub heading</h2>
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-
-            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, reprehenderit!</p>
-        </div>
-    </div>
-</body>
-<script>
-var element; 
-
-element = document.querySelector('#header').classList.item(1);
-//shows the first class 
-console.log(element)
-</script>
-
-console:
-xyz
-```
-## DOM Create Methods
-#### 1. createElement
-   to add a tag such as <p> in html using JS
-#### 2. createTextNode 
-   to add a text in html using Js
-#### 3. createComment
-   to add a comment <!-- --> in html using JS
-
-```bash
-<script>
-       var newElement = document.createElement("p");
-       //p - creates a paragragh tag
-       console.log(newElement);
-
-       var newText = document.createTextNode("this is text");
-       //no word limit for inserting text
-       console.log(newText);
-
-       var newComment = document.createComment("this is a comment");
-       console.log(newComment);
-</script>
-
-console:
-<p></p>
-"this is text"
-<!--this is a comment -->
+document:
+when we click on the button, the bg-color of the button changes to blue, and the message "Great! The button changed its color." is printed below it 
 ```
 
 ## Drawback of Basic JS Events 
-A drawback from the Basic JS event handlers, was that for adding html event attributes 
-you would have to manually use it on every element in the html file, 
-so in order to make our JS events completely in the js file, we can use js addEventListener
+A drawback from the Basic JS event events, was that for adding html event attributes 
+> you would have to manually use it on every element in the html file,
+> so in order to make our JS events completely in the js file, we can use these other event handlers:
 
-## DOM Add Event Listeners 
-Drawback of using basic Js events/ event handlers, was that for every attribute you'd have 
-to set the events on the html file itself inline, which increases file length 
-So to keep the JS code in Js file itself, we follow either of 2 ways 
+### So to keep the JS code in Js file itself, we follow either of 2 ways 
+#### 1. Assign events using HTML DOM
+##### Traditional DOM event handlers 
+This method separates JavaScript from the HTML, thus is preferred over Inline event handlers. All the major browsers support this approach
 
-### 1. Assign events using HTML DOM
+> for any event (say onclick), you can attach only one function 
+```bash  
+    <style type="text/css">
+        button{
+          max-width: auto;
+          border: 3px solid black;
+          font-size: xx-large;
+          margin: auto;
+        }
+      </style>
+</head>
+<body>
+    <button onclick = "changeColor()">DataFlair</button> 
+    <p></p>
+  
+</body>
+<script>
+        var btn = document.querySelector("button");
+      function changeColor(){
+        btn.style.backgroundColor = "blue"; //change background color
+        btn.style.color = "white"; //change font color
+        document.querySelector("p").innerHTML = "Great! The button changed its color." //add text
+      }
+
+      btn.onclick = changeColor; ✅traditional DOM Event handler
+</script>
+```
+> another example
 ```bash
 document.getElementById(id).onclick = functioncall;
 ```
+
 When you click on the id:header, the bg-color will change to green
 ```bash 
 <script>
@@ -5072,8 +7675,21 @@ When you click on the id:header, the bg-color will change to green
 
 </script>
 ```
+#### 2. Assign events using eventlistener
+## DOM Event Listeners 
+Drawback of using basic Js events/ event handlers, was that for every attribute you'd have 
+to set the events on the html file itself inline, which increases file length 
 
-### 2. DOM addEventListener() Method 
+Unlike traditional DOM event handlers, eventlisteners allow a single event to trigger multiple functions. 
+
+> Event listener listens for the event that is happening
+
+### There are 2 types of event listeners
+1. addeventlisteners
+2. removeeventlisteners
+
+#### 1.1 DOM addEventListener() Method 
+The document.addEventListener() method attaches a basic js event to the document.
 ```bash 
 document.getElementById(Id).addEventListener("click", function(){}
 );
@@ -5086,6 +7702,39 @@ This code using addEventListener, does the same thing as the previous code
 
 > anonymous function: function which has no name/ identifier 
 
+### addeventlistener
+> example 1 
+```bash
+    <style type="text/css">
+        .button{
+          max-width: auto;
+          border: 3px solid black;
+          font-size: xx-large;
+          margin: auto;
+        }
+      </style>
+</head>
+<body>
+    <button class = "button" >DataFlair</button>   
+    ✅removes onclick="changeColor() from this line 
+    <p></p>
+  
+</body>
+<script>
+      var btn = document.querySelector(".button");
+      function changeColor(){
+        btn.style.backgroundColor = "blue"; //change background color
+        btn.style.color = "white"; //change font color
+        document.querySelector("p").innerHTML = "Great! The button changed its color." //add text
+      }
+
+    
+      btn.addEventListener('click', changeColor); ✅addeventlistener 
+</script>
+
+```
+
+> example 2
 ```bash 
 <script>
     var element; 
@@ -5097,8 +7746,45 @@ This code using addEventListener, does the same thing as the previous code
     }
 
 </script>
+
+document:
+when you click on the button bg-color turns blue and the message is printed
 ```
-An example with the function defined insidethe html object itself 
+### removeeventlistener 
+this method is used to remove the addeventlistener, this is done by using the same arguments given when event was added 
+```bash 
+    <style type="text/css">
+        .button{
+          max-width: auto;
+          border: 3px solid black;
+          font-size: xx-large;
+          margin: auto;
+        }
+      </style>
+</head>
+<body>
+    <button class = "button" >DataFlair</button>   
+    <p></p>
+  
+</body>
+<script>
+      var btn = document.querySelector(".button");
+      function changeColor(){
+        btn.style.backgroundColor = "blue"; //change background color
+        btn.style.color = "white"; //change font color
+        document.querySelector("p").innerHTML = "Great! The button changed its color." //add text
+      }
+
+    
+      btn.addEventListener('click', changeColor);
+      btn.removeEventListener('click', changeColor); ✅removeeventlistener
+</script>
+
+document:
+on clicking the button, no change shown 
+```
+## 4. Using parameters with event handlers and listeners 
+An example with the function defined inside the html object itself 
 ```bash 
 As you hover over the id:header it will change bg-color 
 
@@ -5123,27 +7809,100 @@ Using this keyword
 </script>
 ```
 
-
 ### Discusing DOM, BOM and CSSOM 
+
+## What is BOM?
+- its a window object 
+- manipulating browser will be done via BOM
+- parent of DOM 
+
 parent of DOM IS BOM 
 > anything in DOM is part of BOM 
 
-```bash 
-   BOM 
-    | 
-   DOM   +   CSSOM  => RENDER TREE 
-```
-## DOM 
-contains all the content of the page 
-**changes properties of html document** 
-eg: onclick, src, class, value, type, id, listeners, target, name 
+- This is the difference between window and document object 
+![](images2.PNG)
 
-also contains content 
+#### window object 
+The window object is supported by all browsers. It represents the browser's window.
+
+All global JavaScript objects, functions, and variables automatically become members of the window object.
+
+> A document window is a section of the screen used to display the contents of a document file on a GUI (graphical user interface) operating system. the object of document window is called the document object
+
+> window object properties:
+1. document 
+2. innerHeight
+3. innerWidth
+(discussed in detail below)
+
+#### document object 
+When an HTML document is loaded into a web browser, it becomes a document object.
+
+> The document object is the root node of the HTML document.
+> The document object is a property of the window object.
+
+> The document object is accessed with:
+window.document or just document
+
+1. document 
+```bash
+console:
+#document
+```
+
+2. window 
+```bash
+console:
+Window {0: global, window: Window, self: Window, document: document, name: '', location: Location, …}
+```
+
+3. window.document 
+```bash
+#document 
+```
+
+4. window.document == document 
+```bash
+console:
+true 
+```
+
+## DOM 
+it is a set of APIs allowing the manipulation of HTML from JavaScript
+
+> set of API - **communicating JS with HTML objects** 
+
+- its a global object used to manipulate the nodes on webpage 
+- its a tree like structure with which we can manipuate the nodes
+
+> JS - node we say, when we talk about JS point of view 
+> HTML - element we say when we talk about HTML point of view 
+
+
+DOM enables a document’s structure and content to be read and modified from JavaScript
+
+atructure comprimises of:
+1. all the properties and attributes of the page:
+> eg: 
+- onclick (event attribute)
+- src (attribute)
+- class
+- value (property)
+- type (property)
+- id
+- eventlisteners 
+- target (event property)
+- name 
+
+All of the properties, methods, and events available for manipulating and creating web pages are organized into objects in the DOM 
+
+2. content 
 > eg: innerText, innerHTML, children, grandchildren
 
 ## CSSOM 
 contains all style of the page 
 **On html dom, style is done using CSSOM**
+
 The CSS Object Model is a set of APIs allowing the manipulation of CSS from JavaScript. It is much like the DOM, but for the CSS rather than the HTML.
 
 > eg: margin, padding, color, border etc 
@@ -5157,7 +7916,22 @@ document.body.style.backgroundColor = 'lightblue';
 contains everything that is rendered on the page 
 (structure + style)
 
+- displaying document on the viewport (where content is displayed)
+- showing data and styling/ Displaying the render tree on the viewport 
+
 (only captures/ renders visible content from the CSSOM)
+
+```bash 
+   BOM 
+    | 
+   DOM   +   CSSOM  => RENDER TREE 
+```
+### How is Render Tree Parsed?
+whenever we load a page:
+1. html document (DOM) is loaded
+2. while parsing the engine will find css file which will create CSSOM 
+3. js file is parsed and added to DOM 
+4. finally they are combined in render tree, which is rendered/ displayed on the viewport 
 
 ## BOM (browser object model)
 **changes property of browser** 
@@ -7335,6 +10109,7 @@ Promise syntax:
 ```bash 
 let prom = new Promise();
 // we define a function inside promise 
+
 let prom = new Promise(function()
 {
 });
@@ -7343,8 +10118,7 @@ let prom = new Promise(function()
 1. resolve
 2. reject
 
-based on whether promise is accepted 
-or not.
+based on whether promise is accepted or not.
 
 ### 1. If promise is accepted, call resolve() function
 ```bash 
@@ -7362,7 +10136,10 @@ let prom = new Promise(function(reject)
 1. if promise is accepted, then resolve() function is called 
 2. if promise is rejected, then reject() function is called 
 
-These are predefined functions, you dont need to define it.
+These are predefined callback functions in JS, you dont need to define it.
+1. then 
+2. catch 
+
 ```bash 
 let prom = new Promise(function(resolve, reject)
 //taking 2 conditions, one for success, other for fail 
@@ -7372,13 +10149,13 @@ if(condition)
 { 
    resolve("here is a success");
    // the message that is inside this, will be returned to result 
-   variable in onfulfilment function 
+   (variable in onfulfilment function) 
 }
 else
 {
    reject("here is a failure");
    // the message that is inside this, will be returned to error 
-   variable in onRejection function
+   (variable in onRejection function)
 }
 });
 ```
@@ -7430,9 +10207,9 @@ examples
 ```bash 
     <script>
         let complete = true; 
-        //checking in promise is this value true or false 
+        ✅checking in promise is this value true or false 
 
-        //creating promise method 
+        ✅creating promise method 
         let prom = new Promise(function(resolve, reject)
         {
             if(complete)
@@ -7478,8 +10255,9 @@ Promise {<fulfilled>: 'succesful promise'}
 console:
 Promise {<rejected>: 'failed promise'}
 ```
-#### Embedding parameter in a function -> callback function 
+#### Embedding parameter in a function  
      returning the value in the console.log 
+
 ##### 1. when value entered is true 
 ```bash 
     <script>
@@ -7510,8 +10288,6 @@ Promise {<rejected>: 'failed promise'}
 ##### 2. When value entered is false 
 ```bash 
    <script>
-        //setting  parameter as a function 
-        
         function prom(complete)
         // function returns a promise
         {
@@ -7542,8 +10318,6 @@ Promise >
 example:
 ```bash
     <script>
-        //setting  parameter as a function 
-        
         function prom(complete)
         // function returns a promise
         {
@@ -7600,8 +10374,6 @@ illustration
 #### 1. When complete is true 
 ```bash 
     <script>
-        //setting  parameter as a function 
-        
         function prom(complete)
         // function returns a promise
         {
@@ -7658,8 +10430,7 @@ Succesful promise is loaded a second after, according to timeout manipulation
 #### 2. When complete is false 
 ```bash 
     <script>
-        //setting  parameter as a function 
-        
+
         function prom(complete)
         // function returns a promise
         {
@@ -7721,8 +10492,7 @@ prom(false).then(onfulfilment).catch(onRejection);
 #### In this case, pending promise will be printed only one time 
 ```bash 
     <script>
-        //setting  parameter as a function 
-        
+
         function prom(complete)
         // function returns a promise
         {
@@ -7757,7 +10527,7 @@ prom(false).then(onfulfilment).catch(onRejection);
         // error = failed promise
     }
 
-    //method chaining
+    ✅method chaining
     //if condition is resolved, then function will be called; if condition is rejected, catch function will be called 
     prom(false).then(onfulfilment).catch(onRejection);
     
@@ -7804,6 +10574,7 @@ Were doing this to minimize the code.
     ✅ Removed onRejection function from here 
   
     //prom(true).then(✅onfulfilment).catch(✅onRejection);
+
     prom(true).then((result) => 
     { console.log(result)
     }
@@ -7822,8 +10593,7 @@ succesful promise
 #### 2. When value is false, it returns .catch function 
 ```bash 
     <script>
-        //setting  parameter as a function 
-        
+
         function prom(complete)
         // function returns a promise
         {
@@ -7846,7 +10616,7 @@ succesful promise
         });
     }
 
-    //method chaining
+    ✅method chaining
     //if condition is resolved, then function will be called; if condition is rejected, catch function will be called 
     prom(false).then((result) => { console.log(result)
     }).catch((error) => {
@@ -8252,11 +11022,19 @@ the file in the repo, because this reduces the load of the website.
 
 ## What is AJAX?
 its a technology which helps creating fast and dyanamic web pages.
-We can set AJAX through JQUERY and JS 
+
+- A - Asynchronous 
+- J - Javascript 
+- A - and 
+- X - XML 
 
 1. AJAX stands for asynchronous Javascript and XML
 (Modern websites use JSON instead of XML for data transfer)
-2. AJAX is not a programming language, its set of existing technologies 
+2. AJAX is not a programming language, its set of existing technologies, it can be set using 
+- JS 
+- JSON or XML 
+- Jquery 
+
 3. AJAX helps in fetching data asynchronously
 
 ##### How it works?
@@ -8277,8 +11055,7 @@ while client requests the server for a file, AJAX sends **XMLHttpRequest** in th
 ```bash
 There are 5 states involved while data is passed through XHR object in the background
 
-Ready state is basically a code number assorted to each state/ each step 
-of the data request- response process.
+Ready state is basically a code number assorted to each state/ each step of the data request- response process, when data is passed with XHR object in the background
 
 These 5 state (code numbers) are called readyState
 - 0: no request sent to the server 
@@ -8296,18 +11073,101 @@ code which tells whether the response we recieved, is proper or not
 - 404: "not found"     ✅server has not recieved the file were requesting for 
 
 2. responseText 
-returns text
+returns text if we requested for it 
 
 3. responseXML 
-returns XML
+returns XML if we requested for it 
 ```
- 
 ##### Advantages of AJAX:
 1. We can add a particular change in the page, and it gets integrated in the page without externally loading it 
 
 > we want to add a change to a specific section of the website, the entire website will not be rendered, only the new change thats made will be sent to the server and integrated to the oage, without the need to load the page 
 
-## Example with AJAX 
+### Javascript Ajax syntax:
+```bash
+var xhhtp = new XMLHttpRequest()
+
+xhttp.onreadystatechange = function()
+{
+   //did the server response reach succesfully or not?
+   if(this.readyState == 4 && this.status == 200)
+   ✅when readystate is 4 and status code is 200
+   {
+       //set the response in the HTML
+       document.getElementById("demo").innerHTML = this.responseText;
+   }
+
+};
+
+xhttp.open("GET", "filename.txt", true)  
+xhttp.send()
+```
+✅create an object of XMLHttpRequest()
+```bash
+var xhhtp = new XMLHttpRequest()
+```
+//we can send a request to server through this object 
+//we can fetch a response from server through this object 
+
+✅There are 2 methods for assesing data:
+```bash
+xhttp.open("GET", "filename.txt", true)  
+//xhhtp.open("method", "path of file you want to send/ server side file", async mode)
+
+xhttp.send()
+//request is sent to the server by using this method
+
+method types:
+1. GET - data that's sent to the server, is not hidden 
+2. POST - data sent to the server is hidden 
+
+async mode:
+1. true- asynchronize mode is on(code is executed even when server has not given a response, yet, to the request we made)
+2. false- aysnchronize mode is off (code will not be executed until server gives a response, to what we requested for)
+```
+
+Ready state is checked through this function 
+```bash 
+xhttp.onreadystatechange = function()
+{
+   //did the server response reach succesfully or not?
+   if(this.readyState == 4 && this.status == 200)
+   ✅when readystate is 4 and status code is 200
+   {
+       //set the response in the HTML
+       document.getElementById("demo").innerHTML = this.responseText;
+       //the entire page will not refresh, only #demo will be refreshed and rendered on the page 
+   }
+
+};
+
+this works as an event, and returns the status of the readystate dyanamically
+```
+### Synchronous VS Asynchronous 
+Synchronous
+- when the client requests for data from the server, while the server is processing the data (server-side processing), client is blocked (JS Engine of the browser is blocked) until the request completes 
+- full page is refresshed when the request is complete (the time server took to send the response, to the request is called request time) 
+
+In synchronous operations tasks are performed one at a time and only when one is completed, the following is unblocked. you need to wait for a task to finish to move to the next one.
+
+Asynchronous 
+-  when the client requests for data from the server, while the server is processing the data (server-side processing), the client is not blocked (JS engine of the browser is not blocked), the user can perform other operations simultanously
+- full page is not refreshed at request time, because while the data is server side processing, AJAX technology communicates with the server through XHR object
+
+you can move to another task before the previous one finishes in asynchronous operations, hence your able to deal with multiple requests simultanousely, completing more tasks in shorter period of time 
+
+### Where is it used?
+JavaScript is a single-threaded programming language which means only one thing can happen at a time. That is, the JavaScript engine can only process one statement at a time in a single thread.
+
+While the single-threaded languages simplify writing code because you don’t have to worry about the concurrency issues, this also means you can’t perform long operations such as network access without blocking the main thread.
+
+Imagine requesting some data from an API. Depending upon the situation the server might take some time to process the request while blocking the main thread making the web page unresponsive.
+
+That’s where asynchronous JavaScript comes into play. Using asynchronous JavaScript (such as callbacks, promises, and async/await), you can perform long network requests without blocking the main thread.
+
+> link to the blog: https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff
+
+## Data fetching with AJAX 
 Data that's fetched from API, through AJAX server 
 
 ```bash 
@@ -8386,9 +11246,7 @@ promises5.html:28 (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}
     crossorigin="anonymous"></script>
     <!--Jquery CDN link-->
 </head>
-<body>
-    
-    
+<body>  
     <script>
         function prom()
         //function returns a promise
@@ -8429,6 +11287,50 @@ console: //same output as above
 fetching data, please wait
 promises5.html:28 (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 ```
+> code written without arrow function 
+```bash
+<body>
+    <script>
+          function prom()
+        //function returns a promise
+        {
+            return new Promise(function(resolve, reject)
+            //taking resolve and reject as parameters 
+            {
+            console.log("fetching data, please wait");
+ 
+        setTimeout( function() {
+          $.get( "https://jsonplaceholder.typicode.com/posts",function(data)
+          {
+              resolve(data);
+              //calling resolve function
+
+          }).fail(
+            function err()  
+          {
+              reject("failed to load json")
+              //calling reject function
+          });
+
+        //integrating error message 
+        }, 1000)
+          
+        });
+    }
+
+    prom().then(
+    function (result)
+    { console.log(result)    
+    }).catch(
+    function(error)
+    { console.log(error)
+    }); 
+    </script>
+
+console: //same output as above 
+fetching data, please wait
+promises5.html:28 (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+```
 
 # promise() VS promise.all()
 #### promise()
@@ -8462,7 +11364,7 @@ if any promises rejected, then we use, catch function and show error message
              then()                       catch()
              
 ```
-an example, 
+> Creating 2 promises 
 ```bash 
    <script>
         let p1 = new Promise(function(resolve, reject){
@@ -8474,6 +11376,8 @@ an example,
             console.log("second promise");
             resolve("failed promise");
         });
+
+        //Promise.all([p1,p2]).then().catch()
 
         Promise.all([p1,p2]).then(
             function (result)
@@ -8497,14 +11401,15 @@ second promise
 successful promise,failed promise
 ```
 ### What is fetch() method?
-We can fetch data through 
+Before JSE6, we used to fetch data through 
 1. Jquery using these methods $.get(), $.post()
 2. Jquery using AJAX using XMLHttpRequest 
 
 disadvantages:
 > loading time increases, because of unnecesary file load, more code required 
 
-To get rid of these disadvantages JSE6 introduced:
+To get rid of these disadvantages, and make load time faster, JSE6 introduced:
+
 ### fetch() method 
 1. We can do CRUD to the server 
 ```bash
@@ -8513,20 +11418,48 @@ R - remove data
 U - update data 
 D - delete data 
 ```
+fetch syntax:
+```bash
+fetch(file/url).then(function(response){
+     return response.json()
+
+}).then(function(result){
+    console.log(result)
+}).catch(function(error){
+    console.log(error)
+});
+
+- fetch returns a promise 
+- then returns a promise
+- file we recieve from the response, will be stored in response variable 
+- we return response in either of the data format
+✅1. data will be returned in text format if you write this 
+    return response.text();
+
+✅2. data will be returned in json format if you write this 
+    return response.json();
+
+- then(function(response)) returns a promise
+- data will be returned to the result variable in the next then function,
+- that promise is utilized in then(function(result))
+1. we can print the data (whether in console or document in function(result)), using then method {then(function(result))}, if the promise is success 
+
+2. if promise is failure, or server is not responding, were using catch method {catch(function(error))}, the error message will be stored in error variable 
+
+```
 #### Fetching API and printing on the console 
 ```bash 
 <script>
         //fetch() method works on live server 
 
         // this API returns a promise 
-        fetch("https://jsonplaceholder.typicode.com/posts").then(function(response){
+        fetch("https://jsonplaceholder.typicode.com/posts").then(
+        function(response){
            return response.json();
-           //returns format of data
-
-           //returns promise over here, however this promise will be used in
+           ✅returns promise over here, however this promise will be used in
             the next then function
 
-           //the next then function attached to the method chain 
+           ✅the next then function attached to the method chain 
         }).then(function(result)
         //if promise succeeds this function will execute
         {
@@ -8545,21 +11478,16 @@ D - delete data
 console:
 (100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 ```
-```bash
-✅1. data will be returned in text format if you write this 
-    return response;
-✅2. data will be returned in json format if you write this 
-    return response.json();
-```
 
 ### Fetching API, and printing on the document 
 - get this API from  https://jsonplaceholder.typicode.com/
+
 ```bash 
     <script>
         //fetch() method works on live server 
 
-        // this API returns a promise 
-fetch("https://jsonplaceholder.typicode.com/posts").then(function(response)
+        ✅this API returns a promise 
+        fetch("https://jsonplaceholder.typicode.com/posts").then(function(response)
         {
            return response.json();
 
@@ -8811,6 +11739,7 @@ Promise {<fulfilled>: 'hello'}
             return "hello";
             //this value passed to then function 
         }
+
         test().then(function(result)
         {
              console.log(result)
@@ -8842,7 +11771,8 @@ hello
         ✅ await method can be added on any line
         ✅ used inside async function  
 
-        async function test(){
+        async function test()
+        {
             console.log("A");
             await console.log("B"); 
             //await function- tells to wait after B 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+</head>
+<body>
+  <div>
+    <p id="para" >hello para
+    </p>
+  </div>
+  <h2 id="myh2" class="myclass" title="somedata">hello</h2>
+  
+</body>
+<script>
+  //element node 
+  var h = document.getElementById('myh2')
+  console.log(h.nodeName)  //h2 (returns the tag name)
+  console.log(h.nodeValue) //null
+  console.log(h.nodeType)  //1   (element node)
+
+  var h = document.getElementById('para')
+  console.log(h.nodeName)  //p (returns the tag name)
+  console.log(h.nodeValue) //null
+  console.log(h.nodeType)  //1   (element node)
+
+  //attribute node 
+  var k = document.getElementById('para').attributes[0] //id#para
+  console.log(k.nodeName)  //id (attribute name)
+  console.log(k.nodeValue) //para (attribute value)
+  console.log(k.nodeType)  //2   (attribute node)
+   
+  //text node 
+  var l = document.getElementById('para').childNodes[0]
+  console.log(l.nodeName)  //#text (name of text node)
+  console.log(l.nodeValue) //hello para 
+  console.log(l.nodeType)  //3 (text node)
+
+  //child Node
+  var h = document.getElementById('para').childNodes
+  console.log(h)
+</script>
+
+</html>

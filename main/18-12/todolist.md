@@ -1,12 +1,10 @@
 revise the to do list readme 
 
-revise from 
-DOM and add the rest of the code
-
 revise from fetch etc 
 async and await 
 ajax 
 
+revise to do list 
 complete 9th lecture 
 OOps 
 

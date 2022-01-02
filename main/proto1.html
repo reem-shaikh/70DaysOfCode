@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Array.prototype.checkPrime = function (number) {
+        //if num<=1 its not a prime number
+        if (number <= 1) {
+          return false
+        } 
+        else {
+          for (let i = 2; i < number / 2; i++) {
+            //if number is divisibled its not a prime number
+            if (number % i == 0) {
+              return false
+            }
+          }
+          //if number is not divisibled, its a prime number
+          return true
+        }
+      }
+      console.log(this)
+
+      
+      let arr = [3, 12, 50, 23, 0]
+      //loops through every array element
+      arr.forEach(function (element) {
+        
+        //checks for each element whether prime or not
+        const isPrime = checkPrime(element)
+        if (isPrime) {
+          console.log(`${element} is a prime number`)
+        } else {
+          console.log(`${element} is NOT a prime number`)
+        }
+      });
+      console.log(arr.checkPrime())
+    </script>
+  </body>
+</html>
