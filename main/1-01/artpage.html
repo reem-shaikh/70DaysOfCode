@@ -408,19 +408,19 @@ a {
     font-size: 60px;
 }
 
-.hamburger {
+.painting {
     position: relative;
     cursor: pointer;
 }
 
-.hamburger-btn {
+.painting-btn {
     cursor: pointer;
     z-index: 1;
 }
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
+.painting,
+.painting::before,
+.painting::after {
     width: 30px;
     height: 3px;
     border-radius: .5rem;
@@ -428,7 +428,7 @@ a {
     transition: .4s;
 }
 
-.hamburger::before {
+.painting::before {
     content: '';
     position: absolute;
     top: -10px;
@@ -436,24 +436,24 @@ a {
 
 }
 
-.hamburger::after {
+.painting::after {
     content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
 }
 
-.hamburger.active {
+.painting.active {
     background-color: transparent;
 }
 
-.hamburger.active::before {
+.painting.active::before {
     transform-origin: top left;
     transform: rotate(45deg);
     left: 6px;
 }
 
-.hamburger.active::after {
+.painting.active::after {
     transform-origin: bottom left;
     transform: rotate(-45deg);
     left: 6px;
@@ -695,10 +695,10 @@ a {
     <div class="container" style="background-image: url('https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');">
         <div class="nav">
             <div class="menu" onclick="openNav()">
-                <div class="hamburger"></div>
+                <div class="painting"></div>
             </div>
             <div class="logo">
-                TUAT.TA
+                ART.GALLERY
             </div>
             <div class="cart">
                 <i class='bx bx-cart-alt'></i>
@@ -720,11 +720,11 @@ a {
             <i class='bx bxl-twitter'></i>
         </div>
         <div class="fashion">
-            FASHION
+            ART
         </div>
         <div class="copyright">
-            Copyright (c) 2020 <a href="https://www.youtube.com/channel/UCnNgtK4tGlWcceXVzoyTg8Q?sub_confirmation=1"
-                target="_blank">Tran Anh Tuat</a>
+            Copyright (c) 2022 <a href=""
+                target="_blank">Reem Shaikh</a>
         </div>
         <div class="slide-control">
             <i class='bx bxs-right-arrow'></i>
@@ -741,7 +741,7 @@ a {
                         <span style="color: #e29f01;">DE</span>SIGN
                     </h1>
                     <span>
-                        Collection 2020
+                        Collection 2022
                     </span>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
@@ -751,7 +751,7 @@ a {
                         inventore
                     </p>
                     <button>
-                        Shop now
+                        Buy Now
                     </button>
                 </div>
                 <!-- end info 1 -->
@@ -764,7 +764,7 @@ a {
                         pur<span style="color: #e29f01;">suit</span>
                     </h1>
                     <span>
-                        Collection 2020
+                        Collection 2022
                     </span>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
@@ -777,7 +777,7 @@ a {
                         Animi molestiae corrupti iusto beatae aperiam ab doloremque.
                     </p>
                     <button>
-                        Shop now
+                        Know More
                     </button>
                 </div>
                 <!-- end info 2 -->
@@ -790,7 +790,7 @@ a {
                         <span style="color: #e29f01;">You</span>rself
                     </h1>
                     <span>
-                        Collection 2020
+                        Collection 2022
                     </span>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
@@ -816,7 +816,7 @@ a {
                         STY<span style="color: #e29f01;">LE</span>
                     </h1>
                     <span>
-                        Collection 2020
+                        Collection 2022
                     </span>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
@@ -829,7 +829,7 @@ a {
                         Animi molestiae corrupti iusto beatae aperiam ab doloremque.
                     </p>
                     <button>
-                        Shop now
+                        Book Now
                     </button>
                 </div>
                 <!-- end info 4 -->
@@ -859,27 +859,63 @@ a {
     </div>
 
     <script>
-        let isScroll = false
+    let isScroll = false
 
-scrollSlide = () => {
+    scrollSlide = () => {
 
     if (isScroll) return
 
     isScroll = true
 
+    //remove the current page product info 
     let currProduct = document.querySelector('.product-info.active')
     currProduct.classList.remove('active')
+    //console.log(productInfos)
+    /*
+NodeList(4) [div.product-info, div.product-info, div.product-info, div.product-info]
+0: div.product-info
+1: div.product-info.active
+2: div.product-info
+3: div.product-info
+length: 4
+[[Prototype]]: NodeList
+    */
+
+    //console.log(productIndex)  0, 1, 2, 3
+    
+    /*
+    ✅first page
+    productIndex = 0 + 1 > 4 - 1 
+                 = 1 > 3 ❌
+                
+                 productIndex= 0 + 1 = 1
+
+    */
     productIndex = productIndex + 1 > productInfos.length - 1 ? 0 : productIndex + 1
+
+    //productInfo[1] (2nd page is now active)
     productInfos[productIndex].classList.add('active')
 
     let  listitems = document.querySelectorAll('.slide')
-
+    //were going to target each slide (which holds the image)
     let slider = document.querySelector('.slider')
+    // console.log(slider) it loads the slider class object 
 
     let reverse = Array.from(listitems).slice().reverse()
+    //console.log(reverse)
+/*
+(4) [div.slide, div.slide, div.slide, div.slide]
+0: div.slide
+1: div.slide
+2: div.slide
+3: div.slide
+length: 4
+[[Prototype]]: Array(0)
 
-    left = reverse[0].offsetLeft+'px'
-    height = reverse[0].offsetHeight+'px'
+
+*/
+    left = reverse[0].offsetLeft+'px' //389px
+    height = reverse[0].offsetHeight+'px' //63px
     width = reverse[0].offsetWidth+'px'
     zIndex = reverse[0].style.zIndex
 
@@ -934,23 +970,11 @@ slideControl.onclick = (e) => {
 
 openNav = () => {
     let nav = document.querySelector('.nav-overlay')
-    let hamb = document.querySelector('.hamburger')
+    let hamb = document.querySelector('.painting')
     nav.classList.toggle('active')
     hamb.classList.toggle('active')
 }
 
-// let hambBtn = document.querySelector('.hamburger-btn')
-
-// let hamb = hambBtn.querySelector('.hamburger')
-
-// hambBtn.onclick = () => {
-//     hamb.classList.toggle('active')
-// }
-
-// scrollSlide()
-// setInterval(() => {
-//     scrollSlide()
-// }, 2200);
     </script>
 </body>
 
