@@ -161,6 +161,10 @@ https://reem-shaikh.github.io/Geekster-/main/18-12/star1.html </br>
 https://reem-shaikh.github.io/Geekster-/main/18-12/star2.html  </br>
 
 https://reem-shaikh.github.io/Geekster-/main/18-12/assignment.md  </br>
+
+## 2-1 test 
+https://reem-shaikh.github.io/Geekster-/test/2-1/test.html
+
 -->
 <!-- micro dev tools: 
 launch instance
