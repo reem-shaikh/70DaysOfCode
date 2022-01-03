@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>attribute </title>
+    <style>
+      /*attribute selector */
+      [data-red]{
+        background-color: red;
+      }
+      /*check for value */
+      [data-blue="true"]{
+        background-color: blue;
+      }
+
+      [data-green]{
+        background-color: green;
+      }
+
+      /*select everything starting with 12 with the same attribute name*/
+      [data-yellow^="12"]{
+        background-color: yellow;
+      }
+
+      /*select everything ending with 98 with the same attribute name*/
+      [data-purple$="98"]{
+        background-color: purple;
+      }
+
+      /*select everything containing 23 with the same attribute name*/
+       [data-orange*="23"]{
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-red >this is a div</div>
+    <div data-blue="true" >this is a div</div>
+    <div data-green="true" >this is a div</div>
+
+    <div data-yellow="123" >this is a div</div>
+    <div data-yellow="1243" >this is a div</div>
+
+    <div data-purple="12398" >this is a div</div>
+    <div data-purple="12498" >this is a div</div>
+
+    <div data-orange="12398" >this is a div</div>
+    <div data-orange="123298" >this is a div</div>
+  </body>
+</html>
