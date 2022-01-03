@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            left:100px;
+            top: 200px;
+            background-color: pink;
+            width: 180px;
+            padding: 10px;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name="t1" value="show" 
+    onclick="setAdd('sub3', 'inline')"/>
+    <input type="button" name="t2" value="remove" 
+    onclick="setRemove('sub3', 'none')"/>
+    <div id="sub3">Lorem, ipsum dolor.</div>
+    
+    <script>
+        function setAdd(id, visibility){
+            document.getElementById(id).style.display = visibility;
+        }
+
+        function setRemove(id, visibility){
+            document.getElementById(id).style.display = visibility;
+        }
+    </script>
+</body>
+</html>

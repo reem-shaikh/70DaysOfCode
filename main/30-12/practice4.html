@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size:20px;
+            line-height: 24px;
+        }
+
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+        } 
+
+        #table{
+            display: none;
+            width: 600px;
+            border: 1px solid black;
+            margin: 0 auto;
+            /* to get table in mid of page*/
+            text-align: center;
+        } 
+
+        .row{
+            display: table-row-group;
+            /* background-color: linen; */
+            vertical-align: middle;
+        }
+
+        .col{
+            border: 1px solid red;
+            display: table-cell;
+            width: 300px;
+            /* giving fixed width to columns */
+            padding: 10px;
+        }
+
+        .table-header{
+            display: table-header-group;
+            background-color: lightsalmon;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .table-footer{
+            display: table-footer-group;
+            background-color: lightpink;
+            text-align: center;
+        }
+
+        .table-column-group{
+            display: table-column-group;
+        }
+
+        .table-column{
+            display: table-column;
+        }
+
+        .col1{
+            background-color: lavender;
+        }
+
+        .col3{
+            background-color: lightgrey;
+        }
+
+        #flex{
+            position: absolute;
+            left:50px;
+            top: 200px;
+            background-color: rgb(236, 228, 230);
+            width: 60vw;
+           
+            border: 1px solid red;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        #flex img{
+            width: 30%;
+        }
+
+    </style>
+
+</head>
+<body>
+  <h1>display:table</h1>  
+  <input type="button" name="t1" value="show table" 
+  onclick="setTable('table')"/>
+
+  <input type="button" name="t1" value="show flex" 
+  onclick="setFlex('flex')"/>
+
+  <div id="flex">
+    <img src="https://images.pexels.com/photos/3415858/pexels-photo-3415858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+    <img src="https://images.pexels.com/photos/3415858/pexels-photo-3415858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+</div>
+
+  <div id="table">
+           
+    <div class="table-column-group">
+        <div class="table-column col1">col1</div>
+        <div class="table-column col2">col2</div>
+        <div class="table-column col3">col3</div>
+        <div class="table-column col4">col4</div>        
+    </div>
+    
+      <div class="table-header">
+        <div class="col">Month</div>
+        <div class="col">Savings</div>
+        <div class="col">Expenditure</div>
+        <div class="col">Invested</div>
+      </div>
+
+      <div class="row">
+        <div class="col">jan</div>
+        <div class="col">$100</div>
+        <div class="col">$2000</div>
+        <div class="col">$100</div>
+      </div>
+
+      <div class="row">
+        <div class="col">feb</div>
+        <div class="col">$200</div>
+        <div class="col">$3000</div>
+        <div class="col">$200</div>
+      </div>
+
+      <div class="row">
+        <div class="col">march</div>
+        <div class="col">$300</div>
+        <div class="col">$1000</div>
+        <div class="col">$400</div>
+      </div>
+    
+      <div class="table-footer">
+        <div class="col">sum</div>
+        <div class="col">$600</div>
+        <div class="col">$6000</div>
+        <div class="col">$700</div>
+      </div>
+  </div>
+</body>
+<script>
+        function setFlex(id){
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function setTable(id){
+            document.getElementById(id).style.display = 'table';
+        }
+</script>
+</html>

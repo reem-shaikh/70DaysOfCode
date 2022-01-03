@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--using same button to add and remove-->
+    <style>
+        #sub3{
+            position: absolute;
+            left:50px;
+            top: 200px;
+            background-color: rgb(236, 228, 230);
+            width: 60vw;
+           
+            border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        #sub3 img{
+            width: 30%;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="button" name="t1" id="btn1" value="show layer" 
+    onclick="setAdd('sub3')"/>
+
+    <div id="sub3">
+        <img src="https://images.pexels.com/photos/3415858/pexels-photo-3415858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+        <img src="https://images.pexels.com/photos/3415858/pexels-photo-3415858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+    </div>
+
+    <script>
+        function setAdd(id){
+            //when you click on div and your redirected to hide button 
+            if(document.getElementById('btn1').value == 'hide')
+            {
+                //when you click on the btn1 again it will show layer 
+                document.getElementById('btn1').value = 'show layer'
+                //and hide the contents in the div
+                document.getElementById(id).style.display = 'none'
+            }else{
+                document.getElementById('btn1').value = 'hide'
+                document.getElementById(id).style.display = 'inline'
+            }
+        }
+
+    </script>
+</body>
+</html>
