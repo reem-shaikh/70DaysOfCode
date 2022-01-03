@@ -35,9 +35,10 @@ header left             header middle              header right
 
 container (flex-direction: row)
 sidebar            |       content 
-                   |
-                   |
-                   |
+                   |--------------------------------------------
+                   |top icons 
+                   |-------------------------------------------- 
+                   |table/flex items 
                    |
 ------------------------------------------------------------------
 

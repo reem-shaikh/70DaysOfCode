@@ -32,7 +32,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between; 
             border-bottom: 1px solid whitesmoke;
             padding: 15px;
         }
@@ -79,6 +79,201 @@
             cursor: pointer;
         }
 
+        .sidebar{
+            flex: 0.3;
+            /* sidebar is going to use 30% of main body */
+            max-width: 300px;
+            padding-right: 20px;
+        }
+
+        .sidebar-compose{
+            margin-top: 15px;
+            margin-left: 10px;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+            color: gray;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.75);
+        }
+
+        .sidebar-compose span{
+            margin-right: 5px;
+        }
+
+        .sidebaroption{
+            padding: 0 10px;
+            align-items: center;
+            display: flex;
+            height: 40px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            cursor: pointer;
+            color: #818181;
+        }
+
+        #drive{
+            color: #9c9999;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .sidebaroption .material-icons{
+            padding: 5px;
+        }
+
+        .sidebaroption h3{
+            flex: 1;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+  
+        .sidebaroption:hover, 
+        .sidebaroption:hover .material-icons,
+        .sidebaroption-active h3:hover,
+        .sidebaroption-active:hover,
+        .sidebaroption-active:hover .material-icons
+        {
+            background-color: #fcecec;
+            color: #c04b37;
+            font-weight: 800;
+        }
+
+        .main-body{
+            display: flex;
+            height: 100vh;
+        }
+
+        body{
+            height: 100vh;
+            overflow-y: hidden;
+        }
+
+        .list{
+            flex: 1;
+            overflow: scroll;
+        }
+
+        .listsettings{
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid whitesmoke;
+            z-index: 999;
+            background-color: white;
+            padding: 8px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        .listsettingsleft{
+            display: flex;
+            align-items: center;
+        }
+
+        .listsettings .material-icons{
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .section{
+            display: flex;
+            align-items: center;
+            border-bottom-width: 2px;
+            padding: 15px;
+            min-width: 200px;
+            cursor: pointer;
+            color: grey;
+            border-width: 0;
+        }
+
+        .listsection2{
+            position: sticky;
+            top: 0;
+            display: flex;
+            background-color: white;
+            border-bottom: 1px solid whitesmoke;
+            z-index: 999;
+        }
+
+        .section h4:hover{
+            background-color: whitesmoke;
+            border-width: 3px;
+        }
+
+        .section h4{
+            font-size: 16px;
+            margin-left: 0px;
+            color: rgba(106, 102, 102, 0.8);
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        .rowoptions{
+            display: flex;
+            align-items: center;
+        }
+
+        .rowoptions .material-icons, input
+        {
+            margin: 5px;
+        }
+
+        .row{
+            display: flex;
+            align-items: center;
+            height: 50px;
+            border-bottom: 1px solid whitesmoke;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .row:hover{
+            border-top: 1px solid whitesmoke;
+            box-shadow: 0 4px 4px -2px rgba(100, 100, 111, 0.2);
+        }
+
+        .rowmessage{
+            display: flex;
+            flex: 0.8;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .rowmessage h4{
+            width: 400px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .rowtitle{
+            font-size: 13px;
+            flex:0.3;
+        }
+
+        .rowtime{
+            padding-right: 15px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .rowdesc{
+            font-weight: 400;
+            color: gray;
+        }
+
+
+
+
     </style>
 </head>
 <body>
@@ -121,6 +316,7 @@
         <!--sidebar starts-->
         <div class="sidebar">
             <button class="sidebar-compose">
+                <!--sidebar-compose given flex-direction: row-->
                 <span class="material-icons">
                     add
                     </span>
@@ -151,26 +347,146 @@
                 <h3> Trash </h3>
             </div>
             <!--sidebaroption ends -->
-
-            <div class="sidebarfooter">
-                <div class="sidebarfootericons">
-                    <div class="sidebaroption sidebaroption-active">
-                        <span class="material-icons"> person</span>
-                    </div>
-                    <!--sidebaroption ends -->
-                    <div class="sidebaroption sidebaroption-active">
-                        <span class="material-icons"> duo </span>
-                    </div>
-                    <!--sidebaroption ends -->
-                    <div class="sidebaroption sidebaroption-active">
-                        <span class="material-icons"> phone </span>
-                    </div>  
-                </div>
-
+            <div class="sidebaroption sidebaroption-active">
+                <span class="material-icons"> expand_more </span>
+                <h3> More </h3>
             </div>
-            <!--sidebarfooter ends-->
+            <!--sidebaroption ends -->
+
         </div>
         <!--side bar ends-->
+
+        <!--list starts-->
+        <div class="list">
+            <!-- list contains 
+            .listsettings 
+            .listsection2
+          -->
+            <div class="listsettings">
+                <div class="listsettingsleft">
+                    <span style="font-size: 19px; color:rgb(85, 82, 82)">My Drive</span>
+                    <span class="material-icons"> arrow_drop_down </span>
+                </div>
+                <!--listsettings left-->
+                <div class="listsettingsright">
+                        <span class="material-icons"> chevron_left </span>
+                        <span class="material-icons"> chevron_right </span>
+                        <span class="material-icons"> view_module</span>
+                        <span class="material-icons"> settings</span> 
+                </div>
+                <!--listsettings right-->
+            </div>
+            <!--setting ends-->
+
+            <!--section starts-->
+            <div class="listsection2">
+                <div class="section section-selected">
+                    <br>
+                    <img src="image1.PNG" alt="" />
+                </div>
+            </div>
+            <!--section ends-->
+
+            <!--main list starts-->
+            <div class="mainlist">
+                <!--row starts-->
+                <div class="row">
+                    <div class="rowoptions">
+                        <input type="checkbox" />
+                        <span class="material-icons"> star border</span> 
+                        <span class="material-icons"> label_important</span> 
+                    </div>
+
+                    <div class="rowtitle">
+                        Assignment
+                    </div>
+                    <div class="rowmessage">
+                        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam!<span class="rowdesc">
+                            Lorem ipsum dolor sit.
+                        </span>
+                        </h4>
+                    </div>
+                    <div class="rowtime">
+                        10pm
+                    </div>
+                </div>
+                <!--row ends-->
+
+                     <!--row starts-->
+                     <div class="row">
+                        <div class="rowoptions">
+                            <input type="checkbox" />
+                            <span class="material-icons"> star border</span> 
+                            <span class="material-icons"> label_important</span> 
+                        </div>
+    
+                        <div class="rowtitle">
+                            Assignment
+                        </div>
+                        <div class="rowmessage">
+                            <h4>Lorem ipsum dolor sit. Omnis, aperiam!<span class="rowdesc">
+                                Lorem ipsum dolor sit.
+                            </span>
+                            </h4>
+                        </div>
+                        <div class="rowtime">
+                            10pm
+                        </div>
+                    </div>
+                    <!--row ends-->
+
+                    
+
+                <!--row starts-->
+                <div class="row">
+                    <div class="rowoptions">
+                        <input type="checkbox" />
+                        <span class="material-icons"> star border</span> 
+                        <span class="material-icons"> label_important</span> 
+                    </div>
+
+                    <div class="rowtitle">
+                        Assignment
+                    </div>
+                    <div class="rowmessage">
+                        <h4>Lorem ipsum dolor sit amet consectetur adipis
+                        </span>
+                        </h4>
+                    </div>
+                    <div class="rowtime">
+                        10pm
+                    </div>
+                </div>
+                <!--row ends-->
+
+                                 <!--row starts-->
+                                 <div class="row">
+                                    <div class="rowoptions">
+                                        <input type="checkbox" />
+                                        <span class="material-icons"> star border</span> 
+                                        <span class="material-icons"> label_important</span> 
+                                    </div>
+                
+                                    <div class="rowtitle">
+                                        Assignment
+                                    </div>
+                                    <div class="rowmessage">
+                                        <h4>Lorem ipsum dolor sit. Omnis, aperiam!<span class="rowdesc">
+                                            Lorem ipsum dolor sit.
+                                        </span>
+                                        </h4>
+                                    </div>
+                                    <div class="rowtime">
+                                        10pm
+                                    </div>
+                                </div>
+                                <!--row ends-->
+
+              
+            </div>
+            <!--main list ends-->
+        </div>
+        <!--list ends-->
     </div>
     <!--main body ends-->
     <script>
