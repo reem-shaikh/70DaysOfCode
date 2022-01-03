@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone</title>
+    <link rel="stylesheet" href="font awsome icon/css/all.css">
+    <link rel="stylesheet" href="font style/Roboto-MediumItalic.ttf">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden; 
+    font-family: sans-serif;
+}
+
+.navbar{
+    width: 100vw;
+    display: flex;
+    flex-direction:column;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-top,.nav-bottom{
+    width: 100vw;
+    height: 8vh;
+}
+.nav-top{
+    background-color: #2874ef;
+    display: flex;
+    flex-direction: row;
+}
+.nav-bottom{
+    background-color:#fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+.top-left{
+    /* height: 100%; */
+    gap: 2vw; 
+     display: flex;
+     justify-content: space-evenly;
+     background-color: #2874f0;
+     width: 100%;
+     height: 56px; 
+     position: sticky;
+     top: 0px;
+     z-index: 1;
+}
+
+.header-left{
+     width: 20%;
+     text-align: right;
+     margin: 5px 0px;
+     cursor: pointer;
+ }
+ .header-left a{
+     color: white;
+     font-size: 20px;
+     text-decoration: none;
+     font-weight: bold;
+     font-style: italic;
+     letter-spacing: 1.5px;
+     
+ }
+ .header-left-p a{
+    font-size: 10px;
+    letter-spacing: 1.5px;
+ }
+ .header-left-p span{
+     color: yellow;
+     font-size: 10px;
+     letter-spacing: 1px;
+ }
+ .header-left-p:hover{
+     text-decoration: underline;
+     color: white;
+ }
+ .header-center{
+     width: 40%;
+     text-align: left;
+     line-height: 50px;
+     cursor: pointer;
+     padding-left: 10px;
+     position: relative;
+ }
+ .header-center-input{
+     height: 36px;
+     width: 100%;
+     border: none;
+     text-align: left;
+     padding-left: 20px;
+     cursor: pointer;
+     border-radius: 5px;
+ }
+ .fa-search{
+     position: absolute;
+     top: 30%;
+     left: 94%;
+     font-size: 18px;
+     color: #2874f0;
+ }
+ .header-right{
+     width: 40%;
+     font-size: 15px;
+     display: flex;
+   justify-content: flex-start;
+   text-transform: capitalize;
+   line-height: 50px;
+ }
+ .header-right a{
+     text-decoration: none;
+     color: white;
+     margin: 0px 25px;
+ }
+ .header-right .active{
+     background-color: white;
+     color: #2874f0;
+     padding: 5px 30px;
+     height: 35px;
+     width: 130px;
+     line-height: 23px;
+     margin-top: 8px;
+     border-radius: 2px;
+     text-align: center;
+ }
+ .fa-shopping-cart{
+     padding-right: 10px;
+ }
+ .fa-sort-down{
+     padding-left: 5px;
+
+ }
+/* .top-right{
+    flex:1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+} */
+
+
+.category-row{
+     display: flex;
+     justify-content: space-evenly;
+     width: 100%;
+     height: auto;
+     margin-top: 10px;
+     text-align: center;
+ }
+ .category-col{
+     padding: 10px 0px;
+     cursor: pointer;
+     color: rgb(85,83,83);
+ }
+ .category-col a{
+     text-decoration: none;
+     font-size: 0.83em;
+     font-weight: bold;
+     color: rgb(88, 86, 86);
+ }
+
+ .category-col a:hover{
+    color: #2874f0;
+ }
+ 
+
+.logo{
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.search{
+    width: 280px;
+    height: 50%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.link{
+    text-decoration: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+.dropdown{
+    width: 100px;
+    padding: 5px;
+}
+.link_{
+    text-decoration: none;
+    color: #1e1e1e;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+.ctn-left{
+    height: 100%;
+    background-color:white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ctn-right{
+    height: 100%;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    
+}
+
+tr{
+    
+    height: 50px;
+    background-color: whitesmoke;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-top: 40px;
+}
+td{
+    padding: 50px;
+    margin-top: 40px;
+}
+.item-ctn{
+    width:1100PX;
+    height: 400px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vw;
+}
+
+.item-left{
+    flex: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    justify-content: flex-start;
+    margin-top: 50px;
+    gap: 3vw;
+    font-family: sans-serif;
+    
+}
+.item-right{
+    flex: 1;
+    height: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style-type: none;
+    font-size: 14px;
+     margin-top: 10px; 
+    color: rgb(87, 79, 79); 
+    font-weight: 300;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-top">
+
+            <div class="top-left">
+                  <!--creating the flipkart explore plus logo-->
+    <div class="header-left">
+        <a href="#">Flipkart</a>
+
+     <div class="header-left-p">
+     <p><a href="#">Explore</a> <span>Plus
+            <i class="fas fa-plus"></i>
+         </span>
+     </p>
+        <!--
+            https://fontawesome.com/v4.7/icon/plus
+        -->
+     </div>
+ </div>
+ <!--middle section is for the input field-->
+ <div class="header-center">
+     <input class="header-center-input" type="text" placeholder=" Search for products,Brands and more"><i class="fas fa-search"></i>
+ </div>
+ <!--right section is for the additional stuff on the rhs-->
+ <div class="header-right">
+         <a class="active" href="#">Login</a>
+         <a href="#">more<i class="fa fa-angle-down"></i></a>
+         <!--
+             https://fontawesome.com/v4.7/icon/angle-down
+         -->
+         <a href="#"><i class="fas fa-shopping-cart"></i>cart</a>
+         <!--
+             https://fontawesome.com/v4.7/icon/shopping-cart
+         -->
+       </div>
+            </div>
+
+        </div>
+        <div class="nav-bottom">
+            <div class="category-row">
+                <div class="category-col">
+                    <a href="#">Top offers<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Grocery<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Mobile<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Fashion<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Electronics<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Home<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Appliances<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Travel<i class="fa fa-angle-down"></i></a>
+                </div>
+                <div class="category-col">
+                    <a href="#">Beauty,Toys&More<i class="fa fa-angle-down"></i></a>
+                </div>
+        
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="ctn-left">
+
+            <table class="placeholders" >
+                <tr>
+                    <td >
+                        <h3 style="margin-top: 100px; ">Filters</h3>
+                        <hr>
+                        <ul style="margin-bottom: -20px;">
+                            <li >Categories</li>
+                            <li style="color:rgb(119, 108, 108); font-weight: 600;">Mobile & accesories</li>
+                            <hr>
+                            <li>price</li>
+                            <li>Categories</li>
+                            <li style="color:rgb(119, 108, 108); font-weight: 600;" >Mobile & accesories</li>
+                            <li>price</li>
+                            
+                        </ul>
+            
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>
+            
+                        <label>Price</label>
+                        <input type="range" style="width:100%"/><br><br>
+                        <select  style="min-width:100px">
+                            <option value="Min" selected >Min</option>
+                        </select> 
+                     
+                        <select id="selector" style="min-width:120px">
+                            <option value="Rs 50000+" selected>Rs 90000+</option>
+                        </select><br><br>
+                        <select style="min-width:260px; border:none; font-size: 17px; margin-top: 2px; margin-bottom: 4px;" >
+                            <option value="brand" selected >Brand</option>
+                        </select>
+                        <input type="checkbox" value="brand"/> Samsung<br><br>
+                        <input type="checkbox" value="brand"/> iPhone<br><br>
+                        <hr>
+                        <br>
+                        <input type="checkbox"/>
+                        <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" width="30%"/>
+                        <br>
+                        <select  style="margin-top:10px;min-width:260px; border:none">
+                            <option value="GST" selected>Gst Invoice Available</option>
+                        </select><br><br><hr>
+                    <hr>
+                        
+                    </td>
+                </tr>
+            </table>
+         
+
+        </div>
+    <div class="ctn-right">
+        <div class="item-ctn">
+                <div class="item-left">
+            <img src="https://cdn.shopify.com/s/files/1/0081/2659/5130/products/apple-iphone-xr-256gb-blue_x700.png?v=1580472282 " height="80%" />  
+        
+             </div>
+             <div class="item-middle" style="
+             margin-top: -50px; flex:2; margin-left: -500px;">
+                <h2 id="name2">
+                    Apple iPhone XR (64GB) </h2>
+                <p><span style="background-color: rgb(40, 172, 40); color:white; padding: 3px; font-weight: bolder;">3.5* </span><span style="color:#a8a3a3; font-weight: bolder; margin-left: 10px;">0000 Ratings & 00000 Reviews</span>
+                    
+                </p>
+                <br>
+                <br>
+                <ul>
+                    <li> 6.1-inch (15.5 cm diagonal) Liquid Retina HD LCD display</li>
+                    <li> Single 12MP Wide camera with Portrait mode, Portrait Lighting, Depth Control, Smart HDR, and 4K video up to 60fps</li>
+                    <li>7MP TrueDepth front camera system with Portrait mode, Portrait Lighting, Depth</li>
+                    <li>Face ID for secure authentication</li>
+                    <li>A12 Bionic with second-generation Neural Engine</li>
+                </ul>
+                <br>
+                
+             </div>
+
+             <div class="item-right" style="margin-left: -30px; flex:1; display: flex; flex-direction: column; margin-bottom: 50px;">
+                <span style="margin-top:10px;  "><img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png" width="100px" height="30px"/></span>
+                <span style="margin-left:-10px; "><h2>Rs 72499</h2>
+                </span>    
+                    <span style="color:grey; font-weight: bolder;"><strike>Rs 82999</strike> x% off</span>
+                    <br>
+                    <span style="color:grey">Free Delivery</span>
+                    <span style="color:rgb(82, 77, 77)">Free Delivery</span>
+                    <span>Free Delivery</span>
+               
+        </div>
+        <!--item-ctn ends-->
+    </div>
+    <!--item-right ends-->
+
+
+</body>
+</html>
