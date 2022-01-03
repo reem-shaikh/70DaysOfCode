@@ -24,3 +24,21 @@ mobile and accesories                           .item-left  (row)               
 
 
 ```
+
+2. google drive 
+
+header (flex-direction: row)
+``````````````````````````````````````````````````````````````
+header left             header middle              header right
+(logo)                  (searchbar)                (icons)
+---------------------------------------------------------------
+
+container (flex-direction: row)
+sidebar            |       content 
+                   |
+                   |
+                   |
+                   |
+------------------------------------------------------------------
+
+> both sidebar and content will have flex-direction column
