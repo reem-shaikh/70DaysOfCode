@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body{
-            font-size:20px;
+            font-size:14px;
             line-height: 24px;
+            color: gray;
+            font-weight: 700;
         }
 
         h1{
@@ -18,8 +21,8 @@
 
         #table{
             display: none;
-            width: 600px;
-            border: 1px solid black;
+            width: 77%;
+            border-bottom: 1px solid whitesmoke;
             margin: 0 auto;
             /* to get table in mid of page*/
             text-align: center;
@@ -32,23 +35,27 @@
         }
 
         .col{
-            border: 1px solid red;
+            /* border: 1px solid red; */
+            border: 1px solid whitesmoke;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 1px;
             display: table-cell;
-            width: 300px;
+            width: 200px;
             /* giving fixed width to columns */
-            padding: 10px;
+            padding: 7px;
         }
 
         .table-header{
             display: table-header-group;
-            background-color: lightsalmon;
             text-align: center;
             font-weight: bold;
         }
 
+        .table-header .col{
+            color: rgb(138, 133, 133);
+        }
+
         .table-footer{
             display: table-footer-group;
-            background-color: lightpink;
             text-align: center;
         }
 
@@ -61,11 +68,11 @@
         }
 
         .col1{
-            background-color: lavender;
+            background-color: rgb(255, 255, 255);
         }
 
         .col3{
-            background-color: lightgrey;
+            background-color: rgb(255, 255, 255);
         }
 
         #flex{
@@ -87,6 +94,15 @@
             width: 30%;
         }
 
+        .row .col a, 
+        .table-footer .col a{
+            text-decoration: none;
+            color: grey;
+            margin-left: 20px;
+        }
+
+
+
     </style>
 
 </head>
@@ -106,38 +122,54 @@
     </div>
     
       <div class="table-header">
-        <div class="col">Month</div>
-        <div class="col">Savings</div>
-        <div class="col">Expenditure</div>
-        <div class="col">Invested</div>
+        <div class="col" style="display: flex; align-items: center; justify-content: space-between; width: 97%;">Name
+            <span class="material-icons">
+                arrow_drop_down
+            </span>
+        </div>
+        <div class="col">Owner</div>
+        <div class="col">last modified</div>
+        <div class="col">filesize</div>
       </div>
 
       <div class="row">
-        <div class="col">jan</div>
-        <div class="col">$100</div>
-        <div class="col">$2000</div>
-        <div class="col">$100</div>
+        <div class="col" style="display: flex; width: 95%; padding: 12px;">
+            <span class="material-icons">public
+            </span> <a href="#">Google Earth</a>
+        </div>
+        <div class="col">me</div>
+        <div class="col">Jul 16, 2020</div>
+        <div class="col">102.5 MB</div>
       </div>
 
       <div class="row">
-        <div class="col">feb</div>
-        <div class="col">$200</div>
-        <div class="col">$3000</div>
-        <div class="col">$200</div>
+        <div class="col" style="display: flex; width: 95%; padding: 12px;">
+            <span class="material-icons"> description
+            </span> <a href="#">To do List</a>
+        </div>
+        <div class="col">me</div>
+        <div class="col">Sept 20, 2021</div>
+        <div class="col">305 KB</div>
       </div>
 
       <div class="row">
-        <div class="col">march</div>
-        <div class="col">$300</div>
-        <div class="col">$1000</div>
-        <div class="col">$400</div>
+        <div class="col" style="display: flex; width: 95%; padding: 12px;">
+            <span class="material-icons"> summarize 
+            </span> <a href="#">Aadhar</a>
+        </div>
+        <div class="col">me</div>
+        <div class="col">Dec 3, 2020</div>
+        <div class="col">1.4 MB</div>
       </div>
     
       <div class="table-footer">
-        <div class="col">sum</div>
-        <div class="col">$600</div>
-        <div class="col">$6000</div>
-        <div class="col">$700</div>
+        <div class="col" style="display: flex; width: 95%; padding: 12px;">
+            <span class="material-icons"> picture_as_pdf
+            </span> <a href="#">Results</a>
+        </div>
+        <div class="col">me</div>
+        <div class="col">Sept 21, 2021</div>
+        <div class="col">3.9 MB</div>
       </div>
   </div>
 
