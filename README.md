@@ -127,13 +127,15 @@ https://reem-shaikh.github.io/Geekster-/main/3-12/sum.html
 https://reem-shaikh.github.io/Geekster-/main/3-12/count.html
 
 ### 5-12 
-**onClick Js implementation**
+**Color Flipper**
 https://reem-shaikh.github.io/Geekster-/test/5-12test.html
 
 ## 6-12 
+**Mobile responsive form**
 https://reem-shaikh.github.io/Geekster-/main/6-12/responsiveform.html
 
 ## 7-12 
+**Task List App**
 https://reem-shaikh.github.io/Geekster-/main/7-12/practice18.html
 
 ## 9-12 
