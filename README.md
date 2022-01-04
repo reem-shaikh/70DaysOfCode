@@ -163,10 +163,11 @@ https://reem-shaikh.github.io/Geekster-/test/19-12/19-12.html
 ## 18-12 
 https://reem-shaikh.github.io/Geekster-/main/18-12/star1.html </br>
 https://reem-shaikh.github.io/Geekster-/main/18-12/star2.html  </br>
-https://reem-shaikh.github.io/Geekster-/main/18-12/assignment.md  </br>
 
 ## 25-12 
+**Responsive Landing Page**
 https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/2512assignment1.html </br>
+**Responsive form**
 https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/2512assignment2.html
 
 ## 26-12
