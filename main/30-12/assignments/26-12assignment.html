@@ -1,19 +1,9 @@
-<!--
-    Note: I have created a basic GDrive UI
-    ✅I have yet to integrate the JS onclick functionality.
-
-    I've written the basic JS logic at:
-    - assignment link: https://github.com/reem-shaikh/Geekster-/blob/master/main/30-12/practice6.html
-    - git link: https://github.com/reem-shaikh/Geekster-/main/30-12/practice6.html
-
-    ✅I'll be working on integrating it with GDrive UI soon.
--->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GDrive clone</title>
     <!--
         read more on 
@@ -26,216 +16,218 @@
 
     <!--GOOGLE FONT ICONS 
         set up icon fonts from https://developers.google.com/fonts/docs/material_icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        .header-left img{
-            object-fit: contain;
-            height: 50px;
-        }
+      .header-left img {
+        object-fit: contain;
+        height: 50px;
+      }
 
-        .header{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between; 
-            border-bottom: 1px solid whitesmoke;
-            padding: 15px;
-        }
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid whitesmoke;
+        padding: 15px;
+      }
 
-        .header-left{
-            display: flex;
-            align-items: center;
-        }
+      .header-left {
+        display: flex;
+        align-items: center;
+      }
 
-        .header-left span{
-            padding: 10px;
-            cursor: pointer;
-        }
+      .header-left span {
+        padding: 10px;
+        cursor: pointer;
+      }
 
-        .header-middle{
-            display: flex;
-            flex: 0.7;
-            align-items: center;
-            background-color: whitesmoke;
-            padding: 10px;
-            border-radius: 5px;
-        }
+      .header-middle {
+        display: flex;
+        flex: 0.7;
+        align-items: center;
+        background-color: whitesmoke;
+        padding: 10px;
+        border-radius: 5px;
+      }
 
-        .material-icons{
-            color: grey;
-        }
+      .material-icons {
+        color: grey;
+      }
 
-        .header-middle input{
-            border: none;
-            width: 100%;
-            padding: 8px;
-            outline: none;
-            font-size: medium;
-            background-color: transparent;
-        }
+      .header-middle input {
+        border: none;
+        width: 100%;
+        padding: 8px;
+        outline: none;
+        font-size: medium;
+        background-color: transparent;
+      }
 
-        .header-right{
-            display: flex;
-            padding-right: 20px;
-        }
+      .header-right {
+        display: flex;
+        padding-right: 20px;
+      }
 
-        .header-right span{
-            padding: 10px;
-            cursor: pointer;
-        }
+      .header-right span {
+        padding: 10px;
+        cursor: pointer;
+      }
 
-        .sidebar{
-            flex: 0.3;
-            /* sidebar is going to use 30% of main body */
-            max-width: 300px;
-            padding-right: 20px;
-        }
+      .sidebar {
+        flex: 0.3;
+        /* sidebar is going to use 30% of main body */
+        max-width: 300px;
+        padding-right: 20px;
+      }
 
-        .sidebar-compose{
-            margin-top: 15px;
-            margin-left: 10px;
-            margin-bottom: 15px;
-            text-transform: capitalize;
-            color: gray;
-            padding: 15px;
-            border-radius: 30px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            outline: none;
-            border: none;
-            box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.75);
-        }
+      .sidebar-compose {
+        margin-top: 15px;
+        margin-left: 10px;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+        color: gray;
+        padding: 15px;
+        border-radius: 30px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.75);
+      }
 
-        .sidebar-compose span{
-            margin-right: 5px;
-        }
+      .sidebar-compose span {
+        margin-right: 5px;
+      }
 
-        .sidebaroption{
-            padding: 0 10px;
-            align-items: center;
-            display: flex;
-            height: 40px;
-            border-top-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            cursor: pointer;
-            color: #818181;
-        }
+      .sidebaroption {
+        padding: 0 10px;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        cursor: pointer;
+        color: #818181;
+      }
 
-        #drive{
-            color: #9c9999;
-            font-size: 15px;
-            font-weight: 600;
-        }
+      #drive {
+        color: #9c9999;
+        font-size: 15px;
+        font-weight: 600;
+      }
 
-        .sidebaroption .material-icons{
-            padding: 5px;
-        }
+      .sidebaroption .material-icons {
+        padding: 5px;
+      }
 
-        .sidebaroption h3{
-            flex: 1;
-            margin-left: 10px;
-            font-size: 14px;
-            font-weight: 400;
-        }
-  
-        .sidebaroption:hover, 
-        .sidebaroption:hover .material-icons,
-        .sidebaroption-active h3:hover,
-        .sidebaroption-active:hover,
-        .sidebaroption-active:hover .material-icons
-        {
-            background-color: #fcecec;
-            color: #c04b37;
-            font-weight: 800;
-        }
+      .sidebaroption h3 {
+        flex: 1;
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: 400;
+      }
 
-        .main-body{
-            display: flex;
-            height: 100vh;
-        }
+      .sidebaroption:hover,
+      .sidebaroption:hover .material-icons,
+      .sidebaroption-active h3:hover,
+      .sidebaroption-active:hover,
+      .sidebaroption-active:hover .material-icons {
+        background-color: #fcecec;
+        color: #c04b37;
+        font-weight: 800;
+      }
 
-        body{
-            height: 100vh;
-            overflow-y: hidden;
-        }
+      .main-body {
+        display: flex;
+        height: 100vh;
+      }
 
-        .list{
-            flex: 1;
-            overflow: scroll;
-        }
+      body {
+        height: 100vh;
+        overflow-y: hidden;
+      }
 
-        .listsettings{
-            position: sticky;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid whitesmoke;
-            z-index: 999;
-            background-color: white;
-            padding: 8px;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        }
+      .list {
+        flex: 1;
+        overflow: scroll;
+      }
 
-        .listsettingsleft{
-            display: flex;
-            align-items: center;
-        }
+      .listsettings {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid whitesmoke;
+        z-index: 999;
+        background-color: white;
+        padding: 8px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
 
-        .listsettings .material-icons{
-            margin: 5px;
-            cursor: pointer;
-        }
+      .listsettingsleft {
+        display: flex;
+        align-items: center;
+      }
 
-        .section{
-            display: flex;
-            align-items: center;
-            border-bottom-width: 2px;
-            padding: 15px;
-            min-width: 200px;
-            cursor: pointer;
-            color: grey;
-            border-width: 0;
-        }
+      .listsettings .material-icons {
+        margin: 5px;
+        cursor: pointer;
+      }
 
-        .listsection2{
-            position: sticky;
-            top: 0;
-            display: flex;
-            background-color: white;
-            border-bottom: 1px solid whitesmoke;
-            z-index: 999;
-        }
+      .section {
+        display: flex;
+        align-items: center;
+        border-bottom-width: 2px;
+        padding: 15px;
+        min-width: 200px;
+        cursor: pointer;
+        color: grey;
+        border-width: 0;
+      }
 
-        .section h4:hover{
-            background-color: whitesmoke;
-            border-width: 3px;
-        }
+      .listsection2 {
+        position: sticky;
+        top: 0;
+        display: flex;
+        background-color: white;
+        border-bottom: 1px solid whitesmoke;
+        z-index: 999;
+      }
 
-        .section h4{
-            font-size: 16px;
-            margin-left: 0px;
-            color: rgba(106, 102, 102, 0.8);
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        }
+      .section h4:hover {
+        background-color: whitesmoke;
+        border-width: 3px;
+      }
 
-        .rowoptions{
-            display: flex;
-            align-items: center;
-        }
+      .section h4 {
+        font-size: 16px;
+        margin-left: 0px;
+        color: rgba(106, 102, 102, 0.8);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
 
-        .rowoptions .material-icons, input
-        {
-            margin: 5px;
-        }
+      .rowoptions {
+        display: flex;
+        align-items: center;
+      }
 
-        .row{
+      .rowoptions .material-icons,
+      input {
+        margin: 5px;
+      }
+
+      /* .row{
             display: flex;
             align-items: center;
             height: 50px;
@@ -247,259 +239,407 @@
         .row:hover{
             border-top: 1px solid whitesmoke;
             box-shadow: 0 4px 4px -2px rgba(100, 100, 111, 0.2);
-        }
+        } */
 
-        .rowmessage{
-            display: flex;
-            flex: 0.8;
-            align-items: center;
-            font-size: 13px;
-        }
+      /*styling for the main list */
+      body {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 700;
+      }
 
-        .rowmessage h4{
-            width: 400px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        .rowtitle{
-            font-size: 13px;
-            flex:0.3;
-        }
+      #table {
+        display: none;
+        width: 77%;
+        border-bottom: 1px solid whitesmoke;
+        margin-top: 4%;
+        margin-left: 2%;
+        /* to get table in mid of page*/
+        text-align: center;
+      }
 
-        .rowtime{
-            padding-right: 15px;
-            font-size: 10px;
-            font-weight: bold;
-        }
+      .row {
+        display: table-row-group;
+        /* background-color: linen; */
+        vertical-align: middle;
+      }
 
-        .rowdesc{
-            font-weight: 400;
-            color: gray;
-        }
+      .col {
+        /* border: 1px solid red; */
+        border: 1px solid whitesmoke;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 1px;
+        display: table-cell;
+        width: 200px;
+        /* giving fixed width to columns */
+        padding: 7px;
+      }
 
+      .table-header {
+        display: table-header-group;
+        text-align: center;
+        font-weight: bold;
+      }
 
+      .table-header .col {
+        color: grey;
+      }
 
+      .table-footer {
+        display: table-footer-group;
+        text-align: center;
+      }
 
+      .table-column-group {
+        display: table-column-group;
+      }
+
+      .table-column {
+        display: table-column;
+      }
+
+      .col1 {
+        background-color: rgb(255, 255, 255);
+      }
+
+      .col3 {
+        background-color: rgb(255, 255, 255);
+      }
+
+      #flex {
+        position: absolute;
+        left: 300px;
+        top: 300px;
+        background-color: rgb(241, 239, 239);
+        width: 75vw;
+        height: 97vh;
+        margin-top: 150px;
+        margin-left: 30px;
+        display: none;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: initial;
+        border-radius: 10px;
+      }
+
+      #flex > img {
+        text-align: center;
+        border: rgb(236, 233, 233);
+        font-size: 30px;
+      }
+
+      .row .col a,
+      .table-footer .col a {
+        text-decoration: none;
+        color: grey;
+        margin-left: 20px;
+      }
+
+      .flexcolumn a {
+        margin-top: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!--header starts-->
     <div class="header">
-        <div class="header-left">
-            <!-- importing icon from https://fonts.google.com/icons?icon.query=menu+-->
-            <span class="material-icons">
-                menu
-            </span>
-            <img src="drive.PNG" alt="" />
-        </div>
-        <div class="header-middle">
-            <span class="material-icons">
-                search
-            </span>
-            <input type="text" placeholder="Search" />
-            <span class="material-icons">
-                arrow_drop_down
-            </span>
-
-        </div>
-        <div class="header-right">
-            <span class="material-icons">
-                apps
-            </span>
-            <span class="material-icons">
-                notifications
-            </span>
-            <span class="material-icons">
-                account_circle
-            </span>
-                
-        </div>
+      <div class="header-left">
+        <!-- importing icon from https://fonts.google.com/icons?icon.query=menu+-->
+        <span class="material-icons">
+          menu
+        </span>
+        <img src="drive.PNG" alt="" />
+      </div>
+      <div class="header-middle">
+        <span class="material-icons">
+          search
+        </span>
+        <input type="text" placeholder="Search" />
+        <span class="material-icons">
+          arrow_drop_down
+        </span>
+      </div>
+      <div class="header-right">
+        <span class="material-icons">
+          apps
+        </span>
+        <span class="material-icons">
+          notifications
+        </span>
+        <span class="material-icons">
+          account_circle
+        </span>
+      </div>
     </div>
     <!--header ends-->
 
     <!--main body starts -->
     <div class="main-body">
-        <!--sidebar starts-->
-        <div class="sidebar">
-            <button class="sidebar-compose">
-                <!--sidebar-compose given flex-direction: row-->
-                <span class="material-icons">
-                    add
-                    </span>
-                Compose 
-            </button>
-            <div class="sidebaroption sidebaroption-active">
-                <span class="material-icons"> devices </span>
-                <h3> Computers </h3>
-            </div>
-            <!--sidebaroption ends -->
-            <div class="sidebaroption sidebaroption-active">
-                <span class="material-icons"> share </span>
-                <h3> Shared with me </h3>
-            </div>
-            <!--sidebaroption ends -->
-            <div class="sidebaroption sidebaroption-active">
-                <span class="material-icons"> schedule </span>
-                <h3> Recent</h3>
-            </div>
-            <!--sidebaroption ends -->
-            <div class="sidebaroption sidebaroption-active">
-                <span class="material-icons"> star_outline </span>
-                <h3> Starred </h3>
-            </div>
-            <!--sidebaroption ends -->
-            <div class="sidebaroption sidebaroption-active">
-                <span class="material-icons"> delete </span>
-                <h3> Trash </h3>
-            </div>
-            <!--sidebaroption ends -->
-            <div class="sidebaroption sidebaroption-active">
-                <span class="material-icons"> expand_more </span>
-                <h3> More </h3>
-            </div>
-            <!--sidebaroption ends -->
-
+      <!--sidebar starts-->
+      <div class="sidebar">
+        <button class="sidebar-compose">
+          <!--sidebar-compose given flex-direction: row-->
+          <span class="material-icons">
+            add
+          </span>
+          Compose
+        </button>
+        <div class="sidebaroption sidebaroption-active">
+          <span class="material-icons">devices</span>
+          <h3>Computers</h3>
         </div>
-        <!--side bar ends-->
+        <!--sidebaroption ends -->
+        <div class="sidebaroption sidebaroption-active">
+          <span class="material-icons">share</span>
+          <h3>Shared with me</h3>
+        </div>
+        <!--sidebaroption ends -->
+        <div class="sidebaroption sidebaroption-active">
+          <span class="material-icons">schedule</span>
+          <h3>Recent</h3>
+        </div>
+        <!--sidebaroption ends -->
+        <div class="sidebaroption sidebaroption-active">
+          <span class="material-icons">star_outline</span>
+          <h3>Starred</h3>
+        </div>
+        <!--sidebaroption ends -->
+        <div class="sidebaroption sidebaroption-active">
+          <span class="material-icons">delete</span>
+          <h3>Trash</h3>
+        </div>
+        <!--sidebaroption ends -->
+        <div class="sidebaroption sidebaroption-active">
+          <span class="material-icons">expand_more</span>
+          <h3>More</h3>
+        </div>
+        <!--sidebaroption ends -->
+      </div>
+      <!--side bar ends-->
 
-        <!--list starts-->
-        <div class="list">
-            <!-- list contains 
+      <!--list starts-->
+      <div class="list">
+        <!-- list contains 
             .listsettings 
             .listsection2
           -->
-            <div class="listsettings">
-                <div class="listsettingsleft">
-                    <span style="font-size: 19px; color:rgb(85, 82, 82)">My Drive</span>
-                    <span class="material-icons"> arrow_drop_down </span>
-                </div>
-                <!--listsettings left-->
-                <div class="listsettingsright">
-                        <span class="material-icons"> chevron_left </span>
-                        <span class="material-icons"> chevron_right </span>
-                        <span class="material-icons"> view_module</span>
-                        <span class="material-icons"> settings</span> 
-                </div>
-                <!--listsettings right-->
-            </div>
-            <!--setting ends-->
+        <div class="listsettings">
+          <div class="listsettingsleft">
+            <span style="font-size: 19px; color: rgb(85, 82, 82);">
+              My Drive
+            </span>
+            <span class="material-icons">arrow_drop_down</span>
+          </div>
+          <!--listsettings left-->
+          <div class="listsettingsright">
+            <span class="material-icons">chevron_left</span>
+            <span class="material-icons">chevron_right</span>
 
-            <!--section starts-->
-            <div class="listsection2">
-                <div class="section section-selected">
-                    <br>
-                    <img src="image1.PNG" alt="" />
-                </div>
-            </div>
-            <!--section ends-->
+            <input
+              type="button"
+              name="t1"
+              id="btn1"
+              value="click on me"
+              style="padding: 4px;"
+              onclick="setTable()"
+            />
 
-            <!--main list starts-->
-            <div class="mainlist">
-                <!--row starts-->
-                <div class="row">
-                    <div class="rowoptions">
-                        <input type="checkbox" />
-                        <span class="material-icons"> star border</span> 
-                        <span class="material-icons"> label_important</span> 
-                    </div>
-
-                    <div class="rowtitle">
-                        Assignment
-                    </div>
-                    <div class="rowmessage">
-                        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam!<span class="rowdesc">
-                            Lorem ipsum dolor sit.
-                        </span>
-                        </h4>
-                    </div>
-                    <div class="rowtime">
-                        10pm
-                    </div>
-                </div>
-                <!--row ends-->
-
-                     <!--row starts-->
-                     <div class="row">
-                        <div class="rowoptions">
-                            <input type="checkbox" />
-                            <span class="material-icons"> star border</span> 
-                            <span class="material-icons"> label_important</span> 
-                        </div>
-    
-                        <div class="rowtitle">
-                            Assignment
-                        </div>
-                        <div class="rowmessage">
-                            <h4>Lorem ipsum dolor sit. Omnis, aperiam!<span class="rowdesc">
-                                Lorem ipsum dolor sit.
-                            </span>
-                            </h4>
-                        </div>
-                        <div class="rowtime">
-                            10pm
-                        </div>
-                    </div>
-                    <!--row ends-->
-
-                    
-
-                <!--row starts-->
-                <div class="row">
-                    <div class="rowoptions">
-                        <input type="checkbox" />
-                        <span class="material-icons"> star border</span> 
-                        <span class="material-icons"> label_important</span> 
-                    </div>
-
-                    <div class="rowtitle">
-                        Assignment
-                    </div>
-                    <div class="rowmessage">
-                        <h4>Lorem ipsum dolor sit amet consectetur adipis
-                        </span>
-                        </h4>
-                    </div>
-                    <div class="rowtime">
-                        10pm
-                    </div>
-                </div>
-                <!--row ends-->
-
-                                 <!--row starts-->
-                                 <div class="row">
-                                    <div class="rowoptions">
-                                        <input type="checkbox" />
-                                        <span class="material-icons"> star border</span> 
-                                        <span class="material-icons"> label_important</span> 
-                                    </div>
-                
-                                    <div class="rowtitle">
-                                        Assignment
-                                    </div>
-                                    <div class="rowmessage">
-                                        <h4>Lorem ipsum dolor sit. Omnis, aperiam!<span class="rowdesc">
-                                            Lorem ipsum dolor sit.
-                                        </span>
-                                        </h4>
-                                    </div>
-                                    <div class="rowtime">
-                                        10pm
-                                    </div>
-                                </div>
-                                <!--row ends-->
-
-              
-            </div>
-            <!--main list ends-->
+            <span class="material-icons">view_module</span>
+            <span class="material-icons">settings</span>
+          </div>
+          <!--listsettings right-->
         </div>
-        <!--list ends-->
+        <!--setting ends-->
+
+        <!--section starts-->
+        <div class="listsection2">
+          <div class="section section-selected">
+            <br />
+            <img src="image1.PNG" alt="" />
+          </div>
+        </div>
+        <!--section ends-->
+
+        <!--main list starts-->
+        <div class="mainlist">
+          <div id="table">
+            <div class="table-column-group">
+              <div class="table-column col1">col1</div>
+              <div class="table-column col2">col2</div>
+              <div class="table-column col3">col3</div>
+              <div class="table-column col4">col4</div>
+            </div>
+
+            <div class="table-header">
+              <div
+                class="col"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  width: 97%;
+                "
+              >
+                Name
+                <span class="material-icons">
+                  arrow_drop_down
+                </span>
+              </div>
+              <div class="col">Owner</div>
+              <div class="col">last modified</div>
+              <div class="col">filesize</div>
+            </div>
+
+            <div class="row">
+              <div
+                class="col"
+                style="display: flex; width: 95%; padding: 12px;"
+              >
+                <span class="material-icons">public</span>
+                <a href="#">Google Earth</a>
+              </div>
+              <div class="col">me</div>
+              <div class="col">Jul 16, 2020</div>
+              <div class="col">102.5 MB</div>
+            </div>
+
+            <div class="row">
+              <div
+                class="col"
+                style="display: flex; width: 95%; padding: 12px;"
+              >
+                <span class="material-icons">description</span>
+                <a href="#">To do List</a>
+              </div>
+              <div class="col">me</div>
+              <div class="col">Sept 20, 2021</div>
+              <div class="col">305 KB</div>
+            </div>
+
+            <div class="row">
+              <div
+                class="col"
+                style="display: flex; width: 95%; padding: 12px;"
+              >
+                <span class="material-icons">summarize</span>
+                <a href="#">Aadhar</a>
+              </div>
+              <div class="col">me</div>
+              <div class="col">Dec 3, 2020</div>
+              <div class="col">1.4 MB</div>
+            </div>
+
+            <div class="table-footer">
+              <div
+                class="col"
+                style="display: flex; width: 95%; padding: 12px;"
+              >
+                <span class="material-icons">picture_as_pdf</span>
+                <a href="#">Results</a>
+              </div>
+              <div class="col">me</div>
+              <div class="col">Sept 21, 2021</div>
+              <div class="col">3.9 MB</div>
+            </div>
+          </div>
+
+          <div id="flex">
+            <div
+              class="flexcolumn"
+              style="display: flex; flex-direction: column; margin-left: 30px;"
+            >
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img2.PNG" alt="" style="width: 75%;" />
+              </a>
+            </div>
+
+            <div
+              class="flexcolumn"
+              style="display: flex; flex-direction: column; margin-left: -30px;"
+            >
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img2.PNG" alt="" style="width: 75%;" />
+              </a>
+            </div>
+
+            <div
+              class="flexcolumn"
+              style="display: flex; flex-direction: column; margin-left: -30px;"
+            >
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img2.PNG" alt="" style="width: 75%;" />
+              </a>
+            </div>
+
+            <div
+              class="flexcolumn"
+              style="display: flex; flex-direction: column; margin-left: -30px;"
+            >
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img2.PNG" alt="" style="width: 75%;" />
+              </a>
+            </div>
+
+            <div
+              class="flexcolumn"
+              style="display: flex; flex-direction: column; margin-left: -30px;"
+            >
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img1.PNG" alt="" style="width: 75%;" />
+              </a>
+              <a href="#img1">
+                <img src="img2.PNG" alt="" style="width: 75%;" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--main list ends-->
+      </div>
+      <!--list ends-->
     </div>
     <!--main body ends-->
     <script>
+      function setTable() {
+        if (document.getElementById('btn1').value == 'hide') {
+          document.getElementById('flex').style.display = 'none'
+          document.getElementById('btn1').value = 'show table'
+          document.getElementById('table').style.display = 'table'
+        } else {
+          document.getElementById('btn1').value = 'hide'
+          document.getElementById('flex').style.display = 'flex'
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

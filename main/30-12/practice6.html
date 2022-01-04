@@ -10,7 +10,6 @@
         body{
             font-size:14px;
             line-height: 24px;
-            color: gray;
             font-weight: 700;
         }
 
@@ -20,10 +19,11 @@
         } 
 
         #table{
-            display: none;
+            display: table;
             width: 77%;
             border-bottom: 1px solid whitesmoke;
-            margin: 0 auto;
+            margin-top:250px; 
+            margin-left: 19%;
             /* to get table in mid of page*/
             text-align: center;
         } 
@@ -51,7 +51,7 @@
         }
 
         .table-header .col{
-            color: rgb(138, 133, 133);
+            color: rgb(255, 255, 255);
         }
 
         .table-footer{
@@ -79,24 +79,21 @@
             position: absolute;
             left:300px;
             top: 300px;
-            background-color: rgb(218, 210, 210);
-            width: 90vw;
-            height: 100vh;
+            background-color: rgb(241, 239, 239);
+            width: 75vw;
+            height: 97vh;
+            margin-top:60px; 
             display: none;
             flex-direction: row;
             align-items: flex-start;
             justify-content:initial;
+            border-radius: 10px;
         }
 
         #flex > img{
-            /* width: 10%; */
-            /* padding-top: 100px;
-            padding-bottom: 100px; */
             text-align: center;       
-            border: grey;
+            border: rgb(236, 233, 233);
             font-size: 30px;
-            /* background-color: violet; */
-            border-radius: 5px;
         }
 
         .row .col a, 
@@ -109,9 +106,6 @@
         .flexcolumn a{
             margin-top: 10px;
         }
-
-
-
 
     </style>
 
@@ -187,7 +181,7 @@
   <div id="flex">
      
          <div class="flexcolumn" style="display: flex; flex-direction: column; 
-         margin-left: 5px;"  >
+         margin-left: 30px;"  >
   
           <a href="#img1">
           <img
@@ -285,6 +279,7 @@
                         alt="" style="width: 75%;"
                       /></a> 
               </div>
+
 </div>
 
 
