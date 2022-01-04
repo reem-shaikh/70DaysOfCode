@@ -28,7 +28,7 @@ https://reem-shaikh.github.io/Geekster-/main/8-11/survey.html
 https://reem-shaikh.github.io/Geekster-/main/11-11/videoassignment/index.html 
 
 
-## 12-11 assignment
+## 12-11 
 **Landing page (and a form)** 
 https://reem-shaikh.github.io/Geekster-/main/12-11/assignment.html
 
@@ -97,6 +97,7 @@ https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/combinestars.htm
 https://reem-shaikh.github.io/Geekster-/main/24-11/starprograms/pyramid.html
 
 ## 25-11  
+**to-do-list app***
 https://reem-shaikh.github.io/Geekster-/main/25-11/tdltrial.html
 
 ## 26-11  
@@ -111,12 +112,14 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/odd_evensum.html <br/>
 https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
 
 ## 29-11
+***quiz app**
 https://reem-shaikh.github.io/Geekster-/main/29-11/kbc5.html
 
 ## 1-12 
 https://reem-shaikh.github.io/Geekster-/main/1-12/prac.html
 
 ## 2-12 
+**calculator app**
 https://reem-shaikh.github.io/Geekster-/main/2-12/calculator.html
 
 ## 3-12  
@@ -136,9 +139,11 @@ https://reem-shaikh.github.io/Geekster-/main/7-12/practice18.html
 https://reem-shaikh.github.io/Geekster-/main/9-12/assignment6.html
 
 ## 10-12 
+**fetch API**
 https://reem-shaikh.github.io/Geekster-/main/10-12/fetch2.html
 
 ## 11-12  
+**blog**
 https://reem-shaikh.github.io/Geekster-/main/11-12/blog.html
 
 ## 16-12 
@@ -161,12 +166,14 @@ https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/2512assignment1.h
 https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/2512assignment2.html
 
 ## 26-12
+**G-Drive clone**
 https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/26-12assignment.html
 
 ## 28-12 
 https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/28-12assignment.html
 
 ## 30-12 
+**flipkart clone**
 https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/30assignment.html
 
 ## 1-01 
