@@ -110,7 +110,11 @@ https://reem-shaikh.github.io/Geekster-/test/28-11/largernum.html <br />
 https://reem-shaikh.github.io/Geekster-/test/28-11/odd_evensum.html <br/>
 https://reem-shaikh.github.io/Geekster-/test/28-11/tablestill20.html
 
+<<<<<<< HEAD
 ## 29th  
+=======
+## 29-11 assignment 
+>>>>>>> 23d0ebd18bf3e3839efe661ce30b08b2e42118d0
 https://reem-shaikh.github.io/Geekster-/main/29-11/kbc5.html
 
 ## 1-12 
@@ -156,7 +160,24 @@ https://reem-shaikh.github.io/Geekster-/main/18-12/star1.html </br>
 https://reem-shaikh.github.io/Geekster-/main/18-12/star2.html  </br>
 https://reem-shaikh.github.io/Geekster-/main/18-12/assignment.md  </br>
 
-## 2-1 test 
+## 25-12 assignment
+https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/2512assignment1.html </br>
+https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/2512assignment2.html
+
+## 26-12 assignment
+https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/26-12assignment.html
+
+## 28-12 assignment
+https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/28-12assignment.html
+
+## 30-12 assignment
+https://reem-shaikh.github.io/Geekster-/main/30-12/assignments/30assignment.html
+
+## 1-01 assignment
+https://reem-shaikh.github.io/Geekster-/main/1-01/min5.html </br>
+https://reem-shaikh.github.io/Geekster-/main/1-01/proto2.html
+
+## 2-01 test 
 https://reem-shaikh.github.io/Geekster-/test/2-1/test.html
 
 
