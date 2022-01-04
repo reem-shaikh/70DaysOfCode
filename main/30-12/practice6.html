@@ -77,21 +77,26 @@
 
         #flex{
             position: absolute;
-            left:50px;
-            top: 200px;
-            background-color: rgb(236, 228, 230);
-            width: 60vw;
-           
-            border: 1px solid red;
+            left:300px;
+            top: 300px;
+            background-color: rgb(218, 210, 210);
+            width: 90vw;
+            height: 100vh;
             display: none;
-            flex-direction: column;
-            justify-content: space-between;
+            flex-direction: row;
             align-items: flex-start;
-            flex-wrap: wrap;
+            justify-content:initial;
         }
 
-        #flex img{
-            width: 30%;
+        #flex > img{
+            /* width: 10%; */
+            /* padding-top: 100px;
+            padding-bottom: 100px; */
+            text-align: center;       
+            border: grey;
+            font-size: 30px;
+            /* background-color: violet; */
+            border-radius: 5px;
         }
 
         .row .col a, 
@@ -101,13 +106,18 @@
             margin-left: 20px;
         }
 
+        .flexcolumn a{
+            margin-top: 10px;
+        }
+
+
 
 
     </style>
 
 </head>
 <body>
-  <h1>display:table</h1>  
+  <h1>switch</h1>  
   <input type="button" name="t1" id="btn1" value="show flex" 
   onclick="setTable()"/>
 
@@ -173,10 +183,110 @@
       </div>
   </div>
 
+
   <div id="flex">
-    <img src="https://images.pexels.com/photos/3415858/pexels-photo-3415858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-    <img src="https://images.pexels.com/photos/3415858/pexels-photo-3415858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+     
+         <div class="flexcolumn" style="display: flex; flex-direction: column; 
+         margin-left: 5px;"  >
+  
+          <a href="#img1">
+          <img
+            src="img1.PNG"
+            alt="" style="width: 75%;"
+          /></a> 
+          <a href="#img1">
+              <img
+                src="img1.PNG"
+                alt="" style="width: 75%;"
+              /></a> 
+              <a href="#img1">
+                  <img
+                    src="img2.PNG"
+                    alt="" style="width: 75%;"
+                  /></a> 
+          </div>
+
+          <div class="flexcolumn" style="display: flex; flex-direction: column; 
+          margin-left: -30px;"  >
+   
+           <a href="#img1">
+           <img
+             src="img1.PNG"
+             alt="" style="width: 75%;"
+           /></a> 
+           <a href="#img1">
+               <img
+                 src="img1.PNG"
+                 alt="" style="width: 75%;"
+               /></a> 
+               <a href="#img1">
+                   <img
+                     src="img2.PNG"
+                     alt="" style="width: 75%;"
+                   /></a> 
+           </div>
+
+           <div class="flexcolumn" style="display: flex; flex-direction: column; 
+           margin-left: -30px;"  >
+    
+            <a href="#img1">
+            <img
+              src="img1.PNG"
+              alt="" style="width: 75%;"
+            /></a> 
+            <a href="#img1">
+                <img
+                  src="img1.PNG"
+                  alt="" style="width: 75%;"
+                /></a> 
+                <a href="#img1">
+                    <img
+                      src="img2.PNG"
+                      alt="" style="width: 75%;"
+                    /></a> 
+            </div>
+
+            <div class="flexcolumn" style="display: flex; flex-direction: column; 
+            margin-left: -30px;"  >
+     
+             <a href="#img1">
+             <img
+               src="img1.PNG"
+               alt="" style="width: 75%;"
+             /></a> 
+             <a href="#img1">
+                 <img
+                   src="img1.PNG"
+                   alt="" style="width: 75%;"
+                 /></a> 
+                 <a href="#img1">
+                     <img
+                       src="img2.PNG"
+                       alt="" style="width: 75%;"
+                     /></a> 
+             </div>
+
+             <div class="flexcolumn" style="display: flex; flex-direction: column; 
+             margin-left: -30px;"  >
+      
+              <a href="#img1">
+              <img
+                src="img1.PNG"
+                alt="" style="width: 75%;"
+              /></a> 
+              <a href="#img1">
+                  <img
+                    src="img1.PNG"
+                    alt="" style="width: 75%;"
+                  /></a> 
+                  <a href="#img1">
+                      <img
+                        src="img2.PNG"
+                        alt="" style="width: 75%;"
+                      /></a> 
+              </div>
 </div>
+
 
 </body>
 <script>
