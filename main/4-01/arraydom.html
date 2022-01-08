@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="text" id="inputText" />
+    <button onclick="pushData()">Show</button>
+    <p id="pText"></p>
+
+    <script>
+        //create an Array 
+        var myArr = ["A", "B", "C"]
+
+        function pushData(){
+            //get value from input text
+            var inputText = document.getElementById('inputText').value
+
+            //append data to the array 
+            myArr.push(inputText)
+
+            var pval = ""
+            for(i=0; i<myArr.length; i++){
+                pval = pval + myArr[i]
+            }
+            //display array data 
+            document.getElementById('pText').innerHTML = pval
+        }
+    </script>
+</body>
+</html>

@@ -15,6 +15,29 @@ can create
 - web apps
 - iot 
 
+
+### How JS works?
+1. JS is an intrepreted language, it parses code line by line 
+2. JS is a client side, scripting language 
+
+```bash
+Every browser has a specific JS engine, on which code is run on, which returns the output 
+
+Browser        JS engine
+Google chrome  V8 Engine
+IE             chakra
+Mozilla        spider Monkey 
+Safari         safari
+```
+
+```bash 
+.JS file  --> run on browser (contains JS Engine) 
+              Parser -> AST -> machine code -> code runs
+
+✅Parser- its inside the JS engine, which parses the JS file line by line 
+✅AST- when parser succesfully parses the JS file, it produces AST (abstract syntax tree), which helps in converting to machine code
+```
+
 ## Why are we linking script in the body tag of the html file?
 standard practice: mention script tag at the bottom of the body 
 

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+:root{
+    --primary-color:#14bcab;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+   padding: 0;
+   margin: 0;
+}
+body{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    font-family: 'roboto';
+}
+.container{
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    background-color:var(--primary-color);
+    border-radius: 15px;
+    padding-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;   
+}
+
+.utility-ctn{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content:space-around;
+    align-items:center ;
+}
+
+.heading{
+    color: #1e1e1e;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+
+#reset{
+    background-color: transparent;
+    border: none;
+    cursor:pointer;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.game-box{  
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap:10px;
+    background-color: #1e1e1e;
+}
+.boxtext{
+    width:110px;
+    height:110px;
+    background-color: var(--primary-color);
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .X::before{
+    content: 'X';
+}
+
+.O::before{
+    content: 'O';
+} */
+
+.br-0{
+    border-right: 0;
+}
+
+.bl-0{
+    border-left: 0;
+}
+
+.bt-0{
+    border-top: 0;
+}
+
+.bb-0{
+    border-bottom: 0;
+}
+
+/* #reset{
+    margin: 0 23px;
+    padding: 1px 18px;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Baloo Bhaina 2';
+    font-size: 19px;
+    font-weight: bolder;
+} */
+
+.line{
+    background-color: black;
+    height: 3px;
+    width: 0;
+    /*width: 3vw */
+    position: absolute;
+    background-color: #911d91;
+    transition: width 1s ease-in-out;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="line"></div>
+        <h2 class="title">Tic Tac Toe</h2>
+        <div class="utility-ctn">
+            <h2 class="heading">X turn's</h2>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="game-box">
+            <div class="line"></div>
+            <div class="box bt-0 bl-0"> <span class="boxtext">
+              <!--content is going to be added here-->
+            </span></div>
+            <div class="box bt-0"><span class="boxtext"></span></div>
+            <div class="box bt-0 br-0"><span class="boxtext"></span></div>
+            <div class="box bl-0"><span class="boxtext"></span></div>
+            <div class="box"><span class="boxtext"></span></div>
+            <div class="box br-0"><span class="boxtext"></span></div>
+            <div class="box bl-0 bb-0"><span class="boxtext"></span></div>
+            <div class="box bb-0"><span class="boxtext"></span></div>
+            <div class="box bb-0 br-0"><span class="boxtext"></span></div>    
+            
+        </div>
+    </div>
+   
+    <script>
+let turn = "X"
+
+//initially gameover set to false 
+let isgameover = false;
+
+// Function to change the turn
+//when its X turn, next turn will be of 0; otherwise it will be X turn
+const changeTurn = ()=>{
+    return turn === "X"? "0": "X"
+
+    count= count + 1
+        //console.log("count", count)
+        if(count >= 5){
+            checkGameStatus()
+        }
+}
+
+// Function to check for a win
+const checkGameStatus = ()=>{
+    let boxtext = document.getElementsByClassName('boxtext');
+    let wins = [
+        //this is combinations of how the user can win 
+                  //these last 3 columns are for the line through dimensions
+        //e0, e1, e2, e3,  e4, e5
+        [0,   1,  2,  1,   9,   0],    //horizontal line 
+        [3,   4,  5,  1,  16.8, 0],
+        [6,   7,  8,  1,  25,   0],
+        [0,   3,  6, -8,  15,  90],    //vertical line
+        [1,   4,  7,  0,  15,  90],
+        [2,   5,  8,  8,  15,  90],
+        [0,   4,  8,  0,  16.6,45],    //diagonal line 
+        [2,   4,  6,  1,  16, 135],
+    ]
+
+    wins.forEach(e =>
+        //e0, e1 and e3 signify the first 3 columns of the game 
+        //e3, e4, e5 signifies the vw, vw and the angle in the the rotation of the line will be set 
+
+    {   
+        
+    if((boxtext[e[0]].innerText === boxtext[e[1]].innerText) && (boxtext[e[2]].innerText === boxtext[e[1]].innerText) && (boxtext[e[0]].innerText !== "") ) 
+        {
+            document.querySelector('.heading').innerText = boxtext[e[0]].innerText + " Won"
+            isgameover = true
+
+            //adding a line over the winning sequence in this angle
+            document.querySelector(".line").style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`
+
+            //change width of line to 20vw on winning 
+            document.querySelector(".line").style.width = "25vw";
+        }
+    })
+}
+
+// Game Logic
+let boxes = document.getElementsByClassName("box");
+
+Array.from(boxes).forEach(element =>
+{
+    //console.log('element', element)
+    //element targets each individual box also displaying its contents 
+
+    //technically, .box is the container of boxtext
+    let boxtext = element.querySelector('.boxtext');
+
+    //eveyr time we click on .boxtext 
+    element.addEventListener('click', ()=>
+    {
+        //while its content is empty 
+        if(boxtext.innerText === '')
+        {
+            //invoke turn 
+            boxtext.innerText = turn;
+            //keep changing turns
+            turn = changeTurn();
+            checkGameStatus();
+
+            //till gameover is false it keeps changing turns 
+            if (!isgameover)
+            {
+                //change the innerText of 'turn for X' button to the next turn
+                document.getElementsByClassName("heading")[0].innerText  = "Turn for " + turn;
+            } 
+        }
+    })
+})
+
+// Add onclick listener to reset button
+reset.addEventListener('click', ()=>{
+    let boxtexts = document.querySelectorAll('.boxtext');
+
+    Array.from(boxtexts).forEach(element => {
+        element.innerText = ""
+        document.querySelector(".line").style.width = "0vw";
+
+        //instead of this we can even set 
+        // window.location.reload()
+    });
+
+    //turn set to X again
+    turn = "X"; 
+    //game is at its initial value false again 
+    isgameover = false
+})
+
+    </script>
+</body>
+</html>

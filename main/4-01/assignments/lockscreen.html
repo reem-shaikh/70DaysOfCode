@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <!--Note:
+    the correct pin is 1234
+    -->
+
+    <style>
+      .button {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        margin: 2px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: rgba(247, 240, 240, 0.2);
+        border: blanchedalmond;
+      }
+
+      .textview {
+        width: 152px;
+        margin: 5px;
+        padding: 5px;
+        font-size: 25px;
+        border: none;
+      }
+
+      .main {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .img4 img {
+        width: 90%;
+        margin-left: 70px;
+        margin-top: 10px;
+      }
+
+      body {
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 100%;
+        top: 1;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+      }
+
+      .display {
+        top: 0;
+        left: 1;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .success input {
+        border-color: #019857;
+        background-color: rgba(0, 128, 49, 0.4);
+      }
+
+      .error input {
+        border-color: #fc1c49;
+        /* background-color: red; */
+      }
+
+      .error {
+        color: #ff3860;
+      }
+
+      .success {
+        color: #019857;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <div class="img4">
+          <img
+            src="https://9to5mac.com/wp-content/uploads/sites/6/2020/05/Looiing-at-your-phone-lock-screen-may-require-a-warrant.png?w=1500"
+            alt=""
+            srcset=""
+          />
+
+          <div class="main">
+            <form name="form" action="">
+              <input
+                type="text"
+                class="textview"
+                name="textview"
+                readonly
+                style="
+                  background-color: rgba(246, 245, 245, 0.2);
+                  border-radius: 5px;
+                "
+                id="input"
+              />
+              <div class="error"></div>
+              <table>
+                <tr>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="1"
+                      onclick="insert(1)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="2"
+                      onclick="insert(2)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="3"
+                      onclick="insert(3)"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="4"
+                      onclick="insert(4)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="5"
+                      onclick="insert(5)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="6"
+                      onclick="insert(6)"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="7"
+                      onclick="insert(7)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="8"
+                      onclick="insert(8)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="9"
+                      onclick="insert(9)"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="<"
+                      onclick="back()"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="0"
+                      onclick="insert(0)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="button"
+                      type="button"
+                      value="✔"
+                      onclick="equal()"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function insert(num) {
+        var exp = document.form.textview.value;
+        //same as document.getelementbyId('input')
+        if (exp.length < 4) {
+          document.form.textview.value = document.form.textview.value + num;
+        }
+        //console.log(document.form.textview.value)
+        //takes in every new number we input and places it in the field
+      }
+
+      const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+
+        //errorDisplay.innerText = message;
+        errorDisplay.innerText = message;
+        inputControl.classList.add("error");
+        inputControl.classList.remove("success");
+      };
+
+      //recieve element as parameter
+      const setSuccess = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+
+        //remove everything in the field
+        //errorDisplay.innerText = '';
+
+        errorDisplay.innerText = message;
+        //add the success class
+        inputControl.classList.add("success");
+        //remove the error class
+        inputControl.classList.remove("error");
+      };
+
+      function equal() {
+        const input = document.getElementById("input");
+        const inputvalue = document.getElementById("input").value;
+        var exp = document.form.textview.value;
+        //console.log(exp)
+        //exp holds the value we entered in the input field
+        if (exp == "1234") {
+          setSuccess(input, "correct pin");
+          //alert("correct pin")
+        } else if (inputvalue === "") {
+          setError(input, "enter something");
+          //alert("wrong pin")
+        } else {
+          setError(input, "wrong pin");
+        }
+      }
+
+      function back() {
+        var exp = document.form.textview.value;
+        document.form.textview.value = exp.substring(0, exp.length - 1);
+        //if exp.length = 3
+        //input field: 123
+        //substring(0, 3-1)= substring(0,2)
+        //substring fetches values from the first given index to n-1 given index
+        //in this case, substring returns 12 in the input field
+      }
+    </script>
+  </body>
+</html>

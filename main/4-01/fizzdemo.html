@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--
+    1. fizz for multiples of 3 
+    2. buzz for multiples of 5 
+    3. fizzbuzz for numbers which are multiples of both 3 and 5
+
+UI
+input type number and then button.generate firs n numbers in the fizzbuzz series and and display it in a list 
+-->
+</head>
+<body>
+    <input type="text" name="text" id="inputText" />
+    <button onclick="pushData()">Show</button>
+    <p id="pText"></p>
+
+    <script>
+        //create an Array 
+        var myArr = []
+
+        function pushData(){
+            //get value from input text
+            var n = document.getElementById('inputText').value
+
+                if (n%3==0 && n%5==0)
+                {
+                myArr.push('fizz buzz')
+                }
+                else if(n%3==0)
+                {
+                myArr.push('fizz')
+                }
+                else if(n%5==0)
+                {
+                myArr.push('buzz')
+                }
+                
+        for (i=1; i<=n; i++)
+        { 
+            if(n%3!=0 && n%5!=0)
+            {
+                //append data to the array 
+                myArr.push(`${i}` + '  ') 
+            }
+        }
+
+
+            var pval = ""
+            for(i=0; i<myArr.length; i++){
+                pval = pval + myArr[i]
+            }
+            //display array data 
+            document.getElementById('pText').innerHTML = pval
+            myArr.pop()
+           
+        }
+
+        
+    </script>
+</body>
+</html>

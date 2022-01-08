@@ -1,3 +1,4 @@
+
 ## What is DOM?
 Document Object model 
 it is a set of APIs allowing the manipulation of HTML from JavaScript
@@ -17,6 +18,70 @@ it is a set of APIs allowing the manipulation of HTML from JavaScript
 
 #### Attribute
 additional properties which are part of your html element
+```bash 
+   <tag attribute name ="attribute value"> </tag>
+```
+```bash 
+<h1 bgcolor = "tan"></h1>
+```
+- not case sensitive
+- always defined in start tag
+- attributes once used cannot be repeated in same element
+
+```bash 
+Attribute names used in html5:
+    1. auto complete
+    2. auto focus (focus on a particular field)
+    3. form
+    4. form action (Where to send the form-data when the form is submitted.)
+    5. form method (GET or POST)
+    6. height
+    7. width
+    8. min
+    9. max
+    10. pattern (REGEX)
+    11. placeholder
+    12. required (this field is required)
+    13. list
+  <datalist id="browsers">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+
+Form tag attributes:
+    -novalidate
+    its used to specify the date the form will stop taking inputs, its used to tell server the form is not valid 
+
+    -action
+    where to send the form data 
+    when its submitted.
+
+    -autocomplete
+
+    -method- way to submit form data 
+     -get(data will be sent as url variable)   ✅not secure
+     (its default)
+
+     -post-data send as http post 
+     transaction     ✅secure
+    
+    -enctype (encryption type)
+    enctype-converts spaces to + 
+
+     when your form is submitted 
+     suppose in input field you entered "Reem shaikh"
+     
+    <input type="text" name="sname">
+    then in the url of the submitted link it will show
+    sname=Reem+shaikh
+
+    -target 
+    _blank: opens in new tab
+    _self: open in same tab
+```
 
 #### Element 
 <div id="something" class="" onclick="">  //div element

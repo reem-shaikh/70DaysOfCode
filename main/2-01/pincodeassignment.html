@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            margin: 2px;
+            cursor: pointer;
+            background-color: #607d8b;
+            border: none;
+            color: white;
+        }
+
+        .textview{
+            width: 152px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 25px;
+            border: none;
+            color: #607d8b;
+        }
+
+        .main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            
+        }
+
+        body{
+            background: linear-gradient(to right, #e66465, #11175c); 
+            height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form name="form" action="">
+            <input type="text" class="textview" name="textview" readonly>
+            <table>
+            <tr>
+                <td><input class="button" type="button" value="1" onclick="insert(1)"></td>
+                <td><input class="button" type="button" value="2" onclick="insert(2)"></td>
+                <td><input class="button" type="button" value="3" onclick="insert(3)"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="4" onclick="insert(4)"></td>
+                <td><input class="button" type="button" value="5" onclick="insert(5)"></td>
+                <td><input class="button" type="button" value="6" onclick="insert(6)"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="7" onclick="insert(7)"></td>
+                <td><input class="button" type="button" value="8" onclick="insert(8)"></td>
+                <td><input class="button" type="button" value="9" onclick="insert(9)"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="<" onclick="back()"></td>
+                <td><input class="button" type="button" value="0" onclick="insert(0)"></td>
+                <td><input class="button" type="button" value="✔" onclick="equal()"></td>
+            </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        function insert(num){
+            document.form.textview.value = document.form.textview.value+num;
+            //console.log(document.form.textview.value)
+            //takes in every new number we input and places it in the field 
+        }
+
+        function equal(){
+            var exp = document.form.textview.value
+            //console.log(exp)
+            //exp holds the value we entered in the input field 
+            if(exp == "1234")
+            {
+            alert("correct pin")
+            }
+        }
+
+        // function reset(){
+        //     document.form.textview.value = ""
+        // }
+
+        function back(){
+            var exp = document.form.textview.value
+            document.form.textview.value = exp.substring(0, exp.length-1)
+            //if exp.length = 3    
+            //input field: 123
+            //substring(0, 3-1)= substring(0,2) 
+            //substring fetches values from the first given index to n-1 given index 
+            //in this case, substring returns 12 in the input field 
+        }
+    </script>
+</body>
+</html>

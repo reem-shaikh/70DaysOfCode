@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+      :root{
+    --primary-color:#14bcab;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+   padding: 0;
+   margin: 0;
+}
+body{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    font-family: 'roboto';
+}
+.container{
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    background-color:var(--primary-color);
+    border-radius: 15px;
+    padding-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;   
+}
+
+.utility-ctn{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content:space-around;
+    align-items:center ;
+}
+
+.heading{
+    color: #1e1e1e;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+
+.reset-btn{
+    background-color: transparent;
+    border: none;
+    cursor:pointer;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.game-box{  
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap:10px;
+    background-color: #1e1e1e;
+}
+.cell{
+    width:110px;
+    height:110px;
+    background-color: var(--primary-color);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Tic Tac Toe</h2>
+        <div class="utility-ctn">
+            <h2 class="heading">X turn's</h2>
+            <button class="reset-btn">Reset</button>
+        </div>
+        <div class="game-box">
+            <div class="cell">
+                <div class="inside-cells">
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                    <div class="inside-cell"></div>
+                </div>
+            </div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            
+        </div>
+    </div>
+   
+   
+
+</body>
+</html>

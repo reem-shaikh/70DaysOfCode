@@ -23,6 +23,7 @@ console:
 ```bash 
     <script>
         var name="geekster"
+        ✅data (variable) is present in the global scope 
 
         function printName(){
             console.log(name)
@@ -37,7 +38,7 @@ geekster
 ```
 for the next point, first lets first understand,
 ### Pass by value VS Pass by reference 
-👍Call by value/ pass by value - fetch value from memory and send the exact value 
+👍Call by value/ pass by value - fetch value from memory and send the exact value from memory (doesnt send the memory location)
 👍Call by reference/ pass by reference- fetch the memory location only, because of which if we change anything inside the function, the memory content will be changed
 
 ```bash 
@@ -145,6 +146,7 @@ functions can take and return another function as its argument/ output
 functions does not deal with functions as argument or return. this type of function will not take another function as argument and will not return a function as output 
 
 #### high order function 
+1. takes function as an argument 
 ```bash 
     <script>
     ✅higher order function 
@@ -152,9 +154,11 @@ functions does not deal with functions as argument or return. this type of funct
     //eg: array.foreach/ .then
 
     ✔ this is higher order function
+    
+    ✅function passed as an argument 
     function fn(name, cb){
         console.log(name)
-        cb()
+        cb() 
     }
 
     ✅function passed as an argument 
@@ -166,6 +170,7 @@ functions does not deal with functions as argument or return. this type of funct
 geeks
 index.html:21 this is from callback
 ```
+2. returns function as an output 
 > kareeng is also a higher order function, because it returns function as an output 
 ```bash 
     function fn2(){
@@ -177,13 +182,14 @@ index.html:21 this is from callback
     }
 
     fn2()()
-    //returning a function as output   
+    ✅returning function as output   
 ```
 > there is no connection btw pure & impure | first & higher order function 
 
 #### first order function 
 1. does not take any function as argument 
 2. does not return any function as output 
+
 ```bash 
 function sum(a, b){
     return a + b
@@ -197,7 +203,7 @@ console.log(s)
 passing function as an argumnent to a higher order function & invoking it from inside of the higher order function 
 ```bash 
     <script>
-    //this entire function is higher order function
+    ✅this entire function is higher order function
     function fn(name, cb){
         console.log(name)
         cb()
@@ -216,13 +222,15 @@ function passed as an argument, which is executed in another function
 ```bash 
     <script>
     //write function to take name as an input and show it as a callback 
-    function takeName(cb){
+    function takeName(cb)         ✅function (cb) passed as an argument 
+    {
         let name = prompt("enter your name");
         cb(name)
+        
     }
 
     ✅callback function
-    takeName(function(a){
+    takeName(function(a){         ✅executed in another function 
         console.log("hello", a)
     });
 
@@ -253,7 +261,7 @@ function that calls itself is called recursive function
     <script>
     function abcd(){
         console.log("hi")
-        abcd(); //this function that calls itself 
+        abcd();       ✅this function calls itself 
         //it will become an infinite loop 
 
         //any algo that can be formed using recursion 
@@ -359,6 +367,7 @@ index.html:30 11416
 ### write a program to get sum of all numbers up to n
 > n=5; 1+2+3+4+5
 ```bash 
+
 ✅Solving problem using loop
     function getSum(n){
         let sum = 0
@@ -377,10 +386,12 @@ Console:
 ✅Solving problem using Recursion
 ```bash 
   function getSum(n){
-        if(n==0){
+        if(n==0)
+        {
             return 0
         }
-        else{
+        else
+        {
             return n + getSum(n-1)
         }
     }
@@ -439,6 +450,7 @@ it returns this value to console statement
         return getFib(n-1) + getFib(n-2)
         //sum of last + sum of second last 
     }
+
     let s = getFib(6) //6th number in fibbonacci is 8
     console.log(s)
     </script>
@@ -474,6 +486,7 @@ scope where the required data is available
     function a(){
         ✅lexical scope of b is inside a 
         var abcd = "hello"
+
         function b(){
             console.log(abcd)
         }
@@ -484,15 +497,16 @@ scope where the required data is available
 ```
 
 ### Closure 
-function inside another function where if we return the inner function it will prevent its lexical scope from being garbage collected 
+function inside another function
+>  where if we return the inner function it will prevent its lexical scope from being garbage collected 
 
 Garbage collection: if your not using any var js will throw it to garbage collection 
-
-closure says The value of lexial scope wont be sent for garbage collection, instead it will be preserved 
+***closure says The value of lexial scope wont be sent for garbage collection, instead it will be preserved***
 ```bash 
 <script>
     function a(){
-        //returning function from within a function  
+
+        ✅closure will prevent variable abcd from being garbage collected 
         var abcd = "hello"
         function b(){
             console.log(abcd)
@@ -532,7 +546,7 @@ world
 ✅importance of closure wrt security 
 ```bash 
     <script>
-   const counter = function(){
+    const counter = function(){
        let value = 0;
 
        //nobody can change these values further in code outside of function 
@@ -556,9 +570,9 @@ world
    };
 
    let ctr = counter()
-   ctr.increement()  //1
-   ctr.increement()  //1
-   ctr.decreement()  //-1
+   ctr.increement()  //1  (0+1=1)
+   ctr.increement()  //1  (1+1=2)
+   ctr.decreement()  //-1 (2-1=1)
    console.log(ctr.getCounter())  //1
 </script>
 
