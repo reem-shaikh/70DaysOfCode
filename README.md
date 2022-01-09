@@ -195,7 +195,7 @@ https://reem-shaikh.github.io/Geekster-/test/2-1/test.html
 **factorial using recursion**
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/factorial.html
 
-***lockscreen with a 4 digit pin code**
+**lockscreen**
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/lockscreen.html
 
 ***Fizzbuzz app**
