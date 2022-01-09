@@ -37,4 +37,10 @@ Today's topic:
 - local storage/ sessions/ cookies
 - network calls -> fetch(XHR)
 
-we'll get into react in 2-3 classes
+> we'll get into react in 2-3 classes
+
+
+### Assignment 8-01
+1. UI like KBC 
+2. stopwatch app 
+https://www.online-stopwatch.com/

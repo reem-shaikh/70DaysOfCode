@@ -232,3 +232,152 @@ we can do nesting of ternary operator
 console:
 30
 ```
+### Hoisting 
+Hoisting is moving declaration at top of execution scope.
+Hoisting is part of a JS engine, it happens in all datatypes
+
+```bash 
+    console.log(a) //undefined
+    var a = 10 
+    console.log(a) //10
+```
+- TDZ (temporal dead zone)
+let & const variables cannot be editted until and unless they have been completely intialized 
+
+- TDZ feature introduced in ES6 
+- Hoisting works on let, const and var 
+- let & const have an additional security, which doesnt allow access of variable until the TDZ zone 
+- the idea of having this, is to slowly get rid of hoisting 
+- if they tried to delete hoisting, then it will cause a problem called ***breaking changes***
+
+### TDZ is implemented for more security 
+to prevent accesing variables, before declaring it 
+
+```bash 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+   
+<script>
+    console.log(a)
+    ✅its called temporal because it cannot be accesed in the first line of code 
+    ✅its called dead because in this part, variable is dead, it cannot be read/ write/ accesed
+    ✅TDZ of line 264 is from 250 - 264 (this entire enippet of code is blocked, but under the hood hosting is happening)
+
+    let a = 10 
+    console.log(a) 
+</script>
+</body>
+</html>
+
+console:
+8-01.html:15 Uncaught ReferenceError: Cannot access 'a' before initialization at 8-01.html:15
+```
+> security pov example 
+```bash 
+<script>
+    a = 20 
+    console.log(a)
+    let a = 10     ✅everything before 286 is the TDZ zone 
+
+    console.log(a) ❌this line doesnt execute 
+</script>
+
+console:
+8-01.html:15 Uncaught ReferenceError: Cannot access 'a' before initialization at 8-01.html:15
+```
+### Event loop
+contains 
+1. Call stack 
+whenever we execute a function, its pushed in callstack, when execution is over it popped from callstack
+
+It is a mechanism which will keep track of the function call. which function is being executed, which is the caller function and who this function will call 
+> LIFO 
+```bash 
+<script>
+    const fn = () => {
+        console.log("hey geeks")
+    }
+
+    fn()
+</script>
+```
+Web API - it works as an interface which allows communication between two peices of software 
+
+### JS Engine communicates with browser through WEB API 
+```bash 
+       BROWSER                         JS Engine 
+       chrome    communicate with      JS Engine V8 
+                 using web API 
+
+
+JS Engine: executes JS code here 
+Browser 
+
+✅Possible due to web API 
+1. for setinterval, timer is provided by web api 
+2. fetch request 
+3. DOM manipulation 
+4. console.log 
+
+✅JS is a single-threaded programming language 
+JS engine doesnt have 
+document object 
+browser object 
+window object 
+
+to access these, we have web API 
+were accessing features of browser using web api 
+
+Different browser have different JS engine 
+
+```
+> list of web API's: https://developer.mozilla.org/en-US/docs/Web/API
+
+2. Task queue 
+- Task queue (FIFO) which contains the callback which has to be executed 
+- JS engine contains event loop (periodically check the task queue)
+
+This is the loop which will run infinitely which will check the callstack and if that is empty then pick the task from task queue ad push it in callstack 
+
+```bash 
+    <script>
+    ✅a is pushed into the call stack, executed and popped after execution
+    ✅this is the global execution context 
+
+    ✅c is pushed into the call stack, executed and popped after execution 
+    ✅this is the global execution context 
+
+    const fn = () => {
+        console.log("a")
+        setTimeout(() => {
+            console.log("b")
+            ✅it goes to web API and notifies it about the 
+            settimeout function 
+            ✅because timer funtion is given through web API 
+    
+            ✅this variable (callback) has to execute after a particular time, it pushes this element in task queue 
+
+        }, 1000)
+        ✅JS Engine has to keep checking if the task queue has any thing in it, so it can be executed through event loop
+
+        console.log("c")
+    }
+    
+    fn()
+    </script>
+
+console:
+a
+c
+b
+```
