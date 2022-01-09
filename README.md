@@ -190,7 +190,7 @@ https://reem-shaikh.github.io/Geekster-/main/1-01/proto2.html
 ## 2-01 
 **Image Gallery**
 https://reem-shaikh.github.io/Geekster-/test/2-1/test.html
-<!-- 
+
 ## 2-01
 **factorial using recursion**
 https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/factorial.html
@@ -213,7 +213,7 @@ https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/registration.html
 https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/tictactoe.html
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/tictactoe.html
 
- -->
+
 <!-- micro dev tools: 
 launch instance
 got to live server: 127.0.0.1:5000/ which is the root and navigate to your file
