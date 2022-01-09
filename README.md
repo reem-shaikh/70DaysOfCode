@@ -193,24 +193,19 @@ https://reem-shaikh.github.io/Geekster-/test/2-1/test.html
 
 ## 2-01
 **factorial using recursion**
-https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/factorial.html
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/factorial.html
 
 ***lockscreen with a 4 digit pin code**
-https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/lockscreen.html
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/lockscreen.html
 
 ***Fizzbuzz app**
-https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/fizzbuzz2.html
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/fizzbuzz2.html
 
 ## 4-01  
 **form validator** 
-https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/registration.html
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/registration.html
 
 ***logic for tictactoe game** 
-https://github.com/reem-shaikh/Geekster-/blob/master/main/4-01/assignments/tictactoe.html
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/tictactoe.html
 
 
