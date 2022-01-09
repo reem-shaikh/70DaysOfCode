@@ -10,9 +10,10 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
-        #container {
+        #myChart {
             margin: auto;
-
+            width: 50%;
+            padding: 10px;
         }
     </style>
     <script src="sort.js"></script>
@@ -32,7 +33,7 @@
         //putting an array of values into a chart using libarary chartJS CDN
        var ctx = document.getElementById('myChart').getContext('2d');
        var myChart = new Chart(ctx, {
-           //generating the chart 
+           //generating the chart using random generated values 
            type: 'bar',
            data: {
                //info about data 
@@ -58,6 +59,22 @@
                }
            }
        });
+
+       function sortArray(){
+           //update to sortedArray
+           myChart.data.datasets[0].data = sortedArray
+           myChart.update()
+       }
+
+       function resetArray(){
+           generateArray()
+           bubbleSort(array)
+
+           myChart.data.datasets[0].data = array
+           myChart.update()
+       }
    </script>
+   <input type="button" value="Sort Array" onclick="sortArray()">
+   <input type="button" value="Reset Array" onclick="resetArray()">
 </body>
 </html>
