@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>4
+    <title>Sorting Visualizer</title>
     <style>
         body{
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -12,7 +12,7 @@
 
         #myChart {
             margin: auto;
-            width: 50%;
+            width: 40%;
             padding: 10px;
         }
     </style>
@@ -27,6 +27,8 @@
 <body>
    <h1>Sorting app</h1>
    <hr />
+   <input type="button" value="Show Bar Chart" onclick="showBar()">
+   <input type="button" value="Show PolarArea Chart" onclick="showPolar()">
    <canvas id="myChart" width="400" height="300"> </canvas>
 
    <script>
@@ -34,7 +36,7 @@
        var ctx = document.getElementById('myChart').getContext('2d');
        var myChart = new Chart(ctx, {
            //generating the chart using random generated values 
-           type: 'bar',
+           type: 'bar', 
            data: {
                //info about data 
                labels: ['Element 1', 'Element 2','Element 3','Element 4', 'Element 5',
@@ -62,7 +64,7 @@
 
        function sortArray(){
            //update to sortedArray
-           myChart.data.datasets[0].data = sortedArray
+           myChart.data.datasets[0].data = sortedArray //40 (in sort.js)
            myChart.update()
        }
 
@@ -70,8 +72,68 @@
            generateArray()
            bubbleSort(array)
 
+           //update to the generated (unsorted) array 
            myChart.data.datasets[0].data = array
-           myChart.update()
+           myChart.update() //js update method 
+       }
+
+       //to do this, we destroy chart then regenerate it 
+       function showBar(){
+        myChart.destroy()
+
+        myChart = new Chart(ctx, {
+           //generating the chart using random generated values 
+           type: 'bar', 
+           data: {
+               //info about data 
+               labels: ['Element 1', 'Element 2','Element 3','Element 4', 'Element 5',
+               'Element 6', 'Element 7','Element 8','Element 9', 'Element 10',
+               'Element 11', 'Element 12','Element 13','Element 14', 'Element 15',
+               'Element 16', 'Element 17','Element 18','Element 19', 'Element 20',
+               'Element 21', 'Element 22','Element 23','Element 24', 'Element 25',
+               'Element 26', 'Element 27','Element 28','Element 29', 'Element 30',
+               'Element 31', 'Element 32','Element 33','Element 34', 'Element 35',
+               'Element 36', 'Element 37','Element 38','Element 39', 'Element 40'
+            ],
+               datasets: [{
+                data: array,
+                backgroundColor: "rgba(111, 99, 236, 0.5)",
+                borderWidth: 2 //to create space between the bars
+                //putting an array of values into a chart using libararies
+               }]
+           },
+           options: {
+               legend: {
+                   display: false
+               }
+           }
+       });
+       }
+
+       function showPolar(){
+        myChart.destroy()
+
+        //regenerate 
+        myChart = new Chart(ctx, {
+           //generating the chart using random generated values 
+           type: 'polarArea', 
+           data: {
+               //info about data 
+               labels: [
+            ],
+               datasets: [{
+                data: array,
+                backgroundColor: "rgba(111, 99, 236, 0.5)",
+                borderWidth: 2 //to create space between the bars
+                //putting an array of values into a chart using libararies
+               }]
+           },
+           options: {
+               legend: {
+                   display: false
+               }
+           }
+       });
        }
    </script>
    <input type="button" value="Sort Array" onclick="sortArray()">
