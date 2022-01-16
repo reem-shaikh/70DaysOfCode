@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .container img {
+            width: 30vw;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .container img:hover {
+            border: 2px solid black;
+        }
+        .popup {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: all 1s linear;
+        }
+        .popup img {
+            position: relative;
+            top: 10px;
+            left: 10px;
+            width: calc(100vw - 20px);
+            height: calc(100vh - 20px);
+        }
+        .d-none {
+            opacity: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <h2>Image Gallery</h2>
+    <div class="container">
+        <img src="gallery1.png" alt="Image 1"/>
+        <img src="gallery2.jpg" alt="Image 2"/>
+        <img src="gallery3.jpg" alt="Image 3"/>
+    </div>
+
+    <div id="popup" class="popup d-none">
+        <img id="popup_image" src="" alt="Popup image" />
+    </div>
+
+    <script>
+        const imageClicked = function () {
+            document.getElementById('popup').classList.remove('d-none');
+            let img_path = this.src;
+            document.getElementById('popup_image').src = img_path;
+        }
+
+        let images = document.querySelectorAll('.container > img');
+        images.forEach(function(singleImage) {
+            singleImage.addEventListener('click', imageClicked);
+        });
+
+        document.getElementById('popup').addEventListener('click', function() {
+            this.classList.add('d-none');
+        });
+    </script>
+</body>
+</html>

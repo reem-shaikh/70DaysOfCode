@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(54, 50, 50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            color: white;
+
+        }
+
+        .digit {
+            font-size: 150px;
+            font-weight: bold;
+        }
+
+        .txt {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #btn-container {
+
+            text-align: center;
+            margin-top: 40px;
+
+        }
+
+        .btn {
+            padding: 7px 25px;
+            font-size: 15px;
+            margin: 0px 10px;
+            color: white;
+            border: 0px;
+            cursor: pointer;
+        }
+
+        #start {
+            background-color: green;
+        }
+
+        #stop {
+            background-color: red;
+        }
+
+        #reset {
+            background-color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="time">
+            <span class="digit" id="hr">00</span>
+            <span class="txt">Hr</span>
+
+            <span class="digit" id="min">00</span>
+            <span class="txt">Min</span>
+
+            <span class="digit" id="sec">00</span>
+            <span class="txt">Sec</span>
+
+            <span class="digit" id="count">00</span>
+        </div>
+        <div id="btn-container">
+            <button class="btn" id="start" onclick="start()">start</button>
+            <button class="btn" id="stop" onclick="stop()">stop</button>
+            <button class="btn" id="reset" onclick="reset()">reset</button>
+        </div>
+    </div>
+    
+    <script>
+        //Logic:
+
+        //count = 99 -> count=0
+        //second = 1 
+
+        //second = 59 -> second=0
+        //minute = 1
+
+        //minute = 59 -> minute=0, second=0
+        //hour = 1
+        var hr = 0
+        var min = 0 
+        var sec = 0 
+
+        //count = sec/100 th part 
+        var count = 0 
+        var timer = false 
+        //false denotes timer is stopped
+        //decides whether timer is functioning or stop
+
+        function start() {
+            //when we start timer is set to true 
+            timer = true
+            stopwatch()
+
+        }
+
+        function stop() {
+            timer = false 
+        }
+
+        function reset(){
+            timer = false 
+
+            hr = 0
+            min = 0
+            sec = 0 
+            count = 0
+
+            document.getElementById('count').innerHTML = "00"
+
+            document.getElementById('sec').innerHTML = "00"
+
+            document.getElementById('hr').innerHTML = "00"
+
+            document.getElementById('min').innerHTML = "00"
+        }
+
+        function stopwatch() {
+            if(timer == true) {
+                
+                count = count + 1
+                //for every 10ms count value will increase
+
+                if (count == 100)
+                {
+                    sec = sec + 1
+                    count = 0 
+                }
+
+                if(sec == 60) {
+                    min = min + 1
+                    sec = 0
+                }
+
+                if(min == 60) {
+                    hr = hr + 1
+                    sec = 0 
+                    min = 0
+                }
+
+                var hrString = hr 
+                var minString = min 
+                var secString = sec 
+                var countString = count
+
+                //converting to string as long as its a single digit 
+                if (hr < 10) {
+                    hrString = "0" + hrString
+                }
+
+                if (min < 10) {
+                    minString = "0" + minString
+                }
+                
+                if (sec < 10) {
+                    secString = "0" + secString
+                }
+
+                if (count < 10) {
+                    countString = "0" + countString
+                }
+
+                document.getElementById('count').innerHTML = countString
+
+                document.getElementById('sec').innerHTML = secString
+
+                document.getElementById('hr').innerHTML = hrString
+
+                document.getElementById('min').innerHTML = minString
+
+                setTimeout(() => {
+                    stopwatch()
+                }, 10);
+                //wait for 10ms and then execute the same function
+            }
+        }
+    </script>
+</body>
+</html>

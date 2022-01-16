@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--to display high scores from local storage-->
+    <link rel="stylesheet" href="app.css" />
+    <style>
+        *{
+            overflow: hidden;
+        }
+        
+        img {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+        }
+
+        .container {
+            position: relative;
+        } 
+
+        #highScoresList {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 4rem;
+
+        }
+
+        .high-score {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            background-color: rgb(8, 8, 77, 0.5);
+            font-weight: 800;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        #finalScore {
+            color: whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+  <img src="bg.jpg" alt="kbc" />
+    <div class="container">
+        <div id="highScores" class="flex-center flex-column">
+            <h1 id="finalScore">
+                Reward
+            </h1>
+            <ul id="highScoresList"></ul>
+            <a class="btn" href="index.html">Go Home</a>
+        </div>
+    </div>
+    
+    <!--we'll use JS to pupulate the list-->
+    <script>
+        const highScoresList = document.getElementById('highScoresList')
+        const highScores = JSON.parse(localStorage.getItem('highScores'))
+        console.log(highScores)
+
+        highScoresList.innerHTML = 
+        highScores.map( score => {
+            return `<li class="high-score">Congratz ${score.name} has won ${score.score} Rs</li>`
+        }).join("")
+
+        //local storage is not secure 
+        //only for demo purposes 
+    </script>
+</body>
+</html>

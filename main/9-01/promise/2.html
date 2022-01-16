@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<!--
+    combinations to try:
+    promises inside promises
+-->
+<body>
+
+    <script>
+        //microstask, 2nd priorty 
+        //until microstask queue is clear it doesnt execute macrotask queue
+        new Promise((s,f) => { s(); }).then(() => {
+            console.log('c')
+
+            new Promise((s,f) => { s(); }).then(() => {
+            console.log('inside c')
+        });
+        });
+
+        //task/ callback queue, 3rd priorty
+        setTimeout(() => {
+            console.log('a')
+        }, 0)
+
+        //callstack 1st priorty
+        console.log('b')
+
+/*
+b
+2.html:22 c
+2.html:25 inside c
+2.html:66 Live reload enabled.
+2.html:31 a
+
+*/
+    </script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 ### Pure & Impure functions 
-different classification of functions:
+Different classification of functions:
 
 ## Pure function
 ```bash 
@@ -16,7 +16,15 @@ console:
             return a+b
         }
 ```
-#### conditions required for function to be pure
+#### 3 conditions required for function to be pure
+```bash
+1. its not using any of the data (variable outside of its inner scope )
+2. its should not have any side effect (leaking), function should not edit 
+any data outside of its inner scope
+3. if i run my function n number of times with the same input, it should give 
+the same output everytime 
+```
+
 1. it is not using any of the data (variable) from outside of its inner scope (should not use any global variable)
 
 > this example uses data from outside of its inner scope
@@ -38,27 +46,31 @@ geekster
 ```
 for the next point, first lets first understand,
 ### Pass by value VS Pass by reference 
-👍Call by value/ pass by value - fetch value from memory and send the exact value from memory (doesnt send the memory location)
-👍Call by reference/ pass by reference- fetch the memory location only, because of which if we change anything inside the function, the memory content will be changed
+👍Call by value/ pass by value
+- fetch value from memory and send the exact value from memory (doesnt send the memory location)
+
+👍Call by reference/ pass by reference
+- fetch the memory location only, because of which if we change anything inside the function, the memory content will be changed
 
 ```bash 
     <script>
         ✅primitive datatypes- data that is not an object and has no methods.
-        There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null. ... All primitives are immutable, i.e., they cannot be altered.
+        There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null. ... All primitives are immutable,
+         i.e., they cannot be altered.
 
         They store the value of a variable directly in memory.
 
-        ✔ Call by Value 
+        ✔ Call by Value - send value, instead of pointer 
         let num = 10;
         function increaseNum(a){
-            a=20;
+            a=20;               //value of 10 is being passed here 
         }
 
         ✅sends a value instead of the reference 
         increaseNum(num);  
-        console.log("call by value",num)     
+        console.log("call by value",num)     //10
 
-        ✔ Call by reference 
+        ✔ Call by reference - send reference of the object 
         ✅non primitive datatypes- array, object
         Non-primitive data types is the object. The JavaScript arrays and functions are also objects. 
         
@@ -67,18 +79,18 @@ for the next point, first lets first understand,
         //array/ object is sent as a reference/ pointer (memory location)
 
         ✅it passes the pointer instead of passing the value 
-        ✅it passes only memory reference
+        ✅it passes only memory reference/ pointer/ reference 
         //if we change anything inside the inner scope, it would change the actual value, the memory reference is updated
 
         let arr = [1, 2, 3]
 
         function changeArr(a){
-            a[0] = "hello"
+            a[0] = "hello"     
         }
 
         changeArr(arr) 
         ✅this is a reference to the array 
-        console.log("call by reference",arr)
+        console.log("call by reference",arr)   //['hello', 2, 3]
     </script>
 
 console:
@@ -88,9 +100,14 @@ index.html:37 call by reference (3) ['hello', 2, 3]
 
 #### Note: All pass by reference is not impure 
 2. there should not be any side effects, for a function to be pure 
-> side effect: when your trying to update something, it should not change anything on outside of its scope, this is called a side effect 
+> side effect: 
+```bash
+when your trying to update something, 
+it should not change anything on outside of its inner scope, 
+this is called a side effect and leaking.
+```
 
-##### when you run a function, it should not edit any data outside of its inner scope 
+##### 2. when you run a function, it should not edit any data outside of its inner scope 
 ```bash 
 
 <script>
@@ -104,7 +121,8 @@ changeArr(arr)
 ✅this is a reference to the array 
 console.log("call by reference",arr)
 
-//side effect: when your trying to update something, it should not change anything on outside of its scope, this is called a side effect 
+//side effect: when your trying to update something, 
+it should not change anything on outside of its scope, this is called a side effect 
 </script>
     
 console:
@@ -122,30 +140,36 @@ index.html:37 call by reference (3) ['hello', 2, 3]
             a=20;
         }
     }
-        increaseNum(num);  
-        console.log("call by value",num)   //20
+        
+    increaseNum(num);  
+    console.log("call by value",num)   //20
 
-        ✅impure function
-        //this function is breaking rule 3 
+    ✅impure function
+    //this function is breaking rule 3 
         function generateRandom(){
             return Math.random()
-            //every time you call this function in console, it gives a different output 
+            //every time you call this function n number of time with same input in
+            console, it gives a different output 
         }
     </script>
 ```
-### Note: Write pure functions, because it gives assurity nothing will break, also its more secure, its difficult to keep track of variables when they are not bounded in their inner scope, less bugs, no memory leak
+### Note: Write pure functions, because it gives assurity nothing will break, also its more secure, 
+### its difficult to keep track of variables when they are not bounded in their inner scope, less bugs, no memory leak
 -----
 
 ### First Order function & Higher Order function
-> theoritical concept 
+> theorotical concept 
 
 ##### Higher Order functions 
-functions can take and return another function as its argument/ output 
+- functions that take another function as its argument
+- functions that return another function as an output
 
-##### first order functions 
-functions does not deal with functions as argument or return. this type of function will not take another function as argument and will not return a function as output 
+##### First order functions 
+functions does not deal with functions as argument or return. 
+this type of function will not take another function as argument,
+and will not return a function as output 
 
-#### high order function 
+#### High order function 
 1. takes function as an argument 
 ```bash 
     <script>
@@ -155,7 +179,7 @@ functions does not deal with functions as argument or return. this type of funct
 
     ✔ this is higher order function
     
-    ✅function passed as an argument 
+    ✅function cb passed as an argument 
     function fn(name, cb){
         console.log(name)
         cb() 
@@ -164,7 +188,7 @@ functions does not deal with functions as argument or return. this type of funct
     ✅function passed as an argument 
     fn("geeks", function(){
         console.log("this is from callback")
-    })
+    } )
     </script>
 
 geeks
@@ -186,7 +210,7 @@ index.html:21 this is from callback
 ```
 > there is no connection btw pure & impure | first & higher order function 
 
-#### first order function 
+#### First order function 
 1. does not take any function as argument 
 2. does not return any function as output 
 
@@ -200,7 +224,9 @@ console.log(s)
 ```
 
 ### Callback 
-passing function as an argumnent to a higher order function & invoking it from inside of the higher order function 
+passing function as an argumnent to a higher order function 
+& invoking it from inside of the higher order function 
+
 ```bash 
     <script>
     ✅this entire function is higher order function
@@ -211,9 +237,9 @@ passing function as an argumnent to a higher order function & invoking it from i
 
     ✅this entire function is a callback function
     //function passed as an argument -> callback function
-    fn("geeks", function(){
+    fn("geeks", ✅function(){
         console.log("this is from callback")
-    })
+    } )
  
     </script>
 ```
@@ -230,7 +256,7 @@ function passed as an argument, which is executed in another function
     }
 
     ✅callback function
-    takeName(function(a){         ✅executed in another function 
+    takeName(function(a){         ✅cb executed in another function 
         console.log("hello", a)
     });
 
@@ -253,6 +279,13 @@ when event is clicked, callback is called
 document.addEventListener("click", function(){
   document.getElementById("demo").innerHTML = "Hello World";
 });
+```
+> Any function, that you pass as an argument and is executed in another function is called 
+a callback 
+```bash 
+    setTimeout(() => {
+        console.log('hi')
+    }, 1000)
 ```
 ### Recursion
 function that calls itself is called recursive function 
@@ -302,7 +335,8 @@ console:
 
 ### Loop Vs Recursion
 > loop can run infinitely number of times, even though your browser/system will crash 
-> Recursion after running many times, console throws error recursion stack reached, and script execution stops. ***recursion has a limit till which it can execute***
+> Recursion after running many times, console throws error recursion stack reached, and script execution stops.
+ ***recursion has a limit till which it can execute***
 
 - any algo done by recursion, can be done through loops and vice versa 
 
@@ -369,7 +403,7 @@ index.html:30 11416
 ```bash 
 
 ✅Solving problem using loop
-    function getSum(n){
+    function getSum(n) {
         let sum = 0
         for(let i=1; i<=n; i++){
             sum = sum + i
@@ -500,8 +534,8 @@ scope where the required data is available
 function inside another function
 >  where if we return the inner function it will prevent its lexical scope from being garbage collected 
 
-Garbage collection: if your not using any var js will throw it to garbage collection 
-***closure says The value of lexial scope wont be sent for garbage collection, instead it will be preserved***
+Garbage collection: if your not using any var, js will throw it to garbage collection 
+***closure says The value of lexical scope wont be sent for garbage collection, instead it will be preserved***
 ```bash 
 <script>
     function a(){
@@ -551,6 +585,8 @@ world
 
        //nobody can change these values further in code outside of function 
        let increement = function(){
+           ✅closure says that the value inside the lexical scope of the function, will not be sent for garbage collection
+           ✅rather this will be preserved 
            value++
        }
 

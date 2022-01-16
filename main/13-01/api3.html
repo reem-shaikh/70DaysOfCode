@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--
+        https://leafletjs.com/examples/quick-start/
+        loaded the leadlet JS library
+-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+
+<!-- JS Reference: Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+
+ <!--L is the global variable loaded from the leadlet library-->
+ <style>
+     #map { height: 690px; }
+ </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        //creating a map object 
+
+        //var map = L.map('map').setView([51.505, -0.09], 13);
+        //setView(latitude, longitude, zoomlevel)
+        var map = L.map('map').setView([1, 1], 1);
+
+        //adding marker 
+        //setting intiial marker quadrant to [0,0]
+        const marker = L.marker([0,0]).addTo(map)
+
+        //were using openstreetmap API as a baground map 
+        //we have to give its attribution 
+
+        //tileLayer(tile URL, attribution)
+        const attribution = ' &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+
+        const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+        const tiles = L.tileLayer(tileUrl, {attribution});
+
+        //add tiles to map 
+        tiles.addTo(map)
+
+ 
+        //using fetch function to retreive data from a particular endpoint of an API 
+        const url = 'https://api.wheretheiss.at/v1/satellites/25544 '
+
+        async function getData() {
+            const response = await fetch(url).then(response => {
+                return response.json()
+            }).then(data => {
+                console.log("data",data)
+
+            //console.log("latitude",data.latitude)
+            //console.log("longitude", data.longitude)
+
+            //JS destructuring
+            const {latitude, longitude} = data
+            console.log("data destructured:", data)
+
+            //changing marker length 
+            marker.setLatLng([latitude, longitude]);
+            //setLatLng - Changes the marker position to the given point.
+
+            document.getElementById('lat').textContent = latitude
+            document.getElementById('lon').textContent = longitude
+            })
+
+        }
+
+        getData();    
+    </script>
+    
+</body>
+</html>

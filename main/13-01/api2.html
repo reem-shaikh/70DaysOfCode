@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>where the ISS at?</h1>
+    <p>The latitude <span id="lat"></span>
+        <br />
+       The longitude <span id="lon"></span>
+    </p>
+    <script>
+        //using fetch function to retreive data from a particular endpoint of an API 
+        const url = 'https://api.wheretheiss.at/v1/satellites/25544 '
+        async function getData() {
+            const response = await fetch(url).then(response => {
+                return response.json()
+            }).then(data => {
+                console.log("data",data)
+
+                //console.log("latitude",data.latitude)
+                //console.log("longitude", data.longitude)
+
+            //JS destructuring
+            const {latitude, longitude} = data
+            console.log("data destructured:", data)
+
+            document.getElementById('lat').textContent = latitude
+            document.getElementById('lon').textContent = longitude
+            })
+
+        }
+
+        getData();      
+    </script>
+</body>
+</html>

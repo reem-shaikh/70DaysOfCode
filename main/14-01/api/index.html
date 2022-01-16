@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--
+    refer the entire importing third party library from:
+    https://leafletjs.com/examples/quick-start/
+-->
+    <title>Log My Day</title>
+<!--third party library: leaflet-->
+<!--https://leafletjs.com/download.html -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+<!-- JS Reference: Make sure you put this AFTER Leaflet's CSS -->
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <script src="script.js" defer></script>
+
+ <!--L is the global variable loaded from the leaflet script-->
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left{
+    flex: 1;
+    height: 100%;
+    background-color: green;
+}
+
+.right{
+    flex: 3;
+    height: 100%;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+}
+
+.hide{
+    display: none;
+}
+    </style>
+
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="left" class="left">
+
+        </div>
+        <div id="right" class="right">
+            <div id="map" class="map">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

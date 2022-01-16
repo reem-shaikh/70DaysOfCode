@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="myForm">
+      Title <input type="text" id="titleText" /><br />
+      Body <input type="text" id="bodyText" /> <br />
+      User Id <input type="text" id="userId" /> <br />
+      <input type="submit" id="saveForm" />
+    </form>
+
+    <script>
+    document.getElementById("saveForm").addEventListener("click", function(e) 
+    {
+        //when we click the submit button 
+        //the default behaviour is to refresh the page 
+        //to prevent that, we call preventDefault function
+        e.preventDefault()
+
+        var obj = {
+            title: document.getElementById("titletext"),
+            body: document.getElementById("bodyText"),
+            userId: document.getElementById("userId"),
+        };
+
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            body: JSON.stringify(obj),
+            headers: {
+              "Content-type": "application/x-www-form-urlencoded",
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+    </script>
+  </body>
+</html>

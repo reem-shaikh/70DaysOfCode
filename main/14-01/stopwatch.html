@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: sans-serif;
+            font-size: 10px;
+            width: 100%;
+            height: 100vh;
+            /* background-color: white; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://images.pexels.com/photos/1910225/pexels-photo-1910225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .outer-circle{
+            width: 250px;
+            border-radius: 50%;
+            /* background-color: black; */
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+        }
+
+        .inner-circle{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .laps{
+            height: 300px;
+            overflow: auto;
+            height: 250px;
+           
+
+        }
+
+        .text{
+            color: black;
+            font-size: 23px;
+        }
+
+        .button-wrapper{
+            width: 250px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-radius: 2px solid black;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        .button-wrapper button:hover{
+            background-color: white;
+            color: black;
+        }
+
+        .laps{
+            list-style: none;
+            color: black;
+            position: relative;
+            width: 250px;
+            height: 250px;
+            overflow: auto; 
+            padding: 30px 0;
+        }
+
+        .laps::-webkit-scrollbar{
+            visibility: hidden;
+        }
+      
+        
+        .lap-item{
+            width: 100%;
+            /* background-color: red; */
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 20px;
+            border: 1px solid #444;
+            border-radius: 50px;
+            margin-bottom: 5px;
+        }
+
+        .number{
+            color: black;
+        }
+
+        .time-stamp{
+            display: inline-block;
+            margin-left: 25px;
+        }
+
+        .display-none{
+            display: none;
+        }
+        /* 
+        .hidden{
+            visibility: hidden;
+        }  */
+
+        .minute, .second, .millisecond {
+            font-weight: 800;
+            font-size: 2.5rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="watch">
+            <div class="outer-circle">
+                <div class="inner-circle">
+                    <span class="text minute">0 :</span > 
+                    <span class="text second">0 :</span >
+                    <span class="text millisecond">0</span >
+                </div>
+            </div>
+            <!--outer circle ends-->
+        </div>
+        <!--watch ends-->
+        <div  class="button-wrapper">
+            <!--initially set to display: none-->
+            <button class="resetbutton hidden">Reset</button>
+            <button class="playbutton ">Play</button>
+            <button class="lapbutton hidden">Split</button>
+            <button class="clearbutton">Clear</button>
+        </div>
+        <ul class="laps">
+            <!-- <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+           
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+        
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+      
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+        
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+         
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+         
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li>
+     
+            <li class="lap-item">
+                <span class="number">#1</span>
+                <span class="time-stamp">01 : 43 : 07</span>
+            </li> 
+        -->
+        </ul>
+        <!--laps ends-->
+    </div>
+    <!--container ends-->
+    <script>
+        const playButton = document.getElementsByClassName('playbutton')[0];
+        const lapButton = document.getElementsByClassName('lapbutton')[0];
+        const resetButton = document.getElementsByClassName('resetbutton')[0];
+        const clearButton = document.getElementsByClassName('clearbutton')[0];
+        const minute = document.getElementsByClassName('minute')[0];
+        const second = document.getElementsByClassName('second')[0];
+        const millisecond = document.getElementsByClassName('millisecond')[0];
+        const laps = document.getElementsByClassName('laps')[0]
+
+        let isPlay = false 
+        let sec
+        let secCounter = 0
+        let centiCounter = 0
+        let centisec
+        let min 
+        let minCounter = 0
+        let isReset = false 
+        let lapitem = 0
+
+        // const toggleButton = () => {
+        //     lapButton.classList.remove("hidden")
+        //     resetButton.classList.remove("hidden")
+        // }
+
+        const play = () => {
+            //when isPlay is !false = true 
+            //its playing
+            if(!isPlay && !isReset){
+                //switch is to pause 
+                playButton.innerHTML = 'pause'
+
+                min = setInterval(() => {
+                if(minCounter === 60) {
+                    minCounter = 0
+                }
+                //1 min = 60 seconds = 60 x 1000 ms
+                minute.innerText = `${++minCounter} : `
+                }, 60*1000);
+
+
+                sec = setInterval(() => {
+                if(secCounter === 60) {
+                    secCounter = 0
+                }
+
+                //1second = 1000ms
+                second.innerText = `${++secCounter} : `
+                }, 1000);
+
+                centisec = setInterval(() => {  
+                if (centiCounter === 100) {
+                    centiCounter = 0
+                }
+
+                //100 laps in every 10 = 1000
+                millisecond.innerText = `${++centiCounter}`
+                }, 10);
+
+                isPlay = true 
+                isReset = true   //reset true sets it to 0:0:0
+            }
+            else {
+                //when switchplay is false
+                //it not playing 
+                //switch it to play
+                playButton.innerHTML = 'play'
+                clearInterval(sec)
+                clearInterval(centisec)
+                clearInterval(min)
+
+                isPlay = false   
+                isReset = false
+            }
+            toggleButton()
+        }
+
+        // const playSec = () => {
+        //     sec = setInterval(() => {
+        //         second.innerHTML = sec++
+        //     }, 1000);
+        // }
+
+        const reset = () => {
+            isReset = true
+            play()
+            lapButton.classList.add("hidden")
+            resetButton.classList.add("hidden")
+            second.innerHTML = '0 :'
+            millisecond.innerHTML = '0'
+            minute.innerHTML = '0 :'
+        }
+
+        const lap = () => {
+            const li = document.createElement('li')
+            const number = document.createElement('span')
+            const timeStamp = document.createElement('span')
+
+            li.setAttribute("class", "lap-item")
+            number.setAttribute("class", "number")
+            timeStamp.setAttribute("class", "time-stamp")
+
+            number.innerText = `#${++lapitem}`
+    
+            timeStamp.innerHTML = `${minCounter}  : ${secCounter} : ${centiCounter}`
+
+            li.append(number, timeStamp)
+            laps.append(li)
+        }
+
+        const clearAll = () => {
+            laps.innerHTML = ''
+            li.append(clearButton)
+        }
+
+        //when you click on play button it removes the hidden visiility 
+        playButton.addEventListener('click', play)
+    
+        //when you click on reset button it adds hidden visibility 
+        resetButton.addEventListener('click', reset)
+
+        lapButton.addEventListener('click', lap)
+        clearButton.addEventListener('click', clearAll)
+    </script>
+</body>
+</html>

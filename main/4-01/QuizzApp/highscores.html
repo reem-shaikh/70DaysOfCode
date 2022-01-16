@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--to display high scores from local storage-->
+    <link rel="stylesheet" href="app.css" />
+    <style>
+        #highScoresList {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 4rem;
+
+        }
+
+        .high-score {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .high-score:hover {
+            transform: scale(3.025);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="highScores" class="flex-center flex-column">
+            <h1 id="finalScore">
+                High Scores
+            </h1>
+            <ul id="highScoresList"></ul>
+            <a class="btn" href="index.html">Go Home</a>
+        </div>
+    </div>
+    
+    <!--we'll use JS to pupulate the list-->
+    <script>
+        const highScoresList = document.getElementById('highScoresList')
+        const highScores = JSON.parse(localStorage.getItem('highScores'))
+        console.log(highScores)
+
+        highScoresList.innerHTML = 
+        highScores.map( score => {
+            return `<li class="high-score">${score.name} - ${score.score}</li>`
+        }).join("")
+
+        //local storage is not secure 
+        //only for demo purposes 
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+.choice-container{
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgb(86, 165, 235, 0.25);
+    background-color: transparent;
+}
+
+.choice-prefix{
+    padding: 1.5rem 2.5rem;
+    background-color: #073d6d;
+    color: white;
+}
+
+.choice-text {
+    padding: 1.5rem;
+    color: white;
+    font-weight: 700;
+}
+
+#question {
+    color: white;
+    font-weight: bolder;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    padding: 1.5rem 2.5rem;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.correct {
+    background-color: #28a745;
+}
+
+.incorrect {
+    background-color: rgb(216, 34, 34);
+}
+
+/* HUD - heads up display */
+#hud {
+    display: flex;
+    justify-content: space-around;
+}
+
+#hud-item {
+    margin-left: -30px;
+}
+.hud-prefix{
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 800;
+}
+
+.hud-main-text{
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 2.7rem;
+
+    border: 0.1rem solid #dadde0;
+    width: 15rem;
+    height: 4rem;
+    margin-top: 1.4rem;
+    
+}
+
+#progressBar {
+    border: 0.3rem solid #dadde0;
+    width: 26rem;
+    height: 4rem;
+    margin-top: 1.5rem;
+}
+
+#progress-bar-full {
+    height: 3.4rem;
+    background-color: #fcfcfc;
+    width: 0%;
+}
+

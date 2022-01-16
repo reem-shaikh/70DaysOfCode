@@ -246,7 +246,51 @@ list1: 5   17
 ![](img1.PNG)
 
 
+### Insertion sort 
+search for proper index and insert that element in that particular list
 
+1. consider the first element to be sorted and the rest to be unsorted 
+2. take the first element in the unsorted part and compare it with sorted part elements 
+
+```bash 
+list 1:  10   4   25  1  5
+sorted part: 10 
+unsorted part: 4, 25, 1, 5
+
+✅4 < 10            true 
+list 1: 4   10   25  1  5
+sorted part: 4, 10 
+unsorted part: 25, 1, 5
+
+✅25 < 10          false
+list 1: 4   10   25  1  5
+
+
+✅1 < 25            true 
+list 1: 4   10   1  25  5
+
+
+✅1 < 10             true 
+list 1:  4  1  10  25   5
+
+
+✅1 < 4              true 
+list 1:  1  4  10  25   5
+sorted part: 1, 4, 10 
+unsorted part: 25, 5
+
+
+✅5 < 25             true 
+list 1:  1  4  10   5   25
+
+
+✅5 < 10             true 
+list 1: 1  4   5   10   25
+
+
+✅5 < 1              false
+list 1:  1  4  5   10   25
+```
 
 
 

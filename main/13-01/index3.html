@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log My Day</title>
+    <!-- using leaflet: OS JS library: third party library 
+    https://leafletjs.com/download.html -->
+
+    <!--using hosted version of leaflet-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .left {
+        flex: 1;
+        height: 100%;
+        background-color: green;
+      }
+
+      .right {
+        flex: 3;
+        height: 100%;
+        /* background-color: red; */
+      }
+
+      .map {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* .hide {
+          display: none;
+      } 
+      */
+    </style>
+  </head>
+  <body>
+    <div id="container" class="container">
+      <div id="left" class="left"></div>
+      <div id="right" class="right">
+        <div id="map" class="map"></div>
+      </div>
+    </div>
+
+    <script>
+      //extract current location progmatically
+      //localStorage - storage that exists on our local computer
+      //local storage is a browser API
+
+      //geolocation present inside navigator API (through which we can fetch location)
+      //geolocation (takes 2 arguments which are functions)
+
+      //1st function will run if geolocation is able to get your location
+      //2nd function will run if geolocation is not able to get your location
+      navigator.geolocation.getCurrentPosition(
+        function () {
+          console.log(event)
+          console.log(event.coords.latitude);
+          console.log(event.coords.longitude);
+
+          //form an array and call it
+
+          const coordinates = [event.coords.latitude,event.coords.longitude];
+
+          //L is the global variable in the script
+          //importing this from
+
+          //https://leafletjs.com/
+
+          //tiles were biulding block of the map
+          //if we add event listener directly to the map it will cause a problem
+          var map = L.map("map").setView(coordinates, 13);
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(map);
+          //forming infinite tiles and adding it to this huge map
+          //so we have to add event listener to the tiles 
+          //so we can figure out on which tile did we click 
+
+          L.marker(coordinates)
+            .addTo(map)
+            .bindPopup("working fine")
+            .openPopup();
+
+            //map.one(event type, function)
+            //way of adding event listener to map
+
+            //tiles is a hypothetical term to better understand this concept
+            map.on('click', function (mapEvent){
+                console.log(mapEvent)
+                //fetch the current location
+                //it fetches the latitude and longitude (quadrant) of the tile we clicked 
+                const currentLocation = [mapEvent.latlng.lat, mapEvent.latlng.lng ]
+                console.log(currentLocation)
+
+            //copy marker code from top 
+            L.marker(currentLocation)
+            .addTo(map)
+            .bindPopup(
+                //leaflet API reference 
+                //https://leafletjs.com/reference.html#popup -> options
+                L.popup(
+                    {
+                        maxWidth: 300,
+                        minWidth: 200,
+                        autoClose: false ,
+                        closeOnClick: false,
+                        closeButton: false
+                        // className:"hide"
+                    }
+                )).setPopupContent('Content displayed')
+            .openPopup();
+            })
+        },
+        function () {
+          alert("could not get your location");
+        }
+      );
+    </script>
+  </body>
+</html>

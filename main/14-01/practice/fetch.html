@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--we can even load the url directly from 
+    chart JS -> get started -> chart JS CDN
+    https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js
+-->
+    <script src="Chart.min.js" ></script>
+</head>
+<body>  
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+/
+
+
+        async function getData(){
+            const response = await fetch('test2.csv').then(response => {
+                return response.text()
+            }).then(response => {
+                console.log(response)
+
+                
+            const rows = response.split('\n').slice(1)
+            //delete the 0th row in the table 
+            //start the table from the 1st index 
+            console.log(rows)
+
+            //foreach allows us to applya  change to all elements in the array
+            rows.forEach(element => {
+                const row = element.split(',')
+                //split the row on basis of the ,
+                //each element in row split by ,
+                //console.log(row)
+
+                const year = row[0]
+                xlabels.push(year)
+                //pushing year to xlabel we created
+                const temp = row[1]
+                console.log(year, temp)
+            })
+
+
+            })
+        }
+
+        getData()
+    </script>
+</body>
+</html>

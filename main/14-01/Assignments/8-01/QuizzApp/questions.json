@@ -1,0 +1,28 @@
+[
+    {
+        "question": "Inside which html element do we put js?",
+        "choice1": "<nope>",
+        "choice2": "<meta>",
+        "choice3": "<script>",
+        "choice4": "<pickme>",
+        "answer": 3
+    },
+
+    {
+        "question": "What is your problem?",
+        "choice1": "you",
+        "choice2": "me",
+        "choice3": "whatever",
+        "choice4": "I said, whatever",
+        "answer": 2
+    },
+
+    {
+        "question": "Do you have a life?",
+        "choice1": "yes",
+        "choice2": "nope",
+        "choice3": "ermm",
+        "choice4": "maybe",
+        "answer": 3
+    }
+]

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css" />
+    <style>
+        *{
+            overflow: hidden;
+        }
+        
+        img {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+        }
+
+        .container {
+            position: relative;
+        } 
+
+        .btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <img src="bg.jpg" />
+    <div class="container">
+        <div id="end" class="flex-center flex-center"> 
+            <form action="">
+                <h1 id="finalscore">
+                    <!-- 0 -->
+                </h1>
+
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+
+                <button type="submit" class="btn"
+                id="saveScoreBtn" onclick="saveHighScore(event)" > Save</button>
+
+                <a class="btn" href="game.html">Play again</a>
+                <a class="btn" href="index.html">Go home</a>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const username = document.getElementById('username')
+        const saveScoreBtn = document.getElementById('saveScoreBtn')
+        const MAX_HIGH_SCORES = 5
+
+        const mostRecentScore = localStorage.getItem('mostRecentScore')
+        //we declared localStorage.setItem("mostRecentScore", score) in game.js
+        const finalScore = document.getElementById('finalscore')
+
+        //the mostRecentScore will be stored in local storage 
+        //it will also be allotted to the finalscore 
+        finalScore.innerText = mostRecentScore
+
+        //things in local storage are stored as string 
+        //we need to convert array[] to JSON string 
+        localStorage.setItem("highScores", JSON.stringify([]))
+        
+        console.log(localStorage.getItem("highScores")) //this format is string
+
+        //in order to view highScores in array format 
+        //convert string to array 
+        console.log(JSON.parse(localStorage.getItem("highScores")) )
+
+        const highScores = JSON.parse(localStorage.getItem('highScores')) 
+
+
+
+
+        username.addEventListener('keyup', () => {
+            console.log(username.value)
+
+            //if there is no value entered by user then disable the submit button 
+            saveScoreBtn.disabled = !username.value
+
+        });
+
+        saveHighScore = (event) => {
+            console.log('hii')
+            event.preventDefault()
+
+            const score = {
+                score: mostRecentScore,
+                //score: Math.floor(Math.random()*100),
+                name: username.value
+            };
+
+            highScores.push(score)
+
+            //1. add score to list 
+            //2. sort list based on increasing order uptil 5
+            //3. anything after 5, is not shown 
+            //highScores.sort((a,b) => {
+                //if b score > a score 
+                //then put b before a 
+                //return b.score - a.score 
+            //})
+            //highScores.splice(5)
+            //cuts off the any name added thats beyond the  count 
+
+            console.log(highScores)
+
+            //update local storage 
+            localStorage.setItem("highScores", JSON.stringify(highScores))
+
+            //load the index page 
+            //window.location.assign('index.html')
+            return window.location.assign("highscores.html")
+
+        }
+    </script>
+</body>
+</html>
