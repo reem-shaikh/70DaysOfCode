@@ -208,6 +208,21 @@ https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/registration.html
 ***logic for tictactoe game** 
 https://reem-shaikh.github.io/Geekster-/main/4-01/assignments/tictactoe.html
 
+## 8-01
+**Quiz App fetching JSON**
+https://reem-shaikh.github.io/Geekster-/main/14-01/Assignments/8-01/QuizzApp/index.html
+
+**stopwatch**
+https://reem-shaikh.github.io/Geekster-/main/14-01/Assignments/8-01/Stopwatch/stopwatch.html
+
+## 13-01
+**Infinite Image scroll using Unsplash API**
+https://reem-shaikh.github.io/Geekster-/main/14-01/Assignments/13-01/unsplashapi.html
+
+## 16-01
+**Weather App**
+https://reem-shaikh.github.io/Geekster-/test/16-01.html
+
 
 <!-- micro dev tools: 
 launch instance
