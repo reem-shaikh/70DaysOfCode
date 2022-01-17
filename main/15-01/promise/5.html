@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<!--
+    combinations to try:
+    promise inside settimeout inside another promise
+-->
+<body>
+
+   <script>
+        //microstask, 2nd priorty 
+        //until microstask queue is clear it doesnt execute macrotask queue
+        new Promise((s,f) => { s(); }).then(() => {
+            console.log('c')
+        });
+
+    //promise 
+    new Promise((s,f) => { s(); }).then(() => {
+            console.log('new promise')
+
+        //task/ callback queue, 3rd priorty
+        setTimeout(() => {
+            console.log('timeout inside promise')
+
+            //promise inside timeout 
+            new Promise((s,f) => { s(); }).then(() => {
+            console.log('promise inside timeout')
+            });
+
+        }, 0)
+    });
+
+        //callstack 1st priorty
+        console.log('b')
+/*
+5.html:42 b
+5.html:22 c
+5.html:27 new promise
+5.html:73 Live reload enabled.
+5.html:31 timeout inside promise
+5.html:35 promise inside timeout
+
+*/
+    </script>
+
+</body>
+</html>

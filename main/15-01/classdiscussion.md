@@ -9,4 +9,8 @@ create web gallery which fetches data from unsplash API
 2. network 
 3. OOPS 
 
-#### LEARN POSTMAN 
+
+
+
+- book list (x2 lecs) with notes 
+- complete that 1 lec and notes
