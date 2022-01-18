@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--
+    refer the entire importing third party library from:
+    https://leafletjs.com/examples/quick-start/
+-->
+    <title>Log My Day</title>
+<!--third party library: leaflet-->
+<!--https://leafletjs.com/download.html -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+<!-- JS Reference: Make sure you put this AFTER Leaflet's CSS -->
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+ <!--L is the global variable loaded from the leaflet script-->
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left{
+    flex: 1;
+    height: 100%;
+    background-color: green;
+}
+
+.right{
+    flex: 3;
+    height: 100%;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.form {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         gap: 1vh;
+         flex-direction: column;
+         margin-top: 1vh;
+     }
+
+     .form .options, .duration {
+         width: 190px;
+         padding: 7px;
+     }
+
+     .submit {
+         width: 110px;
+         padding: 7px;
+         border: none;
+         cursor: pointer;
+
+     }
+
+     .option {
+         padding: 30px;
+         width: 100px;
+     }
+
+     .duration {
+         width: 11.3%;
+     }
+    </style>
+
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="left" class="left">
+            <form action="" id="form" class="form">
+                <!--what do you want to do -->
+                <select name="" id="options" class="options">
+                    <option value="" class="option">swimming</option>
+                    <option value="" class="option">cycling</option>
+                    <option value="" class="option">climbing lol</option>
+                </select>
+                
+                <input type="text" id="duration" class="duration" placeholder="enter duration in mins" style="color: white; width: 50%; text-align: center;">
+                <button class="submit">submit</button>
+            </form>
+        </div>
+        <div id="right" class="right">
+            <div id="map" class="map">
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    //adding stuff inside bindpopup
+
+//geolocation is a browser API 
+//geolocation present inside navigator API (through which we can fetch location)
+//geolocation (takes 2 arguments which are functions)
+
+//1st function will run if geolocation is able to get your location
+//2nd function will run if geolocation is not able to get your location
+navigator.geolocation.getCurrentPosition(function(event){
+    console.log("event",event)
+
+
+
+  //importing this from
+  //https://leafletjs.com/
+    const coordinates =[event.coords.latitude,
+    event.coords.longitude]
+    console.log("latitude", event.coords.latitude)
+    console.log("longitude", event.coords.longitude)
+    
+
+    var map = L.map('map').setView(coordinates, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+
+
+    //map is made up of tiles 
+
+    //tiles is a hypothetical term to better understand this concept
+    // L.marker(coordinates).addTo(map)
+    // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    // .openPopup();
+
+    //map.on(event, function)
+    map.on('click', function(mapEvent){
+        //when you click anywhere on the map 
+        //it will console clicked 
+        console.log("clicked")
+        console.log("mapevent", mapEvent)
+
+        //returns current location of current point that is clicked 
+        const currentLocation = [mapEvent.latlng.lat, 
+        mapEvent.latlng.lng]
+        console.log(currentLocation)
+        //fetching the current location of the quadrant we clicked 
+
+        L.marker(currentLocation).addTo(map)
+
+        //we are calling 
+        .bindPopup(L.popup({
+            maxWidth: 300,
+            minWidth: 200, 
+            autoClose: false,
+           
+        })
+        )
+        .openPopup();
+
+    })
+    
+
+
+},function(){
+    alert("could not get your location")
+})
+
+
+</script>
+</body>
+</html>

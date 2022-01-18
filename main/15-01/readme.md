@@ -1,14 +1,109 @@
+### How does the internet work?
+transmitting data from sattelites would cause huge delay of time, so for faster transmission our devices are connected to data centres through a complicated network of **optical fiber cables**
+
+every device connected to the internet is identified by a string of unique numbers known as the IP address, ISP decides the IP adress for you device. 
+
+server stores multiple websites, which are assigned a speicifc IP address, since its physically imporssible for humans to remember so many IP's, instead we remember the domain name of that particular website. 
+
+Internet gets the IP adress corresponding to our domain name request through a huge phone book known as the DNS server. your ISP manages the DNS server.
+
+1. you enter the domain name 
+2. browser sends a request to the DNS server to get the corresponding IP address for the domain entered 
+3. browser forwards the request to the server/ data center 
+4. once data center recieves a request, data is transferred in digital format via optical fibre cables (data flow is in form of light pulses through optical fibre cable network, which is formed from under the sea bed). There are companies like AT&T, Verizon who maintain these optical cable networks.
+5. the requested data then reaches us through modem (it converts the analog signal/ light signal to digital signal/ electrical signal)
+6. modem is provided by ISP. modem is connected to our router, we can access the internet then 
+- through either ethernet cable
+- for cellular data users, the optical cable is connected to a cell tower which converts analog/light signal to digital signal and provides data in the form of electromagnetic waves 
+
+> data (we requested for) from the data center is sent to us in the form of packets (a combination of 01), where each packet (from the packet combination) follow the most convenient route to reach to us through the optical cable network and upon reaching our mobile device (the packets rearrange themselves on basis of their sequence number ), this is called packet switching.
+
+> **Protocols** are used for the management of complex flow of packets, different applications use different protocols.
+
+- HTTP/ Request-response protocol (communication protocol used for communication and transfer of information between client and server)
+- HTTPS (its a safer protocol, where the browser and server know how to decrypt it, but in the middle the message is encrypted, so spoofers cannot sniff data sent over the network)
+
+- FTP (communication protocol used for exchanging files over the internet)
+
+- TCP/IP 
+> TCP - (is responsibe for verifying whether the packets are recieved at the source and for reassembling the packets at the source in the correct order)
+
+> IP - (checks whether the data the user requested for, is recieved to the correct user through routing each packet to the correct IP address)
+
+- SMTP (responsible for exchanging email over the internet)
+
+- VoIP (protocol which enables us to communicate through voice over the internet)
+
+- Telnet (remote login protocol which enables two PC's to connect with each other through remote login applications)
+
+#### ICANN (internet coorporation for assigned names and number) manages
+- IP address assignment
+- domain name registration
+- etc 
+
+### How does client-server communicate?
+- Client requests data through URL(fb.com) in browser [aka Request message]
+- request goes to that URL server(fb server) and returns the request(fb page) ;[aka Response message]
+
+##### Format of request and response message:
+This is the format in which request message is sent from client -> server
+>> 1. Request HTTP Header 
+- general header (contains information about the date and time client requested the request message)
+- request/response header (contains URL/data we want to send and HTTP method we choose to send the data with, authentication(secret key), content type of the date we choose to send, content size)
+- entity header (contains information about the html code (code length, programming language used))
+
+>> 2. Request HTTP Body 
+contains information about HTML, CSS, JS that were sending to the server
+
+This is the format in which response message is sent from server -> client 
+>> 1. Response HTTP header 
+- general header (contains information about the date and time client requested the request message)
+- request/response header (contains URL/data we want to send and HTTP method we choose to send the data with, authentication(secret key), **content type of the date it is returning**, content size **what is the status of the API call**, **redirect URL ( if your redirecting to another webpage**)
+- entity header (contains information about the html code (code length, programming language used))
+
+>> 2. Response HTTP body
+contains the content we requested for (basically everything shown on the DOM exists in the HTTP body)
+
+#### Header Vs Query Parameter 
+In order to understand the difference between both of these, lets look at the API key we've recieved after signing up and creating an account here at unsplash 
+
+> This is from Unsplash API 
+##### Public Authentication
+Most actions can be performed without requiring authentication from a specific user. For example, searching, fetching, or downloading a photo does not require a user to log in.
+
+To authenticate requests in this way, pass your application’s access key via the HTTP Authorization header:
+```bash
+Authorization: Client-ID YOUR_ACCESS_KEY
+```
+✅when were passing our API key through **header**, the details are hidden in the network call
+
+You can also pass this value using a client_id query parameter:
+```bash
+https://api.unsplash.com/photos/?client_id=YOUR_ACCESS_KEY
+```
+✅when were passing our API key through **query parameter**, the details are displayed in the URL, so this is less secure 
+
+###### HTTP Methods are very important for API testing
+HTTP request methods are used for client to connect with the server 
+
 When we make a network request, we specify what we want the server to do 
 with the data using HTTP methods.
 
 #### HTTP REQUEST METHODS:
 It is an indication about what desired action is expected from the server 
-
+```bash 
+these methods are placed after the API URL, each of these methods indicate a specific action from the server
+```
 1. GET - its used to get data from server [default request]
+- used to fetch data from the server/particular URL [Read]
 2. PUT - its used to put data in server 
+- used to **update complete data/resource**at the server/particular URL [Update]
 3. POST - its used to add data in server 
+- used to **create new resource** at this URL 
 4. DELETE - it is when we want server to delete some data 
-5. PATCH - it is used to update the data 
+- if you want to delete some resource at the URL 
+5. PATCH - it is used to update the partial data 
+- unlike PUT, PATCH is used to **update partial resource**
 6. HEAD - It is when we want to check whether the data exists or not
 7. OPTIONS (pre flight)- this is a request made by the user agent/ browser by default 
 - it is created to check whether the actual request will be succesful or not 
@@ -17,19 +112,25 @@ It is an indication about what desired action is expected from the server
 
 - user agent is a peice of software which connects the humans to the server 
 - there are user agents other than browser 
-eg: Siri, Google home, amazon home 
+> eg: Siri, Google home, amazon home 
 
 8. CONNECT - when were sending a very heavy file you need to create a tunnel to the server using connect,
 for the resource 
-9. TRACE - Its used for debugging and tracing the path to the server.
+9. TRACE - Its used for debugging and tracing the path from client to the server.
 - it returns a string of different IP's 
 
 > Difference between PUT and POST?
 Both are used for inserting data to the server 
-1. If you have ID of the data, use PUT 
-2. If you dont have ID of data, use POST (in this case server will create the index)
+1. If you have ID of the data, use PUT, use PUT to update content 
+2. If you dont have ID of data, use POST, use POST to create content
 
-We'll be sending fetch requests using these HTTP request methods:
+We'll be sending fetch requests using these HTTP request methods.
+
+Any network request user makes will be seen in the network tab in developer tools
+
+#### Http response status:
+404: status not found 
+200: sattus found 
 
 ### Unsplash API Image generator 
 1. create an account and accept all terms, you will get these keys 
@@ -41,8 +142,8 @@ z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y
 ```bash 
 EJJobXngSZw2dg2viiKzIm4hAibuohH8KuGxReu3ziU
 ```
-2. embed the secret key in the HTTP authorization header
-Public Authentication
+2. embed the access key in the HTTP authorization header
+#### Public Authentication
 Most actions can be performed without requiring authentication from a specific user. For example, searching, fetching, or downloading a photo does not require a user to log in.
 
 To authenticate requests in this way, pass your application’s access key via the HTTP Authorization header:

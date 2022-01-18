@@ -909,8 +909,135 @@ console:
 5.html:31 timeout inside promise
 5.html:35 promise inside timeout
 ```
+### then chaining, is used in promise 
+- where the first then returns a promise 
+- the chained second then, executes that promise 
 
+> then chaining only works when your returning a promise otherwise it wont work
+```bash 
+    <script>
+        const ACCESS_KEY = 'z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y'
+        const SECRET_KEY = 'EJJobXngSZw2dg2viiKzIm4hAibuohH8KuGxReu3ziU'
 
+        fetch(`https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}`).then(response => {
+            console.log(response)
+            return response.json()
+            ✅this returns a promise
+            ✅we dont know how big the response will be and how much time it will take for the response to unwrap to json 
+        }).then(result => {
+            console.log(result)
+        })
+    </script>
+
+console:
+Response {type: 'cors', url: 'https://api.unsplash.com/photos/?client_id=z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y', redirected: false, status: 200, ok: true, …}
+unsplash.html:20 (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+```
+
+### If we have a then nested inside the second then, 
+- then it will execute the nested then, and not the chained then 
+```bash 
+    <script>
+        const ACCESS_KEY = 'z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y'
+        const SECRET_KEY = 'EJJobXngSZw2dg2viiKzIm4hAibuohH8KuGxReu3ziU'
+
+        fetch(`https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}`).then(response => {
+            console.log(response)
+            return response.json()
+
+        }).then(result => {
+            console.log(result)
+
+            ✅this statement is going to be the then of the returned promise 
+            return new Promise((success, reject) => {
+                success()
+            })
+        })
+    </script>
+
+console:
+Response {type: 'cors', url: 'https://api.unsplash.com/photos/?client_id=z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y', redirected: false, status: 200, ok: true, …}
+unsplash.html:20 (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+```
+### Async & Await 
+it doesnt have any technical benefit, its just a wrapper of promise. It's just more easier to read
+
+> Major requirments of async & await:
+- any await has to be written inside async
+
+Async: it means the function is asynchronous, asynchronous functions return a promise
+Await: wait until the promise is completed 
+
+- demo of a normal function 
+```bash 
+    <script>
+        const fn = () => {
+            console.log('abcd')
+        }
+
+        console.log(fn)
+        console.log(fn())
+    </script>
+
+console:
+() => {
+       console.log('abcd')
+      }
+
+abcd
+```
+- demo of an async function 
+```bash 
+    <script>
+        const fn = async() => {
+            console.log('abcd')
+        }
+
+        console.log(fn)
+        console.log(fn())
+    </script>
+
+console:
+async() => {
+       console.log('abcd')
+      }
+
+✅all async functions return a promise
+abcd
+Promise {<fulfilled>: undefined}
+```
+> here is an example with async and await 
+```bash 
+    <script>
+        const ACCESS_KEY = 'z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y'
+        const SECRET_KEY = 'EJJobXngSZw2dg2viiKzIm4hAibuohH8KuGxReu3ziU'
+
+    const fn = async() => {
+        ✅under the hood, it still uses promise 
+        ✅its easier to read and understand 
+        const res = await fetch(`https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}`)
+
+        const res_obj = await res.json()
+        console.log(res_obj)
+    }
+
+    fn()
+    </script>
+
+console:
+(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+```
+> we can even use async function with asynchronous native functions like setInterval and setTimeout.
+> the code executed inside setInterval and setTimeout is executed in a synchronous format, to make the execution asynchronous we can use async 
+
+> Note that: Native asynchronous functions in itself are asynchronous wrt the rest of the code on the script, but everything executed inside them, is by default executed line by line (i.e synchronously)
+```bash
+    <script>
+        setInterval(async() => {
+            
+        }, 1000);
+    </script>
+```
 ## fetch 
 - fetch is an implementation of promise 
 
@@ -919,4 +1046,224 @@ JS Vs JSON:
 
 - outside of js, js object is called json (js notation syntax)
 - inside of js, js object is called js
+```
+
+### IIFE 
+(immediately invoked function expression)
+
+> this is an example of a regular function 
+```bash 
+    <script>
+        function firstWord(word){
+            console.log(word)
+        }
+
+        firstWord('hello world')
+    </script>
+
+console:
+hello world
+```
+> example using function expression
+```bash 
+    <script>
+        //store function in a variable 
+        ✅we can remove the name of the function
+        ✅because now the function is referred by its variable name "wordName" and not the functionname "firstWord"
+        var wordName = function firstWord(word){
+            console.log(word)
+        }
+
+        wordName('hello world')
+    </script>
+
+console:
+hello world 
+```
+> when we remove the function name, its an anonymous function 
+```bash 
+    <script>
+    ✅anonymous function
+        var wordName = function (word){
+            console.log(word)
+        }
+
+        wordName('hello world')
+    </script>
+
+console:
+hello world
+```
+>> when we remove wordName variable from the function, it throws an error 
+```bash 
+    <script>
+       function (word){
+            console.log(word)
+        }
+
+        wordName('hello world')
+    </script>
+
+console:
+ Uncaught SyntaxError: Function statements require a function name
+```
+> However, we can get rid of this error by simply embedding this function in braces, and we invoke directly after the function expression - IIFE
+```bash 
+    <script>
+       (function (word){
+            console.log(word)
+        })('hello world')
+    </script>
+
+console:
+hello world
+```
+#### Function expression is immediately invoked - IIFE
+We need IIFE for data privacy, everything inside an IIFE has a short lived execution context,
+
+i.e in case you want to access a variable declared inside an IIFE in the global execution context, it will throw an error 
+```bash 
+    <script>
+       (function (word){
+           var secretkey = "344s"
+            console.log(secretkey + word)
+
+        })('hello world')
+
+        console.log(secretkey)
+    </script>
+
+console:
+344s hello world
+Uncaught ReferenceError: secretkey is not defined
+```
+## Closures 
+closure in action that is inner function can have access to the outer function variables as well as the global variable
+
+```bash 
+    <script>
+       const outerFun = (a) => {
+           let b = 10;
+           const innerFun = () => {
+               //inner function can have access to the outer function variable and its parameter as well 
+               let sum = a+b
+               console.log(sum)
+           }
+           innerFun()
+       }
+       outerFun(5)
+    </script>
+
+console:
+15
+```
+> closure is an inner function that has access to the outer function variables 
+
+>> every closure has 3 scopes: 
+1. local scope 
+2. outer function scope 
+3. global scope 
+
+#### Closure preserves data of the outer function
+```bash 
+    <script>
+       const outerFun = (a) => {
+           let b = 10;
+           const innerFun = () => {
+               let sum = a+b
+               console.log(sum)
+           }
+           return innerFun
+           ✅inner function is returned 
+           //the return statement does not execut the inner function
+
+           //return statement returns the entire body of the function to outerFun()
+       }
+       let inner = outerFun(5)
+       ✅even though were calling the outerfun() outside its scope, we are still getting the values returned by innerFun which is stored in closure 
+       console.dir(inner)
+
+       inner()
+       ✅function is executed only when followed by ()
+    </script>
+
+console:
+innerFun()
+length: 0
+name: "innerFun"
+arguments: (...)
+caller: (...)
+[[FunctionLocation]]: iife.html:13
+[[Prototype]]: ƒ ()
+✅[[Scopes]]: Scopes[3]
+0: Closure (outerFun)
+a: 5
+b: 10
+[[Prototype]]: Object
+1: Script {outerFun: ƒ, inner: ƒ}
+2: Global {window: Window, self: Window, document: document, name: '
+
+15
+```
+#### What's the difference between closure and nested functions?
+
+> an example of nested function, where both the variables are inside their own function
+```bash 
+    <script>
+       var i = 10 
+       function outer(){
+           var j = 'j is inside outer function'
+           console.log(j)
+
+           function inner(){
+               var k = 'k is inside inner function'
+               console.log(k)
+           }
+           inner()
+       }
+    outer()
+    </script>
+
+console:
+iife.html:14 j is inside outer function
+iife.html:17 k is inside inner function
+```
+
+> however, when we call the outer function variable inside the inner function scope, then its called closure 
+```bash 
+    <script>
+       var i = 10 
+       function outer(){
+           var j = 'j is inside outer function'
+           console.log(j)
+           function inner(){
+               var k = 'k is inside inner function'
+               console.log(j+ " " + k)
+           }
+           inner()
+       }
+    outer()
+    </script>
+
+console:
+j is inside outer function
+j is inside outer function k is inside inner function
+```
+#### Difference between lexical scope and closures?
+> lexical scoping - accessing variable of outer function from the inner function 
+```bash 
+    <script>
+       function outer(){
+           let count = 10
+
+           function inner(){
+               console.log(count)
+           }
+           inner()
+       }
+    outer()
+    </script>
+
+console:
+10
 ```

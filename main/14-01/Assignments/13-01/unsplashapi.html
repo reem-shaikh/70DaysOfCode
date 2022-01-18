@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
-      rel="stylesheet"
-    />
-    <!-- https://cdnjs.com/libraries/font-awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
     <style>
       * {
         margin: 0;
@@ -54,11 +47,13 @@
       #search_box {
         position: relative;
         width: 350px;
+        display: flex;
+        flex-direction: row;
       }
 
       #search_box input {
         box-sizing: border-box;
-        width: 100%;
+        width: 90%;
         font-size: 1rem;
         padding: 8px;
         border-radius: 25px;
@@ -77,18 +72,7 @@
         border: 1px solid crimson;
       }
 
-      #search_box i {
-        color: black;
-        position: absolute;
-        cursor: pointer;
-        top: 25%;
-        right: 4%;
-        transition: 1s;
-      }
 
-      #search_box i:hover {
-        color: crimson;
-      }
 
       #grid {
         width: 100%;
@@ -98,7 +82,7 @@
         align-items: flex-start;
       }
 
-      .img {
+      img {
         width: 380px;
         height: 214px;
         margin-top: 15px;
@@ -106,125 +90,144 @@
         background-size: cover;
         border-radius: 2px;
         cursor: pointer;
-      }
+      } 
+
+
+    img:hover {
+    border: 4px solid rgba(68, 82, 207, 0.7);
+}
+
 
     </style>
-  </head>
-
-  <body>
+</head>
+<body>
     <header>
-      <div class="container">
-        <div id="header">
-          <h2>
-            <i class="fas fa-camera" style="color: crimson"></i> Image Fetch
-          </h2>
-          <div id="search_box">
-            <input id="input" type="text" placeholder="Type in image you want to search" /><i
-              id="search"
-              class="fas fa-search"
-            ></i>
+        <div class="container">
+          <div id="header">
+            <h2>
+              <i class="fas fa-camera" style="color: crimson"></i> Image Fetch
+            </h2>
+        <form method="get">
+            <div id="search_box">
+              <input id="input" type="text" placeholder="Type in image you want to search" name="search_query"/>
+              <input type="submit" value="🔎" id="submit" style="width:10% ; background-color: white; border: white; border: none;"/>
+            </div>
+            <!--search box ends-->
+        </form>
           </div>
+          <!--header ends-->
         </div>
-      </div>
-    </header>
-
-    <section>
-      <div class="container">
-        <div id="grid"></div>
-      </div>
-    </section>
+        <!--container ends-->
+      </header>
+  
+      <section>
+        <div class="container">
+          <div id="grid"></div>
+        </div>
+      </section>
 
     <script>
-    //   dayNightTheme = () => {
-    //     let date = new Date();
-    //     let hour = date.getHours();
+    const ACCESS_KEY = 'z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y'
+    const SECRET_KEY = 'EJJobXngSZw2dg2viiKzIm4hAibuohH8KuGxReu3ziU'
+    const BASE_URL   = "https://api.unsplash.com";
 
-    //     if (hour >= 7 && hour < 19) {
-    //       document.body.style.backgroundColor = "white";
-    //       document.body.style.color = "black";
-    //     } else {
-    //       document.body.style.backgroundColor = "black";
-    //       document.body.style.color = "white";
-    //     }
-    //   };
-
-    //   window.addEventListener("load", dayNightTheme);
-
-      document.querySelector("#search").addEventListener("click", () => {
-        loadImg();
-      });
-
-      loadImg = () => {
-        document.querySelector("#grid").textContent = "";
-        console.log("input",input.value)
-        //takes the query we searched for 
-
-        const url =
-          "https://api.unsplash.com/search/photos?query=" +
-          input.value +
-          "&per_page=100&client_id=z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y";
-          //this is my access key 
-
-        fetch(url)
-          .then((response) => {
-            if (!response.ok) throw Error(response.statusText);
-            return response.json();
-          })
-
-          .then((data) => {
-            loadImages(data);
-          })
-
-          .catch((error) => console.log(error));
-      };
-
-      loadImages = (data) => {
-        for (let i = 0; i < data.results.length; i++) {
-          let image = document.createElement("div");
-          //create div element and add img class to it 
-          image.className = "img";
-          image.style.backgroundImage =
-            "url(" + data.results[i].urls.raw + "&w=1366&h=768" + ")";
-            console.log("results",data.results[i])
+    //were placing this inside an IFEE
+(() => {
+    let images = [];
+    const search = async (search_query) => {
+        try {
 /*
-result of one image 
-
-Object
-alt_description: "sliced watermelon"
-blur_hash: "LeP|VeOrwMof_j#9S#ayO@O?WAjF"
-categories: []
-color: "#f37373"
-created_at: "2018-10-11T05:02:52-04:00"
-current_user_collections: []
-description: null
-height: 3328
-id: "y-feJOQIBao"
-liked_by_user: false
-likes: 713
-links: {self: 'https://api.unsplash.com/photos/y-feJOQIBao', html: 'https://unsplash.com/photos/y-feJOQIBao', download: 'https://unsplash.com/photos/y-feJOQIBao/download?i…XJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng', download_location: 'https://api.unsplash.com/photos/y-feJOQIBao/downlo…XJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng'}
-promoted_at: null
-sponsorship: null
-tags: (3) [{…}, {…}, {…}]
-topic_submissions: {food-drink: {…}}
-updated_at: "2022-01-16T01:04:14-05:00"
-✅urls:
-full: "https://images.unsplash.com/photo-1539248519424-b4b8f9a99a4a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyOTE0MDR8MHwxfHNlYXJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng&ixlib=rb-1.2.1&q=85"
-✅raw: "https://images.unsplash.com/photo-1539248519424-b4b8f9a99a4a?ixid=MnwyOTE0MDR8MHwxfHNlYXJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng&ixlib=rb-1.2.1"
-regular: "https://images.unsplash.com/photo-1539248519424-b4b8f9a99a4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTE0MDR8MHwxfHNlYXJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng&ixlib=rb-1.2.1&q=80&w=1080"
-small: "https://images.unsplash.com/photo-1539248519424-b4b8f9a99a4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTE0MDR8MHwxfHNlYXJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng&ixlib=rb-1.2.1&q=80&w=400"
-thumb: "https://images.unsplash.com/photo-1539248519424-b4b8f9a99a4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTE0MDR8MHwxfHNlYXJjaHw1fHx3YXRlcm1lbG9ufGVufDB8fHx8MTY0MjM0MzE4Ng&ixlib=rb-1.2.1&q=80&w=200"
-[[Prototype]]: Object
-user: {id: 'dswYlKbx3sw', updated_at: '2022-01-16T07:17:07-05:00', username: 'lenneek', name: 'Elena Koycheva', first_name: 'Elena', …}
-width: 2219
-[[Prototype]]: Object
-
-
+To authenticate requests in this way, pass your application’s access key via the HTTP Authorization header:
+```bash
+Authorization: Client-ID YOUR_ACCESS_KEY
+```
+✅when were passing our API key through **header**, the details are hidden in the network call
 */
-          
-          //in the #grid, image is appended 
-          document.querySelector("#grid").appendChild(image);
+            const fetch_config = {
+                headers: {
+                    Authorization: `Client-ID ${ACCESS_KEY}`,
+                }
+            };
+            //search/photos from unsplash "search" documentation
+                /*
+                Search photos
+                Get a single page of photo results for a query.
+
+                GET /search/photos
+                */
+            const res = await fetch(`${BASE_URL}/search/photos?query=${search_query}`, fetch_config);
+            //second argument is configuration object
+
+            images = await res.json();
+            console.log("images", images)
+            images = images.results;
+            //displays all the images in the images array
+            disp();
+        
+        } catch(e) {
+            console.log(e);
+            console.log("Something is wrong in the search")
         }
-      };
+    }
+
+    //embedding this function inside IIFE, for security purpose, we dont want to call any variable inside this scope outside in the global execution context
+    (async () => {
+        try {
+            const current_location = window.location.href;
+            console.log("cl",current_location)
+            const url_obj = new URL(current_location);
+            //url object used for url manipulations
+            console.log("url", url_obj)
+
+
+            //when form submits then the url will show up in the url because it uses query parameter 
+            const search_query = url_obj.searchParams.get("search_query");
+            console.log("search query", search_query)
+            //this logs the word we entered in the search bar 
+
+            //as long as their is nothing entered in the search bar
+            if(search_query == null || search_query == "") 
+            {
+                //using string templating
+                const res = await fetch(`${BASE_URL}/photos/?client_id=${ACCESS_KEY}`);
+                images = await res.json();
+                //load random images 
+                disp();
+            } else {
+                //load images based on the search query 
+                search(search_query);
+            }
+        } catch(e) {
+            console.log("Something messed up");
+        }
+    })();
+    
+    
+    const disp = () => {
+        // console.log(images);
+        const outercontainer = document.getElementById('container')
+        const container = document.getElementById('grid');
+        //everytime you make a new search it removes the previous search results 
+        container.innerHTML = "";
+        images.forEach((elem) => {
+            const img_loc = elem.links.download;
+            console.log("ELEM",elem);
+            console.log("image location",img_loc)
+
+            //container 
+              //div 
+                //img 
+            const img_box = document.createElement('div');
+            const img = document.createElement('img');
+            img.src = img_loc;
+            //assign the image location to <img src="">
+            img_box.appendChild(img);
+
+            container.appendChild(img_box);
+        });
+    }
+
+})();
     </script>
-  </body>
+</body>
 </html>
