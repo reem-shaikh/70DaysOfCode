@@ -19,9 +19,8 @@ console:
 #### 3 conditions required for function to be pure
 ```bash
 1. its not using any of the data (variable outside of its inner scope )
-2. its should not have any side effect (leaking), function should not edit 
-any data outside of its inner scope
-3. if i run my function n number of times with the same input, it should give 
+2. its should not have any side effect (leaking), function should not edit any data outside of its inner scope
+3. if I run my function n number of times with the same input, it should give 
 the same output everytime 
 ```
 

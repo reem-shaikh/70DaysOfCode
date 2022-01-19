@@ -3,24 +3,73 @@ transmitting data from sattelites would cause huge delay of time, so for faster 
 
 every device connected to the internet is identified by a string of unique numbers known as the IP address, ISP decides the IP adress for you device. 
 
-server stores multiple websites, which are assigned a speicifc IP address, since its physically imporssible for humans to remember so many IP's, instead we remember the domain name of that particular website. 
+server stores multiple websites, which are assigned a speicifc IP address, since its physically impossible for humans to remember so many IP's, instead we remember the domain name of that particular website. 
 
-Internet gets the IP adress corresponding to our domain name request through a huge phone book known as the DNS server. your ISP manages the DNS server.
+Internet gets the IP adress corresponding to our domain name request through a huge phone book known as the DNS server. your ISP (JIO. AIRTEL etc) manages the DNS server.
 
 1. you enter the domain name 
 2. browser sends a request to the DNS server to get the corresponding IP address for the domain entered 
 3. browser forwards the request to the server/ data center 
-4. once data center recieves a request, data is transferred in digital format via optical fibre cables (data flow is in form of light pulses through optical fibre cable network, which is formed from under the sea bed). There are companies like AT&T, Verizon who maintain these optical cable networks.
+4. once data center recieves a request, data is transferred in light signal format via optical fibre cables (data flow is in form of light pulses through optical fibre cable network, which is placed under the sea bed and pass through hilly terrains). There are companies like AT&T, Verizon who maintain these optical cable networks.
 5. the requested data then reaches us through modem (it converts the analog signal/ light signal to digital signal/ electrical signal)
 6. modem is provided by ISP. modem is connected to our router, we can access the internet then 
 - through either ethernet cable
-- for cellular data users, the optical cable is connected to a cell tower which converts analog/light signal to digital signal and provides data in the form of electromagnetic waves 
+- through our router range which provides internet through electromagnetic waves
 
-> data (we requested for) from the data center is sent to us in the form of packets (a combination of 01), where each packet (from the packet combination) follow the most convenient route to reach to us through the optical cable network and upon reaching our mobile device (the packets rearrange themselves on basis of their sequence number ), this is called packet switching.
+>> for cellular data users, the optical cable is connected to a cell tower which converts analog/light signal to digital signal and provides data in the form of electromagnetic waves 
 
-> **Protocols** are used for the management of complex flow of packets, different applications use different protocols.
+> data (we requested for) from the data center is sent to us in the form of packets (a combination of 01), where each packet (from the packet combination) follow the most convenient route to reach to us through the optical cable network and upon reaching our mobile device (the packets rearrange themselves on basis of their sequence number ), this is called **packet switching.**
+```bash
+1. Each data is divided into a combination of 01, each of these individual combinations is called a packet
+data: 101010 (packet)
+      100010 (packet)
+      101110 (packet)
+
+2. each of these packets follow the fastest and the most feasible route (frome the optical cable network) to reach to our electronic devices which requested for that aprticular data from the server/ data center
+
+3. on reaching the source , these packets reassemble themselves with the help of certain protocols, there are different protocols for different type of data 
+```
+### For different service (type of data the server provides), we have different servers, for different servers we have different softwares
+types of server, based on type of service, server provides:
+#### 1. web server (machine which provides web pages)
+- contains web server software 
+
+#### 2. database server (provides database only)
+- contains database server software 
+
+#### 3. email server (provides email only)
+- contains email server software 
+
+#### 4. file server (provides file server)
+- contains file server software 
+
+#### 5. print server (provides print services)
+- contains print server software 
+
+### For different softwares, we have different port numbers,
+#### How do clients differentiate from different services (How do clients identify which server to connect to, in order to get the data from the server)?
+every service has its own port numbers and its own protocol 
+
+### Each port number has its own dedicated protocol 
+1. file server (FTP protocol)
+2. web server (HTTP protocol)
+3. print server (IPP (Internet printing protocol))
+4. database server (TCP/IP )
+5. email server (SMTP protocol)
+
+#### What is a protocol?
+Client needs to identify **which server it needs to connect to**, in order to do this, 
+it searches for the **port number**, that the particular server runs at,
+**every distinguished port number has a particular protocol**
+
+> eg: file server runs on FTP protocol.
+Once the **client identifies the protocol**, it can then connect the devices and 
+exchange information between them over the network.
+
+>> **Protocols** are used for the management of complex flow of packets, different applications use different protocols.
 
 - HTTP/ Request-response protocol (communication protocol used for communication and transfer of information between client and server)
+
 - HTTPS (its a safer protocol, where the browser and server know how to decrypt it, but in the middle the message is encrypted, so spoofers cannot sniff data sent over the network)
 
 - FTP (communication protocol used for exchanging files over the internet)
@@ -41,6 +90,22 @@ Internet gets the IP adress corresponding to our domain name request through a h
 - domain name registration
 - etc 
 
+#### Types of network architecture: 
+ways in which computers are connected in a network 
+
+##### 1. peer to peer architecture 
+all computers are directly linked to each other and can share data with each other 
+- we cannot backup data because there is no server 
+- only feasible for say 10-20 computers
+
+##### 2. client server architecture / Request-response architecture 
+client makes a request to the server, and server will fulfill the response,
+- data can be easily backed up in the server  
+- increases speed of resource sharing
+
+client requests for resources (typing the url in browser)
+the server,fetches resource from database and returns the respsonse.
+
 ### How does client-server communicate?
 - Client requests data through URL(fb.com) in browser [aka Request message]
 - request goes to that URL server(fb server) and returns the request(fb page) ;[aka Response message]
@@ -55,7 +120,7 @@ This is the format in which request message is sent from client -> server
 >> 2. Request HTTP Body 
 contains information about HTML, CSS, JS that were sending to the server
 
-This is the format in which response message is sent from server -> client 
+This is the format in which response message is sent from server -> client (it contains some additional information)
 >> 1. Response HTTP header 
 - general header (contains information about the date and time client requested the request message)
 - request/response header (contains URL/data we want to send and HTTP method we choose to send the data with, authentication(secret key), **content type of the date it is returning**, content size **what is the status of the API call**, **redirect URL ( if your redirecting to another webpage**)
@@ -83,6 +148,31 @@ https://api.unsplash.com/photos/?client_id=YOUR_ACCESS_KEY
 ```
 ✅when were passing our API key through **query parameter**, the details are displayed in the URL, so this is less secure 
 
+### http methods are request methods used by clients to connect with the server 
+Their are some basic operations we want to perform on the website: CRUD 
+```bash
+C - Create data on the server 
+R - Read data from the server 
+U - Update data on the server
+D - Delete data from the server
+```
+#### Safe method 
+when you fetch data, the data on server is not changing
+1. get- get resource from server 
+
+#### Unsafe method 
+when you do manipulations, data on server is changing 
+2. post   - create new data in the server database
+3. put    - update resource
+4. delete - delete resource 
+
+> This is a list of some basic HTTP methods, we'll be discussing all the major ones, in a bit.
+```bash 
+Create data - Post
+Read data- Get
+Update data- Put
+Delete data- Delete
+```
 ###### HTTP Methods are very important for API testing
 HTTP request methods are used for client to connect with the server 
 
@@ -94,19 +184,30 @@ It is an indication about what desired action is expected from the server
 ```bash 
 these methods are placed after the API URL, each of these methods indicate a specific action from the server
 ```
-1. GET - its used to get data from server [default request]
+1. **GET** - its used to get data from server [default request]
 - used to fetch data from the server/particular URL [Read]
-2. PUT - its used to put data in server 
-- used to **update complete data/resource**at the server/particular URL [Update]
-3. POST - its used to add data in server 
+
+2. **PUT** - its used to put data in server 
+- used to **update complete data/resource* at the server/particular URL [Update]
+
+3. **POST** - its used to add data in server 
 - used to **create new resource** at this URL 
-4. DELETE - it is when we want server to delete some data 
+
+> Difference between PUT and POST?
+Both are used for inserting data to the server 
+1. If you have ID of the data, use PUT, use PUT to update complete data at the server
+2. If you dont have ID of data, use POST, use POST to create new content at the server
+
+4. **DELETE** - it is when we want server to delete some data 
 - if you want to delete some resource at the URL 
-5. PATCH - it is used to update the partial data 
-- unlike PUT, PATCH is used to **update partial resource**
-6. HEAD - It is when we want to check whether the data exists or not
-7. OPTIONS (pre flight)- this is a request made by the user agent/ browser by default 
-- it is created to check whether the actual request will be succesful or not 
+
+5. **PATCH** - it is used to update the partial data 
+- unlike PUT, PATCH is used to **update partial resource*
+
+6. **HEAD** - It is when we want to check whether the data exists or not
+
+7. **OPTIONS** (pre flight)- this is a request made by the user agent/ browser by default 
+- it is created to **check whether the actual request will be succesful* or not 
 > before we start uploading, we check if server is ready to accept or not using OPTIONS
 > options asks server whether the server is ready to take a put request coming from a particular client
 
@@ -114,23 +215,25 @@ these methods are placed after the API URL, each of these methods indicate a spe
 - there are user agents other than browser 
 > eg: Siri, Google home, amazon home 
 
-8. CONNECT - when were sending a very heavy file you need to create a tunnel to the server using connect,
+8. **CONNECT** - when were sending a very heavy file you need to **create a tunnel to the server* using connect,
 for the resource 
-9. TRACE - Its used for debugging and tracing the path from client to the server.
-- it returns a string of different IP's 
 
-> Difference between PUT and POST?
-Both are used for inserting data to the server 
-1. If you have ID of the data, use PUT, use PUT to update content 
-2. If you dont have ID of data, use POST, use POST to create content
+9. **TRACE**- Its used for debugging and tracing the path from client to the server.
+- it returns a string of different IP's (based on the hops the data took to reach to the client from the server)
 
-We'll be sending fetch requests using these HTTP request methods.
+>> We'll be sending fetch requests using these HTTP request methods.
 
 Any network request user makes will be seen in the network tab in developer tools
 
 #### Http response status:
-404: status not found 
-200: sattus found 
+Response sent from the server contains:
+Based on the data, we asked from the server, it returns the data format:
+1. status
+code which tells whether the response we recieved, is proper or not 
+- 200: "ok"            ✅server responded with what we requested for 
+- 403: "forbidden"     ✅server is not responding due to technical issues 
+- 404: "not found"     ✅server has not recieved the file were requesting for 
+
 
 ### Unsplash API Image generator 
 1. create an account and accept all terms, you will get these keys 

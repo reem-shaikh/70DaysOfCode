@@ -12,6 +12,7 @@ if you have an object or an array (called iterable) then you can spread it.
 console:
 (5) [1, 2, 3, 4, 5]
 ```
+- adding an element before an array, that doesnt use SPREAD operator 
 ```bash 
         const arr3 = [1,2,3,4]
         const arr4 = [5,6,7,8]
@@ -20,10 +21,13 @@ console:
         console.log(pre_arr)
 
 console:
-(2) [5, Array(5)]0: 51: (5) [1, 2, 3, 4, 5]length: 2[[Prototype]]: Array(0)
-
+(2) [5, Array(5)]
+0: 5
+1: (5) [1, 2, 3, 4, 5]
+length: 2
+[[Prototype]]: Array(0)
 ```
-
+- adding an element before an array that uses SPREAD operator 
 ```bash 
         const arr3 = [1,2,3,4]
         const arr4 = [5,6,7,8]
@@ -85,7 +89,6 @@ console:
 - If were using ... in a function parameter, it is called rest operator 
 - if we use in an iterable/ function argumnent, then we call it as spread operator
 
-
 ```bash 
     <script>
         const arr = [1,2,3,4]
@@ -102,7 +105,7 @@ console:
     </script>
 
 ```
-> eg. of REST and SPREAD
+> Eg. of REST and SPREAD
 ```bash 
     <script>
       const arr = [1, 2, 3, 4]
@@ -120,7 +123,6 @@ console:
 8-01.html:18 (3) [2, 3, 4]
 ```
 > SPREAD operator used for deep copy
-
 ### DEEP COPY VS SHALLOW COPY 
 ```bash 
     <script>
@@ -146,20 +148,22 @@ console:
         
         They cannot store the value of a variable directly in memory. They store a memory address/ reference of the variable which keeps updating.
 
-        //array/ object is sent as a reference/ pointer (memory location)
+        //array/ object is sent as a reference/ pointer to the (memory location)
 
 
         ✅primitive datatypes- data that is not an object and has no methods.
-        There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null. ...
-        All primitives are immutable, i.e., they cannot be altered.
+        There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null. 
+
+        All primitive datatypes are immutable, i.e., they cannot be altered
 
         They store the value of a variable directly in memory.
 
         ✔ Call by Value - send value, instead of pointer 
 
         //primitive datatypes are refered by value 
-        //note this example is just to show how primitive datatypes are
+        //Note that: this example is just to show how primitive datatypes are
         //stored by value 
+
         const a = 10
         let b = a 
         b = b + 10
@@ -324,14 +328,15 @@ console:
 - it allows us to call functions before they are declared in the code 
 
 ### Event loop
-contains 
+contains: 
 1. Call stack 
 2. Task Queue 
 
 ## 1. call stack
 whenever we execute a function, its pushed in callstack, when execution is over it popped from callstack
 
-Call stack  is a mechanism which will keep track of the function call. which function is being executed, which is the caller function and who this function will call 
+Call stack  is a mechanism which will keep track of the function call. which function is being executed, which is the caller function and who this function will call.
+
 > LIFO (whichever function added last, will be out first)
 ```bash 
 <script>
@@ -362,7 +367,7 @@ https://developer.mozilla.org/en-US/docs/Web/API
 ### JS Engine communicates with browser through WEB API 
 were accessing features of browser using web API
 
-Web api allows communication between JS engine and the browser 
+Web API allows communication between JS engine and the browser 
 ```bash 
        BROWSER         Browser API        JS ENGINE 
                                           executes JS code/logic here
@@ -395,7 +400,7 @@ you can do any sort of calculations in the background without disturbing the UI
 - Task queue (FIFO) which contains the callback which has to be executed 
 - JS engine contains event loop (periodically check the task queue)
 
-This is the loop which will run infinitely which will check the callstack and if that is empty then pick the task from task queue ad push it in callstack 
+This is the loop which will run infinitely which will check the callstack and if that is empty then pick the task from task queue and push it in callstack 
 
 - task queue only holds only asynchronous callback (i.e timeout and setintervals)
 - task queue can also be reffered as callback queue/ macrotask queue
@@ -416,7 +421,7 @@ This is the loop which will run infinitely which will check the callstack and if
             console.log("b")
             ✅browser goes to web API and notifies it about the 
             settimeout function 
-            ✅because timer funtion is given through web API 
+            ✅because timer funtion is given through web API and because setTimeout literally means to execute this variable after the time we set 
     
             ✅this variable (callback) has to execute after a particular time, it pushes this element in task queue 
 
@@ -507,47 +512,49 @@ event loop keeps checking if there is any task available
 1. first it checks in the microstask queue (because this has a higher priorty)
 2. after all callbacks from microstask is executed, microstask queue is executed 
 ```
-### callback hell
+### Callback hell
 callback inside callback (nested of callbacks)
 - bad programming practice from readibility pov
 
 > take 3 inputs individually, and all have to be even for it to be a victory
 ![](img.PNG)
 ```bash 
-//Callback approach!
-//Take 3 inputs (one after another) and all three has to be even for the player to win!
-// const fn = (success_cb, failure_cb) => {
-//     const num = prompt("Enter a number");
-//     if(num % 2 == 0) {
-//         //Success
-//         success_cb();
-//     } else {
-//         //Failure
-//         failure_cb();
-//     }
-// }
+✅Callback approach!
+Take 3 inputs (one after another) and all three has to be even for the player to win!
 
-// fn(() => {
-//     console.log("Success");
-// }, () => {
-//     console.log("Failure");
-// });
+const fn = (success_cb, failure_cb) => {
+    const num = prompt("Enter a number");
+    if(num % 2 == 0) {
+        ✅Success
+        success_cb();
+     } else {
+        ✅Failure
+        failure_cb();
+    }
+}
 
-// fn(() => {
-//     alert("Success, Number is even");
-//     fn(() => {
-//         alert("Second attempt is also success");
-//         fn(() => {
-//             alert("Hattrick, all three are even, You've won");
-//         }, () => {
-//             alert("Ooops, bad luck");
-//         })
-//     }, () => {
-//         alert("Ooops, failed");
-//     })
-// }, () => {
-//     alert("Failure, Number is not even");
-// })
+fn(() => {
+    console.log("Success");
+}, () => {
+    console.log("Failure");
+});
+
+fn(() => {
+    alert("Success, Number is even");
+    fn(() => {
+       alert("Second attempt is also success");
+        fn(() => {
+            alert("Hattrick, all three are even, You've won");
+        }, () => {
+           alert("Ooops, bad luck");
+        })
+    }, () => {
+           alert("Ooops, failed");
+    })
+
+}, () => {
+    alert("Failure, Number is not even");
+})
 
 ```
 
@@ -1145,7 +1152,7 @@ closure in action that is inner function can have access to the outer function v
        const outerFun = (a) => {
            let b = 10;
            const innerFun = () => {
-               //inner function can have access to the outer function variable and its parameter as well 
+               ✅inner function can have access to the outer function variable and its parameter as well 
                let sum = a+b
                console.log(sum)
            }
@@ -1206,7 +1213,6 @@ b: 10
 15
 ```
 #### What's the difference between closure and nested functions?
-
 > an example of nested function, where both the variables are inside their own function
 ```bash 
     <script>

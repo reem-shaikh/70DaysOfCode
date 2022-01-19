@@ -19,16 +19,13 @@ the book app
 1. complete these lec: 
 - jan 6 (1.5hr)
 - jan 11 (1.5hr)
-- jan 9 (1hr)  ✅
-- jan 15 (1hr) ✅
+- jan 9 (1.5hr)  (promises)
+- convert the booklist app to Object oriented (2-3hrs)
+- work on booklist UI 
+2. complete closures vs lexical scoping analysis 
 
-- revamp the unsplash assignment. push to git     ✅
-
-2. meet with maitrish finalizing the project idea ✅
-
-6. lecture
-- (6pm-7pm)  ✅
-- (8pm-10pm) ✅
+- lecture:
+revise API notes 
 
 
 

@@ -1,5 +1,138 @@
-Relationship between JavaScript, APIs, and other JavaScript tools:
+### What is an API?
+> two applications communicate with each other throough an API 
+> we use API to get access to a specific functionality or data 
 
+> example:
+1. We created a website using PHP on backend and MYsql on db 
+2. we want to create an app for that website in both ios and android 
+3. our website can easily fetch data from mysql, however 
+4. apps cannot fetch data directly from mysql because it has other libraries
+
+### API is a third party program,
+1. API takes request from android app & website & iphone app and sends it to mysql through The API. Note that: In order to access the API, we would need to login in to authenticate our identity and then the application will give us a secret API key, by using it we can access our API, however, there are certain open/ public API that dont require you to login and get the secret key to access it, its open for all users.
+```bash 
+                          sends a request            request recieved
+   (native) android app   ---->
+   (php)    website       ---->        API          ---------------->  MYSQL
+   (swift)  ios app       ---->
+                                    data converted 
+                                    to JSON format   <----------------
+                                                     returns a response                                              
+```
+
+2. mysql assess the data and returns a response 
+3. data is now sent in the form of json data (from API- mysql data converted to JSON) which can be intrepreted/ parsed by ios app and android app.
+3. ios app, website and android app can easily access this data in json format  
+
+>> So what is an API key? (more in depth: Analysis)
+```bash
+Notes:
+API key is a security key, which contains a unique value,
+to access the API you need a key which will be send along with the request you 
+make to the server 
+
+API KEY 
+a key ID that identifies the client responsible for the API service request.
+
+API keys provides:
+> Identification
+identifies is the person that's making a call granted permission to access the API?
+
+> Authentication:
+Prove to API that you are the user you claim to be 
+
+> Authorization
+grant access right to use the API, this doesnt need log in/ crednetials 
+```
+### Types of API 
+1. Generalised API
+2. Web service API 
+
+## 1. Generalised API 
+##### 1.1 Open API / Public API 
+A public API is open and available for use by any outside developer or
+business. An enterprise that cultivates a business strategy that 
+involves sharing its applications and data with other businesses will 
+develop and offer a public API.
+
+Public APIs typically involve moderate authentication and authorization.
+
+##### 1.2 partner API - creating API in collaboration with business partners 
+Partners have clear rights and licenses to access such APIs.
+For this reason, partner APIs generally incorporate stronger 
+authentication, authorization and security mechanisms.
+
+##### 1.3 Internal API- internal API services, which are private to the company
+An internal (or private) API is intended only for use within the enterprise, 
+to connect systems and data within the business. 
+For example, an internal API may connect an organization's payroll and
+HR systems.
+
+Internal APIs traditionally present weak security and authentication -- or none at all --
+because the APIs are intended for internal use, and such 
+security levels are assumed to be in place through other policies.
+
+##### 1.4 Composite API- fetch from different API's and then create a single API through it 
+Composite APIs generally combine two or more APIs to craft a sequence of related or interdependent
+operations, and can sometimes improve speed and performance over individual APIs.
+
+## 2. Web service API
+1. REST 
+2. SOAP - simple object access 
+3. RPC - remote procedural call (RPC) 
+RPC can employ two different languages, JSON and XML, for coding; these APIs are dubbed JSON-RPC and XML-RPC, respectively.
+-  XML-RPC  
+-  JSON-RPC 
+
+
+##### Web Server
+- returns only the data requested to the client, without doing any proccessing
+- cannot execute the file 
+case 1: web server will not return the sum, it will only return the script as it is
+
+##### A web server delivers static web content—e.g., HTML pages, files, images, video, primarily in response to hypertext transfer protocol (HTTP) requests from a web browser.
+
+eg: Apache HTTP server, NGINX 
+> open source web server that includes reverse proxy, load balancing, mail proxy, and HTTP cache capabilities
+
+##### Application server
+- returns the data requested to the client, with the proccessing
+- can execute the file 
+case 2: application server returns the sum
+
+##### Application server can generate dynamic content based on server-side logic.
+
+eg: Apache Tomcat, Glassfish 
+open source application server that executes Java Servlets, renders and delivers web pages that include JavaServer Page code, and serves Java Enterprise Edition (Java EE) applications.
+
+### API in JavaScript
+##### Client side Javascript- has browser API that are biuld on top of the core JS language 
+Browser API allows communication between JS engine and the browser 
+```bash 
+       BROWSER         Browser API        JS ENGINE 
+                                          executes JS code/logic here
+
+Browser API is a web API biult on top of the web browser
+Browser API is the intermediate in between Browser and JS Engine 
+
+When writing code for the Web, there are a large number of Web APIs available. Below is a list of all the APIs and interfaces (object types) that you may be able to use while developing your Web app or site.
+https://developer.mozilla.org/en-US/docs/Web/API
+
+✅JS is a single-threaded programming language 
+JS engine doesnt have 
+- document object 
+- browser object 
+- window object 
+These objects are a part of the browser API 
+
+✅Possible due to web API 
+1. for setinterval, timer is provided by web api 
+2. fetch request 
+3. DOM manipulation 
+4. console.log 
+```
+
+### Relationship between JavaScript, APIs, and other JavaScript tools:
 #### JavaScript 
 A high-level scripting language built into browsers that allows you to implement functionality on web pages/apps. Note that JavaScript is also available in other programming environments, such as Node.
 
@@ -8,6 +141,10 @@ constructs built into the browser that sits on top of the JavaScript language an
 
 #### Third-party APIs 
 constructs built into third-party platforms (e.g. Twitter, Facebook) that allow you to use some of those platform's functionality in your own web pages (for example, display your latest Tweets on your web page).
+
+Third Party API's are used to retreive information from a third party and implement into your page 
+
+> note: chrome, edge, brave, chromium all use the JS v8 engine (written by google).
 
 #### JavaScript libraries 
  Usually one or more JavaScript files containing custom functions that you can attach to your web page to speed up or enable writing common functionality. 
@@ -25,11 +162,38 @@ The key difference between a library and a framework is “Inversion of Control�
 2. Client-side storage APIs are becoming a lot more widespread in web browsers — the ability to store data on the client-side is very useful if you want to create an app that will save its state between page loads, and perhaps even work when the device is offline. 
 > eg: web storage API (which includes local storage)
 
+### Web storage API 
+used to store data (key:value pairs of string) to web browser 
+
+Data is stored in:
+#### 1. session storage
+(stores data for one session)
+as soon as user, closes window, the data is lost 
+- session storage data is not sent to server while making network request calls 
+
+#### 2. local storage 
+(stores data with no expiry date)
+even when the user closes the website, window the data is stored in the broswer 
+- local storage has the highest memory capacity 
+
+> getting data from local storage is easier and faster than making a network call and getting the data.
+
+- user specific data can be kept in web browsers 
+
+>> setting and accesing value 
+```bash 
+// Store
+localStorage.setItem("lastname", "Smith");
+
+//getting
+localStorage.getItem("lastname");
+```
+
 3. APIs for manipulating documents loaded into the browser. 
 > DOM API 
 
 #### How are API's fetched?
-Browser API is biult on top of the browser, its not a part of the JS, it acts as an interface between the browser and the JS engine, when we use a web API (https://developer.mozilla.org/en-US/docs/Web/API), the call goes from client(browser) to the browser API, where it extracts the additional functionalities of that API (not that: the entire functionality of the API is abstracted from us), after it calls the browser API functionality, the code it then sent to the JS Engine where the logic is rendered.
+Browser API is biult on top of the browser, its not a part of the JS, *Browser API** acts as an interface between the browser and the JS engine, when we use a web API (https://developer.mozilla.org/en-US/docs/Web/API), the call goes from client(browser) to the browser API, where it extracts the additional functionalities of that API (note that: the entire functionality of the API is abstracted from us), after it calls the browser API functionality, the code it then sent to the JS Engine where the logic is rendered.
 
 #### AJAX (Asynchronous JS and XML)
 AJAX is a technique for creating fast and dyanamic web pages 

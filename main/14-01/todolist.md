@@ -1,4 +1,4 @@
-2. promises (30mins) ✅
+
 3. complete fetch (2hrs and add notes) ✅
 
 1. 1.3 -> 1.6 (2 hrs)  ✅ 

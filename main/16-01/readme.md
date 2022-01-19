@@ -61,12 +61,12 @@ we have functions written in a single very big js file, if we want to use the js
 > Modular programming paradigm 
 we refer to these functions as modules (like a component). Multiple components will make a big complex file and if we need to use it somewhere else, we just import it to that place.
 
-### If were exporting only one file, we use default, we can even export multiple 
+### If were exporting only one file, we use "default" keyword, we can even export multiple 
 - functions
 - constants 
 - primitive datatypes 
 
-> to do this, we use as keyword 
+> using "as" keyword
 ![](img.PNG)
 
 > index.html
@@ -97,10 +97,12 @@ const increaseNumber = (num) => {
     return ++num
 }
 
+✅exporting multiple functions
 export {increaseNumber, getRandomNumber}
 ```
 > module1.js 
 ```bash 
+✅as keyword used to import multiple functions/ variables
 import {increaseNumber as new_fn, getRandomNumber as abcd} from './random.js';
 
 console.log("increasenum",new_fn(10))
@@ -156,7 +158,7 @@ console.log("getrandomnumber",abcd())
 //were creating seperate objects for seperate books 
 const book = {
     title : "the subtle art of not giving a fuck", 
-    author: "john doe",
+    author: "john who?",
     release_date: "1000",  
 };
 
@@ -180,7 +182,7 @@ const book = {
 //one single function which generates different objects for you
 const createBook = (title, author, release_date) => {
     const book = {
-        //when key and value have the same name, we can skip writing the value, if we want 
+        ✅when key and value have the same name, we can skip writing the value, if we want 
         title: title, 
         author: author,
         release_date: release_date,
@@ -228,7 +230,6 @@ const createBook = (title, author, release_date) => {
 ✅Classname must start with capital letters 
 ✅function Book is a constructor 
 function Book(title, author, release_date){
-    //when key and value have the same name, we can skip writing the value, if we want 
     this.title = title;
     this.author = author;
     this.release_date = release_date;

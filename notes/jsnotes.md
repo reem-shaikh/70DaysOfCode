@@ -216,9 +216,10 @@ Get a pop up box
 
 ```bash
   console.log("hello world");
-```
-VM476:1 hello world
 
+console:
+VM476:1 hello world
+```
 ### Document.write 
  prints on the webpage 
 
@@ -231,17 +232,18 @@ displays error on the console
 
 ```bash
 console.error("this is an error");
-```
-VM842:1 this is an error
 
+VM842:1 this is an error
+```
 ### Console.warn 
 displays a warning message 
 
 ```bash
 console.warn("this is a warning");
-```
-VM916:1 this is a warning
 
+console:
+VM916:1 this is a warning
+```
 ### console.clear 
 to clear the console 
 
@@ -254,14 +256,32 @@ if both values are not equal then show an error
 
 ```bash
 console.assert(4==6);
-```
-VM1031:1 Assertion failed: console.assert
 
+console:
+VM1031:1 Assertion failed: console.assert
+```
 > if both values are equal, then dont show error 
 ```bash
 console.assert(4==4);
-```
+
+console:
 undefined
+```
+### console.dir 
+its a console command used to see all the list of properties of a JS object 
+
+```bash
+    <script>
+        const arr = [1,2,3,4]
+        console.dir(arr)
+        ✅console.dir makes a copy of the reference before logging
+        //prints object properties in a JSON like tree
+
+        console.log(arr)
+        ✅console.log takes direct reference of the object while logging
+        //prints object like a tree 
+    </script>
+```
 
 ### 2. Js can be executed on browser, as well as the server 
 > Js can be used in the backend using Node Js 
@@ -288,7 +308,7 @@ Node Js can be used as a server side component.
 ### Server frameworks in Js
 ***Express Js***
 
-### 3. There are languages that get transpiled to JS
+### 3. There are languages that get transpiled (taking source code written in one language and converting them to another language) to JS
 Languages that are biult on top of JS.
 > but in order to use them, they must be transpiled/ converted to Js
 ***CoffeeScript, Typescript***
