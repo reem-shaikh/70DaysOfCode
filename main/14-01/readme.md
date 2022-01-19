@@ -512,7 +512,7 @@ length: 2
             console.log(response)
             document.getElementById('rainbow').src = URL.createObjectURL(response)
             ✅taking data of that image and placing it in the src attribute of the image dom element 
-            ✅URL.createObjectURL is a static method which creates a dom string which allows us to fetch image objects that are called blob objects 
+            ✅URL.createObjectURL is a static method which allows us to fetch image objects (blob) and convert them to a format that an DOM element can intrepet
         }).catch(error => {
             console.log('error')
         })
