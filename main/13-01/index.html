@@ -67,7 +67,8 @@
       //local storage is a browser API
 
       //geolocation present inside navigator API (through which we can fetch location)
-      //geolocation (takes 2 arguments which are functions)
+      //geolocation
+      //were using geolocation property called getCurrentPosition (takes 2 arguments which are functions)
 
       //1st function will run if geolocation is able to get your location
       //2nd function will run if geolocation is not able to get your location
@@ -80,14 +81,18 @@
           //L is the global variable in the script
           //importing this from
 
+          //creating a map object 
           //https://leafletjs.com/
           var map = L.map("map").setView([51.505, -0.09], 13);
 
+          //creating tiles for the map and embedding it on the map 
+          //were getting this map pic from openstreetmap
           L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             attribution:
               '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           }).addTo(map);
 
+          //were adding a marker to this map 
           L.marker([51.5, -0.09])
             .addTo(map)
             .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")

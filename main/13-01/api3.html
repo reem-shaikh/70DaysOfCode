@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--were creating a map and adding tiles on top of it using leaflet js, then were setting a marker which will dyanamically change its position based on the sattelite's coordinates
+    
+    were fetching the sattelite endpoints using space station API and were mapping the marker to denote the sattelites coordinates on the map (which keeps changing) at any given point of time -->
 <!--
         https://leafletjs.com/examples/quick-start/
         loaded the leadlet JS library
@@ -37,6 +40,7 @@ crossorigin=""/>
         //setting intiial marker quadrant to [0,0]
         const marker = L.marker([0,0]).addTo(map)
 
+        //adding tile to the blank map
         //were using openstreetmap API as a baground map 
         //we have to give its attribution 
 
@@ -44,14 +48,14 @@ crossorigin=""/>
         const attribution = ' &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
 
         const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
+        //openstreetmap uses marcator projection
         const tiles = L.tileLayer(tileUrl, {attribution});
 
         //add tiles to map 
         tiles.addTo(map)
 
  
-        //using fetch function to retreive data from a particular endpoint of an API 
+        //using fetch function to retreive data from a particular endpoint of the sattleite space station
         const url = 'https://api.wheretheiss.at/v1/satellites/25544 '
 
         async function getData() {

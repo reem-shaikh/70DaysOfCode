@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let f = fetch('data.json')
+         //by default promise is in a pending state 
+
+         //when fetch gets the data, it says whether promise is fulfilled or rejected
+
+         //even if one of the promise is failing it will jump to the catch 
+         f.then((a)=> {
+             console.log('promise success')
+         }).then((a)=> {
+             console.log('promise success 1')
+         }).then((a)=> {
+             console.log('promise success 2')
+         }).catch((b) => {
+             console.log('promise failed')
+         })
+    </script>
+</body>
+</html>

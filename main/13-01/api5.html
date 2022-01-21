@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        we are fetching geolocation coordinates using navigator API (browser API) andd placing a marker on taht coordinate
+    -->
 <!--
     refer the entire importing third party library from:
     https://leafletjs.com/examples/quick-start/
@@ -84,13 +87,17 @@
      .duration {
          width: 11.3%;
      }
+
+     .hidden {
+         display: none;
+     }
     </style>
 
 </head>
 <body>
     <div id="container" class="container">
         <div id="left" class="left">
-            <form action="" id="form" class="form">
+            <form action="" id="form" class="form hidden">
                 <!--what do you want to do -->
                 <select name="" id="options" class="options">
                     <option value="" class="option">swimming</option>
@@ -118,6 +125,8 @@
 
 //1st function will run if geolocation is able to get your location
 //2nd function will run if geolocation is not able to get your location
+
+//when navigator API can fetch your location, first function will run, otherwise second function will run 
 navigator.geolocation.getCurrentPosition(function(event){
     console.log("event",event)
 
@@ -162,20 +171,19 @@ navigator.geolocation.getCurrentPosition(function(event){
         L.marker(currentLocation).addTo(map)
 
         //we are calling 
-        .bindPopup(L.popup({
+        .bindPopup(
+            L.popup({
             maxWidth: 300,
             minWidth: 200, 
             autoClose: false,
            
         })
+        
         )
         .openPopup();
 
     })
-    
-
-
-},function(){
+}, function(){
     alert("could not get your location")
 })
 

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        we are fetching geolocation coordinates using navigator API (browser API) andd placing a marker on taht coordinate
+    -->
+<!--
+    refer the entire importing third party library from:
+    https://leafletjs.com/examples/quick-start/
+-->
+    <title>Log My Day</title>
+<!--third party library: leaflet-->
+<!--https://leafletjs.com/download.html -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+<!-- JS Reference: Make sure you put this AFTER Leaflet's CSS -->
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+ <!--L is the global variable loaded from the leaflet script-->
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: none;
+}
+
+
+.container{
+    width: 100vw;
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left{
+    flex: 1;
+    height: 100%;
+    background-color: green;
+}
+
+.right{
+    flex: 3;
+    height: 100vh;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.form {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         gap: 1vh;
+         flex-direction: column;
+         margin-top: 1vh;
+     }
+
+     .form .options, .duration {
+         width: 190px;
+         padding: 7px;
+     }
+
+     .submit {
+         width: 110px;
+         padding: 7px;
+         border: none;
+         cursor: pointer;
+
+     }
+
+     .option {
+         padding: 30px;
+         width: 100px;
+     }
+
+     .duration {
+         width: 11.3%;
+     }
+
+     .hidden {
+         display: none;
+     }
+
+     .list {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         width: 80%;
+         margin-top: 5vh;
+         box-shadow: 5px  blue;
+     }
+
+     .title-ctn , .duration-ctn {
+         width: 80%;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+         background-color: white;
+     }
+
+     .options{
+         display: flex;
+         flex-direction: column;
+     }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="left" class="left">
+            <input action="" id="form" class="form hidden">
+                <!--what do you want to do -->
+                <select name="" id="options" class="options">
+                    <option value="swimming" class="option">swimming</option>
+                    <option value="cycling" class="option">cycling</option>
+                    <option value="climbing lol" class="option">climbing lol</option>
+                </select>
+                
+                <input type="text" class="duration" class="duration" placeholder="enter duration in mins" style="color: white; width: 50%; text-align: center;" >
+                <button class="submit">submit</button>
+            </form>
+            <div id="list-ctn" class="list-ctn">
+                <div class="list">
+                    <div class="title-ctn">
+                        <h2 class="title-text">cycling</h2>
+                    </div>
+                    <div class="duration-ctn">
+                        <h2 class="duration-text">30 mins</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right" class="right">
+            <div id="map" class="map">
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    const form = document.querySelector('.form')
+    const option = document.querySelector('.options')
+    const duration = document.querySelector('.duration')
+    const submit_btn = document.querySelector('.submit')
+
+    const listctn = document.querySelector('.list-ctn')
+    const list = document.querySelector('.list')
+    const titletext = document.querySelector('.title-text')
+    const durationtext = document.querySelector('.duration-text')
+
+    //were using arrays because were trying o write to storage and local storage only understand json 
+    let log_data = []
+
+    if(localStorage.getItem('local')){
+        //then initialise log_data with 
+        log_data = JSON.parse(localStorage.getItem('local'))
+    }
+
+    //we need another function to populate list 
+    //populate means to add html elements dyanamaically through JS 
+
+    //take logdata and for every element of logdata it will append it to .list-ctn 
+
+    //were creating html elements dyanamically
+    const populateList=() => {
+        log_data.forEach(item => {
+            console.log("item",item)
+
+            //div class="list"
+            const div = document.createElement('div')
+            div.classList.add('list')
+
+            //h2 class="title-text"
+            const title = document.createElement('h2')
+            title.classList.add('title-text')
+            //title.innerText = 'swimming'
+            title.innerText = item.title
+
+            //h2 class="duration-text"
+            const duration = document.createElement('h2')
+            duration.classList.add('duration-text')
+            //duration.innerText = '60 mins'
+            duration.innerText = item.time
+
+        //div class="list-ctn"
+            //div class="list"
+              //h2 class="title-text"
+              //h2 class="duration-text"
+            div.append(title, duration)
+            listctn.append(div)
+
+            console.log("ola",div, title, duration)
+        /*
+            <div id="list-ctn" class="list-ctn">
+                <div class="list">
+                    <div class="title-ctn">
+                        <h2 class="title-text">cycling</h2>
+                    </div>
+                    <div class="duration-ctn">
+                        <h2 class="duration-text">30 mins</h2>
+                    </div>
+                </div>
+            </div>
+        */
+
+        })
+    }
+
+    const formHandler = (e) => {
+        e.preventDefault()
+        console.log('clicked')
+
+        const title = option.value
+        console.log("title",title)
+        //shows the value we selected from the .option class
+
+        const time = duration.value 
+        console.log("time", time)
+
+        //since local storage only understands json, were creating a json object 
+        //json object 
+        const data = {
+            title: title,
+            time: time
+        }
+        //duration.value=""
+        form.classList.add('hidden')
+
+        console.log("data", data)
+
+        log_data.push(data)
+        console.log("log data",log_data)
+
+        //were writing to db
+        localStorage.setItem('local', JSON.stringify(log_data))
+        //problem with this is whenver we add a new entry, previous entry is gone, to fix this we add this peice of code on top 
+
+        //we can succesfully write to local storage without loosing data 
+
+        /*
+        if(localStorage.getItem('local')){
+        //then initialise log_data with 
+        log_data = JSON.parse(localStorage.getItem('local'))
+         }
+        */
+    
+    }
+
+    submit_btn.addEventListener('click', formHandler)
+    //adding stuff inside bindpopup
+
+//geolocation is a browser API 
+//geolocation present inside navigator API (through which we can fetch location)
+//geolocation (takes 2 arguments which are functions)
+
+//1st function will run if geolocation is able to get your location
+//2nd function will run if geolocation is not able to get your location
+
+//when navigator API can fetch your location, first function will run, otherwise second function will run 
+navigator.geolocation.getCurrentPosition(onSuccess, onReject)
+
+function onSuccess(event)
+   {
+    console.log("event",event)
+
+
+
+  //importing this from
+  //https://leafletjs.com/
+    const coordinates =[event.coords.latitude,
+    event.coords.longitude]
+    console.log("latitude", event.coords.latitude)
+    console.log("longitude", event.coords.longitude)
+    
+
+    var map = L.map('map').setView(coordinates, 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+
+
+    //map is made up of tiles 
+
+    //tiles is a hypothetical term to better understand this concept
+    // L.marker(coordinates).addTo(map)
+    // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    // .openPopup();
+
+    //map.on(event, function)
+    map.on('click', function(mapEvent){
+       
+        form.classList.remove('hidden')
+        console.log("clicked")
+        console.log("mapevent", mapEvent)
+        const currentLocation = [mapEvent.latlng.lat, 
+        mapEvent.latlng.lng]
+        console.log(currentLocation)
+       
+        L.marker(currentLocation).addTo(map)
+
+        .bindPopup('hi').openPopup();
+
+    })
+}
+ function onReject(){
+    alert("could not get your location")
+}
+
+populateList()
+
+
+</script>
+</body>
+</html>

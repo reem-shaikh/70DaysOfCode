@@ -327,28 +327,6 @@ console:
 #### Advantage of hoisting:
 - it allows us to call functions before they are declared in the code 
 
-### Event loop
-contains: 
-1. Call stack 
-2. Task Queue 
-
-## 1. call stack
-whenever we execute a function, its pushed in callstack, when execution is over it popped from callstack
-
-Call stack  is a mechanism which will keep track of the function call. which function is being executed, which is the caller function and who this function will call.
-
-> LIFO (whichever function added last, will be out first)
-```bash 
-<script>
-    const fn = () => {
-        console.log("hey geeks")
-    }
-
-    fn()
-</script>
-```
-![](img1.PNG)
-
 ## Web API 
 it works as an interface which allows communication between two peices of software 
 API acts as an interface between two programs (thing for computers to talking each other)
@@ -392,11 +370,60 @@ were accessing features of browser using web api
 ### Web workers 
 JS is a single threaded (only one script can be run at one time)
 
-#### Introduction to multi threading in JS 
+> Introduction to multi threading in JS 
 web worker provides a mechanism to spawn/run a seperate script in the baground where 
 you can do any sort of calculations in the background without disturbing the UI
 
-2. Task queue 
+### Callback Function
+Functions that are passed as an argument in another function - callback function 
+```bash
+    <script>
+        //Callback function, gives us access to the whole asynchronous world, even though JS is a synchronous and single-threaded language 
+
+        setTimeout(() => {
+            console.log('timer')    
+        }, 5000);
+
+        ✅function y() is passed as an argument in another function
+        function x(y){       
+            console.log('x')
+            y()
+        }
+
+        ✅function y is the callback function 
+        x(function y(){
+            console.log('y')
+        });
+    </script>
+
+console:
+x
+y
+timer
+```
+
+###  Lets first discuss about call stack & task queue
+## 1. call stack
+whenever we execute a function, its pushed in callstack, when execution is over it popped from callstack
+
+Call stack  is a mechanism which will keep track of the function call. which function is being executed, which is the caller function and who this function will call.
+
+> LIFO (whichever function added last, will be out first)
+```bash 
+<script>
+    const fn = () => {
+        console.log("hey geeks")
+    }
+
+    fn()
+</script>
+
+console:
+hey geeks
+```
+![](img1.PNG)
+
+## 2. Task queue 
 - Task queue (FIFO) which contains the callback which has to be executed 
 - JS engine contains event loop (periodically check the task queue)
 
@@ -408,24 +435,24 @@ This is the loop which will run infinitely which will check the callstack and if
 > this is an example with asynchronous function 
 ```bash 
     <script>
-    ✔ logic is being executed in the JS Engine
-    ✅a is pushed into the call stack, executed and popped after execution
-    ✅this is the global execution context 
+    ✅code cannot be executed without the global execution context 
+    ✅the first thing inside the callstack is the GEC 
 
+    ✔ logic is executed in the JS Engine
+    ✅a is pushed into the call stack, executed and popped after execution
     ✅c is pushed into the call stack, executed and popped after execution 
-    ✅this is the global execution context 
 
     const fn = () => {
         console.log("a")
         setTimeout(() => {
             console.log("b")
-            ✅browser goes to web API and notifies it about the 
-            settimeout function 
-            ✅because timer funtion is given through web API and because setTimeout literally means to execute this variable after the time we set 
+            ✅browser goes to web API and notifies it about the settimeout function 
+            ✅timer function is given through web API and because macrotask queues are given last priorty
     
             ✅this variable (callback) has to execute after a particular time, it pushes this element in task queue 
 
         }, 1000)
+
         ✅JS Engine has to keep checking if the task queue has any thing in it, so it can be executed through event loop
         ✅EVENT LOOP- periodically checks task queue if there any task s available
 
@@ -443,16 +470,17 @@ b
 ![](img2.PNG)
 
 > this is an example with synchronous function, (synchronous callback)
-- note that: task queue doesn't hold synchronous functions, only asynchronous functions 
+- note that: task queue doesn't hold synchronous functions, only asynchronous functions like setTimeout and setInterval 
 ```bash  
     <script>
         const a = (cb) => {
             console.log("abcd")
             cb()
+            ✅callback is a function that is passed as an argument in another function
         }
 
     ✅synchronous callback
-        a(() => {
+        cb(() => {
             console.log("hey")
         })
 
@@ -464,51 +492,44 @@ hey
 
 How this code works in terms of callstack queue, under the hood?
 
-1. first 444 line is executed
-2. on the second line its calling the console API from the web api 
-ABCD printed on console
-
-3. abcd is added to the callstack and its popped once executed
-4. cb() added to the callstack 
-5. a() is invoked and so console api is added to the callstack and popped once over 
-HEY printed on console 
-
-6. cb() is popped from the callstack 
+1. first global execution context will be created, then a() function will be called 
+2. on the second line its calling the console API from the browser API 
+3. abcd is added to the callstack, ABCD printed on console, and its popped once executed
+4. cb() added to the callstack, HEY printed on console, cb() is popped from the callstack
 ```
+> Just like, Task queue is used for logging in asynchronous callbacks, microstask task is used for logging in promises and mutation observers, 
+
+> Both Task queue and microstask task are a part the 2 queues event loop keeps track of, and accordingly adds them to the call stack (which is handled by the JS engine) for execution
 
 ### Event loop
 - periodically check the  task queue if there is any task available 
 - it pulls task from task queue and push to callstack (execution only happens in the callstack) 
-> execution is taking place is called global context execution
+> execution is taking place when the global context execution is called in the call stack
 
-#### Event loop has 2 queues:
+#### Event loop keeps log of 2 queues:
 ##### 1. MICROTASK QUEUE (VIP QUEUE)
-called just before ending an iteration
-✅it has higher priorty than macrostask queue
-callback functions of microtask queue will be executed before the callback functions of the macrotask queue
+✅it has higher priorty than macrostask queue.
 
-these are part of microstask queue:
+> callback functions of microtask queue will be executed before the callback functions of the macrotask queue
+
+>> these are part of microstask queue:
 - promises 
 - mutation observers (they observe changes in DOM tree)
 
-
 ##### 2. MACROSTASK QUEUE / CALLBACK QUEUE / TASK QUEUE
-called just after starting the iteration
-✅it has lower priorty than microstask queue
+✅it has lower priorty than microstask queue, 
 
-## Event loop first executes everything inside microtask queue first, once 
-## the microstask queue is empty it executes the task queue
+## Event loop first executes everything inside microtask queue first, once the microstask queue is empty it executes the task queue
 ![](img3.PNG)
 
 ```bash 
 1. global execution context is created, when we run this program
 2. console.log(programs starts ..). console API is pushed to callstack, after execution its popped out of the callstack 
 3. pointer encounters async settimeout function, it stores this inside task queue/ callback queue
-4. pointer encounters promise, it logs the promise API from web API and places this 
-in the microstask queue 
+4. pointer encounters promise, it logs the promise API from web API and places this in the microstask queue 
 5. console.log(program ends), console API is pushed in callstack, and called through web API, and after execution its popped out of the callstack 
 
-event loop keeps checking if there is any task available 
+Event loop keeps checking if there is any task available 
 1. first it checks in the microstask queue (because this has a higher priorty)
 2. after all callbacks from microstask is executed, microstask queue is executed 
 ```
@@ -561,6 +582,7 @@ fn(() => {
 #### using callback approach
 ```bash
     <script>
+        ✅function passed as an argument in another function - callback
         const fn = (success_cb, failure_cb) => {
             const num = prompt("enter a number")
             if(num%2==0){
@@ -572,14 +594,43 @@ fn(() => {
                 failure_cb()
             }
         }
+        ✅until this line of code is a typical function which takes 2 callbacks and does something
 
+        🤍instead of writing, this, well be advancing our code as shown below
+        fn(function success_cb(){
+            console.log('success')
+        }, function failure_cb(){
+            console.log('failure')
+        })
+
+        ✅we can write this snippet of code, instead of 🤍
+        /*
+        fn(function(){
+            console.log('success')
+        }, function(){
+            console.log('failure')
+        });
+
+        */
+
+        ✅we can even write this snippet using arrow functions , instead of 🤍
+        /*
         fn(() => {
-            console.log("success")
+            console.log('success')
         }, () => {
-            console.log("failure")
-        })    
+            console.log('failure')
+        });
+
+        */
     </script>
+
+console:
+we enter a number in the alert prompt, console returns whether the number is even or not 
+
+Whats happening in the code?
+the fn() function is called, pointer then goes to fn(which takes 2 callback functions) and based on the criteria it calls the specific function 
 ```
+
 ### Promises 
 - its a proxy object 
 (promise is called a porxy object, because we dont get the value we requested for immediately, we get to know the actual value of the object (only when promise is resolved/rejected), till that time its treated as a proxy response)
@@ -631,7 +682,7 @@ success
 ```
 #### when to use promise?
 1. Instead of callback hell, use promise and then chaining,
-2. when you use asynchronous function you can use promise
+2. when you use asynchronous function, prefer to use promise instead of callback 
 
 > another example 
 ```bash 
@@ -750,6 +801,40 @@ b
 c 
 a
 ```
+> promise next to promise 
+```bash 
+        <script>
+        ✅2. microtask queue
+         new Promise((s,f) => { s(); }).then(() => {
+            console.log('c')
+        });
+
+        new Promise((s,f) => { s(); }).then(() => {
+            console.log('c next')
+        });
+
+        ✅3. macrotask queue
+        setTimeout(() => {
+            console.log('inside a')
+
+            setTimeout(() => {
+            console.log('a')
+        }, 0)
+
+        }, 0)
+
+        ✅1. callstack
+        console.log('b')
+    </script>
+
+console:
+b
+scope.html:13 c
+scope.html:17 c next
+scope.html:59 Live reload enabled.
+scope.html:21 inside a
+scope.html:24 a
+```
 ### Trying combinations to test how output is generated.
 ```bash
     1. setimeout inside setimeout
@@ -820,26 +905,27 @@ b
 3. promises and setTimeout inside promises
 ```bash 
    <script>
-        //microstask, 2nd priorty 
+        ✅microstask, 2nd priorty 
         //until microstask queue is clear it doesnt execute macrotask queue
         new Promise((s,f) => { s(); }).then(() => {
             console.log('c')
 
             new Promise((s,f) => { s(); }).then(() => {
             console.log('inside c promise')
-
+            
+            ✅timeout inside promise is executed at last 
             setTimeout(() => {
             console.log('inside c timeout')
         }, 0)
         });
         });
 
-        //task/ callback queue, 3rd priorty
+        ✅task/ callback queue, 3rd priorty
         setTimeout(() => {
             console.log('a')
         }, 0)
 
-        //callstack 1st priorty
+        ✅callstack 1st priorty
         console.log('b')
     </script>
 
@@ -863,6 +949,7 @@ b
         setTimeout(() => {
             console.log('a')
 
+            ✅promise inside timeout is executed last
             new Promise((s,f) => { s(); }).then(() => {
             console.log('inside a')
         });
@@ -882,21 +969,21 @@ b
 5.  promise inside settimeout inside another promise
 ```bash 
    <script>
-        ✅microstask, 2nd priorty 
+        ✅2.microstask, 2nd priorty 
         //until microstask queue is clear it doesnt execute macrotask queue
         new Promise((s,f) => { s(); }).then(() => {
             console.log('c')
         });
 
-    ✅2. promise 
+    ✅3. promise 
     new Promise((s,f) => { s(); }).then(() => {
             console.log('new promise')
 
-        ✅3. task/ callback queue, 3rd priorty
+        ✅4. task/ callback queue, 3rd priorty
         setTimeout(() => {
             console.log('timeout inside promise')
 
-            ✅4. promise inside timeout 
+            ✅5. promise inside timeout 
             new Promise((s,f) => { s(); }).then(() => {
             console.log('promise inside timeout')
             });
@@ -904,7 +991,7 @@ b
         }, 0)
     });
 
-        ✅callstack 1st priorty
+        ✅1.callstack 1st priorty
         console.log('b')
     </script>
 
@@ -916,6 +1003,7 @@ console:
 5.html:31 timeout inside promise
 5.html:35 promise inside timeout
 ```
+
 ### then chaining, is used in promise 
 - where the first then returns a promise 
 - the chained second then, executes that promise 
@@ -941,8 +1029,8 @@ Response {type: 'cors', url: 'https://api.unsplash.com/photos/?client_id=z81iA8
 unsplash.html:20 (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 ```
 
-### If we have a then nested inside the second then, 
-- then it will execute the nested then, and not the chained then 
+### If we have a promise nested inside the second then, 
+- then it will execute the nested promise, and not the chained then 
 ```bash 
     <script>
         const ACCESS_KEY = 'z81iA817GPcKgF6g3cg5-uAUPp3O_EXLIDfdKIUF_2Y'
@@ -1046,8 +1134,93 @@ console:
     </script>
 ```
 ## fetch 
+- fetch is used to make a network call
+- fetch data from a server
 - fetch is an implementation of promise 
 
+> fetch API is a part of Browser API 
+```bash
+        <script>
+         let f = fetch('data.json')
+         //by default promise is in a pending state 
+
+        ✅when fetch gets the data, it says whether promise is fulfilled or rejected
+         f.then((a)=> {
+             console.log('promise success')
+         }).catch((b) => {
+             console.log('promise failed')
+         })
+    </script>
+
+------
+data.json
+{
+    "key1": "value 1",
+    "key2": [
+        "element 1",
+        "element 2",
+        "element 3"
+    ]
+}
+
+
+console:
+promise success
+```
+> if we have multiple .then, then all of .then callback functions will be executed 
+```bash 
+    <script>
+        let f = fetch('data.json')
+         //by default promise is in a pending state 
+
+         //when fetch gets the data, it says whether promise is fulfilled or rejected
+
+         ✅even if one of the promise is failing it will jump to the catch 
+         f.then((a)=> {
+             console.log('promise success')
+         }).then((a)=> {
+             console.log('promise success 1')
+         }).then((a)=> {
+             console.log('promise success 2')
+         }).catch((b) => {
+             console.log('promise failed')
+         })
+    </script>
+
+console:
+promise success
+fetch.html:20 promise success 1
+fetch.html:22 promise success 2
+```
+> When we have multiple .then, and if we return a promise in either of them, then it will return that promise and stop executing the .then after it 
+```bash 
+    <script>
+        let f = fetch('data.json')
+         //by default promise is in a pending state 
+
+         //when fetch gets the data, it says whether promise is fulfilled or rejected
+
+         //even if one of the promise is failing it will jump to the catch 
+         f.then((a)=> {
+             console.log('promise success')
+         }).then((a)=> {
+             console.log('promise success 1')
+             ✅return new Promise((sucess, failure) => {
+                 failure()
+             })
+         }).then((a)=> {
+             console.log('promise success 2')
+         }).catch((b) => {
+             console.log('promise failed')
+         })
+    </script>
+
+console:
+fetch.html:18 promise success
+fetch.html:20 promise success 1
+fetch.html:27 promise failed✅
+```
+> a lil differentiation btw JS & JSON
 ```bash
 JS Vs JSON:
 
@@ -1256,6 +1429,8 @@ j is inside outer function
 j is inside outer function k is inside inner function
 ```
 #### Difference between lexical scope and closures?
+closure deals with preserving the variable by storing a reference of it and lexical scoping deals with the accessibility of that outer function variable from the inner function
+
 > lexical scoping - accessing variable of outer function from the inner function 
 ```bash 
     <script>
@@ -1264,6 +1439,8 @@ j is inside outer function k is inside inner function
 
            function inner(){
                console.log(count)
+               ✅closure deals with preserving the variable 
+               ✅lexical scoping deals with accesibility of the the outer function variable from the inner function 
            }
            inner()
        }

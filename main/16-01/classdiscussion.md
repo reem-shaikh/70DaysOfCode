@@ -5,30 +5,44 @@
 3. ES12 OOP advantages
 
 - we will use the library example (we will use OOP)
-
 ### Assignment 
 the book app 
 (convert it to class)
 - do some UI 
 
 
-
-
-
 ## ToDoList:
-1. complete these lec: 
-- jan 6 (1.5hr)
-- jan 11 (1.5hr)
-- jan 9 (1.5hr)  (promises)
+(7-8pm)
+- revise from fetch ✅
+
+lecture to complete: (11-1am)
+- jan 9 (1.5hr)  (promises)✅
+- complete lexical scoping ✅
+
+
+finish lectures
+- jan 6 
+- jan 11 
+- jan 19 ✅create notes on 
+- 8 more 
+
+meet               ✅
+lecture at: 8-10pm ✅
+
+
+research on project ideas 
+
+
+
+
+
+### 15-01 assignment 
+- youtube clone 
+### 16-01 assignment 
 - convert the booklist app to Object oriented (2-3hrs)
 - work on booklist UI 
-2. complete closures vs lexical scoping analysis 
-
-- lecture:
-revise API notes 
-
-
-
+### 19-01 assignment
+add the option to the popup ✅ 13-01/api8
 
 
 

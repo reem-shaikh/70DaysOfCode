@@ -105,6 +105,13 @@ case 2: application server returns the sum
 eg: Apache Tomcat, Glassfish 
 open source application server that executes Java Servlets, renders and delivers web pages that include JavaServer Page code, and serves Java Enterprise Edition (Java EE) applications.
 
+```bash
+✅Real world example of API
+- API banking
+Transfering money from one bank to another through an API which integrates functionalites which allows transfer of money between these 2 banks.
+
+Set of protocols that makes banks services available to other third party companies via API
+```
 ### API in JavaScript
 ##### Client side Javascript- has browser API that are biuld on top of the core JS language 
 Browser API allows communication between JS engine and the browser 
@@ -114,6 +121,8 @@ Browser API allows communication between JS engine and the browser
 
 Browser API is a web API biult on top of the web browser
 Browser API is the intermediate in between Browser and JS Engine 
+
+Browser API in js gives access to the window object 
 
 When writing code for the Web, there are a large number of Web APIs available. Below is a list of all the APIs and interfaces (object types) that you may be able to use while developing your Web app or site.
 https://developer.mozilla.org/en-US/docs/Web/API

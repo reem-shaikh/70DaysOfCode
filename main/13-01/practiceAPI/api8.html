@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script> 
+<!--
+    web application where users can log day to day activities, at different locations through popup box 
+
+    Learning how to work with:
+    - third party libraries
+    - API's
+
+    Google map is a legacy project
+    “legacy projects” to describe the projects and codebases that are old and difficult to maintain.
+
+-->
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left{
+    flex: 1;
+    height: 100%;
+    background-color: #1e1e1e;
+}
+
+.right{
+    flex: 3;
+    height: 100vh;
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+    margin-top: 5vh;
+}
+
+.form .options , .duration{
+    width: 260px;
+    padding: 10px;
+}
+
+.submit{
+    width: 160px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+.hidden{
+    display: none;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    margin-left: 10%;
+    padding: 5px;
+}
+
+.title-ctn,.duration-ctn{
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.duration-ctn{
+    justify-content: flex-end;
+}
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="left" class="left">
+            <div class="form-ctn">
+                <!--initially weve set form to hidden-->
+                <form  class="form hidden">
+                    <select   class="options">
+                        <option value="Cycling" class="option">Cycling</option>
+                        <option value="Gym" class="option">Gym</option>
+                        <option value="Swimming" class="option">Swimming</option>
+                        <option value="Cricket" class="option">Cricket</option>
+                    </select>
+                    <input type="text" class="duration" placeholder="Enter the duration in mins">
+                    <button class="submit">Add</button>
+                </form>
+            </div>
+            <div id="list-ctn" class="list-ctn">
+                <div class="list">
+                    <div class="title-ctn">
+                        <h2 class="title-text">Cycling</h2>
+                    </div>
+                    <div class="duration-ctn">
+                        <h2 class="duration-text">30 mins</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right" class="right">
+            <div id="map" class="map">
+
+            </div>
+        </div>
+    </div>
+    <script>
+const list_ctn = document.querySelector('.list-ctn')
+const list = document.querySelector('.list')
+const title_text = document.querySelector('.title-text')
+const duration_text = document.querySelector('.duration-text')
+
+const form = document.querySelector('.form')
+const option = document.querySelector('.options')
+const duration = document.querySelector('.duration')
+const submit_btn = document.querySelector('.submit')
+// console.log(option,duration)
+// console.log(form)
+var map;
+var mapEvent;
+let log_data=[]
+
+//if some data is present inside local storage 
+if(localStorage.getItem('data')){
+    //we write to local storage, without loosing old value
+    //this concept is known as maintaining the persistance
+    //where were not loosing any data 
+    log_data= JSON.parse(localStorage.getItem('data')) 
+}
+
+//were populating list here 
+const populateList=()=>{
+    log_data.forEach(item=>{
+        console.log('item', item)
+
+        //div class="list"
+        const div = document.createElement('div')
+        div.classList.add('list')
+
+        //h2 class="title-text"
+        const title = document.createElement('h2')
+        title.classList.add('title-text')
+        console.log('title', title)
+        //title.innerText = 'swimming'
+        title.innerText=item.title
+
+        //h2 class="duration-text"
+        const duration = document.createElement('h2')
+        duration.classList.add('duration-text')
+        //duration.innerText = '60 mins'
+        duration.innerText=item.time
+
+        
+        //div class="list-ctn"
+            //div class="list"
+              //h2 class="title-text"
+              //h2 class="duration-text"
+        div.append(title,duration)
+        list_ctn.append(div)
+        console.log(div,title,duration)
+
+    })
+}
+
+/* were trying to acheive this format through populating 
+            <div id="list-ctn" class="list-ctn">
+                <div class="list">
+                    <div class="title-ctn">
+                        <h2 class="title-text">Cycling</h2>
+                    </div>
+                    <div class="duration-ctn">
+                        <h2 class="duration-text">30 mins</h2>
+                    </div>
+                </div>
+            </div>
+
+*/
+
+
+const formHandler =(event)=>{
+    event.preventDefault()
+    //assigning value to title and time 
+    const title = option.value;
+    const time = duration.value;
+    console.log('title', title)
+    console.log('time', time )
+
+    //what do we want to do with the form value?
+    //1. create a list (by populating it) which displays the option we chose below the below the add button
+    //2. store the list value in local storage 
+    //3. add the option to the popup marker 
+
+    //creating JSON object, since we'll be logging this into local storage , which only deals with JSON objects 
+    const data ={
+        title:title,
+        time:time
+    }
+
+    //when pgae is loaded initially everything is hidden
+    form.classList.add('hidden')
+
+    //every task will be pushed inside log_data array 
+    log_data.push(data)
+    //setting the data to the local storage 
+    localStorage.setItem('data',JSON.stringify(log_data))
+    //we need to convert JS object to JSON string 
+    console.log(log_data)
+
+    //whenver we add a new data entry, previous entry is gone,
+    //because it overwrites in log_data array
+
+    //to fix this:
+    //we add this line of code:
+
+    /*
+    if(localStorage.getItem('data')){
+    log_data= JSON.parse(localStorage.getItem('data')) 
+    } 
+    */
+
+    onSuccess(event)
+}
+
+//when we click on submit button formHandler is invoked 
+submit_btn.addEventListener('click',formHandler)
+
+//navigator API - Browser API 
+//takes 2 callback functions as arguments 
+
+//geolocation object has a property called getCurrentPosition which takes 2 functions which fetches location and returns it, on successful execution and returns error on error 
+navigator.geolocation.getCurrentPosition(onSuccess,onError)
+
+function onSuccess(event){
+        console.log("event", event)
+        console.log("event lattitude", event.coords.latitude)
+        console.log("event longitude", event.coords.longitude)
+    
+        //logging coordinates of the map 
+        const coordinates =[event.coords.latitude,event.coords.longitude]
+
+        //creating a map object: setView(coordinate of map, zoom level)
+        map = L.map('map').setView(coordinates, 13);
+    
+        //adding tiles on the map, and getting map from openstreetmap, also giviing em credits/ attribution
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+   
+        //when we click on the map, mapEvent object is triggered 
+        map.on('click',function (mapEvent){
+
+            //initially form is hidden, so when we click on the map, we remove this hidden class from the map 
+            form.classList.remove('hidden')
+            console.log("mapevent",mapEvent)
+            //fetch the location based on where we click on the map 
+            const currentLocation = [mapEvent.latlng.lat,mapEvent.latlng.lng]
+            console.log("mapEvent lattitude", mapEvent.latlng.lat)
+            console.log("mapEvent longitude", mapEvent.latlng.lng)
+
+            //craeting a marker, based on where the user clicks on the map 
+            L.marker(currentLocation).addTo(map)
+            .bindPopup().setPopupContent(``)
+            .openPopup();
+            console.log(currentLocation)
+
+            submit_btn.addEventListener('click', function(){
+            L.marker(currentLocation).addTo(map)
+            .bindPopup().setPopupContent(`${option.value} : ${duration.value}`)
+            .openPopup();
+            console.log(currentLocation)
+            })
+        })     
+
+
+    
+    }
+
+
+function onError(){
+    alert("can't fetch the location")
+}
+// console.log(name)
+
+
+populateList()
+//populate basically means were adding HTML elements dyanamically through JS 
+
+    </script>
+</body>
+</html>
