@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <!--
+        ✅In this assignment, when you click on the cross-btn the book is removed from the DOM 
+    -->
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #caa9fb;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23fdfbff' fill-opacity='0.4'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+}
+
+.add-btn{
+    padding: 20px;
+    width: 270px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 20px auto 20px;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.add-btn:hover{
+    background: rgba(0, 0, 0,0.8);
+}
+
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.book{
+    padding: 20px;
+    min-width: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    height: 140px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    gap: 10px;
+    margin-top: 100px;
+}
+
+.cross-btn{
+    width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.add-book-form{
+    width: 50vw;
+    height: 40vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+#form-top{
+    width: 50vw;
+    height: 50px;
+    background-color: green;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+
+
+.hide-modal{
+    display: none;
+}
+
+.show-modal{
+    display: flex;
+}
+
+.input-ctn{
+    width: 50vw;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    flex-direction: column;
+}
+
+.book-title{
+    width: 380px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.add-book-btn{
+    width: 120px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <h1 id="add-btn" class="add-btn">Add Book</h1>
+
+    <div class="container">
+        <!-- <div  class="book" id="test">
+            <h2 id="book-name" class="book-name">To kill a mockingbird</h2>
+            <img src='cross.png' alt="" class="cross-btn"/>
+        </div>  -->
+       <!-- <div  class="book">
+            <h2 id="book-name" class="book-name">To kill a mockingbird</h2>
+            <img src='cross.png' alt="" class="cross-btn"/>
+        </div>
+        <div  class="book">
+            <h2 id="book-name" class="book-name">To kill a mockingbird</h2>
+            <img src='cross.png' alt="" class="cross-btn" id='book3'/>
+        </div> -->
+    </div>
+
+
+    <div id="modal" class="modal hide-modal">
+        <form  id="add-book" class="add-book-form">
+            <div id="form-top">
+                <h2 class="add-title">Add a Book</h2>
+                <img src="cross.png" alt="" class="cross-btn hide-modal-btn" >
+            </div>
+            <div id="input-ctn" class="input-ctn">
+                <input type="text" id="book-title" class="book-title" placeholder="Enter Book title" required>
+                <button type="submit" class="add-book-btn">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+const add_btn = document.querySelector('.add-btn')
+const model = document.querySelector('.modal')
+const hide_modal = document.querySelector('.hide-modal-btn')
+const book_title= document.querySelector('.book-title')
+const add_book_btn=document.querySelector('.add-book-btn')
+const container = document.querySelector('.container')
+let delete_keys = document.querySelectorAll('.cross-btn')
+//const id_value=1
+
+
+let j=0;
+const deleteBook =(event)=>{
+    // console.log("event", event)
+    // console.log("target",event.target.classList[0])
+    // console.log("id",event.srcElement.id)
+    // console.log("clicked")
+    // console.log("src",event.target.attributes)
+
+    for(i=0; i<delete_keys.length; i++){
+            if(i==j)
+            {
+                event.path[j+1].remove()
+            }
+    }
+    // console.log("path",event.path[1])
+    // event.path[1].remove()
+
+    console.log(books)
+}
+
+
+let books=[]
+const showModal =()=>{
+     model.classList.add('show-modal')  
+}
+const hideModal =()=>{
+    model.classList.remove('show-modal')
+}
+
+//populating html elements to the DOM 
+const BuildUi =(books)=>{
+    books.forEach((book)=>{
+        const book_ctn = document.createElement('div')
+        book_ctn.classList.add('book')
+
+        const book_name = document.createElement('h2')
+        book_name.classList.add("book-name")
+        book_name.innerText=book.title
+
+        const icon = document.createElement('img')
+        icon.classList.add("cross-btn")
+
+        //icon.setAttribute('id', id_value)
+        icon.setAttribute('src',"cross.png")
+        book_ctn.append(book_name,icon)
+        container.append(book_ctn)
+
+        //id_value = id_value + 1
+    })
+    delete_keys = document.querySelectorAll('.cross-btn')
+    delete_keys.forEach((key)=>{
+        key.addEventListener('click',deleteBook)
+        //console.log("delete keys",delete_keys.length)
+
+        // for(i=0; i<delete_keys.length; i++){
+        //     console.log(delete_keys[1])
+        // }
+        
+    })
+    //id_value = id_value + 1
+}
+
+//everytime books[] would be initialized to empty array whenver we refreshed the page 
+//to fix the issue
+const setBooks =()=>{
+    if(localStorage.getItem("books")){
+        books = JSON.parse(localStorage.getItem("books"))
+    }
+    else{
+         const test={
+             title:"not found"
+         }
+        books.push(test)
+    }
+    BuildUi(books)
+  
+}
+const fetchBookTitle =(event)=>{
+    //event.preventDefault()
+    const book ={
+        title:book_title.value
+    }
+    books.push(book)
+    //json.stringify convert book array to string 
+    localStorage.setItem("books",JSON.stringify(books))
+    console.log(localStorage.getItem("books"))
+    book_title.value=""  
+
+    //books are loaded, once the page is reloaded 
+    window.location.reload()
+}
+
+
+add_book_btn.addEventListener('click',fetchBookTitle)
+hide_modal.addEventListener('click',hideModal)
+add_btn.addEventListener('click',showModal)
+
+
+setBooks()
+    </script>
+</body>
+</html>

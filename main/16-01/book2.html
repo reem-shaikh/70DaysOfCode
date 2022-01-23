@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const createBook = (title, author, release_date) => {
+     const book = {
+         title: title, 
+         author: author,
+        release_date: release_date,
+     };
+     return book;
+}
+
+function BookCons(title, author, release_date){
+    this.title = title;
+    this.author = author;
+    this.release_date = release_date;
+}
+
+BookCons.prototype.getSummary = function(){
+    const summary = `${this.title} : ${this.author}`
+    return summary
+}
+
+function Magazine(title, author, release_date, issue_number){
+    BookCons.call(this, title, author, release_date)
+    // this.title = title
+    // this.author = author 
+    // this.release_date = release_date
+    this.issue_number = issue_number
+}
+
+const book2 = new BookCons('ikigai', 'ayush', 2022)
+console.log("book2",book2)
+console.log("summary",book2.getSummary())
+
+//how inheritance happened in es5
+//taking prototype of parent and place it as prototype of child 
+//inheriting all function from class book to Magazine
+Magazine.prototype = Object.create(BookCons.prototype)
+Magazine.prototype.checkLatestIssue = function(){
+    console.log('latest issue')
+
+}
+
+const mag1 = new Magazine('magazine 1', 'someone', 2022, 14)
+console.log("mag1",mag1)
+mag1.checkLatestIssue()
+    </script>
+</body>
+</html>

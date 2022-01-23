@@ -186,6 +186,51 @@ length: 1
 
 ### Async & Await 
 async-await or is it only reserved for promises? Yes, async-await is syntax sugar to work with promises
+
+> If we only log a function then it only returns a reference of the function 
+```bash 
+    <script>
+    const fn = () => {
+        console.log('hello geeks')
+        return 'abcd'
+    }
+
+    console.log(fn)
+    //we have returned the function reference here 
+    console.log(fn())
+    </script>
+
+console:
+() => {
+        console.log('hello geeks')
+        return 'abcd'
+    }
+index.html:17 hello geeks
+index.html:23 abcd
+```
+> Using async function 
+```bash 
+    <script>
+    const fn = async() => {
+        console.log('hello geeks')
+        return 'abcd'
+    }
+
+    console.log(fn)
+    //we have returned the function reference here 
+
+    ✅when we invoke the async function, it returns a promise 
+    console.log(fn())
+    </script>
+
+console:
+async() => {
+        console.log('hello geeks')
+        return 'abcd'
+    }
+index.html:17 hello geeks
+index.html:23 Promise {<fulfilled>: 'abcd'}
+```
 ```bash 
     <script>
     ✅Its an asynchronous function,which means this function will execute 
@@ -203,7 +248,7 @@ hi
 index.html:17 Response {type: 'cors', url: 'https://restcountries.com/v3.1/name/india', redirected: false, status: 200, ok: true, …}
 ```
 > Async function can exist without await, but await cannot exist without async 
-
+> Every async function returns a promise 
 > The keyword async before a function makes the function return a promise.
 ```bash 
 async function myFunction() {

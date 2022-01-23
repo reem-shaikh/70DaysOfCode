@@ -26,12 +26,18 @@
         </div> -->
     </div>
 
+    <!--when we click on add a book it adds a form on the screen as an overlay, we will show and hide the book dyanamically-->
 
     <div id="modal" class="modal hide-modal">
+        <!--initially modal is hidden, we'll toggle between hide and show modal class dyanamically-->
         <form  id="add-book" class="add-book-form">
             <div id="form-top">
                 <h2 class="add-title">Add a Book</h2>
+                <!--using icons-8
+                we dont need to import anything in the header tag to use this icon -->
+
                 <img src="cross.png" alt="" class="cross-btn hide-modal-btn" >
+                <!--intiially modal button is hidden-->
             </div>
             <div id="input-ctn" class="input-ctn">
                 <input type="text" id="book-title" class="book-title" placeholder="Enter Book title" required>

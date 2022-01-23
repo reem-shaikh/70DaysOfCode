@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class book3 {
+    #counter = 0;
+
+    //functionality: getting
+    //only expose functionality we want to give 
+    //get value of private data memeber 
+    getCounter(){
+        return this.#counter;
+    }
+
+    //functionality: setting
+    //set value of private data member 
+    setCounter(val){
+        this.#counter = val
+    }
+
+    increementCounter(){
+        this.#counter++;
+    }
+}
+
+console.log(book3.getCounter());
+console.log(book3.increementCounter());
+console.log(book3.getCounter());
+
+    </script>
+</body>
+</html>

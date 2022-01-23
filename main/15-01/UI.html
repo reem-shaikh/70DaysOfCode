@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Book store</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+:root{
+    --green:#27ae60;
+    --dark-color:#219150;
+    --black:#444;
+    --light-color:#666;
+    --border:.1rem solid rgba(0,0,0,.1);
+    --border-hover:.1rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+    transition:width none;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width:1rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:var(--black);
+}
+
+section{
+    padding:5rem 9%;
+}
+
+
+.btn{
+    margin-top: 1rem;
+    display:inline-block;
+    padding:.9rem 3rem;
+    border-radius: .5rem;
+    color:#fff;
+    background:var(--green);
+    font-size: 1.7rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.add-btn{
+    margin-top: 1rem;
+    display:inline-block;
+    padding:.9rem 3rem;
+    border-radius: .5rem;
+    color:#fff;
+    background:var(--green);
+    font-size: 1.7rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+.btn:hover{
+    background:var(--dark-color);
+}
+
+.header .header-1{
+    background:#fff;
+    padding:1.5rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .header-1 .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:var(--black);
+}
+
+.header .header-1 .logo i{
+    color:var(--green);
+}
+
+.header .header-1 .search-form{
+    width:50rem;
+    height:5rem;
+    border:var(--border);
+    overflow: hidden;
+    background:#fff;
+    display:flex;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.header .header-1 .search-form input{
+    font-size: 1.6rem;
+    padding:0 1.2rem;
+    height:100%;
+    width:100%;
+    text-transform: none;
+    color:var(--black);
+}
+
+.header .header-1 .search-form label{
+    font-size: 2.5rem;
+    padding-right: 1.5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.header .header-1 .search-form label:hover{
+    color:var(--green);
+}
+
+.header .header-1 .icons div,
+.header .header-1 .icons a{
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.header .header-1 .icons div:hover,
+.header .header-1 .icons a:hover{
+    color:var(--green);
+}
+
+
+.header .header-2{
+    background:var(--green);
+}
+
+.header .header-2 .navbar{
+    text-align: center;
+}
+
+.header .header-2 .navbar a{
+    color:#fff;
+    display: inline-block;
+    padding:1.2rem;
+    font-size: 1.7rem;
+}
+
+.header .header-2 .navbar a:hover{
+    background:var(--dark-color);
+}
+
+.header .header-2.active{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index: 1000;
+
+}
+
+.bottom-navbar{
+    text-align: center;
+    background:var(--green);
+    position: fixed;
+    bottom:0; left:0; right:0;
+    z-index: 1000;
+    display: none;
+}
+
+.bottom-navbar a{
+    font-size: 2.5rem;
+    padding:2rem;
+    color:#fff;
+}
+
+.bottom-navbar a:hover{
+    background:var(--dark-color);
+} 
+
+ .featured .featured-slider .box{
+    margin:2rem 0;
+    position: relative;
+    overflow: hidden;
+    border:var(--border);
+    text-align: center;
+}
+
+
+.featured .featured-slider .box .image img{
+    height: 25rem;
+}
+
+
+.hide-modal{
+    display: none;
+}
+
+.show-modal{
+    display: flex; 
+}
+
+.container {
+    position: absolute;
+}
+
+
+
+.cross-btn{
+    width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+.input-ctn{
+    width: 50vw;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    flex-direction: column;
+}
+
+.book-title{
+    width: 380px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.add-book-btn{
+    width: 120px;
+    background:var(--green);
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.add-book-form{
+    width: 50vw;
+    height: 40vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 420px;
+
+}
+
+#form-top{
+    width: 50vw;
+    height: 50px;
+    background:var(--green);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+    </style>
+
+</head>
+<body>
+<!-- header section starts  -->
+<header class="header">
+    <div class="header-1">
+
+    <a href="#" class="logo"> <i class="fas fa-book"></i> bookly </a>
+    <h1 id="add-btn" class="add-btn">Add a Book</h1>
+
+      
+    </div>
+
+    <div class="header-2">
+        <nav class="navbar">
+            <a href="#">home</a>
+            <a href="#">featured</a>
+            <a href="#">arrivals</a>
+            <a href="#">reviews</a>
+            <a href="#">blogs</a>
+        </nav>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- featured section starts  -->
+<section class="featured" id="featured">
+    <h1 class="heading"> <span>featured books</span> </h1>
+
+    <div class="featured-slider"> 
+
+        <div class="container" style="display: flex; flex-direction: row; justify-content: space-between;">
+
+            <!-- <div class="box">
+                <div class="image">
+                    <img src="image/book-1.png" alt="">
+                </div>
+                <div class="content">
+                    <h2 id="book-name" class="book-name" >featured books</h2>
+                    <img src='cross.png' alt="" class="cross-btn"/>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div>
+
+            
+            <div class=" box">
+                <div class="image">
+                    <img src="image/book-1.png" alt="">
+                </div>
+                <div class="content">
+                    <h2 id="book-name" class="book-name" >featured books</h2>
+                    <img src='cross.png' alt="" class="cross-btn"/>
+                    <div class="price">$15.99 <span>$20.99</span></div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+            </div> -->
+
+
+        </div>
+        <!--container class ends-->
+
+    </div>
+    <!--featured slider ends-->
+</section>
+
+<div id="modal hide-modal" style="width: 100vw; height: 100vh; position: fixed;
+background: rgba(0, 0, 0, 0.5); z-index: 3; top: 0; left: 0; align-items: center;" class="modal hide-modal">
+        <form  id="add-book" class="add-book-form">
+            <div id="form-top">
+                <h2 class="add-title" style="text-align: center;">Add a Book</h2>
+                <img src="cross.png" alt="" class="cross-btn hide-modal-btn" >
+            </div>
+            <div id="input-ctn" class="input-ctn">
+                <input type="text" id="book-title" class="book-title" placeholder="Enter Book title" required>
+                <button type="submit" class="add-book-btn">Add</button>
+            </div>
+        </form>
+</div>
+
+
+<script>
+const add_btn = document.querySelector('.add-btn')
+const model = document.querySelector('.modal')
+const hide_modal = document.querySelector('.hide-modal-btn')
+const book_title= document.querySelector('.book-title')
+const add_book_btn=document.querySelector('.add-book-btn')
+const container = document.querySelector('.container')
+let delete_keys = document.querySelectorAll('.cross-btn')
+
+let books=[]
+
+let j=0;
+const deleteBook =(event)=>{
+    for(i=0; i<delete_keys.length; i++){
+        console.log("event",event)
+            if(i==j)
+            {
+                event.path[j+2].remove()
+            }
+    }
+    // when i==0 
+    // j=2 (j targets the .box)
+    // event.path[2].remove()
+
+    console.log(books)
+}
+
+const showModal =()=>{
+     model.classList.add('show-modal')  
+     console.log("showing")
+}
+const hideModal =()=>{
+    model.classList.remove('show-modal')
+}
+
+
+const BuildUi =(books)=>{
+    books.forEach((book)=>{
+        const book_ctn = document.createElement('div')
+        book_ctn.classList.add('content')
+
+        const book_name = document.createElement('h2')
+        book_name.classList.add("book-name")
+        book_name.innerText=book.title
+
+        const icon = document.createElement('img')
+        icon.classList.add("cross-btn")
+        icon.setAttribute("src","cross.png")
+
+        const price = document.createElement('div')
+        price.classList.add('price')
+        price.innerText = "23.45$"
+
+        const anchor = document.createElement('a')
+        anchor.classList.add('btn')
+        anchor.innerText = "add to cart"
+
+        book_ctn.append(book_name,icon, price, anchor)
+        
+        const box = document.createElement('div')
+        box.classList.add('box')
+
+        const image = document.createElement('div')
+        image.classList.add("image")
+        const imagetag = document.createElement('img')
+        imagetag.setAttribute("src","image/book-1.png")
+
+        image.append(imagetag)
+
+        box.append(image, book_ctn)
+        container.append(box)
+    })
+
+    delete_keys = document.querySelectorAll('.cross-btn')
+    delete_keys.forEach((key)=>{
+        key.addEventListener('click',deleteBook)
+        //console.log("delete books", delete_keys)
+        
+    })
+
+}
+//everytime books[] would be initialized to empty array whenver we refreshed the page 
+//to fix the issue
+const setBooks =()=>{
+    if(localStorage.getItem("books")){
+        books = JSON.parse(localStorage.getItem("books"))
+    }
+    else{
+         const test={
+             title:"not found"
+         }
+        books.push(test)
+    }
+    BuildUi(books)
+  
+}
+const fetchBookTitle =(event)=>{
+    //event.preventDefault()
+    const book ={
+        title:book_title.value
+    }
+    books.push(book)
+    //json.stringify convert book array to string 
+    localStorage.setItem("books",JSON.stringify(books))
+    console.log(localStorage.getItem("books"))
+    book_title.value=""  
+
+    //books are loaded, once the page is reloaded 
+    window.location.reload()
+}
+
+add_book_btn.addEventListener('click',fetchBookTitle)
+hide_modal.addEventListener('click',hideModal)
+add_btn.addEventListener('click',showModal)
+
+
+setBooks()
+</script>
+
+</body>
+</html>

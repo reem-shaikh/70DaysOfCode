@@ -1,0 +1,175 @@
+<!--
+    http://universities.hipolabs.com/search?country=India
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <style>
+body {
+    font-family: sans-serif;
+    background: linear-gradient(95deg, #45b8d8, #933eb4);
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+h1 {
+    color: #eee;
+    margin-bottom: 30px;
+}
+.container {
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+#charactersList {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+}
+
+.character {
+    list-style-type: none;
+    background-color: #eaeaea;
+    border-radius: 3px;
+    padding: 20px 20px;
+    display: grid;
+    box-shadow: rgba(244, 244, 244, 0.35) 0px 5px 15px;
+}
+
+.character > h2 {
+    margin-bottom: 0px;
+}
+
+.character > a {
+    margin: 0;
+    margin-top: 10px;
+}
+
+
+#searchBar {
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #eaeaea;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+#searchWrapper {
+    position: relative;
+}
+
+#searchWrapper::after {
+    content: '🔍';
+    position: absolute;
+    top: 7px;
+    right: 15px;
+}
+
+/* 
+.hidden {
+    display: none;
+} */
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>&#x2728;Choosing a place to study in India? &#x2728;</h1>
+            <div id="searchWrapper">
+                <input
+                    type="text"
+                    name="searchBar"
+                    id="searchBar"
+                    placeholder="Enter a state and we'll show all the universities located in that place along with its website link"
+                />
+            </div>
+            <ul id="charactersList" ></ul>
+        </div>
+<script>
+const charactersList = document.getElementById('charactersList');
+const searchBar = document.getElementById('searchBar');
+let apiarray = [];
+
+
+
+//everytime a user types in the searchbar, i.e they release a key, we track their input and filter our search to show them the results 
+searchBar.addEventListener('keyup', (e) => {
+    //charactersList.classList.remove('hidden')
+
+    //convert seachstring to lowercase
+    //enter a country name over here 
+    let searchString = e.target.value.toLowerCase();
+
+    //console.log("event", e)
+    //console.log("event target value", event.target.value)
+    //console.log("search string", searchString)
+
+    //replace spaces with +, using REGEX 
+    //searchString = searchString.replace(/ /g,"+");
+    //console.log("searchstring", searchString)
+    //instead of REGEX were using map.join()
+
+
+    //filter item based on name and house 
+    //iterate through entire array and check if the users searchstring == an already existing name in the array 
+    const filteredCharacters = apiarray.filter((character) => {
+        return (
+            //does the state the user searched for, match with the state available in the array?
+            //converting all character to lowercase so we can compare it if its exists 
+
+            //convert state name to lowercase and compare with all the elements present in the array 
+
+            //case insensitive search 
+            character.name.toLowerCase().includes(searchString) || 
+            character.country.toLowerCase().includes(searchString) 
+        );
+        //filteredcharacters returns a new array 
+
+    });
+    displayCharacters(filteredCharacters);
+});
+
+const loadData = async () => {
+    try {
+        const res = await fetch('http://universities.hipolabs.com/search?country=India');
+        apiarray = await res.json();
+        displayCharacters(apiarray);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const displayCharacters = (characters) => {
+    const htmlString = characters
+    //for each ch object were converting it to string 
+    //dyanamically generating html 
+        .map((character) => {
+            return `
+            <li class="character">
+                <h2>${character.name}</h2>
+                <a>${character.domains}</a>
+            </li>
+        `;
+        })
+        .join('');
+
+    //ul gets populated by all the json list 
+    charactersList.innerHTML = htmlString;
+};
+
+loadData();
+
+        </script>
+    </body>
+</html>

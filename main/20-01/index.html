@@ -13,14 +13,14 @@
     <button id="btn">click</button>
 
     <script>
-    const btn = document.getElementById('btn')
-    //5secs after button is clicked, settimeout is called 
-    btn.addEventListener('click', ()=> {
-            setTimeout(() => {
-            console.log('waiting')
-        },  5000);  
-    })
+    const fn = async() => {
+        console.log('hello geeks')
+        return 'abcd'
+    }
 
+    console.log(fn)
+    //we have returned the function reference here 
+    console.log(fn())
     </script>
 </body>
 </html>
