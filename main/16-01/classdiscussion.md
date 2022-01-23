@@ -45,7 +45,10 @@ Revise oops lectures & finish working on the notes
 
 convert book app to class 
 google clone - add cookies 
-test 
+test ✅
+
+
+
 8 more - create notes on lecs 
 > Make a list of project ideas to implement 
 

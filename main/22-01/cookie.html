@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+
+        body{
+            font-family: sans-serif;
+        }
+
+        p{
+            margin: 24px 0;
+            line-height: 2;
+        }
+
+        .wrapper{
+            padding: 32px;
+        }
+
+        .cookie-container{
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: #2f3640;
+            color: #f5f6fa;
+            padding: 0 32px;
+            transition: 400ms;
+            box-shadow: 0 -2px 16px rgba(47,54,64,0.2);
+        }
+
+        .cookie-container.active {
+            bottom: 0; 
+        }
+
+        .cookie-container a{
+            color: #f5f6fa;
+        }
+
+        .cookie-btn {
+            background: #e84118;
+            border: 0;
+            color: #f5f6fa;
+            padding: 12px 48px;
+            font-size: 18px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Cookies</h1>
+
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, placeat maiores aliquam eligendi necessitatibus hic, ipsa assumenda porro ducimus qui voluptatibus corporis. Ex tenetur possimus repudiandae vel amet quasi molestiae exercitationem repellendus quo eum officiis, tempora, temporibus necessitatibus aperiam voluptatibus magnam eligendi laborum voluptatem earum, unde libero praesentium nisi! Corporis magni unde quod dolorem, culpa similique maiores aliquid cum obcaecati voluptatum temporibus neque perferendis, suscipit dicta, dolores quasi! Reprehenderit minus esse eaque aspernatur atque doloremque asperiores ad facere dolore nemo, totam corporis deserunt nulla odio repellat illo voluptates minima consequatur, vitae enim incidunt! Minus, corporis. Delectus, placeat repudiandae odit atque ad voluptas itaque quidem alias sint culpa. Quis, sapiente? Necessitatibus quasi harum id voluptatem totam eligendi odio ab exercitationem eaque tempore quas fuga inventore aliquam itaque, perspiciatis cum assumenda in. Quasi tenetur necessitatibus, sapiente quos doloribus ipsum et repellat suscipit deleniti possimus voluptates tempora, laboriosam qui, neque natus assumenda eius provident velit ex laborum quis nobis! Natus sapiente nihil recusandae ea sed. Tempora accusantium ipsum dolor ea, dolorem enim beatae perferendis esse eaque, voluptatum, nostrum repellendus obcaecati. Quam ab itaque, veritatis dolore iure iste molestias quasi. Ratione, ea tempore vitae soluta facere quaerat debitis adipisci officiis! Ratione dolor ullam ex.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit, incidunt alias mollitia saepe dolorem eos labore, asperiores aut voluptatibus blanditiis explicabo quis cum doloremque iusto! Fugit consectetur nisi nobis accusamus enim dolorem qui autem obcaecati numquam odit nulla et aspernatur dolore suscipit illo a asperiores itaque vitae tenetur aut, earum omnis quae recusandae culpa? Quam esse nam vitae ad molestiae natus ea atque tenetur alias dolorum labore expedita, deleniti temporibus cum? Laborum adipisci aliquam impedit, labore quo laudantium, eaque modi quam ad molestiae tenetur ipsum temporibus beatae id a aspernatur deserunt, atque consequatur excepturi numquam neque? Quibusdam nulla harum aperiam nemo, nihil suscipit fugit. Ipsa minus nostrum dolorem vel, corrupti doloribus praesentium temporibus iste qui placeat obcaecati ea officiis porro deleniti maxime pariatur id quia quisquam repudiandae nulla culpa facere, assumenda quae illo. Molestias sunt cumque nostrum eum. Suscipit enim doloribus dicta, quod veritatis aspernatur tenetur autem quos optio debitis eos rerum dolorem repellat sequi, asperiores ipsam quis facere iusto unde sunt non beatae minus! Eos inventore veritatis dolorem eaque, modi sapiente odit iure reprehenderit, recusandae nobis quos libero totam, itaque autem quaerat nisi cum? Reprehenderit libero in officia id officiis alias animi, aperiam assumenda quos quod autem architecto.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vel mollitia ducimus est sunt consequuntur vitae commodi eius. Veritatis, quisquam!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit nemo quibusdam itaque impedit ullam maxime illo optio sunt beatae aliquam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil quod quidem maiores nesciunt fuga assumenda molestiae sapiente laboriosam consequuntur eius quia ea porro perferendis nostrum, ullam officia aperiam minus non necessitatibus in asperiores error. Impedit voluptatibus quo incidunt tempora, consequuntur .</p>
+    </div>
+
+    <div class="cookie-container">
+        <p>
+            we use cookies in this website to give you the best experience on our site and show you relevant ads, To find out more read our privacy policy <a href="#"></a> and our cookie policy 
+            <a href="#"></a>
+        </p>
+
+        <button class="cookie-btn">
+            okay
+        </button>
+    </div>
+    <script>
+const cookieContainer = document.querySelector(".cookie-container")
+const cookieButton = document.querySelector(".cookie-btn")
+
+//when we click on the add button, the active class which contains bottom:0 is removed 
+cookieButton.addEventListener('click', ()=> {
+    cookieContainer.classList.remove('active')
+    //were adding data to localstorage 
+    localStorage.setItem('cookieBannerDisplayed', true)
+    //when we click on the button, this is added to the local storage 
+});
+
+//after 2s the cookie loads up 
+setTimeout(() => {
+    //if this cookie is in cookiebannerfisplayed then the cookie wont pop up
+
+    //if the user doesnt have cookies on their system as yet
+    //then display this message in 2seconds of the page loading
+    if(!localStorage.getItem("cookieBannerDisplayed"))
+    {
+       cookieContainer.classList.add('active')
+    }
+}, 2000);
+    </script>
+</body>
+</html>
