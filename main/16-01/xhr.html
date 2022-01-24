@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var xhr = new XMLHttpRequest()
+        // console.log(xhr)
+
+        // xhr.open('GET', 'new.json')
+        // xhr.onerror = function(){
+        //     console.log('some error happened')
+        // }
+
+        // xhr.onreadystatechange = function()
+        // {
+        //     (xhr.readyState === 4 )
+        //     {
+        //         if(xhr.status == 200)
+        //         {
+        //             console.log('response recieved')
+        //             console.log("response text",xhr.responseText)
+        //             var text = xhr.responseText
+        //             console.log("json",JSON.parse(text))
+        //         }
+        //     }
+        // }
+
+        // xhr.send()
+
+        //now we do the same code using fetch, using less lines of code 
+        // fetch('new.json')
+        // .then(res => { 
+        //    return res.json()
+        // }).then(result => {
+        //     console.log("fetch",result)
+        // })
+
+        //imporvement using IIFE & async and await 
+        (async() => {
+            let res = await fetch('new.json');
+            res = await res.json()
+            console.log("using iife",res)
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <script>
+        //✅1. create a cookie 
+        //cookie is a string
+        //cookie is key-value pair 
+        let key = "userid"
+        let val = "ayush"
+        let cookie_str = `${key}=${val}`
+        document.cookie = cookie_str
+
+        //create another cookie
+        key = "role"
+        val = "instructor"
+        cookie_str = `${key}=${val}`
+        document.cookie = cookie_str
+
+        //create another cookie 
+        key = "name"
+        val = "Angel Priya"
+        cookie_str = `${key}=${val}`
+        document.cookie = cookie_str
+
+        //✅2. Update Cookie
+        //in order to update, give the same key and change the val 
+        key = "role"
+        val = "instructor2"
+        cookie_str = `${key}=${val}`
+        document.cookie = cookie_str
+
+        //✅3. Read cookie - returns all cookies in this particular domain 
+        let all_cookies = document.cookie;
+        all_cookies = all_cookies.split("; ")
+        const obj = {}
+        all_cookies.forEach(element => {
+            const key = element.split("=")[0]
+            const value = element.split("=")[1]
+
+             //using array destructuring it would look like this 
+            //[key, value] = element.split("=")
+            obj[key] = value
+        })
+        console.log("object",obj)
+        console.log("allcookies",all_cookies)
+
+        key="login_status";
+        value= true;
+
+        //any object has 
+        //properties and helper functions 
+
+        //we use date object to set the expiry date 
+        const date = new Date()
+        //toUTCstring() converts date to UTC string 
+        console.log("cuurent timestamp",date.toString())
+        console.log("utc",date.toUTCString())
+        //utc returns gmt time format 
+
+        let current_minutes = date.getMinutes()
+
+        current_minutes+=10
+        date.setMinutes(current_minutes)
+
+        let expired = date.toUTCString() //converts date to string 
+        console.log("expired time",expired)
+
+        //we can set timestamp we want it to expire
+        //to do this, we convert it to UTC string: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+        //UTC format is the standard format 
+        cookie_str = `${key}=${value}; expires=${expired}`
+        document.cookie = cookie_str
+
+        //in order to delete, we need to set expiry in the past 
+        //instead of currentmins+=10, do currentmins-=10
+    </script>
+</body>
+</html>

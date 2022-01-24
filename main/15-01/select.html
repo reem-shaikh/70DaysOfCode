@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="loadStates">load states</button>
+    <select name="" id="states">
+
+    </select>
+    <script>
+        const state_selector = document.getElementById('states')
+        const states = ["UP", "MP", "KA", "MH", "HM", "UK"]
+
+        const btn = document.getElementById('loadStates')
+        btn.addEventListener('click', ()=> {
+            states.forEach((single_state) => {
+            const new_opt = document.createElement('option')
+            new_opt.innerText = single_state;
+            new_opt.value = single_state
+
+            state_selector.appendChild(new_opt)
+        })
+    })
+    </script>
+</body>
+</html>

@@ -118,6 +118,68 @@ XMLHttpRequest {onreadystatechange: null, readyState: 1, timeout: 0, withCreden
 
 response text [{"name":{"common":"India","official":"Republic of India","nativeName":{"eng":{"official":"Republic of India","common":"India"},"hin":{"official":"भारत गणराज्य","common":...
 ```
+> more on XHR OBJECT 
+```bash 
+        var xhr = new XMLHttpRequest()
+        console.log(xhr)
+
+        xhr.open('GET', 'new.json')
+        xhr.onerror = function(){
+            console.log('some error happened')
+        }
+
+        xhr.onreadystatechange = function()
+        {
+            (xhr.readyState === 4 )
+            {
+                if(xhr.status == 200)
+                {
+                    console.log('response recieved')
+                    console.log("response text",xhr.responseText)
+                    var text = xhr.responseText
+                    console.log("json",JSON.parse(text))
+                }
+            }
+        }
+
+        xhr.send()
+
+console:
+XMLHttpRequest {onreadystatechange: null, readyState: 0, timeout: 0, withCredentials: false, upload: XMLHttpRequestUpload, …}
+
+xhr.html:25 response recieved
+xhr.html:26 response text 
+
+xhr.html:26 response text {
+    "key": "value",
+    "key 2":"value 2"
+}
+xhr.html:25 response recieved
+xhr.html:28 json {key: 'value', key 2: 'value 2'}
+```
+>  ✅now we do the same code using fetch, using less lines of code 
+```bash 
+        fetch('new.json')
+        .then(res => { 
+           return res.json()
+        }).then(result => {
+            console.log("fetch",result)
+        })
+
+console:
+fetch {key: 'value', key 2: 'value 2'}
+```
+>  ✅improvement using IIFE & async and await 
+```bash 
+        (async() => {
+            let res = await fetch('new.json');
+            res = await res.json()
+            console.log("using iife",res)
+        })();
+
+console:
+using iife {key: 'value', key 2: 'value 2'}
+```
 #### Callback Hell 
 forcing asynchronous behavior to execute sequentially 
 ```bash 
@@ -255,9 +317,6 @@ async function myFunction() {
   return "Hello";
 }
 ```
-
-
-
 
 
 

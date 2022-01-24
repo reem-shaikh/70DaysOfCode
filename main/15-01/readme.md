@@ -1,3 +1,9 @@
+#### Where to host HTTP website?
+> https://www.000webhost.com/ - host one website for free 
+
+> HTTP VS HTTPS
+If you make a request via http, then anyone in your network can access your data, to fix this we use HTTPS.
+
 ### How does the internet work?
 transmitting data from sattelites would cause huge delay of time, so for faster transmission our devices are connected to data centres through a complicated network of **optical fiber cables**
 

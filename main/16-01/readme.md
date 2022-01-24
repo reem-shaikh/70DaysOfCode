@@ -220,8 +220,8 @@ title: "FIOS"
 ✅after we create an object, constructor will be initialized
 const createBook = (title, author, release_date) => {
      const book = {
-         title: title, 
-         author: author,
+        title: title, 
+        author: author,
         release_date: release_date,
      };
      return book;
@@ -941,7 +941,7 @@ stores data on the browser which can be later updated also.
 - for tracking/ showing ADS 
 - these cookies use our data and share to third part apps, which throws relevant ads out to us 
 
-Cookies are are a part of the browser, which are saved via a Web API 
+Cookies are are a part of the browser, which are saved via the  Web API. It's referenced via the web API. It stores data in key value format in the browser. 
 - to access it, we use document.cookie in console 
 
 > Cookie syntax
@@ -1035,3 +1035,266 @@ userid: "ayush"
 length: 3
 [[Prototype]]: Array(0)
 ```
+✅Delete a cookie
+We can set a cookie for an interval of time, after that time we can explicitly set it to expire 
+> bank websites have 30-45mins of cookie expiry 
+> autofilling credentials on websites is done by the browser, not by cookies
+> autofill forms is not done by cookies, its done by the browser 
+
+```bash 
+        key="login_status";
+        value= true;
+
+        ✅we use date object to set the expiry date 
+
+        const date = new Date()
+
+        //toUTCstring() converts date to UTC string 
+        console.log("cuurent timestamp",date.toString())
+
+        console.log("utc",date.toUTCString())
+        //utc returns gmt time format 
+
+        let current_minutes = date.getMinutes()
+
+        current_minutes+=10
+        date.setMinutes(current_minutes)
+
+        let expired = date.toUTCString() //converts date to string (returns GMT format) 
+        console.log("expired time",expired)
+
+        ✅we can set timestamp we want it to expire
+        //to do this, we convert it to UTC string: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+        //UTC format is the standard format 
+
+        cookie_str = `${key}=${value}; expires=${expired}`
+        document.cookie = cookie_str //to access cookie we use this 
+
+        //in order to delete, we need to set expiry in the past 
+        //instead of currentmins+=10, do currentmins-=10
+    </script>
+
+console:
+cuurent timestamp    Sun Jan 23 2022 21:09:12 GMT+0530 (India Standard Time)
+deletecookie.html:66 utc Sun, 23 Jan 2022 ✅15:39:12 GMT
+deletecookie.html:75 expired time    Sun, 23 Jan 2022 ✅15:49:12 GMT
+```
+#### Cookies Vs Sessions 
+- Keep me logged in, is done by cookies, cookies can store data for more than one time use, when you log out of the browser, its not deleted, its stored on the server side. Cookie is persistent/permanent until the expiry, session will be removed when browser is closed.session is just used for that one time use, when browser is closed, the session is closed, its stored on the client side. 
+
+- cookies sent to server with every netowrk call, sessions are in browser only.
+- cookies are small (4kb) / sessions are big (128kb)
+- cookies are string only / sessions can store complicated objects also.
+- cookie was before HTML5 also / session was introduced in HTML5
+
+> sessions can be used (frame data stored as a buffer in sesion storage)
+> instagram scroll - next 20 images are loaded and saved in the session storage 
+
+### Scope specifier 
+var , let , const 
+
+```bash 
+        ✅var can be re- initialised
+        var a = 10 
+        console.log(a) //10
+
+        var a = 20
+        console.log(20) //20
+
+        function fn(){
+            //var cannot be accessed outside of its function, var is functional scoped, var is not global scoped 
+            var a= 30 
+            console.log(a) //30
+        }
+        fn() 
+
+        function fn2(){
+            console.log(a)
+        }
+        fn2() //20
+        console.log("a",a) //20 
+
+        //this function below is truly global scoped 
+        //which can only happen when we havent mentioned any access specifier 
+        function fn3(){
+            a = 40
+        }
+        fn3() //40
+
+        //let is block scoped, you cannot access let outside of its block of scope 
+        {
+            let b = 80
+            console.log(b)
+        }
+        console.log(b)
+
+
+        //hoisting only happens on access specifiers(let/ var /const)
+        console.log(c)
+        let c = 90 
+
+console:
+10
+var.html:17 20
+var.html:22 30
+var.html:28 20
+var.html:31 a 20
+var.html:43 80
+var.html:45 Uncaught ReferenceError: b is not defined
+```
+> var is functional scoped: cannot be accesed outside its scope 
+```bash 
+    <script>
+        function fn2(){
+            var a = 20
+            console.log("inside",a)
+        }
+        fn2() 
+        console.log("outside",a) //20 
+
+    </script>
+
+console:
+var.html:14 inside 20
+var.html:17 Uncaught ReferenceError: a is not defined
+```
+> an example 
+```bash 
+    <script>
+        function fn4(){
+            var o = 3
+            console.log(o) //3 -var 
+        }
+
+        fn4()
+        console.log(o) //reference error -var is functional scoped 
+
+    </script>
+
+console:
+var.html:14 3
+var.html:19 Uncaught ReferenceError: o is not defined
+```
+> an example 
+```bash 
+    <script>
+
+✔ leaking of variable 
+
+        function fn4(){
+            //o created through var scoping 
+            //p is created through global scoping, p is not automatically created as var 
+            var o = p = 3
+            console.log(o) //3 -var 
+            console.log(p) //3 -global
+        }
+
+        fn4()
+
+        console.log(p) //3 -gloabl can be accessed throughout
+        console.log(o) //reference error -var is functional scoped 
+
+    </script>
+
+console:
+3
+var.html:19 3
+var.html:24 3
+var.html:25 Uncaught ReferenceError: o is not defined
+```
+> example 
+```bash 
+    <script>
+        function fn(){
+            var x = 23 
+
+            function inner(){
+                x++
+                console.log(x)
+                var x = 43
+                //hoisting moves x=43 at the top of the scope which is the inner(), so it would be undefined, because var doesnt support hoisting, so x will be undefined, when we do console.log(x) it says Nan
+
+            }
+            inner()
+        } fn()
+    
+    </script>
+
+console:
+Nan
+```
+> example 
+```bash 
+    <script>
+        function fn(){
+            var x = 23 
+
+            function inner(){
+                x++
+                console.log(x)
+                x = 43
+            }
+            inner()
+        } fn()
+    </script>
+
+console:
+24
+```
+> constructor - construct the object of class and return the object 
+### Static Keyword 
+- static data member 
+- static member function 
+
+Static data member or member function does not need an object to be used. I can directly use that function or the property without instantiation (creating object using new keyword)
+
+> oop.js 
+```bash 
+class Square {
+    //private members must be initialized 
+    #side = 0 
+
+    ✅static member 
+    static APIKEY = "bro"
+
+    constructor(side){
+        this.#side = side 
+    }
+
+    getArea(){
+        return Math.pow(this.#side, 2)
+    }
+
+    getPerimeter(){
+        return this.#side *4
+    }
+
+    ✅static method 
+    //this function doesnt use any obejct properties 
+    //to create static method, use static keyword 
+    //dont need an object to access static function 
+    static whoAmI(){
+        console.log('hello')
+    }
+}
+
+const sqr = new Square(5)
+console.log(sqr.getArea())
+console.log(sqr.getPerimeter())
+
+//invoking a static method, dont need an object to access it
+//static is a part of the class, not of object 
+Square.whoAmI()
+
+//invoking a static member 
+console.log(Square.APIKEY)
+
+console:
+25
+oop.js:30 20
+oop.js:24 hello
+oop.js:37 bro
+```
+### SINGLETON structure 
+each class will have only one object, which helps in DB connection 
+
