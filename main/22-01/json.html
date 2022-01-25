@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        obj = { x: 5, y: 6 }                     //js object 
+        //json.stringify - converts js object to json string
+        console.log(JSON.stringify(obj));
+        // expected output: "{"x":5,"y":6}"
+
+        jsobjecttostring = JSON.stringify(obj)
+        console.log(typeof(jsobjecttostring))     //json object 
+
+        //json.parse - converts json string to JS object 
+        const json = '{"result":true, "count":42}'; //json string 
+        console.log("json", typeof(json))           //string 
+        const parsed = JSON.parse(json);
+        console.log("json to js object",parsed)
+        console.log(typeof(parsed))                 //js object 
+
+
+        
+    </script>
+</body>
+</html>

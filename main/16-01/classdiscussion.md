@@ -44,14 +44,28 @@ Revise oops lectures & finish working on the notes
 - 23-01
 
 convert book app to class 
-google clone - add cookies 
+google clone - add cookies ✅
 test ✅
 
 
-
-8 more - create notes on lecs 
+### TDL 
 > Make a list of project ideas to implement 
+> Push code to GIT 
 
+ES5 - inheritance
+
+to complete making notes list:
+OOPS        ✅
+Inheritance ✅
+storage (CRUD)
+GDPR 
+CORS 
+API (RES & SOAP)
+POSTMAN 
+var, let, const 
+JS engine arch 
+event loop 
+closures 
 
 
 

@@ -76,6 +76,8 @@
         </button>
     </div>
     <script>
+
+
 const cookieContainer = document.querySelector(".cookie-container")
 const cookieButton = document.querySelector(".cookie-btn")
 
@@ -84,14 +86,41 @@ cookieButton.addEventListener('click', ()=> {
     cookieContainer.classList.remove('active')
     //were adding data to cookie
     //cookie is key-value pair 
-        let key = "userid"
-        let val = "ayush"
+        let key = "search"
+        let val = "value"
         let cookie_str = `${key}=${val}`
         document.cookie = cookie_str
-        console.log(document.cookie)
-    //localStorage.setItem('cookieBannerDisplayed', true)
-    //when we click on the button, this is added to the local storage 
+        console.log("type of",typeof(document.cookie))
+        //string 
+        console.log("cookie",document.cookie)
+        
+        var jsoncookie = JSON.stringify(document.cookie)
+        console.log("json",jsoncookie)
+        console.log(val)
+
+/*
+    console:
+    type of string
+    settingcookie.html:93 cookie userid=ayush
+    settingcookie.html:96 json "userid=ayush"
+
+ */
+
+//  fetch('jsoncookie.json').then(res => {
+//          return res.json()
+//      }).then(result => {
+//          console.log(result)
+//      }).catch(error => {
+//          console.log('error')
+//      })
+ 
+
+        
+    //when we click on the button, this is added to the cookie
 });
+
+
+
 
 //after 2s the cookie loads up 
 setTimeout(() => {

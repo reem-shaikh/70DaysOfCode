@@ -7,7 +7,12 @@
     <title>Google</title>
     <link rel="icon" href="./images/favicon.jpg">
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
-    <!--google clone with cookies -->
+    <!--google clone with cookies 
+    
+    header 
+    content 
+    footer 
+-->
 <style>
 * {
     margin: 0;
@@ -172,13 +177,13 @@ header {
   /* padding: 200px; */
   padding-right: 400px;  
   opacity: 1;
-  background: transparent;
+  background: #ffffff;
   /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
   border-radius: 5px;
   margin-left: 160px;
   position: fixed;
   transition: all 1s linear;
-  margin-top: 208px;
+  margin-top: 180px;
 
 
 }
@@ -189,10 +194,9 @@ header {
   padding: 0; 
   max-width: 270px;
   min-width: 270px;
-  overflow-y: auto;
 }
 
-.results ul li{
+.results ul li {
   display: block;
   padding: 7px;
   /* padding-top: 10px;  */
@@ -204,10 +208,7 @@ header {
 
 .results li {
     width: 100%;
-    display: none;
 }
-
-
 
 .show .results {
   padding: 20px;
@@ -219,10 +220,12 @@ header {
 
 .google-search-btn {
     width: 120px;
+    display: fixed;
 }
 
 .lucky-search-btn {
     width: 140px;
+
 }
 
 .language {
@@ -404,15 +407,14 @@ footer {
             <div class="search-bar">
                 <i class="fas fa-search"></i>
                 <input id="search" class="search-input" type="text">
-              
+
                 <i class="fas fa-keyboard"></i>
                 <i class="fas fa-microphone"></i>
             </div>
-            <div class="results" style="display: block;">
+            <div class="results">
                 <ul>
                 </ul>
             </div>
-
             <div class="search-btns">
                 <button class="google-search-btn">Google Search</button>
                 <button class="lucky-search-btn">I'm Feeling Lucky</button>
@@ -421,7 +423,6 @@ footer {
                 <p>Google Offered in: <a href="">Hindi</a></p>
             </div>
         </div>
-
     </section>
 
     <!-- Footer -->
@@ -536,7 +537,6 @@ function getcookies() {
 }
 
 function renderResults(results) {
-    console.log("rw",resultsWrapper.innerText)
 //if there is no items in searchbar, then dont show any results 
   if (!results.length) {
     return searchWrapper.classList.remove('show');

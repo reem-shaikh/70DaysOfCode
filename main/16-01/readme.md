@@ -451,10 +451,108 @@ Uncaught SyntaxError: Private field '#showSomeData' must be declared in an enclo
 > private class features (introduced in ES12) - just use #
 
 ##### Getters & Setters 
+> lets take an instance, where we want to update the property of the object and make it all uppercase, in this case you'd pass the touppercase function in the console
+```bash 
+    <script>
+       var person = {
+           name: 'reem',
+           age: 20,
+       };
+
+       console.log(person.name.toUpperCase())
+    </script>
+
+console:
+REEM
+```
+> If we have a requirment, where we want to make it uppercase inside the object itself 
+```bash 
+    <script>
+       var person = {
+           name: 'reem',
+           age: 20,
+
+           //we create a method 
+           getname: function(){
+               return this.name.toUpperCase()
+           }
+       };
+
+       ✅we called the method, using () (this is how methods are called)
+       console.log(person.getname())
+    </script>
+
+console:
+REEM
+```
+> Why do we need getter and setters ? 
+✅in order to call the method, without (), that is, in order to call a method like a property <classname>.<method>, we use getters and setters 
+
+> why do we need getter functions? 
+```bash 
+    <script>
+       var person = {
+           name: 'reem',
+           age: 20,
+
+           ✅using getters we want to make changes in the property in the object itself and then send it to the console 
+           get getname(){
+               return this.name.toUpperCase()
+           }
+       };
+
+       ✅<classname>.<method>
+       console.log(person.getname)
+    </script>
+```
+> why do we need setter functions?
+```bash
+    <script>
+       var person = {
+           name: 'reem',
+           age: 20,
+
+           get getname(){
+               return this.name.toUpperCase()
+           }
+       };
+
+       ✅over here were setting/updating the value of property, outside of the object, if we want to set a property like lowercase to this property we cannot set it outside of the object 
+       person.name = 'rum'
+       console.log(person.getname)
+    </script>
+
+console:
+RUM
+```
+> using set function, we can set the value of the property we set, inside the class/object itself 
+```bash 
+    <script>
+       var person = {
+           name: 'reem',
+           age: 20,
+
+           //getter function
+           get getname(){
+               return this.name.toUpperCase()
+           },
+
+           ✅to set the value of the property inside the object inside use setter function 
+           set setname(n){
+               this.name = n.toUpperCase()
+           }
+       };
+
+       person.setname = 'rum'
+       console.log(person.name)
+    </script>
+
+console:
+RUM
+```
 Getters and setters allow the defining of object accessors.
 ```bash 
-  // Create an object:
-
+    ✅Create an object:
       var car = {
 
         model: "BMW 320d",
@@ -468,25 +566,24 @@ Getters and setters allow the defining of object accessors.
         set fuel(fuel) {
           this.fuel_type = fuel;
 
-        },
+    },
+};
 
-      };
-
-      ✅Display data from the object using a getter:
+    ✅Display data from the object using a getter:
       document.getElementById("demo").innerHTML = car.fuel;
 
-      ✅Set an object property using a setter:
-      car.fuel = "Petrol";
+    ✅Set an object property using a setter:
+      car.fuel = "Petrol"; //were setting the final fuel property 
 
-      ✅Display data from the object:
+    ✅Display data from the object:
       document.getElementById("demo").innerHTML = car.fuel_type;
 ```
 Any objects data member (object property), can be accesed directly by using .<property_name>.
 
-#### What is there is a situation where we want to access, but dont want to allow update ?
+#### What if there is a situation where we want to access, but dont want to allow update ?
 > Eg: anybody can access API key but nobody should be able to update it 
 
-Q. Suppose we have a counter which can only increement we dont want anyone to be abe to deecrement the counter?
+Q. Suppose we have a counter which can only increement we dont want anyone to be able to deecrement the counter?
 ```bash 
 <script>
 class book3 {
@@ -513,6 +610,11 @@ class book3 {
 console.log(book3.getCounter());
 console.log(book3.increementCounter());
 console.log(book3.getCounter());
+
+//setting value  
+book3.val = 4
+console.log(book3.getCounter())
+
 </script>
 ```
 
@@ -618,6 +720,7 @@ BookCons.prototype.getSummary = function(){
 ✅prototype of parent class 
 ✅magazine is the child 
 function Magazine(title, author, release_date, issue_number){
+
     BookCons.call(this, title, author, release_date)
     ✅once we write these arguments in (), then you dont need to
     define it here 
@@ -644,7 +747,7 @@ console.log("summary", book2.getSummary())
 ✅all member functions of BookCons are now member functions of Magazine 
 Magazine.prototype = Object.create(BookCons.prototype)
 Magazine.prototype.checkLatestIssue = function(){
-    console.log('latest issue')
+    console.log('latest issue') 
 }
 
 const mag1 = new Magazine('magazine 1', 'someone', 2022, 14)
@@ -687,6 +790,15 @@ When called from parent object, it shows the parent object execution
 
 When called from the child object, it shows the child object execution, If child does not have the function, then it will fall back to parent, due to inheritance 
 ```
+#### Types of inheritance
+#### 1. single level inheritance 
+```bash 
+A (base class)
+^
+|
+B (derived class)
+```
+
 > inheritance.html
 ```bash 
 <body>
@@ -749,8 +861,16 @@ console.log(sqr1.getArea())
 sqr1.whoami()
 ```
 
-#### Types of inheritance
-1. single level inheritance 
+#### 2. Multilevel Inheritance 
+```bash
+A (base class)      ✅shape 
+^
+|
+B (derived class)   ✅rectangle  ✅square 
+^
+|
+C (derived class)
+```
 
 > inheritance.html
 ```bash 
@@ -760,7 +880,6 @@ sqr1.whoami()
 ```
 > rect.js 
 ```bash 
-
 class Rectangle {
     constructor (width, height){
         this.width = width
@@ -799,9 +918,10 @@ class Square extends Rectangle{
     }
 }
 
-//creating an object 
+// creating an object:
 // const sqr1 = new Square(10)
-// //we can access getArea() function from the parent class "Rectangle"
+
+// we can access getArea() function from the parent class "Rectangle"
 // console.log(sqr1.getArea())
 // sqr1.whoami()
 
@@ -823,7 +943,16 @@ console.log(rect1.getArea()) //150
 rect1.whoami()
 
 ```
-2. multilevel inheritance 
+2. Multilevel inheritance 
+```bash
+A (base class)    ✅shape 
+^
+|
+B (derived class) ✅rectangle  ✅circle
+^                  ^
+|                  |
+C (derived class) ✅square 
+```
 ```bash 
 //shape (base class)
 //children:  circle    rectangle

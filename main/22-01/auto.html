@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #6d7b98;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+
+}
+
+.wrapper {
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.15);
+  position: relative;
+  width: 450px;
+}
+
+input {
+  width:100%;
+  border: none;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0px 40px 0px 10px;
+  font-size: 18px;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  position: absolute;
+  border: none;
+  background: none;
+  top: 0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  width: 50px;
+}
+
+button:focus {
+  outline: none;
+}
+
+button i {
+  width: 100%;
+  color: #6d7b98;
+  line-height: 50px;
+  font-size: 22px;
+}
+
+.results {
+  padding: 0px;
+}
+
+.results ul {margin: 0; padding: 0; }
+.results ul li {
+  list-style: none;
+  border-radius: 3px;
+  opacity: 0;
+  display: none;
+  padding: 8px 12px;
+  transition: all .5s linear;
+}
+
+.show .results ul li {
+  opacity: 1;
+  display: block;
+}
+
+.show .results {
+  padding: 10px;
+}
+
+.results ul li:hover {
+  background: #ececec
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+          <input type="text" name="search" id="search" placeholder="Type to search" autocomplete="chrome-off">
+          <button id="button">button</button>
+          <div class="results">
+            <ul>
+            </ul>
+          </div>
+          <!--reuslts ends-->
+        </div>
+        <!--wrapper ends-->
+      </div>
+</body>
+<script>
+//searchable can also be a result of a fetched API 
+//but were going to map our cookie to the searchable 
+let searchable = [
+  'Elastic',
+  'PHP',
+  'Something about CSS',
+  'How to code',
+  'JavaScript',
+  'Coding',
+  'Some other item',
+
+];
+
+
+const searchInput = document.getElementById('search');
+const searchWrapper = document.querySelector('.wrapper');
+const resultsWrapper = document.querySelector('.results');
+
+searchInput.addEventListener('keyup', () => {
+  let results = [];
+  let input = searchInput.value
+  //console.log("searchinput.value", input)
+
+  getcookies()
+
+  //check if there is a length, if there is, then someone has logged values in the search bar 
+  console.log("length", input.length)
+  if (input.length) {
+    //were rendering items in searchable array to lowercase 
+    results = searchable.filter((item) => {
+      return item.toLowerCase().includes(input.toLowerCase());
+      //and return if the input we entered matches item in searchable array in the lowercase 
+    });
+  }
+  renderResults(results);
+});
+
+function getcookies() {
+  var key = Math.random()
+  var val = searchInput.value 
+  //console.log("searchinput",searchInput)
+  
+  let cookie_str = `${key}=${val}`
+  document.cookie = cookie_str
+//   console.log("cookie",document.cookie)
+//   console.log("val", val)
+
+  if(document.cookie!=0)
+  {
+      //when it encounters a space add it to the searchable array 
+        searchable.push(val)
+        console.log(searchable)
+  }
+  
+
+  return cookie_str
+
+}
+
+function renderResults(results) {
+//if there is no items in searchbar, then dont show any results 
+  if (!results.length) {
+    return searchWrapper.classList.remove('show');
+  }
+
+//when there are result
+  const content = results
+    .map((item) => {
+      return `<li>${item}</li>`;
+    })
+    .join('');
+
+// console.log("content",content)
+// console.log("results", results)
+
+  searchWrapper.classList.add('show');
+  //then show the searchwrapper, which contains all the content in the 
+  resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+}
+
+</script>
+</html>
