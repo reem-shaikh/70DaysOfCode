@@ -2,6 +2,7 @@
 <!-- #assignment website prebootcamp:
 >https://reem-shaikh.github.io/Geekster-/html/Foodapp.html/index.html -->
 
+<!--
 ## 8-11 
 **Layout html:**
 https://reem-shaikh.github.io/Geekster-/main/8-11/index.html
@@ -237,7 +238,7 @@ https://reem-shaikh.github.io/Geekster-/main/22-01/19-01.html
 
 ## 22-01
 https://reem-shaikh.github.io/Geekster-/main/22-01/22-01.html
-
+-->
 
 <!-- micro dev tools: 
 launch instance
