@@ -456,7 +456,8 @@ const setBooks =()=>{
   
 }
 const fetchBookTitle =(event)=>{
-    //event.preventDefault()
+    event.preventDefault()
+    console.log('bpook', book_title.value)
     const book ={
         title:book_title.value
     }
@@ -467,7 +468,7 @@ const fetchBookTitle =(event)=>{
     book_title.value=""  
 
     //books are loaded, once the page is reloaded 
-    window.location.reload()
+   // window.location.reload()
 }
 
 add_book_btn.addEventListener('click',fetchBookTitle)

@@ -266,13 +266,10 @@
         <!--flex-direction: row-->
 
         <!--1st Blog-->
-        <div class="blog-box">
-          <!--image starts -->
+        <!-- <div class="blog-box">
           <div class="blog-img">
             <img src="images/blog-1.jpeg" alt="Blog" />
           </div>
-          <!--blog-img ends-->
-          <!--text starts-->
           <div class="blog-text">
             <span class="span">18 July 2021 / Web Design</span>
 
@@ -292,7 +289,7 @@
             </div>
 
           </div>
-        </div>
+        </div> -->
         <!--blog-box ends-->
 
 
@@ -320,7 +317,7 @@
           class="span-title"
           placeholder="Date / Topic"
           required
-        />
+        /> 
         <input
         type="text"
         id="paragraph-title"
@@ -343,10 +340,9 @@ let delete_keys = document.querySelectorAll('.cross-btn')
 
 const container = document.querySelector('.blog-container')
 
-const blog_title = document.querySelectorAll('.blog-title')
-const span_title = document.querySelectorAll('.span-title')
-const para_title = document.querySelectorAll('.paragraph-title')
-
+const blog_title = document.querySelector('.blog-title')
+const span_title = document.querySelector('.span-title')
+const para_title = document.querySelector('.paragraph-title')
 
 
 let blogposts=[]
@@ -387,7 +383,7 @@ const BuildUi =(blogposts)=>{
         const blog_img = document.createElement('div')
         blog_img.classList.add("blog-img")
         const img = document.createElement('img')
-        //img.setAttribute("src","images/blog-1.jpeg")
+        img.setAttribute("src","images/blog-1.jpeg")
         blog_img.append(img)
 
         const blog_text = document.createElement('div')
@@ -396,10 +392,12 @@ const BuildUi =(blogposts)=>{
         const span = document.createElement('span')
         span.classList.add('span')
         span.innerText= blog.span
+        //span.innerText="18 July 2021 / Web Design"
 
         const anchor = document.createElement('a')
         anchor.classList.add('blog-title')
         anchor.innerText= blog.title
+        //anchor.innerText="Lorem Ipsum Dolor"
 
         const paragraph = document.createElement('div')
         paragraph.classList.add('paragraph')
@@ -417,6 +415,8 @@ const BuildUi =(blogposts)=>{
         readmeimg.classList.add("cross-btn")
         readmeimg.setAttribute("src","images/cross.png")
         readmore.append(readmeanchor, readmeimg)
+
+        blog_text.append(span, anchor, paragraph,readmore)
 
         blog_box.append(blog_img, blog_text)
         container.append(blog_box)
@@ -438,12 +438,12 @@ const setBlogs =()=>{
     if(localStorage.getItem("blogposts")){
         blogposts = JSON.parse(localStorage.getItem("blogposts"))
     }
-    else{
-         const test={
-             //title:"Make a Blog Post"
-         }
-        blogposts.push(test)
-    }
+    // else{
+    //      const test={
+    //          title:"Make a Blog Post"
+    //      }
+    //     blogposts.push(test)
+    // }
     BuildUi(blogposts)
   
 }
@@ -455,7 +455,6 @@ title: blog_title.value,
 span: span_title.value,
 para: para_title.value 
     }
-    console.log('blogtitle', blog_title);
     blogposts.push(blog)
     //json.stringify convert book array to string 
     localStorage.setItem("blogposts",JSON.stringify(blogposts))
