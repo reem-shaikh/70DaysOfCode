@@ -115,12 +115,12 @@
         margin: 20px 0px;
       }
 
-      .blog-text a {
+      .readmeanchor {
         color: #0f0f0f;
         font-size: 0.9rem;
       }
 
-      .blog-text a:hover {
+      .readmeanchor:hover {
         color: #f33c3c;
         transition: all ease 0.3s;
       }
@@ -183,6 +183,10 @@
         margin-left: 420px;
       }
 
+      .readmore{
+        display: flex; justify-content: space-between;
+      }
+
       #form-top {
         width: 50vw;
         height: 50px;
@@ -224,6 +228,15 @@
 .show-modal{
     display: flex;
 }
+
+.cross-btn{
+    width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+
       @media (max-width: 1250px) {
         .blog-box {
           width: 300px;
@@ -262,8 +275,9 @@
           <!--text starts-->
           <div class="blog-text">
             <span class="span">18 July 2021 / Web Design</span>
+
             <a href="" class="blog-title"
-              >What Has Happened Of All of the Web Design Ideas</a
+              >What Has Happened</a
             >
             <p class="paragraph">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
@@ -272,60 +286,17 @@
               consequuntur, consequatur temporibus asperiores doloribus odio
               sint dolorem tenetur neque quidem, officia molestiae et nisi.
             </p>
-            <a href="">Read More</a>
+            <div class="readmore">
+            <a href="" class="readmeanchor">Read More</a>
+            <img src='images/cross.png' alt="" class="cross-btn" ;/>
+            </div>
+
           </div>
         </div>
         <!--blog-box ends-->
 
-        <!--1st Blog-->
-        <div class="blog-box">
-          <!--image starts -->
-          <div class="blog-img">
-            <img src="images/blog-2.jpeg" alt="Blog" />
-          </div>
-          <!--blog-img ends-->
-          <!--text starts-->
-          <div class="blog-text">
-            <span class="span">18 July 2021 / Web Design</span>
-            <a href="" class="blog-title"
-              >What Has Happened Of All of the Web Design Ideas</a
-            >
-            <p class="paragraph">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-              asperiores perspiciatis nostrum delectus error enim aspernatur
-              culpa rem possimus illum! Similique debitis unde reiciendis earum
-              consequuntur, consequatur temporibus asperiores doloribus odio
-              sint dolorem tenetur neque quidem, officia molestiae et nisi.
-            </p>
-            <a href="">Read More</a>
-          </div>
-        </div>
-        <!--blog-box ends-->
 
-        <!--1st Blog-->
-        <div class="blog-box">
-          <!--image starts -->
-          <div class="blog-img">
-            <img src="images/blog-3.jpeg" alt="Blog" />
-          </div>
-          <!--blog-img ends-->
-          <!--text starts-->
-          <div class="blog-text">
-            <span class="span">18 July 2021 / Web Design</span>
-            <a href="" class="blog-title"
-              >What Has Happened Of All of the Web Design Ideas</a
-            >
-            <p class="paragraph">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-              asperiores perspiciatis nostrum delectus error enim aspernatur
-              culpa rem possimus illum! Similique debitis unde reiciendis earum
-              consequuntur, consequatur temporibus asperiores doloribus odio
-              sint dolorem tenetur neque quidem, officia molestiae et nisi.
-            </p>
-            <a href="">Read More</a>
-          </div>
-        </div>
-        <!--blog-box ends-->
+
       </div>
       <!--blog-container ends-->
     </section>
@@ -384,16 +355,18 @@ let j=0;
 const deleteBlog =(event)=>{
     for(i=0; i<delete_keys.length; i++){
         console.log("event",event)
+        console.log('event.path', event.path)
             if(i==j)
             {
                 event.path[j+2].remove()
+                event.path[j+3].remove()
             }
     }
     // when i==0 
     // j=2 (j targets the .box)
     // event.path[2].remove()
 
-    console.log(blogposts)
+    console.log('blogposts:',blogposts)
 }
 
 
@@ -408,8 +381,45 @@ const hideModal =()=>{
 
 const BuildUi =(blogposts)=>{
     blogposts.forEach((blog)=>{
-        const book_ctn = document.createElement('div')
-        book_ctn.classList.add('content')
+        const blog_box = document.createElement('div')
+        blog_box.classList.add('blog-box')
+
+        const blog_img = document.createElement('div')
+        blog_img.classList.add("blog-img")
+        const img = document.createElement('img')
+        //img.setAttribute("src","images/blog-1.jpeg")
+        blog_img.append(img)
+
+        const blog_text = document.createElement('div')
+        blog_text.classList.add('blog-text')
+
+        const span = document.createElement('span')
+        span.classList.add('span')
+        span.innerText= blog.span
+
+        const anchor = document.createElement('a')
+        anchor.classList.add('blog-title')
+        anchor.innerText= blog.title
+
+        const paragraph = document.createElement('div')
+        paragraph.classList.add('paragraph')
+        paragraph.innerText= blog.para
+
+        //readmore 
+        const readmore = document.createElement('div')
+        readmore.classList.add('readmore')
+
+        const readmeanchor = document.createElement('a')
+        readmeanchor.classList.add('readmeanchor')
+        readmeanchor.innerText="Read More"
+
+        const readmeimg = document.createElement('img')
+        readmeimg.classList.add("cross-btn")
+        readmeimg.setAttribute("src","images/cross.png")
+        readmore.append(readmeanchor, readmeimg)
+
+        blog_box.append(blog_img, blog_text)
+        container.append(blog_box)
 
     })
 
@@ -425,16 +435,16 @@ const BuildUi =(blogposts)=>{
 //everytime blogpost[] would be initialized to empty array whenver we refreshed the page 
 //to fix the issue
 const setBlogs =()=>{
-    if(localStorage.getItem("blogpost")){
-        blogpost = JSON.parse(localStorage.getItem("blogpost"))
+    if(localStorage.getItem("blogposts")){
+        blogposts = JSON.parse(localStorage.getItem("blogposts"))
     }
     else{
          const test={
-             title:"Make a Blog Post"
+             //title:"Make a Blog Post"
          }
-        blogpost.push(test)
+        blogposts.push(test)
     }
-    BuildUi(blogpost)
+    BuildUi(blogposts)
   
 }
 
@@ -445,10 +455,11 @@ title: blog_title.value,
 span: span_title.value,
 para: para_title.value 
     }
+    console.log('blogtitle', blog_title);
     blogposts.push(blog)
     //json.stringify convert book array to string 
-    localStorage.setItem("blogpost",JSON.stringify(blogposts))
-    console.log(localStorage.getItem("blogpost"))
+    localStorage.setItem("blogposts",JSON.stringify(blogposts))
+    console.log(localStorage.getItem("blogposts"))
     blog_title.value=""
     span_title.value=""
     para_title.value=""
