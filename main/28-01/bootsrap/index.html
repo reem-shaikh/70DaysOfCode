@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Document</title>
+
+    <!--insert the boostrap CSS link after the title -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--addcss file below bootstrap file only -->
+    <style>
+        .container{
+            border: 8px solid black;
+            padding: 30px;
+        }
+
+        .row {
+            border: 2px solid red;
+            padding: 5px;
+        }
+
+        .col-md{
+            border: 5px solid blue;
+        }
+        .col-lg {
+            border: 3px solid green;
+        }
+        .col-xl{
+            border: 3px solid yellow;
+        }
+        .col-sm{
+            border: 5px solid rgb(79, 79, 79);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">col class for different breakpoints</h1>
+   <div class="container">
+    <div class="row">
+        <div class="col-xl">col1</div>
+        <div class="col-xl">col1</div>
+        <div class="col-xl">col1</div>
+      </div>
+      <div class="row">
+        <div class="col-lg">col1</div>
+        <div class="col-lg">col1</div>
+        <div class="col-lg">col1</div>
+      </div>
+      <div class="row">
+        <div class="col-md">col1</div>
+        <div class="col-md">col1</div>
+        <div class="col-md">col1</div>
+      </div>
+      <div class="row">
+        <div class="col-sm">col1</div>
+        <div class="col-sm">col1</div>
+        <div class="col-sm">col1</div>
+      </div>
+      <div class="row">row 4</div>
+   </div>
+</body>
+</html>

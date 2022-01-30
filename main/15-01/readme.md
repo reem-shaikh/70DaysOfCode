@@ -194,7 +194,7 @@ these methods are placed after the API URL, each of these methods indicate a spe
 - used to fetch data from the server/particular URL [Read]
 
 2. **PUT** - its used to put data in server 
-- used to **update complete data/resource* at the server/particular URL [Update]
+- used to **update complete data/resource** at the server/particular URL [Update]
 
 3. **POST** - its used to add data in server 
 - used to **create new resource** at this URL 
@@ -208,12 +208,12 @@ Both are used for inserting data to the server
 - if you want to delete some resource at the URL 
 
 5. **PATCH** - it is used to update the partial data 
-- unlike PUT, PATCH is used to **update partial resource*
+- unlike PUT, PATCH is used to **update partial resource**
 
 6. **HEAD** - It is when we want to check whether the data exists or not
 
 7. **OPTIONS** (pre flight)- this is a request made by the user agent/ browser by default 
-- it is created to **check whether the actual request will be succesful* or not 
+- it is created to **check whether the actual request will be succesful** or not 
 > before we start uploading, we check if server is ready to accept or not using OPTIONS
 > options asks server whether the server is ready to take a put request coming from a particular client
 

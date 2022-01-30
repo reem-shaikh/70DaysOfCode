@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ctn {
+            width: 100px;
+            height: 100px;
+        }
+
+        .ctn img {
+            width: 100px;
+            height: 100px;
+        }
+
+        body {
+            min-height: 500vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="ctn" class="ctn">
+        <img src="" alt="">
+    </div>
+    <script>
+        const key = 'Cuy54OAzOYfAH5bIjf-Uh9Nfg_1BolrYa8WKVNjPrqk '
+        //You can also pass this value using a client_id query parameter:
+        const url = `https://api.unsplash.com/photos/?client_id=${key}`
+
+        const ctn = document.querySelectorAll('.ctn')
+
+        async function getPhotos(){
+            try{
+            //wait until fetch API gives the data 
+            const response = await fetch(url)
+            console.log('response',response)
+
+            //why JS doesnt allow await to be used without async?
+            //asynchronous function will run in the background 
+            //impact speed of application if we use await outside async 
+
+            //convert response to JSON format
+            //wait until promise is resolved 
+            const data = await response.json()
+            console.log('data',data)
+
+            const img = document.createElement('img')
+            img.setAttribute('src', data[1].urls.regular)
+            console.log('img',img)
+            ctn.append(img)
+
+            }
+            catch(error){
+                console.log('error', error)
+            }
+        }
+        //once you hit the bottom of the page, we want pictures to load again 
+        //window.innerHeight + window.scrollY >= document.body.offsetHeight
+
+        getPhotos()
+
+        
+    </script>
+</body>
+</html>

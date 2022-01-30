@@ -578,12 +578,12 @@ Getters and setters allow the defining of object accessors.
     ✅Display data from the object:
       document.getElementById("demo").innerHTML = car.fuel_type;
 ```
-Any objects data member (object property), can be accesed directly by using .<property_name>.
+Any objects data member (object property), can be accesed directly by using .<property_name> using setter and getter functions 
 
 #### What if there is a situation where we want to access, but dont want to allow update ?
-> Eg: anybody can access API key but nobody should be able to update it 
+> Eg: anybody can access API key but nobody should be able to update it, from outside the class 
 
-Q. Suppose we have a counter which can only increement we dont want anyone to be able to deecrement the counter?
+#### Q. Suppose we have a counter which can only increement we dont want anyone to be able to deecrement the counter?
 ```bash 
 <script>
 class book3 {
@@ -1061,7 +1061,45 @@ class Circle extends Shape{
 
 export default Circle
 ```
+#### Ways to store data on the browser 
+```bash    
+                    capacity     expires        storage location
+1. local storage     10mb        never          browser only
+2. session storage    5mb        on tab close   browser only 
+3. cookies            4kb        manually set   browser & server 
 
+cookies are stored on the browser, but cookies are sent to the server along with your request, everytime a user requests something from the server 
+```
+> storage mechanisms:
+```bash 
+    <script>
+      ✅1. local storage is persistent; its permanent until its removed 
+      localStorage.setItem('key', 'value')
+      console.log(localStorage.getItem('key'))
+      localStorage.removeItem('key')
+
+      ✅2. session storage- lasts until one session 
+      sessionStorage.setItem('key', 'value')
+      console.log(sessionStorage.getItem('key'))
+      sessionStorage.removeItem('key')
+
+      ✅3. cookies 
+      //document.cookie allows us to set cookie 
+
+      ✅name-value pairs must not contains any whitespace character, commas or semicolons 
+      document.cookie = `name=reem; expires=` + new Date(2022, 1, 2).toUTCString()
+
+      //date: year, month, day
+
+      //allows us to view cookie 
+      console.log(document.cookie)
+    </script>
+
+console:
+value
+call.html:20 value
+call.html:29 name=reem
+```
 ### Cookies 
 Cookies are primarily for reading server-side, local storage can only be read by the client-side.
 

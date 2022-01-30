@@ -50,25 +50,38 @@ test ✅
 
 ### TDL 
 > Make a list of project ideas to implement 
-> Push code to GIT 
-
-ES5 - inheritance
+> Push code to GIT ✅
 
 to complete making notes list:
-OOPS        ✅
-Inheritance ✅
-storage (CRUD)
-GDPR 
-CORS 
-API (RES & SOAP)
-POSTMAN 
-var, let, const 
-JS engine arch 
+OOPS              ✅
+Inheritance       ✅
+call, apply, bind ✅
+closures          ✅
+var, let, const   ✅
+storage (CRUD)    ✅
+JS engine arch    ✅
 event loop 
-closures 
+strict|non strict ✅
+GDPR consent      ✅
+CORS              ✅
+API (REST & SOAP)
+POSTMAN 
+
+Urgh, 2 lectures 
+ES5 - inheritance
+
+contact form blog 
+subscription form 
+comments
+responsive blog website 
 
 
 
+To Do List:
+- complete Bootstrap 
+- revise complete css and advanced CSS 
+- complete Blog 
+- including the web layout 
 
 
 
