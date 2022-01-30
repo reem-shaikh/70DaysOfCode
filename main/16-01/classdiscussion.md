@@ -96,6 +96,9 @@ To Do List:
 
 
 
+
+
+
 Project ideas to implement:
 1. portfolio 
 2. meditation app 
@@ -129,3 +132,19 @@ create a google clone (landing page, search results page, use google search api 
 - if i open page for first time and search mobile, you save mobile in cookie, such that next time i type mo, it should autosuggest mobiles. 
 
 
+
+### TDL 30-01 
+1. complete the Blog App 
+- ADMIN dashboard  
+- register and login forms 
+- implement local storage 
+
+2. complete TDL app 
+3. integrate some TDL features into Blog App if required 
+4. Create an aesthetic UI 
+
+----- if have time:
+5. JS Refresher 
+6. adding bootstrap to react 
+7. Props and propTypes 
+8. state and handling events 

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+     <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: poppins;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      body {
+        margin: 0px;
+        padding: 0px;
+        font-family: poppins;
+      }
+
+      #blog {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .blog-heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .blog-heading span {
+        color: #f33c3c;
+      }
+
+      .blog-heading h3 {
+        font-size: 2.4rem;
+        color: #2b2b2b;
+        font-weight: 600;
+      }
+
+      .blog-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        margin: 20px 0px;
+        flex-wrap: wrap;
+      }
+
+      .blog-box {
+        width: 350px;
+        background-color: #ffffff;
+        border: 1px solid #ececec;
+        margin-right: 2rem;
+      }
+
+      .blog-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .blog-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .blog-text {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .span {
+        color: #f33c3c;
+        font-size: 0.9rem;
+      }
+
+      .blog-text .blog-title {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #272727;
+      }
+
+      .blog-text .blog-title:hover {
+        color: #f33c3c;
+        transition: all ease 0.3s;
+      }
+
+      .paragraph {
+        color: #9b9b9b;
+        font-size: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px;
+      }
+
+      .blog-text a {
+        color: #0f0f0f;
+        font-size: 0.9rem;
+      }
+
+      .blog-text a:hover {
+        color: #f33c3c;
+        transition: all ease 0.3s;
+      }
+
+      .hide-modal {
+        display: none;
+      }
+
+      .show-modal {
+        display: flex;
+      }
+
+      .cross-btn {
+        width: 20px;
+        height: 20px;
+        float: right;
+        cursor: pointer;
+      }
+
+      .input-ctn {
+        width: 50vw;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 2vh;
+        flex-direction: column;
+      }
+
+      .blog-title, .span-title {
+        width: 380px;
+        padding: 10px;
+        border: 1px solid white;
+      }
+
+      .paragraph-title {
+        width: 380px;
+        padding: 20px;
+        border: 1px solid white;
+      }
+
+      .add-blog-btn {
+        width: 120px;
+        background: black;
+        color: white;
+        padding: 10px;
+        border-radius: 7px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .add-blog-form {
+        width: 50vw;
+        height: 40vh;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 420px;
+      }
+
+      #form-top {
+        width: 50vw;
+        height: 50px;
+        background: black;
+        color: white;
+        font-family: "Courier New", Courier, monospace;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      
+.add-btn{
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    padding-right: 11px;
+    padding-left: 11px;
+} 
+
+.modal {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 3;
+        top: 0;
+        left: 0;
+        align-items: center;
+        display: flex;
+}
+
+.hide-modal{
+    display: none;
+}
+
+.show-modal{
+    display: flex;
+}
+      @media (max-width: 1250px) {
+        .blog-box {
+          width: 300px;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .blog-box {
+          width: 70%;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/fav-icon.svg" />
+  </head>
+  <body>
+    <section id="blog">
+      <div class="blog-heading">
+        <!--flex-direction: column-->
+        <span>My Recent posts </span>
+        <h3>My Blog</h3>
+        <h1 id="add-btn" class="add-btn">
+            <i class="far fa-user"></i>
+        </h1>  
+      </div>
+
+      <div class="blog-container">
+        <!--flex-direction: row-->
+
+        <!--1st Blog-->
+        <div class="blog-box">
+          <!--image starts -->
+          <div class="blog-img">
+            <img src="images/blog-1.jpeg" alt="Blog" />
+          </div>
+          <!--blog-img ends-->
+          <!--text starts-->
+          <div class="blog-text">
+            <span class="span">18 July 2021 / Web Design</span>
+            <a href="" class="blog-title"
+              >What Has Happened Of All of the Web Design Ideas</a
+            >
+            <p class="paragraph">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
+              asperiores perspiciatis nostrum delectus error enim aspernatur
+              culpa rem possimus illum! Similique debitis unde reiciendis earum
+              consequuntur, consequatur temporibus asperiores doloribus odio
+              sint dolorem tenetur neque quidem, officia molestiae et nisi.
+            </p>
+            <a href="">Read More</a>
+          </div>
+        </div>
+        <!--blog-box ends-->
+
+        <!--1st Blog-->
+        <div class="blog-box">
+          <!--image starts -->
+          <div class="blog-img">
+            <img src="images/blog-2.jpeg" alt="Blog" />
+          </div>
+          <!--blog-img ends-->
+          <!--text starts-->
+          <div class="blog-text">
+            <span class="span">18 July 2021 / Web Design</span>
+            <a href="" class="blog-title"
+              >What Has Happened Of All of the Web Design Ideas</a
+            >
+            <p class="paragraph">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
+              asperiores perspiciatis nostrum delectus error enim aspernatur
+              culpa rem possimus illum! Similique debitis unde reiciendis earum
+              consequuntur, consequatur temporibus asperiores doloribus odio
+              sint dolorem tenetur neque quidem, officia molestiae et nisi.
+            </p>
+            <a href="">Read More</a>
+          </div>
+        </div>
+        <!--blog-box ends-->
+
+        <!--1st Blog-->
+        <div class="blog-box">
+          <!--image starts -->
+          <div class="blog-img">
+            <img src="images/blog-3.jpeg" alt="Blog" />
+          </div>
+          <!--blog-img ends-->
+          <!--text starts-->
+          <div class="blog-text">
+            <span class="span">18 July 2021 / Web Design</span>
+            <a href="" class="blog-title"
+              >What Has Happened Of All of the Web Design Ideas</a
+            >
+            <p class="paragraph">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
+              asperiores perspiciatis nostrum delectus error enim aspernatur
+              culpa rem possimus illum! Similique debitis unde reiciendis earum
+              consequuntur, consequatur temporibus asperiores doloribus odio
+              sint dolorem tenetur neque quidem, officia molestiae et nisi.
+            </p>
+            <a href="">Read More</a>
+          </div>
+        </div>
+        <!--blog-box ends-->
+      </div>
+      <!--blog-container ends-->
+    </section>
+    <div id="modal hide-modal" class="modal hide-modal" >
+      <form id="add-blog" class="add-blog-form">
+        <div id="form-top">
+          <h2 class="add-title" style="text-align: center">Add a Blog Post</h2>
+          <img src="images/cross.png" alt="" class="cross-btn hide-modal-btn" />
+        </div>
+        <div id="input-ctn" class="input-ctn">
+          <input
+            type="text"
+            id="blog-title"
+            class="blog-title"
+            placeholder="Enter Blog title"
+            required
+          />
+          <input
+          type="text"
+          id="span-title"
+          class="span-title"
+          placeholder="Date / Topic"
+          required
+        />
+        <input
+        type="text"
+        id="paragraph-title"
+        class="paragraph-title"
+        placeholder="Enter the Paragraph Content"
+        required
+      />
+          <button type="submit" class="add-blog-btn">Add</button>
+        </div>
+      </form>
+    </div>
+
+    
+<script>
+const add_blog_btn=document.querySelector('.add-blog-btn')  
+const add_btn = document.querySelector('.add-btn')
+const model = document.querySelector('.modal')
+const hide_modal = document.querySelector('.hide-modal-btn')
+let delete_keys = document.querySelectorAll('.cross-btn')
+
+const container = document.querySelector('.blog-container')
+
+const blog_title = document.querySelectorAll('.blog-title')
+const span_title = document.querySelectorAll('.span-title')
+const para_title = document.querySelectorAll('.paragraph-title')
+
+
+
+let blogposts=[]
+
+let j=0;
+const deleteBlog =(event)=>{
+    for(i=0; i<delete_keys.length; i++){
+        console.log("event",event)
+            if(i==j)
+            {
+                event.path[j+2].remove()
+            }
+    }
+    // when i==0 
+    // j=2 (j targets the .box)
+    // event.path[2].remove()
+
+    console.log(blogposts)
+}
+
+
+const showModal =()=>{
+     model.classList.add('show-modal')  
+     console.log("showing")
+}
+const hideModal =()=>{
+    model.classList.remove('show-modal')
+}
+
+
+const BuildUi =(blogposts)=>{
+    blogposts.forEach((blog)=>{
+        const book_ctn = document.createElement('div')
+        book_ctn.classList.add('content')
+
+    })
+
+    delete_keys = document.querySelectorAll('.cross-btn')
+    delete_keys.forEach((key)=>{
+        key.addEventListener('click',deleteBlog)
+        //console.log("delete books", delete_keys)
+        
+    })
+
+}
+
+//everytime blogpost[] would be initialized to empty array whenver we refreshed the page 
+//to fix the issue
+const setBlogs =()=>{
+    if(localStorage.getItem("blogpost")){
+        blogpost = JSON.parse(localStorage.getItem("blogpost"))
+    }
+    else{
+         const test={
+             title:"Make a Blog Post"
+         }
+        blogpost.push(test)
+    }
+    BuildUi(blogpost)
+  
+}
+
+const fetchBlog =(event)=>{
+    //event.preventDefault()
+    const blog ={  
+title: blog_title.value,
+span: span_title.value,
+para: para_title.value 
+    }
+    blogposts.push(blog)
+    //json.stringify convert book array to string 
+    localStorage.setItem("blogpost",JSON.stringify(blogposts))
+    console.log(localStorage.getItem("blogpost"))
+    blog_title.value=""
+    span_title.value=""
+    para_title.value=""
+
+    //blogs are loaded, once the page is reloaded 
+    window.location.reload()
+}
+
+
+add_blog_btn.addEventListener('click',fetchBlog)
+hide_modal.addEventListener('click',hideModal)
+add_btn.addEventListener('click',showModal)
+
+setBlogs()
+</script>
+    
+  </body>
+</html>
