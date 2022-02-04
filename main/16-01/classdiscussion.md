@@ -148,3 +148,23 @@ create a google clone (landing page, search results page, use google search api 
 6. adding bootstrap to react 
 7. Props and propTypes 
 8. state and handling events 
+
+##### white board planning before coding  
+(mind mapping)
+- sketch out the bigger picture 
+- create mind tree (logical flow)
+- do dry run 
+- use scrum (create milestones and break it into a week, tracking progress)
+- manage backlogs 
+- use the right tools 
+- get lanaguage specific IDE 
+
+> API automation: POSTMAN 
+> web automation: Headlines recorder 
+
+have proper documentation and code reviews 
+
+- create content 
+- attend the conference 
+
+
