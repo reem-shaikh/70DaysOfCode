@@ -38,7 +38,7 @@ https://reem-shaikh.github.io/70DaysOfCode/main/12-11/assignment.html
 https://reem-shaikh.github.io/70DaysOfCode/main/12-11/demoassignment/demo.html
 
 
-### test 
+### 14-11 
 https://reem-shaikh.github.io/70DaysOfCode/test/14-11formtest.html
 
 
@@ -106,7 +106,7 @@ https://reem-shaikh.github.io/70DaysOfCode/main/25-11/tdltrial.html
 https://reem-shaikh.github.io/70DaysOfCode/main/26-11/anagram.html <br />
 https://reem-shaikh.github.io/70DaysOfCode/main/26-11/factorial.html
 
-### test
+### DS
 https://reem-shaikh.github.io/70DaysOfCode/test/28-11/factorial.html <br/>
 https://reem-shaikh.github.io/70DaysOfCode/test/28-11/fibonacci.html <br/>
 https://reem-shaikh.github.io/70DaysOfCode/test/28-11/largernum.html <br />
