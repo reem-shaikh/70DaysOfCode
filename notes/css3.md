@@ -1000,6 +1000,264 @@ If either of the condition is true, then add the particular styling to #main
 # AND 
 If both the conditions are satisfied (i.e both the properties are supported by the browser), then add styling to #main 
 ```
+### Counter 
+> these are the counters, basically indicating which position each <li> is on 
+![](css/css510.PNG)
+
+> The solution: 
+![](css/css511.PNG)
+
+> Counter related properties:
+1. Counter-reset 
+- create a variable and pass a value 
+```bash
+counter-reset: my-counter 1;
+```
+2. Counter()
+- to print the counter 
+```bash 
+Content: Counter(my-counter)
+```
+3. Counter-increment 
+- we specify what counter we want to increment and what value we want to incremeent it with 
+```bash 
+my-counter 5
+```
+![](css/css503.PNG)
+> after increementing by 5, pointer goes back to Counter() function.
+
+- Implementing in code 
+![](css/css504.PNG)
+ 
+ ### Css Caret color 
+ ![](css/css506.PNG)
+ > blinking of cursor is called caret, to change the caret color we have a css property called `caret-color`
+![](css/css507.PNG)
+
+> other values of caret-color:
+- auto (the default caret-color)
+- transparent (removes the caret cursor)
+
+### CSS @import Rule
+you can import another css file inside a css file
+> @import rule for relative path 
+```bash 
+@import 'navigation.css';
+```
+> defining media (type of media: all/ print/ screen/ speech)
+```bash 
+# defining style for print media 
+@import 'printstyle.css' print;
+# when user wants to print, then import this css file 
+```
+```bash 
+# defining style for screen media 
+@import 'media-1020.css' screen and (max-width:1020px);
+```
+### CSS Icon fonts
+using font awesome 
+
+1. Download 
+- from font-awesome website and add it to your current working directory inside a custom folder called `fonts`
+- transport `fonts/css/all.css` and `fonts/webfonts` into your main file 
+- import these files into your main css file 
+
+2. CDN link 
+
+### CSS Scrollbar styling 
+> psuedo elements for scrollbar styling 
+![](css/css509.PNG)
+
+> we can use in chrome, safari and opera by using prefix:
+![](css/css520.PNG)
+
+> An example,
+![](css/css521.PNG)
+
+### Display: flow-root 
+> The problem:
+When we add a div inside a container and assign it a float property, the outside div ends up compressing like this
+![](css/css560.PNG)
+
+> The solution:
+![](css/css561.PNG)
+
+### CSS List-style-type: string
+> In unordered list, list-style-stype has these 3 values 
+![](css/css570.PNG)
+
+> In unordered list, we can even pass strings, you can add html symbols or emojis over here as well.
+![](css/css571.PNG)
+
+### Anchor tag 
+![](css/css573.PNG)
+The scrolling is not smooth using anchor tag, to acheive smooth scrolling were using scroll-behavior.
+
+### CSS Scroll-behavior 
+To apply scroll behavior you need to do `internal page linking` 
+- If you want to acheive scrolling on the entire page, then add scroll-behavior to the HTML tag.
+- If you want to acheive scrolling on a specific div, then add scroll-behavior to a div tag. 
+
+> Values of scroll behavior:
+- auto 
+- smooth 
+
+1. Adding scroll behavior to HTML tag.
+In this code, we'll add scroll behavior to your single page website 
+![](css/css573.PNG)
+![](css/css574.PNG)
+
+2. Addding scroll behavior to a particular div 
+> To acheive this
+- encapsulate the `anchor internal linking` and the `content` inside the div tag 
+![](css/css580.PNG)
+- add scroll-behavior to the particular div 
+![](css/css581.PNG)
+
+### Scroll-Snap 
+> How to achieve scroll-snap in your website?
+If we have multiple divs one below the other, each having a 100vh, and are given a scrollbar-y, when we click on the scrollbar-track and scroll downwards and when we come to a point where the top-div content width is more than the divs below it, then it automatically scrolls upwords
+
+> Scroll-Snap values:
+![](css/css600.PNG)
+1. scroll-snap-type 
+```bash 
+# when your scrolling vertically up and down
+scroll-snap-type: y mandatory;
+# when your scrolling horizontally lhs and rhs 
+scroll-snap-type: x mandatory;
+# when your scrollng vertically up and down and horizontally lhs and rhs 
+scroll-snap-type: both mandatory;
+# when your scrolling vertically only downwards, doesnt work when you try to scroll upwards 
+scroll-snap-type: y proximity;
+# when your scrolling horizontally only rightwards, doesnt work when you try to scroll leftwards 
+scroll-snap-type: x proximity;
+```
+2. scroll-snap-align 
+> as we scroll from one div to another, there are three ways allignment happens
+```bash 
+# allignment happens from start which means everytime our page encounters a div width which is greater than the previous div width, as we scroll from top to bottom, it snaps to that div 
+scroll-snap-align: start;
+# allignment happens from end which means everytime our page encounters a div width which is greater than the previous div width, as we scroll from bottom to top, it snaps to that div 
+scroll-snap-align: end;
+scroll-snap-align: center;
+```
+> This code has three divs, each with class=section and seperate ID's
+![](css/css583.PNG)
+![](css/css584.PNG)
+
+### Backdrop filter 
+> Were adding a filter to the inner div which is placed above an image 
+![](css/css700.PNG)
+
+> effects:
+![](css/124.PNG)
+
+> How it works in the code?
+![](css/125.PNG)
+
+### Text-orientation 
+Its used to align text from top to bottom 
+> used with writing-mode property.
+
+>> values:
+- mixed
+- upright 
+- sideways
+- sideways-right 
+
+> Here's how our text looks without text-orientation
+![](css/css900.PNG)
+
+> after adding text-orientation property 
+![](css/css901.PNG)
+
+### Accent-color 
+Used to add color to checkbox / radiobuttons.
+![](css/css902.PNG)
+![](css/css903.PNG)
+
+### prefers-color-scheme
+its used for applying CSS properties for light and dark theme 
+```bash 
+@media(prefers-color-scheme: value){
+  # value can be either light or dark 
+  # we can add either light or dark theme styling over here 
+}
+```
+![](css/css904.PNG)
+> How does it work?
+When the user is browsing the website in light mode, the light mode properties will be applied to the website, so the bg-color in this case will be pink. However, when the user is browsing the website in dark mode, dark mode properties will be applied to the website, thats why bg-color in this case will be light green.
+
+### display-mode @media rule 
+You can change your website's UI based on whether its fullscreen or whether its in the browser. 
+
+```bash 
+@media(display0mode: value){
+  # how will the styling of the website appear, when the user is in 
+  # 1. fullscreen mode 
+  # 2. minimal-ui - if you want to view website in minimal-ui, then go to settings -> more tools -> create a shortcut -> click on open as window
+  # 3. browser 
+}
+```
+- Because our website is in browser mode its blue 
+![](css/css905.PNG)
+- Because our website is in f11 mode, its green 
+![](css/css906.PNG)
+- When you open your website in minimal-ui mode, its orange
+
+### aspect-ratio 
+- we specifying in which ratio were setting the height and the width 
+> its used to make images and videos responsive 
+```bash 
+aspect-ratio: width/height;
+```
+![](css/css910.PNG)
+
+> use cases:
+1. when you want an image to be of the same height and width 
+![](css/css911.PNG)
+2. When you want a video to be of a specific dimension 
+![](css/css920.PNG)
+![](css/css921.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
