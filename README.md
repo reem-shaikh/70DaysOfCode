@@ -1,8 +1,6 @@
 
 <!-- #assignment website prebootcamp:
 >https://reem-shaikh.github.io/70DaysOfCode/html/Foodapp.html/index.html -->
-
-
 ## 8-11 
 **Layout html:**
 https://reem-shaikh.github.io/70DaysOfCode/main/8-11/index.html
@@ -186,7 +184,10 @@ https://reem-shaikh.github.io/70DaysOfCode/main/30-12/assignments/30assignment.h
 
 ## 1-01 
 https://reem-shaikh.github.io/70DaysOfCode/main/1-01/min5.html </br>
-https://reem-shaikh.github.io/70DaysOfCode/main/1-01/proto2.html
+https://reem-shaikh.github.io/70DaysOfCode/main/1-01/proto2.html </br>
+
+**Art Gallery**
+https://reem-shaikh.github.io/70DaysOfCode/main/1-01/artpage.html
 
 ## 2-01 
 **Image Gallery**
