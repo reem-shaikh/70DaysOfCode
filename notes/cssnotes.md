@@ -12,9 +12,11 @@ it is a set of APIs allowing the manipulation of HTML from JavaScript
 > HTML - element we say when we talk about HTML point of view 
 
 #### Attribute VS element VS tag
+```bash
 <div id="something" class="" onclick="">
   <p>  </p>
 </div>
+```
 
 #### Attribute
 additional properties which are part of your html element
@@ -84,17 +86,21 @@ Form tag attributes:
 ```
 
 #### Element 
+```bash
 <div id="something" class="" onclick="">  //div element
   <p>  </p>
 </div>
+```
 everything inside opening and closing tag is element.
 element contains stuff between the tags
 element can have children 
 
 #### Tag 
+```bash
 <div id="something" class="" onclick="">  //div opening tag
   <p>  </p>
 </div>                                    //div closing tag
+```
 anything between <> (angular brackets)
 tag are used to hold html element 
 tag is singular 
@@ -231,7 +237,7 @@ gives additional info about our webpage
     <meta charset="UTF-8">
 
     ✅meta edge 
-      tells browser to be compatible with internet explorer: edge 
+    tells browser to be compatible with internet explorer: edge 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     ✅meta viewport: used for responsiveness in mobile devices.
@@ -1047,7 +1053,7 @@ div {
     </div>
 
     <div>
-        <div>I am an only child.</div>             ✅div:only-of-type
+        <div>I am an only child.</div>            ✅div:only-of-type
     </div>
 
     <div>
@@ -1634,6 +1640,11 @@ It doesn't change wrt to the parent container, it only changes wrt the viewport
 - if you have a child div and a parent div, parent div has a px font size and child div has a % font-size, then the child div will take the size wrt the parent div, and not wrt the viewport 
 
 - if you have a child div and a parent div, parent div has a px font size and child div has a vh and vw font-size, then the child div will not take the size wrt the parent div, and will adjust wrt the viewport, irrespective the damn circumstance. 
+
+## 4. vmax and vmin 
+- vmax - as long as width > height, its adds 50vw to the width, if height > width, it add 50vh
+![](css/css190.PNG)
+- vmin - as long as width < height, it add 50vw to the width, if height < width, it adds 50vh 
 
 ### Difference between viewport, browser window and document
 - viewport (device screen)
