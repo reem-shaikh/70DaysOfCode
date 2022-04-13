@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- Grid without specifying width for columns -->
+    <!-- As we minimize screen size of the basic grid below 412px it stacks on top of the other -->
+  <div class="container-lg my-5">
+    <h2>basic grid</h2>
+    <div class="row">
+      <div class="col">
+        <div class="p-5 bg-primary text-light">col 1</div>
+      </div>
+      <div class="col">
+        <div class="p-5 bg-primary text-light">col 2</div>
+      </div>
+      <div class="col">
+        <div class="p-5 bg-primary text-light">col 3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specifying width for each column in grid -->
+  <!-- When we minimize the grid, the columns minimize and dont get pushed to the next line, however it ends up in different width sizes-->
+  <div class="container-lg my-5">
+    <h2>column widths</h2>
+    <div class="row">
+      <div class="col-6">
+        <div class="p-5 bg-primary text-light">col 1</div>
+      </div>
+      <div class="col-3">
+        <div class="p-5 bg-primary text-light">col 2</div>
+      </div>
+      <div class="col-3">
+        <div class="p-5 bg-primary text-light">col 3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- were specififying for different breakpoints for different screen sizes -->
+  <div class="container-lg my-5">
+    <h2>responsive column widths</h2>
+    <div class="row gy-3"> 
+        <!-- for small width screen size: 100% width for xs, all other dimensions act like a container with columns divided in 4-4-4
+        - for large width size: act like a container from lg screen size, everything before lg  (xs/sm/md) and lg give 100% but once it encounters the lg breakpoint, the columns divided into 6-3-3 -->
+      <div class="col-sm-4  col-lg-6">
+        <div class="p-5 bg-primary text-light">col 1</div>
+      </div>
+      <div class="col-sm-4 col-lg-3">
+        <div class="p-5 bg-primary text-light">col 2</div>
+      </div>
+      <div class="col-sm-4 col-lg-3">
+        <div class="p-5 bg-primary text-light">col 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-lg my-5">
+    <h2>justifying columns</h2>
+    <!-- justify-content-center alligns the column to the center  -->
+    <div class="row justify-content-center">
+    <!-- when screen size is xl / lg/ medium it will take 3 column width
+         when screen size is small it will take 12 column width, i.e it will stack one below the other -->
+      <div class="col-md-3">
+        <div class="p-5 bg-primary text-light">col 1</div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-5 bg-primary text-light">col 2</div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-5 bg-primary text-light">col 3</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>

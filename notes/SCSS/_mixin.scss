@@ -1,0 +1,17 @@
+// mixin 
+// if a peice of code is repeating multiple times, add it to mixin 
+// syntax: @mixin mixinname
+@mixin flexprop {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+// you can create as many mixins as you want 
+@mixin commoncode($lettervalue) {
+    color: red;
+    // operators 
+    font-size: 5rem + 5rem;
+    letter-spacing: $lettervalue;
+}

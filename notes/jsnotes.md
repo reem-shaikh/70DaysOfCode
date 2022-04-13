@@ -15,7 +15,6 @@ can create
 - web apps
 - iot 
 
-
 ### How JS works?
 1. JS is an intrepreted language, it parses code line by line 
 2. JS is a client side, scripting language 

@@ -1,0 +1,61 @@
+@import 'mixin';
+@import 'var';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%; 
+    /* same as 10x */
+  }
+
+
+  
+
+// nesting 
+  .main-header {
+    width: 100vw;
+    height: 100vh;
+    // display: grid;
+    // place-items: center;
+    // align-items: center;
+    // flex-direction: column;
+
+    // instead of writing repetetive code, we can now call the mixin we defined above using include
+    @include flexprop;
+
+    /* if this background color is used in multiple places we can simply add it in a variable*/
+    background-color: $bg-color;
+  
+    h1{
+    //   color: red;
+    //   font-size: 5rem + 5rem;
+    //   letter-spacing: .3rem;
+
+    // instead of writting this peice of repeating code, were importing the common code through mixins 
+    @include commoncode(1.5rem);
+
+    // if you want to overwrite a certain property defined inside commoncode mixin, then simply define it here 
+    //letter-spacing: 1.5rem;
+    // but instead of doing this, you can pass parameters inside commoncode
+
+    // instead of writing h1:hover outside the h1 scope, we can define all the styling related to h1, by using the ampersand instead.
+      &:hover {
+        color: white;
+    }
+    // we can even user psuedo elements 
+      &::after {
+          content: ' world';
+      }
+    }
+    
+    p{
+        @include commoncode(0.3rem);
+        // color: red;
+        // font-size: 5rem + 5rem;
+        // letter-spacing: .3rem;
+    }
+  }

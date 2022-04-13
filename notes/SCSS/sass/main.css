@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /* same as 10x */
+}
+
+.main-header {
+  width: 100vw;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* if this background color is used in multiple places we can simply add it in a variable*/
+  background-color: #10ac84;
+}
+
+.main-header h1 {
+  color: red;
+  font-size: 10rem;
+  letter-spacing: 1.5rem;
+}
+
+.main-header h1:hover {
+  color: white;
+}
+
+.main-header h1::after {
+  content: ' world';
+}
+
+.main-header p {
+  color: red;
+  font-size: 10rem;
+  letter-spacing: 0.3rem;
+}
+/*# sourceMappingURL=main.css.map */

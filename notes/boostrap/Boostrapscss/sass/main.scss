@@ -1,0 +1,19 @@
+//predefined values on top 
+$primary: #e50dfd;
+
+//we need to make some imports for custom themed color to work
+// make sure you add import after the already defined values in bootstrap, in this case its $primary 
+@import '../node_modules/bootstrap/scss/_functions';
+@import '../node_modules/bootstrap/scss/_variables';
+
+//were creating customer themed values, for our index.html
+$custom-theme-colors: (
+    "altlight": #f2ebfa,
+    "altdark": #522192
+);
+
+//were merging our newly created variables with already predefined values and storing insise $theme-colors which is a variable container of $primary found in _variables.scss
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
