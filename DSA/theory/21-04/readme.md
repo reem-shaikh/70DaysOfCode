@@ -1,12 +1,12 @@
-> Q. What are the run time environments for JS?
+1. Q. What are the run time environments for JS?
 Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-> Q. what is an alternative to Node.js 
+2. Q. what is an alternative to Node.js 
 Deno.js created by the person who created Node.js
 Deno.js supports typescipt, node.js doesnt support. 
 Deno.js is better than Node.js 
 
-> Q. How to take inputs in console in JS 
+3. Q. How to take inputs in console in JS 
 readline allows us to get user input from console, the same way cin is used for cpp and int(input) is used in python. 
 
 ### An intro to readline module 
