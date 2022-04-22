@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const revInt = (num) => {
+            var ans = []
+            console.log(num)
+            let myRevNum = num.toString().split("")
+            // # ['1','2','3'] - split("")
+            // # "123" - split()
+            let rev = myRevNum.reverse()
+            // # ['3','2','1']
+            let join = rev.join(" ")
+            ans.push(join)
+            console.log(ans)
+   
+
+            // # 3,2,1 - join()
+            // # 321 - join("")
+            // # 3 2 1 - join(" ")
+            //  console.log('join',join)
+            //  let array = ans.push(rev)
+            //  console.log('array', array)
+            //  let arrayjoin = ans.join("").split(",")
+
+            //  console.log('arrayjoin', arrayjoin)
+            //  console.log('arrayjoin final',arrayjoin.join(" ")
+          
+            
+             //return arrayjoin
+        }
+        revInt(1234)
+    </script>
+</body>
+</html>

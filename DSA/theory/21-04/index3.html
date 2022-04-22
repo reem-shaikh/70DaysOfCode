@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const matrix = [
+    [12, 13, 14, 15],
+    [11, 2, 3, 4],
+    [10, 1, 0, 5],
+    [9, 8, 7, 6],
+  ];
+
+
+const spiralInverse = matrix => {
+    const result = [];
+    console.log('before matrix', matrix)
+  
+    // let top = rowCount - 1;
+    // let bottom = rowCount - 3;
+    // let left = columnCount - 3;
+    // let right = columnCount - 2;
+
+    // these are the indices each pointer will start 
+    let top = matrix[1][3]
+    let bottom = matrix[1][2]
+    let left = matrix[1][1]
+    let right = matrix[2][2]
+  
+    // for top and bottom were taking a different loop variable 
+    // for left and right were taking a different loop variable 
+    while (left<=right && top<=bottom) {
+       // lhs -> rhs 
+      for (let column = left; column <= right; column++) {
+        result.push(matrix[top][column]);
+      }
+     //move top downwards after we reach the end of rhs 
+      top++;
+  
+      // top -> bottom
+      for (let row = top; row <= bottom; row++) {
+        result.push(matrix[row][right]);
+      }
+    //move right pointer to the lhs 
+      right--;
+  
+      // right -> left
+      if (bottom >= top) {
+        for (let column = right; column >= left; column--) {
+          result.push(matrix[bottom][column]);
+        }
+      }
+    //move bottom pointer upwards 
+      bottom--;
+  
+      // bottom -> top 
+      if (right >= left) {
+        for (let row = bottom; row >= top; row--) {
+          result.push(matrix[row][left]);
+        }
+      }
+    //move left pointer to rhs 
+      left++;
+    }
+  
+    return result;
+  };
+   
+  console.log(spiralInverse(matrix))
+    </script>
+</body>
+</html>

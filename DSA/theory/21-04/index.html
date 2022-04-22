@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// first attempt to solving spiral matrix 
+// wrong approach 
+var spiralOrder = function(matrix){
+    const rowCount = matrix.length;
+    const columnCount = matrix[0].length;
+
+    const result = []
+
+    let left = 0 
+    let top = 0 
+    let right = columnCount-1
+    let bottom = rowCount- 1
+
+    let direction = 0 
+
+    while(left<= right && top<=bottom){
+        direction = (direction) % 4
+
+        if(direction == 0){
+            for(let i=left; i<=right; i++){
+               result.push(matrix[top][i]) 
+               direction++
+            }
+            top = top + 1
+        }
+
+        if(direction == 1){
+              for(let i=top; i<=bottom; i++){
+               result.push(matrix[i][right] ) 
+               direction++
+            }
+            right = right - 1
+        }
+
+        if(direction == 2){
+             for(let i=right; i>=left; i--){
+                result.push(matrix[bottom][i]) 
+                direction++
+            }
+            bottom = bottom - 1
+        }
+
+        if(direction== 3){
+             for(let i=bottom; i>=top; i--){
+                result.push(matrix[i][left]) 
+                direction++
+            }
+            left = left + 1
+        }
+    }
+    return result 
+}
+
+let a=[[ 1, 2, 3, 4 ],[ 5, 6, 7, 8 ],
+[ 9, 10, 11, 12 ],[ 13, 14, 15, 16 ]];
+document.write(spiralOrder(a));
+    </script>
+</body>
+</html>

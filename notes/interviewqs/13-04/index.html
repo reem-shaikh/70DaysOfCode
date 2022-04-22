@@ -8,15 +8,20 @@
 </head>
 <body>
     <script>
+        var x = 1
+        a()
+        b()
+        console.log('first x',x)
+
        function a(){
            var x = 10
-           console.log(x)
+           console.log('a',x)
        }
 
        function b(){
         // use same variable name over here 
         var x = 100
-        console.log(x)
+        console.log('b',x)
        }
     </script>
 </body>

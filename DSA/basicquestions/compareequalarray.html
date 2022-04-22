@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // these 2 arrays are equal because they have the same values 
+        // the only difference is that their allignment is different 
+        var arr1 = [4, 8, 10, 9, 5]
+        var arr2 = [5, 10, 8, 9, 4]
+
+        // check if their length is equal and the array elements are same 
+        const is_same = arr1.length == arr2.length &&
+        arr1.every((currElem) => {
+            // were fetching every value from arr1 and were checking 
+            // checking if elem in arr1 is present in arr2 or not 
+            // by running the element we found from arr1 through indexOf 
+            // to extract the the indexOf the value from arr2 
+            if(arr2.indexOf(currElem) > -1)
+            // is value of arr1 included in arr2 
+            // if its not available return -1 
+            // else return that elements in arr1 is included in arr2 
+            return (currElem = arr2[arr2.indexOf(currElem)])
+        }) 
+        console.log(is_same)  //true 
+        // indexOf() returns -1 when elem not found 
+    </script>
+</body>
+</html>

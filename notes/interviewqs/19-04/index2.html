@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+class Book {
+    constructor(title, author){
+        this.name = title 
+        this.author = author
+    }
+
+    info(){
+        console.log(`${this.title} book ${this.author}`)
+    }
+}
+
+    // const book1 = Book('all things js', 'ayush')
+    // book1.info()
+
+    // const book2 = Book('meow meow', 'ayush')
+    // book2.info()
+
+class Magazine extends Book {
+    constructor(edition){
+        super('magazine1', 'ayush')
+        this.edition = edition
+    }
+}
+
+const mag1 = new Magazine('01')
+console.log(mag1)
+
+// Magazine.prototype = Object.create(Book.prototype)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Factory function - every time you call it it returns a new object 
+        function createBook(title, author){
+            // each book has its own object 
+            const obj = {
+                // data members
+                'name': title, 
+                'author': author,
+                // methods 
+                'info': function(){
+                    console.log(`${title} and ${author}`)
+                }
+            }
+            return obj
+        }
+        const book1 = createBook('all things js', 'ayush')
+        book1.info()
+
+        const book2 = createBook('meow meow', 'ayush')
+        book2.info()
+    </script>
+
+</body>
+</html>

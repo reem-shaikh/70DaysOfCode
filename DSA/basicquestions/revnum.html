@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const revInt = (num) => {
+            let myRevNum = num.toString().split("")
+            // ['1','2','3'] - split("")
+            // "123" - split()
+            console.log(myRevNum)
+            let rev = myRevNum.reverse()
+            // ['3','2','1']
+            let join = rev.join("")
+            console.log(join)
+            // 3,2,1 - join()
+            // 321 - join("")
+
+            // handling negative values 
+            if(join.endsWith("-")){
+                join= "-" + join
+                return parseInt(join)
+            } else {
+                return parseInt(join)
+            }
+        }
+        console.log(revInt(-123))
+        // usually -123 will return 321-
+        // to remove negative from rhs we parseint it and we add - before the string 
+    </script>
+</body>
+</html>

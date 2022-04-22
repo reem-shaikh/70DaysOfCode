@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var findPeakElement = function(nums){
+        let left = 0 
+        let right = nums.length - 1 
+        // binary search is for the sorted arrays 
+        while(left < right){
+            let mid = Math.floor((left+right)/2)
+            // check if the number at mid is greater than next number or not 
+            if(nums[mid] > nums[mid+1]){
+                right = mid 
+                // when data > mid then data must be present to the right of the mid 
+            } 
+            // mid element is less than next element 
+            else {
+                // when data is less than mid then it must be present to the left of the mid 
+                left = mid+1 
+            }
+        }
+        return left 
+        // returning the position of the peak element 
+    }
+    let nums = [1,2,3,1]
+    console.log(findPeakElement(nums))
+</script>
+</body>
+</html>

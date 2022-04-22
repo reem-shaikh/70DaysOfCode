@@ -1388,7 +1388,7 @@ Valueof hi, i am a string
 24. map 
 25. fill 
 26. findindexOf 
-
+27. reduce 
 ```
 1. modify 
 ```bash 

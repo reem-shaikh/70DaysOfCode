@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id='mybody'>
+    <div id="app">hello
+        <button id="mybtn">click me</button>
+    </div>
+<script>
+    // through js were able to change the DOM
+    var myapp = document.getElementById('app')
+    var mybody = document.getElementById('mybody')
+    var mybtn = document.getElementById('mybtn')
+
+    const handleClick = (e) => {
+        console.log('document clicked')
+    }
+
+    // const handleclickbody = (e) => {
+    //     console.log('body clicked')
+    // }
+
+    const handlebutton = (e) => {
+        console.log('button clicked')
+        e.stopPropogation()
+    }
+
+    const handleclickdiv = (e) => {
+        console.log('div clicked')
+    }
+
+    document.addEventListener('click', handleClick)
+    myapp.addEventListener('click', handleclickdiv)
+    mybtn.addEventListener('click', handlebutton)
+</script>
+</body>
+</html>

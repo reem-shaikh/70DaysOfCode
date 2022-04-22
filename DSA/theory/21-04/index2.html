@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// right approach 
+const matrix = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+  ];
+
+
+const spiralOrder = matrix => {
+    const result = [];
+    console.log('before matrix', matrix)
+  
+    const rowCount = matrix.length;
+    const columnCount = matrix[0].length;
+
+    let top = 0;
+    let bottom = rowCount - 1;
+    let left = 0;
+    let right = columnCount - 1;
+  
+    // for top and bottom were taking a different loop variable 
+    // for left and right were taking a different loop variable 
+    while (left<=right && top<=bottom) {
+       // lhs -> rhs 
+      for (let column = left; column <= right; column++) {
+        result.push(matrix[top][column]);
+      }
+      top++;
+  
+      // top -> bottom
+      for (let row = top; row <= bottom; row++) {
+        result.push(matrix[row][right]);
+      }
+      right--;
+  
+      // right -> left
+      if (bottom >= top) {
+        for (let column = right; column >= left; column--) {
+          result.push(matrix[bottom][column]);
+        }
+      }
+      bottom--;
+  
+      // bottom -> top 
+      if (right >= left) {
+        for (let row = bottom; row >= top; row--) {
+          result.push(matrix[row][left]);
+        }
+      }
+      left++;
+    }
+  
+    return result;
+  };
+   
+  console.log(spiralOrder(matrix))
+    </script>
+</body>
+</html>

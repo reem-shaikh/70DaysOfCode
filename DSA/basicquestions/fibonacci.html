@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 0, 1, 1, 2, 3, 5, 8
+        // print fibonnaci series before 100
+        const num = 100
+        let x = 0 
+        let y = 1 
+
+        let fn = x + y 
+        while(fn < num){
+            console.log(fn)
+            fn = x+y
+            x=y
+            y=fn 
+        }
+    </script>
+</body>
+</html>

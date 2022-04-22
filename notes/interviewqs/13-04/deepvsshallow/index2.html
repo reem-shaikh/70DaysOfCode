@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const _ = require('lodash');
+        let dev1 = {
+            name: 'reem', 
+            // nested objects 
+            skills: {primary: 'Frontend', secondary: 'Devops'},
+            calculateAge: function (params){
+                return 20
+            },
+            joiningDate: new Date()
+        }
+
+        let dev2 = _.cloneDeep(dev1)
+        dev2.name = 'ruby'
+        dev2.skills.primary = 'Full stack'
+
+        console.log('dev1',dev1)
+        console.log(typeof(dev1.joiningDate)) 
+        console.log('dev2',dev2)
+        console.log(typeof(dev2.joiningDate))  
+      
+    </script>
+</body>
+</html>
