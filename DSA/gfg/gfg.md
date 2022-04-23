@@ -143,18 +143,19 @@ class Solution {
 
         while(left < right){
             let mid = Math.floor((left+right)/2) 
-            # 0+2/2=1
+            #0+2/2=1
 
             #1  2  3 
-            #2>3
+            #2>3 nope 
             if(nums[mid] > nums[mid+1]){
                 right = mid 
             } 
             else {
-            # 2<3
+            # 2<3 yes 
                 left = mid+1 
             }
         }
+        # returning the value in left 
         return left 
     }
     # let arr = [1,2,3,1]
@@ -198,6 +199,7 @@ class Solution {
             var max = arr[0]
             var min = arr[0]
             var ans = []
+            let ans = 0 
             
             #3 2 1 56 
             for(var i=0; i<n; i++){
@@ -210,9 +212,10 @@ class Solution {
                 } 
             }
             
-            ans.push(min)
-            ans.push(max)
-            return ans
+            ans = max - min 
+            console.log(ans)
+            return ans 
+
     }  
  
 }
