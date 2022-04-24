@@ -417,33 +417,6 @@ class Solution{
 }
 }
 ```
-### Union of two arrays
-Given two arrays a[] and b[] of size n and m respectively. The task is to find union between these two arrays.
-```bash 
-Input:
-5 3
-1 2 3 4 5
-1 2 3
-
-# union would be 1 2 3 4 5 
-Output: 
-5
-
-Explanation: 
-1, 2, 3, 4 and 5 are the
-elements which comes in the union set
-of both arrays. So count is 5.
-```
-> ans. 
-```bash 
-
-```
-### Factorial of large number
-```bash 
-Input: N = 5
-Output: 120
-Explanation : 5! = 1*2*3*4*5 = 120
-```
 
 
 

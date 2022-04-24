@@ -771,8 +771,7 @@ arr before reverse: aman,karan,rehman,sanjay
 arr after reverse: sanjay,rehman,karan,aman
 ```
 
-5. pop 
-6. 
+5. pop  
 ```bash 
 document.write("arr before pop: " + arr + "<br>")
 arr.pop()

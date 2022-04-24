@@ -21,14 +21,9 @@ const readline = require('readline')
 const rl = readline.createInterface({input : process.stdin, 
                           output: process.stdout})
 # process - global object 
-
-# return random number between 1 and 10 
-let num1 = Math.floor((Math.random() * 10) + 1)
-let num2 = Math.floor((Math.random() * 10) + 1)
-let answer = num1 + num2 
-
-rl.question(`what is ${num1} + ${num2}?`, (userInput)=> {
-    console.log(userInput)
+rl.question('enter your name', name => {
+  console.log(`Hello ${name}`)
+  rl.close()
 })
 ```
 3. Type `node test.js` in the root of the directory your testing this for
@@ -105,6 +100,11 @@ dir = (dir+1) % 4
 > 2. Second approach - no need to keep a count of the dir pointer because were anyways denoting the direction the pointer has to move in through `top / bottom / left / right`
 ```bash 
    <script>
+  # at all 4 corners we'll take 4 pointers 
+  # top pointer will change the row wise in a positive direction
+  # right pointer will change row wise in a negative direction 
+  # down pointer will change column wise in negative direction 
+  # left pointer will change column wise in a psoitive direction
 const matrix = [
     [0, 1, 2, 3],
     [11, 12, 13, 4],
@@ -173,6 +173,128 @@ const spiralOrder = matrix => {
 
   console.log(spiralOrder(matrix))
 </script>
+```
+> classcode 
+```bash 
+const DIRECTION_TOP    = 1;
+const DIRECTION_LEFT   = 2;
+const DIRECTION_BOTTOM = 3;
+const DIRECTION_RIGHT  = 4;
+
+# enter size of one row 
+const n = prompt("Enter the size");
+const n = 7;
+console.log(n);
+
+let direction = DIRECTION_TOP;
+let row    = 0;
+let column = 0;
+let arr = [];
+
+# another way to initalize the aray 
+# let arr    = (new Array(n)).fill((new Array(n)).fill(undefined));
+
+# iniitalizing the array 
+for(let i = 0; i<n; i++) {
+	arr[i] = [];
+  for(let j=0; j < n; j++) {
+    arr[i][j] = [];
+  }
+}
+# console.log(arr);
+
+for(let i = 1; i <= n*n; i++) {
+  arr[row][column] = i;
+  
+  switch(direction) {
+    # bottom to top 
+  	case DIRECTION_TOP: #row--
+    	if((row - 1) < 0 || arr[row - 1][column] != undefined) {
+      	direction = DIRECTION_RIGHT;
+        # after traversing to top when we reach the first row switch direction to right 
+        # when we traverse bottom to top - row value decreases, column stays constant 
+      }
+      break;
+
+    # rhs -> lhs 
+    case DIRECTION_LEFT: #column--
+    	if((column - 1 < 0) || arr[row][column - 1] != undefined) {
+      	direction = DIRECTION_TOP;
+      # after traversing to lhs when we reach the first column switch direction to top 
+      # when we traverse from rhs -> lhs column value decreases, row remains constant 
+      }
+      break;
+
+    # top to bottom
+    # print bottom to top by traversing over the 1st column 
+    case DIRECTION_BOTTOM: #row++
+    	if((row + 1) >= n || arr[row + 1][column] != undefined) {
+      	direction = DIRECTION_LEFT;
+        # after traversing bottom when we reach the last row switch direction to lhs 
+        # when we traversefrom top -> bottom, row value increases, column is constant 
+      }
+      break;
+
+    # lhs -> rhs 
+    case DIRECTION_RIGHT: #column++
+    # print lhs to rhs by traversing over the first row 
+    	if((column + 1) >= n || arr[row][column + 1] != undefined) {
+        direction = DIRECTION_BOTTOM;
+        # after traversing to rhs when we reach the last index switch direction to bottom
+        # when we traverse from lhs -> rhs, column values increases, row is constant 
+      }
+      break;
+    default:
+    	break;
+  }
+  
+  # changing direction 
+  switch(direction) {
+    # bottom to top 
+  	case DIRECTION_TOP:
+    	row--;
+      break;
+
+    # rhs to lhs 
+    case DIRECTION_LEFT:
+    	column--;
+      break;
+
+    # top to bottom
+    case DIRECTION_BOTTOM:
+    	row++;
+      break;
+
+    # lhs -> rhs
+    case DIRECTION_RIGHT:
+    	column++;
+      break;
+
+    default:
+    	break;
+  }
+}
+
+let output = "";
+for(let i = 0; i < arr.length; i++) {
+  const row = arr[i];
+  if(i == 0) {
+    output = output + row.join("  ");
+  } else {
+    output = output + row.join(" ");
+  }
+  output = output + "\n";
+}
+console.log(output);
+```
+```bash 
+1  2  3  4  5  6  7
+24 25 26 27 28 29 8
+23 40 41 42 43 30 9
+22 39 48 49 44 31 10
+21 38 47 46 45 32 11
+20 37 36 35 34 33 12
+19 18 17 16 15 14 13
 ```
 #### Inverse Spiral 
 ```bash 

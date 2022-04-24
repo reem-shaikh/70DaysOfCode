@@ -1,4 +1,5 @@
-1. We have an array find the index of the given element for 
+### First and last occurance 
+We have an array find the index of the given element for 
 - first occurance
 - last occurence 
 <!-- sorted array -->
@@ -90,50 +91,93 @@ while(start <= end){
 ```
 > 💡Tip: use python discord chat to visualize the solutions 
 <!--for first occurance:
+     element must be found to the lhs of the mid element
      res = mid 
      end = mid-1
      
-    for last occurance 
+    for last occurance:
+     element must be found to the rhs of the mid element 
      res = mid 
-     start = mid + 1 -->
+     start = mid + 1 
+-->
 
 > first and last occurance 
 ```bash 
+# this function is to find the first occurance of an element entered by the user from the array 
 function first(arr,start,end,x,n)
 {
     if (start <= end) {
         let mid = start + Math.floor((end - start) / 2);
 
-        # if we find the middle element and 
+        # let x = 10 
+        #           0   1   2   3  4
+        # let arr = [1, 2, 10, 10, 10]
+        # mid = 0 + (4-0)/2 = 2 
+
+        # x>arr[mid-1] -> 10>2 ✅ 
+        # arr[mid]==x -> 10=10 ✅
+
+        # if there is only one element in the array 
+        # mid == 0 -> 2 == 0 ❌
         if ((mid == 0 || x > arr[mid - 1]) && arr[mid] == x)
+        # returning first occurance of 10 
             return mid;
+
+        # lets take an example for this condition 
+        # x = 20 
+        # let arr = [1, 2, 10, 10, 20]
+        # mid = 0 + (4-0)/2 = 2 
+        # x>arr[mid] -> 20>10 ✅
+        # then the element were searching for must be present on the rhs of the array and we assign (start=mid+1)
         else if (x > arr[mid])
             #  start, mid, end 
             return first(arr, (mid + 1), end, x, n);
+        # if x<arr[mid] then data is present on lhs of the array and we assign (end=mid-1)
         else
             return first(arr, start, (mid - 1), x, n);
     }
     return -1;
+    # if x is present in arr then returns the index of first occurrence otherwise return -1 
 }
  
-/* if x is present in arr then returns the index of
-   LAST occurrence of x in arr[0..n-1], otherwise
-   returns -1 */
 function last(arr, start, end, x, n)
 {
-    if (end >= start) {
+    if (start <= end) {
         let mid = start + Math.floor((end - start) / 2);
 
+        # let x = 10 
+        #           0   1   2   3  4
+        # let arr = [1, 2, 10, 20, 30]
+        # mid = 0 + (4-0)/2 = 2 
+
+        # x<arr[mid+1] -> 10<20 ✅ 
+        # arr[mid]==x -> 10=10  ✅
+
+        # if X is at the last index of the array 
+        # mid == n-1 -> 2 == (5-1) ❌
         if ((mid == n - 1 || x < arr[mid + 1]) && arr[mid] == x)
             return mid;
 
-        # if x<arr[mid] then element must be present on lhs of array 
+        # let x = 10 
+        #           0   1   2   3  4
+        # let arr = [1, 10, 20, 20, 30]
+        # mid = 0 + (4-0)/2 = 2 
+
+        # if x<arr[mid] -> 10<20 
+        # then element must be present on lhs of array 
         else if (x < arr[mid])
             return last(arr, start, (mid - 1), x, n);
         else
+        # let x = 30 
+        #            0   1   2   3  4
+        # let arr = [1, 10, 20, 20, 30]
+        # mid = 0 + (4-0)/2 = 2 
+
+        # if x>arr[mid] -> 30<20 
         # if x>arr[mid] then element must be present on rhs of array 
             return last(arr, (mid + 1), end, x, n);
     }
+    # if X is not found in the array then return -1
     return -1;
 }
 
@@ -150,7 +194,9 @@ function array1(arr, search_key) {
     }
   }
   console.log(locations);
-  # traverse from 0 -> n-1 in locations array and return all the indexes found 
+  # traverse from 0 -> n-1 in locations array 
+  # since location array contains a list of elements that match the element that were searching for 
+ # were going to return the first index and last index of this array 
   return [locations[0], locations[locations.length - 1]];
 }
 
