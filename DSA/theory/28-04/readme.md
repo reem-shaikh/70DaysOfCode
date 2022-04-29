@@ -137,16 +137,224 @@ void rotate(vector<int>&nums, int k){
     
 };
 ```
+#### prefix sum 
+we have an input array -> [1, 24, 5, 10, 1, 2, 17]
+calculate output array based on the logic 
+<!-- op[i] = ip[1] + ip[2] + ip[3] + .. ip[i] -->
 
+<!-- op[2] = ip[0] + ip[1] + ip[2] 
+every element is sum of previos elements of the input-->
+> brute force approach (O(n^2) TC)
+```bash 
+const prefix = (arr) => {
+    let op = []
+    for(let i=0; i<arr.length; i++){
+        let sum = 0 
+        let(j=0; j<=i; j++){
+            # previos + new element
+            sum = sum + arr[j]
+        }
+        op[i] = sum
+    }
+    return op 
+}
+```
+> O(n) approach
+```bash
+<script
+# indices:      0  1  2  3
+    let arr = [ 3, 4, 5, 10 ];
+    let n = arr.length;
+    let ps = [];
 
+    ps[0] = arr[0];
 
+    # if no element in the array return empty array
+    if(n == 0) { return [] }
 
+    for (let i = 1; i < n; ++i)
+    # taking previous value + current value 
+    # referring to previous state of the output 
+    # this is dyanamic programming 
+        ps[i] = ps[i - 1] + arr[i];
 
+ 
+    for (let i = 0; i < n; i++)
+        console.log(ps[i] + " ");
+</script>
+```
+### Two sum
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+```bash 
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
 
+Explanation: 
+Because nums[0] + nums[1] == 9, we return [0, 1].
+```
 
+```bash
+const twoSum = (arr, target) => {
+    # check for i and j 
+    for(let i = 0; i<arr.length; i++){
+        for(let j=i+1; j<arr.length; j++){
+            # check if arr[i]+arr[j] is the target 
+            if(arr[i] + arr[j] == target) {
+                return [i, j]
+            }
+        }
+    }
+    return false 
+}
+const ip1 = [2, 7, 11, 15]
+const ip2 = 9
 
+# index of elements -> 2 7 (add up to 9)
+const op1 = [0, 1]
 
+console.assert(JSON.stringify(twoSum(ip1)) == JSON.stringify(op1), 'first testcase failed')
+```
+### Finding the peak 
+```bash
+<script>
+    var findPeakElement = function(nums){
+        let n = nums.length - 1
+        for(let i=0; i<n; i++){
+            # if current element is greater than the next index 
+            if(nums[i] > nums[i+1]){
+                return i 
+            }
+        }
+        # peak has to be at the last position if it hasnt met the above criteria 
+        return n 
+    }
+    let nums = [1,2,3,1]
+    console.log(findPeakElement(nums))
+</script>
+
+console:
+2 
+# the peak element is at 2nd index 
+```
+### Find middle index 
+> Approach (O(n^2))
+![](p2.PNG)
+- index taken as an input 
+- from the array, we want the sum of lhs of index to be equal to sum of rhs of index, we need to encounter the specific position 
+```bash
+const findPivot = (arr) => {
+    let pivot = 0
+    let left = 0 
+    for(let i=0; i<arr.length; i++){
+        for(let j=0; j<i; j++){
+            leftsum = leftsum + arr[j]
+        }
+
+        for(k=i+1; k<arr.length; i++){
+            rightsum = rightsum + arr[k]
+        }
+
+        if(leftsum == rightsum){
+            return i
+        }
+    }  
+    # else if index not found return -1
+    return -1 
+}
+
+console.assert(JSON.stringify(findPivot([1, 7, 3, 6, 5, 6])) == 3, 'first testcase failed')
+console.assert(JSON.stringify(findPivot([1, 2, 3])) == -1, 'first testcase failed')
+
+console.assert(JSON.stringify(findPivot([7])) == JSON.stringify(op1), 'first testcase failed')
+# node filename.js
+```
+### Maximum subarray 
+we have an array, from this, need to find the maximum continuous sumarray with highest sum
+```bash
+# IP [1,2,3,4,-5,-10,-17]
+# op [1,2,3,4]
+
+# find all subarrays 
+# find subarray with max sum 
+```
+> bruteforce approach
+```bash
+#include<iostream>
+#include<climits>
+using namespace std; 
+
+int main(){
+    int n; 
+    cin>>n;
+    int arr[n];
+
+    for(int i=0;i<n; i++){
+        cin >> arr[i];
+    }
+
+    int currsum[n+1];
+    currsum[0] = 0;
+
+    for(int i=1; i<=n; i++){
+        currsum[i] = currsum[i-1] + arr[i-1];
+    }
+
+    int maxSum = INT_MIN;
+    for(int i=1; i<=n; i++){
+        int sum = 0; 
+        for(int j=0; j<i; j++) {
+            sum = currsum[i] - currsum[j];
+            maxSum = max(sum, maxSum);
+        }
+    }
+
+    cout<<maxSum;
+    return 0;
+}
+
+terminal:
+4
+-1 4 7 2
+13
+cumulative sum approach - O(n^2)
+```
+> O(n^2) approach
+```bash
+#include<iostream>
+#include<climits>
+using namespace std; 
+
+int main(){
+    int n; 
+    cin>>n;
+    int arr[n];
+
+    for(int i=0;i<n; i++){
+        cin >> arr[i];
+    }
+
+    int currsum[n+1];
+    currsum[0] = 0;
+
+    for(int i=1; i<=n; i++){
+        currsum[i] = currsum[i-1] + arr[i-1];
+    }
+
+    int maxSum = INT_MIN;
+    for(int i=1; i<=n; i++){
+        int sum = 0; 
+        for(int j=0; j<i; j++) {
+            sum = currsum[i] - currsum[j];
+            maxSum = max(sum, maxSum);
+        }
+    }
+
+    cout<<maxSum;
+    return 0;
+}
+```
 
 
 

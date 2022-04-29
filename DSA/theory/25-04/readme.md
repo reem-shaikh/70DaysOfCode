@@ -997,11 +997,6 @@ class Solution:
         return n+1
 ```
 
-- complete all sorting algos 
-- all 3 test qs 
-- tc - 4 videos 
-
-
 
 
 
