@@ -27,7 +27,6 @@ Understand DS theory then solve problems on GFG / leetcode.
 - string algorithm (2)
 
 3. core subjects (15 days)
-![](1.PNG)
 - OOPS - shukla sir
 - DBMS - gatesmasher
 - OS - gatesmasher
@@ -105,13 +104,11 @@ full optimized
 
 
 ### 💡Tips
-- watch the video properly 
 - write psuedo code and working in notes 
 - code it 
 - even if you have the algo try to code it 
 - do DSA questions after your done with the particular topic 
 
-`control your mind - take breaks - release stress`
 
 
 
