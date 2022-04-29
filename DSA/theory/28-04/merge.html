@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const arr1 = [3, 6, 8, 9]
+const arr2 = [4, 6, 7, 10, 11]
+
+const mergeArrays = (arr1, arr2) => {
+    const newArr = [];
+    var p1 = 0;
+    var p2 = 0; 
+
+    while(p1 <arr1.length && p2<arr2.length){
+        if(arr1[p1]<arr2[p2]){
+            newArr.push(arr1[p1])
+            p1++
+        }else {
+            newArr.push(arr2[p2])
+            p2++
+        }
+    }
+
+
+if(p1<arr1.length){
+    while(p1<arr1.length){
+        newArr.push(arr1[p1])
+        p1++
+    }
+}
+
+if(p2<arr2.length){
+    while(p2<arr2.length){
+        newArr.push(arr2[p2])
+        p2++
+    }
+}
+
+console.log(newArr)
+}
+
+mergeArrays(arr1, arr2)
+    </script>
+</body>
+</html>

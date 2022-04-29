@@ -264,7 +264,8 @@ function array1(arr, search_key) {
     # console.log(findPeakElement(arr, 4))   
 }
 ```
-> another approach 
+### Sort Array 
+> partition method 
 ```bash 
 let count = 0 
 for(let i = 0; i<arr.length; i++){
@@ -293,6 +294,10 @@ for(let i = 0; i<arr.length; i++){
     }
 }
 return count 
+```
+> sort an array having only 0-1-2 ---> [0,0,1,2,2,1,0,2,1]
+```bash
+
 ```
 ### Mountain Array 
 Given an array of integers arr, return true if and only if it is a valid mountain array.

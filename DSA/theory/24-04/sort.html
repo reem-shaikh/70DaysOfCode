@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      const arr = [0, 1, 1, 0, 0, 0, 1, 1, 0]
+      var sortZeroOne = (arr) => {
+          let low = 0, high = arr.length-1;
+          while(low<=high){
+              if(arr[low] == 0){
+                  low++
+              }else
+              # when arr[low] = 1
+              {
+                  # swap 1 to the last index
+                  const temp = arr[low]
+                  arr[low] = arr[high]
+                  arr[high] = temp
+
+                  # move high to the lhs
+                  high--
+              }
+          }
+          console.log(arr)
+      }
+      sortZeroOne(arr)
+    </script>
+  </body>
+</html>

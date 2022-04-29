@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const arr = [9, 11, 15, 7, 5, 3];
+
+const selectionSort = (arr) => {
+    for(let n1=0; n1<arr.length-1; n1++){
+
+        for(let n2=n1+1; n2<arr.length; n2++){
+            if(arr[n1]>arr[n2]){
+                const temp = arr[n1];
+                arr[n1] = arr[n2];
+                arr[n2] = temp;
+            }
+        }
+    }
+    console.log(arr)
+}
+
+selectionSort(arr)
+    </script>
+</body>
+</html>
