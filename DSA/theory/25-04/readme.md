@@ -698,26 +698,50 @@ const insertionSort = arr => {
     }
 }
 
-i     |     j    |    a[i]   |    a[j]    |   a[j]>a[i]  |  a[j+1] = a[j]
-1     |     0    |     4     |     2      |    nope      |  
-2     |     1    |     9     |     4      |    nope      |
-3     |     2    |     14    |     9      |    nope      |
-4     |     3    |     23    |     14     |    nope      |
-5     |     4    |     7     |     23     |    yup       |  a[5] = 23 
-a[5] = curr 
-23 = curr 
-#  0 1 2  3 4 5
-# [2 4 9 14 7 23]
-5     |    4     |     23     |     7     |    nope      | 
-4     |    3     |     7      |     14    |    yup       |  a[4]=14
-# [2, 4, 9, 7, 14, 23]
-a[4] = curr 
-14 = curr 
-4     |    3     |     14     |     7      |  nope 
-3     |    2     |     7      |     9      |  yup        |  a[3] = 9
-a[3] = curr 
-9 = curr 
-# [2, 4, 7, 9, 14, 23]
+#  0  1  2  3   4  5
+#  2, 4, 9, 14, 23, 7
+i     |     j     |    arr[i]   |   arr[j]    |    arr[j]>curr   |  arr[j+1]=arr[j]   |   j--
+1     |     0     |    4        |   2         |    nope 
+2     |     1     |    9        |   4         |    nope
+3     |     2     |    14       |   9         |    nope
+4     |     3     |    23       |   14        |    nope
+5     |     4     |    7        |   23        |    arr[4]>arr[7] |  arr[5] = 23       |   4
+# so we added 23 at 5th position here 
+# and we deecremented the value of j -> to 4 
+
+now arr[j+1] -> 23 is curr/i (at 5th index)
+and arr[j] -> 7 is i-1 (at 4th index)
+# 0  1  2   3  4  5
+# 2, 4, 9, 14, 7, 23 
+
+i    |    j     |    arr[i]    |    arr[j]    |   arr[j]>curr   |   arr[j+1]=arr[j]  |   j--
+1    |    0     |    4         |    2         |   nope
+2    |    1     |    9         |    4         |   nope
+3    |    2     |    14        |    9         |   nope
+4    |    3     |    7         |    14        |   arr[3]>arr[4]  |  arr[4] = 14       |   3
+# we added 14 on the 4th position here 
+# and we deecremented the value of j -> to 3 
+
+now arr[j+1] -> 14 is curr/i (at 4th index)
+arr[j] -> 7 is i-1 (at 3rd index)
+
+# 0  1  2  3  4   5
+# 2, 4, 9, 7, 14, 23
+5    |    4    |   23          |   14         | nope
+
+
+i    |    j     |    arr[i]    |    arr[j]    |   arr[j]>curr   |   arr[j+1]=arr[j]  |   j--
+1    |    0     |    4         |    2
+2    |    1     |    9         |    4
+3    |    2     |    7         |    9         |   arr[2]>arr[3] |   arr[3] = 9       |   2 
+# we added 9 on 3rd position 
+# we deecremented the value of j -> to 2 
+
+now arr[j+1] -> 9 is curr/i (at the 3rd index)
+arr[j] -> 7 is i-1 (at 2nd index)
+# 0  1  2  3   4  5
+# 2, 4, 7, 9, 14, 23
+4    |   3     |   14         |   9          |  nope 
 ```
 
 3. Quick sort 
@@ -996,8 +1020,245 @@ class Solution:
                 return i+1
         return n+1
 ```
+### Sum of odd length subarrays
+```bash
+Input: arr = [1,4,2,5,3]
+Output: 58
 
+Explanation: The odd-length subarrays of arr and their sums are:
+[1] = 1
+[4] = 4
+[2] = 2
+[5] = 5
+[3] = 3
 
+[1,4,2] = 7
+[4,2,5] = 11
+[2,5,3] = 10
+[1,4,2,5,3] = 15
 
+If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
+```
+```bash
+# java solution
+class Solution {
+    public int sumOddLengthSubarrays(int[] arr) {
+          int n = arr.length;
+            int sum = 0;
+            for(int i=0; i<n; i++){
+            sum = sum + (((i+1)*(n-i)+1)/2)*arr[i];
+            }
+        return sum;
+}}
+```
+### sorted binary array 
+> find number of 1s 
+```bash
 
+int low = 0;
+int high = n-1;
 
+while(low<=high){
+    int mid = (low+high)/2;
+
+    if(arr[mid] == 0){
+        # 1 would be present to the lhs of the array  
+        high = mid - 1;
+    }
+    else if {
+        # when 0 after 1 
+        # or when 1 is at the last index 
+        if(arr[mid+1] == 0 || mid == N-1){
+            return mid+1;
+        }else{
+            # if the mid element is 1 
+            # and on both lhs and rhs its surrounded by a bunch of 1s
+            low = mid+1;
+        }
+
+    }
+}
+return 0;
+```
+```bash
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int countOnes(int arr[], int n)
+{ 
+    int sum = 0;
+    for(int i=0;i<n;i++) 
+    { 
+        sum+=arr[i]; 
+        // printf("sum %d", sum);
+    } 
+    printf("%d %d\n",n-sum,sum); 
+    return 1;
+
+} 
+ 
+/* Driver Code */
+int main()
+{
+   // int arr[] = {1, 1, 1, 1, 0, 0, 0};
+   // int n = sizeof(arr)/sizeof(arr[0]);
+    int n; 
+    scanf("%d",&n); 
+    int arr[n]; 
+    
+    for(int i=0;i<n;i++) 
+    { 
+        scanf("%d",&arr[i]); 
+    } 
+   cout << countOnes(arr, n);
+   return 0;
+}
+```
+
+> right soln
+```bash
+
+#include <bits/stdc++.h>
+using namespace std;
+
+/* Driver Code */
+int main()
+{
+   // int arr[] = {1, 1, 1, 1, 0, 0, 0};
+   // int n = sizeof(arr)/sizeof(arr[0]);
+    int n; 
+    int sum = 0;
+    scanf("%d",&n); 
+    int arr[n]; 
+    
+    for(int i=0;i<n;i++) 
+    { 
+        scanf("%d",&arr[i]); 
+    } 
+
+    for(int i=0;i<n;i++) 
+    { 
+        sum+=arr[i]; 
+        // printf("sum %d", sum);
+    } 
+    printf("%d %d\n",n-sum,sum); 
+    return 0;
+   
+}
+```
+
+#### sorted in ascending order or not 
+```bash
+import java.util.Scanner; 
+/*Java Program to check for Ceil and Floor value*/
+public class Main 
+{ 
+    //Check For Ceil Value
+    static int ceilSearch(int arr[], int low, int high, int x) 
+    { 
+      int i;     
+      if(x <= arr[low]) 
+        return low;   
+       
+      for(i = low; i < high; i++) 
+      { 
+        if(arr[i] == x) 
+          return i; 
+       
+        if(arr[i] < x && arr[i+1] >= x) 
+           return i+1; 
+      }          
+       
+      return -1; 
+    } 
+       
+    //Check for floor value   
+    static int floorSearch(int arr[], int n, int x) 
+    { 
+        if (x >= arr[n - 1]) 
+            return n - 1; 
+  
+        if (x < arr[0]) 
+            return -1; 
+  
+        for (int i = 1; i < n; i++) 
+            if (arr[i] > x) 
+                return (i - 1); 
+  
+        return -1; 
+    } 
+       
+    // Driver program
+    public static void main (String[] args) 
+    { 
+       // int arr[] = {1,4,6,8,9}; 
+       // int n = arr.length; 
+       // int x = 5; 
+        
+        // int n, x;  
+        Scanner sc=new Scanner(System.in);  
+        int n=sc.nextInt();  
+        //creates an array in the memory of length 10  
+        int[] arr = new int[n];  
+        for(int i=0; i<n; i++)  
+        {  
+        //reading array elements from the user   
+        arr[i]=sc.nextInt();  
+        }  
+        int x=sc.nextInt(); 
+    
+       int floor = floorSearch(arr, n-1, x); 
+       if (floor != -1) 
+            System.out.print(arr[floor] + " "); 
+        
+       int ceil = ceilSearch(arr, 0, n-1, x); 
+       if(ceil != -1) 
+         System.out.println(arr[ceil]); 
+         
+    }   
+} 
+
+```
+> intersection of 2 arrays
+```bash
+#include<iostream>
+using namespace std;
+int main()
+{
+  int n1,n2,i,j;
+  cin>>n1;
+  
+  int arr1[n1];
+  /* Enter distinct elements */
+  // cout<<"Enter the elements of the 1st array: ";
+  for(i=0;i<n1;i++)
+  {
+    cin>>arr1[i];
+  }
+  
+  cin>>n2;
+  int arr2[n2];
+  /* Enter distinct elements */
+  // cout<<"Enter the elements of the 2nd array: ";
+  for(i=0;i<n2;i++)
+  {
+    cin>>arr2[i];
+  }
+  
+  /* printing elements that are common in both the arrays */
+  for(i=0;i<n1;i++)
+  {
+    for(j=0;j<n2;j++)
+    {
+      if(arr1[i]==arr2[j])
+      {
+        cout<<arr1[i]<<" ";
+      }
+    }
+  }
+  
+  return 0;
+}
+
+```

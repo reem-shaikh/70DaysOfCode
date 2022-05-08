@@ -273,7 +273,120 @@ for(let i=0; i<n; i++){
    console.log(count)
 }
 ```
+### Intersection of 2 unsorted arrays 
+```bash
+import java.util.HashMap;
+import java.util.Scanner;  
 
+public class IntersectionOfTwoArrays {
+    private static void printIntersection(int[] arr1, int[] arr2) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // Build the frequency map for arr1
+        for (int i = 0; i < arr1.length; i++) {
+            if (map.containsKey(arr1[i])) {
+                map.put(arr1[i], map.get(arr1[i]) + 1);
+            } else {
+                map.put(arr1[i], 1);
+            }
+        }
+        // Traverse the elements of arr2 one by one
+        for (int i = 0; i < arr2.length; i++) {
+            // If the map contains current element
+            if (map.containsKey(arr2[i])) {
+                // Reduce the frequency by 1
+                int freq = map.get(arr2[i]);
+                freq--;
+                // If freq becomes 0, remove the element from the map
+                if (freq == 0) {
+                    map.remove(arr2[i]);
+                } else {
+                    map.put(arr2[i], freq);
+                }
+                // Print the element
+                System.out.print(arr2[i] + " ");
+            }
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        int n, m;
+        Scanner sc=new Scanner(System.in);  
+        
+        // int[] arr3 = new int[n];  
+        // int[] arr4 = new int[m]; 
+        
+        n=sc.nextInt(); 
+        int[] arr3 = new int[n]; 
+        for(int i=0; i<n; i++)  
+        {    
+        arr3[i]=sc.nextInt();  
+        }  
+        
+        m=sc.nextInt(); 
+        int[] arr4 = new int[m]; 
+        for(int j=0; j<m; j++)  
+        {    
+        arr4[j]=sc.nextInt();  
+        }  
+        
+        // Example 2
+        // int arr3[] = new int[] {4, 9, 5};
+        // int arr4[] = new int[] {9, 4, 9, 8, 4};
+        printIntersection(arr3, arr4);
+    }
+}
+```
+> another solution
+```bash
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+    if(nums1.size()>nums2.size()){
+        swap(nums1,nums2);
+    }
+    unordered_map< int , int >  m;
+    for(auto val:nums1){
+        m[val]++;
+    }
+    int k=0;
+    for(auto val:nums2){
+        if(m[val]>0){
+            nums1[k++]=val;
+            --m[val];
+        }
+    }
+    // return vector<int>(nums1.begin()+k, nums1.begin());
+    return vector<int>(nums1.begin(),nums1.begin()+k);
+}
+int main() 
+{
+    // vector<int> nums1={1,2,2,1};
+    // vector<int> nums2={2,2};
+    int n,a,b, m;
+    cin>>n;
+    vector<int> nums1;
+    for(int i=0;i<n;i++)
+    {
+      cin>>a;
+      nums1.push_back(a);
+    }
+
+    cin>>m;
+    vector<int> nums2;
+    for(int j=0;j<m;j++)
+    {
+      cin>>b;
+      nums2.push_back(b);
+    }
+    
+    vector<int> ans=intersect(nums1, nums2);
+    // for(int x:ans)
+    //     cout<<x<<" ";
+       for (auto it =  ans.rbegin(); it != ans.rend(); ++it)
+           cout << *it << " ";
+   return 0; 
+}
+```
 
 
 
