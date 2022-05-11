@@ -1,5 +1,5 @@
 ### Maps
-map is an object in JS 
+map is an object in JS - Data structure 
 
 > Datatypes in JS
 - arrays
@@ -9,7 +9,11 @@ map is an object in JS
 - null
 - undefined 
 
+```bash
 In JS, an object has a type object 
+Array has a type object 
+Null also has a type object 
+```
 an object in JS is a datatype that points to a memory location 
 ```bash
 # pass by value - copies value - both and b point to diff memory location 
@@ -21,7 +25,7 @@ console.log(b) #26
 console.log(a) #23 
 
 # pass by reference - both a and b point to same memory location 
-# b is a shallow copy of a - point to same memory location 
+# b is a shallow copy of a - point to same memory location / reference 
 let a = {"name":"vikas", age:29}
 let b = a
 b.name = 'anul'
@@ -31,7 +35,7 @@ console.log(a) #"name":"anul", age:29
 # deep copy - create a copy/replica of an object and pointing to a diff memory location, such that 
 # when we change b it doesnt change a 
 let a = {"name":"vikas", age:29}
-let b = {...a}
+let b = {...a} #spread operator - allows to create replica of object 
 b.name = 'anul'
 console.log(b) #"name":"anul", age:29
 console.log(a) #"name":"vikas", age:29
@@ -42,11 +46,129 @@ const tutor = {
     name: "vikas",
     age: 29,
     displayName: () => {
-        console.log(this.name)
+            console.log(this.name)
+        }
     }
-    }
-```
 
+# Printing operations 
+#1. DOT operator 
+console.log(human.age)  #29 
+console.log(human.name) #vikas
+
+# if you want to delete 
+delete human.name
+
+#2. Square bracket operator 
+console.log(human['age'])
+console.log(human['name'])
+# for deleting
+delete human['name']
+
+
+# HOW DO WE ACCESS IN A MAP?
+const key = getKey();
+# when a key is dyanamic in the variable, we access it like this
+# this is the way we access in a map 
+console.log(human[key])
+# use this for deleting 
+delete [human[key]]
+
+const getKey = () => {
+    return 'isIndian';
+}
+
+```
+> count elements in array and add to map without for loop 
+```bash
+const arr = ["a", "b","c","d","a"]
+const freqMap = {}
+freqMap['a'] = freqMap['a'] + 1
+freqMap.b = 1 
+console.log(freqMap)
+
+# output:
+[object Object] {
+    a: 2,
+    b: 1
+}
+```
+> count elements in array and add to map with a for loop 
+```bash
+const arr = ["a", "b","c","d","a"]
+const freqMap = {}
+
+for(let i = 0 ; i< arr.length; i++){
+    const key = arr[index]
+    # check if key exist in arr or not 
+
+    # if key doeesnt exist in the map then add it 
+    if(!freqMap[key])
+    { 
+       freqMap[key] = 1
+
+    }else{
+        #if key already exists in the map then increement its count by 1
+        freqMap[key] = freqMap[key] + 1
+    }
+}
+console.log(freqMap)
+
+# output:
+[object Object] {
+    a: 2,
+    b: 1
+}
+```
+> advantages of creating a map:
+1. search in an array would be O(n). search in a map is O(1)
+2. array can have duplicates. map cannot have duplicate
+
+> Q. Given an array and a constant k, find any pair of x and y where x+y = k
+```bash
+# O(n)
+
+const k = 16
+const arr = [3, 7, 9, 14, 10, 16, 2, 12, 19]
+# for every number in the array were checking if its pair exists in the arr or not?
+# when k = 16, we need to find those numbers that sum up to 16
+# we acheive this, by adding all the values that dont satisfy the condition in a map, and fetch the rest 
+
+i   |   arr[i]   |   k-arr[i]   |   Does k-arr[i] exist in map or not? | add arr[i] in map           
+0   |   3        |   16-3=13    |   ❌                                 | {"3" : 1}                    
+1   |   7        |   16-7=9     |   ❌                                 | {"3": 1, "7" : 1}            
+2   |   9        |   16-9=7     |   ✅ print(arr[i], k-arr[i]) -> 9,7                                                      
+3   |   14       |   16-14=2    |   ❌                                 | {"3": 1, "7" : 1, "14": 1 }
+4   |   10       |   16-10=6    |   ❌                                 | {"3": 1, "7" : 1, "14": 1, "10": 1}
+5   |   16       |   16-16=0    |   ❌                                 | {"3": 1, "7" : 1, "14": 1, "10": 1, "16": 1}
+6   |   2        |   16-2=14    |   ✅ print(arr[i], k-arr[i]) -> 2,14                                                        
+7   |   12       |   16-12=4    |   ❌                                 | {"3": 1, "7" : 1, "14": 1, "10": 1, "16": 1, "!2":1}
+8   |   19       |   16-19=-3   |   ❌                                 | {"3": 1, "7" : 1, "14": 1, "10": 1, "16": 1, "!2":1, "19":1}
+```
+```bash
+const getPairs = (arr, k) => {
+    const tempMap = {}
+    const pairsArr = []
+
+    for(let index = 0; index < arr.length; index++){
+        const item = arr[index]          
+        const pairItem = k - arr[index]
+
+        #if k-arr[i] exists in the map, then push them to the pairsArr[]
+        if(tempMap[pairItem]){
+            console.log(item, pairItem)
+            pairsArr.push([item, pairItem])
+        }
+        #k-arr[i] does not exist in the map, then push it to the map 
+        else{
+            tempMap[item] = 1
+        }
+    }
+    console.log(tempMap)
+}
+
+# output:
+[[9, 7], [2, 14]]
+```
 ### JS Interview Questions 
 > Q1. What output will this return on console
 ![](4.PNG)
@@ -940,6 +1062,13 @@ n    |    fib(n-1) + fib(n-2)
 #### Sliding Window Technique 
 > What is the sliding window algorithm?
 This algorithm is exactly as it sounds; a window is formed over some part of data, and this window can slide over the data to capture different portions of it.
+```bash
+# Both L and R will slide from 0 to n-1 
+# they will have a fixed window size 
+# L
+  1    5    6   7    8   10
+#                         R
+```
 Its looking over parts of your data increementally 
 
 > Q. best time to buy / sell stock to maximize profit 
@@ -1190,6 +1319,70 @@ class Solution:
             res = max(res, r - l + 1)
         return res #5
 ```
+> Q.  Maximum Number of Vowels in a Substring of Given Length
+Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.
+```bash
+Input: s = "abciiidef", k = 3
+Output: 3
+Explanation: The substring "iii" contains 3 vowel letters.
+
+Input: s = "aeiou", k = 2
+Output: 2
+Explanation: Any substring of length 2 contains 2 vowels.
+
+find substring of length k which has max numbers of vowels
+#  Geekster, 4 
+substrings      - Geek (2 vowels)
+                  eeks (2)
+                  ekst (1)
+                  kste (1)
+                  ster (1)
+
+Whole string has 5 substring, and the substring with max substring has 2 vowels 
+# ouput: 5
+```
+![](111.PNG)
+```bash
+# "abciidef"
+#  k=3
+var maxVowels = function(s, k) {
+   const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
+   if(s.length < k){
+       return 0;
+   }
+
+   let max = 0 
+   let count = 0 
+   # p1 -> left pointer 
+   # p2 -> right pointer 
+   let p1 = 0
+   let p2 = k - 1
+
+   while(p2 < s.length){
+      let count = 0  
+      #check between p1 and p2 how many vowels are there 
+      for(let i = p1; i<=p2; i++){
+          #includes() method determines whether a string contains the given characters within it or not.
+          if(vowels.includes(s[i])){
+              count++
+          }
+      }
+      #update max with count value 
+      max = Math.max(max, count)
+
+       #increement p1 and p2 pointer 
+       p1++
+       p2++
+   }
+   return max 
+}
+
+console.assert(maxVowels("abciidef", 3) == 3, "first testcase failed")
+console.assert(maxVowels("aeiou", 3) == 3, "second testcase failed")
+console.assert(maxVowels("leetcode", 3) == 3, "third testcase failed")
+```
+
 ### Sort method 
 predefined method in JS which returns the sorted array 
 
@@ -1356,12 +1549,119 @@ G vs H
     - not equal (G is defective)
 
 ```
+### Linked List 
+Linked list is a collection of nodes 
+- node contains `data` and `pointer`
+![](node2.PNG)
+![](node.png)
+
+- In array, you can access randomly, however in linked list you cannot. Linked List can store large data -> eg: block chain, audio cassetes 
+- traversing is slower than array 
+- Linked list doesnt need continuous memory / space, only array has such requirments.
+
+> creating linked list  
+```bash
+const nodeFactory = () => {
+    # create new node 
+    return {
+        data: undefined,
+        next: undefined,
+    }
+}
+
+# creating node 
+let i = 1
+let current = root          #currently where you pointing 
+const root = nodeFactory()  #root pointing to nodeFactory object
+
+while(i <= 10){
+    const node = nodeFactory()
+    current.next = node    #forming connection between 2 nodes  
+    node.data = 1
+    current = node         #shift the current pointer to node 
+    i++
+}
+
+#you can never change root, thats why current = root 
+current = root     
+
+#when current.next != undefined -> there exists another node in the linked list 
+#when current.nxt == undefined -> there exists no node in the linked list 
+while(current.next != undefined){
+    console.log(current.data)
+    current = current.next
+
+}
+
+const new_node = nodeFactory()
+current.next = new_node 
+new_node.data = 1337
+```-
+![](node11.PNG)
+![when current = node](node12.PNG)
+
+> linked list working 
+```bash
+# every node has data and next 
+
+# Initially, data and next are undefined 
+✅root points to first node 
+✅current points to the first node 
+
+ root 
+  |
+-------------
+data  |  next
+-------------
+  |
+current
 
 
+✅const node = nodeFactory() creates a new node 
+now this is how it looks like  
+                     #node 
+-----------          ----------
+data | next          data | next 
+-----------          -----------
 
 
+✅current.next = node  #forms a connection between these 2 nodes
+✅node.data = 1
+ root
+   |                    #node 
+-----------             ----------
+data | next   --->      1   | next 
+-----------             -----------
+   |
+current
 
 
+✅current = node       #shift the current pointer to node 
+                       current 
+                          |
+-----------             ----------
+data | next   --->      data | next 
+-----------             -----------
+
+
+# Traversing over every node in the linked list 
+while(current.next != undefined) {
+    console.log(current.data)
+    #current pointer points to the next section from the node 
+    current = current.next
+
+}
+
+# Creating a new node 
+current.next = new_node #forms a connection between these 2 nodes 
+current = new_node 
+new_node.data = 1337
+                       current 
+                          |               #new_node 
+-----------             ----------        -----------
+data | next   --->      data | next       1337 | next
+-----------             -----------       -----------
+```
 
 
 

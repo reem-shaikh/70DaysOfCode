@@ -1,8 +1,10 @@
 > Todo list:
-- get the soln teams 
-- complete lecture maps 
 - Node JS - how does it work 
-- node crashcourse 
 - Kadan algo 
 
-- algebra
+- Docker 
+
+- swapping 2 nodes in linked list 
+- rainwater 
+
+- add an item to the linked list at the last 
