@@ -116,7 +116,7 @@ f(n) > C * g(n)
 # when C=2
 2n^2 + n > 2n^2
 ```
-3. Big Theta 
+3. Big Theta **Average case**
 A function f(n) is said to be big theta of g(n), if there exists a constant C1, C2 & a constant k such that 0 <= f(n) <= C1*g(n) and 0 <= C2*g(n) <= f(n) for all n>=k
 ```bash
 Consider these 2 equations from worst case and best case

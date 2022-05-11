@@ -271,15 +271,15 @@ console.assert(JSON.stringify(findPivot([7])) == JSON.stringify(op1), 'first tes
 # node filename.js
 ```
 ### Maximum subarray 
-we have an array, from this, need to find the maximum continuous sumarray with highest sum
+we have an array, from this, need to find the sum of the maximum continuous sumarray 
 ```bash
 # IP [1,2,3,4,-5,-10,-17]
-# op [1,2,3,4]
+# op [1,2,3,4] = 1+2+3+4 = 10
 
 # find all subarrays 
 # find subarray with max sum 
 ```
-> bruteforce approach
+> O(n^2) approach - cummulative sum approach 
 ```bash
 #include<iostream>
 #include<climits>
@@ -298,13 +298,26 @@ int main(){
     currsum[0] = 0;
 
     for(int i=1; i<=n; i++){
+        # 0  1  2  3   4   5    6
+        #[1  2  3  4  -5  -10  -17]
         currsum[i] = currsum[i-1] + arr[i-1];
+        # currsum[1] = currsum[0] + arr[0] = 0 + 1 = 1
+        # currsum[2] = currsum[1] + arr[1] = 1 + 2 = 3
+        # similarly we'll find the sum for all the elements in the array
+        # and we'll store this in an array 
+        # [1, 3, 6, 10, 5, -5, -22]
     }
 
-    int maxSum = INT_MIN;
+    # we store the minimum value from the array inside maxSum
+    int maxSum = INT_MIN; # maxSum = 0 
     for(int i=1; i<=n; i++){
+
         int sum = 0; 
         for(int j=0; j<i; j++) {
+            #  0  1  2  3   4   5   6
+            # [1, 3, 6, 10, 5, -5, -22]
+            #  j 
+            #     i
             sum = currsum[i] - currsum[j];
             maxSum = max(sum, maxSum);
         }
@@ -318,44 +331,17 @@ terminal:
 4
 -1 4 7 2
 13
-cumulative sum approach - O(n^2)
+
+
+# the working 
+i       |       j      |    j<i   |  currsum[i]  |  currsum[j]  |  sum=currsum[i]-currsum[j]  | maxsum = max(sum, maxsum)
+1       |       0      |    ✅    |  3          |   1           |  3-1=2                      | max(2, 0) = 2 
+2       |       1      |    ✅    |  6          |   3           |  6-3=3                      | max(3, 2) = 3
+3       |       2      |    ✅    |  10         |   6           |  10-6=4                     | max(4, 3) = 4 
+4       |       3      |    ✅    |  5          |   10          |  5-10=-5                    | max(-5, 4)= 4
+5       |       4      |    ✅    |  -5         |   5           |  5-(-5) = 10                | max(10, 4) = 10
+6       |       5      |    ✅    | -22         |  -5           |  -22-(-5) = -17             | max(-17, 10) = 10
 ```
-> O(n^2) approach
-```bash
-#include<iostream>
-#include<climits>
-using namespace std; 
-
-int main(){
-    int n; 
-    cin>>n;
-    int arr[n];
-
-    for(int i=0;i<n; i++){
-        cin >> arr[i];
-    }
-
-    int currsum[n+1];
-    currsum[0] = 0;
-
-    for(int i=1; i<=n; i++){
-        currsum[i] = currsum[i-1] + arr[i-1];
-    }
-
-    int maxSum = INT_MIN;
-    for(int i=1; i<=n; i++){
-        int sum = 0; 
-        for(int j=0; j<i; j++) {
-            sum = currsum[i] - currsum[j];
-            maxSum = max(sum, maxSum);
-        }
-    }
-
-    cout<<maxSum;
-    return 0;
-}
-```
-
 
 
 

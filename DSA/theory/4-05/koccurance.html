@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let kOccurance=(arr,k)=>{
+    // we create a map 
+    let obj={}
+
+    // iterate over every element of the arr and assign a count to each value in the form of key-value pairs 
+    //  0  1  2  3  4  5  6  7  8  9 10  11 12 13 14 15 16 17
+    // [1, 4, 4, 4, 2, 2, 2, 5, 5, 5, 5, 5, 7,  7, 8, 8, 8, 8]
+    arr.forEach((el)=> {
+        console.log(el)
+        console.log('before'+ obj[el])
+        obj[el]= obj[el]+1 || 1;
+        console.log('after' + obj[el])
+
+    })
+    console.log('obj', obj)
+
+    let obj2={};
+    for(let i in obj) {
+       console.log('obj[i] before' + obj[i])
+       console.log('i before' + i)
+       obj2[obj[i]]= i;
+       console.log('obj[i] after' + obj[i])
+       console.log('i after' + i)
+       console.log('obj2[obj[i]]' + obj2[obj[i]])
+       console.log('obj2[obj[i]] = i' + obj2[obj[i]] + "=" + i)
+    }
+    console.log('obj2', obj2)
+
+    let result=[];
+    let keysArr=[...Object.values(obj2)]
+    console.log('keysArr' + keysArr)
+
+    while(k>0) {
+    console.log('k' + k)
+    console.log('before result' + result)
+    result.push(+keysArr.pop());
+    console.log('after result' + result)
+    k--;
+    }
+    return result;
+}
+
+console.log(kOccurance([1, 4, 4, 4, 2, 2, 2, 5, 5, 5, 5, 5, 7, 7, 8, 8, 8, 8], 3))
+
+/*
+#The question says:
+In any string, print top k character that occurs max number of times
+
+#The expectations from the question:
+  
+#For any given string 
+Lets assume the string is [1, 4, 4, 4, 2, 2, 2, 5, 5, 5, 5, 5, 7, 7, 8, 8, 8, 8]
+#and for any k'th value
+Lets assume k=3
+
+We need to return the element from the array, that occurs max number of times in descending order of occurance, so how do we figure out, the occurance of each element of the array?
+
+1. Create a Map 
+we create a map (which contains key-value pairs, where the keys denote the elements and the value denotes the count)
+{
+    #element: count 
+    "1": 1, #1 has occured 1 times in the array 
+    "2": 3, #2 has occured 3 times in the array 
+    "4": 3, #4 has occured 3 times in the array 
+    "5": 5, #5 has occured 5 times in the array 
+    "7": 2, #7 has occured 2 times in the array 
+    "8": 4  #8 has occured 4 times in the array 
+}
+
+# obj[i] -> 1, 3, 3, 5, 2, 4   -> values 
+# i      -> 1, 2, 4, 5, 7, 8   -> keys
+
+So what does the question expect from us?
+to return k elements with maximum occurance
+if k=1; return 5        #were returning the character with max occurance
+if k=2; return [5, 4]   
+if k=3 return [5, 8, 4]
+
+So, how do we acheive this?
+2. Arrange the count in ascending order 
+we need to first arrange these keys on basis of increasing order of their values ->  [1,7,2,4,8,5]
+
+# Drawback: map cannot give a particular order, it can keep a log of values and its occurance, thats why we'll choose an alternative way to arrange key-value pairs in ascending order of their count 
+  
+To acheive this 
+#we can maintain a DS (like array/stack/ heap/ priorty queue/ heap), sorted in the occurance of their frequency where we can maintain the arranged elements like [1,7,2,4,8,5]
+#However, I'm going to go with your approach and solve this using maps itself 
+
+We'll add all the key-value pairs of obj{} in ascending order (from lowest occurance to max occurance) in another map obj2{}, so your obj2{} will look something like this 
+{
+    #count: element 
+    1: "1",   #1 has occured 1 times in the array 
+    2: "7",   #7 has occured 2 times in the array 
+    3: "4",   #4 has occured 3 times in the array 
+    4: "8",   #8 has occured 4 times in the array 
+    5: "5",   #5 has occured 5 times in the array 
+}
+#Note that there are 5 values from obj1 -> 1,2,3,4,5
+#both 4 and 2 has occured 3 times, however were counting only the bigger key i.e 4 and declining 2
+# obj[i] -> 1, 3, 3, 5, 2, 4   -> values 
+# i      -> 1, 2, 4, 5, 7, 8   -> keys
+
+3. Add the k'th maximum occuring values from obj2{} into a new array and return it 
+Now, we'll need to manipulate the value of obj2{} -> 1,7,4,8,5 
+In this case, k=3, so we need to return [5, 8, 4]
+
+#How do we acheive this?
+#To acheive this,we'll run a while loop traversing till k, pop all the elements from the end of the obj2{} and add it to the result array which will contain all the values of obj2{}, and then we'll simply display the result array 
+*/
+    </script>
+</body>
+</html>

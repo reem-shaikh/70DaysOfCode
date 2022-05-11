@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        arr = [1,1,2]
+        const hashmap = {}
+
+        for(let index=0; index<arr.length; index++){
+            console.log('arr[index]', arr[index])
+            hashmap[arr[index]] = 1 
+        }
+
+        console.log('hashmap', hashmap)
+
+        const keys = Object.keys(hashmap)
+        console.log('keys', keys) 
+
+        const keysarr = []
+
+        for(let index=0; index<keys.length; index++){
+            keysarr.push(Number(keys[index]))
+        }
+        console.log('keysarr', keysarr)
+
+    </script>
+</body>
+</html>

@@ -938,7 +938,7 @@ sortZeroOne(arr)
 ```
 
 #### Discussing questions
-> find the missing positive integer in sorted array 
+> find the missing positive integer in sorted array - O(n)
 ```bash 
 # given a sorted array containing integers (1-n)
 # find the first missing positive integer
@@ -947,6 +947,7 @@ const arr = [1,2,3,4,5,6,7,9,10]
 
 const FirstMissingPositive = (arr) => {
     let missingNumber = null;
+
     for(index = 0; index<arr.length; index++){
         if(arr[index] != index+1){
             missingNumber = index+1;
@@ -957,7 +958,8 @@ const FirstMissingPositive = (arr) => {
 }
 FirstMissingPositive(arr)
 
-index   |  index  |   arr[index]!=index+1
+# [1,2,3,4,5,6,7,9,10]
+index   | index+1 |   arr[index]!=index+1
 0       |  1      |   1!=1
 1       |  2      |   2!=2
 .
@@ -970,14 +972,9 @@ index   |  index  |   arr[index]!=index+1
 8
 # time complexity: O(n)
 ```
-> find the missing positive integer in unsorted array
+> another approach for O(n)
 ```bash
-# approach 1: O(n logn)
-# sort the array using quick / marge sort -> O(n logn)
-# then apply the previous logic -> O(n)
-# this approach will take O(n logn) TC
-
-# approach 2: O(n)
+# approach 3: O(n)
 # sum of numbers from 1 to 10 -> n(n+1)/2 -> 10(10+1)/2 -> 55
 # sum of all the elements of the arr -> 47 
 # difference of sum of nums from 1 to 10 and sum of elements of the array will give us the missing number 
@@ -985,40 +982,52 @@ const arr = [1,2,3,4,5,6,7,9,10]
 
 const FirstMissingPositive = (arr) => {
     let expectedSum = n(n+1)/2
+
     let actualSum = 0 
     for(let index=0; index<arr.length; index++){
         actualSum = actualSum + arr[index]
     }    
     console.log(expectedSum - actualSum)
+    # 55 - 47 = 8 (and bruh, 8 is actually missing)
 }
 ```
-> find first missing positive number in an unsorted array 
+> find the missing positive integer in unsorted array - 0(n logn)
+```bash
+# approach 2: O(n logn)
+# sort the array using quick / marge sort -> O(n logn)
+# then apply the previous logic -> O(n)
+# this approach will take O(n logn) TC
+```
+
+> Q. find first missing positive number in an unsorted array 
 Given an unsorted integer array nums, return the smallest missing positive integer.
 
-You must implement an algorithm that runs in O(n) time and uses constant extra space.
+- You must implement an algorithm that runs in O(n) time and uses constant extra space.
 ```bash
 Input: nums = [3,4,-1,1]
 Output: 2
 ```
-
 (I tried solving this in leetcode)
+![](doc1.jpg)
+![](doc2.jpg)
+![](doc3.jpg)
 - approach O(n) and use constant extra space 
 ```bash
-# explanation given in notes 
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
         n = len(nums)
         for i in range(n):
-            correctPos = nums[i]-1 # number 3 goes to index 2
+            correctPos = nums[i]-1 # number 3 goes to index 2 and so on..
+
             while 1 <= nums[i] <= n and nums[i] != nums[correctPos]:
                 nums[i], nums[correctPos] = nums[correctPos], nums[i]
                 correctPos = nums[i]-1 # now nums[i] has changed
-                
-        
+                   
         for i in range(n):
             if i+1 != nums[i]:
                 return i+1
         return n+1
+
 ```
 ### Sum of odd length subarrays
 ```bash
@@ -1039,6 +1048,7 @@ Explanation: The odd-length subarrays of arr and their sums are:
 
 If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
 ```
+![](doc4.jpg)
 ```bash
 # java solution
 class Solution {
@@ -1054,71 +1064,6 @@ class Solution {
 ### sorted binary array 
 > find number of 1s 
 ```bash
-
-int low = 0;
-int high = n-1;
-
-while(low<=high){
-    int mid = (low+high)/2;
-
-    if(arr[mid] == 0){
-        # 1 would be present to the lhs of the array  
-        high = mid - 1;
-    }
-    else if {
-        # when 0 after 1 
-        # or when 1 is at the last index 
-        if(arr[mid+1] == 0 || mid == N-1){
-            return mid+1;
-        }else{
-            # if the mid element is 1 
-            # and on both lhs and rhs its surrounded by a bunch of 1s
-            low = mid+1;
-        }
-
-    }
-}
-return 0;
-```
-```bash
-
-#include <bits/stdc++.h>
-using namespace std;
-
-int countOnes(int arr[], int n)
-{ 
-    int sum = 0;
-    for(int i=0;i<n;i++) 
-    { 
-        sum+=arr[i]; 
-        // printf("sum %d", sum);
-    } 
-    printf("%d %d\n",n-sum,sum); 
-    return 1;
-
-} 
- 
-/* Driver Code */
-int main()
-{
-   // int arr[] = {1, 1, 1, 1, 0, 0, 0};
-   // int n = sizeof(arr)/sizeof(arr[0]);
-    int n; 
-    scanf("%d",&n); 
-    int arr[n]; 
-    
-    for(int i=0;i<n;i++) 
-    { 
-        scanf("%d",&arr[i]); 
-    } 
-   cout << countOnes(arr, n);
-   return 0;
-}
-```
-
-> right soln
-```bash
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -1127,6 +1072,7 @@ int main()
 {
    // int arr[] = {1, 1, 1, 1, 0, 0, 0};
    // int n = sizeof(arr)/sizeof(arr[0]);
+
     int n; 
     int sum = 0;
     scanf("%d",&n); 
@@ -1152,6 +1098,13 @@ int main()
 ```bash
 import java.util.Scanner; 
 /*Java Program to check for Ceil and Floor value*/
+
+# example of floor for 2.5 is 2 
+# Returns the largest integer that is smaller than or equal to x 
+
+# example of ceil for 2.5 is 3
+# Returns the smallest integer that is greater than or equal to x
+
 public class Main 
 { 
     //Check For Ceil Value
@@ -1166,6 +1119,7 @@ public class Main
         if(arr[i] == x) 
           return i; 
        
+    # Returns the smallest integer arr[i+1] that is greater than or equal to x
         if(arr[i] < x && arr[i+1] >= x) 
            return i+1; 
       }          
@@ -1176,6 +1130,7 @@ public class Main
     //Check for floor value   
     static int floorSearch(int arr[], int n, int x) 
     { 
+        # Returns the largest integer arr[n-1] that is smaller than or equal to x 
         if (x >= arr[n - 1]) 
             return n - 1; 
   
@@ -1199,8 +1154,10 @@ public class Main
         // int n, x;  
         Scanner sc=new Scanner(System.in);  
         int n=sc.nextInt();  
+
         //creates an array in the memory of length 10  
         int[] arr = new int[n];  
+
         for(int i=0; i<n; i++)  
         {  
         //reading array elements from the user   
@@ -1260,5 +1217,306 @@ int main()
   
   return 0;
 }
+```
 
+> two sum
+```bash
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main(){
+    int n, target;  
+    cin>>n; 
+    cin>>target;
+    int arr[n]; 
+    
+    for(int i=0;i<n;i++) 
+    { 
+        cin>>arr[i];
+    } 
+    
+    
+    int a=0;
+    int b=0;
+    int c;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                # if sum of both elements equals the target
+                if(arr[i]+arr[j]==target)
+                {
+                    a=i;
+                    b=j;
+                }
+            }
+        }
+        cout<<a<<" "<<b;
+        return 0;
+    
+    // return 0;
+}
+```
+> odd even 11
+```bash
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+        public static void main(String args[]){  
+        // int a[]={1, 2, 5, 6, 3, 2};   
+        Scanner scanner = new Scanner(System.in);
+        int n= scanner.nextInt();  
+        int a[] = new int[n];
+            
+        for(int i=0;i<a.length;i++){  
+            a[i] = scanner.nextInt();
+            
+        }
+        for(int i=0;i<a.length;i++){  
+            if(a[i]%2!=0){  
+            System.out.print(a[i] + " ");  
+            }  
+        }  
+            System.out.print("\n");
+            for(int i=0;i<a.length;i++){  
+                if(a[i]%2==0){  
+                System.out.print(a[i] + " ");  
+                }  
+            }  
+        }
+    }  
+```
+> largest row/column
+```bash
+#include<iostream>
+using namespace std;
+ 
+int main () 
+{
+    int N, M;
+    //ROWS AND COLUMN COUNT 
+    cin >> N;
+    cin >> M;
+ 
+    int Matrix[N][M];
+ 
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            cin >> Matrix[i][j];
+        }
+    } 
+    
+    int Row = 0;
+    int Column = 0;
+    int finalsum = 0;
+    int i, j, Rindex=0, Cindex=0;
+    
+    for (i = 0; i < N; i++)  //N
+    {
+        int rsum = 0;
+        for (j = 0; j < M; j++)  //M
+        {
+            rsum = rsum + Matrix[i][j];  //[I][J]
+                                
+            if (Row < rsum)   //0<2      2<2
+            {
+                Row = rsum;  //row=2
+                Rindex = i;
+                 //index=0
+            }
+ 
+
+        } 
+    }
+
+ 
+    for (i = 0; i < N; i++)  //M
+    {
+        int csum = 0;
+        for (j = 0; j < M; j++)  //N
+        {
+            csum = csum + Matrix[j][i];  //[J][I]
+            
+            if (Column < csum)
+            {
+                Column = csum;
+                Cindex = j;
+            }
+        }
+                
+
+    }
+    
+    if (Row<Column){
+        finalsum = Column;
+         cout<<"column"<<" "<<Cindex<<" "<<finalsum<<endl;
+    }else{
+        finalsum = Row;
+        cout<<"row"<<" "<<Rindex<<" "<<finalsum<<endl;
+    }
+
+    return 0;
+}
+```
+> the right soln 
+```bash
+function processData(input) {
+   //Enter your code here
+    let outerArr=[];
+
+    # At input, were taking inputs for rows and column 
+
+    # split() - split string into an array of strings 
+    # string -> "How are you doing today?"
+    # after split("\n") -> How are you doing today?
+    input=input.split("\n")
+    # trim() - removes whitespaces from both ends of the string 
+
+    # split(" ") - split based on encountering spaces 
+    # string -> "How are you doing today?"
+    # after split(" ") -> How,are,you,doing,today?
+
+
+    input.forEach(i=>{
+        # remove any whitespaces on both the ends of the string and split each number seperated by space 
+        let arr= i.trim().split(" ")
+
+        let x=arr.map((e)=>{
+            return Number(e)
+        })
+        # were storing rows and column inside outerArr[]
+
+        # push all the numbers returned inside outerArr[]
+        outerArr.push(x)
+    })
+
+# shift() removes and returns the first element from the array 
+# demo of how shift() works 
+# const array1 = [1, 2, 3];
+
+# const firstElement = array1.shift();
+
+# console.log(array1);
+# // expected output: Array [2, 3]
+
+# console.log(firstElement);
+# // expected output: 1
+    let dia=outerArr.shift()
+
+    # outerArr contains 2 elements -> row count and column count
+    # row count is stored at 0'th index 
+    # column count is stored at 1'st index 
+    let Row = 0;
+    let r=0;
+
+    for(let i = 0; i < dia[0] ; i++){     #N
+        let sum = 0;
+
+        for(let j = 0; j < dia[1]; j++){  #M
+            sum = sum + outerArr[i][j];   #[I][J]
+        }
+
+        if(Row < sum){
+            Row = sum;
+            # were storing the max sum of the rows in the matrix inside row 
+            r=i; 
+            # were storing the index of the max row in r 
+        }  
+    }
+
+    let Column = 0;
+    let c=0;
+
+    for(let i = 0; i < dia[1]; i++){      #M
+
+        let sum = 0;
+        for(let j = 0; j < dia[0]; j++){  #N
+            sum = sum + outerArr[j][i];   #[J][I]
+        }
+
+        if(Column < sum){
+            Column = sum;
+            c=i;
+        }
+    }
+
+    if(Row>=Column){
+        console.log(`row ${r} ${Row}`)
+    }
+    else{
+        console.log(`column ${c} ${Column}`)
+    }
+} 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+process.stdin.on("end", function () {
+   processData(_input);
+});
+```
+> count occurances for each word in the string and return their count value 
+```bash
+# str ="blue_bear_brown_bear_yellow_bear_yellow_yellow_bear"
+str = input()
+str1 = str.lower().split("_")
+    # print(str1)
+
+    # need to take 3 testcases 
+    # 3 strings 
+i = 0 
+# string = ''
+
+t = int(input())
+    # print(t)
+
+while t>i:
+    string =  input()
+    # print(type(string))
+    # string = "blue"
+
+    elements_count = {}
+   # iterating over the elements for assorting a  frequency to every word seperated by _
+    for element in str1:
+        # checking whether it is in the dict or not
+        if element in elements_count:
+        # incerementing the count by 1
+           elements_count[element] += 1
+        else:
+        # setting the count to 1
+           elements_count[element] = 1
+
+        # printing the elements frequencies
+    for key, value in elements_count.items():
+        # print(f"{key}: {value}")
+        if string == key:
+            print(value)
+t = t-1;
+```
+> the correct solution
+![](test1.PNG)
+```bash
+# take input and split string based on _
+arr = input().split("_")
+list1 = []
+
+# append the elements from arr to list1 (which is an array) - we add it to the array, so we can count each element in the next for loop
+for i in range(0, int(input())):
+    list1.append(input())
+
+# if element is present in list1
+for i in list1:
+    # count the element's occurance from the array
+    print(arr.count(i))
 ```
