@@ -170,6 +170,19 @@ const getPairs = (arr, k) => {
 [[9, 7], [2, 14]]
 ```
 ### JS Interview Questions 
+> Q. scope leaking - b can be accessed outside of the scope 
+```bash
+# a is let scoped 
+# b is local scoped 
+const fib = (n) => {
+    let a = b = 10
+    console.log(a)  #10
+    console.log(b)  @10
+}
+fib(10)
+console.log(b) #10
+#a cannot be accessed outside of scope 
+```
 > Q1. What output will this return on console
 ![](4.PNG)
 - something that cant be converted to number will give NAN, if you can convert it to number it will give the number 
@@ -406,12 +419,12 @@ console.log(kOccurance([1, 4, 4, 4, 2, 2, 2, 5, 5, 5, 5, 5, 7, 7, 8, 8, 8, 8],3)
 > the explanation:
 ```bash
 let kOccurance=(arr,k)=>{
-    // we create a map 
+    # we create a map 
     let obj={}
 
-    // iterate over every element of the arr and assign a count to each value in the form of key-value pairs 
-    //  0  1  2  3  4  5  6  7  8  9 10  11 12 13 14 15 16 17
-    // [1, 4, 4, 4, 2, 2, 2, 5, 5, 5, 5, 5, 7,  7, 8, 8, 8, 8]
+    # iterate over every element of the arr and assign a count to each value in the form of key-value pairs 
+    #  0  1  2  3  4  5  6  7  8  9 10  11 12 13 14 15 16 17
+    # [1, 4, 4, 4, 2, 2, 2, 5, 5, 5, 5, 5, 7,  7, 8, 8, 8, 8]
     arr.forEach((el)=> {
         console.log(el)
         console.log('before'+ obj[el])
@@ -991,13 +1004,21 @@ undefined
 > Q. Given a number n, print its factorial
 ```bash
 const factorial = num => {
-    if(num == 0 || num==1){
+    if(num == 0 || num == 1) {
         return 1
     }
     return num * factorial(num-1)
 }
 
 console.log(factorial(5))
+
+num   |   return 1   | num* factorial(num-1)
+ 0    |   #1         
+ 1    |   #1 
+ 2    |              | 2* factorial(1) = 2*1=2
+ 3    |              | 3* factorial(2) = 3*2=6
+ 4    |              | 4* factorial(3) = 4*6=24
+ 5    |              | 5* factorial(4) = 5*24=120
 ```
 
 > Q. write a program to print fibonnaci numbers using recursion
@@ -1011,37 +1032,41 @@ console.log(factorial(5))
 
 function fib(n){
     # for 1st and 2nd ch number would be 1 
-    if(n<3){
+    if(n<2){
         return 1
     }
 
     let prev = 1
     let curr = 1
 
-    for(let i=2; i<n; i++){
+    for(let i=1; i<n; i++){
         const next = prev + curr 
         prev = curr 
         curr = next 
     }
-    return curr 
+    #return curr
+    console.log(prev)
 }
 
 fib(5)
 
-i   |   prev   |   curr    |  next= prev+curr  |  prev=curr  |  curr=next
-2   |   1      |   1       |  next=1+1=2       |  prev=1     |  curr=2
-3   |   1      |   2       |  next=1+2=3       |  prev=2     |  curr=3
-4   |   2      |   3       |  next=2+3=5       |  prev=3     |  curr=5
-5   |   3      |   5       |  next=3+5=8       |  prev=5     |  curr=8
+
+i   |   prev   |   curr    |  next= prev+curr  |  prev=curr  |  curr=next  |  return 1
+0                                                                          |  1
+1                                                                          |  1
+2   |   1      |   1       |  next=1+1=2       |  prev=1     |  curr=2     |
+3   |   1      |   2       |  next=1+2=3       |  prev=2     |  curr=3     |
+4   |   2      |   3       |  next=2+3=5       |  prev=3     |  curr=5     |
 # output:
-# 1 1 2 3 5 8 
+# 0 1 2 3 4 
+# 1 1 2 3 5 
 ```
 > recursive solution 
 ```bash
 function fib(n){
-    if(n<3)
+    if(n<2)
     {
-        return i
+        return 1
     }
     else
     {
@@ -1049,15 +1074,357 @@ function fib(n){
     }
 }
 
-console.log(fib(5))
+console.log(fib(5)) #fib(4) + fib(3)
 
 n    |    fib(n-1) + fib(n-2)
-1    |    
-2    |
-3    |    fib(2) + fib(1) = 1+1=2
-4    |    fib(3) + fib(2) = 2+1=3
-5    |    fib(4) + fib(3) = 3+2=5
+0    |    1
+1    |    1 
+2    |    fib(1) + fib(0) = 1+1=2
+3    |    fib(2) + fib(1) = 2+1=3
+4    |    fib(3) + fib(2) = 3+2=5
+# 1 1 2 3 5 
 ```
+```bash
+const fib = (n) => {
+    # if(n == 0 || n == 1){
+    #     return 1
+    # }
+    if(n <= 1){
+        return 1
+    }
+    return fib(n-1) + fib(n-2)
+}
+
+fib(5)
+# 1 1 2 3 5 
+
+# So it never really knows the value of fib(n-1) and fib(n-2) intially
+# the only values we know are fib(0) = 1 and fib(1) = 1 
+# comp memory will use this knowledge to its advantage and it'll try to compute the final fibonnacci using fib(1) and fib(0)
+
+n  |  fib(n-1)  |  fib(n-2) | fib(n-1) + fib(n-2)
+5  |  fib(4)    |  fib(3)   | {fib(3) + fib(2)} + {fib(2) + fib(1)}
+# fib(4) = fib(3) + fib(2) = 3 + 2 = 5
+# fib(3) = fib(2) + fib(1)
+# we know fib(1) = 1 and fib(0) = 1
+4  |  fib(3)    |  fib(2)   |  {fib(2) + fib(1)} + {fib(1) + fib(0)}
+# fib(3) = fib(2) + fib(1) = 2 + 1 = 3 
+# fib(2) = fib(1) + fib(0) = 1 + 1 = 2
+3  |  fib(2)    |  fib(1)   |  {fib(1) + fib(1)} + fib(0)  
+# fib(2) = fib(1) + fib(0) = 1 + 1 = 2
+# we know that fib(0) = 1
+2  |  fib(1)    |  fib(0)   | 1 + 1 = 2 
+```
+> Q. Clumsy factorial 
+```bash
+# normal factorial 
+# factorial(10) = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1.
+clumsy(10) = 10 * 9 / 8 + 7 - 6 * 5 / 4 + 3 - 2 * 1
+
+# What we'll acheive in each iteration 
+(10 * 9 / 8) + (7) - (6 * 5 / 4 + 3) - (2 * 1)
+
+# C++
+class Solution {
+    typedef long long l1;
+public:
+    int clumsy(int n) {
+        int sign = 1;
+        int ans = 0;
+
+        for(int i=n ; i>0; i=i-4){
+            l1 temp = i;
+            if(i-1 > 0){
+                temp = temp * i-1;
+            }
+
+            if(i-2 > 0){
+                temp = temp / i-2;
+            }
+
+            ans = ans + sign * temp;
+            if(i-3 > 0){
+                ans = ans + i-3;
+                sign = -1;
+            }
+            return ans;
+        }
+    }
+};
+
+# when n=10
+# (10 * 9 / 8) + (7) - (6 * 5 / 4 + 3) - (2 * 1)
+
+i  |  i-1 > 0  |  temp * (i-1)    |  i-2 > 0  |  temp / i-2         |  i-3 > 0 | ans + i-3
+10 |  9>0      |  10 * 9          |           |                     |          |
+                                  |  8>0      |  10*9 / 8           |          |
+                                  # ans = ans + sign * temp  = 0 + 1 * 10*9/8
+                                                                    |  7 > 0   | 10*9/8 + 7
+#sign = -1                                                       
+6  |           |- 6               |           |                    |           |
+      5>0      |- 6 *5            |           |                    |           |
+                                  |  4>0      |- 6 *5/4            |           |
+                                  # ans = ans + sign * temp  =10*9/8 + 7 (- 6 *5/4) = 10*9/8 + 7 - 6 *5/4
+                                                                    |  3>0     | 10*9/8 + 7 - 6 *5/4 +3
+#sign = -1
+2  |  2>0      |-2*1              |           |
+                                  | 0>0 ❌    
+                                  |           |                     | -1>0 ❌
+                                  # ans = ans + sign * temp = 10*9/8 + 7 (- 6 *5/4) = 10*9/8 + 7 - 6 *5/4 (-2 *1) 
+                                  # (10 * 9 / 8) + (7) - (6 * 5 / 4 + 3) - (2 * 1)
+```
+> JS Solution 
+```bash
+var clumsy = function(n) {  
+    if(n<=2){ return n; }
+
+    if(n===3 || n===4){ return n+3; } 
+
+    let mod=n%4;
+    if(mod===0){ return n+1; }
+    if(mod===1 || mod===2){ return n+2; }
+    if(mod===3){ return n-1; }
+};
+
+when n = 10 
+(10 * 9 / 8) + (7) - (6 * 5 / 4 + 3) - (2 * 1)
+
+# This is the priorty order in which the operations must be carried out (/ then x then + then -) for all n greater than 4 
+# DMAS - DIVISION, MULTIPLICATION, ADDITION, SUBTRACTION 
+
+n   |    n<=2   |  n+3          | mod=n%4   |   mod==0  |   mod==1  |   mod==2  |  mod==3
+#if n=2 -> 2*1 = 2
+2   |     2     |
+#if n=3 -> 3*2 /1 = 6/1 = 6
+3   |           |  6
+#if n=4 -> 4*3 /2 +1 = 12/2 +1 = 7
+4   |           |  7
+#if n=5 -> 5*4 /3 +2 - 1= 20/3 +2 -1 = 6.7 + 1 = 
+5   |           |              | mod=5%4    |           |  5+2=7    |           |
+#if n=6 -> 6*5 /4 +3 -2 *1 = 30/4 = 7.5 = ~8
+6   |           |              | mod=6%4    |           |           |  6+2= 8   |
+#if n=7 -> 7*6 /5 +4 -3*2 / 1 = 42/5 +4 - 6/1 = 8.4 + 4 - 6 = 12-6= 6
+7   |           |              | mod=7%4    |           |           |           | 7-1=6
+#if n=8 -> (8*7/6) +5 - (4*3/2 +1) = 56/6 + 5 - 4*1.5 + 1 = 9.3 + 5 - 4*1 + 1 = 9+5-4+1 = 9  
+8   |           |              | mod=8%4    |   8+1=9   |           |           |
+#if n=9 -> 9*8/7 + (6) - (5*4/3+2) -1 = 9*1.1 + 6 - 5*1.3 +2 -1 = 9+6-5+2-1 = 15-5+1=11
+9   |           |              | mod=9%4    |           | 9+2=11
+#if n=10 -> (10 * 9 / 8) + (7) - (6 * 5 / 4 + 3) - (2 * 1) = 90/8 +7 - 30/7 - 2 = 11.25+7 - 4.28 - 2 = 18.25 -6.28 = ~(18-6) = 12
+10  |           |               | mod=10%4  |           |           |   10+2=12 |
+```
+### Dyanamic Programmming 
+> Optimisation over Recursion
+We can reduce time complexity used in recursion using DP.
+
+> Conditions:
+- overlapping subproblem 
+In case of fibonnacci series in recursion, when we try to compute the same fib again and again in different sub trees
+```bash
+# fibonacci series: 1 1 2 
+f(n) = f(n-1) + f(n-2)
+
+when n=3
+# recursive tree 
+       3
+    /    \
+   2      1
+ /  \   /   \
+1    0 0     -1
+# Note that: were trying to compute fib(1) more than 1 time
+# similarly, were trying to compute fib(0) more than 1 time 
+```
+![](121.PNG)
+```bash
+When were trying to solve a problem say P, but in order to solve it there are particular subproblems say P1, P2, P3. Now in order to solve each of these sub problems we need to solve a sub part of that particular problem, which occurs even in both sub parts say P1 and p2, So the way, we tackled this in recursion, was to compute these sub parts again and again, but in case of DP, we store the common subparts in a memory, this is called memoization. So DP is nothing but, an optimized version of recursion and the way it optimizes a recursive solution is through memoization.
+```
+- optimal sub structure 
+```bash
+When f(n) = f(n-1) + f(n-2) then we can derive the final solution by computing f(n-1) and f(n-2) first, by computing its sub structure first 
+
+whne n=3
+f(3) = f(2) + f(1)
+In order to compute f(3), well first need to compute f(2) and f(1) individually 
+
+we also know that, 
+f(2) = f(1) + f(0), to compute f(2) we also need f(1) and f(0) computations individually
+```
+> How do we acheive dyanamic programming?
+memoization 
+
+#### Memoization 
+technically means, instead of computing the same sub structure again and again were going to store the already computed value in the memory. 
+
+> important DP problems 
+- coin change 
+- subset sum 
+- word break 
+- knapsack 
+- partition problem 
+- LCS
+
+> Steps to solve using DP 
+1. solve using recursion 
+2. store the repeated sub parts in memoize, so we dont need to compute it again 
+3. Bottom up approach instead of recursion
+
+#### 1. solving using recursion
+```bash
+when n=3
+# 1 1 2 
+
+when n=5
+# 1 1 2 3 5
+
+def fib(n):
+  if n==1 or n==2:
+     result 1 
+  else:
+     result = fib(n-1) + fib(n-2)
+    return result 
+
+# Time Complexity: O(2^n)
+```
+> how is the TC for recursive function: O(2^n)?
+```bash
+Recursive algorithms time complexity can be better estimated by drawing recursion tree, In this case the recurrence relation for drawing recursion tree would be T(n)=T(n-1)+T(n-2)+O(1) note that each step takes O(1) meaning constant time,
+      
+when n=3
+# recursive tree 
+       3
+    /    \
+   2      1
+ /  \   /   \
+1    0 0     -1
+
+
+# Denoting this in terms of n 
+          n
+        /   \
+   (n-1)      (n-2)
+   /  \        / \
+(n-2)(n-3) (n-3)(n-4) 
+
+Here lets say each level of recursive tree is denoted by i hence,
+# when n=4, i=3
+i
+0                        n
+1            (n-1)                 (n-2)
+2        (n-2)    (n-3)      (n-3)     (n-4)
+3   (n-3)(n-4) (n-4)(n-5) (n-4)(n-5) (n-5)(n-6)
+
+Note that, if we would want to compute the number of subparts at each ith value, we would have to use 2^i
+2^0=1                        n
+2^1=2            (n-1)                 (n-2)        #2 subparts 
+2^2=4        (n-2)    (n-3)      (n-3)     (n-4)    #4 subparts 
+2^3=8   (n-3)(n-4) (n-4)(n-5) (n-4)(n-5) (n-5)(n-6) #8 subparts 
+
+Hence total work done will sum of work done at each level, hence it will be 
+2^0 + 2^1 + 2^2 + 2^3... +2 ^(n-1) 
+since i=n-1. 
+
+By geometric series this sum is 2^n, Hence total time complexity here is O(2^n) or exponential 
+```
+![](113.PNG)
+
+#### 2. Fibonacci: Memoized solution
+```bash
+when n=5 
+we need to get the nth fibonnaci values
+# creating an array of length -> n+1 -> 5+1 = 6
+# This arr is going to store values everytime a fib(n) is computed, so we dont have to recalculate it 
+
+#memo[]
+ 1   2   3   4   5    #indices
+`````````````````````
+|   |   |   |   |   | #intially all values set to null
+`````````````````````
+well store the return value of fib(n) at index n of memo[]
+# we'll store the result of fib(1) in memo[1]
+# we'll store the result of fib(2) in memo[2]
+`````````````````````
+| 1 | 1 | 2 | 3 | 5 |  
+`````````````````````
+
+#for instance, fib(3) requires fib(2) and fib(1), when fib(2) and fib(1) result is already computed inside the memo[] we can easily retreive it, which will inturn reduce the time complexity since it would not require the computations repeatedly.
+
+def fib(n, memo):
+   if memo[n] != null: #if there are values inside memo[], then return the saved value 
+     return memo[n]
+   if n==1 or n==2:
+      result = 1 
+   else:
+      result = fib(n-1) + fib(n-2)
+    memo[n] = result
+    #result is stored inside memo[n]
+    return result
+
+when n=5
+n   |  result= return 1   |   result=fib(n-1)+ fib(n-2)  |  memo[n]= result
+5   |                     |   fib(4) + fib(3) =3+2=5     | memo[5] = 5
+4   |                     |   fib(3) + fib(2) =2+1=3     | memo[4] = 3
+3   |                     |   fib(2) + fib(1) =1+1=2     | memo[3] = 2
+2   |        1            |                              | memo[2] = 1
+1   |        1            |                              | memo[1] = 1
+# In these computations, 
+# for example, when n=4 then fib(4)=fib(3)+fib(2), but fib(3) and fib(2) are already stored on the memo[] thats why we neednt need to re-compute it again as we would in case of normal recursion 
+
+Time Complexity: 0(n)
+# the first if statement is 0(1)
+# since the value is already stored in memo[] we dont have to loop over the array more than once 
+# so the resultant TC is O(n) + 0(1) = O(n)
+For dynamic Programming, the time complexity would be O(n) since we only loop through it once.
+```
+> How are values added to the memo[] ?
+```bash
+         fib(5)
+       /       \
+    fib(4)      fib(3)
+    /   \        /    \
+fib(3) fib(2) fib(2) fib(1)
+  /   \
+fib(2) fib(1)
+
+When pointer is at fib(5), it doesnt know the value, so it goes downwards and when it finds the values fib(2) and fib(1) present, it adds them to the memo[] from left to right
+`````````````````````
+| 1 | 1 |   |   |   |  
+`````````````````````
+then with fib(2) and fib(1) it'll compute fib(3)
+with fib(3) and fib(2) it'll compute fib(4)
+and then with fib(4) and fib(3) itll compute fib(5)
+you see, how its adding from bottom to top?
+This is called the bottom-up approach. 
+```
+#### 3. Bottom-Up approach / an alternative approach 
+```bash
+def fib(n):
+  if n==1 or n==2:
+     return 1
+  #we defined an array who's length is 6, if n=5 for example
+  bottom_up = new int[n+1]
+  bottom_up[1] = 1
+  bottom_up[2] = 1
+
+  for i from 3 upto n:
+    #compute the final sum by adding the previous 2 elements 
+    bottom_up[i] = bottom_up[i-1] + bottom_up[i-2]
+  return bottom_up[n]
+
+
+# Tc is O(n) because were traversing through bottom_up[] only once 
+Time Complexity: O(n)
+
+# bottom_up[]: A visualization
+----------------
+1 | 1 |  |  |  |
+----------------
+to compute the sum of bottom_up[2] = bottom_up[1] + bottom_up[0] = 1+1=2 
+```
+### Difference between Dyanamic Programming and recursion.
+Recursion is the process in which a function calls itself until the base cases are reached. And during the process, complex situations will be traced recursively and become simpler and simpler. The whole structure of the process is tree like. Recursion does not store any value until reach to the final stage(base case).
+![ Dynamic programming uses the same amount of space but it is way faster.](114.PNG)
+
+And **Dynamic Programming is mainly an optimization compared to simple recursion**. The main idea is to decompose the original question into repeatable patterns and then store the results as many sub-answers. Therefore, we do not have to re-compute the pre-step answers when needed later. In terms of big O, this optimization method generally reduces time complexities from exponential to polynomial.
+***The main difference is that, for recursion, we do not store any intermediate values whereas dynamic programming do utilize that.***
 
 #### Sliding Window Technique 
 > What is the sliding window algorithm?
@@ -1382,7 +1749,83 @@ console.assert(maxVowels("abciidef", 3) == 3, "first testcase failed")
 console.assert(maxVowels("aeiou", 3) == 3, "second testcase failed")
 console.assert(maxVowels("leetcode", 3) == 3, "third testcase failed")
 ```
+> Q. Rainwater Trapping problem 
+![](rain1.PNG)
+```bash
+# rainwater cannot be accumulated on the block when the lhs and rhs blocks are smaller 
+at every index, how much rainwater will be accumulated?
 
+# Array preprocessing 
+# Were creating two auxillary array
+For the Left array we compute the max from arr[i] and the current max from the LHS 
+For the Right array we compute the max from arr[i] and the current max from the RHS. 
+#max from right is calculated from downwards 
+
+i   |   arr[i]   |   max from left  |  max from right| max left < max right |  min - a[i]
+0   |   3        |   3              |  4             | 3 < 4 ✅             |  3 - 3 = 0
+1   |   1        |   3              |  4             | 3 < 4 ✅             |  3 - 1 = 2 
+2   |   2        |   3              |  4             | 3 < 4 ✅             |  3 - 2 = 1
+3   |   4        |   4              |  4             | 4 < 4 ❌             |  4 - 4 = 0 
+4   |   0        |   4              |  3             | 4 < 3 ❌             |  3 - 0 = 3  
+5   |   1        |   4              |  3             | 4 < 3 ❌             |  3 - 1 = 2
+6   |   3        |   4              |  3             | 4 < 3 ❌             |  3 - 3 = 0
+7   |   2        |   4              |  2             | 4 < 2 ❌             |  2 - 2 = 0 
+
+Computing the formula,
+# the difference is computed (minimum between left / right) - a[i]
+For any index i, we can say that, 
+i = Math.min(left[i], right[i] - a[i])
+# when the difference is 0, we can say that no water will be accumulated on this block 
+# when difference is 2, we can say that 2 blocks of water will be accumulate above this block
+
+Total amount of rainwater that is accumulated = sum of all min-a[i] = 2+1+3+2=8
+```
+```bash
+int rainwater(int a[]){
+    int n = a.length
+    int left[] = new int[n]
+    int right[] = new int[n]
+
+    # left[0] = 3 
+    left[0] = a[0]
+    # n = 8 in the top array 
+    # it traverses from 1 to 7 
+    # left[1] = Math.max(left[0], a[1]) -> 3, 1 -> 3
+    # left[2] = Math.max(left[1], a[2]) -> 3, 2 -> 3
+    # left[3] = Math.max(left[2], a[3]) -> 3, 4 -> 4
+    # left[4] = Math.max(left[3], a[4]) -> 4, 0 -> 4
+    # left[5] = Math.max(left[4], a[5]) -> 4, 1 -> 4
+    # left[6] = Math.max(left[5], a[6]) -> 4, 3 -> 4
+    # left[7] = Math.max(left[6], a[7]) -> 4, 2 -> 4
+    for(int i=1; i<n; i++){
+        left[i] = Math.max(left[i-1], a[i])
+    }
+
+    # right[7] = a[7] = 2 
+    right[n-1] = a[n-1]
+    # n=8, then n-2=6 
+    # it traverses from 6 to 0 
+    # right[6] = Math.max(right[7], a[6]) -> 2, 3 -> 3
+    # right[5] = Math.max(right[6], a[5]) -> 3, 1 -> 3
+    # right[4] = Math.max(right[5], a[4]) -> 3, 0 -> 3
+    # right[3] = Math.max(right[4], a[3]) -> 3, 4 -> 4
+    # right[2] = Math.max(right[3], a[2]) -> 4, 2 -> 4
+    # right[1] = Math.max(right[2], a[1]) -> 4, 1 -> 4
+    # right[0] = Math.max(right[1], a[0]) -> 4, 3 -> 4
+    for(int i=n-2; i>=0; i--){
+        right[i] = Math.max(right[i+1], a[i])
+    }
+
+    int ans = 0 
+    for(int i=0; i<n; i++){
+        #subtract a[i] from the minimum of left or right index 
+        #compute the sum ths will be the toal amount of rainwater accumulated 
+        ans = ans + (Math.min(left[i], right[i] - a[i]))
+    }
+
+    return ans
+}
+```
 ### Sort method 
 predefined method in JS which returns the sorted array 
 
@@ -1551,7 +1994,7 @@ G vs H
 ```
 ### Linked List 
 Linked list is a collection of nodes 
-- node contains `data` and `pointer`
+- node contains `data` and `pointer`. First node pointer points the next pointer.  
 ![](node2.PNG)
 ![](node.png)
 
@@ -1559,109 +2002,629 @@ Linked list is a collection of nodes
 - traversing is slower than array 
 - Linked list doesnt need continuous memory / space, only array has such requirments.
 
-> creating linked list  
+> How are linked list stored in the memory?
 ```bash
-const nodeFactory = () => {
-    # create new node 
-    return {
-        data: undefined,
-        next: undefined,
+#Explanation:
+
+# 10  -> 60  -> 20 
+#  |            |
+# head         tail
+# head stores the first node 
+# tail stores  the last node 
+
+# Object inside Object 
+let LinkedList = {
+    head: {
+        value:10,
+        next: {           #10 is pointing to 16
+            value: 16,
+            next: {        #16 pointing to 20 
+                value: 20,
+                next: null #20 points at nothing 
+            }
+        }
+    }
+}
+# linkedlist stored as an object which contains key-value pairs 
+```
+> How to create a Linked list DS?
+```bash
+class LinkedList{
+    #whatever data user inputs -> data 
+    constructor(data){
+        # head will be fixed, tail wont be fixed 
+        this.head = {
+            value: data,
+            next: null #intiially next is defined as null, first node doesnt point to anything 
+        }
+        #as we add new node, tail keeps updating 
+        #but initially when we have only one node, tail and head pointers will be pointing to the same node 
+        this.tail = this.head 
     }
 }
 
-# creating node 
-let i = 1
-let current = root          #currently where you pointing 
-const root = nodeFactory()  #root pointing to nodeFactory object
+#myList is the class reference 
+#user wants to add 10 to the linkedlist 
+const myList = new LinkedList(10)
+console.log(myList)
 
-while(i <= 10){
-    const node = nodeFactory()
-    current.next = node    #forming connection between 2 nodes  
-    node.data = 1
-    current = node         #shift the current pointer to node 
-    i++
-}
-
-#you can never change root, thats why current = root 
-current = root     
-
-#when current.next != undefined -> there exists another node in the linked list 
-#when current.nxt == undefined -> there exists no node in the linked list 
-while(current.next != undefined){
-    console.log(current.data)
-    current = current.next
-
-}
-
-const new_node = nodeFactory()
-current.next = new_node 
-new_node.data = 1337
-```-
-![](node11.PNG)
-![when current = node](node12.PNG)
-
-> linked list working 
-```bash
-# every node has data and next 
-
-# Initially, data and next are undefined 
-✅root points to first node 
-✅current points to the first node 
-
- root 
-  |
--------------
-data  |  next
--------------
-  |
-current
-
-
-✅const node = nodeFactory() creates a new node 
-now this is how it looks like  
-                     #node 
------------          ----------
-data | next          data | next 
------------          -----------
-
-
-✅current.next = node  #forms a connection between these 2 nodes
-✅node.data = 1
- root
-   |                    #node 
------------             ----------
-data | next   --->      1   | next 
------------             -----------
-   |
-current
-
-
-✅current = node       #shift the current pointer to node 
-                       current 
-                          |
------------             ----------
-data | next   --->      data | next 
------------             -----------
-
-
-# Traversing over every node in the linked list 
-while(current.next != undefined) {
-    console.log(current.data)
-    #current pointer points to the next section from the node 
-    current = current.next
-
-}
-
-# Creating a new node 
-current.next = new_node #forms a connection between these 2 nodes 
-current = new_node 
-new_node.data = 1337
-                       current 
-                          |               #new_node 
------------             ----------        -----------
-data | next   --->      data | next       1337 | next
------------             -----------       -----------
+# output:
+LinkedList
+head: {value: 10, next: null}
+tail: {value: 10, next: null}
+[[Prototype]]: Object
 ```
+> appending a new node in linkedlist 
+```bash
+# 10 --> 16 
+class LinkedList{
+    #whatever data user inputs -> data 
+    constructor(data){
+        # head will be fixed, tail wont be fixed 
+        this.head = {
+            value: data,
+            next: null #intiially next is defined as null, first node doesnt point to anything 
+        }
+        #defining tail 
+        this.tail = this.head 
+    }
+    #append this data to the linked list 
+    append(data){
+        const newNode = {
+            value: data,
+            next: null #initially next pointer is null
+        }
+
+        # previous node = 10, newnode = 16
+        #initially both head and tail was pointing at 10
+        #to link previous node with this new node we want to append 
+        this.tail.next = newNode 
+        #initially tail was on 10, we want the pointer at 10 to point to newnode 
+
+        #tail should point at the appended node 
+        this.tail = newNode 
+    }
+}
+
+
+const myList = new LinkedList(10)
+myList.append(16)
+console.log(myList)
+
+# output:
+LinkedList
+head:
+next: {value: 16, next: null}
+value: 10
+[[Prototype]]: Object
+tail: {value: 16, next: null}
+[[Prototype]]: Object
+```
+> how to prepend a node in javascript?
+```bash
+# adding node 2 to the beginning 
+# 2 --> 10 --> 16 
+class LinkedList{
+    #whatever data user inputs -> data 
+    constructor(data){
+        # head will be fixed, tail wont be fixed 
+        this.head = {
+            value: data,
+            next: null #intiially next is defined as null, first node doesnt point to anything 
+        }
+        this.tail = this.head 
+        this.length = 1
+    }
+    #append this data to the linked list 
+    append(data){
+        const newNode = {
+            value: data,
+            next: null #initially next pointer is null
+        }
+        #to link previous node with this new node we want to append 
+        this.tail.next = newNode 
+        #initially tail was on 10, we want the pointer to 10 to point to newnode 
+
+        #tail should point at the appended node 
+        this.tail = newNode 
+        this.length++
+    }
+    prepend(data){
+        const newNode = {
+            value: data,
+            next: null
+        }
+        # new node should point at head 
+        # new node = 2
+        # head = 10 
+        # 2 --> 10 --> 16 
+        newNode.next = this.head 
+
+        # now the head pointer should point at newNode 
+        this.head = newNode 
+    }
+}
+
+
+const myList = new LinkedList(10)
+myList.append(16)
+myList.prepend(2)
+console.log(myList)
+
+# output:
+LinkedList
+head: {value: 2, next: {value: 10, next:{ value,16, next: null}}}
+length: 2
+tail: {value: 16, next: null}
+[[Prototype]]: Object
+```
+> How to insert at a given position linked list 
+```bash
+# If we want to insert 4 in the linkedlist, we'll break the connection between 2 and 10 and insert 4, by pointing 2 at 4 and pointing 4 to 10 
+#   4
+#  /  \
+# 2--> 10 --> 16 --> 20 
+
+# after insertion, this is how the final linked list would look like 
+# 2 -> 4 -> 10 -> 16 -> 20
+class LinkedList{
+    constructor(data){
+        this.head = {
+            value: data,
+            next: null 
+        }
+        this.tail = this.head 
+        this.length = 1
+    }
+    append(data){
+        const newNode = {
+            value: data,
+            next: null 
+        }
+
+        this.tail.next = newNode 
+        this.tail = newNode 
+        this.length++
+    }
+    prepend(data){
+        const newNode = {
+            value: data,
+            next: null
+        }
+        newNode.next = this.head 
+        this.head = newNode 
+    }
+
+    #we passed index-1 here, the 0'th index 
+    traversing(req){
+        #counter for traversing over every node in the linked list 
+        let counter = 0 
+        #while were looping over each node, we want to increement the head pointer 
+        let currentNode = this.head 
+
+        #This function is to fetch the req node, in our case its 2 
+        #2 is at the 0'th index itself, so it simply returns currentNode at the end, and never goes in this condiiton, and currentNode simply signifies the head pointer, inthis example, head is pointing at 2
+
+        # counter = 0, req =0
+        #keep increementing counter until, counter != req
+        while(counter != req){
+            counter++
+            #we increement the head pointer to point at the node were currently at 
+            currentNode = currentNode.next
+        }
+        return currentNode 
+    }
+
+    insert(index, data){
+        # at which index are we inserting
+        # which data are we inserting 
+        const newNode = {
+            value: data,
+            next: null
+        }
+        # grab 2 and 10 from the linked list 
+        const leaderNode = this.traversing(index-1) #0th index, data:2
+        const nextNode = leaderNode.next            #the node after 2 -> data: 10
+
+        # connect 2 -> 4 -> 10
+        # 2 is called leaderNode 
+        # 10 is called nextNode 
+
+        # 2-> 4
+        leaderNode.next = newNode   #newNode=4
+        # 4-> 10
+        newNode.next = nextNode
+
+    }
+}
+
+#   4
+#  /  \
+# 2   10 --> 16 --> 20 
+
+const myList = new LinkedList(10)
+ myList.append(16)
+myList.prepend(2)
+myList.insert(1, 4) #at 1st index insert 4 
+console.log(myList)
+
+# console:
+LinkedList
+head: {value: 2, next: {value: 4, next: { value:10, next: { value:16, next: null}}}}
+length: 2
+tail: {value: 16, next: null}
+[[Prototype]]: Object
+```
+> How to remove a node from linked list 
+```bash
+# we want to remove 4 from the linked list 
+# 2 -> 4 -> 10 -> 16 -> 20
+
+# to acheive this, shift the pointer of 2 to point to 10 and break the 2->4 connection 
+# 2 -> 10 -> 16 -> 20 
+class LinkedList{
+    constructor(data){
+        this.head = {
+            value: data,
+            next: null 
+        }
+        this.tail = this.head 
+        this.length = 1
+    }
+    append(data){
+        const newNode = {
+            value: data,
+            next: null 
+        }
+
+        this.tail.next = newNode 
+        this.tail = newNode 
+        this.length++
+    }
+    prepend(data){
+        const newNode = {
+            value: data,
+            next: null
+        }
+        newNode.next = this.head 
+        this.head = newNode 
+    }
+
+    #we passed index-1 here, the 0'th index 
+    traversing(req){
+        #counter for traversing over every node in the linked list 
+        let counter = 0 
+        #while were looping over each node, we want to increement the head pointer 
+        let currentNode = this.head 
+
+        #This function is to fetch the req node, in our case its 2 
+        #2 is at the 0'th index itself, so it simply returns currentNode at the end, and never goes in this condiiton, and currentNode simply signifies the head pointer, inthis example, head is pointing at 2
+
+        # counter = 0, req =0
+        #keep increementing counter until, counter != req
+        while(counter != req){
+            counter++
+            #we increement the head pointer to point at the node were currently at 
+            currentNode = currentNode.next
+        }
+        return currentNode 
+    }
+
+    insert(index, data){
+        # at which index are we inserting
+        # which data are we inserting 
+        const newNode = {
+            value: data,
+            next: null
+        }
+        # grab 2 and 10 from the linked list 
+        const leaderNode = this.traversing(index-1) #0th index, data:2
+        const nextNode = leaderNode.next            #the node after 2 -> data: 10
+
+        # connect 2 -> 4 -> 10
+        # 2 is called leaderNode 
+        # 10 is called nextNode 
+
+        # 2-> 4
+        leaderNode.next = newNode   #newNode=4
+        # 4-> 10
+        newNode.next = nextNode
+
+    }
+
+    delete(index){
+        # leaderNode = 2 
+        const leaderNode = this.traversing(index-1)
+        # leaderNode.next = 4 
+        const unwantedNode = leaderNode.next 
+        # nextNode = 10 
+        const nextNode = unwantedNode.next 
+
+        # link 2 with 10, then 4 will automatically go away 
+        leaderNode.next = nextNode
+
+        # reduce length as node is deleted 
+        this.length--
+    }
+}
+
+const myList = new LinkedList(10)
+myList.append(16)
+myList.prepend(2)
+myList.insert(1, 4) 
+myList.delete(1)   #deleting the 1st index
+console.log(myList)
+
+# console:
+LinkedList
+head: {value: 2, next: {value: 10, next: { value:16, next:null}}}
+length: 1
+tail: {value: 16, next: null}
+[[Prototype]]: Object
+```
+> Delete node in linked list - LEETCODE 
+```bash
+# we will be given access to the node to be deleted directly 
+# node to be deleted is not a tail node in the list 
+class Solution {
+    public void deleteNode(ListNode node){
+        # 4 -> 5 -> 1 -> 9
+        # 5 - node.val (node to be deleted)
+        # 1 - node.next.val 
+        node.val = node.next.val   #update the node data to contain 1 
+        # 4 -> 1 -> 9 
+        # link 1 and 9
+        # 1 - node.next 
+        # 9 - node.next.next 
+        node.next = node.next.next #pointer points at 9 
+    }
+}
+```
+> palindorme linked list 
+```bash
+Given the head of a singly linked list, return true if it is a palindrome.
+
+Input: head = [1,2,2,1]
+Output: true
+
+Input: head = [1,2]
+Output: false
+```
+```bash
+
+#function for reversing linked list 
+const reverse = head => {
+    let cur = head;
+    let prev = null
+    let next 
+
+    while(cur){
+        next = cur.next
+        cur.next = prev 
+        prev = cur
+        cur = next
+    }
+    return prev
+}
+
+#input: head = [1, 2, 2, 1]
+#output: true
+var isPalindrome = function(head){
+#approach 1: check from both sides of the linked list 
+#approach2: check middle value and go outwords 
+
+#two pointer apporach 
+#2 pointers 
+#one pointer say F move 2 spaces 
+#L pointer move 1 pointer - shows mid point 
+
+#we can reverse the points from R to mid 
+let fast = head;
+let slow = head;
+let startPointer = head;
+let length = 0;
+
+while(fast && fast.next){
+    fast = fast.next.next;
+    slow = slow.next;
+    #where slow pointer ends, its the mid of the list 
+    length++;
+}
+
+#reverse list from mid to n-1
+let mid = reverse(slow)
+#if the reverse from 0->mid is same as from n-1 to mid, then its palindrome 
+
+
+while(len){
+    len--;
+
+    #mid value should be equal to start value 
+    if(mid.val != startPointer.val)  return false;
+    mid = mid.next;
+    startPointer = startPointer.next
+}
+
+}
+```
+> code that works on leetcode 
+```bash
+const reverse = head => {
+    let cur = head;
+    let prev = null
+    let next 
+
+    while(cur){
+        next = cur.next
+        cur.next = prev 
+        prev = cur
+        cur = next
+    }
+    return prev
+};
+
+var isPalindrome = function(head){ 
+let fast = head;
+let slow = head;
+let startPointer = head;
+let length = 0;
+
+while(fast && fast.next){
+    fast = fast.next.next;
+    slow = slow.next;
+    length++;
+}
+
+let mid = reverse(slow);
+
+
+while(length){
+    length--;
+    if(mid.val != startPointer.val)  return false;
+    mid = mid.next;
+    startPointer = startPointer.next;
+}
+return true;
+
+};
+```
+
+> Reverse linked list 
+```bash
+class LinkedList{
+    constructor(data){
+        this.head = {
+            value: data,
+            next: null 
+        }
+        this.tail = this.head 
+        this.length = 1
+    }
+    append(data){
+        const newNode = {
+            value: data,
+            next: null 
+        }
+
+        this.tail.next = newNode 
+        this.tail = newNode 
+        this.length++
+    }
+    prepend(data){
+        const newNode = {
+            value: data,
+            next: null
+        }
+        newNode.next = this.head 
+        this.head = newNode 
+    }
+
+    #we passed index-1 here, the 0'th index 
+    traversing(req){
+        #counter for traversing over every node in the linked list 
+        let counter = 0 
+        #while were looping over each node, we want to increement the head pointer 
+        let currentNode = this.head 
+
+        #This function is to fetch the req node, in our case its 2 
+        #2 is at the 0'th index itself, so it simply returns currentNode at the end, and never goes in this condiiton, and currentNode simply signifies the head pointer, inthis example, head is pointing at 2
+
+        # counter = 0, req =0
+        #keep increementing counter until, counter != req
+        while(counter != req){
+            counter++
+            #we increement the head pointer to point at the node were currently at 
+            currentNode = currentNode.next
+        }
+        return currentNode 
+    }
+
+    insert(index, data){
+        # at which index are we inserting
+        # which data are we inserting 
+        const newNode = {
+            value: data,
+            next: null
+        }
+        # grab 2 and 10 from the linked list 
+        const leaderNode = this.traversing(index-1) #0th index, data:2
+        const nextNode = leaderNode.next           #the node after 2 -> data: 10
+
+        # connect 2 -> 4 -> 10
+
+        # 2-> 4
+        leaderNode.next = newNode   #newNode=4
+        # 4-> 10
+        newNode.next = nextNode
+
+    }
+
+    delete(index){
+        # leaderNode = 2 
+        const leaderNode = this.traversing(index-1)
+        # leaderNode.next = 4 
+        const unwantedNode = leaderNode.next 
+        # nextNode = 10 
+        const nextNode = unwantedNode.next 
+
+        # link 2 with 10, then 4 will automatically go away 
+        leaderNode.next = nextNode
+
+        # reduce length as node is deleted 
+        this.length--
+    }
+
+    # 2-> 10 -> 16 -> 20
+    reverse(){
+        #were taking reference of all elements in the linked list 
+        let first = this.head   #first = 2 
+        #2 is the tail when linked list is reversed 
+        this.tail = this.head 
+
+        let second = first.next #second = 10
+        
+        # while second node exists 
+        # link second with first 10 -> 2
+        while(second){
+            # pointer of 10 points at 2 
+            second.next = first 
+
+            # temp = 16 
+            let temp = second.next
+
+            #first = 10 
+            #second = 16 
+            #we need to do 16 -> 10, which will happen when this loop runs again 
+            first = second 
+
+            #second = 16 
+            second = temp 
+        }
+        #now the first element in the node will point to null 
+        #2 <- 10 <- 16 <- 20 
+        this.head.next = null 
+        this.head = first 
+
+    }
+
+}
+
+const myList = new LinkedList(10)
+myList.append(16)
+myList.prepend(2)
+myList.insert(1, 4) #at 1st index insert 4 
+myList.delete(1) 
+myList.reverse()
+console.log(myList)
+```
+
+
+
+
+
+
+
+
 
 
 
