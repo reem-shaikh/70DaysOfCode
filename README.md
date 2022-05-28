@@ -248,6 +248,13 @@ https://reem-shaikh.github.io/70DaysOfCode/main/22-01/19-01.html
 **Google clone using API**
 https://reem-shaikh.github.io/70DaysOfCode/main/22-01/22-01.html
 
+## 20-05
+**landing page with react**
+https://reem-shaikh.github.io/70DaysOfCode/test/react/assignments/landingpage/public/index.html
+
+## 22-05
+**Toggle Dark and light theme in react**
+https://reem-shaikh.github.io/70DaysOfCode/test/react/test/18may/public/index.html
 
 <!-- micro dev tools: 
 launch instance
