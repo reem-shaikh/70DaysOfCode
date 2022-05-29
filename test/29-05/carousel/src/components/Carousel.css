@@ -1,0 +1,45 @@
+
+.carousel {
+    width: 60%;
+    height: 700px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.carouselInner {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+.carouselInner .left {
+    flex: 5%;
+    height: 100%;
+    background-color: rgba(36, 35, 35, 0.6);
+    color: rgb(252, 252, 252);
+    /* to center icon */
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.carouselInner .center {
+    flex: 80%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+}
+
+.carouselInner .right {
+    flex: 5%;
+    height: 100%;
+    background-color: rgba(36, 35, 35, 0.6);
+    color: rgb(246, 246, 246);
+    /* to center icon */
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
