@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+           outline: 0;
+           border: 0;
+       }
+
+       body{
+           height: 100vh;
+           font-family: Arial, Helvetica, sans-serif;
+           display: grid;
+           place-items: center;
+       }
+
+       h1{
+           margin-bottom: 2rem;
+       }
+
+       form{
+           display: flex;
+           flex-direction: column;
+           width: 24rem;
+           gap: 1rem;
+       }
+
+       input, select, textarea {
+           padding: 1.4rem;
+           background-color: transparent;
+           border: 1px solid black;
+       }
+
+       button{
+           padding: 10px;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Form</h1>
+        <!-- name of the contact form
+             data-netlify: 'true' - active formwhen your plugging on server of netlify -->
+        <form 
+        action=""
+        id="contactForm">
+        <!-- create an input with name bot-field -->
+        <input name="bot-field">
+            <!-- were having client side validation -->
+            <!-- give every input field a name -->
+            <input type="text" name="Name" id="" placeholder="Full Name" required>
+            <input type="email" name="Email" id="" placeholder="Email" required>
+            <select name="Continent" id="">
+                <option value="">Africa</option>
+                <option value="">Asia</option>
+                <option value="">Europe</option>
+                <option value="">America</option>
+                <option value="">Australia</option>
+                <option value="">Antarctica</option>
+            </select>
+            <textarea name="Message" id="" cols="30" rows="10" placeholder="Message" required></textarea>
+            <button type="submit">send</button>
+        </form>
+    </div>
+</body>
+</html>
