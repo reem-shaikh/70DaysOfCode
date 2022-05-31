@@ -50,23 +50,30 @@
         <form 
         action=""
         id="contactForm">
-        <!-- create an input with name bot-field -->
-        <input name="bot-field">
+
             <!-- were having client side validation -->
             <!-- give every input field a name -->
-            <input type="text" name="Name" id="" placeholder="Full Name" required>
-            <input type="email" name="Email" id="" placeholder="Email" required>
-            <select name="Continent" id="">
+            <input type="text" name="Name" id="name" placeholder="Full Name" required>
+            
+            <input type="email" name="Email" id="emailid" placeholder="Email" required>
+            <!-- <select name="Continent" id="select">
                 <option value="">Africa</option>
                 <option value="">Asia</option>
                 <option value="">Europe</option>
                 <option value="">America</option>
                 <option value="">Australia</option>
                 <option value="">Antarctica</option>
-            </select>
-            <textarea name="Message" id="" cols="30" rows="10" placeholder="Message" required></textarea>
-            <button type="submit">send</button>
+            </select> -->
+            <textarea name="Message" id="msgContent" cols="30" rows="10" placeholder="Message" required></textarea>
+
+            <div class="inputBox">
+               <button type="submit">send</button>
+            </div>
         </form>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+
 </body>
 </html>
