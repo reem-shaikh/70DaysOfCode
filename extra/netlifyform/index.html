@@ -40,6 +40,10 @@
        button{
            padding: 10px;
        }
+
+       .d-none {
+        display: none;
+       }
     </style>
 </head>
 <body>
@@ -54,7 +58,7 @@
         onSubmit="submit"
         action="/success/">
         <!-- create an input with name bot-field -->
-        <input name="bot-field">
+        <input class='d-none'name="bot-field">
             <!-- were having client side validation -->
             <!-- give every input field a name -->
             <input type="text" name="Name" id="" placeholder="Full Name" required>
