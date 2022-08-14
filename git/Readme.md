@@ -36,7 +36,7 @@ history is stored in git repository called `.git`. To acheive the history we'll 
 > to add files to staging use `git add .` -> to save it to the git history use `git commit -m 'added'`
 ```bash
 guests photo not taken -> go to stage -> take pic -> save in photos
-untracked files        -> staging     -> snapshot -> save in git history 
+untracked files (unstaging phase)  -> staging  -> snapshot -> save in git history 
 ```
 ![](4.PNG)
 
