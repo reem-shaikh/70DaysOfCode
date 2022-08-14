@@ -36,7 +36,8 @@ history is stored in git repository called `.git`. To acheive the history we'll 
 > to add files to staging use `git add .` -> to save it to the git history use `git commit -m 'added'`
 ```bash
 guests photo not taken -> go to stage -> take pic -> save in photos
-untracked files (unstaging phase)  -> staging  -> snapshot -> save in git history 
+unstaging -> staging  -> snapshot -> save in git history 
+#untracked files are in the unstaging phase 
 ```
 ![](4.PNG)
 
@@ -66,21 +67,40 @@ Note that: First we added the names.txt file to the staging area by using `git a
 
 ### `git stash`
 > we put these unstaged files in the unstaging phase 
+we didnt add the surname.txt file to the staging area using `git add .` instead we left the file as it is after creating it, so when we did run the git status to check its current status, it shows surname.txt is an untracked file (i.e unstaged file). So using `git stash` we pushed this unstaged file to the unstaging phase. 
+![](88.PNG)
+```bash
+guests photo not taken -> go to stage -> take pic -> save in photos
+unstaging -> staging  -> snapshot -> save in git history 
+#in unstaging phase files wont be tracked
+#untracked files are in the unstaged files, which are not in unstaging phase by default, to put a file in unstaging phase and to tell git to not push it to the staging area, we use git stash 
+
+#Note: untracked files are detected and told to be added to the staging phase by default, if you dont add using git add . it will throw an error, so if you want to keep the untracked files in the unstaging phase and tell git not to track it use git stash
+```
 
 ### `git stash pop`
 > put all the unstaged files to the staging phase 
+![](9.PNG)
 
 ### `git stash clear`
 > to delete the unstaged files we added to the unstaging phase 
 
 ### Why do we need branches?
 everytime we commit, its linked in a branch structure. Everytime a new feature is added commit in a new branch, never commit to the main branch, since, your working on an OS project which has alot of contributers to the code and alot of users.
-
+![](987.PNG)
+```bash
+1st commit - added 4 files 
+2nd commit - added rollno.txt 
+3rd commit - modified rollno.txt 
+```
 ### Creating a new project and pushing to git 
-1. create a new repo on git 
+Attach the git URL to the remote project 
+1. create a new repo on git and create a new repo on local and navigate to the local repo path through gitbash and type `git init`
 2. link repository url to the remote folder - `git remote add origin https://d2uidhio23.git`
 3. show all urls attached to the origin - `git remote -v `
 4. push changes to the url (origin) and the branch (master) - `git push origin master `
+![](12.PNG)
+![](122.PNG)
 
 ### How to switch branches and commit into it?
 ![](2.PNG)
@@ -88,7 +108,7 @@ everytime we commit, its linked in a branch structure. Everytime a new feature i
 create a branch named feature 
 
 >` git checkout feature `
-commit to the feature branch. Head is on feature branch.
+Head is on feature branch now, all the new commits you make from now will be ppointed from the feature branch.
 
 > `git checkout main`
 seperate both these branches feature and main. head is on main branch.
@@ -103,10 +123,10 @@ push changes to the url (origin) and the branch (master)
 `git push -f origin master `
 ```
 ### Clone somebody's project 
-In case, you want to make changes to somebody's code you can clone it.`git clone https://feiofeioefoeojo`
-or you can fork it
+In case, you want to make changes to somebody's code you can fork it then clone it.`git clone https://feiofeioefoeojo`
 
-> From where you forked the project from is know an **upstream url**. Here's how you can fork a project via terminal `git remote add upstream https://fehhfweiooe`
+> From where you forked the project from is know an **upstream url**. Here's how you add the upstream url `git remote add upstream https://fehhfweiooe`
+![](543.PNG)
 
 ### Pull Request 
 > Request for the change you made on an OS contribution, to be merged to the main branch
