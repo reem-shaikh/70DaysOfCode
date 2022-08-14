@@ -1,4 +1,6 @@
 #### Why do we need database?
+Database: A structured set of computerized data which is accesable using CRUD operations. 
+
 - to store the data 
 - we can perform CRUD operations on the data 
 ```bash 
@@ -8,9 +10,30 @@ When you enter login credentials, application knows whether you're already an ex
 ```bash 
 There are huge amounts of data, that needs to be stored 
 ```
+### Database 
+> DBMS is intermediate beyween app and dtaabase 
+```bash
+app ------ DBMS ----- database 
+```
+## Types of Database 
+Based on the type of data: structured data / unstructured data, there are 2 kind of database type: relational/ SQL database and unstructured/ noSQL database 
+
 #### Relational Database 
 When databases started, they started with rdbms. These companies started the rdbms concept, until now most companies use rdbms only, because shifting databases is very cost expensive, because data they contain is huge.
-- IBM, BB2, Oracle, mySQL, microsoftExcel, mongoDB, tsendra
+- IBM, BB2, Oracle, mySQL, microsoftExcel, tsendra
+
+> Types of RDBMS technology (STRUCTURED DATA)
+- mySQL
+- PostgreSQL 
+- Oracle DB
+- SQlite 
+
+### Difference between SQL and mySQL?
+- sql is language used to talk to the database in english language 
+`find all users older than 18` 
+- mySQL is language used to talk to the database in machine language 
+`select * from user > 18`
+
 
 > What is meant by rdbms?
 - We'll have a table which contains alot of data, stored in a structured form. 
@@ -56,6 +79,8 @@ https://www.sql-practice.com/
 ```
 
 #### Standard Query Language (SQL)
+SQL is RDBMS for accessing and manipulating the data. Its used for retreiving a specific data which we can access by writing a query. When we have large amounts of data, we'll use SQL. 
+
 > Manipulation (CRUD) 
 - Create
 - Read / Retrieval
