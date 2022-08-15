@@ -128,20 +128,24 @@ In case, you want to make changes to somebody's code you can fork it then clone 
 > From where you forked the project from is know an **upstream url**. Here's how you add the upstream url `git remote add upstream https://fehhfweiooe`
 ![](543.PNG)
 
+> were pushing all the cloned code to the branch `reem`
+![](211.PNG)
+![](212.PNG)
+![](1234.PNG)
+
 ### Pull Request 
 > Request for the change you made on an OS contribution, to be merged to the main branch
 - To acheive this we can fork their repo, make changes and click on pull request 
+![](789.PNG)
 
 > Note: For every new feature, create a new pull request which creates a new branch. Also only one branch can be associated with one pull request. 
 
 #### Why do we need to open new pull requests for every feature?
 > its for better management of the code, if we have one pull request for one feature, as compared to if we had many pull requests for many features.
 
-### How to merge soemone else's pull requests with our main branch 
-> Pull the forked code from the branch to the main branch
-`git pull upstream main `
-> update changes on git 
-`git push origin main`
+### How to merge other branches with our main branch 
+In your forked repo, go to the main branch, you'll see the `sync fork` option, click on it. This will merge all the branches to the main branch.
+![](34.PNG)
 
 ### Merge alot of commits in one 
 `git branch temp`
