@@ -143,17 +143,37 @@ In case, you want to make changes to somebody's code you can fork it then clone 
 #### Why do we need to open new pull requests for every feature?
 > its for better management of the code, if we have one pull request for one feature, as compared to if we had many pull requests for many features.
 
-### How to merge other branches with our main branch 
-In your forked repo, go to the main branch, you'll see the `sync fork` option, click on it. This will merge all the branches to the main branch.
+### What does this branch is 1 commit behind mean?
+So "behind" means the other branch has commits this one doesn't, so its implying that the branch your currently on is behind, and "ahead" means this branch has commits the other does not.
+
+### Merge all your branches to main branch
+Fetch all the commits from upstream to our local and merge the upstream main branch with our forked branch
+> Third Approach
+In your forked repo, go to the main branch, you'll see that your main branch is behind, click on `sync fork` option. This will merge all the branches to the main branch.
 ![](34.PNG)
 
 ### Merge alot of commits in one 
-`git branch temp`
-`git checkout temp`
+squash / merge commit in single commit using `rebase` command
 
-> squash / merge commit in single commit using `rebase` command
-`git rebase -i copy`
+### Note: Were going through all the basics covered until now 
+1. Create a remote repo and upload the content on the git repository
+![](s1.PNG)
+2. We created a clone and within the clone we linked the upstream URL
+![](s2.PNG)
+![](s3.PNG)
+3. We edited the changes in the Readme.md and we hosted it in the reem branch 
+![](s4.PNG)
+4. We created a branch temp and we added a bunch of files (1,2,3,4) with seperate committed message 
+![](s5.PNG)
+![](s6.PNG)
+5. Merge the 3 and 4 files into the 2nd file 
+![](s7.PNG)
+```bash
+s means squash 
+pick means you dont want to commit this one, you want to commit all the s commits into the pick 
 
+#you can add a committed message by entering esc + : + x and enter the command
+```
 ### Merge conflicts 
 git gets confused which commit to take, when the same line in the same file is changed. This conflict can get resolved manually. 
 
