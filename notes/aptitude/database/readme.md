@@ -195,8 +195,7 @@ SELECT * FROM patients WHERE gender='F' LIMIT 5;
 ![](3.PNG)
 
 ```bash 
-SELECT * FROM patients WHERE first_name='Piyuki' OR first
-_name='Lois';
+SELECT * FROM patients WHERE first_name='Piyuki' OR first_name='Lois';
 ```
 #### AND 
 Adding 2 properties, mandotaroy to have both properties fullfiled:
@@ -246,7 +245,8 @@ SELECT * FROM patients WHERE NOT allergies='Pork';
 > return female patients who are allegic to cats 
 ``bash 
 SELECT * FROM patients WHERE gender='F' AND ( allergies='Cats');
-```
+``
+
 > return female and male patients who are not allegic to cats 
 ```bash 
 SELECT * FROM patients WHERE gender='F' OR gender='M' AND ( NOT allergies='Cats');
@@ -381,6 +381,7 @@ return everything present in left table including common column between both the
 - Note that: In left join the count of columns is notably higher than it was in inner join.
 
 ### Group by clause 
+it sorts the column alphabetically 
 > syntax:
 ```bash 
 SELECT COUNT(columnname), columnname 

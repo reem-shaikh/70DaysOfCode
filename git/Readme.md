@@ -1,13 +1,17 @@
 ## use case of Git :
 - Maintaining history of the project
-- for contributing to OS projects, alot of people pool into via VCS like GIT/ GITHUB. It helps to keep track of which person made which change in the project 
+- for contributing to OS projects, alot of people pool into via VCS like GITHUB. It helps to keep track of which person made which change in the project 
+
+> Github is a platform which alows us to host our git repositories. Git is a version control system. 
 
 ## Git is a Platform that allow us to host projects online to git repositories
-Just like these Platforms (gmail / outlook/ yahoo mail) providing email services, git service is provided by platforms like gitbucker, gitlab, github 
+Just like these Platforms (gmail / outlook/ yahoo mail) providing email services, git version control service is provided by platforms like gitbucker, gitlab, github 
 
 > Terminal allows us to manipulate the file structure using commands, we can do this directyly using the GUI. 
 
 ### Terminal commands 
+> CRUD OPERATIONS 
+![](r3.png)
 - ls 
 list all the repositories/ folders 
 - mkdir project 
@@ -27,6 +31,9 @@ used to make changes in this file
 displays all content in the text file 
 - rm -rf names.txt
 removing this file 
+
+## GIT COMMANDS
+![](r1.png)
 
 ### `git init`
 > We need to maintain history of project using git 
@@ -102,6 +109,9 @@ Attach the git URL to the remote project
 ![](12.PNG)
 ![](122.PNG)
 
+## Creating Branches
+![](r2.png)
+
 ### How to switch branches and commit into it?
 ![](2.PNG)
 > `git branch feature` 
@@ -123,9 +133,10 @@ push changes to the url (origin) and the branch (master)
 `git push -f origin master `
 ```
 ### Clone somebody's project 
-In case, you want to make changes to somebody's code you can fork it then clone it.`git clone https://feiofeioefoeojo`
+![](r4.png)
+In case, you want to make changes to somebody's code you can fork it then clone the forked repo from your github.`git clone https://urlofyourforkedrepofromyourgitaccount`
 
-> From where you forked the project from is know an **upstream url**. Here's how you add the upstream url `git remote add upstream https://fehhfweiooe`
+> From where you forked the project from is known as **upstream url**. Here's how you add the upstream url `git remote add upstream https://giturlyouforkeditfrom`
 ![](543.PNG)
 
 > were pushing all the cloned code to the branch `reem`
@@ -138,13 +149,13 @@ In case, you want to make changes to somebody's code you can fork it then clone 
 - To acheive this we can fork their repo, make changes and click on pull request 
 ![](789.PNG)
 
-> Note: For every new feature, create a new pull request which creates a new branch. Also only one branch can be associated with one pull request. 
+> Note: For every new feature, create a new pull request for which you need to create a new branch everytime. Also only one branch can be associated with one pull request. 
 
 #### Why do we need to open new pull requests for every feature?
 > its for better management of the code, if we have one pull request for one feature, as compared to if we had many pull requests for many features.
 
 ### What does this branch is 1 commit behind mean?
-So "behind" means the other branch has commits this one doesn't, so its implying that the branch your currently on is behind, and "ahead" means this branch has commits the other does not.
+So "behind" means the other branch we created has commits the main branch doesn't, so its implying that the branch your currently on (i.e the main branch) is behind, and "ahead" means main branch has commits the other branch doesn't. To fix this we'll need to sync the main branch with the created branch, which can be acheived by clicking on `fetch upstream`
 
 ### Merge all your branches to main branch
 Fetch all the commits from upstream to our local and merge the upstream main branch with our forked branch

@@ -17,6 +17,9 @@ example,
 - phone book 
 - flipkart / amazon 
 
+> Difference between structured and unstructed data?
+structured data is in number and text format. and unstructured data in images, audio, video format.
+
 > What is SQL?
 SQL is RDBMS for accessing and manipulating the data. Its used for retreiving a specific data which we can access by writing a query. When we have large amounts of data, we'll use SQL. 
 
@@ -141,7 +144,7 @@ CREATE TABLE pastries (
 );
 
 DESC pastries; 
-DROP pastries;
+DROP table pastries;
 ```
 2. create people table with these specs 
 ```bash
@@ -315,6 +318,8 @@ VALUES
 4. run this command `select * from books;` and viola your books table will be displayed in the terminal. 
 ![](s7890.PNG)
 
+> Note that: you can now view all the tables from that file, by going into that database and typing `show tables`;
+
 # STRING FUNCTIONS
 ### CONCAT 
 Combining two columns 
@@ -358,14 +363,14 @@ A continuous part of string
 ```bash
 #start with -> length
 #          12345678910
-substring('hello-world' 1, 4)
+select substring('hello-world' 1, 4)
 
 #output:
 hell
 ```
 > when you dont mention last index, it takes till the end 
 ```bash
-substring('hello-world', 7)
+select substring('hello-world', 7)
 
 #output
 world 
@@ -374,7 +379,7 @@ world
 ```bash
 #                    -3-2-1
 #     h e l l o - w o r l d
-substring('hello-world',-3)
+select substring('hello-world',-3)
 
 #output
 rld
@@ -382,7 +387,7 @@ rld
 ```bash
 #                -5-4-3-2-1
 #     h e l l o - w o r l d
-substring('hello-world',-3, -5)
+select substring('hello-world',-3, -5)
 
 #output
 wor
@@ -390,6 +395,7 @@ wor
 #### substring in sql 
 ```bash
 select substring('hello world', 1, 9);
+#or 
 select substr('hello world', 1, 9);
 ```
 ![](f2.PNG)
@@ -487,15 +493,16 @@ select title, released_year from books order by released_year desc limit 5;
 > % any value
 - %the% returns values before and after the. it also returns when before% has no value. 
 ```bash
-#filters out all the fname including da 
+#filters out all the fname including da, shows all results which contains da before and after 
 select title, author_fname from books where author_fname like '%da%';
 
+#shows all results which contains da after 
 select title, author_fname from books where author_fname like 'da%';
 ```
 ## SELECTION REFINING CHALLENGE 
 - titles that contains stories 
 ```bash
-select title from books where title like %stories%;
+select title from books where title like '%Stories%';
 ```
 - title and page count 
 ```bash
@@ -818,7 +825,7 @@ CREATE table Students(
 );
 
 CREATE TABLE Papers(
-    student_id int AUTO_INCREMENT PRIMARY KEY, 
+    student_id int PRIMARY KEY, 
     title varchar(100),
     grade int,
     FOREIGN KEY(student_id) REFERENCES Students(id)
@@ -829,9 +836,9 @@ INSERT INTO Students (first_name) VALUES
 
 INSERT INTO Papers (student_id, title, grade ) VALUES
 (1, 'My First Book Report', 60),
-(1, 'My Second Book Report', 75),
-(2, 'Russian Lit Through The Ages', 94),
-(2, 'De Montaigne and The Art of The Essay', 98),
+(3, 'My Second Book Report', 75),
+(6, 'Russian Lit Through The Ages', 94),
+(7, 'De Montaigne and The Art of The Essay', 98),
 (4, 'Borges and Magical Realism', 89);
 
 # INNER JOIN 
@@ -980,9 +987,257 @@ ORDER BY title;
 ```
 > Read About 
 - alter (updating)
-- truncate (deleting)
+1. ADD COLUMN to an already existing table
+```bash
+ALTER TABLE Customers
+ADD Email varchar(255);
+```
+2. DROP COLUMN from a table 
+```bash
+ALTER TABLE Customers
+DROP COLUMN Email;
+```
+- truncate (deleting all content from table, dont delete the table)
+```bash
+TRUNCATE TABLE Categories;
+```
 - union 
+```bash
+SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;
+
+#City
+Aachen
+Albuquerque
+Anchorage
+Ann Arbor
+Annecy
+Barcelona
+Barquisimeto
+Bend
+Bergamo
+Berlin
+Bern
+Boise
+Boston
+Brandenburg
+Bruxelles
+Bräcke
+Buenos Aires
+Butte
+Campinas
+Caracas
+Charleroi
+Cork
+Cowes
+Cunewalde
+Cuxhaven
+Elgin
+Eugene
+Frankfurt
+Frankfurt a.M.
+Genève
+Graz
+Göteborg
+Helsinki
+I. de Margarita
+Kirkland
+Köln
+København
+Lander
+Lappeenranta
+Leipzig
+Lille
+Lisboa
+London
+Londona
+Luleå
+Lyngby
+Lyon
+Madrid
+Manchester
+Mannheim
+Marseille
+Melbourne
+Montceau
+Montréal
+México D.F.
+München
+Münster
+Nantes
+New Orleans
+Osaka
+Oulu
+Oviedo
+Paris
+Portland
+Ravenna
+Reggio Emilia
+Reims
+Resende
+Rio de Janeiro
+Salerno
+Salzburg
+San Cristóbal
+San Francisco
+Sandvika
+Seattle
+Sevilla
+Singapore
+Stavern
+Ste-Hyacinthe
+Stockholm
+Strasbourg
+Stuttgart
+Sydney
+São Paulo
+Tokyo
+Torino
+Toulouse
+Tsawassen
+Vancouver
+Versailles
+Walla
+Walla Walla
+Zaandam
+Århus
+```
 - union all
+```bash
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
+
+#City
+Aachen
+Albuquerque
+Anchorage
+Ann Arbor
+Annecy
+Barcelona
+Barquisimeto
+Bend
+Bergamo
+Berlin
+Berlin
+Bern
+Boise
+Boston
+Brandenburg
+Bruxelles
+Bräcke
+Buenos Aires
+Buenos Aires
+Buenos Aires
+Butte
+Campinas
+Caracas
+Charleroi
+Cork
+Cowes
+Cunewalde
+Cuxhaven
+Elgin
+Eugene
+Frankfurt
+Frankfurt a.M.
+Genève
+Graz
+Göteborg
+Helsinki
+I. de Margarita
+Kirkland
+Köln
+København
+Lander
+Lappeenranta
+Leipzig
+Lille
+Lisboa
+Lisboa
+London
+London
+London
+London
+London
+London
+Londona
+Luleå
+Lyngby
+Lyon
+Madrid
+Madrid
+Madrid
+Manchester
+Mannheim
+Marseille
+Melbourne
+Montceau
+Montréal
+Montréal
+México D.F.
+México D.F.
+México D.F.
+México D.F.
+México D.F.
+München
+Münster
+Nantes
+Nantes
+New Orleans
+Osaka
+Oulu
+Oviedo
+Paris
+Paris
+Paris
+Portland
+Portland
+Ravenna
+Reggio Emilia
+Reims
+Resende
+Rio de Janeiro
+Rio de Janeiro
+Rio de Janeiro
+Salerno
+Salzburg
+San Cristóbal
+San Francisco
+Sandvika
+Seattle
+Sevilla
+Singapore
+Stavern
+Ste-Hyacinthe
+Stockholm
+Strasbourg
+Stuttgart
+Sydney
+São Paulo
+São Paulo
+São Paulo
+São Paulo
+São Paulo
+Tokyo
+Torino
+Toulouse
+Tsawassen
+Vancouver
+Versailles
+Walla
+Walla Walla
+Zaandam
+Århus
+```
+
+> union vs union all 
+```bash
+UNION selects only distinct values. Use UNION ALL to also select duplicate values!
+```
 
 
 
