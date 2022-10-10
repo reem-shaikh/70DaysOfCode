@@ -24,7 +24,7 @@ create this file within the project folder
 ```bash
 reem shaikh
 kunal kushwaha
-#pro tip: to exit from the terminal enter :wq
+#pro tip: to exit from the terminal enter esc then :wq
 ```
 used to make changes in this file 
 - cat names.txt 
