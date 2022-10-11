@@ -11,21 +11,20 @@
 
       <div class="navbar">
         <div class="nav-wrapper">
-
-            <div class="nav-items">
-              <div id="sse1">
-                <div id="sses1">
-                  <ul>
-                    <li><a href="../home/index.html">Home</a></li>
-                    <li><a href="../calendar/index.html">Monthly Planner</a></li>
-                    <li><a href="index.html">Daily Planner</a></li>
-                    <li><a href="../notesapp/index.html">Pomodoro Timer</a></li>
-                    <li><a href="../meditation/index.html">Meditation</a></li>
-                    <li><a href="../music/index.html">Chillout</a></li>
-                    <li><a href="../testing/index.html">Author</a></li>
-                  </ul>
-                </div>
-              </div>
+     
+          <div id="sse1">
+            <div id="sses1">
+              <ul>
+                <li><a href="../home/index.html">Home</a></li>
+                <li><a href="../calendar/index.html">Monthly Planner</a></li>
+                <li><a href="../notespomodoro/index.html">Daily Planner</a></li>
+                <li><a href="index.html">Pomodoro Timer</a></li>
+                <li><a href="../meditation/index.html">Meditation</a></li>
+                <li><a href="../music/index.html">Chillout</a></li>
+                <li><a href="../testing/index.html">Author</a></li>
+              </ul>
+            </div>
+          </div>
             </div>
         </div>
    
@@ -33,6 +32,7 @@
 
     <div class="wrapper">
       <div class="left-col">
+  
       <!-- <div class="input"> -->
         <div class="notes" id="app">
           <!-- <div class="notes__sidebar">
@@ -74,19 +74,10 @@
         <button id="reset" class="btn">Reset</button>
     </div> -->
 
-    <div class="kanban">
-      <!-- <div class="kanban__column">
-        <div class="kanban__column-title">Not Started</div>
-        <div class="kanban__items">
-          <div contenteditable class="kanban__item-input">Wash the dishes</div>
-          <div class="kanban__dropzone"></div>
-        </div>
-        <button class="kanban__add-item" type="button">+ Add</button>
-      </div> -->
-    </div>
 
-    <!-- <div id="container">
-
+    <div id="container">
+      <!-- <p id="work" class="label">Work:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p> -->
+   
       <div id="work-timer" class="timer">
           <p id="w_minutes">25</p><p class="semicolon">:</p><p id="w_seconds">00</p>
       </div>
@@ -100,12 +91,95 @@
       <button id="start" class="btn">Start</button>
       <button id="stop" class="btn">Pause</button>
       <button id="reset" class="btn">Reset</button>
-  </div> -->
+  </div>
+
+  <div class="container">
+
+    <!-- <div class="header">
+        <h2>JS-TODOLIST</h2>
+       
+      </div> -->
+     
+      <h6 style="color: white">Write your todolist here</h6>
+
+    <div class="userInputs">
+      <input id="userInput" type="text" placeholder="New item.." maxlength="30" autofocus>
+      <button id="submitButton">ADD</button>
+    </div>
+
+    <div class="listItems">
+      <ol id="ol">
+
+      </ol>
+    </div>
+
+  </div>
+
+
+</div>
+
 
 
       </div>
       <!-- right col ends -->
-    </div>
+   
+    <script>
+      // script for to do list 
+      // create variables
+var userInput = document.getElementById("userInput");
+var submitButton = document.getElementById("submitButton");
+var ol = document.getElementById("ol");
+
+// create assist functions
+function inputLength() {
+return userInput.value.length;
+}
+function inputValue() {
+return userInput.value;
+}
+function resetInputValue() {
+userInput.value = "";
+}
+function createAndAppendListItem() {
+if (inputLength() > 0) {
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(inputValue()));
+  ol.appendChild(li);
+  resetInputValue();
+
+  // because it's in the function, it only adds it for new items
+  function crossOutItem() {
+    li.classList.toggle("done");
+  }
+  li.addEventListener("click", crossOutItem);
+
+  var deleteButton = document.createElement("button");
+  deleteButton.setAttribute("class", "deleteButton");
+  deleteButton.appendChild(document.createTextNode("X"));
+  li.appendChild(deleteButton);
+
+  function deleteListItem() {
+    li.classList.add("deleted");
+  }
+  deleteButton.addEventListener("click", deleteListItem);
+}
+}
+
+// listener functions
+function addListItemAfterClick() {
+createAndAppendListItem();
+}
+function addListItemAfterKeypress(event) {
+if (event.which === 13) {
+  createAndAppendListItem();
+}
+}
+// add event listeners
+submitButton.addEventListener("click", addListItemAfterClick);
+userInput.addEventListener("keypress", addListItemAfterKeypress);
+
+    </script>
+  
 
     <script src="kanbanjs/main.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
@@ -175,6 +249,8 @@
       requestAnimationFrame(animate);
     }
     init();
+
+
 
     </script>
   </body>

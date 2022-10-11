@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4d9bce4b44.js" crossorigin="anonymous"></script>
+    <title>Music App</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <!--  class="navbar -->
+      <div class="nav-wrapper">
+        <div class="nav-items">
+          <div id="sse1">
+            <div id="sses1">
+              <ul>
+                <li><a href="../calendar/index.html">Monthly Planner</a></li>
+                <li><a href="../notespomodoro/index.html">Daily Planner</a></li>
+                <li><a href="../notesapp/index.html">Pomodoro Timer</a></li>
+                <li><a href="../meditation/index.html">Meditation</a></li>
+                <li><a href="index.html">Chillout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      
+      <!-- <h1>Queen's Playlist</h1> -->
+      <div class="alert"></div>
+      <svg viewbox="0 0 100 100">
+        <defs>
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="-0.3" stdDeviation="0.2" />
+          </filter>
+        </defs>
+        <defs>
+          <filter id="shadow-2">
+            <feDropShadow dx="0" dy="0" stdDeviation="0.3" />
+          </filter>
+        </defs>
+
+        <path
+          d="M5 10,
+                             Q5 8, 7 8,
+                             L60 8,
+                             Q62 8, 62 10, 
+                             L62 45,
+                             Q62 47, 60 47, 
+                             L7 47, 
+                             Q5 47, 5 45
+                             L5 10"
+          fill="#000000"
+        />
+        <path
+          d="M10 15, 
+                             Q10 13, 12 13, 
+                             L55 13, 
+                             Q57 13, 57 15, 
+                             L57 35,
+                             Q57 37, 55 37, 
+                             L13 37,
+                             Q10 37, 10 35, 
+                             L10 15"
+          fill="#000000"
+          class="shadow-2"
+        />
+        <path
+          d="M15 47, 
+                             L18 40, 
+                             L50 40, 
+                             L53 47, 
+                             L15 47"
+          fill="#6f7075"
+          class="shadow"
+        />
+        <path
+          d="M10 20, 
+                             L57 20, 
+                             L57 25,
+                             L10 25"
+          fill="#ebe9e8"
+        />
+        <circle cx="8" cy="11" r="1" fill="#ebe9e8" />
+        <circle cx="59" cy="11" r="1" fill="#ebe9e8" />
+        <circle cx="8" cy="44" r="1" fill="#ebe9e8" />
+        <circle cx="59" cy="44" r="1" fill="#ebe9e8" />
+        <circle cx="23" cy="44" r="1" fill="#a3a3a3" />
+        <circle cx="45" cy="44" r="1" fill="#000000" />
+        <rect x="28" y="42" rx="0" ry="0" width="1.5" height="1.5" />
+        <rect x="38" y="42" rx="0" ry="0" width="1.5" height="1.5" />
+        <rect x="15" y="20" rx="6" width="37" height="12" class="mid-rect" />
+        <rect x="27" y="24" width="13" height="6" />
+
+        <!-- 	middle circles-->
+        <circle cx="21" cy="26" r="4.5" fill="#000000" />
+        <circle cx="46" cy="26" r="4.5" fill="#000000" />
+        <circle cx="21" cy="26" r="3.5" fill="#000000" />
+        <circle cx="46" cy="26" r="3.5" fill="#000000" />
+        <!-- 	animation will happen here -->
+        <g class="first-g">
+          <path
+            d="M19 23, 
+                             L23 29"
+            stroke="#000000"
+            stroke-width=".4"
+          />
+          <path
+            d="M23 23, 
+                             L19 29"
+            stroke="#3d3b3a"
+            stroke-width=".4"
+          />
+          <path
+            d="M17 26, 
+                             L25 26"
+            stroke="#3d3b3a"
+            stroke-width=".4"
+          />
+
+          <circle cx="21" cy="26" r="2" fill="#f0f0f0" />
+        </g>
+        <g class="second-g">
+          <path
+            d="M48 23, 
+                             L44 29"
+            stroke="#000000"
+            stroke-width=".4"
+          />
+          <path
+            d="M44 23, 
+                             L48 29"
+            stroke="#3d3b3a"
+            stroke-width=".4"
+          />
+          <path
+            d="M42 26, 
+                             L50 26"
+            stroke="#3d3b3a"
+            stroke-width=".4"
+          />
+          <circle cx="46" cy="26" r="2" fill="#f0f0f0" />
+        </g>
+
+        <!-- 	Lip -->
+        <path
+          d="M5 45,
+                             L4 43,
+                             L4 35, 
+                             L5 33"
+          fill="#363838"
+        />
+        <path
+          d="M62 45,
+                             L63 43,
+                             L63 35, 
+                             L62 33"
+          fill="#363838"
+        />
+      </svg>
+      <div class="info">
+        <p class="artist"></p>
+        <p class="song"></p>
+      </div>
+      <div class="buttons">
+        <button class="previous">
+          <i class="fas fa-step-backward"></i>
+        </button>
+        <button class="play">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="pause">
+          <i class="fas fa-pause"></i>
+        </button>
+        <button class="next">
+          <i class="fas fa-step-forward"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+*{
+	box-sizing: border-box;
+color: white;
+
+}
+
+body{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Atomic_Neon.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.main{
+	position: absolute;
+    left: 30%;
+	width: 100%;
+
+ 
+}
+
+h1{
+	position: absolute;
+	left: 180px;
+	letter-spacing: 5px;
+	text-shadow: 3px 3px 1px 
+#5c5c5c;
+}
+
+.alert{
+	position: relative;
+	top: 250px;
+	left:270px;
+	width:130px;
+	height: 60px;
+	z-index: 1;
+	text-align: center;
+	visibility: hidden;
+	padding-top: 10px;
+}
+
+.pop-up{
+	visibility: visible;
+}
+
+svg{
+	position: relative;
+	top: -50px;
+	width: 1000px;
+	height: 1000px;
+}
+
+rect{
+	fill:#373939;
+}
+
+.mid-rect{
+	fill: #282929;
+}
+
+.shadow{
+	filter:url(#shadow);
+}
+
+.shadow-2{
+	filter:url(#shadow-2);
+}
+
+.spin {
+	transform-origin: center;
+	transform-box: fill-box;
+	animation: rotate-wheel 8s infinite linear;
+}
+
+@keyframes rotate-wheel{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.info{
+	position: relative;
+	top: -940px;
+	left: 100px;
+	width: 450px;
+	height: 10vh;
+	text-align: center;
+	font-size: 18px;
+}
+
+.buttons{
+ position: relative;
+ top: -650px;
+ left: 50px;
+ color: white;
+ 
+}
+
+i{
+	color:#2a2c2c;
+  font-size: 30px;
+
+}
+
+i.fa-music{
+font-size: 15px;
+}
+
+button{
+	width: 140px;
+	height: 50px;
+	border-radius: 10px;
+	outline: none;
+	box-shadow: 2px 2px 3px 
+#3e3d3d inset;
+
+color: white;
+}
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+.bodycontains {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  /* background-color: #1c121c;
+    color:white; */
+}
+
+* {
+  font-family: "VT323", monospace;
+  font-size: 19px;
+}
+
+body {
+  overflow-x: hidden;
+}
+#backButton,
+#nextButton {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+#header {
+  padding: 10px;
+  color: #d36c6c;
+  font-size: 26px;
+
+  display: flex;
+  justify-content: space-between;
+}
+#header button {
+  background-color: #92a1d1;
+}
+#contains {
+  width: 770px;
+}
+
+
+body {
+  background-color: black;
+}
+
+.wrapper {
+  width: 90%;
+  /* max-width: 100px; */
+  display: grid;
+  grid-template-columns: 53% 40%;
+  margin-top: 5%;
+  grid-gap: 30px;
+  margin-left: 220px;
+  /* margin-top: 7%; */
+  position: sticky;
+  /* overflow-y: scroll;
+
+    scroll-behavior: auto; */
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #666666;
+}
+
+.left-col {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.right-col {
+  background: transparent;
+  /* border: 1px solid #dfdfdf; */
+  /* background-image: url('https://i.pinimg.com/736x/5d/eb/80/5deb80031dc1256b0bca17d48b14fb6e.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+}
+
+body {
+  overflow-y: hidden;
+}
+
+
+#sse1 {
+  /*You can decorate the menu's container, such as adding background images through this block*/
+  /* background-color: #222; */
+  height: 38px;
+  padding: 15px;
+  border-radius: 3px;
+}
+#sses1 {
+  margin: 0 auto; /*This will make the menu center-aligned. Removing this line will make the menu align left.*/
+}
+#sses1 ul {
+  position: relative;
+  list-style-type: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+  /* border-bottom:solid 1px #7e7979; */
+}
+#sses1 li {
+  float: left;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-image: none;
+}
+/*CSS for background bubble*/
+/* #sses1 li.highlight
+{
+    background-color:rgb(97, 95, 95);
+    top:36px;
+    height:2px;
+    border-bottom:solid 1px rgb(113, 112, 112);
+    z-index: 1;
+    position: absolute;
+    overflow:hidden;
+    
+
+} */
+#sses1 li a {
+  height: 30px;
+  padding-top: 1px;
+  margin: 0 20px; /*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+  color: #fff;
+  font: normal 12px arial;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  display: block;
+  position: relative;
+  z-index: 2;
+  font-size: 17px;
+  font-family: "VT323", monospace;
+}
+
+/* menu css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(24, 23, 23, 0.5);
+  /* border-bottom: 1px solid #dfdfdf; */
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-family: "VT323", monospace;
+}
+
+.nav-items {
+  height: 22px;
+  position: relative;
+}
+
+.nav-wrapper {
+  width: 70%;
+  max-width: 1000px;
+  height: 100%;
+  /* display: flex; */
+  justify-content: flex-start;
+  align-items: center;
+}
+

@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+.bodycontains {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  /* background-color: #1c121c;
+    color:white; */
+}
+
+* {
+  font-family: "VT323", monospace;
+}
+
+body {
+  overflow-x: hidden;
+}
+#backButton,
+#nextButton {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+#header {
+  padding: 10px;
+  color: #d36c6c;
+  font-size: 26px;
+
+  display: flex;
+  justify-content: space-between;
+}
+#header button {
+  background-color: #92a1d1;
+}
+#contains {
+  width: 770px;
+}
+#weekdays {
+  width: 100%;
+  display: flex;
+  color: #247ba0;
+}
+#weekdays div {
+  width: 100px;
+  padding: 10px;
+}
+#calendar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.day {
+  width: 100px;
+  padding: 10px;
+  height: 50px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: rgb(29, 28, 28);
+  color: rgb(137, 133, 126);
+  margin: 5px;
+  box-shadow: 0px 0px 3px #cbd4c2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.day:hover {
+  background-color: #6e6e6e;
+}
+
+.day + #currentDay {
+  background-color: #0c364b;
+}
+.event {
+  font-size: 10px;
+  padding: 3px;
+  background-color: #58bae4;
+  color: white;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
+}
+.padding {
+  cursor: default !important;
+  background-color: #fffcff !important;
+  box-shadow: none !important;
+}
+#newEventModal,
+#deleteEventModal {
+  display: none;
+  z-index: 100;
+  padding: 25px;
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  box-shadow: 0px 0px 3px black;
+  border-radius: 5px;
+
+  top: 100px;
+  /* left: calc(50% - 405px); */
+  /* right: calc(50% - 45px); */
+  position: absolute;
+}
+#eventTitleInput {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+#eventTitleInput.error {
+  border: 2px solid red;
+}
+#cancelButton,
+#deleteButton {
+  background-color: #d36c6c;
+}
+#saveButton,
+#closeButton {
+  background-color: #92a1d1;
+}
+#eventText {
+  font-size: 14px;
+}
+#modalBackDrop {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  background-color: black;
+}
+
+.wrapper {
+  width: 90%;
+  /* max-width: 100px; */
+  display: grid;
+  grid-template-columns: 53% 40%;
+  margin-top: 5%;
+  grid-gap: 30px;
+  margin-left: 220px;
+  /* margin-top: 7%; */
+  position: sticky;
+  /* overflow-y: scroll;
+
+    scroll-behavior: auto; */
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #666666;
+}
+
+.left-col {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.right-col {
+  background: transparent;
+  /* border: 1px solid #dfdfdf; */
+  /* background-image: url('https://i.pinimg.com/736x/5d/eb/80/5deb80031dc1256b0bca17d48b14fb6e.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+}
+
+body {
+  overflow-y: hidden;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  padding: 24px;
+  gap: 24px;
+}
+
+.note {
+  height: 200px;
+  width: 200px;
+  box-sizing: border-box;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+  resize: none;
+  background-color: rgba(98, 94, 94, 0.15);
+  color: white;
+  font-size: 16px;
+}
+
+.add-note {
+  height: 200px;
+  width: 200px;
+  border: none;
+  outline: none;
+  background: rgba(55, 54, 54, 0.7);
+  border-radius: 10px;
+  font-size: 120px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-note:hover {
+  background: rgba(70, 70, 70, 0.2);
+}
+
+.icon {
+  height: 100%;
+  cursor: pointer;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.brand-img {
+  height: 100%;
+  margin-top: 5px;
+}
+
+.search-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background-color: #fafafa;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  text-transform: capitalize;
+  padding: 7px;
+}
+
+.user-profile {
+  width: 22px;
+  border-radius: 50%;
+  background-image: url("./img/cover-10.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#sse1 {
+  /*You can decorate the menu's container, such as adding background images through this block*/
+  /* background-color: #222; */
+  height: 38px;
+  padding: 15px;
+  border-radius: 3px;
+}
+#sses1 {
+  margin: 0 auto; /*This will make the menu center-aligned. Removing this line will make the menu align left.*/
+}
+#sses1 ul {
+  position: relative;
+  list-style-type: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+  /* border-bottom:solid 1px #7e7979; */
+}
+#sses1 li {
+  float: left;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-image: none;
+}
+/*CSS for background bubble*/
+/* #sses1 li.highlight
+{
+    background-color:rgb(97, 95, 95);
+    top:36px;
+    height:2px;
+    border-bottom:solid 1px rgb(113, 112, 112);
+    z-index: 1;
+    position: absolute;
+    overflow:hidden;
+    
+
+} */
+#sses1 li a {
+  height: 30px;
+  padding-top: 1px;
+  margin: 0 20px; /*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+  color: #fff;
+  font: normal 12px arial;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  display: block;
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+  font-family: "VT323", monospace;
+}
+
+/* menu css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(24, 23, 23, 0.5);
+  /* border-bottom: 1px solid #dfdfdf; */
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-family: "VT323", monospace;
+}
+
+.nav-items {
+  height: 22px;
+  position: relative;
+}
+
+.nav-wrapper {
+  width: 70%;
+  max-width: 1000px;
+  height: 100%;
+  /* display: flex; */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#monthDisplay {
+  font-size: 26px;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <title>Document</title>
+    <style>
+        body {
+  font-family: "Roboto Mono", monospace;
+  background-color: black;
+}
+
+.container {
+  width: 17vw;
+  margin: auto;
+  /* border: 3px solid black; */
+}
+
+.header {
+  /* margin-top: 50px; */
+  text-align: center;
+  /* border: 3px solid black; */
+  color: white;
+}
+
+.userInputs {
+  display: flex;
+
+
+  /* border: 3px solid black; */
+}
+
+#userInput {
+ 
+    color: white;
+  flex-grow: 3;
+  padding: 12px 20px;
+  /* margin: 8px 0; */
+  border: none;
+  border-radius: 5px;
+  font-family: "Roboto Mono", monospace;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid white;
+}
+
+#submitButton {
+  /* margin: 8px; */
+  border: none;
+  border-radius: 5px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 800;
+  background-color: rgb(68, 70, 72);
+  /* border: 3px solid black; */
+  margin-left: 5px;
+  color: white;
+}
+
+ol {
+  list-style: none;
+  color: white;
+}
+
+li {
+  transition: all 0.75s ease;
+  border-radius: 5px;
+  margin-left: -35px;
+  /* border: 3px solid black; */
+  margin-top: 10px;
+}
+
+.done {
+
+  background-color: rgb(84, 91, 86);
+  padding: 6px;
+  /* text-decoration: line-through; */
+  
+}
+
+.deleteButton {
+  float: right;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+.deleted {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(90, 91, 90);
+}
+
+h6{
+    margin-left: 2px;
+}
+
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+
+        <!-- <div class="header">
+            <h2>JS-TODOLIST</h2>
+           
+          </div> -->
+         
+          <h6 style="color: white">Write your todolist here</h6>
+    
+        <div class="userInputs">
+          <input id="userInput" type="text" placeholder="New item.." maxlength="30" autofocus>
+          <button id="submitButton">ADD</button>
+        </div>
+    
+        <div class="listItems">
+          <ol id="ol">
+    
+          </ol>
+        </div>
+    
+      </div>
+
+      <script>
+        // create variables
+var userInput = document.getElementById("userInput");
+var submitButton = document.getElementById("submitButton");
+var ol = document.getElementById("ol");
+
+// create assist functions
+function inputLength() {
+  return userInput.value.length;
+}
+function inputValue() {
+  return userInput.value;
+}
+function resetInputValue() {
+  userInput.value = "";
+}
+function createAndAppendListItem() {
+  if (inputLength() > 0) {
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(inputValue()));
+    ol.appendChild(li);
+    resetInputValue();
+
+    // because it's in the function, it only adds it for new items
+    function crossOutItem() {
+      li.classList.toggle("done");
+    }
+    li.addEventListener("click", crossOutItem);
+
+    var deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "deleteButton");
+    deleteButton.appendChild(document.createTextNode("X"));
+    li.appendChild(deleteButton);
+
+    function deleteListItem() {
+      li.classList.add("deleted");
+    }
+    deleteButton.addEventListener("click", deleteListItem);
+  }
+}
+
+// listener functions
+function addListItemAfterClick() {
+  createAndAppendListItem();
+}
+function addListItemAfterKeypress(event) {
+  if (event.which === 13) {
+    createAndAppendListItem();
+  }
+}
+// add event listeners
+submitButton.addEventListener("click", addListItemAfterClick);
+userInput.addEventListener("keypress", addListItemAfterKeypress);
+
+      </script>
+    
+</body>
+</html>
