@@ -1,78 +1,73 @@
-*{
-	box-sizing: border-box;
-color: white;
-
+* {
+  box-sizing: border-box;
+  color: white;
 }
 
-body{
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Atomic_Neon.gif');
+body {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fb/Atomic_Neon.gif");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-
-.main{
-	position: absolute;
-    left: 30%;
-	width: 100%;
-
- 
+.main {
+  position: absolute;
+  left: 30%;
+  width: 100%;
 }
 
-h1{
-	position: absolute;
-	left: 180px;
-	letter-spacing: 5px;
-	text-shadow: 3px 3px 1px 
-#5c5c5c;
+h1 {
+  position: absolute;
+  left: 180px;
+  letter-spacing: 5px;
+  text-shadow: 3px 3px 1px #5c5c5c;
 }
 
-.alert{
-	position: relative;
-	top: 250px;
-	left:270px;
-	width:130px;
-	height: 60px;
-	z-index: 1;
-	text-align: center;
-	visibility: hidden;
-	padding-top: 10px;
+.alert {
+  position: relative;
+  top: 250px;
+  left: 270px;
+  width: 130px;
+  height: 60px;
+  z-index: 1;
+  text-align: center;
+  visibility: hidden;
+  padding-top: 10px;
 }
 
-.pop-up{
-	visibility: visible;
+.pop-up {
+  visibility: visible;
 }
 
-svg{
-	position: relative;
-	top: -50px;
-	width: 1000px;
-	height: 1000px;
+svg {
+  position: relative;
+  top: -50px;
+  width: 1000px;
+  height: 1000px;
 }
 
-rect{
-	fill:#373939;
+rect {
+  fill: #373939;
 }
 
-.mid-rect{
-	fill: #282929;
+.mid-rect {
+  fill: #282929;
 }
 
-.shadow{
-	filter:url(#shadow);
+.shadow {
+  filter: url(#shadow);
 }
 
-.shadow-2{
-	filter:url(#shadow-2);
+.shadow-2 {
+  filter: url(#shadow-2);
 }
 
 .spin {
-	transform-origin: center;
-	transform-box: fill-box;
-	animation: rotate-wheel 8s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: rotate-wheel 8s infinite linear;
 }
 
-@keyframes rotate-wheel{
+@keyframes rotate-wheel {
   from {
     transform: rotate(0deg);
   }
@@ -81,46 +76,41 @@ rect{
   }
 }
 
-.info{
-	position: relative;
-	top: -940px;
-	left: 100px;
-	width: 450px;
-	height: 10vh;
-	text-align: center;
-	font-size: 18px;
+.info {
+  position: relative;
+  top: -940px;
+  left: 100px;
+  width: 450px;
+  height: 10vh;
+  text-align: center;
+  font-size: 18px;
 }
 
-.buttons{
- position: relative;
- top: -650px;
- left: 50px;
- color: white;
- 
+.buttons {
+  position: relative;
+  top: -650px;
+  left: 50px;
+  color: white;
 }
 
-i{
-	color:#2a2c2c;
+i {
+  color: #2a2c2c;
   font-size: 30px;
-
 }
 
-i.fa-music{
-font-size: 15px;
+i.fa-music {
+  font-size: 15px;
 }
 
-button{
-	width: 140px;
-	height: 50px;
-	border-radius: 10px;
-	outline: none;
-	box-shadow: 2px 2px 3px 
-#3e3d3d inset;
+button {
+  width: 140px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 2px 2px 3px #3e3d3d inset;
 
-color: white;
+  color: white;
 }
-
-
 
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
@@ -167,7 +157,6 @@ body {
   width: 770px;
 }
 
-
 body {
   background-color: black;
 }
@@ -205,7 +194,6 @@ body {
 .left-col {
   display: flex;
   flex-direction: column;
-
 }
 
 .right-col {
@@ -214,13 +202,11 @@ body {
   /* background-image: url('https://i.pinimg.com/736x/5d/eb/80/5deb80031dc1256b0bca17d48b14fb6e.jpg');
   background-repeat: no-repeat;
   background-size: cover; */
-
 }
 
 body {
   overflow-y: hidden;
 }
-
 
 #sse1 {
   /*You can decorate the menu's container, such as adding background images through this block*/
@@ -304,4 +290,3 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-

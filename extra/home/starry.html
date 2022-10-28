@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "VT323", monospace;
+            font-size: 30px;
+        }
+
+        .scene{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(#111425, #3751e0);
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .moon{
+            /* absolute positions itself from top100px and left 400px of the scene */
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+            /* moon goes over the scene */
+            z-index: 1000;
+            top: 100px;
+            left: 400px;
+
+        }
+
+        .moon:after{
+            /* were technically adding a layer over the moon */
+            position: absolute;
+            content: '';
+            top: -15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(#111425, #3751e0);
+            background-attachment: fixed;
+        }
+
+        .forest {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transform: scale(1.2);
+        }
+
+        .scene i{
+            /* were making stars */
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: animate linear infinite;
+        }
+
+        @keyframes animate{
+            /* stars move from 0 to upwords on the y-axis*/
+            0%{
+                opacity: 0;
+                transform: translateY(0);
+            }
+            10%, 90%{
+                opacity: 1;
+            }
+
+            100%{
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+
+        }
+
+        /* were alligning the clouds at different positions and were animating them at different speeds*/
+        .cloud1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            animation: animateCloud 50s linear infinite;
+            max-width: 600px;
+        }
+
+        .cloud2{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            animation: animateCloud 35s linear infinite;
+            max-width: 500px;
+        }
+
+        .cloud3{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            animation: animateCloud 80s linear infinite;
+            max-width: 600px;
+        }
+
+        .cloud4{
+            position: absolute;
+            top: 200px;
+            left: 0;
+            z-index: 10000;
+            animation: animateCloud 70s linear infinite;
+            max-width: 300px;
+            animation-delay: -20s;
+        }
+
+        .cloud5{
+            position: absolute;
+            top: 150px;
+            left: 0;
+            z-index: 10000;
+            animation: animateCloud 70s linear infinite;
+            max-width: 500px;
+            animation-delay: -5s;
+        }
+
+        .cloud6{
+            position: absolute;
+            top: 75px;
+            left: 0;
+            z-index: 500;
+            animation: animateCloud 40s linear infinite;
+            animation-delay: -10s;
+        }
+
+        /* were moving clouds from lhs to rhs on the x axis */
+        @keyframes animateCloud{
+            0%{
+                transform: translateX(-100%)
+                scale(1);
+            }
+
+            100%{
+                transform: translateX(400%)
+                scale(1.5);
+            }
+        }
+
+        h3{
+            position: absolute;
+            z-index: 20000;
+            color: rgb(255, 255, 255);
+            top: 300px;
+            left: 700px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- in the scene we have a moon and a bunch of clouds -->
+    <div class="scene">
+        <h3>Productivity App</h3>
+        <div class="moon"></div>
+        <img class='forest' src="forest.png" alt="">
+        <img class='cloud1' src="cloud1.png" alt="cloud1">
+        <img class='cloud2' src="cloud2.png" alt="cloud2">
+        <img class='cloud3' src="cloud3.png" alt="cloud3">
+        <img class='cloud4' src="cloud1.png" alt="cloud4">
+        <img class='cloud5' src="cloud2.png" alt="cloud5">
+        <img class='cloud6' src="cloud3.png" alt="cloud6">
+    </div>
+    <script>
+        function stars(){
+            let count = 500;
+            let scene = document.querySelector('.scene');
+
+            let i = 0;
+            // i keeps increementing till 500, it denotes the stars in this case 
+            while(i<count){
+                let star = document.createElement('i');
+                // were calculating the x and y axis dimensions accrd to the window size 
+                let x = Math.floor(Math.random() * window.innerWidth);
+                let y = Math.floor(Math.random() * window.innerHeight);
+
+                let duration = Math.random() * 10;
+                let size = Math.random() * 2;
+
+
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+
+                star.style.width = 1+size+ 'px';
+                star.style.height = 1+size+'px';
+                // animation should complete in this duration
+                star.style.animationDuration = 5+duration +'s';
+                // start the animation after this duration
+                star.style.animationDelay = duration +'s';
+
+                scene.appendChild(star);
+                i++;
+            }
+           
+        }
+
+        stars()
+    </script>
+</body>
+</html>

@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-       *{
-           margin: 0;
-           padding: 0;
-           outline: 0;
-           border: 0;
-       }
+      * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        border: 0;
+      }
 
-       body{
-           height: 100vh;
-           font-family: Arial, Helvetica, sans-serif;
-           display: grid;
-           place-items: center;
-       }
+      body {
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        display: grid;
+        place-items: center;
+      }
 
-       h1{
-           margin-bottom: 2rem;
-       }
+      h1 {
+        margin-bottom: 2rem;
+      }
 
-       form{
-           display: flex;
-           flex-direction: column;
-           width: 24rem;
-           gap: 1rem;
-       }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 24rem;
+        gap: 1rem;
+      }
 
-       input, select, textarea {
-           padding: 1.4rem;
-           background-color: transparent;
-           border: 1px solid black;
-       }
+      input,
+      select,
+      textarea {
+        padding: 1.4rem;
+        background-color: transparent;
+        border: 1px solid black;
+      }
 
-       button{
-           padding: 10px;
-       }
+      button {
+        padding: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Contact Form</h1>
-        <!-- name of the contact form
+      <h1>Contact Form</h1>
+      <!-- name of the contact form
              data-netlify: 'true' - active formwhen your plugging on server of netlify -->
-        <form 
-        action=""
-        id="contactForm">
+      <form action="" id="contactForm">
+        <!-- were having client side validation -->
+        <!-- give every input field a name -->
+        <input
+          type="text"
+          name="Name"
+          id="name"
+          placeholder="Full Name"
+          required
+        />
 
-            <!-- were having client side validation -->
-            <!-- give every input field a name -->
-            <input type="text" name="Name" id="name" placeholder="Full Name" required>
-            
-            <input type="email" name="Email" id="emailid" placeholder="Email" required>
-            <!-- <select name="Continent" id="select">
+        <input
+          type="email"
+          name="Email"
+          id="emailid"
+          placeholder="Email"
+          required
+        />
+        <!-- <select name="Continent" id="select">
                 <option value="">Africa</option>
                 <option value="">Asia</option>
                 <option value="">Europe</option>
@@ -64,16 +75,22 @@
                 <option value="">Australia</option>
                 <option value="">Antarctica</option>
             </select> -->
-            <textarea name="Message" id="msgContent" cols="30" rows="10" placeholder="Message" required></textarea>
+        <textarea
+          name="Message"
+          id="msgContent"
+          cols="30"
+          rows="10"
+          placeholder="Message"
+          required
+        ></textarea>
 
-            <div class="inputBox">
-               <button type="submit">send</button>
-            </div>
-        </form>
+        <div class="inputBox">
+          <button type="submit">send</button>
+        </div>
+      </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="./mail.js"></script>
-
-</body>
+  </body>
 </html>

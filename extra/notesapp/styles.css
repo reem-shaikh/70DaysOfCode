@@ -653,9 +653,9 @@ canvas {
 
 /* pomodoro */
 #container {
-  text-align: center;
+  text-align: end;
   padding: 12em 0 0;
-
+  
 
   padding: 30px 140px 40px 40px;
   border-radius: 5px;

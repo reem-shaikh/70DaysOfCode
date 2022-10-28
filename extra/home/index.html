@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="description" name="description" />
+    <meta name="google" content="notranslate" />
+    <meta content="Mashup" name="author" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup" name="author">
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-  <link href="./assets/favicon.ico" rel="icon">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no" />
 
-  <title>Title page</title>  
-
+    
 <link href="./main.3f6952e4.css" rel="stylesheet">
-<style>
 
-  *{
-    color: white;
-    overflow: hidden;
-  }
-  
-/* menu css */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: rgba(24, 23, 23, 0.5);
-  /* border-bottom: 1px solid #dfdfdf; */
-  display: flex;
-  justify-content: flex-start;
-  padding: 5px 0;
-  font-family: "VT323", monospace;
-}
+    <link rel="stylesheet" href="style.css" />
 
-.nav-items {
-  height: 22px;
-  position: relative;
-}
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/apple-icon-180x180.png"
+    />
+    <link href="./assets/favicon.ico" rel="icon" />
 
-.nav-wrapper {
-  width: 70%;
-  max-width: 1000px;
-  height: 100%;
-  /* display: flex; */
-  justify-content: flex-start;
-  align-items: center;
-}
+    <title>Title page</title>
 
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "VT323", monospace;
+        font-size: 30px;
+        color: white;
+        overflow-x: hidden;
+      }
 
-#sse1 {
-  /*You can decorate the menu's container, such as adding background images through this block*/
-  /* background-color: #222; */
-  height: 38px;
-  padding: 15px;
-  border-radius: 3px;
-}
-#sses1 {
-  margin: 0 auto; /*This will make the menu center-aligned. Removing this line will make the menu align left.*/
-}
-#sses1 ul {
-  position: relative;
-  list-style-type: none;
-  float: left;
-  padding: 0;
-  margin: 0;
-  /* border-bottom:solid 1px #7e7979; */
-}
-#sses1 li {
-  float: left;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  background-image: none;
-}
-/*CSS for background bubble*/
-/* #sses1 li.highlight
+      /* menu css */
+      .navbar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: black;
+        /* border-bottom: 1px solid #dfdfdf; */
+        display: flex;
+        justify-content: flex-start;
+        padding: 5px 0;
+        font-family: "VT323", monospace;
+      }
+
+      .nav-items {
+        height: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav-wrapper {
+        width: 70%;
+        max-width: 1000px;
+        height: 100%;
+        /* display: flex; */
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      #sse1 {
+        /*You can decorate the menu's container, such as adding background images through this block*/
+        /* background-color: #222; */
+        height: 38px;
+        padding: 15px;
+        border-radius: 3px;
+      }
+      #sses1 {
+        margin: 0 auto; /*This will make the menu center-aligned. Removing this line will make the menu align left.*/
+      }
+      #sses1 ul {
+        position: relative;
+        list-style-type: none;
+        float: left;
+        padding: 0;
+        margin: 0;
+        /* border-bottom:solid 1px #7e7979; */
+      }
+      #sses1 li {
+        float: left;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-image: none;
+      }
+      /*CSS for background bubble*/
+      /* #sses1 li.highlight
 {
     background-color:rgb(97, 95, 95);
     top:36px;
@@ -93,91 +106,597 @@
     
 
 } */
-#sses1 li a {
-  height: 30px;
-  padding-top: 1px;
-  margin: 0 20px; /*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
-  color: #fff;
-  font: normal 12px arial;
-  text-align: center;
-  text-decoration: none;
-  float: left;
-  display: block;
-  position: relative;
-  z-index: 2;
-  font-size: 16px;
-  font-family: "VT323", monospace;
-}
+      #sses1 li a {
+        height: 30px;
+        padding-top: 1px;
+        margin: 0 20px; /*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+        color: #fff;
+        font: normal 12px arial;
+        text-align: center;
+        text-decoration: none;
+        float: left;
+        display: block;
+        position: relative;
+        z-index: 2;
+        font-size: 21px;
+        font-family: "VT323", monospace;
+      }
 
-body{
-  background-color: black;
-}
+      /* body {
+        background-color: black;
+      } */
 
-</style></head>
+      .scene {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(#111425, #3751e0);
+        background-attachment: fixed;
+        overflow: hidden;
+      }
 
-<body class="">
-  <div class="navbar">
-    <!--  class="navbar -->
-    <div class="nav-wrapper">
-      <div class="nav-items">
-        <div id="sse1">
-          <div id="sses1">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="../calendar/index.html">Monthly Planner</a></li>
-              <li><a href="../notespomodoro/index.html">Daily Planner</a></li>
-              <li><a href="../notesapp/index.html">Pomodoro Timer</a></li>
-              <li><a href="../meditation/index.html">Meditation</a></li>
-              <li><a href="../music/index.html">Chillout</a></li>
-              <li><a href="../testing/index.html">Author</a></li>
-            </ul>
-          </div>
-        </div>
-            </div> 
-          </div>
-        </nav>
-      </div>
+      .moon {
+        /* absolute positions itself from top100px and left 400px of the scene */
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 50%;
+        /* moon goes over the scene */
+        z-index: 1000;
+        top: 100px;
+        left: 400px;
+      }
 
-      <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./assets/images/space.jpg')">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="hero-full-wrapper">
-                <div class="text-content">
-                  <h1>This is a <br>
-                    <span id="typed-strings">
-                      <span>Productivity App</span>
-                      <h6>coded from scratch</h6>
-                      <span></span>
-                    </span>
-                    <span id="typed"></span>
-                  </h1>
-                </div>
-              </div>
+      .moon:after {
+        /* were technically adding a layer over the moon */
+        position: absolute;
+        content: "";
+        top: -15px;
+        left: 15px;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(#111425, #3751e0);
+        background-attachment: fixed;
+      }
+
+      .forest {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transform: scale(1.2);
+      }
+
+      .scene i {
+        /* were making stars */
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: animate linear infinite;
+      }
+
+      @keyframes animate {
+        /* stars move from 0 to upwords on the y-axis*/
+        0% {
+          opacity: 0;
+          transform: translateY(0);
+        }
+        10%,
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+
+      /* were alligning the clouds at different positions and were animating them at different speeds*/
+      .cloud1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        animation: animateCloud 50s linear infinite;
+        max-width: 600px;
+      }
+
+      .cloud2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        animation: animateCloud 35s linear infinite;
+        max-width: 500px;
+      }
+
+      .cloud3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        animation: animateCloud 80s linear infinite;
+        max-width: 600px;
+      }
+
+      .cloud4 {
+        position: absolute;
+        top: 200px;
+        left: 0;
+        z-index: 10000;
+        animation: animateCloud 70s linear infinite;
+        max-width: 300px;
+        animation-delay: -20s;
+      }
+
+      .cloud5 {
+        position: absolute;
+        top: 150px;
+        left: 0;
+        z-index: 10000;
+        animation: animateCloud 70s linear infinite;
+        max-width: 500px;
+        animation-delay: -5s;
+      }
+
+      .cloud6 {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        z-index: 500;
+        animation: animateCloud 40s linear infinite;
+        animation-delay: -10s;
+      }
+
+      /* were moving clouds from lhs to rhs on the x axis */
+      @keyframes animateCloud {
+        0% {
+          transform: translateX(-100%) scale(1);
+        }
+
+        100% {
+          transform: translateX(400%) scale(1.5);
+        }
+      }
+
+      h3 {
+        position: absolute;
+        z-index: 20000;
+        color: rgb(255, 255, 255);
+        top: 300px;
+        left: 700px;
+      }
+
+      .site-footer {
+        margin-top: 1px solid white;
+        background-color: #000000;
+        padding: 45px 0 20px;
+        font-size: 15px;
+        line-height: 24px;
+        margin-left: 0px;
+        color: #737373;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .bottom {
+        /* margin-top: 30px; */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="navbar">
+      <div class="nav-wrapper">
+        <div>
+          <div id="sse1">
+            <div id="sses1">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="../calendar/index.html">Monthly Planner</a></li>
+                <li><a href="../notespomodoro/index.html">Daily Planner</a></li>
+                <li><a href="../notesapp/index.html">Pomodoro Timer</a></li>
+                <li><a href="../calendar/index.html">Meditation</a></li>
+                <li><a href="../music/index.html">Chillout</a></li>
+                <li><a href="../testing/index.html">Author</a></li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+    </div> -->
 
+    <!-- in the scene we have a moon and a bunch of clouds -->
+    <div class="scene">
+      <h3>Productivity App</h3>
+      <div class="moon"></div>
+      <img class="forest" src="forest.png" alt="" />
+      <img class="cloud1" src="cloud1.png" alt="cloud1" />
+      <img class="cloud2" src="cloud2.png" alt="cloud2" />
+      <img class="cloud3" src="cloud3.png" alt="cloud3" />
+      <img class="cloud4" src="cloud1.png" alt="cloud4" />
+      <img class="cloud5" src="cloud2.png" alt="cloud5" />
+      <img class="cloud6" src="cloud3.png" alt="cloud6" />
+    </div>
 
+    <div>
+      <div class="site-footer">
+        <div class="wrapper">
+          <div class="left-col">
+            <h1 style="color: white">01: Monthly Planner</h1>
+            <p style="color: white">
+              Plan out your monthly plans, it'll be saved in your local storage
+              so dont worry you can access it later. Also if something random
+              comes to your mind, write it down on the sticky notes.
+            </p>
+            <div class="bodycontains">
+              <div id="contains">
+                <div id="header">
+                  <div id="monthDisplay"></div>
+                  <div>
+                    <button id="backButton">Back</button>
+                    <button id="nextButton">Next</button>
+                  </div>
+                </div>
 
-<footer class="footer-container text-center">
+                <div id="weekdays">
+                  <div>Sunday</div>
+                  <div>Monday</div>
+                  <div>Tuesday</div>
+                  <div>Wednesday</div>
+                  <div>Thursday</div>
+                  <div>Friday</div>
+                  <div>Saturday</div>
+                </div>
+
+                <div id="calendar"></div>
+              </div>
+
+              <div id="newEventModal">
+                <h2>New Event</h2>
+
+                <input id="eventTitleInput" placeholder="Event Title" />
+
+                <button id="saveButton">Save</button>
+                <button id="cancelButton">Cancel</button>
+              </div>
+
+              <div id="deleteEventModal">
+                <h2>Event</h2>
+
+                <p id="eventText"></p>
+
+                <button id="deleteButton">Delete</button>
+                <button id="closeButton">Close</button>
+              </div>
+
+              <div id="modalBackDrop"></div>
+            </div>
+          </div>
+          <div class="right-col">
+            <div id="app">
+              <button class="add-note" type="button">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="site-footer">
+        <div class="containerr">
+          <h1>Frequently Asked Questions</h1>
+          <details>
+          <summary>How should I use the monthly Planner?</summary>
+          <div>
+         Its simple, you start off by creating your routine in the monthly planner, dont worry your data wont be lost until you manually delete through local storage keys or directly delete by using the GUI functions provided in the app.  
+          </div>
+        </details>
+        <br>
+        <details>
+          <summary>In what order should I use this app?</summary>
+          <div>
+         You start off by making a monthly plan through our monthly planner feature, jot down additional points in the sticky notes for future reference. You can make a note of your to do list from the Daily Planner section, where we provide you with a kanban board to track your progress for the day. You can finally start executing your goals for the day by jumping to the Pomodoro timer feature, which times your work, also the notepad syncs the content from your Daily Planner, in case you want to refer to it, we also provide a simple to do list to keep track of the pomodoro goals. After your done with a pomodoro 25min session, you'll get a 5min break, you can refresh yourself at our meditation hub, which would run you through a series of breaths, infact you can even play some lofi music to meditate to, or you can listen to Queen's playlist at the chillout hub.
+          </div>
+        </details>
+
+        <br>
+        <details>
+          <summary>How do I create accordion?</summary>
+          <div>
+         The tags <em>details</em> and <em>summary</em> have you covered.
+          </div>
+        </details>
+
+        <br>
+        <details>
+          <summary>How do I create accordion?</summary>
+          <div>
+         The tags <em>details</em> and <em>summary</em> have you covered.
+          </div>
+        </details>
+
+        <br>
+        <details>
+          <summary>How do I create accordion?</summary>
+          <div>
+         The tags <em>details</em> and <em>summary</em> have you covered.
+          </div>
+        </details>
+        </div>
+    </div>
+    </div>
+
+    <div class="bottom">
+      <div class="site-footer">
+    
+
+<div class="section-container">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <p>© Copyright Reem Shaikh, 2020</p>
-      </div>
+        <div class="section-container-spacer text-center">
+          <h1 class="h2" style="color:white; font-size: large;">03 : Contact me</h1>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+             <form action="" class="reveal-content" 
+             name="contact" method="post" data-netlify="true" onSubmit="submit">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-lg" style="color:white">Send</button>
+                  </div>
+                  <div class="col-md-5 address-container " >
+                    <ul class="list-unstyled" >
+                      <li style="font-size:large">
+                        <span class="fa-icon">
+                          <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        + 33 9 07 45 12 65
+                      </li>
+                      <li  style="font-size:large">
+                        <span class="fa-icon">
+                          <i class="fa fa-at" aria-hidden="true"></i>
+                        </span>
+                        business.reemshaikh@gmail.com
+                      </li>
+                      <li  style="font-size:large" >
+                        <span class="fa-icon">
+                          <i class="fa fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                        Manipal Univeristy, Jaipur
+                      </li>
+                    </ul>
+                    <h3 style="color: white">Follow me on social networks</h3>
+                    <a href="http://www.facebook.com" title="" class="fa-icon" style="margin-top: 60px">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="http://www.twitter.com" title="" class="fa-icon">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="http://www.linkedin.com" title="" class="fa-icon">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+
+                  </div>
+                </div>
+              </form>
+          </div>
+
+        </div>
+       
+     </div>
     </div>
   </div>
-</footer>
+</div>
+        </div>
+    </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function (event) {
-     navActivePage();
-  });
-</script>
+    <footer class="footer-container text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p style="font-size: large">© Copyright Reem Shaikh, 2020</p>
+          </div>
+        </div>
+      </div>
+      </footer>
 
+      <script type="text/javascript" src="./main.70a66962.js"></script>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+           navActivePage();
+        });
+      </script>
+   
 
-<script type="text/javascript" src="./main.70a66962.js"></script></body>
+    <script>
+      function stars() {
+        let count = 500;
+        let scene = document.querySelector(".scene");
 
+        let i = 0;
+        // i keeps increementing till 500, it denotes the stars in this case
+        while (i < count) {
+          let star = document.createElement("i");
+          // were calculating the x and y axis dimensions accrd to the window size
+          let x = Math.floor(Math.random() * window.innerWidth);
+          let y = Math.floor(Math.random() * window.innerHeight);
+
+          let duration = Math.random() * 10;
+          let size = Math.random() * 2;
+
+          star.style.left = x + "px";
+          star.style.top = y + "px";
+
+          star.style.width = 1 + size + "px";
+          star.style.height = 1 + size + "px";
+          // animation should complete in this duration
+          star.style.animationDuration = 5 + duration + "s";
+          // start the animation after this duration
+          star.style.animationDelay = duration + "s";
+
+          scene.appendChild(star);
+          i++;
+        }
+      }
+
+      stars();
+    </script>
+
+    <script src="index.js"></script>
+    <script src="./script.js"></script>
+
+    <!-- <script src="kanbanjs/main.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+    <script src="pomodoro.js"></script>
+    <script
+      src="https://kit.fontawesome.com/26504e4a1f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="three.min.js"></script> -->
+    <script src="three.min.js"></script> 
+    <script>
+      let scene, camera, renderer, stars, starGeo;
+
+      function init() {
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(
+          60,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.z = 1;
+        camera.rotation.x = Math.PI / 2;
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        starGeo = new THREE.Geometry();
+        for (let i = 0; i < 6000; i++) {
+          star = new THREE.Vector3(
+            Math.random() * 600 - 300,
+            Math.random() * 600 - 300,
+            Math.random() * 600 - 300
+          );
+          star.velocity = 0;
+          star.acceleration = 0.02;
+          starGeo.vertices.push(star);
+        }
+
+        let sprite = new THREE.TextureLoader().load("star.png");
+        let starMaterial = new THREE.PointsMaterial({
+          color: 0xaaaaaa,
+          size: 0.7,
+          map: sprite,
+        });
+
+        stars = new THREE.Points(starGeo, starMaterial);
+        scene.add(stars);
+
+        window.addEventListener("resize", onWindowResize, false);
+
+        animate();
+      }
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      function animate() {
+        starGeo.vertices.forEach((p) => {
+          p.velocity += p.acceleration;
+          p.y -= p.velocity;
+
+          if (p.y < -200) {
+            p.y = 200;
+            p.velocity = 0;
+          }
+        });
+        starGeo.verticesNeedUpdate = true;
+        stars.rotation.y += 0.002;
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      init();
+    </script>
+
+    <script>
+      // script for to do list
+      // create variables
+      var userInput = document.getElementById("userInput");
+      var submitButton = document.getElementById("submitButton");
+      var ol = document.getElementById("ol");
+
+      // create assist functions
+      function inputLength() {
+        return userInput.value.length;
+      }
+      function inputValue() {
+        return userInput.value;
+      }
+      function resetInputValue() {
+        userInput.value = "";
+      }
+      function createAndAppendListItem() {
+        if (inputLength() > 0) {
+          var li = document.createElement("li");
+          li.appendChild(document.createTextNode(inputValue()));
+          ol.appendChild(li);
+          resetInputValue();
+
+          // because it's in the function, it only adds it for new items
+          function crossOutItem() {
+            li.classList.toggle("done");
+          }
+          li.addEventListener("click", crossOutItem);
+
+          var deleteButton = document.createElement("button");
+          deleteButton.setAttribute("class", "deleteButton");
+          deleteButton.appendChild(document.createTextNode("X"));
+          li.appendChild(deleteButton);
+
+          function deleteListItem() {
+            li.classList.add("deleted");
+          }
+          deleteButton.addEventListener("click", deleteListItem);
+        }
+      }
+
+      // listener functions
+      function addListItemAfterClick() {
+        createAndAppendListItem();
+      }
+      function addListItemAfterKeypress(event) {
+        if (event.which === 13) {
+          createAndAppendListItem();
+        }
+      }
+      // add event listeners
+      submitButton.addEventListener("click", addListItemAfterClick);
+      userInput.addEventListener("keypress", addListItemAfterKeypress);
+    </script>
+  </body>
 </html>

@@ -11,10 +11,11 @@
 * {
   font-family: "VT323", monospace;
 }
-
 body {
   overflow-x: hidden;
-}
+  overflow-y: scroll;
+
+} 
 #backButton,
 #nextButton {
   width: 75px;
@@ -84,7 +85,7 @@ body {
   color: white;
   border-radius: 5px;
   max-height: 55px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .padding {
   cursor: default !important;
@@ -177,7 +178,6 @@ body {
 .left-col {
   display: flex;
   flex-direction: column;
-
 }
 
 .right-col {
@@ -186,12 +186,9 @@ body {
   /* background-image: url('https://i.pinimg.com/736x/5d/eb/80/5deb80031dc1256b0bca17d48b14fb6e.jpg');
   background-repeat: no-repeat;
   background-size: cover; */
-
 }
 
-body {
-  overflow-y: hidden;
-}
+
 
 #app {
   display: grid;
@@ -319,14 +316,19 @@ body {
   font-family: "VT323", monospace;
 }
 
+.bottom{
+  margin-top: 30px;
+}
+
 /* menu css */
 .navbar {
-  position: fixed;
+  z-index: 1000;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: rgba(24, 23, 23, 0.5);
+  background-color: black;
   /* border-bottom: 1px solid #dfdfdf; */
   display: flex;
   justify-content: space-between;
@@ -350,4 +352,72 @@ body {
 
 #monthDisplay {
   font-size: 26px;
+}
+
+
+.site-footer
+{
+  margin-top: 1px solid white;
+  background-color:#000000;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  margin-left: 0px;
+  color:#737373;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.containerr{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+}
+.containerr h1{
+  color: #fff;
+  text-align: center;
+
+
+}
+
+details{
+  background-color: #303030;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 50%;
+}
+
+summary {
+  padding: .5em 1.3rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;  
+  transition: height 1s ease;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:after{
+  content: "\002B";
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+
+details[open] summary:after{
+  content: "\00D7";
+}
+
+details[open] div{
+  padding: .5em 1em;
 }

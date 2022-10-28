@@ -16,7 +16,7 @@ body {
   align-items: center;
 }
 
-.h1{
+.h1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,31 +32,30 @@ a {
   color: black;
 }
 
-#sse1
-{
-    /*You can decorate the menu's container, such as adding background images through this block*/
-    /* background-color: #222; */
-    height: 38px;
-    padding: 15px;
-    border-radius: 3px;
+#sse1 {
+  /*You can decorate the menu's container, such as adding background images through this block*/
+  /* background-color: #222; */
+  height: 38px;
+  padding: 15px;
+  border-radius: 3px;
 }
-#sses1
-{
-    margin:0 auto;/*This will make the menu center-aligned. Removing this line will make the menu align left.*/
+#sses1 {
+  margin: 0 auto; /*This will make the menu center-aligned. Removing this line will make the menu align left.*/
 }
-#sses1 ul 
-{ 
-    position: relative;
-    list-style-type: none;
-    float:left;
-    padding:0;margin:0;
-    /* border-bottom:solid 1px #7e7979; */
+#sses1 ul {
+  position: relative;
+  list-style-type: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+  /* border-bottom:solid 1px #7e7979; */
 }
-#sses1 li
-{
-    float:left;
-    list-style-type: none;
-    padding:0;margin:0;background-image:none;
+#sses1 li {
+  float: left;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-image: none;
 }
 /*CSS for background bubble*/
 /* #sses1 li.highlight
@@ -70,22 +69,20 @@ a {
     overflow:hidden;
     
 } */
-#sses1 li a
-{
-    height:30px;
-    padding-top: 8px;
-    margin: 0 20px;/*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    float: left;
-    display: block;
-    position: relative;
-    z-index: 2;
-    font-family: "VT323", monospace;
-    font-size: 20px;
+#sses1 li a {
+  height: 30px;
+  padding-top: 8px;
+  margin: 0 20px; /*used to adjust the distance between each menu item. Now the distance is 20+20=40px.*/
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  display: block;
+  position: relative;
+  z-index: 2;
+  font-family: "VT323", monospace;
+  font-size: 20px;
 }
-
 
 .nav-overlay {
   height: 100%;
@@ -173,7 +170,6 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
 }
 
 .icon {
@@ -181,7 +177,6 @@ a {
   cursor: pointer;
   margin: 0 10px;
   display: inline-block;
-
 }
 
 .brand-img {
@@ -197,7 +192,7 @@ a {
   background-color: #fafafa;
   border: 1px solid #dfdfdf;
   border-radius: 2px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   text-align: center;
   text-transform: capitalize;
   padding: 7px;
@@ -206,10 +201,9 @@ a {
 .user-profile {
   width: 22px;
   border-radius: 50%;
-  background-image: url('./img/cover-10.png');
+  background-image: url("./img/cover-10.png");
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 /* mediattion css */
@@ -219,7 +213,7 @@ body::after {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: -1;
   /* we added this black opacity which was initially over the text and the image, after we set z-index to -1, the text was brought to the front */
 }
@@ -248,11 +242,10 @@ body::after {
   min-width: 300px;
   width: 50%;
   font-size: 16px;
-  padding: 8px 4px;   
+  padding: 8px 4px;
   /* top-bottom left-right */
   background-color: rgba(62, 60, 60, 0.2);
   color: rgb(68, 64, 64);
- 
 }
 
 .input select:focus {
@@ -283,7 +276,8 @@ body::after {
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid #f1f1f1;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .circle-progress {
@@ -295,7 +289,8 @@ body::after {
   border-radius: 50%;
   /* its gonna take 4sec to grow the circle to fit .circle-outline */
   transition: 4s ease all;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* were adding this class and removing it via js */
@@ -339,18 +334,18 @@ button:hover {
 
 canvas {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
 .text-box {
   font-size: 60px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   letter-spacing: 7px;
   word-spacing: 12px;
   text-transform: uppercase;
-  color:rgb(238, 238, 238);
+  color: rgb(238, 238, 238);
 }
 
 /* .button-wrapper {
@@ -377,14 +372,13 @@ canvas {
 }  */
 
 /* divide into 2 parts */
-.wrapper{
+.wrapper {
   width: 80%;
   display: grid;
   grid-template-columns: 43% 40%;
   grid-gap: 70px;
   margin-left: 220px;
   margin-top: 48px;
-
 }
 
 .left-col {
@@ -392,27 +386,27 @@ canvas {
   flex-direction: column;
 }
 
-.right-col{
+.right-col {
   background: black;
 }
 
 /* music rhs container */
 
-.container{
+.container {
   min-height: 72vh;
   background-color: black;
   border: 1px solid #221616;
   color: white;
- font-family: 'Varela Round', sans-serif;
- display: flex;
- margin: 23px auto;
- width: 70%;
- border-radius: 12px;
- padding: 34px;
- background-image: url('bg.jpg');
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  margin: 23px auto;
+  width: 70%;
+  border-radius: 12px;
+  padding: 34px;
+  background-image: url("bg.jpg");
 }
 
-.bottom{
+.bottom {
   position: sticky;
   bottom: 0;
   height: 130px;
@@ -421,42 +415,44 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
-.left-col{
-  background-image: url('https://i.pinimg.com/originals/b9/c8/9a/b9c89a001e08c50a7078d1843aaa9a37.gif');
-  background-size:inherit;
+.left-col {
+  background-image: url("https://i.pinimg.com/originals/b9/c8/9a/b9c89a001e08c50a7078d1843aaa9a37.gif");
+  background-size: inherit;
   background-repeat: no-repeat;
 }
 
-.icons{
-  margin-top: 14px; 
+.icons {
+  margin-top: 14px;
 }
-.icons i{
+.icons i {
   cursor: pointer;
   height: 10px;
 }
 
-#myProgressBar{
-  width: 20vw; 
+#myProgressBar {
+  width: 20vw;
   cursor: pointer;
 }
 
-#previous, #masterPlay, #next{
+#previous,
+#masterPlay,
+#next {
   color: rgba(255, 255, 255, 0.9);
   font-size: 30px;
 }
 
-.songItemContainer{
+.songItemContainer {
   margin-top: 74px;
 }
 
-.songItem{
+.songItem {
   height: 50px;
   display: flex;
   background-color: white;
-  
+
   color: black;
   margin: 12px 0;
   justify-content: space-between;
@@ -464,7 +460,7 @@ canvas {
   border-radius: 34px;
 }
 
-.songName{
+.songName {
   font-size: 15px;
 }
 .start {
@@ -476,33 +472,33 @@ canvas {
   position: relative; */
 }
 
-.songItem img{
+.songItem img {
   width: 43px;
   margin: 0 23px;
   border-radius: 34px;
 }
 
-.timestamp{
+.timestamp {
   margin: 0 23px;
   font-size: 14px;
 }
 
-.timestamp i{
+.timestamp i {
   cursor: pointer;
 }
 
-.songInfo{
+.songInfo {
   /* margin-top: 30%; */
   position: absolute;
   left: 5vw;
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
-.songInfo img{
+.songInfo img {
   opacity: 0;
   transition: opacity 0.4s ease-in;
 }
 
-#masterSongName{
+#masterSongName {
   display: none;
 }
