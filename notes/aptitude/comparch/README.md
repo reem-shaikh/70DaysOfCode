@@ -168,14 +168,17 @@ SMPS is a PSU (power supply unit) and is usually used in computers to change the
 ```
 - floppy port - to add floppy disks. 
 ```bash
+#history of computer data strage 
 - Magnetic tape reels 
-- punched paper tape reels 
 - punched cards 
+- punched paper tape reels 
+- HDD 
 - floppy disk 
 - ZIP drives 
-- CDs (CD-ROM and CD-R/RW)
+- CDs (CD-ROM and CD-R/RW) - compact disk
 - DVD
 - flash drives / pentdrives / usb drives
+
 
 floppy disk was eventually made obsolete. Many point to 2011 as the year the floppy disk died. That was when SONY stopped making them altogether.
 ```
@@ -554,10 +557,10 @@ opcode - 3bits
 Whenever you type something in the input field its first stored in the input register then it goes to the accumulator and stays there a bit before it finally goes to the ALU where the processing is done and the processed output is send to the output register where its stored temporarily before its send to the output device. 
 
 > How does a program get executed?
-- The data and the program (set of instructions) is stored on the memory layer. the data is feched from here and its send to the CPU which consists of ALU, and a register stored on top of the control unit. 
+- The data and the program (set of instructions) is stored on the memory layer. the data is feched from here and its send to the CPU which consists of ALU, and a register stored on top of the control unit. over here its temporarily stored in the the accumulator before sending it to the instruction register.
 - In the CPU the program is executed line by line, each instruction is madee up of I (msb), opcode (what is the logical operatio that the program needs to execute), operand (what is the location where the data is stored)
 - it takes the address to the address register which then sends this address to the memory which then fetches the data present at that particular location and then its stored in the data register 
--  now the data is fetched and we know what operations to perform in it, now the ALU does its magic and temporarily stores the data in the temporary register 
+-  now the data is fetched and we know what operations to perform in it, now the ALU does its magic and temporarily stores the data that is being processed in the temporary register 
 -  the next instruction location is stored in the program counter and each line of the program is executed line by line 
 -  the priorty of which instruction would be executed when would be determined from the timing signal in the control unit 
 -  the entire sequence in which data would be stored in the registers would be defined in the control signal in the control unit
@@ -576,7 +579,7 @@ Based on what they are carrying, buses are classified into three:
 - data bus - data fetched from the input device or memory is passed through the databus before its goes to the CPU which contains the registers 
 - control bus - carrying control and timing signal 
 
-
+A memory bus is made up of three parts: 
 1. Address bus - wheenver we want to access any address it passes from the address bus. address bus is unidirectional.
 ```bash
 if address bus is 2 bits 
@@ -597,7 +600,11 @@ considering the above example,
 
 2. Data bus is bidirectional - its a medium to transfer data from memory / ip/ op to different components in the CPU where the data processing is done 
 
+The data bus is responsible for the transfer of information between the memory and the chipset. The wider a data bus is, the higher its performance since it can allow more data to pass through in the same amount of time; this is called data bandwidth.
+
 3. Control Bus is used to send control and timing signal using a dedicated hardware called the control unit 
+
+The address bus communicates with the system on where specific information can be located or stored when data either enters or leaves the memory. The speed and delays of an action made in a computer system depends greatly on the address bus since it is the entity locating the information. Its width depicts the amount of system memory a processor can read or write into.
 
 ### Process VS Threads 
 We create a multi-tasking environment with 1 CPU using multi-threading environment 
@@ -622,7 +629,7 @@ When OS is mounted on the memory alot of background processes start running. Thi
 if a process is already executing in the running stage, but a high priorty process comes up so the high priorty task is pushed to the running stage, and the task that leaves the running stage for the high priorty task to execute is then pushed back to ready state.
 ```
 #### Process creation steps 
-![](nn.JPG)
+![](lopp.JPG)
 - first the PCB for each process is assigned 
 - the address space for a process is allocated in the RAM 
 - load the process into the allocated address space of the ready queue
@@ -634,6 +641,8 @@ Data structure maintained by OS for every process.
 - PCB keeps all the info needed to keep track of a process.
 
 > What info does the PCB store?
+![](koo.JPG)
+![](koo1.JPG)
 For every process in the PCB it contains this distinctive info:
 - process state - what is the current state of a process> running/ ready etc
 - process privilidges - priviledges to access system resources 
@@ -648,7 +657,16 @@ For every process in the PCB it contains this distinctive info:
 
 #### Concurrency 
 ![](lk.JPG)
-- When we have multiple processes and a single CPU then each process will take turns to execute one at a time, through intermediate switching. However switching is happening so fast that it almost seems like all these processes are executing conccurently. So at one time we are processing multiple processes by switching- multitasking. 
+- When we have multiple processes and a single CPU then each process will take turns to execute one at a time, through intermediate switching. However switching is happening so fast that it almost seems like all these processes are executing conccurently. So at one time we are processing multiple processes by switchinG.
+```bash
+when your switching proceses after one process is done executing such that it looks like its executing concurrently then its multiprogramming
+
+When your switching process based on time quantum then its multitasking
+```
+> There are three possible ways in which a  process can be executed. These are as follows −
+- Serial execution − In serial execution, the second process can begin its execution only after the first process has completed. This is possible on a uniprocessor system. Multiprogramming happens here.
+- Parallel execution − In parallel execution, two proceses can start their execution at exactly the same instant of time. For this, we require more than one processor. Multiprogramming happens here. 
+- Concurrent execution − In concurrent execution, execution of the second process can begin even before the process has completed its execution. Multitasking happens here.
 
 ![](11.JPG)
 - The main challenge is how can we select which process to select for execution. This is accomplished by a scheduling policies:
@@ -815,7 +833,7 @@ In case of levels 0f functional parralelism they are 5 levels
 - grain size would be less than 2000 instructions
 4. level 4: subprograms           | medium grain / coarse grain
 - Which subprogram can be parallely executed. 
-- - allows user to multiprogram (concurrent) in a multiprocessor system (parralel)
+- allows user to multiprogram (concurrent) in a multiprocessor system (parralel)
 - grain size would contain instructions in thousands more than 2k like 3000 etc
 - 2 - 1000 instructions can be executed parallely 
 5. level 5: independent programs  | coarse grain
@@ -924,7 +942,7 @@ An assembly language is a type of low-level programming language that is intende
 - Many ISA's are not specific to a specific computer architecture. They survive amongst generations. 
 > eg: intel x86 series
 ```bash
-x86 is a family of complex instruction set computer (CISC) instruction set architectures initially developed by Intel based on the Intel 8086 microprocessor ...89
+x86 (also known as 80x86 or the 8086 family) is a family of complex instruction set computer (CISC) instruction set architectures initially developed by Intel based on the Intel 8086 microprocessor and its 8088 variant.
 ```
 > Instruction set design Issues
 - number of explicit operands: 
@@ -941,13 +959,279 @@ ADD R1, R2, R3
 ADD R1, LOCA
 #where LOCA is a location in the memory 
 ```
-- specification of memory location
+- specification of operand location
+Addresing modes: register, immediate, indirect, relative etc
+```bash
+Instruction register 
+I | opcode | operand 
+# where operand specifies where is the location of the particular instruction in the word slot 
+
+# I is the msb bit where its addresing mode can be direct or indirect. 
+```
+![](is1.JPG)
+![](klm.JPG)
+1. Complex instruction set computer (CISC) - single instruction will perform all operations (loading data, performing operations and storing in the memory), thats why its complex since it would increase the numbe of cycles per instruction
+2. Reduced instruction set computer (RISC) - divide the operations and allocate to different resources, which will increase the cost since were allocating alot more resources
+3. Very long instruction word (VLIW) - processor recieves many instruction encoded
+![](r8.JPG)
+
+> Note: Registers are volatile in nature:
+
+#### 8086 Microprocessor instruction set 
+- Many ISA's are not specific to a specific computer architecture. They survive amongst generations. 
+> eg: intel x86 series
+```bash
+x86 (also known as 80x86 or the 8086 family) is a family of complex instruction set computer (CISC) instruction set architectures initially developed by Intel based on the Intel 8086 microprocessor and its 8088 variant.
+```
+
+Compilers convert HLL to LLL/ machine level language 
+![](i1.JPG)
+
+> Addressing Modes - way of specifying adress of data to be operated on 
+![](i2.JPG)
+
+### Technology Trends:
+![](i3.JPG)
+![](i4.JPG)
+#### 1. Integrated circuit (IC) logic technology 
+![](s7.JPG)
+![](o1.jpg)
+The integrated circuit (IC) is soldered on the PCB (printed circuit board)
+
+integrated circuit (IC), also called microelectronic circuit, microchip, or chip, an assembly of electronic components, fabricated as a single unit, in which miniaturized active devices (e.g., transistors and diodes) and passive devices (e.g., capacitors and resistors) and their interconnections are built up on a thin substrate of semiconductor material (typically silicon). The resulting circuit is thus a small monolithic “chip,” which may be as small as a few square centimetres or only a few square millimetres. The individual circuit components are generally microscopic in size.
+
+- Famous Types of IC 
+a. microprocessors 
+Microprocessors typically contain the central processing unit (CPU) of a computer.
+
+Microprocessors contain some circuits, known as registers, that store information. Registers are predetermined memory locations. Each processor has many different types of registers. 
+
+Microprocessors can perform billions of operations per second on data. In addition to computers, microprocessors are common in video game systems, televisions, cameras, and automobiles.
+
+b. Radio Frequency IC 
+Radio-frequency ICs (RFICs) are widely used in mobile phones and wireless devices. 
+
+c. monolithic microwave IC 
+A special type of RFIC is known as a monolithic microwave IC 
+
+d. SoC 
+A system-on-a-chip (SoC) is a microchip with all the necessary electronic circuits and parts for a given system, such as a smartphone or wearable computer, on a single integrated circuit (IC).
+```bash
+Parts of a computer:
+CPU 
+Motherboard  
+ROM/ hard disk – memory / storage  
+Graphics card  
+Monitor – touch display  
+Power – battery (measured in mAh) 
+
+Infact mobile additionally has a system on chip (SoC) which contains  
+CPU 
+MOTHERBOARD 
+GRAPHICS CARD  
+Network sensors  
+
+What is inside a SoC? 
+- CPU (power measured in Mhz and Ghz  
+1000Mhz = 1Ghz  
+dual / quad / octa core  
+
+Contains many transistors which is measured in nm (10 / 12 / 14 nm technilogy) 
+
+- ISP (processing image data) 
+Graphics processing unit (used for gaming and video processing stuff) 
+- Artificial intelligence (AI assistance like siri) 
+- Sensors  
+- Security (like biometric scanning) - face/ voice/ finger  
+- LTE/modem - mobile network  
+- WIFI / bluetooth – GPS, nearby sharing, NFC sharing 
+- Cache memory (for all these components) 
+```
+
+> The advantages of IC chips are as follows:
+1. Ability to minimise the size of electronic devices since the function of crores of transistors and other components are incorporated in a chip.
+2. Ability to ensure high efficiency.
+3. Credibility.
+4. Low energy consumption.
+5. High longevity.
+6. Ability to resist temperature variations up to a certain extent.
+
+#### 2. DRAM 
+![](u1.JPG)
+> RAM 
+It is generally known as the main memory or temporary memory or cache memory or volatile memory of the computer system. The information stored in this type of memory is lost when the power supply to the PC or laptop is switched off.
+![](s9.JPG)
+
+> Two main types of RAM are:
+![](ss1.JPG)
+- Static RAM (SRAM) - SRAM is commonly used for a computer's cache memory
+```bash
+cache memory / SRAM - fastest form of memory 
+```
+- Dynamic RAM (DRAM) - Most computers use DRAM instead because it supports greater densities at a lower cost per megabyte (MB). higher transfer rate and higher storage density.
+
+> generations of DRAM:
+1. DRAM (asynchronous DRAM) - In this RAM it wasnt synchronized with the cpu clock, so cpu would never know what time would the data be available in the RAM for exporting it through I/O bus. 
+
+2. SDRAM (synchronous DRAM) - CPU clock is synced with the RAM, which means it transfers data timely which increases the memory RW speed 
+
+3. DDR SDRAM (Double Data Rate SDRAM):
+In this type of RAM, the data is transferred twice during each clock cycle, with rising and falling edge. 
+
+Different Generations of DDR RAMs are DDR1/DDR2/DDR3/DDR4. In each generation of DDR RAM, the speed of the RAM was increased and power consumption has been reduced.
+![](raml.jpg)
+
+> RAM Packages:
+![](dd1.JPG)
+- DIP (Dual In LIne Package) - older gen of DRAM was packaged in DIP
+- SIMM (Single In line Modules) - SIMM can have a maximum 32-bit channel (data bus) for data transfer. memory chips are available only on one side of the pcb
+- DIMM (Dual In Line Module) - memory chip pins available both front and back. A DIMM is a double sided SIMM. DIMM supports 64-bit channel (data bus)
+- SO-DIMM (Small Outline DIMM) - smaller version of DDIM
+
+4. Mobile DDR / Low Power DDR (MDDR/LPDDR)
+This type of RAM is used inside the smartphones, which is optimized for the low power consumption.
+![](mkl.JPG)
+
+5. Graphics DDR (GDDR):
+This type of RAM is used in graphics cards for multimedia applications which required very high bandwidth.
+![](gui.JPG)
+
+#### 3. Magnetic Disk Technology 
+ A magnetic disk is a storage device that uses a magnetization process to write, rewrite and access data.
+```bash
+#history of computer data strage 
+- Magnetic tape reels 
+- punched cards 
+- punched paper tape reels 
+- HDD 
+- floppy disk 
+- ZIP drives 
+- CDs (CD-ROM and CD-R/RW) - compact disk
+- DVD
+- flash drives / pentdrives / usb drives
+
+floppy disk was eventually made obsolete. Many point to 2011 as the year the floppy disk died. That was when SONY stopped making them altogether.
+```
+#### 4. Network Technology
+![](r9.JPG)
+
+### Quantitative Principles of Computer Design 
+![](mm1.JPG)
+
+1. take advantage od parallelism 
+2. principle of locality 
+3. focus on common case 
+- Amdajf's law 
+
+> Pros of Parallelism:
+![](mm2.JPG)
+![](mm3.JPG)
+
+> Types of Parallelism:
+- system level 
+one processor can exeecute one process at a time but through parallelism thrpugh multiple procesors multiple processes can be executed at the same time. 
+```bash
+one process would be divided into discrete parts called grain and this would further contain a bunch of instuctions Now each grain would be simultanousely executed on multiple cpus so that singular process completes executing quickly. 
+
+Now thats one process allocated to a bunch of cpus in parallel, what if we wanted to execute multiple proceses on the same number of cpus, we can acheive that by creating segments between each cpu.
+```
+Normally one process/ instruction is supposed to complete its execution, before the next process starts executing in say one processor. even in case of system level, one process must complete executing via multiple cpu's before taking the next process in the processor
+
+Hwever, in case of pipeling this can be acheived, where multiple processees / instructions can be executed at the same time.
+- pipeling 
+executing multiple processes parallely where the cpu's are placed in the architecture of a pipeline. its done to reduce the time taken to complete the execution, inturn improving the performance because multiple instructions will be executed at the same time, where each grain will be executed in seperate stages / segments, between every stage we have an interface register AKA latches which is used to store intermediate result. 
+![](j1.JPG)
+
+```bash
+each grain belonging to a process is interlinked, while the first segment executes the first grain, the second one executes the second grain and so on.. However, in order to link these grains,
+
+lets take an example where the program is divided into a couple grains
+
+first grain computes the sum of a couple numbers and the second grain executes the multiplication of a couple numbers but it needs to add the result of the first grain with it, to do so, it needs to access the output from the first grain, now this grain will be intermediatory stored in the latches so it can be used as an input for the second grain. 
+
+each cpu will have one segment and one latch, where multiple instructions would execute by overlapping. 
+```
+So its technically like the old structure, each process was divided into a bunch of grains (containing a bunch of instructions), each of this grain is run through multiple cpu's, and one process is executed by multiple cpu's such that its executed quickly in a fraction off a time. 
+However, in this pipeline, each cpu now has a dedicated segment and a latch register, and output from the grains from the first segment will be used as the input for the grains of the second segment, while it will temporarily be stored in the latch. Also multiple grains from multiple processes will run simultanousely in these cpu's this process is called overlapping, so instead of executing one process by a bunch of cpus at a time, were executing a bunch of processees by a bunch of cpus at the same time.
 
 
+### Principle of Locality**
+![](ppp1.JPG)
 
+![](a1.JPG)
+Initially all the data is in the secondary memory and when its ready to get executed it moves to the main memory. Few processes are used frequently these are kept in the cache. 
 
+- Cache memory is sometimes called CPU (central processing unit) memory because it is typically integrated directly into the CPU chip or placed on a separate chip that has a separate bus interconnect with the CPU.
 
+> Principle of locality:
+Is the tendency of a processor to access the same set of memory locations repetitively over a short period of time.
+```bash
+Within a period of time same set of memory locations would be accessed repeatedly by the processor 
+```
+There are two basic types of reference locality:
+1. Temporal Locality: 
+ If at one point a particular memory location is referenced, then there is a possibility that the same location will be referenced again in the near future.
+ 
+2. Spatial Locality:
+ If a particular memory location is referenced at a particular time, then it is likely that nearby memory locations will be referenced in the near future.
 
+- The localities are stored in the cache memory. Static random-access memory (SRAM) is used for cache memory since its must faster than DRAM.
+
+### Focuses on the common case
+To improve a system, you'll need to improve a part osf the system that is lacking.
+![](a2.JPG)
+
+> What is speedup?
+![](nm1.JPG)
+
+> Amdahl's Law - sppedup performance law 
+how much did the entire system improve when you improved a part of the system.
+- Parralel processing would speedup the problem vs using only one serial processor (1 cpu), how much hike would we get in the speed? 
+- Its a formula used to find the maximum / overall improvement possible by improving a particular part of the system. 
+- In parallel computing Amdahl's law is mainly used to predict the theorotical maximum speed up for program processing using multiple processor.
+![](am.JPG)
+
+> Speedup doesnt increase linearly as the number of processes increases 
+If we increase the processors allocated to a particular system in a parallel platform then it the speed up will increase, however if you keep increasing the processors and keep the system the same, then you will reacch a point beyond which speed up would then become stagnant / stop increasing / saturated. Thats why to keep the efficieny of the system fixed we have to increase the size of the problem ad the no of processors simultanouseely as required. 
+
+![](lll1.JPG)
+> But why does this happen?
+Because computation problem consist of both serial and paralel part and the serial port cannot be parallelized thats why serial part restrains the speed up to increase when we reach the serial part (since this part needs to execute sequently only)
+```bash
+Computatation problem = serial part + parallel part 
+#serial port - the second process can begin its execution only after the first process has completed. uniprocessor execution.
+#eg; arrays, linked list 
+
+#paralel port:  two processes can start their execution at exactly the same instant of time. For this, we require more than one processor.
+```
+![](jkk.JPG)
+
+> Note that: serial part / sequential part / non-parralelized part will execute for the percentage its alloted in the computational program. 
+
+> The formula:
+where f denotes the computations thats done sequentally 
+![](kll.JPG)
+
+### Power Consumption
+![](mk1.JPG)
+![](pc1.JPG)
+usually the cpu or gpu consumes the most power. To improve the power performance we should work on those components who draw large amounts of power.
+
+#### Low Power Design 
+the goal of low power design is to reduce the individual components of power as much as possible, thereby reducing the overall power consumption. 
+
+Low power design is a collection of techniques and methodologies aimed at reducing the overall dynamic and static power consumption of an integrated circuit (IC).
+
+> What is the difference between static and dyanamic power allocation?
+The power consumed in a device is composed of two types – dynamic, sometimes called switching power, and static, sometimes called leakage power.
+
+- Dynamic power  is comprised of switching and short-circuit power
+short circuit happens when excessive current flow in the power source through the 'short,' and may even cause the power source to be destroyed.
+```bash
+Short circuiting happens when live wire and neutral wires of domestic circuit come in contact accidently. As a result of short circuit, the resistance of the circuit decreases to very small value and current increases enormously. It results in heating up fuse wire and breaking up circuit. it may also cause fire.
+```
+Both switching and short circuit power imply that for secuity measures the excessive current is redirected to the earth. 
+- Static power is the power consumed while the circuit is inactive because transistors are not completely turned off, its also called leakage power
 
 
 
