@@ -22,30 +22,140 @@ Architecture is an abstract, logical, blueprint of what to do, in order to execu
 > Important topics 
 ![](imp.JPG)
 
-### Computer Components 
+
+##### Computer Hardware 
 > Types of computer hardware 
 ![](hard.jpg)
 
+![](y1.JPG)
+![](y2.JPG)
+![](y3.JPG)
+![](y4.JPG)
+
+1. Input devices - devices through which we can give data to computer
+- keyboard, joystick
+- stylus / light pen is a light-sensitive computer input device
+- bar code / QR code reader
+- web camera 
+- OCR (optical code reader - its used to scan text and convert them into readable text)
+- MICR (Magnetic ink card reader) - read banks code number
+![](y5.jpg)
+- OMR (optical mark reader) - for checking marks made by pen in MCQ exams 
+
+2. Output devices - for fetching data from computer 
+- monitor 
+![](y6.JPG)
+- CRT (cathode ray tube)
+![](y7.JPG)
+- printer 
+![](y8.JPG)
+![](y9.JPG)
+![](y10.jpg)
+
+While laser printers use static electricity and heat to fuse toner to pages. Plotters do neither – historically, they used an actual pen to draw the output. This pen was attached to a metal arm which moved according to a set of hyper-accurate coordinates given by a computer running CAD software.
+![](y0.JPG)
+
+- headset (speakers + microphone combo)
+- projector 
+
+3. processing devices - for processing the data that we input through input devices.
+![](d1.JPG)
+![](d2.JPG)
+![](d3.JPG)
+![](d4.JPG)
+![](d5.JPG)
+![](d8.JPG)
+The hard drive is the component that stores your data. You'll often see the term “hard drive” abbreviated to “HDD.”
+
+Hard drives can be external (secondary) or internal (primary). While internal hard drives have their benefits and limitations (HDD is internal hard drive), you can buy hard disks online for easy external use. 
+
+> There are three different kinds of external hard drives: SATA, SSD and NVMe. 
+- Serial Advanced Technology Attachment (SATA) is an older SSD interface designed specifically for storage, with speeds up to 6 Gbps.
+- SSD stands for Solid State Drive. These disks don't have any moving parts. Instead, all of the data is stored on non-volatile flash memory. That means that there isn't a needle that has to move to read or write data and that they are significantly faster than SATA drives. SSD drives range from about 120 GB to 2 TB, and are about 2-4 times the price of a SATA hard drive of the same size. Since there are no moving parts, these drives are also a lot more durable
+- Released in 2013, Non-Volatile Memory Express, or NVMe, is a type of SSD that's attached to a PCI Express (PCIe) slot on a main board. These slots were originally designed for graphics cards, so they are incredibly fast. Speeds on NVMe drives can reach an interface rate of 32 Gb/s with a throughput of 3.9 GB/s. That can be very useful if you are doing something that needs a lot of disk throughput, like gaming or high-resolution video editing.
+
+![](d9.JPG)
+An SD card is a memory card that can be inserted into a device in order to increase the device's available storage.   SD, is a proprietary non-volatile flash memory card format developed by the SD Association (SDA) for use in portable devices.
+```bash
+memory card:
+There are many kinds of memory cards, and one of them is the SD card. There’s also the CF card, the MMC card, etc.,
+The differences between an SD card and a different kind of card like the MMC or the CF cards are generally the shape, the size, the contacts, read and write speed, and storage capacity.
+```
+
+> Can we use mobile SD card in laptop?
+While your PC desktop or laptop might have an SD card reader already built in, it may not have a built-in microSD card reader. If it doesn't, you will need a microSD memory card adapter. Some card readers will not accept microSD cards because they are too small.
+
+![](d12.JPG)
+> Which is better CD or DVD or blueray?
+ people use CD's to store music, DVD to store standard definition movies, and Blu-ray to store high definition videos.
+
+ > comparing CD's with older audio formats.
+`CDs > vinyl > cassettes` 
+vinyl was the main vehicle for the commercial distribution of pop music from the 1950s until the 1980s and 1990s when it was largely replaced by the compact disc (CD).
+![](d13.JPG)
+
+![](d10.JPG)
+![](r1.JPG)
+
+> Are there external RAM's?
+Most of the laptops usually have an extra RAM slot where you can plug the extra RAM module. If you don't have an extra RAM slot, you can remove the existing RAM and replace it with a higher capacity RAM, but choose the Ram that your laptop supports i.e. DDR3, DDR4, DDR5 
+
+you can find out if your laptop supports RAM extension by heading to task manager, head over to performance and check in slots info if any slots are empty, in this case both the slots are occupied. 
+![](k1.JPG)
+![](k2.JPG)
+![](k3.JPG)
+![](k4.JPG)
+![](k5.JPG)
+
+BIOS gets power from SMPS when computer is on and after shutdown computer it gets from CMOS battery.
+```bash
+SMPS is a PSU (power supply unit) and is usually used in computers to change the voltage to the appropriate range for the computer. It converts AC Voltage to DC Voltage.
+
+Electric current flows in two ways as an alternating current (AC) or direct current (DC). The main difference between AC and DC lies in the direction in which the electrons flow. In DC, the electrons flow steadily in a single direction, while electrons keep switching directions, going forward and then backwards in AC.
+```
+![](ko.png)
+![](r2.JPG)
+![](l1.JPG)
+
+> What is VGA cable?
+A video graphics array (VGA) cable is a type of computer cable that carries visual display data from the CPU to the monitor.
+
+A VGA cable (video graphics array), however, is an older standard that is only capable of carrying a video signal unlike HDMI which is capable of carrying both audio and video signals.
+
+DVI is a considerably newer connection type (that functions same as VGA used for video connection) that transfers digital signals while VGA is older and transfers analog signals
+
+### Computer Components 
 > Types of computer memory?
 ![](ram.JPG)
 ![](../advanceddbms/rom.png)
 
-> Components of motherboard 
+> Components of motherboard / system board / circuit board 
+to coordinate all devices motherboard is used.
+
 The motherboard serves as a single platform to connect all of the parts of a computer together. It connects the CPU, memory, hard drives, optical drives, video card, sound card, and other ports and expansion cards directly or via cables. It can be considered as the backbone of a computer.
 ![](c1.JPG)
-- CPU port(processor - intel ) 
-- green port - mouse port 
-- purple port - keyboard port 
+
+- CPU port / cpu socket(processor - intel (aded externally))
+- north bridge - to cool the chip below 
+- south bridge 
+- *green port* - mouse port 
+- *purple port* - keyboard port 
+```bash
+Note: Before seperate ports were used for mouse(green port) and keyboard (purple port), now we use usb ports to insert these peripherals.
+```
 ![](c2.JPG)
-- serial port (VGA port) - used for connecting cpu to tv or projector
-- parralel port - used for connecting printer and scanner 
-- USB port - used for connecting external pentdrive
+- *serial port* (VGA port) - like hdmi but used for video output. VGA cables carry an analog signal as opposed to a digital signal (ones and zeroes). Using higher frequencies, it's possible to reach a relatively high range of video resolutions. However, video quality directly responds to cable quality, and doubly so on higher resolutions. Due to this, the quality of a VGA image can variate notable across different makes of cables.
+- *DVI* (Digital Visual Interface) connector : It is used to send digital information from a computer to a digital display, such as a flat-panel LCD monitor. (basically an advanced version of VGA)
+- *HDMI port* - :HDMI is a digital interface for transmitting audio and video data in a single cable.
+-  DisplayPort - transfer audio and video signals,but is superior to HDMI
+- parralel port - used for connecting printer and scanner before, but now usb connections have replaced this port.
+- *USB port* - used for connecting external pentdrive or SD card 
 - LAN cable port - used for connecting ethernet cable for accesing internet over the network 
 ![](c3.JPG)
-- Audio port - for headphones / mic 
+- *Analog Audio port*- for headphones / mic 
 - CMOS battery - The CMOS battery powers the BIOS firmware in your laptop [2]. BIOS needs to remain operational even when your computer isn't plugged into a power source. BIOS (basic input/output system) is the program a computer's microprocessor uses to start the computer system after it is powered on
 ![](bios.JPG)
-- BIOS chip
+- BIOS chip (contains all drivers required for motherboard to function)
 Bios is stored on the bios chip (non volatile - retaining data even when there is no power supply) which is a ROM or flash drive chip.
 
 All BIOS setting are retained in the CMOS chip which includes date and time, boot device priority, hardware setting  stores in CMOS chip (volatile chip - memory lost when power is switched off). Important setting that are require for BIOS are stored in CMOS 
@@ -69,21 +179,45 @@ SMPS is a PSU (power supply unit) and is usually used in computers to change the
 
 floppy disk was eventually made obsolete. Many point to 2011 as the year the floppy disk died. That was when SONY stopped making them altogether.
 ```
-- PCI slot - used to add network hardware (router, hubs switches, brudges), sound / video cards
+- PCI slot - used to add network hardware (router, hubs switches, brudges), sound / video cards, NIC card
 ```bash
 A video card (also called a display card, graphics card, display adapter, or graphics adapter) is an expansion card which generates a feed of output images to a display device (such as a computer monitor).
 The graphics card should go into the first PCI Express x16 slot. However if you want to add an additional graphics card then use the AGP slot 
 
 A sound card (also referred to as an audio card) is a peripheral device that attaches to the PCI slo t on a motherboard to enable the computer to input, process, and deliver sound.
+
+the PCIE slot is for Graphics cards, sound cards, wifi cards, and pretty much anything.
+
+Typically you want to put graphics cards in the highest pcie X16 slot
+```
+```bash
+A network interface card (NIC) also known as an Ethernet Card or Network Adapter, a hardware component in the form of a chip or a circuit board enables your computer to connect to a network through a wireless like wifi or wired connection via an ethernet cable.. 
+
+Most new computers today have NIC cards built into the motherboard, so a separate LAN card is not needed.
+
+The NIC provides the hardware interface between a computer and a network.
 ```
 ![](c4.JPG)
-- AGP slot - used for addding extra graphic card 
+- AGP slot - used for adding extra graphic card 
 ```bash
 An Accelerated Graphics Port (AGP) is a point to point channel that is used for high-speed video output.
+
+AGP makes multiple requests for data during a bus or memory access, while PCI makes one request, and does not make another until the data it requested has been transferred
 ```
 - heat sink - to get rid of unwanted heat from the cpu 
-- RAM slot - used for adding RAM 
+- memory slot - used for adding RAM 
+```bash
+SD RAM 
+DDR
+DDR II
+DDR III
+DDR IV
+```
 - power connector - Power connectors act as the vital link between a device and its source of power. used to power up the PC.
+- SATA port - its used to connect external and internal hardrives to the motherboard. before IDE (integrated drive electronics) would be used, which is now replaced by SATA port.
+- capacitors (the cylinders)
+- resistors (the small thingies with lines)
+- IC (the little chips on the motherboard)
 
 > Difference between RAM & ROM 
 ROM is non-volatile memory, which means the information is permanently stored on the chip. The memory does not depend on an electric current to save data, instead, data is written to individual cells using binary code. Non-volatile memory is used for parts of the computer that do not change, such as the initial boot-up portion of the software, or the firmware instructions that make your printer run. Turning off the computer does not have any effect on ROM. Non-volatile memory cannot be changed by users.
@@ -121,6 +255,13 @@ Flash memory can keep stored data even when power is off.  Flash memory was deve
 Newer type of BIOS.
 - UEFI has several pros over old BIOS. It has a user friendly GUI interface, it also has a built in feature called secure boot which helps to stop malicious software 
 
+> Accesing wifi through a dongle 
+its used when there is no WiFi, or the WiFi is just not good enough. 
+- alternative to mobile data 
+if you are an individual looking to save money, dongles are a much better option for you. A wifi dongle is a small USB stick that allows you to access online services without needing to connect to Wi-Fi.  For someone on the move, a dongle is the best choice. However, for the best internet speed, go with a Wi-Fi router.
+- for improving performance 
+A USB WiFi adapter overrides the computer's built-in wireless functionality, giving you a faster, more reliable connection to your available network signals through the USB port instead.
+
 #### Difference between low-level language, assembly language and high level language 
 1. Low level language:
 Machine language is the low-level programming language. It can only be represented by 0s and 1s. Earlier when we have to create pictures or show data on the screen of the computer then it is very difficult to draw using only binary digits(0s and 1s).For example: To write 120 in the computer system its representation is 1111000. So it is very difficult to learn. To overcome this problem the assembly language is invented.
@@ -142,6 +283,169 @@ It needs a compiler to convert from HLL to LLL.
 ![](x4.JPG)
 ![](x5.JPG)
 ![](x6.JPG)
+
+#### How to build a PC?
+1. power cable is attached to the SMPS 
+![](po1.JPG)
+2. If your system has an external graphics card attached then connect through this yellow port 
+![](po6.JPG)
+- if your system has internal graphics card in the CPU, then attach to that, second priorty. 
+- VGA (video graphics adapter) cable one end attached to monitor, other end CPU
+![](po2.JPG)
+3. Attach all peripheral devices like keyboard, mouse through USB 
+![](po3.JPG)
+4. other ports
+![](l11.jpg)
+- *green port* - mouse port 
+- *purple port* - keyboard port 
+- *red port* - mic 
+- *green port* - headphone
+5. Attach LAN cable / RJ-45 connector through the ethernet port in the CPU
+![](po7.JPG)
+
+> How to assemble the motherboard.
+- Tip: Open the CPU cabinet screws from the SMPS battery side, you'll notice hard disk, motherboard, SMPS and optical DVD drive on 4 corners.
+![](j1.JPG)
+```bash
+A SATA cable connects motherboard to mass storage devices like optical drives, hard disk drives, and solid-state drives.
+```
+- connect SATA cable from HDD to motherboard, infact dependendng on the number of sata ports yiou hav you can increase harddrives
+![](lop.JPG)
+- connect SATA power cable from HDD to SMPS
+- connect SATA cable from SMPS to motherboard 
+- connect SATA cable from motherboard to optical drive
+- connect ATX power connector (has pin customisation) from motherboard to SMPS
+![](lop2.JPG)
+- connect 12v power connector from SMPS to usb 1 and SMPS to usb 2, and SMPS to front audio
+- connect 12v power conector  from motherboard to smps
+- On the motherboard, Add processor in cpu slot, the cooling fan will be embedded on top of it (make sure the fan is compatible), then connect CPU fan to motherboard with a motherboard fan connector 
+![](lop3.JPG)
+- the cpu's power button is related to the SW pin (x4 wires) in the motherboaard found on the front panel which is connected to a part of the 12v power connector originating from the SMPS
+![](op.jpg)
+ ```bash
+ #add it in the app panel on the mother board
+- power SW - powers on pc
+- power led - The LED power light, which indicates when the computer is on, off, or in Standby.
+- reset SW - reset the pc 
+- HDD led  - This indicator is the light that flashes as information is being written to and read from the hard drive. 
+ ```
+- add RAM in RAM slot
+Integrated graphics are like a mini GPU tucked into your CPU. While better than nothing, integrated graphics have to share resources with the CPU. Buying a separate GPU will allow your CPU to dedicate more of its resources to computing, while the GPU takes care of rendering. While external / dedicated graphics card are fan like and shiz, integrated graphics card are in a chip format already built into the motherboard.
+![](ext.JPG)
+- add external graphics (contains 2 HDMI ports and DVI port ( VGA port would be found in older graphic cards)) card in PCIe slot (make sure the slot supports your graphics card, you can find the version of the PCIe slot from that particular motherboards brand website). connect this graphics card to SMPS via PSU connector. Connect your monitor to the video port of this dedicated graphics card.
+```bash
+for high end gaming and shiz use 3-4gb graphics card 
+
+In reality, a CPU can provide graphical processing functionality, but CPUs aren’t designed to do this as their sole purpose. This means they are limited by the fact that they also need to process other types of data.
+
+Types of graphic cards:
+Because the GPU Chip alone won’t be able to function without some kind of Memory, Power Management, and connection to your Computer it can be placed:
+
+1. Into your CPU
+2. Onto its own PCB (Printed Circuit Board)
+
+When a GPU is included inside of your Processor (CPU) it is called an iGPU – integrated GPU. An integrated GPU gets its power management and connection to the rest of your PC’s hardware through the CPU.
+
+It can also access and use the System’s Memory (RAM).
+
+When a GPU is placed onto its own PCB, it’s called a Graphics Card.Note that GPU is the processor inside the graphics card. A Graphics Card on its own PCB is also called a dedicated Graphics Card, or dGPU (as opposed to the iGPU – the integrated GPU inside of the CPU).
+
+Video Card:
+Video Cards are a specialist piece of Hardware that focuses on handling Video processing extremely well.
+
+Workloads like Video Editing, Conversion, Movie Projecting, Streaming, etc. all have to handle streams of Video Data and the higher the resolution becomes or the higher the bit-depth, the more performance you’ll need.
+
+A lot of Videos have specific Video Codecs that can’t be encoded or decoded fast enough by a Graphics Card or a CPU.
+
+Difference between GPU (integrated graphics), Graphics card (dedicated graphics card) and Video card?
+
+- A GPU, Graphics Card and Video Card are used interchangeably.
+To be exact, though, they mean different things.
+
+A GPU is the main chip on the Graphics Card. Intel consumer-grade processors all have a graphics processing unit (GPU) built-in with the CPU. Businesses and casual computer use consumers are the target market for processors with an integrated graphics unit.
+
+A Graphics Card is a fully functional piece of Hardware (including the GPU) with a PCB, VRAM, and other supporting hardware elements.
+
+A Video Card is a specialist piece of Hardware that accelerates video-related processes.
+```
+![](h1.JPG)
+```bash
+Display Connectors:
+VGA / RGB connection: Old, legacy video connector. Only to be used when nothing else available. used before DVI came into the market. uses analog signal, so as you push the resolution higher you get image degradation as the signal is converted from analog to digital
+
+DVI: Video only, perfect for older systems or for 144Hz at 1080p. ike VGA functionality but it supports better resolution. uses both analog and digital sign als.
+
+HDMI: Audio and video signal, best for TV to PC connections
+
+DisplayPort (DP): The best connector for an audio and video signal, and can transmit 144Hz up to 4K, cs of its increased bandwidth capacity.
+```
+> How to check if SMPS is working, usually when you dont see led on cpu even after turning it on?
+Open the cpu cabinet and remove the ATX connector from the motherboard then jump the green and the black wires and connect the smps to the power supply. since you jumped the smps the fan in it would start spinning, if it doesnt that means it doesnt work. 
+
+> How to check if power is reaching the ATX connector wires?
+```bash
+Direct current (DC) occurs when the current flows in one constant direction. It usually comes from batteries, solar cells, or from AC/DC converters. DC is the preferred type of power for electronic devices. Alternating current (AC) occurs when the electric current periodically inverts its direction.
+
+Many devices, household appliances, especially, such as lamps, washing machines, and refrigerators, printers, all use AC power, which is delivered directly from the power grid via power outlets.
+```
+So since SMPS is an AC/DC convertor it uses DC power, so we'll set the multimeter to the DC range. and we'll check the volt in the both the 12v connector and the ATX wires after connecting the smps to power supply
+![](atx.JPG)
+
+> If the led light turns on the computer but it beeps repeatedly?
+then check RAM and clean it with an eraser. 
+
+> If your pc doesnt show proper time even after configuration 
+because CMOS (complimentary metal-oxide semiconductor) battery is going to expire (3yrs works). it keeps bios up to date.
+
+> computer works for some time then switches off?
+because cpu fan has dust on it and after computer heats it turns off. use blower to clean it after removing it from motherboard. clean the dust on cpu from above, then remove it (after removing the motherboard from the cpu cabinet) and clean it using dustbrush and after cleaning cpu fan with blower then connect cpu with fan use thermal paste. 
+
+> How to re-install os if its corrupted?
+- windows installation using a bootable pentdrive (8gb)
+Insert the pentdrive in your system through which you will install os into your pentdrive. install power ISO installed from this website https://www.poweriso.com/download.htm. After downloading open it -> tools -> create bootable usb drive -> choose your usb drive -> upload te power ISO
+![](m1.JPG)
+
+- windows formatting and installation
+insert the bootable pentdrive -> click the power button -> repeatedly press del button for loading the bios screen on your window (find your computer and find what keys to press to load the bios). 
+![](kl.JPG)
+Advanced BIOS features -> HDD -> select the 1st hard disk thats installed and select usb. 
+![](klo.JPG)
+we need to ensure first drive is usb, then save the configuration settings
+![](m3.JPG)
+then window would re-install and setup would start, then it would take through a series of steps to install windows, then they ask whether you want to upgrade the new os by overwritting the previous os or create a new custom copy by keeping the old os (so when you install the new os, the data that was installed in previous os stays), choose custom and choose the partition which has enough free space (20gb) to install the os, if you dont have free space then format it
+```bash
+Your C:\ drive is the drive that your Windows operating system is installed on. Meanwhile, a D:\ drive is a secondary drive (or partition) installed on your system.
+
+Your D: drive is not actually another hard drive, nor is it the letter assigned to a memory-card slot. Instead, its most likely a partition of your primary hard drive, a separate area created especially to hold certain files or data
+```
+![](up.JPG)
+![](up2.JPG)
+
+Remove the pentdrive after windows is installed and before the computer restarts. 
+![](nn.JPG)
+![](bkk.JPG)
+
+after it restarts click on personalize after right clicking -> change desktop icons -> select all the icons and apply -> ok
+![](m5.JPG)
+
+- install drivers (from motherboard driver CD or online (driver pack solution))
+enter the brand name driver on google or just type Driver pack which will detect and install all required drivers (downloads bunch of irrelevant drivers as well)
+
+> How to setup new printer?
+- connect power cable to printer, the other end connect it to power socket
+- add a usb cable which connects printer and cpu
+- you can install driver from cd / pent drive / online search
+Insert the CD that came with the printer. If the CD does not automatically start, open My Computer, double-click the CD drive, and then click the Setup or Install file. If you have downloaded the drivers, run the downloaded setup file.
+
+> places to check specs
+- my computer is now this pc on windows 10 -> properties
+- system information
+
+> How to setup dedicated graphics card drivers?
+while you dont neeed to install any drivers for integrated graphics card, you do need to for dedicated ones since its an external hardware attached to your computer. Infact you'll also need to constantly update your installed drivers. 
+
+Both AMD and Nvidia offer driver downloads on their websites. It’s usually a waste of time to use the drivers that come on the disc with your new GPU; these will already be out of date.
+
 
 #### Unit 1: Fundamentals of Computer Architecture 
 ![](3.JPG)
@@ -525,21 +829,119 @@ As the grain size decreases i.e it goes from level 5 to level 1 its communicatio
 ![](f2.JPG)
 
 #### Fundamentals of Computer Design 
-- Computerr designer responsible for hardware architecture of components 
+- Computer designer responsible for hardware architecture of components 
 ![](cc1.JPG)
 
+#### Changing face of computer 
+![](vq.JPG)
+1. general purpose computer invented
+2. microproccesors were introduced
+3. main frame computers - link users to a central data repository
+4. mini computers - small comps used by businesses 
+5. microcomputers - personal computers 
+6. desktop computers
+7. individually owned computers 
+8. 2000, embedded computers (computers installed into smaller devices) introduced, with cellphones and eveything
+  
+> Difference between microprocessor and CPU?
+Microprocessors are the circuitry that surround the CPU. .It contains other processors such as graphics processor unit. Sound cards and network cards are encased in microprocessors. So a CPU is part of a microprocessor, but a microprocessor is more than the CPU.
 
+> What is general purpose computers?
+A general purpose computer is a computer that is designed to be able to carry out many different tasks. Desktop computers and laptops are examples of general purpose computers. Among other things, they can be used to: access the internet. browse the world wide web (WWW)
 
+> What is micro computer?
 
+microcomputer, an electronic device with a microprocessor as its central processing unit (CPU). Microcomputer was formerly a commonly used term for personal computers, particularly any of a class of small digital computers whose CPU is contained on a single integrated semiconductor chip.
 
+> What is minicomputer?
+a computer of medium power, more than a microcomputer but less than a mainframe.
 
+> What is mainframe computer?
+A mainframe is the central data repository, or hub , in a corporation's data processing center, linked to users through less powerful devices such as workstations or terminals. The presence of a mainframe often implies a centralized form of computing, as opposed to a distributed form of computing.
 
+In banking, finance, health care, insurance, utilities, government, and a multitude of other public and private enterprises, the mainframe computer continues to be the foundation of modern business.
 
+> What is a supercomputer?
+A supercomputer is a computer with a high level of performance compared to a general-purpose computer. Performance of a supercomputer is measured in floating-point operations per second (FLOPS) instead of million instructions per second (MIPS).
 
+![](v2..JPG)
+> What is an embedded system?
+An embedded system can be thought of as a computer hardware system having software embedded in it. An embedded system can be an independent system or it can be a part of a large system.
 
+> What is PDA's ?
+Personal Digital Assistants (PDAs) are small networked computers that can fit in the palm of your hand.
 
+#### Timeline of computing 
+![](com.JPG)
 
+![](v4.JPG)
+![](s1.JPG)
+![](s3.JPG)
+> What is an embedded computer?
+An embedded computer, which is an integral component of most embedded systems, is a combination of hardware and software that is designated to perform a highly specific function. For example, the type of embedded computer in a washing machine will not be the same as the embedded computer in a Nikon camera. Because the software in embedded computers is designed to only execute certain tasks, the computer’s software in one device can be totally distinct from that of another. The hardware of an embedded computer is also specially designed to withstand stresses in its intended environment. For instance, an embedded computer installed under the hood of a car is designed to withstand high temperatures.
 
+So how do embedded computers work? First, the computer receives electronic data. This can be input via a sensor or user interface. The information is then computed by the microprocessor. Finally, depending on the physical system that contains the embedded computer, the computer interacts with the mechanical components of the system
+
+Next time you open your fridge or use a microwave, remember that most of its functions could not be possible without the embedded computer.
+
+> Is a microprocessor or microcontroller used for creating embedded computers?
+The processor may be a microprocessor or microcontroller. Microcontrollers are simply microprocessors with peripheral interfaces and integrated memory included. Microprocessors use separate integrated circuits for memory and peripherals instead of including them on the chip. Both can be used, but microprocessors typically require more support circuitry than microcontrollers because there is less integrated into the microprocessor.
+
+> Where is the GPU and the CPU located at?
+Both GPU and CPU are computing engines, silicon based microprocessors. 
+GPU is used to provide the images in computer games. GPU is faster than CPU’s speed and it emphasis on high throughput. PC GPUs were originally invented for 3D gaming on PCs or video editting. 
+
+CPU comprises the arithmetic logic unit (ALU) accustomed quickly to store the information and perform calculations and Control Unit (CU) for performing instruction sequencing as well as branching. CPU interacts with more computer components such as memory, input and output for performing instruction.
+
+microprocessor is surrounding the CPU, meaning CPU is a part of microprocessor. 
+
+There are two different kinds of GPUs on laptops: Integrated GPUs and Discrete GPUs. Integrated GPUs are embedded inside the CPU (Central Processing Unit) and feature basic graphic processing capability, because it uses a part of the RAM which works as a graphics card. Discrete GPUs are individually embedded on the motherboard instead and are capable of dealing with more complex graphic processing, because they dont use RAM as a graphics card.
+
+> Difference between GPU and graphics card?
+While the terms GPU and graphics card (or video card) are often used interchangeably, there is a subtle distinction between these terms. Much like a motherboard contains a CPU, a graphics card refers to an add-in board that incorporates the GPU.
+
+- GPU is the integrated Graphics card / GPU, which are embedded on the microprocessor. Integrated GPUs are embedded inside the CPU (Central Processing Unit) and feature basic graphic processing capability. Because it’s embedded inside the CPU, there are only two options for integrated GPU: Intel & AMD.  Because integrated graphics are built inside the CPU, the main providers of them are the same as CPU providers: namely Intel & AMD. 
+- Graphics card is dedicated graphics card / discrete GPU's / discrete graphics card, which is external graphics card and the first one is externally added in the PCIe (PCI-express) slot of the motherboard. There are two major providers of discrete GPU for laptops: AMD & NVIDIA. NVIDIA is the most important one. 
+```bash
+Before PCIe slots, AGP slots were used for graphics card, and before that PCI slots were used.
+
+GP and PCI are typically no longer relevant due to their slow throughput rates of 2133 MB/s and 533 MB/s, respectively. The modern PCI-Express bus (version 5.0), on the other hand, can reach up to 63 GB/s when 16 lanes are used.
+```
+
+> Difference between 32bit and 64bit OS?
+There are two types of processors existing in computing- the 32-bit and 64-bit processors. The type of processor used in an operating system (OS) tells us how much memory it can access from the CPU register.
+
+![](s5.JPG)
+![](s6.JPG)
+
+#### Instruction set Architecturre 
+  - serves as an interface between software and hardware (registers)
+what kind of features supported by the registers.
+- consists of information regarding assembly programmers view of architecture 
+```bash
+An assembly language is a type of low-level programming language that is intended to communicate directly with a computer's hardware
+```
+- Many ISA's are not specific to a specific computer architecture. They survive amongst generations. 
+> eg: intel x86 series
+```bash
+x86 is a family of complex instruction set computer (CISC) instruction set architectures initially developed by Intel based on the Intel 8086 microprocessor ...89
+```
+> Instruction set design Issues
+- number of explicit operands: 
+```bash
+#Location of the operands can be either in the register, accumulator or memory 
+
+#OPERANDS 
+ADD R1 
+ADD R1, R2 
+ADD R1, R2, R3
+#where R1, R2, R3 are registers 
+
+#When we have a case where there are no operands described we can explicitly take the operands 
+ADD R1, LOCA
+#where LOCA is a location in the memory 
+```
+- specification of memory location
 
 
 
