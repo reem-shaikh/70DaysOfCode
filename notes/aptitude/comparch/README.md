@@ -179,7 +179,6 @@ SMPS is a PSU (power supply unit) and is usually used in computers to change the
 - DVD
 - flash drives / pentdrives / usb drives
 
-
 floppy disk was eventually made obsolete. Many point to 2011 as the year the floppy disk died. That was when SONY stopped making them altogether.
 ```
 - PCI slot - used to add network hardware (router, hubs switches, brudges), sound / video cards, NIC card
@@ -932,9 +931,10 @@ There are two types of processors existing in computing- the 32-bit and 64-bit p
 ![](s5.JPG)
 ![](s6.JPG)
 
-#### Instruction set Architecturre 
-  - serves as an interface between software and hardware (registers)
-what kind of features supported by the registers.
+#### Instruction set Architecture
+For different computer configuration we have a distinct set of instructions called instruction set architecture. For example, the instructure set architecture for a gaming console would be different as compared to a quantum computer. 
+
+- serves as an interface between software and hardware (registers) for example, what kind of features supported by the registers.
 - consists of information regarding assembly programmers view of architecture 
 ```bash
 An assembly language is a type of low-level programming language that is intended to communicate directly with a computer's hardware
@@ -1233,6 +1233,91 @@ Short circuiting happens when live wire and neutral wires of domestic circuit co
 Both switching and short circuit power imply that for secuity measures the excessive current is redirected to the earth. 
 - Static power is the power consumed while the circuit is inactive because transistors are not completely turned off, its also called leakage power
 
+### Instruction Set Principles 
+> What is instruction set architecture?
+![](lo1.JPG)
+```bash
+Computers = software + hardware 
+#to interact with hardware we need software
+```
+- software is a set of programs 
+- program is a set of instructions 
+- we interact with hardware through these instructions
+
+For different computer configuration we have a distinct set of instructions called instruction set architecture. For example, the instructure set architecture for a gaming console would be different as compared to a quantum computer. 
+
+> Types of register:
+registers are volatile in nature, so the final result is stored in the secondary memory. Access time of register is faster than cache memory.
+![](ack.JPG)
+
+> Types of CPU organisations
+![](t1.JPG)
+- general register organization
+When we are using multiple general-purpose registers, instead of a single accumulator register, in the CPU Organization then this type of organization is known as General register-based CPU Organization. In this type of organization, the computer uses two or three address fields in their instruction format. Each address field may specify a general register or a memory word.
+```bash
+#Instruction format 
+I | OPCODE | REGISTERS 
+#MULT R1, R2, R3
+```
+- single accumulator organnization 
+The computers, present in the early days of computer history, had accumulator-based CPUs. In this type of CPU organization, the accumulator register is used for storing the results od the processed data into the accumulator. The instruction format that is used by this CPU Organisation is the One address field. 
+```bash
+#Instruction format 
+I | OPCODE | OPERAND 
+#where I is the addressing mode 
+```
+- stack based organisation 
+The computers which use Stack-based CPU Organization are based on a data structure called a stack. The stack is a list of data words. It uses the Last In First Out (LIFO) access method which is the most popular access method in most of the CPU.
+
+![](t2.JPG)
+
+> Types of Notation in Data Structures:
+- infix notation - operator placed between operand 
+  (a+b) where a and b are operands and + is an operator. 
+- prefix notation (+ab)
+- postfix notation (ab+)
+
+> DMAS RULE: 
+DMAS represents the order of operations.
+
+> Types of Instruction format 
+1. Zero(0) Address Instruction format
+![](t3.JPG)
+- The instruction format in which there is no address field is called zero address instruction
+- In zero address instruction format, stacks are used
+- In zero order instruction format, there is no operand
+```bash
+#Lets take an example, where X, A, B, C, D are memory addresses 
+To exeute this instruction in stack based organisation we need to convert infix to postfix notation
+
+X = (A+B) * (C+D)
+  = (AB+) * (CD+)
+  = AB+CD+*
+
+#stack is a ds where insertion and deletion can happen only at one end
+#push - insertion 
+#pop - deletion 
+
+push A 
+push B 
+add #pop A and B and perform A+B
+push C 
+push D 
+add # C+D
+multiply #   A+B * C+D
+```
+![](mn1.JPG)
+
+2. One(1) Address Instruction format
+- The instruction format in which the instruction uses only one address field is called the one address instruction format
+- it has only one operand 
+3. Two(2) Address Instruction format
+- The instruction format in which the instruction uses only two address fields is called the two address instruction format
+- This type of instruction format is the most commonly used instruction format
+- This type of instruction format has two operands
+4. Three(3) Address Instruction format
+- The instruction format in which the instruction uses the three address fields is called the three address instruction format
+- It has three operands
 
 
 
