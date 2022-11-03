@@ -1285,7 +1285,11 @@ DMAS represents the order of operations.
 ![](t3.JPG)
 - The instruction format in which there is no address field is called zero address instruction
 - In zero address instruction format, stacks are used
-- In zero order instruction format, there is no operand
+- In zero order instruction format, there is no operand / NO ADDRESS. 
+
+> How zero address instruction format is portrayed? 
+- Assembly language instruction – PUSH A, PUSH B etc.
+- Stack transfer operation – TOS <- A, TOS <- B etc.
 ```bash
 #Lets take an example, where X, A, B, C, D are memory addresses 
 To exeute this instruction in stack based organisation we need to convert infix to postfix notation
@@ -1294,9 +1298,15 @@ X = (A+B) * (C+D)
   = (AB+) * (CD+)
   = AB+CD+*
 
+eg: (3+2)*(5+4)
+     32+54+*
+
 #stack is a ds where insertion and deletion can happen only at one end
 #push - insertion 
 #pop - deletion 
+
+#EXAMPLE 1: VISUALIZATION 
+Y =  A+B * C+D
 
 push A 
 push B 
@@ -1305,24 +1315,180 @@ push C
 push D 
 add # C+D
 multiply #   A+B * C+D
+POP #extract data from stack and store in memory address X 
+
+#with stack transfer operation 
+Y =  A+B * C+D
+  = 5+4 * 3+2
+
+push A  # tos <-M[A]
+push B  # TOS <-M[B]
+add     # TOS <- M[A] + M[B]
+push C  # TOS <- M[C]
+push D  # TOS <- M[D]
+add     # TOS <- M[C] + M[D]
+multiply #TOS <- M[A] + M[B] * M[C] + M[D]
+POP
 ```
 ![](mn1.JPG)
+![](mn2.JPG)
 
 2. One(1) Address Instruction format
 - The instruction format in which the instruction uses only one address field is called the one address instruction format
 - it has only one operand 
+- In this type of instruction format, one operand is in the accumulator and the other is in the memory location
+- it uses operations like LOAD(to load data into the accumulator from memory) and STORE (to store the data in the memory location from a accumulator). 
+![](mn3.JPG)
+
+> How one address instruction format is portrayed? 
+- Assembly language instruction – LOAD C, ADD B, STORE T etc.
+- Operation Register instruction – AC <- M[T], AC <- M[C] etc.
+```bash
+(4+6) * (7+3)
+(A+B) * (C+D)
+#where A,B,C,D are memory locations 
+
+#EXAMPLE 1
+#a visual approach 
+LOAD A  # loading content from memory location to accumulator A -> 4
+ADD B   # 4+6
+STORE T # STORE DATA IN ACCUMULATOR -> 4+6
+LOAD C  # 7
+ADD D   # 7+3
+MUL T   # 4+6 * 7+3
+STORE X # AC -> MEMORY LOCATION 
+
+#we'll try to write the operation register instruction this time, P.S this is the right way to write this.
+LOAD A  # AC <- M[A]
+ADD B   # AC + M[B]
+STORE T # AC -> M[T] 
+LOAD C  # AC <- M[C]
+ADD D   # AC + M[D]
+MUL T   # M[T] * AC 
+STORE X # M[X] <- AC
+
+#/ X + - 
+
+#EXAMPLE 2
+#VISUALISATION
+Y = (A-B) / (C+D*E)
+LOAD A 
+SUB B   #A-B
+STORE T
+LOAD D  #SINCE X HAS HIGHER PRIORTY THAN +
+MUL E 
+ADD C   # C+D*E
+STORE M
+DIV P   # (A-B) / (C+D*E)
+STORE N
+
+#OPERATION INSTRUCTION REGISTER 
+Y = (A-B) / (C+D*E)
+LOAD A   # AC <- M[A]
+SUB B    # AC <- AC - M[B]
+STORE T  # M[T] <- AC 
+LOAD D   # AC <- M[D]
+MUL E    # AC <- AC * M[E]
+ADD C    # AC <- AC + M[C]
+STORE M  # M[M] <- AC 
+DIV P    # AC <- M[D] / M[T]
+STORE N  # M[N] <- AC
+
+#EXAMPLE 3
+Y = (A-B) / (C*D+E)
+LOAD A  # AC <- M[A]
+SUB B   # AC <- AC - M[B]
+STORE T # M[T] <- AC
+LOAD C  # AC <- M[C]
+MUL D   # AC <- AC * M[D]
+ADD E   # AC <-  AC + M[E]
+STORE M # M[M] <- AC 
+DIV P   # AC <- M[T] / AC
+STORE N # M[N] <- AC
+```
+![](mn5.JPG)
+
 3. Two(2) Address Instruction format
 - The instruction format in which the instruction uses only two address fields is called the two address instruction format
 - This type of instruction format is the most commonly used instruction format
+- As in one address instruction format, the result is stored in the accumulator only, but in two addresses instruction format the result can be stored in different locations
 - This type of instruction format has two operands
+- it uses operations like MOV (moving data: memory data -> register)
+![](MN6.JPG)
+
+> How two address instruction format is portrayed? 
+- Assembly language instruction – MOV R1, A; ADD R1, B etc.
+- Operation Register instruction – R1 <- M[A], R2 <- M[C] etc.
+```bash
+(A+B)*(C+D)
+(3+4)*(7+5)
+
+MOV A, R1 #3
+ADD B, R1 #3+4
+#NOTE THAT: BOTH A AND B ARE ADDED TO R1, REGISTER 1
+MOV C, R2 #7
+ADD D, R2 #7+5
+# BOTH C AND D ARE ADDED TO R2, REGISTER 2
+MUL R1,R2 #(3+4)*(7+5)
+MOV X, R1 #STORE FINAL OUTPUT IN A MEMORY LOCATION IN R1
+
+EG2; Y = (A-B) / (C*D+E)
+MOV A, R1  # R1 <- M[A]
+SUB B, R1  # R1 <- R1 - M[B]
+MOV C, R2  # R2 <- M[C]
+MUL D, R2  # R2 <- R2 * M[D]
+ADD E, R2  # R2 <- R2 + M[D]
+DIV R1, R2 # R1 <- R1 / R2
+MOV X, R1  # M[X] <- R1
+```
 4. Three(3) Address Instruction format
 - The instruction format in which the instruction uses the three address fields is called the three address instruction format
 - It has three operands
+![](MN9.JPG)
+```bash
+Y = (A-B) / (C*D+E)
+#1ST ADDRESS SPECIFIES WHERE ARE YOU STORING IT 
+#2ND AND 3RD OPERANDS SPECIFY OPERATIONS THAT ARE PERFORMED
+SUB R1, A, B 
+MUL R2, C, D 
+ADD R2, R2, E 
+DIV Y, R1, R2 #STORED AT A NEW Y LOCATION 
 
+#OPERATION REGISTER INSTRUCTION 
+Y = (A-B) / (C*D+E)
+SUB   R1, A, B   #R1 <- M[A] - M[B]
+MUL   R2, C, D   #R2 <- M[C] * M[D]
+ADD   R2, R2, E  #R2 <- R2 * M[E]
+DIV   Y, R1, R2  #M[Y] <- R1 / R2
+```
+![](MN10.JPG)
 
+> How three address instruction format is portrayed? 
+- Assembly language instruction – ADD R1, A, B etc.
+- Operation Register instruction – R1 <- M[A] + M[B] etc.
 
+### Understand the instruction format parts:
+```bash
+I | OPCODE | OPERAND 
+```
+1. Addressing Mode 
+- The data is represented in the instruction format with the help of addressing mode
 
+- The addressing mode is the first part of the instruction format
 
+- The data can either be stored in the memory of a computer or it can be located in the register of the CPU
 
+2. Operation Code( OPCODE)
+- The operation code gives instructions to the processor to perform the specific Operation
 
+- The operation code is the second part of the instruction format
 
+3. OPERAND
+- It is the part of the instruction format that specifies the data or the address of the data
+
+- Depending upon the processor of the computer the instruction format contains zero to three operandsAddressing Mode 
+The data is represented in the instruction format with the help of addressing mode
+
+- The addressing mode is the first part of the instruction format
+
+- The data can either be stored in the memory of a computer or it can be located in the register of the CPU
