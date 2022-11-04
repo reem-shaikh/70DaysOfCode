@@ -7,7 +7,7 @@ Computers connected together. Internet is a connection of computer network (on a
 A network interface card (NIC) is a hardware component without which a computer cannot be connected over a network. It is a circuit board installed in a computer that provides a dedicated network connection to the computer. It is also called network interface controller, network adapter or LAN adapter.
 ```
 
-During cold war, USSR & US they were competing against each other to make history. Russia launched specnik sattelite in 1957.. US Govt created ARPA (advanced research projects agency) with the intention to fund advanced research. Since there buildings were many and they wanted a way to communicate files through these they created this thing called ARPANET (which would be interconnecting MIT, STANFORD, UCLA, UTAH initially) which used TCP/IP (transmission control protocol / Internet protocol). So technically many computer network protocols were developed by ARPANET.
+During cold war, USSR & US they were competing against each other to make history. Russia launched specnik sattelite in 1957.. US Govt created ARPA (advanced research projects agency) in 1958 with the intention to fund advanced research. Since there buildings were many and they wanted a way to communicate files through these they created this thing called ARPANET (which would be interconnecting MIT, STANFORD, UCLA, UTAH initially) which used TCP/IP (transmission control protocol / Internet protocol). So technically many computer network protocols were developed by ARPANET.
 
 ARPA changed its name to DARPA in 1972, then back to ARPA in 1993, then finally back again to DARPA in 1996.
 
@@ -27,9 +27,19 @@ At this point the search engine wasnt created yet, you could only jump through h
 
 search engine is to show data from net based on certain typed search query. to acheive the result for search query, search engine uses spiders which crawls over web pages by indexing it and returns relevant data. 
 
-The first search engine was archie created in 1990, which was created to search for FTP files. In 1994, yahoo was created and so was the web crawler. Then lycos came up which crawled the most web pages than other search engine in that point in history. Then Infoseek was released and was used as netscape's default search engine but was exploited by scammers. A bunch of other search engines came into the market then
+The first search engine was archie created in 1990, which was created to search for FTP files. In 1994, yahoo was created and so was the web crawler. Then lycos came up which crawled the most web pages than other search engine in that point in history. Then Infoseek was released in jan 1994 and was used as netscape's default search engine but was exploited by scammers, then they released netscape navigator i 1994 oct. A bunch of other search engines came into the market then
+```bash
+Netscape Navigator or Netscape was a leading browser in the 1990s. The browser was officially discontinued and with the aid of some tools you could migrate your data to Flock and Firefox for a while after that. Netscape decided to open source its codebase and created the not-for-profit Mozilla, which went on to create and release Firefox in 2002. Netscape helped make the Web graphical rather than a text-only experience.
 
-then google was established in 1996 which was built upon page rank algo by larry and sergey in stanford, then image search came into for crawling images and showing relevant image search. then google search suggestions or the autocomplete feature comes up with a bunch of most searched queries whenever you search something in the search bar. 
+# why did netscape fail?
+Netscape was working on their browser 'navigator' and JavaScript (JS) programming language was born at Netscape as they attempted to add interactivity to web pages. JS first shipped with Navigator in September 1995.
+
+technically both navigator and Internet explorer (which belonged to microsoft) were rivals, with microsoft a tad bit behind on the technology, however That was until Internet Explorer 3.0 release on August 1996. Microsoft had finally caught up to Netscape in terms of browser technology. thats when bill gates was stealing market share primarily through Internet Explorer pre-installations on every Windows system.
+```
+then google beat IE with its insane marketting and was established in 1996 which was built upon page rank algo by larry and sergey in stanford, then image search came into for crawling images and showing relevant image search. then google search suggestions or the autocomplete feature comes up with a bunch of most searched queries whenever you search something in the search bar. 
+
+> But why is IE still used in some places when it doesnt show compatability with so many languages
+The people who still rely on classic Internet Explorer tend to be business users who have lgacy business software that relies on certain IE-specific features, They have legacy intranet websites that use extremely specific, nonstandard markup that only IE understands, So if we continued to develop IE and tried to make it “support everything” (by behaving according to modern standards), we would most likely cause these legacy sites to break, which would again eliminate these users’ reason for using IE to begin with.
 
 ### Types of Network 
 There are two types of network types one is peer-to-peer, and another is client-server. In a client-server network, many clients can connect to a server. However, in a peer-to-peer network, we don't have any clients or servers. Instead, all nodes can act as clients or servers.
@@ -55,6 +65,28 @@ Protocols are rules defined by internet society.
 The main difference between peer-to-peer and client-server network, is that, in a peer-to-peer network, every node can demand for services and deliver services, but we if talk about client-server, in client-server, the client node can demand for services and the server node can reply with services. Its kind of like decentralized network.
 
 > BitTorrent is one of the most popular examples of peer-to-peer networks. In this type of network, all computers are connected to the internet where resources shared by any one computer can be downloaded by others.
+```bash
+Torrent is used for uploading a file (called torrent file) to P2P network through torrent client which hosts your file, which would now be available for the world to download.
+
+every time you download something from the torrent client it simultanousely uploads the same file on your network the torrent.
+everytime your uploading a file you have a choice to throttle or reduce the upload cap so your file is downloaded quickly and once its done downloading you can cut off the uploading cap, while it wont affect you, it would to the people in the network who are relying on your upload for their files.
+
+seeders is term used for users who upload files. leechers is a term used for users who download files. the seeders and leechers should be more when your downloading, also the seeders and leechers ratio should be sufficient.
+
+The more seeds created the faster would be the download speed for other users. File creator doesnt have complete control over the network, because download speed depends on the the seeders and leechers (AKA other peers in the network)
+
+#thats why torrent is decentralized
+cs it moves the control of an organization or government from a single place to several smaller ones: 
+
+Torrenting is often associated with piracy because its frequently used to share files that are protected by copyright (pirated content - unauthorized duplication of copyrighted content that is then sold at substantially lower prices in the 'grey' market), including movies, games,
+
+People want entertainment. There is a reason the market for movies and music is hundreds of billions of dollars. And BitTorrent dodges that market by letting people get content of free. Provided a person is viewing the files in private, even if one downloads files from a torrent site, then also it is not a crime under the laws.
+
+BitTorrent and uTorrent are both owned by the same company, Rainberry, Inc., 
+BitTorrent is faster than Utorrent as it is better at blocking ads during a file download.
+
+Consider a Linux distribution, such as Ubuntu or Debian. These Linux distributions offer a way to download the free operating systems using a torrent to reduce the strain on their servers, reduce hosting costs, and potentially reduce the time it takes to download a specific file.
+```
 
 #### Types of area Networks 
 ![](c.JPG)
@@ -114,14 +146,14 @@ A leased line can be of any medium as long as it connects two branches together 
 ```bash
 Multiprotocol Label Switching, or MPLS, is a networking technology that routes traffic using the shortest path based on “labels,” rather than network addresses, to handle forwarding over private wide area networks.
 
-Digital subscriber line (DSL; originally digital subscriber loop) is a family of technologies that are used to transmit digital data over telephone lines. DSL uses home phone lines to provide Internet access.
+Digital subscriber line (DSL; originally digital subscriber loop) is a family of technologies that are used to transmit digital data over telephone lines. DSL uses home phone lines to provide Internet access. DSL is a generic term we use to encompass both ADSL (Asymmetric Digital Subscriber Line) and VDSL (Very-High-Bit-Rate Digital Subscriber Line). Broadband is a technology which uses ADSL.
 
 Unlike dial-up service, DSL uses separate frequencies for phone and internet, so you can use both at the same time.
 ```
 - Dial up 
 The first version of the Internet available for commercial use was dial-up. Dial-up Internet required a phone line to operate, so phone calls couldn’t be made using a landline while the Internet was in use.
 
-Broadband first started to replace dial-up in the early 2000s, with half of all Internet users having a broadband connection by 2007. Broadband allows a much higher volume of data to be transferred at faster speeds by using an ADSL (Asymmetric Digital Subscriber Line) connection.
+Broadband first started to replace dial-up in the early 2000s, with half of all Internet users having a broadband connection by 2007. Broadband allows a much higher volume of data to be transferred at faster speeds by using an ADSL (Asymmetric Digital Subscriber Line) connection. usually broadband connections come with a phone line and wifi, but u have a choice to take a broadband without phone line. 
 
 > Ownership: private & public 
 > Error rate and cost: high (since distance increases, resources increases)
@@ -138,16 +170,30 @@ Broadband is a way of connecting to the internet. It allows information to be ca
 Broadband has largely replaced the original 'dial-up' (narrowband) method of connecting to the internet, which was much slower.
 WiFi is most commonly used to connect to a broadband internet line.
 
-> Types of Broadband:
-- ADSL -  (Asymmetric Digital Subscriber Line)  is a type of digital subscriber line (DSL) technology that facilitates fast data transmission at a high bandwidth on existing copper wire telephone lines to homes and businesses. Two different types of ADSL technology which are used - ADSL1 and ADSL2+.
-ADSL1 is capable of a maximum speed of about 8Mbit/s, and ADSL2+ a maximum speed of about 24Mbit/s.
-- CABLE - Cable networks use fibre optic and coaxial cables to deliver superfast broadband services - as well as TV and phone services - direct to homes.
-Unlike with ADSL, speeds are not lost with distance. Cable technology can deliver very fast broadband speeds and the fastest cable broadband packages offer speeds of 'up to' 152Mbit/s
-- FIBRE 
-Fibre broadband is delivered via clusters of fibre optic cables (each one thinner than a human hair) and speeds are faster than ADSL.
-There are two types of superfast fibre broadband - ‘fibre-to-the-cabinet' (FTTC) and ‘fibre-to-the-premises' (FTTP).
-Most fibre connections sold are FTTC and are typically sold as offering speeds of ‘up to' 38Mbit/s or 76Mbit/s.
+> Types of Broadband: (most famous ones)
+When you sign up with an Internet Service Provider (ISP), they usually send you a modem and a router. ISP'S provide broadband / internet connection through modem or modem-router.
+The majority of ISPs will provide you with a modem/router or a gateway/router depending on your service type. 
+```bash
+However if the ISP offers to give you both a modem and router rseperately then its bette to just use your own router instead of rent out the ISPs router which would be heavily priced.
 
+#difference between modem and router
+while modem brings internet to your home, router brings internet to your devices. While modem has a public IP address of the area you belong to, router assigns local IP address to each device in your network. 
+```
+![](jk.jpg)
+- ADSL -  (Asymmetric Digital Subscriber Line)  is a type of digital subscriber line (DSL) technology that facilitates fast data transmission at a high bandwidth on existing copper wire telephone lines to homes and businesses. provides broadband internet access through the telephone lines already installed in most businesses. Two different types of ADSL technology which are used - ADSL1 and ADSL2+ (faster).
+DSL’s top speeds usually range from 3 to 12 Mbps but in some urban areas as high as 20-100 Mbps, which can serve the email, download and browsing needs of many small businesses.
+- CABLE - Cable modem service enables cable operators to provide broadband using the same coaxial cables that deliver video and audioto your TV set. Cable broadband is much faster than DSL and offers speeds ranging from 10 Mbps to 1 Gbps.
+This speed is especially helpful to businesses with video conferencing or video streaming needs – or which share memory intensive files, engage in ecommerce or collaborate online.
+- Fibre 
+Fibre broadband is delivered via clusters of fibre optic cables (each one thinner than a human hair) and speeds are faster than cable. 
+There are two types of superfast fibre broadband - ‘fibre-to-the-cabinet' (FTTC) and ‘fibre-to-the-premises' (FTTP).
+Most fibre connections sold are FTTC. Fiber optic internet is the fastest, most reliable internet service available today. Fiber optic internet cable service bandwidth can reach up to 1,000 Mbps/ 1gbps. The range of fiber optics within a given provider's network is faster than DSL or cable because it relies on the speed of light to transmit data.
+- satellite broadband
+Unless you’re operating in a remote location, your most likely choices for a broadband internet connection are DSL, cable and fiber.
+
+While slower than DSL and Cable, satellite connections are ten times faster than old dial-up speeds. Service requires a dish antenna and can be quite expensive compared to other types of connections.
+- wireless broadband 
+it recieves internet from the ISP without any wiring. wireless Broadband is a type of internet connection given by your internet service provider. Wi-Fi enables you to access the internet provided by the broadband.
 
 #### Topologies 
 ![](top.png)
@@ -770,7 +816,7 @@ A token can be defined as a digitally encoded signature used to authenticate and
 
 - the process begins with a user filling out their username
 and password and then submitting it to a server which then creates a JSON WEB TOKEN (JWT) with the help of private key found on the server 
-- this JWT is sent to the clients browser where its stred in the local storage 
+- this JWT is sent to the clients browser where its stored in the local storage 
 - Everytime the client makes a subsequent request to the server the JWT is attached to the authorization request headers and all the server has a secret key which validate the digital signature 
 - that's way more efficient when dealing with a distributed system in the cloud
 
