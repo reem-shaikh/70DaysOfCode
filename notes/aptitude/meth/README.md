@@ -17,7 +17,6 @@
 ### Representation of Sets / Set Theory
 > sets define only unique distinct elements 
 ![](1.JPG)
-![](set.png)
 ![](2.JPG)
 ![](5.JPG)
 ![](6.JPG)
@@ -34,6 +33,7 @@
 ![](001.JPG)
 ![](00.JPG)
 ![](111.jpg)
+![](set.png)
 
 ![](24.JPG)
 ![](25.JPG)
