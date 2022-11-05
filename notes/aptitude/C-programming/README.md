@@ -144,12 +144,28 @@ These source code cannot be executed directly by the computer and must be conver
         return 0;
     }
 ```
+> Why do we use `int main()` in place of `void main()` ?
+- main() is a function 
+as per C convention it has a default return type of int, which means it should return int type of value. However some compilers allow to write void main() which means its not returning any value. 
+
+Old compilers like Turbo C allow void main()
+
+> Why do we write `int` before main()?
+```bash
+#its the syntax: 
+int sum()
+
+#return type   protoype  function 
+int            sum       ()
+```
+
 > variable is a name given to a memory block to hold a value 
 ![](16.JPG)
 ```bash
 #include<stdio.h>
     int main() 
     {
+        #these variables are added to RAM
         int a; #declaration - block assigned in the memory 
         a=6;   #initialisation - assigning value to the variable 
         #we can change the value of variable later on in the program
@@ -188,3 +204,186 @@ These source code cannot be executed directly by the computer and must be conver
 > Tokens in C
 ![](19.JPG)
 - smallest biulding block of the c program. every C program is a collection of tokens (tokens can be either of these: keyword (reserved words), identifier (the names you supply for variables, types, functions, and labels in your program), constant, string, operator, seperator (;), special symbol)
+
+### Unit 2
+![](111.JPG)
+
+#### Operator
+Operator is a special symbol which tells compiler what operation to perform. 
+![](21.JPG)
+![](22.JPG)
+
+> Types of Operators:
+1. Arithmetic operator
+![](23.JPG)
+```bash
+#include<stdio.h>
+    int main() 
+    {
+        int a = 9, b = 4;
+        c= a+ b;
+        printf('%d\n', c);
+
+        c= a- b;
+        printf('%d\n', c);
+
+        c= a* b;
+        printf('%d\n', c);
+
+        c= a/ b;  
+        printf('%d\n', c);
+
+        c= a %b;
+        printf('%d\n', c);
+        
+        return 0;
+    }
+```
+2. Relational operator
+![](24.JPG)
+```bash
+#include<stdio.h>
+    int main() 
+    {
+        int a = 5, b=5, c=10;
+        
+        printf('%d\n', a == b); #1
+        printf('%d\n', a == c); #0
+        printf('%d\n', a > b);  #0
+        printf('%d\n', a < c);  #1
+        return 0;
+    }
+
+```
+3. Logical operator
+![](25.JPG)
+when we want to combine more than 1 statement 
+```bash
+#include<stdio.h>
+    int main() 
+    {
+        int a = 11, b=5, c=10;
+        if(a>b && a>c) {
+           printf('\n a is greater than both');
+        } else {
+           printf('\n a is not greater than both');
+        }
+        return 0;
+    }
+```
+- && (LOGICAL ADDITION) 
+```bash
+0 1 1 0
+1 1 0 0 
+-------
+1 1 1 0
+```
+- || (LOGICAL MULTIPLICATION)
+```bash
+0 1 1 0
+1 1 0 0 
+-------
+0 1 0 0 
+```
+4. Assignment Operator 
+assigns value
+![](30.JPG)
+```bash
+#include<stdio.h>
+    int main() 
+    {
+        #create 2 memory blocks in the RAM
+        int a = 11, b=5;
+        c= a+b;
+        #c += a same as c=c+a
+        
+        printf('%d\n', c);
+    
+        return 0;
+    }
+```
+
+5. Bitwise Operator 
+Bitwise operator operates at bit / binary level / 0s and 1s
+![](31.JPG)
+```bash
+#include<stdio.h>
+    int main() 
+    {
+        int a = 6, b=4;
+        #perform & operator at every bit level 
+        printf('%d\n', a&b);
+
+        return 0;
+    }
+```
+![](bin1.JPG)
+
+> convert decimal to binary 
+![](bina.JPG)
+![](mk.jpg)
+
+6. Misc operator 
+there are a few other important operators including sizeof and ? : supported by the C Language.
+![](lop.JPG)
+
+#### Type Specifier 
+specifies to the compiler type of value variable is going to hold. each type denotes how much memory is allocted to that memory block.
+![](34.JPG)
+
+#### sizeof() operator
+sizeof() gives size of the datatype
+![](38.JPG)
+
+#### Unary operator
+![](39.JPG)
+
+> Difference between operators
+```bash
+#pre-increement operator - increase value, then assign
+#post-increement - first assign, then increase value 
+#pre-decrement operator - decrease value, then assign
+#post-decrement - first assign, then decrease value 
+
+#include<stdio.h>
+    int main() 
+    {
+        int a = 1, b;
+        b = ++a;
+        #a=2, b=2
+
+        b = a++;
+        #a=2, b=1
+
+        b = --a;
+        #a=0, b=0
+
+        b = a--;
+        #a=0 , b=1
+        printf('%d\n', a);
+
+        return 0;
+    }
+```
+### Precedence Of Operators
+Compiler gives preference to which operator would be executed first
+![](pre.JPG)
+
+- if in an expression all operators have equal precedence then follow associativity giving priorty from LHS to RHS 
+![](40.JPG)
+
+#### Ternary Operator / Conditional Operator 
+![](t1.JPG)
+
+#### Predefined Functions
+predefined functions are library functions, whose defination is stored in compiler, to use these functions include the header file.
+![](c1.JPG)
+![](c2.JPG)
+![](c3.JPG)
+![](c4.JPG)
+![](c5.JPG)
+> conio.h not used is latest compilers 
+
+#### Input-Output
+![](c6.JPG)
+![](c7.JPG)
