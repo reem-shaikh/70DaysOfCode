@@ -256,6 +256,12 @@ Computer Network works when sender and reciever are operating on different machi
 4. encryption / decrytpion - sending encrypted text so that we can ensure the confidentiality, integrity and accesibility of the data. 
 ```bash
 for example, HTTPS encyrpts data 
+
+Confidentiality makes sure that only authorized personnel are given access or permission to modify data
+
+Integrity helps maintain the trustworthiness of data by having it in the correct state and immune to any improper modifications
+
+Availability means that the authorized users should be able to access data whenever required
 ```
 2. Checkpoint - If were downloading 500mb file, if the file reached 300mb and it fails downloading, then if we download again we want the downloading to start from the 300mb checkpoint 
 
@@ -293,12 +299,43 @@ No because it travels at speed of light through cables so your getting the best 
 ![](vbh.JPG)
 One program can have many procces instance running in the background, many threads are running (thread implements what needs to be done to run the process)
 
-> What are sockets?
+#### What are sockets?
 When you want to send message from one system to another system sockets are used. Its a interface between process and internet.
+![](kio.JPG)
+```bash
+#Hyptothetical example 
+- creating landline systems at both client and server end is like attaching socket to both client and server (its a means to initiate the communication)
+- in order to placee a call we need to type a number, the number / addressing is assigned to the server through bind() which assigns the socket address
+- in order to make a call well dial the number, 
+similarly in order for client to connect with the server it needs to use the connect() method which uses socket address of the particular server to connect to it.
+- when we type a number, there is beep which indicates that the request is reaching, server would be listening for any requests using the listen() and add them to a queue and to accept the request it would use accept()
+- after the connection is established, it would use send() and recieve() to send and recieve data packets. 
+```
+> server side 
+Socket programming is a way of how applications would communicate/transfer data over the internet where socket is the node, present at both server and client end. 
+- socket() - used for make both ends ready for communication.
+```bash
+#socket strucure 
+socket(domain, type, protocol)
 
-Socket are generally employed in client server applications. The server creates a socket, attaches it to a network port addresses then waits for the client to contact it. The client creates a socket and then attempts to connect to the server socket. When the connection is established, transfer of data takes place.
+#domain: ipv4 or ipv6
+#type: UDP or TCP 
+if using UDP, then type = SOCK_DGRAM 
+if using TCP, then type = SOCK_STREAM 
+#protocol name 
+```
+- bind() means assigning / binding socket address to connect with the client 
+```bash
+#socket address 
+IP ADRESS + PORT NUMBER 
+```
+- listen() - sender is waiting / listening for the request from client and when it starts getting requests it would be added in a queue
+- accept() - accepting a request from the queue
 
-> What are Ports?
+> client side 
+- connect() - to connect with the server you'll need to mention the server's socket address. The client then attempts to connect to the server socket. When the connection is established, transfer of data takes place.
+
+#### What are Ports?
 private Ip address convey the logical address of the device were working with, ports specify which application were working with. If many proccesses are working in one application (many application instances are running), then their are seperate ports assigned to that through epheremal ports. When application is no longer using the port it will be freed. 
 
 ##### Network protocols
@@ -351,6 +388,29 @@ In the case of HTTP, before a client and server can exchange an HTTP request/res
 
 TCP is connection oriented but UDP is not. 
 ```
+#### what is a subnet mask?
+![](s1.JPG)
+an IP address is a combination of network address and host address
+- network address - unique ID assigned to the network
+- host address is assigned to each device/host within the network
+![](host.JPG)
+
+![](b3.JPG)
+subnet mask looks like the IP address and its used for denoting how much portion of the ip address is assigned to the network address. where network address is signified by 255 and host address is signified by 0, now map it to the ip address. 
+![](m9.JPG)
+CIDR notation is added after the IP address it signifies how many bits are there in the network address. 
+
+> types of subnet mask
+![](klop.JPG)
+- if an org needs more than 16million hosts, then they use class A IP address. used by ISP's.
+- class b can produce upto 65000 hosts
+- class c can produce upto 254 hosts
+
+#### What is a default gateway?
+default gateway lets devices in the private IP (part of one network) communicate with the devices on the internet. its the same as router IP address.
+```bash
+modem uses DHCP server to assign router's IP address, subnet mask, default gateway, and DNS servers were manually entered by whoever set up the network.
+```
 
 1. Application layer 
 - users interact with it - its basically apps like whatsapp / browsers 
@@ -360,11 +420,14 @@ TCP is connection oriented but UDP is not.
 Application layer protocols:
 - HTTP - used for data transfer on web pages 
 - HTTPS - used for secure data transfer on web pages 
-- FTP - used for file transfer 
-- SSH (secure shell host) - used for 2 computers to communicate and share data 
-- NFS - allows a user on a client computer to access files over a network
+Any time someone uses a website with a URL that starts with HTTPS, he is on a site with SSL/TLS. 
 
+- SSH (secure shell host) - same as HTTPS but uses username/password authentication system to establish a secure connection. more secure. 
+
+- FTP - used for file transfer 
+- NFS - allows a user on a client computer to access files over a network
 NFS is often used with Unix operating systems (such as Solaris, AIX, HP-UX), Apples macOS, and Unix-like operating systems (such as Linux and FreeBSD).
+
 - DHCP - used for allocating IP addresses to devices on your network
 - SMTP (simple mail transfer protocol) - used for sending email
 - POP3 / IMAC - protocols used for recieving email 
@@ -376,11 +439,21 @@ a network protocol that allows a user on one computer to log into another comput
 Telnet is OS independant. RDP is a windows only protocol.
 
 Port 23 is typically used by the Telnet protocol. Telnet commonly provides remote access to a variety of communications systems. Telnet is also often used for remote maintenance of many networking communications devices including routers and switches.
-- UDC - connectionless session / stateless connection - data may be lost during the lifetime of the connection
+
+- UDC - connectionless session / stateless connection - data may be lost during the lifetime of the connection. The UDP protocol allows the computer applications to send the messages in the form of datagrams from one machine to another machine over the Internet Protocol (IP) network. The UDP is an alternative communication protocol to the TCP protocol (transmission control protocol)
+In UDP 100% of data is not transmitted thats why its used in video conferencing apps, while in TCP 100% data is transmitted. 
+
 - IRC - used for real time messaging between internet connected computers 
 - VNC (virtual netwrok controlling) - for graphic control 
 ```
-2. Presentation layer
+> Difference between SSH vs TLS/SSL?
+HTTPS is just the HTTP protocol but with data encryption using TLS. (cs SSL is deprecated)
+
+These security protocols are intended to keep your personal information private during data transmission and secure communication 
+
+Secure Sockets Layer (SSL) and Transport Layer Security (TLS)  ARE two protocols which are combined as one because they do much the same thing. Both are still used, but TLS is gradually replacing SSL in network implementations (ssl is deprecated), The difference is that TLS is more robust and secure against modern threats and vulnerabilities. Like SSH, these are both cryptographic protocols. But the setup is different. An SSL/TLS connection uses the Public Key Infrastructure (PKI) and digital certificates to provide security and integrity to website transactions.
+
+1. Presentation layer
 ![](pr.JPG)
 - Recives data (ASCII) from application layer 
 - Presentation layer **converts** ASCII to machine representable binary format - encoding
@@ -409,12 +482,26 @@ Session Management is a mechanism used by the Web container to store session inf
 - each segment would contain **the source and destination port number and sequence number**. While port number helps the data packets to reach the correct application of the targetted IP adress, sequence numbers help to reassemble segments in correct order so the correct message can be recieved at the reciever end. 
 - Control amount of flow of data into the application based on your network speed. (Lets say the sender side / server can process data at the speed of 100mbps but the person at the reciever end can only process data upto 10mbps, so take an example were downloading file from the server which is sending data packets at the speed of 50mbps which is greater than the rate the reciever end can process (so if server continues sending at this rate data would be lost in the process), so through the transport layer it can reduce the speed of data transmission rate to reach 10mbps)
 - Error control - if any data packet doesnt arrive at the reciever end, transport layer does automatic repeat request to transmit the lost data. it also puts a **checksum** which ensures that if say the data stopped downloading, and we wanted to restart the download process then this time it would start from the last checkpoint it stopped downloading from.
--  assembling segments with the necessary information and passing them to the network layer is called multiplexing.
-5. Network layer
+-  Multiplexing and Demultiplexing helps to figure out which application from the particular MAC adress is supposed to recieve the data packet)and passing them to the network laye.
+1. Network layer
 - converts segments to **packets**
+```bash
+#IP packet header contains
+senders private IP adress
+reievers private IP address 
+subnet mask 
+#The IP headers are continuously modified as the packets in the networks because TTL keeps on changing with each hop.
+TTL 
+protocol type 
+options 
+```
 - helps in transmission of packets from senders network to recievers network which is acheived through modem
 - Logical Adressing - network addressing assigns private IP address of sender and reciever to the data packet and a subnet mask of 255.255. 255.0
 ```bash
+Your residence address - This maybe a local public or private IP address (you have NAT like stuff to resolve the issues between public and private addresses). But, the mechanic wouldn't be able to reach the right location if you directly give him the car's license plate without the address of the location.
+
+Your car's license plate info - This would be your MAC address. The mechanic wouldn't be able to identify the unique car he has to fix among the many at a given location without it.
+
 The main difference between MAC and private IP address is that MAC Address is used to ensure the **physical address of the computer**. It uniquely identifies the devices on a network. While IP addresses are used to uniquely identifies the connection of the network with that device takes part in a network AKA the **logical address of the computer**.
 
 The ip adress modem provides for each device in your Lan network using DHCP is distinct and its the private IP. but inside each device there is a NIC card which allows your computer to connect to the network, NIC contains a distinct MAC address (physical address)
@@ -431,6 +518,11 @@ a common subnet mask for simple home networks is 255.255. 255.0 . This subnet ma
 - load balancing
 6. Data Link layer
 - converts data packets (contains IP adress + subnet mask) to frame 
+```bash
+MAC sender 
+MAC reciever 
+checksum
+```
 - Physical addresing is done here which adds MAC adresses (which is embedded in NIC card) of both the sender and reciever to the data packet, this has now become the frame (data unit of data link layer)
 - data transfer speed is maintained here 
 - A media access control (MAC) is a network data transfer policy that determines how data is transmitted between two computer terminals through a network cable. The media access control policy involves sub-layers of the data link layer 2 in the OSI reference model.
@@ -446,10 +538,35 @@ a common subnet mask for simple home networks is 255.255. 255.0 . This subnet ma
 1. Application layer / process to process
 2. Transport layer / host to host - transmits data either wireless or wired 
 - segments formed here. each segment would contain **the source and destination port number and sequence number**.
+```bash
+The TCP helps break the data(given by application layer) into MSS(Maximum Segment Size) that the given network can handle so that further fragmentation doesn’t occur in the routers. 
+
+ The data from the application layer is broken into smaller parts as per the MSS of the network and the TCP header is added which contains;
+ #TCP HEADER 
+ source port number 
+ destination port number 
+ sequence number of the segments (so we can merge the data packets according to the right sequence on the reciever end)
+ checksum
+```
 3. Internet layer / source to destination - uses both IPV4 and IPV6
-- converts segments to **packets** by assigning logical addressing - private IP address of sender and reciever to the data packet and a subnet mask of 255.255. 255.0
+- The segments received from the Transport layer are further processed to form **packets** by assigning logical addressing - private IP address of sender and reciever to the data packet and a subnet mask of 255.255. 255.0
+```bash
+#THE IP HEADER CONTAINS 
+private ip sender 
+private ip reciever 
+subnet mask 
+TTL 
+protocol type 
+options 
+```
 4. Network acess layer / Node to Node 
 - converts packets to frame by appending senders and recievers MAC address to the data packet.
+```bash
+#HEADER 
+MAC sender 
+MAC reciever 
+checksum
+```
 - transfers data from senders network to recievers network 
 - Flow Control also monitored here 
 
@@ -457,7 +574,7 @@ a common subnet mask for simple home networks is 255.255. 255.0 . This subnet ma
 ![](2.JPG)
 
 - modem is a medium to provide internet to home and router is a medium to create network (LAN) in house by routing data packets to the IP adress. modem is connected to the router 
-ISP provides modem which is connected to the Internet,(sometimes the ISP can provide a modem-router and sometimes they provide only modem (in this case you can buy a compatible router which works with the modem)) All the devices connected to this modem provided by the same ISP will have a public IP address which would be the same for all the users who brought services from this particular ISP. All individual devices connected to the modem have their own IP adress that is assigned by DHCP (dyanamic host configuration protocol), this is known as private / local IP adress. 
+ISP provides modem which is connected to the Internet,(sometimes the ISP can provide a modem-router and sometimes they provide only modem (in this case you can buy a compatible router which works with the modem)) All the devices connected to this modem provided by the same ISP will have a public IP address (helps connecting to www) which would be the same for all the users who brought services from this particular ISP. All individual devices connected to the modem have their own IP adress that is assigned by DHCP (dyanamic host configuration protocol), this is known as private / local IP adress. 
 
 - ISP (Tier 2 ISP like airtel, vodafone, jio) is connected to a larger ISP (Tier 1 Service Provider like TATA)
 
@@ -476,10 +593,74 @@ Everytime a HTTP request is made from client to server, its made through the HTT
 
 #By default the Apache server runs on Port 80.
 ```
+![](r1.JPG)
+- A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). Your personal device also has a private IP that remains hidden when you connect to the internet through your router’s public IP. (private IP are not publicly registered on the internet, so you cant access internet using private IP, thats why private IP needs to be converted to public IP for accessing the internet). service that translaes private IP to public IP and vice versa is called NAT.
+![](kilo.JPG)
+- private addresses based on whether they are used in large orgs, mid sized orgs or homes have an IP range.
+![](r2.JPG)
 
-- A public IP address is an IP address that can be accessed directly over the internet and is assigned to your network router by your internet service provider (ISP). Your personal device also has a private IP that remains hidden when you connect to the internet through your router’s public IP.
+> ipconfig (to find private IP adress)
+```bash
+Windows IP Configuration
 
-- Public IP addresses can be traced back to your ISP, which can potentially reveal your general geographical location. To browse more securely you can use seecuritty protocols like proxy servers, VPN's or use more private secure browsers like Torr, Brave or Firefox for browsing. 
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Unknown adapter Local Area Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 4:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 13:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : 192.168.182.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : 192.168.8.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+#shaikh 5g wifi
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : 192.168.0.107
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.0.1
+
+#shaikh wifi 
+Wireless LAN adapter Wi-Fi 2:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : 192.168.0.108
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.0.1
+```
+> to find public IP adress?
+![](ip.JPG)
+
+- Public IP addresses can be traced back to your ISP, which can potentially reveal your general geographical location. To browse more securely you can use seecurity protocols like proxy servers, VPN's or use more private secure browsers like Torr, Brave or Firefox for browsing. 
+```bash
+VPNs hide not only your private IP address but all your web activity, such as the websites you visit, using encryption. Proxy servers, on the other hand, will only change your IP address, but they won't encrypt your online activities.
+```
 
 > Can I connect any router to modem provided by ISP
 Any router will not work with the modem provided by ISP (Internet Service Provider) because it has to be compatible with the internet connection type offered by the ISP. The different types of connections offered include DSL (Digital Subscriber Line), ethernet cable, and satellite.
@@ -535,6 +716,24 @@ a good upload speed is at least 10 Mbps.
 ```
 > Gigabit vs Megabit internet 
 Gigabit internet is worth it if you use a large amount of bandwidth on a regular basis. It’s also worth it if you share your Wi-Fi with a bunch of roommates or family members. But it’s expensive and faster than most people need, so it’s not worth it for the average user.
+
+#### Difference between NIC and usb?
+NIC is short for network interface card—a type of network adapter hardware that fits in an expansion slot on a computer's motherboard. Most computers have them built-in—in which case, they are part of the circuit board—but you can also add your own NIC to expand the functionality of the system.
+
+The NIC provides the hardware interface between a computer and a network. This is true whether the network is wired or wireless since the NIC can be used for Ethernet networks as well as Wi-Fi.
+
+Network cards that connect over USB are not cards; they are USB devices that enable network connections through the USB port. These are called network adapters.
+
+Network cards come in many forms but the two main ones are wired and wireless (attached to the motherboard PCIe slot)
+
+- Wireless NICs need to use wireless technologies to access the network, so they have one or more antennas sticking out of the card. You can see an example of this with the TP-Link PCI Express Adapter.
+- Wired NICs use an RJ45 port since they have an Ethernet cable attached to the end. This makes them flatter than wireless network cards. The TP-Link Gigabit Ethernet PCI Express Network Adapter is one example.
+```bash
+when you attach an external hardware you also need to download a compatible driver.
+```
+A USB WiFi adapter overrides the computer's built-in wireless functionality, giving you a faster, more reliable connection to your available network signals through the USB port instead. 
+
+With tethering, you can use your existing mobile phone and data plan to share a secure internet connection with another device, typically a laptop or tablet
 
 ### Random commands 
 1. to find all devices connected to network `arp -a `
