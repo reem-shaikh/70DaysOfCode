@@ -489,6 +489,19 @@ Dont confuse it with the combination of hardware and software which is known as 
 > What is an algorithm?
 Algorithm is a sequence of steps to perform a particular task. 
 
+### How is memory organized?
+![](mu14.JPG)
+> the size (no of bytes) of the instruction would be defined by:
+- total number of registers
+- number of locations 
+
+> Processor-memory performance gap 
+![](mu15.JPG)
+memory and processor speed is both increasing, but processor speed is increasing faster. and you can see over the years how fast the cpu speed has become comparing to the RAM speed. To bridge the gap between their speeds we use cache memory. 
+
+#### Memory access by instructions
+![](mu24.JPG)
+
 #### Von Newman Architecture 
 ![](8.JPG)
 What are the components required for data processing. 
@@ -535,6 +548,8 @@ Word is a memory representational unit. Its size could vary from multiple bits. 
 - instruction register 
 ```bash
 we know that Memory consists of data and programs (set of instructions)
+
+instruction format is a sequence of bits in a machine instruction that defines the layout of the instruction. 
 
 Instruction format:
 I | opcode | operand 
@@ -1194,7 +1209,15 @@ how much did the entire system improve when you improved a part of the system.
 > Speedup doesnt increase linearly as the number of processes increases 
 If we increase the processors allocated to a particular system in a parallel platform then it the speed up will increase, however if you keep increasing the processors and keep the system the same, then you will reacch a point beyond which speed up would then become stagnant / stop increasing / saturated. Thats why to keep the efficieny of the system fixed we have to increase the size of the problem ad the no of processors simultanouseely as required. 
 
-![](lll1.JPG)
+![](lll1.JPG)#### memory size 
+![](mu16.JPG)
+
+> Questions
+```bash
+we know that 
+1MB = 2^20 bytes 
+```
+
 > But why does this happen?
 Because computation problem consist of both serial and paralel part and the serial port cannot be parallelized thats why serial part restrains the speed up to increase when we reach the serial part (since this part needs to execute sequently only)
 ```bash
@@ -1234,7 +1257,18 @@ Both switching and short circuit power imply that for secuity measures the exces
 - Static power is the power consumed while the circuit is inactive because transistors are not completely turned off, its also called leakage power
 
 ### Instruction Set Principles 
+#### Instruction Set 
+> What is instruction set?
+its a collection of machine language instructions that a processor understands, different processirs have different instruction set, i.e its machine dependent. 
+```bash
+eg: intel has different instruction set than AMD
+```
+However a newer processor belonging to and old family of processors can use the Intruction set of the old proccesor. 
+
+#### Instruction Set Architecture 
+![](ia.JPG)
 > What is instruction set architecture?
+Specifies the functionality of the processor. (so the programmer can write programs that is compatible with the intruction set for that particular processor)
 ![](lo1.JPG)
 ```bash
 Computers = software + hardware 
@@ -1243,6 +1277,7 @@ Computers = software + hardware
 - software is a set of programs 
 - program is a set of instructions 
 - we interact with hardware through these instructions
+- each kind of hardware have a different set of instructions it should follow
 
 For different computer configuration we have a distinct set of instructions called instruction set architecture. For example, the instructure set architecture for a gaming console would be different as compared to a quantum computer. 
 
@@ -1250,23 +1285,23 @@ For different computer configuration we have a distinct set of instructions call
 registers are volatile in nature, so the final result is stored in the secondary memory. Access time of register is faster than cache memory.
 ![](ack.JPG)
 
-> Types of CPU organisations
+#### Classification of Instruction Set / Types of CPU organisations 
 ![](t1.JPG)
-- general register organization
+1. general- purpose register organization
 When we are using multiple general-purpose registers, instead of a single accumulator register, in the CPU Organization then this type of organization is known as General register-based CPU Organization. In this type of organization, the computer uses two or three address fields in their instruction format. Each address field may specify a general register or a memory word.
 ```bash
 #Instruction format 
 I | OPCODE | REGISTERS 
 #MULT R1, R2, R3
 ```
-- single accumulator organnization 
-The computers, present in the early days of computer history, had accumulator-based CPUs. In this type of CPU organization, the accumulator register is used for storing the results od the processed data into the accumulator. The instruction format that is used by this CPU Organisation is the One address field. 
+2. single accumulator organnization 
+The computers, present in the early days of computer history, had accumulator-based CPUs. In this type of CPU organization, the accumulator register is used for storing the results of the processed data into the accumulator. The instruction format that is used by this CPU Organisation is the One address field. 
 ```bash
 #Instruction format 
 I | OPCODE | OPERAND 
 #where I is the addressing mode 
 ```
-- stack based organisation 
+3. stack based organisation 
 The computers which use Stack-based CPU Organization are based on a data structure called a stack. The stack is a list of data words. It uses the Last In First Out (LIFO) access method which is the most popular access method in most of the CPU.
 
 ![](t2.JPG)
@@ -1279,6 +1314,10 @@ The computers which use Stack-based CPU Organization are based on a data structu
 
 > DMAS RULE: 
 DMAS represents the order of operations.
+
+#### Instruction Set Format
+> instructions can take different formats
+![](ci.JPG)
 
 > Types of Instruction format 
 1. Zero(0) Address Instruction format
@@ -1492,3 +1531,87 @@ The data is represented in the instruction format with the help of addressing mo
 - The addressing mode is the first part of the instruction format
 
 - The data can either be stored in the memory of a computer or it can be located in the register of the CPU
+![](uu.JPG)
+
+#### Memory Addresing
+![](mu13.JPG)
+![](m11.JPG)
+- were storing instructions in the memory, if memory is slow then loading data from it will be slower, thats why memory speed should be fast 
+- memory is an array of storage location each with a unique address 
+![](mu.JPG)
+- M locations x N bits / location (1024 x 8)
+![](mu12.JPG)
+```bash
+#total no of words x no of bits per word 
+1024 x 8
+
+2^10 = 1024 
+adress = 10bits 
+number of bits per word = 8bits 
+
+What is a word?
+Word is a memory representational unit. Its size could vary from multiple bits. memory is byte addresable. 
+```
+![](mu17.JPG)
+![](mu18.JPG)
+![](mu19.JPG)
+
+#### Memory size 
+![](mu16.JPG)
+
+> Questions
+```bash
+we know that 
+1MB = 2^20 bytes 
+1GB = 2^30 bytes
+```
+![](mu20.JPG)
+![](mu21.JPG)
+![](mu22.JPG)
+
+### Addressing Mode 
+![](mu23.JPG)
+how the operand of the instruction can be accessed is defined by the addressing mode. the addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually executed. types of addressing mode;
+```bash
+opcode | operand 
+#operand contains data + address where the data is present 
+Data can be stored either in register or memory 
+```
+![](mu26.JPG)
+1. Implied Mode 
+2. Immediate Mode 
+3. Register Mode 
+4. Register Indirect Mode 
+5. Auto-increemnt & Auto-decreemnt 
+6. Direct addressing 
+When using direct addressing mode, the address of the operand is specified in the instruction. The processor will retrieve the data directly from the address specified in the instruction. Only a single memory reference is required to access data. So, no additional calculations are required to work out effective address as it would be in case of indirect addressing. Instruction size is larger since operand has to be explicitly specified.
+7. Indirect Addresing Mode 
+indirect addressing signifies address specified is not the final place where data is stored. In indirect addressing mode, the address field in the instruction points to the memory location or register where the effective address of the operand is present. 
+8. Relative Addresing mode 
+9. Indexed Addressing Mode 
+10. Base Register Addressing Mode 
+
+> Pros:
+- we can reduce no of bits in instruction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

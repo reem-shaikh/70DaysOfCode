@@ -4,11 +4,12 @@
 ![](3.JPG)
 - C called middle level programming language 
 Programming languages with features of both Low Level and High-Level programming languages are referred to as “Middle Level” programming languages. has features of both low-level and high-level programming languages.
+
 ![](4.JPG)
 
 The basic syntax and code structure of both C and C++ are the same. C++ is a general-purpose programming language that was developed as an enhancement of the C language to include object-oriented paradigm. 
 
-> Course introduction:
+#### Course introduction:
 ![](5.JPG)
 ![](6.JPG)
 
