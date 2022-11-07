@@ -563,27 +563,19 @@ we know that the total word size is 16bits
 I/ instruction can be 1 bit. either 1 or 0 
 opcode - 3bits 
 ```
+> What is the difference between direct and indirect addressing?
+- direct addresing means that as it specifies to the program counter that the data is present on this address we specify only. 
+
+- Indirect addresing means that when you reach the instruction location specified in the operand you will encounter another address link which will link to another location
 - temporary register - temporarily store data. its of 16 bits
 - input register - when you type something on the input device, data is picked and stored in the input register after which its stored in the accumulator. its of 8bits 
 - output register - data thats processed from the ALU is stored here and then its send to the output devices (monitor / printer)
 
 > How does the input turn to output?
-Whenever you type something in the input field its first stored in the input register then it goes to the accumulator and stays there a bit before it finally goes to the ALU where the processing is done and the processed output is send to the output register where its stored temporarily before its send to the output device. 
+Whenever you type something in the input field its first stored in the input register then it goes to the ALU then to accumulator and stays there a bit before it finally goes to the ALU where the processing is done and the processed output is send to the output register through data bus where its stored temporarily before its send to the output device. 
 
-> How does a program get executed?
-- The data and the program (set of instructions) is stored on the memory layer. the data is feched from here and its send to the CPU which consists of ALU, and a register stored on top of the control unit. over here its temporarily stored in the the accumulator before sending it to the instruction register.
-- In the CPU the program is executed line by line, each instruction is madee up of I (msb), opcode (what is the logical operatio that the program needs to execute), operand (what is the location where the data is stored)
-- it takes the address to the address register which then sends this address to the memory which then fetches the data present at that particular location and then its stored in the data register 
--  now the data is fetched and we know what operations to perform in it, now the ALU does its magic and temporarily stores the data that is being processed in the temporary register 
--  the next instruction location is stored in the program counter and each line of the program is executed line by line 
--  the priorty of which instruction would be executed when would be determined from the timing signal in the control unit 
--  the entire sequence in which data would be stored in the registers would be defined in the control signal in the control unit
-------------------
 
-> What is the difference between direct and indirect addressing?
-- direct addresing means that as it specifies to the program counter that the data is present on this address we specify only. 
 
-- Indirect addresing means that when you reach the instruction location specified in the operand you will encounter another address link which will link to another location
 
 #### Types of Buses 
 CPU generates an address for every word
@@ -619,6 +611,97 @@ The data bus is responsible for the transfer of information between the memory a
 3. Control Bus is used to send control and timing signal using a dedicated hardware called the control unit 
 
 The address bus communicates with the system on where specific information can be located or stored when data either enters or leaves the memory. The speed and delays of an action made in a computer system depends greatly on the address bus since it is the entity locating the information. Its width depicts the amount of system memory a processor can read or write into.
+
+#### Common Bus system using multiplexers 
+Main memory, CPU and IP/OP systems are connected through a bus topology for data transfer, bus are created with the help of multiplexers
+![](mu33.JPG)
+
+- for demo purpose were taking 4 number of 4bit register (sequence of bits) where each bit is labelled. 
+```bash
+In real time, 16bit registers are used. 
+```
+- were taking 4 multiplixers with 4x1 (input x output) where each MUX is picking a seperate bit.
+- each register input is connected to the different multiplexer inputs. for example, 0th input from all registers is connected to MUX0.
+```bash
+NO. OF MUX REQUIRED = NO. OF BITS IN THE REGISTER
+
+NO OF INPUTS IN MUX = NO. OF REGISTER 
+#NO OF INPUTS IN MUX x NO OF OUTPUTS = 4 x 1
+
+NO OF SELECTOR LINES: 2
+2^ x = 4
+2^ 2 = 4
+```
+- we have 2 select lines: S1 and So. 
+- LOADING DATA FROM REGISTER TO BUS: When both select lines hold 0, it would redirect the 0th input of registerA to the multiplexer which would send the output to the bus. 
+```bash
+#SENDING DATA FROM REGISTER TO BUS 
+--------------------------------------------
+S1   |  So |  Load this register data to MUX
+--------------------------------------------
+0    |  0  |  0  -> REGISTER A
+0    |  1  |  1  -> REGISTER B
+1    |  0  |  2  -> REGISTER C
+1    |  1  |  3  -> REGISTER D
+
+#where S1 holds 2^0 and So holds 2^1
+```
+- however if the data had to flow from bus to register then their directly connected. In order to load data from memory to register you'll need to use this bus and the data is loaded using the LOAD command, when LD=1, then loading of data takes place.
+![](p11.JPG)
+  
+
+### Common Bus System 
+![](b1.JPG)
+- register is connected to the memory using a bus which is implemented through multiplexers and it receives the information from the bus when its LD (load) input is activated 
+```bash
+NO. OF MUX REQUIRED = NO. OF BITS IN THE REGISTER
+
+NO OF INPUTS IN MUX = NO. OF REGISTER 
+#NO OF INPUTS = 7
+
+2^3 = 8
+#MAX NUMBER OF INPUTS IT CAN TAKE: 8, but were only considering 7
+#NO OF SELECTOR LINES: 3
+
+Therefore, number of inputs in MUX x number of outputs = 8 x 1 
+NO OF REGISTERS = 7
+NO OF MUX = 7
+
+#SENDING DATA FROM REGISTER TO BUS 
+-----------------------------------------------------------
+S1   |  So |   S2    |   Load this register data to MUX
+-----------------------------------------------------------
+0    |  0  |    0    |   0  -> REGISTER 1
+0    |  1  |    0    |   1  -> REGISTER 2 (program counter)
+1    |  0  |    0    |   2  -> REGISTER 3 (address register)
+1    |  1  |    0    |   3  -> REGISTER 4 (data register)
+0    |  1  |    1    |   6  -> REGISTER 5 (temporary register)
+1    |  0  |    1    |   4  -> REGISTER 6 (accumulator)
+1    |  1  |    1    |   7  -> REGISTER 7 (memory unit)
+
+#where S1 holds 2^0 =1 and So holds 2^1=2 and S2 holds 2^2=4
+```
+- memory (4096 x 16 = no of words x no of bits in every word). memory contains control values: W, R which represent to the bus what operation to perform. To use a particular control value you need to make it active.
+```bash
+4096 x 16
+
+#where 4096 = 2^12
+adress bits = 12bits 
+```
+- since no of bits in address is 12bits, and the numberof bits in each word is 16bits, were using a 16bits common bus 
+
+#### How does a program get executed?
+![](mjk.JPG)
+- The data and the program (set of instructions) is stored on the memory layer. the data is feched from here and its send to the CPU which consists of ALU, and a register stored on top of the control unit. over here its temporarily stored in the the accumulator before sending it to the instruction register.
+- program is a set of instructions, each instruction has an instruction format. each instruction is made up of I (msb), opcode (what is the logical operation that the program needs to execute), operand (what is the location where the data is stored)
+- first the address of the next instruction to be executed is fetched from the program counter, which sends the address to the address register which then sends this address to the memory through the address bus which then fetches the data present at that particular location and then its send through the data bus and loaded into the  data register 
+-  now the data is fetched from the data register through the data bus and send to the ALU which does its magic and temporarily stores the data that is being processed in the accumulator 
+-  the first part of the logic is executed in the ALU and is stored in the AC, when the second part of the logic is being executed, thats when the first part of the logic is pushed to the temporary register 
+-  finally to display the output on monitor data travels through data bus again to the output register where its stored temporarily before being outputted. 
+
+-  the priorty of which instruction would be executed when would be determined from the timing signal in the control unit. it also determines changes to the control values of the register such as LD which is activated when a certain transfer of data through the bus occurs.
+-  the entire sequence in which data would be stored in the registers would be defined in the control signal in the control unit
+
 
 ### Process VS Threads 
 We create a multi-tasking environment with 1 CPU using multi-threading environment 
@@ -985,8 +1068,14 @@ I | opcode | operand
 ```
 ![](is1.JPG)
 ![](klm.JPG)
-1. Complex instruction set computer (CISC) - single instruction will perform all operations (loading data, performing operations and storing in the memory), thats why its complex since it would increase the numbe of cycles per instruction
-2. Reduced instruction set computer (RISC) - divide the operations and allocate to different resources, which will increase the cost since were allocating alot more resources
+1. Complex instruction set computer (CISC) - number of instructions are large
+- single instruction will perform all operations (loading data, performing operations and storing in the memory), thats why its complex since it would increase the numbe of cycles per instruction
+-  the instructions can be variable lengths, which increases the processing time.
+- In a CISC processor, each instruction performs so many actions that it takes several clock cycles to complete.
+2. Reduced instruction set computer (RISC) - number of instructions are small
+- divide the operations and allocate to different resources, which will increase the cost since were allocating alot more resources
+- In a RISC processor, every instruction also has a fixed memory size, which makes them easier to decode and execute. 
+- RISC-based machines execute one instruction per clock cycle
 3. Very long instruction word (VLIW) - processor recieves many instruction encoded
 ![](r8.JPG)
 
@@ -1315,7 +1404,15 @@ The computers which use Stack-based CPU Organization are based on a data structu
 > DMAS RULE: 
 DMAS represents the order of operations.
 
-#### Instruction Set Format
+#### Types of instructions:
+1. Data Transfer instructions - instructions for transfering data through the bus from register-register or from memory-register 
+2. Data Manipulation instructions - when want to apply CRUD operations on data, its handled by data manipulation instruction
+- arithmetic 
+- logical
+- shift / conversion
+3. Problem Control instructions - instruction where program is executed 
+
+#### Instruction Set Format:
 > instructions can take different formats
 ![](ci.JPG)
 
@@ -1376,7 +1473,7 @@ POP
 - The instruction format in which the instruction uses only one address field is called the one address instruction format
 - it has only one operand 
 - In this type of instruction format, one operand is in the accumulator and the other is in the memory location
-- it uses operations like LOAD(to load data into the accumulator from memory) and STORE (to store the data in the memory location from a accumulator). 
+- it uses operations like LOAD (to load data into the accumulator from memory) and STORE (to store the data in the memory location from a accumulator). 
 ![](mn3.JPG)
 
 > How one address instruction format is portrayed? 
@@ -1533,6 +1630,37 @@ The data is represented in the instruction format with the help of addressing mo
 - The data can either be stored in the memory of a computer or it can be located in the register of the CPU
 ![](uu.JPG)
 
+#### Allocating address to instruction format
+![](mu31.JPG)
+```bash
+#Instruction format 
+OPCODE | OPERAND 
+
+However, in this question
+OPERAND = REG1, REG2, IMMEDIATE OPERAND 
+
+so the instruction would be as such:
+
+----------- 24 bit ---------------------
+OPCODE | REG1 | REG2 | IMMEDIATE OPERAND
+
+#no of registers: 32
+2^5 = 32 
+so the address size of both the registrs REG1 and REG2 is 5bit each.
+
+#no of instructions: 49 
+2^6 = 64
+#since 49 is not available, we'll take 64bits to denote it, so the amount of bits is just about sufficient
+address size of the instruction: 6bits
+
+#so immediate operand would be 
+24 - (6+5+5) = 8bits
+co we can represent the immediate operand by 2^8 = 256
+
+but its said that immediate operand is a signed integer (-ve)
+so the range would be -128 to 127bits
+```
+
 #### Memory Addresing
 ![](mu13.JPG)
 ![](m11.JPG)
@@ -1571,18 +1699,51 @@ we know that
 
 ### Addressing Mode 
 ![](mu23.JPG)
-how the operand of the instruction can be accessed is defined by the addressing mode. the addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually executed. types of addressing mode;
+how the operand of the instruction can be accessed is defined by the addressing mode. the addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually executed. 
 ```bash
 opcode | operand 
 #operand contains data + address where the data is present 
 Data can be stored either in register or memory 
 ```
 ![](mu26.JPG)
+
+#### Types of Addressing Modes
 1. Implied Mode 
+- operand is specified implicitly in the defination of the instruction
+- the address of memory or register is not specified
+```bash
+#0 address instruction / stack based 
+ADD 
+
+ADD operation is enough to signify that you need to perform the operation and pop the 2 values, in this we havent seperately specified the operand value.
+
+#1 address instruction
+LOAD A  # AC <- M[A]
+ADD B   # AC + M[B]
+STORE T # AC -> M[T] 
+LOAD C  # AC <- M[C]
+ADD D   # AC + M[D]
+MUL T   # M[T] * AC 
+STORE X # M[X] <- AC
+```
+- used for zero address and one address instruction
 2. Immediate Mode 
+![](mk2.JPG)
+- operand is directly provided 
+- the address of memory or register is not specified, rather this kind of addressing mode is used for constants, where the constant is specified in the operands place, because its value would remain the same throughout the program
+```bash
+ADD R1, 3
+```
 3. Register Mode 
+![](rr1.JPG)
+- in place of operand we have register number which contains the data
 4. Register Indirect Mode 
-5. Auto-increemnt & Auto-decreemnt 
+![](rr4.JPG)
+- in place of operand we have register number which contains the address of where the data can be found in the memory
+5. Auto-increement & Auto-decreement 
+![](rr5.JPG)
+- registers are a collection of bits / flip flops where each bit can be sequentially accessed after the other 
+- same as register addressing mode, only after getting the first data from the memory it can further access the rest of it one after the other since they are arranged sequentally 
 6. Direct addressing 
 When using direct addressing mode, the address of the operand is specified in the instruction. The processor will retrieve the data directly from the address specified in the instruction. Only a single memory reference is required to access data. So, no additional calculations are required to work out effective address as it would be in case of indirect addressing. Instruction size is larger since operand has to be explicitly specified.
 7. Indirect Addresing Mode 
@@ -1591,8 +1752,6 @@ indirect addressing signifies address specified is not the final place where dat
 9. Indexed Addressing Mode 
 10. Base Register Addressing Mode 
 
-> Pros:
-- we can reduce no of bits in instruction
 
 
 
