@@ -1068,14 +1068,42 @@ I | opcode | operand
 ```
 ![](is1.JPG)
 ![](klm.JPG)
-1. Complex instruction set computer (CISC) - number of instructions are large
-- single instruction will perform all operations (loading data, performing operations and storing in the memory), thats why its complex since it would increase the numbe of cycles per instruction
--  the instructions can be variable lengths, which increases the processing time.
-- In a CISC processor, each instruction performs so many actions that it takes several clock cycles to complete.
-2. Reduced instruction set computer (RISC) - number of instructions are small
-- divide the operations and allocate to different resources, which will increase the cost since were allocating alot more resources
-- In a RISC processor, every instruction also has a fixed memory size, which makes them easier to decode and execute. 
-- RISC-based machines execute one instruction per clock cycle
+1. Complex instruction set computer (CISC) 
+- relatively more number of instructions 
+- all operations are done within the registers of the CPU 
+- instructions are complex and number of instructions are large
+- variable length instruction format 
+- several cycle instruction execution - each instruction requires multiple clock cycles to be executed 
+```bash
+1 CLOCK CYCLE 
+FETCHING 
+DECODING 
+EXECUTING 
+```
+- uses microprogrammed circuit 
+- decoding hardware is complicated  -> require more number of bits ->  execution slower -> less power decipation -. cost high
+- uses large number of  addressing modes
+
+2. Reduced instruction set computer (RISC) 
+- relatively less number of instructions 
+- all operations are dine within the registers of the CPU 
+- instructions are simple and number of instructions are less 
+- fixed length instruction format, which gives benefit to the program counter because their is certainity 
+- single cycle instruction execution - every insturction can be executed once per cycle 
+- uses hardwired circuit rather than microprogrammed circuit 
+- decoding hardware is simple  -> execution faster -> less power decipation -> cost is less 
+- uses less number of addressing modes
+- overllapped register windows 
+every program has a bunch of modules / procedures, to execute the instructions within these moules 3 registers from the CPU is allocated for every module. 
+```bash
+PARAMETER REGISTER  |   LOCAL REGISTER   | TEMPORARY REGISTER 
+#PARAM REGISTER - for passings params within the module 
+#LOCAL REGISTER - used by module itself and cant share with any other module 
+#TEMPORARY REGISTER - the output for this module will be used as the input of the temporary register of the next adjacent module 
+
+How would the non-adjacent modules share data?
+Global register 
+```
 3. Very long instruction word (VLIW) - processor recieves many instruction encoded
 ![](r8.JPG)
 
@@ -1728,30 +1756,100 @@ STORE X # M[X] <- AC
 ```
 - used for zero address and one address instruction
 2. Immediate Mode 
-![](mk2.JPG)
 - operand is directly provided 
+![](mk2.JPG)
 - the address of memory or register is not specified, rather this kind of addressing mode is used for constants, where the constant is specified in the operands place, because its value would remain the same throughout the program
 ```bash
 ADD R1, 3
 ```
 3. Register Mode 
-![](rr1.JPG)
 - in place of operand we have register number which contains the data
+![](rr1.JPG)
 4. Register Indirect Mode 
-![](rr4.JPG)
 - in place of operand we have register number which contains the address of where the data can be found in the memory
+![](rr4.JPG)
 5. Auto-increement & Auto-decreement 
 ![](rr5.JPG)
 - registers are a collection of bits / flip flops where each bit can be sequentially accessed after the other 
 - same as register addressing mode, only after getting the first data from the memory it can further access the rest of it one after the other since they are arranged sequentally 
 6. Direct addressing 
+```bash
+OPCODE | OPERAND 
+#direct operand (address) is placed in the instruction format 
+```
+![](mnb.JPG)
 When using direct addressing mode, the address of the operand is specified in the instruction. The processor will retrieve the data directly from the address specified in the instruction. Only a single memory reference is required to access data. So, no additional calculations are required to work out effective address as it would be in case of indirect addressing. Instruction size is larger since operand has to be explicitly specified.
+> PROS
+- used to access variables 
+- actual address is given in the instruction
+> CONS:
+- if the instruction size is fixed, then the size of the address will be a constant and cannot accumulate more bits 
 7. Indirect Addresing Mode 
-indirect addressing signifies address specified is not the final place where data is stored. In indirect addressing mode, the address field in the instruction points to the memory location or register where the effective address of the operand is present. 
-8. Relative Addresing mode 
-9. Indexed Addressing Mode 
-10. Base Register Addressing Mode 
+```bash
+OPODE | EFFECTIVE ADDRESS 
+#Note; the effective address contains the operand address 
 
+The effective address contains an address within the memory (effective address) which contains the address of where the operand actually lies within the memory itself
+```
+![](ind.JPG)
+indirect addressing signifies address specified is not the final place where data is stored. In indirect addressing mode, the address field in the instruction points to the memory location or register where the effective address of the operand is present. 
+> PROS:
+- used to implement pointers and passing parameters 
+> CONS:
+-
+ 2 memory access required 
+
+8. Relative Addresing mode 
+each word contains branch which specifies where to jump, it would directly be that word's address. However the space that this address takes can be big, so technically the instruction space would be big, so to reduce the size of the operand we take offset (which speecifies after how many address to jump)
+```bash
+#PROGRAM COUNTEER CONTAINS pointer to the next address in the memory, so this is how the calculation would look like
+EFFECTIVE ADDRESS = PROGRAM COUNTER + OFFSET
+                  = 501 + 50
+                  = 551
+                  #but our program should point at the 550 address
+
+#So to fix the issue, we'll assign 1 value less to offset, to compensate 
+EFFECTIVE ADDRESS = PROGRAM COUNTER + OFFSET
+                  = 501 + 49
+                  = 550
+```
+9.  Indexed Addressing Mode 
+- used for accessing array efficiently 
+- any element in the array can be accesed without changing instruction address 
+![](iaa.JPG)
+```bash
+OPCODE | BASE ADDRESS OF ARRAY 
+#While the Base address is fixed, if we want to access further values from the array, we store a value in index register which acts as a reference to calculate th effective address which would ultimately let us access other elements in the array
+
+#we have a register called index register which contains the indexed address 
+Effective address = BASE ADDRESS + Index register value 
+                  = 100 + 4
+                  = 104
+```
+> CONS:
+- multiple registers required to implement 
+10.  Base Register Addressing Mode 
+- used in program rellocation since limited number of programs can stay in the RAM, to rellocate programs we can send the program thats not utlized outside the RAM, to the secondary memory and bring new programs in the RAM
+![](a12.JPG)
+```bash
+a memory has many prrocesses
+lets say one process say P1, contains instructions from 100 to 199
+
+now lets say at that point of time it wasnt required for execution so it was pushed out of the memory and placed into the secondary memory 
+
+however, when it was put back into the memory it was placed in a different location 
+
+Now lets look at a scenario, 
+P1 contains an instruction -> BR 160
+which specifies that the operand is found at the 160'th location
+So while its in the memory initially, it would jump to 160 location where it would find the data it was seeking for, however it wont execute in this part itself rather its a low priorty process so its pushed back into the secondary memory, so when its pushed back in it'll be on another address 
+
+Now P1 would occupy say 400-499, however the instruction i still BR 160, so at this point it will try to jump outside the program and return a faulty value, to prevent this mishap, instead of specifying the address location, we consider the displaement as a reference to calculate the effective address 
+
+EFFECTIVE ADDRESS = BASE ADDRESS + DISPLACEMENT 
+#while its in 100-199 = 100 + 60 = 160
+#while its in 400-499 = 400 + 60 = 460 
+```
 
 
 
