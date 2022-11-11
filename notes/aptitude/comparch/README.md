@@ -692,7 +692,7 @@ adress bits = 12bits
 ![](mjk.JPG)
 - The data and the program (set of instructions) is stored on the memory layer. the data is feched from here and its send to the CPU which consists of ALU, and a register stored on top of the control unit. over here its temporarily stored in the the accumulator before sending it to the instruction register.
 - program is a set of instructions, each instruction has an instruction format. each instruction is made up of I (msb), opcode (what is the logical operation that the program needs to execute), operand (what is the location where the data is stored)
-- first the address of the next instruction to be executed is fetched from the program counter, which sends the address to the address register which then sends this address to the memory through the address bus which then fetches the data present at that particular location and then its send through the data bus and loaded into the  data register 
+- first the address of the next instruction to be executed is fetched from the program counter, which sends the address to the address register which then sends this address to the memory through the address bus which then fetches the data present at that particular location through the READ command being activated (before the data is R or W its temporarily stored in the Data Buffer register) and then its send through the data bus and loaded into the  data register 
 -  now the data is fetched from the data register through the data bus and send to the ALU which does its magic and temporarily stores the data that is being processed in the accumulator 
 -  the first part of the logic is executed in the ALU and is stored in the AC, when the second part of the logic is being executed, thats when the first part of the logic is pushed to the temporary register 
 -  finally to display the output on monitor data travels through data bus again to the output register where its stored temporarily before being outputted. 
@@ -1545,12 +1545,170 @@ The computers which use Stack-based CPU Organization are based on a data structu
 DMAS represents the order of operations.
 
 #### Types of instructions:
-1. Data Transfer instructions - instructions for transfering data through the bus from register-register or from memory-register 
+Based on the type of instrution CPU executes:
+1. Data Transfer instructions / copy instructions - instructions / commands required for transfering data through the bus from register-register or from memory-register 
+![](jkk1.JPG)
+![](dd11.JPG)
+```bash
+#TRANSFER DATA OPERATIONS: Data Transer between Source & Destination
+In different addressing mode, these operations have a different meaning 
+
+#when memory is implemented as a stack 
+#zero address instruction 
+PUSH - register -> stack 
+POP - stack -> register 
+
+#one address instruction 
+LOAD - memory -> accumulator    | LOAD X / LD R1, X = AC <- M[X]
+       register -> accumulator  | LD R1, R2 = AC <- M[R2]
+STORE - accumulator -> memory   | STORE T = M[T] <- AC
+
+#two address instruction 
+MOV - memory -> register 1      |  MOV R1, X
+      register 2 -> register 1  |  MOV R1, R2
+
+#additonal 
+XCHG -  exchange / swap data between 2 registers 
+XCHG R1, R2 
+
+#for I/O devices 
+INPUT - i/o DEVICE -> MEMORY
+OUTPUT - MEMORY -> o/p DEVICE 
+```
 2. Data Manipulation instructions - when want to apply CRUD operations on data, its handled by data manipulation instruction
-- arithmetic 
-- logical
-- shift / conversion
-3. Problem Control instructions - instruction where program is executed 
+- arithmetic instructions- Arithmetic operations include addition, subtraction, multiplication, and division. 
+```bash
+to perform instructions ALU has to perform micro-operations such as the instruction format which contains the OPCODE which contains the arithmetic operation thats needed to be executed on that instruction 
+```
+![](as1.JPG)
+- logical and bit manipulation instruction - when want to work with bits, logical instruction is used 
+```bash
+1. Compliment (COM) - using XOR operation (for similar values it gives 0)
+#negation of 0 is 1 
+#negation of 1 is 0
+
+0 1 0 1 
+1 1 1 1 
+-------
+1 0 1 0
+
+2. Clear (CLR) - clear all the data bits to 0 
+
+3. LOGICAL AND (X)
+#using LOGICAL AND we can find whether the bit is odd or even 
+1010 = 10 -> even 
+1011 = 7 -> odd 
+
+1010
+0001
+-----
+0000
+
+1011
+0001
+-----
+0001
+
+4. LOGICAL OR (+)
+
+5. CLEAR CARRY (CLRC) - to clear the carry field 
+6. SET CARRY (STC) - used for setting the carry 
+7. compliment carry (CMC) - choose the compliment of the carry
+#if the carry is 1, switch it to 0.
+8. enable interrupt (EI)
+9. disable interrupt (DI)
+```
+![](ss2.JPG)
+- Shift instruction - helps to shift the bits of an operand to the right or the left.
+1. LOGICAL SHIFT LEFT (SHL)
+![](ll1.JPG)
+![](lm1.JPG)
+2. LOGICAL SHIFT RIGHT (SHR)
+![](ll2.JPG)
+![](lm2.JPG)
+1. ARITHMETIC SHIFT RIGHT (SHRA)
+![](ll3.JPG)
+![](lm3.JPG)
+```bash
+copy the LHS most bit to the new array 1st value and copy this same bit to the new array 2nd value, shift the rest of the elements to the rhs 
+```
+4. ARITHMETIC SHIFT LEFT (SHRL)
+![](ll4.JPG)
+```bash
+just like LOGICAL SHIFT LEFT 
+```
+5. ROTATE RIGHT (ROR)
+![](ll5.JPG)
+6. ROTATE LEFT (ROL)
+![](ll6.JPG)
+7. ROTATE RIGHT THROUGH CARRY 
+![](ll7.JPG)
+8. ROTATE LEFT THROUGH CARRY
+![](ll8.JPG)
+
+- Problem Control instructions / Transfer of control instructions - 
+Program control instructions modify or change the flow of a program. It is the instruction that alters the sequence of the program's execution, which means it changes the value of the program counter, due to which the execution of the program changes.
+
+> Generally instructions are executed in sequential order (where the instructions are executed one after the other), where the execution starts from the starting address and the program counter contains the next instruction to be executed, so that it can be executed sequentially -> implicit mode 
+
+However program counter instructions help to execute instructions in random order. 
+![](ff1.JPG)
+
+- The main instruction is `BRANCH` . Branching is just one method of altering the normal flow of program execution.
+
+> Were taking the previous computation (which is the result of the instruction before the branch instruction that was encountered) as a reference.
+```bash
+#branch to jump from one location to another location
+    BRANCH INSTRUCTIONS
+   /              \
+UNCONDITIONAL      CONDITIONAL
+
+1. UNCONDITIONAL BRANCH 
+where target adress is given and condition is not checked and program counter is updated with this value
+
+BR 3000
+#branch to the 3000 location 
+
+2. CONDITIONAL BRANCH 
+where target adress is given and condition is checked, update content of the program counter only when condition is sattisfied 
+
+BRZ 2000
+#branch to location 2000 if result of previous computation was 0
+
+BRN 2000
+#branch to location 2000 if result of previous computation was NGATIVE
+
+BRP 2000
+#branch to location 2000 if result of previous computation was POSITIVE
+
+BRO 2000
+#branch to location 2000 if result of previous computation was overflowed 
+
+BRE R1, R2 2000
+#if R1=R2 then BRANCH to 2000
+#if R1!=R2 then execute the next instruction
+
+BNZ R1 2000
+#Branch to location 200 if result of previous computation of R1 was not 0
+```
+```bash
+#OTHER PROBLEM CONTROL INSTRUCTIONS 
+JMP 2000
+#JUMP to this address within the main()
+By using JUMP, the program control transfers to a location which is also a part of the main program
+
+SKP 
+#skip execution of a particular instruction and execute the instruction after it 
+
+CALL 3000
+#JUMP to this address outside of main(). CALL is used to call subroutines.
+
+RETURN 
+#after the execution of the jumped position, to return the pointer back to where it used to be use RETURN 
+```
+> What's the difference between BRANCH and JUMP?
+Depends on the requirment of computer architecture they are used 
+- in direct addressing modes BRANCH is used otherwise in indirect addresing JUMP is used 
 
 #### Instruction Set Format:
 > instructions can take different formats
