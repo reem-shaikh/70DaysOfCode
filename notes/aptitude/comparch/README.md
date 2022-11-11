@@ -1177,7 +1177,8 @@ PC = PC + 1
 ```
 #### DECODE 
 ![](njj.JPG)
-- Decoding the in9struction format: I(15), OPCODE(12-14), ADDRESS(0-11) is being decoded 
+- Decoding determines the operation to be performed (OPCODE), the addressing mode of the instruction (I) and the location of the operand (ADDRESS)
+- Decoding the instruction format: I(15), OPCODE(12-14), ADDRESS(0-11) is being decoded 
 ```bash
 # at time T2
 #INSTRUCTION REGISTER 
@@ -1977,10 +1978,17 @@ number of bits per word = 8bits
 
 What is a word?
 Word is a memory representational unit. Its size could vary from multiple bits. memory is byte addresable. 
+
+Maximum number of bits that can be executed by the CPU in one cycle is called a word 
 ```
 ![](mu17.JPG)
 ![](mu18.JPG)
 ![](mu19.JPG)
+
+![](lkop.JPG)
+- any operation to be performed is specified by OPCODE 
+- how data is retreived is determined by addressing mode (how the operand of the instruction can be accessed is defined by the addressing mode)
+- addressing mode varies with the type of computer architecture 
 
 #### Memory size 
 ![](mu16.JPG)
@@ -2066,12 +2074,18 @@ indirect addressing signifies address specified is not the final place where dat
 > PROS:
 - used to implement pointers and passing parameters 
 > CONS:
--
- 2 memory access required 
+- 2 memory access required 
 
 8. Relative Addresing mode 
-each word contains branch which specifies where to jump, it would directly be that word's address. However the space that this address takes can be big, so technically the instruction space would be big, so to reduce the size of the operand we take offset (which speecifies after how many address to jump)
+![](rawr.JPG)
+each word contains branch which specifies where to jump, it would directly be that word's address. 
+
+However the space that this address takes can be big, so technically the instruction space would be big, so to reduce the size of the operand we take offset (which speecifies after how many address to jump)
 ```bash
+#Say at 500th location we have this instruction 
+BR 550 
+#This would be a larger address allocation, to fix this we use offset, which kind of acts like what value you want to displace by 
+
 #PROGRAM COUNTEER CONTAINS pointer to the next address in the memory, so this is how the calculation would look like
 EFFECTIVE ADDRESS = PROGRAM COUNTER + OFFSET
                   = 501 + 50
