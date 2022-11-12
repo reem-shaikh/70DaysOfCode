@@ -225,8 +225,170 @@ for example in the manipal student portal, lets say their are different servers 
 #### Types of DB based on purpose 
 ![](vb.JPG)
 
+### Database 
+> DBMS is intermediate beyween app and dtaabase 
+```bash
+app ------ DBMS ----- database 
+```
+## Types of Database 
+Based on the type of data: structured data / unstructured data, there are 2 kind of database type: relational/ SQL database and unstructured/ noSQL database 
+
+> Difference between structured data and unstructured data 
+IN CHAT APPLICATIONS, we send photos, links etc we use unstructured data -> noSQL -> mongoDB 
+
+#### Relational Database 
+When databases started, they started with rdbms. These companies started the rdbms concept, until now most companies use rdbms only, because shifting databases is very cost expensive, because data they contain is huge.
+- IBM, BB2, Oracle, mySQL, microsoftExcel, tsendra
+
+> Types of RDBMS technology (STRUCTURED DATA)
+- mySQL
+- PostgreSQL 
+- Oracle DB
+- SQlite 
+
+### Difference between SQL and mySQL?
+- sql is language used to talk to the database in english language 
+`find all users older than 18` 
+- mySQL is language used to talk to the database in machine language 
+`select * from user > 18`
+
+> Why do we need SQL? 
+SQL became a standard in 1986 by ANSI (american national standard institute)
+it again became a standard in 1987 by ISO (International organisation for standardization)
+
+To store data securely, perform tons of operations, to manage the database we need SQL. Its just a language used to talk to the database. 
+- To work with databases you need to learn query language 
+```bash
+Tropicana - Oracle
+different orange juices - mongoDb, mySql, Cassandra (query languages)
+orange juice - sql
+```
+
 ## Unit2: RDBMS & SQL 
-> RDBMS - DB which is made up of tables called relations, which consists of rows called tuples and columns called attributes. 
+> RDBMS 
+- data organized in the form of tables 
+DB which is made up of tables called relations, which consists of rows called tuples and columns called attributes. 
+![](rd1.JPG)
+
+### SQL 
+![](sql1.JPG)
+![](sql2.JPG)
+
+> Difference between `VARCHAR` AND `VARCHAR2` ?
+VARCHAR2 is the same as VARCHAR in the oracle database. The main difference is that VARCHAR is ANSI Standard and VARCHAR2 is Oracle standard. It is recommended to not use VARCHAR as Oracle may change its usage in the near future.
+
+### SQL COMMANDS 
+![](sl3.JPG)
+
+#### DDL ( Data Definition Language )
+![](s10.JPG)
+![](s11.JPG)
+![](sl12.JPG)
+![](sl13.JPG)
+![](sl14.JPG)
+
+> Difference between `DELETE`, `DROP`, & `TRUNCATE` ?
+- DELETE command it is a Data Manipulation Language Command (DML). Delete a **one or more tuples** but the structure remains. we can restore the table by using the “ROLLBACK” command
+- DROP command is a Data Definition Language Command (DDL). It is used to **drop** the whole table (**all tuples + structure**)  Here we can’t restore the table by using the “ROLLBACK” command
+- TRUNCATE is used to eliminate **all tuples** from the table, but the structure remains. 
+
+Data Definition Language is used to define the database structure or schema. DDL is also used to specify additional properties of the data. Thus, the database system implements integrity constraints that can be tested with minimal overhead. 
+> INTEGRITY CONSTRAINT 
+- DOMAIN CONSTRAINT 
+- ENTITY INTEGRITY CONSTRAINT 
+- REFERENTIAL INTEGRITY CONSTRAINT 
+- KEY CONSTRAINT 
+
+![](sl4.JPG)
+![](sl5.JPG)
+![](sl6.JPG)
+![](sl7.JPG)
+![](sl8.JPG)
+![](sl9.JPG)
+
+#### DML ( Data Manipulation Language )
+![](sl15.JPG)
+![](sl16.JPG)
+![](sl17.JPG)
+![](sl18.JPG)
+
+> List of DML commands: 
+- INSERT : It is used to insert data into a table.
+- UPDATE: It is used to update existing data within a table.
+- DELETE : It is used to delete records from a database table.
+
+#### DCL ( Data Control Language )
+![](sl19.JPG)
+![](sl20.JPG)
+```bash
+GRANT: allow specified users to perform specified tasks.
+REVOKE: cancel previously granted or denied permissions.
+```
+**In the Oracle database, executing a DCL command issues an implicit commit. Hence, you cannot roll back the command.** 
+
+#### TCL ( Transaction Control Language )
+![](sl21.JPG)
+TCL stands for Transaction Control Languages. These commands are used for maintaining consistency of the database and for the management of transactions made by the DML commands. 
+
+Whenever any transaction is made these transactions are temporarily happen in database.So to make the changes permanent, we use TCL commands. 
+
+> The TCL commands are:  
+- COMMIT
+This command is used to save the data permanently. 
+Whenever we perform any of the DML command like -INSERT, DELETE or UPDATE, these can be rollback if the data is not stored permanently. So in order to be at the safer side COMMIT command is used. 
+- ROLLBACK
+If due to some reasons the data inserted, deleted or updated is not correct, you can rollback the data to a particular savepoint. However you cant rollback once commit is performed.  
+- SAVEPOINT
+This command is used to save the data at a particular point temporarily, so that whenever needed can be rollback to that particular point. 
+
+```bash
+NAME   |   MARKS 
+JACK   |   95       #Commit
+ROSIE  |   70       #SAVEPOINT A
+ZACK   |   76       #SAVEPOINT B 
+BRUNO  |   85       #SAVEPOINT C 
+
+#ROLLBACK TO B 
+NAME   |   MARKS 
+JACK   |   95       #Commit
+ROSIE  |   70       #SAVEPOINT A
+ZACK   |   76       #SAVEPOINT B 
+
+#ROLLBACK TO A 
+NAME   |   MARKS 
+JACK   |   95       #Commit
+ROSIE  |   70       #SAVEPOINT A
+
+
+   --- CODE ---
+INSERT into STUDENT 
+VALUES ('Jack', 95);
+
+Commit;
+
+INSERT into STUDENT 
+VALUES ('Rosie', 70);
+
+SAVEPOINT A;
+
+INSERT INTO STUDENT 
+VALUES (‘Zack’, 76);
+
+Savepoint B;
+
+INSERT INTO STUDENT 
+VALUES (‘Bruno’, 85);
+
+Savepoint C;
+```
+
+![](sl22.JPG)
+![](sl23.JPG)
+![](sl24.JPG)
+
+
+
+
 
 
 

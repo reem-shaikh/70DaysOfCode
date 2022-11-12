@@ -1084,7 +1084,7 @@ EXECUTING
 
 2. Reduced instruction set computer (RISC) 
 - relatively less number of instructions 
-- all operations are dine within the registers of the CPU 
+- all operations are done within the registers of the CPU 
 - instructions are simple and number of instructions are less 
 - fixed length instruction format, which gives benefit to the program counter because their is certainity 
 - single cycle instruction execution - every insturction can be executed once per cycle 
@@ -1102,10 +1102,81 @@ PARAMETER REGISTER  |   LOCAL REGISTER   | TEMPORARY REGISTER
 How would the non-adjacent modules share data?
 Global register 
 ```
+> Difference between hardware and microprogrammed controlled unit?
+- in hardwired control unit **control signals are generated faster** 
+- cost of implementation is **costlier** in case of hardware because its more complex since its more difficult to handle complex instructions 
+- control functions of hardware controlled units are implemented in **hardware** and for microprogrammed controlled unit its implemented in software thats why its very difficult for hardware control unit to support operating system and diagnostic features 
+- **RISC architecture** uses hardware control unit and CISC archtecture uses microprogrammed control unit 
+![](ins.JPG)
+- hardwired CU can accomodate **lower number of instructions in the processor** (instruction set size)
+- control memory which is used to store the microprogram is used in case of a microprogrammed control unit 
+- the **amount of space chips** require in case of hardwired is **more**
+![](inst.JPG)
+
 3. Very long instruction word (VLIW) - processor recieves many instruction encoded
 ![](r8.JPG)
 
 > Note: Registers are volatile in nature:
+
+### MIPS ARCHITECTURE 
+MIPS is a load/store architecture (also known as a register-register architecture)
+```bash
+just like we have INTEL rn, back then in the 80s we used to hav MIPS processors 
+
+#While creating this microprocessor 3 constraints were taken 
+- how to minimize the time 
+- how to maximize the processing 
+- how to reduce the cost  
+```
+![](mips.JPG)
+
+> MIPS ARCHITECTURE VARIANTS:
+- MIPS-I: the original 32-bit instruction set; still common.
+- MIPS-II: improved instruction set with dozens of new instructions.
+- MIPS-III: a 64-bit instruction set used by the R4000 series.
+- MIPS-IV: an upgrade of the MIPS III.
+
+> History:
+- R2000 MICROPROCESSOR - MIPS I - 32-bit RISC microprocessor chipset
+- R3000 MICROPROCESSOR SERIES - MIPS I - 32-bit RISC microprocessor chipset
+- R4000 MICROPROCESSOR SERIES - MIPS III - 64-bit RISC microprocessor chipset
+
+> Why is it called LOAD/STORE ARCHITECTURE?
+![](nh1.JPG)
+![](nh2.JPG)
+![](nh3.JPG)
+```bash
+LW - LOAD WORD 
+LH - LOAD HALF WORD 
+SW - STORE WORD 
+SH - STORE HALF WORD 
+SB - STORE BYTE 
+```
+> Features:
+- this microprocessor based on LOAD/STORE instruction access memory, which means only these 2 instructions can be accesed by the main memory. 
+- it has optional co-processor (which complement the functioning of the procesor) for system management and floating point.
+- The MMU maps logical to physical addresses 
+![](lpp.JPG)
+```bash
+When CPU is executing the program it generates logical address. In order to be stored in the memory unit logical address needs to be converted to physical address which is acheived by memory management unit in MIPS architecture
+```
+- program counter (32 bit wide)
+- 32 general purpose registers (32 bits each)
+- 4gb main memory 
+- All MIPS instructions are 32 bits long
+- follows 3bit instruction format 
+
+> How is the execution in MIPS microprocessor?
+- it has a five stage execution pipeline
+1. fetch
+2. decode 
+3. execute 
+4. memory access
+5. write result 
+
+> Is MIPS still used today?
+The MIPS architecture plays a major role in the embedded processor market and hundreds of customers continue to use it commercially, including Microchip Technology, Mobileye and MediaTek.
+
 
 ## Operations in the instruction set 
 ![](i11.JPG)
@@ -1214,6 +1285,7 @@ I | OPCODE | I/O OPERATION
 #### EXECUTION 
 based on the type of instruction its executed and the sequence counter is initialized back to 0 for the initiation of instruction cycle for the next instruction.
 ![](ee1.JPG)
+![](ee11.JPG)
 
 ### Interrupt Signal 
 ![](bbb.JPG)
@@ -1221,6 +1293,7 @@ special process that needs to be executed immediately, whenever CPU recieves int
 - a test is made to determine if an interrupt is enabled or not to determine if the other process can access the CPU or not 
 if R=0 there is no interrupt so CPU will execute instruction cycle *FETCH, DECODE, EXECUTE*, During the execution phase it will again check for the interrupt enabled flip-flop (IEF), if IEF = 1 there is an interrupt signal, if  IEF = 0, there is no interrupt signal. 
 - after interrupt is over the program counter's value is reset such that it can continue executing the process it stopped before taking in the interrupt 
+![](kio.JPG)
 
 #### 8086 Microprocessor instruction set 
 - Many ISA's are not specific to a specific computer architecture. They survive amongst generations. 
@@ -1649,6 +1722,7 @@ just like LOGICAL SHIFT LEFT
 
 - Problem Control instructions / Transfer of control instructions - 
 Program control instructions modify or change the flow of a program. It is the instruction that alters the sequence of the program's execution, which means it changes the value of the program counter, due to which the execution of the program changes.
+![](iik.JPG)
 
 > Generally instructions are executed in sequential order (where the instructions are executed one after the other), where the execution starts from the starting address and the program counter contains the next instruction to be executed, so that it can be executed sequentially -> implicit mode 
 
@@ -1706,7 +1780,36 @@ CALL 3000
 
 RETURN 
 #after the execution of the jumped position, to return the pointer back to where it used to be use RETURN 
+
+TEST 
+#does LOGICAL AND of two operands and sets status flags according to the result 
+
+#in LOGICAL AND (&&) after the computation between 2 operands the output is stored in the destination operand 
+0 0 1 1  #source operand 
+0 1 0 1  #destination operand 
+-------
+0 0 0 1
+
+#But in case of TEST operation the computation between the source and destination is peformed an the output is not stored in destination operand 
 ```
+- COMPARE 
+```bash
+COMPARE (CMP)
+CMP D, S
+
+CMP (register/memory location) (register/memory location/ immediate data)
+#destination operand - source operand 
+#compares 2 operands by destination operand - source operand and sets a flag value without storing the result of the subtraction
+
+#to find if two values are equal or not the status bits of interest are used: the carry bit (CF), the sign bit (SF), a zero indication (ZF) and overflow (V)
+
+#SET means 1, RESET means 0
+if source = destination #ZF = 1 
+   source > destination #CF = 1, SF=1
+   source < destination #CF = 0
+```
+![](comp.JPG)
+
 > What's the difference between BRANCH and JUMP?
 Depends on the requirment of computer architecture they are used 
 - in direct addressing modes BRANCH is used otherwise in indirect addresing JUMP is used 
@@ -2016,7 +2119,7 @@ Data can be stored either in register or memory
 #### Types of Addressing Modes
 1. Implied Mode 
 - operand is specified implicitly in the defination of the instruction
-- the address of memory or register is not specified
+- the address of memory or register is not specified, the data is in the accumulator
 ```bash
 #0 address instruction / stack based 
 ADD 
@@ -2040,7 +2143,7 @@ STORE X # M[X] <- AC
 ```bash
 ADD R1, 3
 ```
-3. Register Mode 
+1. Register Mode 
 - in place of operand we have register number which contains the data
 ![](rr1.JPG)
 4. Register Indirect Mode 
@@ -2098,7 +2201,8 @@ EFFECTIVE ADDRESS = PROGRAM COUNTER + OFFSET
                   = 550
 ```
 9.  Indexed Addressing Mode 
-- used for accessing array efficiently 
+- used for accessing array efficiently where each register occupies every word, the address of the first register is called the base address of the array 
+- whenever we want to access any value we enter a value in the index register 
 - any element in the array can be accesed without changing instruction address 
 ![](iaa.JPG)
 ```bash
