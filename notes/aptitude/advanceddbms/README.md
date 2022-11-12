@@ -274,9 +274,6 @@ DB which is made up of tables called relations, which consists of rows called tu
 ![](sql1.JPG)
 ![](sql2.JPG)
 
-> Difference between `VARCHAR` AND `VARCHAR2` ?
-VARCHAR2 is the same as VARCHAR in the oracle database. The main difference is that VARCHAR is ANSI Standard and VARCHAR2 is Oracle standard. It is recommended to not use VARCHAR as Oracle may change its usage in the near future.
-
 ### SQL COMMANDS 
 ![](sl3.JPG)
 
@@ -293,6 +290,7 @@ VARCHAR2 is the same as VARCHAR in the oracle database. The main difference is t
 - TRUNCATE is used to eliminate **all tuples** from the table, but the structure remains. 
 
 Data Definition Language is used to define the database structure or schema. DDL is also used to specify additional properties of the data. Thus, the database system implements integrity constraints that can be tested with minimal overhead. 
+
 > INTEGRITY CONSTRAINT 
 - DOMAIN CONSTRAINT 
 - ENTITY INTEGRITY CONSTRAINT 
@@ -306,22 +304,31 @@ Data Definition Language is used to define the database structure or schema. DDL
 ![](sl8.JPG)
 ![](sl9.JPG)
 
+> Difference between `VARCHAR` AND `VARCHAR2` ?
+VARCHAR2 is the same as VARCHAR in the oracle database. The main difference is that VARCHAR is ANSI Standard and VARCHAR2 is Oracle standard. It is recommended to not use VARCHAR as Oracle may change its usage in the near future.
+
 #### DML ( Data Manipulation Language )
 ![](sl15.JPG)
 ![](sl16.JPG)
 ![](sl17.JPG)
 ![](sl18.JPG)
 
+DML deals with SQL commands that deals with the manipulation of data present in the database
+
 > List of DML commands: 
 - INSERT : It is used to insert data into a table.
 - UPDATE: It is used to update existing data within a table.
 - DELETE : It is used to delete records from a database table.
 
+*DCL statements are grouped with DML statements.*
+
 #### DCL ( Data Control Language )
+DCL includes commands such as GRANT and REVOKE which mainly deal with the rights, permissions, and other controls of the database system. 
 ![](sl19.JPG)
 ![](sl20.JPG)
 ```bash
-GRANT: allow specified users to perform specified tasks.
+GRANT: allow specified users to perform specified tasks. It is mostly used to restrict user access to INSERT, DELETE, SELECT, UPDATE, EXECUTE, ALTER or to provide privileges to users data.
+
 REVOKE: cancel previously granted or denied permissions.
 ```
 **In the Oracle database, executing a DCL command issues an implicit commit. Hence, you cannot roll back the command.** 
@@ -386,12 +393,158 @@ Savepoint C;
 ![](sl23.JPG)
 ![](sl24.JPG)
 
+#### DQL (Data Query Language)
+![](dq1.JPG)
+![](dq2.JPG)
 
+DQL statements are used to query the data contained in schema objects. The DQL Commands goal is to return a schema relation depending on the query supplied to it
 
+### SUBQUERY / NESTED QUERY
+![](dq3.JPG)
 
+### QUERING MULTIPLE RELATIONS 
+![](DQ4.JPG)
 
+### AGGREGATE FUNCTIONS IN SQL 
+![](DQ5.JPG)
+![](DQ6.JPG)
 
+### GROUP BY CLAUSE 
+![](DQ7.JPG)
 
+### VIEWS 
+display part of the table (tuple) user is interested to view
+![](DQ8.JPG)
 
+### TRANSACTION PROCESSING 
+> What is Transaction?
+Its a set of operations used to perform a logical unit of work. It generally represents change in database.
+![](tt.JPG)
 
+![](DQ9.JPG)
+```bash
+USER --- MAIN MEMORY ------ DBMS ------- DB 
+           (BUFFER)                      (server)
+                                         #server data is stored on  hard disk called server hard disk       
 
+#READ OPERATION - ACCESSING DATA FROM DB
+When value is read from DB its stored in buffer before the user can access it 
+
+#WRITE OPERATION - CHANGING DATA AT DB 
+When a user writes a value to DB it does calculation and stores it  in buffer before making changes in the DB 
+
+#why DBMS?
+For a user to make changes in the DB, he needs a DBMS, in this case were using RDBMS 
+```
+> Difference between memory Buffer and register and cache?
+- memory buffer is found on ram 
+- register is in the cpu
+- register only holds a piece of info, such as a computer instruction or the storage address of any particular information, etc.
+- cache is inserted between cpu and ram 
+- cache is used to store data that is repeatedly needed which speeds up overall performance of computer
+- From a computer architecture point of view. Definely, register is the fastest. Second is the L1 cache memory
+![](klj.JPG)
+
+1. Transactions ensure integrity of data 
+- if even one of the command in the transaction fails then the rollback command will be invoked and the whole transaction will fail 
+![](dq11.JPG)
+- if all the commands in the transaction is executed succesfully only then the transaction will be committed
+![](dq12.JPG)
+
+#### ACID properties 
+In order to maintain consistency in a database, before and after the transaction, certain properties are followed. These are called ACID properties. 
+![](dq10.JPG)
+
+1. Atomicity:
+By this, we mean that either the entire transaction takes place at once or doesn’t happen at all. There is no midway i.e. transactions do not occur partially. Each transaction is considered as one unit and either runs to completion or is not executed at all. It involves the following two operations. 
+- Abort: If a transaction aborts, changes made to the database are not visible. 
+- Commit: If a transaction commits, changes made are visible. 
+  
+Atomicity is also known as the ‘All or nothing rule’. 
+
+Consider the following transaction T consisting of T1 and T2: Transfer of 100 from account X to account Y.  
+![](t1.JPG)
+If the transaction fails after completion of T1 but before completion of T2.( say, after write(X) but before write(Y)), then the amount has been deducted from X but not added to Y. This results in an inconsistent database state. Therefore, the transaction must be executed in its entirety in order to ensure the correctness of the database state. 
+Inconsistency occurs in case T1 completes but T2 fails. As a result, T is incomplete. 
+
+2. Consistency
+This means that integrity constraints must be maintained so that the database is consistent before and after the transaction. It refers to the correctness of a database. Referring to the example above, 
+The total amount before and after the transaction must be maintained. 
+Total before T occurs = 500 + 200 = 700. 
+Total after T occurs = 400 + 300 = 700. 
+Therefore, the database is consistent. Inconsistency occurs in case T1 completes but T2 fails. As a result, T is incomplete. 
+
+3. Isolation:
+This property ensures that multiple transactions can occur concurrently without leading to the inconsistency of the database state. Transactions occur independently without interference
+
+4. Durability: 
+This property ensures that once the transaction has completed execution, the updates and modifications to the database are stored in and written to disk and they persist even if a system failure occurs
+
+### Relational Algebra
+![](rr1.JPG)
+```bash
+#TYPES OF LANGUAGES: 
+PROCEDURAL VS NON PROCEDURAL LANGUAGES 
+
+Procedural languages are used for application and system programming. In procedural languages, the program code is written as a sequence of instructions. User has to specify “what to do” and also “how to do” (step by step procedure)
+An example of procedural languages is C, ADA, Pascal, C++, etc.
+
+Non-Procedural languages are used in RDBMS, expert systems, natural language processing, and education.In the non-procedural languages, the user has to specify only “what to do” and not “how to do”. It is also known as an applicative or functional language.
+An example of non-procedural languages is Prolog, USP, SQL Scheme, etc.
+
+#Howevr in SQL there is Query language which is used to retrieve information from a database.
+Query language is divided into two types as follows −
+
+1. Procedural language
+Information is retrieved from the database by specifying the sequence of operations to be performed.
+
+For Example: Relational algebra
+
+Structure Query language (SQL) is based on relational algebra.
+
+2. Non-procedural language
+Information is retrieved from the database without specifying the sequence of operation to be performed. Users only specify what information is to be retrieved.
+
+For Example: Relational Calculus
+
+Query by Example (QBE) is based on Relational calculus
+
+Relational calculus is a non-procedural query language in which information is retrieved from the database without specifying sequence of operation to be performed.
+
+Relational calculus is of two types which are as follows −
+- Tuple calculus
+- Domain calculus
+```
+#### SELECT operation
+![](rr2.JPG)
+
+#### PROJECT operation 
+![](rr3.JPG)
+
+#### UNION operation
+![](rr4.JPG)
+
+#### INTERSECTION operation
+![](rr5.JPG)
+
+#### SET DIFFERENCE 
+![](rr6.JPG)
+
+#### CARTESIAN PRODUCT 
+![](rr7.JPG)
+
+#### RENAME operation 
+![](rr8.JPG)
+
+#### JOIN operation
+![](rr9.JPG)
+![](rr10.JPG)
+![](rr12.JPG)
+![](rr11.JPG)
+![](rr13.JPG)
+![](rr14.JPG)
+![](rr15.JPG)
+![](rr17.JPG)
+
+### Difference between relational algebra and SQL 
+![](rr16.JPG)
