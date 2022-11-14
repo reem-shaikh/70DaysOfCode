@@ -1,6 +1,19 @@
 # C-Programming 
+### Setup the environment for C / C++ on VSCODE?
+![](PL.JPG)
+![](PL1.JPG)
+![](PL2.JPG)
+![](c22.JPG)
+-------
+
 ![](1.JPG)
 ![](2.JPG)
+
+> Difference between chromium and chrome?
+Chrome is a web browser developed by Google whereas Chromium is an open-source browser also created by Google. Chrome uses the same source code as Chromium, but with fewer extra features and add-ons. andd chromium gives more data privacy.
+
+Chromium comes under the BSD LICENSE which are a family of permissive free software licenses, However chrome comes under freeware which means its a free software but its source code is not open source or freely given to the public. 
+
 ![](3.JPG)
 - C called middle level programming language 
 Programming languages with features of both Low Level and High-Level programming languages are referred to as “Middle Level” programming languages. has features of both low-level and high-level programming languages.
@@ -28,9 +41,17 @@ The basic syntax and code structure of both C and C++ are the same. C++ is a gen
 - 1972: SQL: SQL was developed by Donald D. Chamberlin and Raymond F. Boyce at IBM.
 - 1978: MATLAB: Developed by Cleve Moler. MATLAB stands for Matrix Laboratory. It is one of the best computer programming languages for writing mathematical programs, can also be used to create two- and three-dimensional graphics.
 - 1983: Objective-C: Created by Brad Cox and Tom Love, Objective-C is the main computer programming language used when writing software for macOS and iOS, Apple’s operating systems.
+![](nkk.JPG)
 - 1983: C++: C++ is an extension of the C language and was developed by Bjarne Stroustrup. It is one of the most widely used languages in the world. C++ is used in game engines and high-performance software like Adobe Photoshop. Most packaged software is still written in C++.
 - 1991: Python: Designed by Guido Van Rossum
 - 1991: Visual Basic: Developed by Microsoft, Visual Basic allows programmers to choose and change pre-selected chunks of code in a drag-and-drop fashion through a graphical user interface (GUI).
+```bash
+Visual Basic was developed by Microsoft to extend the capabilities of BASIC by adding objects and “event-driven” programming: buttons, menus, and other elements of graphical user interfaces (GUIs). 
+
+Visual Basic was originally created to make it easier to write programs for the Windows computer operating system. 
+
+Microsoft Windows, also called Windows and Windows OS, computer operating system (OS) developed by Microsoft Corporation to run personal computers (PCs). Featuring the first graphical user interface (GUI) for IBM-compatible PCs, the Windows OS soon dominated the PC market.
+```
 - 1993: R:  It is mostly used by statisticians and those performing different types of data analysis.
 - 1995: Java: Originally called Oak, Java was developed by Sun Microsystems. It was intended for cable boxes and hand-held devices but was later enhanced so it could be used to deliver information on the World Wide Web
 - 1995: PHP: Created by Rasmus Lerdorf, PHP is used mostly for Web development and is usually run on Web servers. It originally stood for Personal Home Page. used to build websites and blogs. WordPress, a popular website creation tool
@@ -419,6 +440,23 @@ predefined functions are library functions, whose defination is stored in compil
 ![](c5.JPG)
 > conio.h not used is latest compilers 
 
+##### Difference between modulo and division?
+‘%’ is known as the modulus operator or the remainder operator; it is used to find the remainder of division of two numbers.
+```bash
+Eg;
+int i=10;
+int j=3;
+int c=i%j;
+// here, c will get the value 1 as 10 divide by 3 is quotient as 3 and remainder as 1
+
+‘/’ is known as the division operator; it is used to find the quotient in the division of two numbers.
+Eg:
+int i=10;
+int j=3;
+int c=i/j;
+// here, c will get the value 3 as 10 divide by 3 is quotient as 3 and remainder as 1
+```
+
 #### Input-Output
 ![](c6.JPG)
 
@@ -460,26 +498,106 @@ b=a;  #INT -> FLOAT
 
 Implicity compiler convert small datatype to bigger data type (converting int -> float)
 ![](c11.JPG)
-![](c12.JPG)
-![](c13.JPG)
-> by default compiler will print decimal value to 6 decimal places 
+```bash
+#include <stdio.h>
+int main() {
+   int a = 10;
+   char b = 'S';
+   float c = 2.88;
+   a = a+b;
+   printf("Implicit conversion from character to integer : %d
+",a);
+   c = c+a;
+   printf("Implicit conversion from integer to float : %f
+",c);
+   return 0;
+}
+```
+```bash
+#include <stdio.h>
 
+int main()
+{
+   int a = 10;
+   float b = 2.4;
+   b = a;
+    //now b=10
+
+   printf("%f", b); //10.000000
+   // compiler converts int to float (smaller -> bigger datatype) implicitly 
+
+   return (0);
+}
+
+#OUTPUT
+10.000000
+#by default compiler will print decimal value to 6 decimal places 
+```
 - However we can change the number of decimal places 
-![](k1.JPG)
+```bash
+#include <stdio.h>
+
+int main()
+{
+   int a = 10;
+   float b = 2.4;
+    b = a;
+    //now b=10
+
+   printf("%.2f", b); //rounds upto 2 decimal places 
+
+   return (0);
+}
+```
 
 - here compiler is converting implicity using format specifier
 ![](kk9.JPG)
+
 
 #### Explicit Type Casting 
 ![](kk2.JPG)
 This conversion is done by user. This is also known as typecasting. Data type is converted into another data type forcefully by the user.
 
 cannot convert big datatype to smaller datatype (float -> int) directly, we'll need to forcefully acheive this 
-![](kk3.JPG)
-
-- float(bigger datatype) converted to int(smaller datatype)
 ![](kk4.JPG)
-![](kk5.JPG)
+```bash
+#include <stdio.h>
+int main() {
+   float c = 5.55;
+   int s = (int)c+1;
+   printf("Explicit Conversion : %d
+",s);
+   return 0;
+}
+
+#OUTPUT 
+Explicit Conversion : 6
+```
+```bash
+#include <stdio.h>
+
+int main()
+{
+    int x = 60, y = 17;
+    float res;
+
+    res = x/y;
+    #Its calculating the integer division between x and y -> 60/17=3.5 =3
+    #and then its converting it to float -> 3.0
+    printf("(Without typecasting the expression) 60/17 = %.3f\n", res );  
+
+    res = (float)x/y;
+
+    #its converting x to float value so the calculation would be 60.0/17=3.529
+    printf("(With typecasting the expression) 60/17 = %.3f\n", res ); 
+
+    return 0;
+}
+
+#OUTPUT 
+(Without typecasting the expression) 60/17 = 3.000
+(With typecasting the expression) 60/17 = 3.529
+```
 
 ## Input and Output Functions 
 Both input and output function is defined in stdio. h thats why we need to define the library function in the header file so the compiler knows the mening of this predefined function
@@ -493,8 +611,7 @@ input function allows user to take input from the user via keyboard
 #### getchar()
 allows you to get one character from the user 
 ![](i12.JPG)
-![](i13.JPG)
-![](ii4.JPG)
+- taking singular character input using `getchar()`
 ```bash
 #include <stdio.h>
 
@@ -511,6 +628,54 @@ int main()
 
 #OUTPUT 
 x
+```
+- if the entered letter is right then print the first 
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char x;
+   x = getchar();
+   if(x=='a')
+   {
+    printf("hi");
+   } else {
+    printf("bye");
+   }
+
+   return (0);
+}
+
+#OUTPUT 
+- a 
+hi 
+```
+- choose Y/N 
+```bash 
+#include <stdio.h>
+
+int main()
+{
+   char x;
+   
+   printf("choose Y/N \n");
+   x= getchar();
+
+   if(x == 'y' || x== 'Y')
+   {
+    printf("hi");
+   } else {
+    printf("bye");
+   }
+
+   return (0);
+}
+
+#OUTPUT 
+- choose Y/N 
+- y
+hi 
 ```
 
 #### gets()
@@ -562,7 +727,21 @@ int main()
 
 > Can we format output, like print the output of int in octal format?
 ![](ii8.JPG)
-![](ii9.JPG)
+```bash
+
+#include <stdio.h>
+
+int main()
+{
+   int a = 10;
+   printf("%o", a);
+
+   return 0;
+}
+
+#OUTPUT 
+12 #comverted to octal form 
+```
 
 ## Output Function 
 ![](ii6.JPG)
@@ -772,6 +951,25 @@ x
 ```
 ##### Terminal QS
 ![](tt1.JPG)
+
+> Implicit conversion for the Q.1
+```bash
+#include <stdio.h>
+
+int main()
+{
+   int x, y= 10;
+   char z = 'a'; //97
+   // by doing this calculation were implicitly converting ch to int 
+   x = y+z;
+
+   printf("z:%d y:%d x:%d", z, y, x);
+
+   return 0;
+}
+
+// z:97 y:10 x:107
+```
 
 
 
