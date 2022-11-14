@@ -78,6 +78,9 @@ ADD R1, R2
 
 #HLL was created to overcome remembering all these neumonics 
 ```
+##### How computer convert text to binary?
+Computers convert text and other data into binary with an assigned ASCII (American Standard Code for Information Interexchange) value. Once the ASCII value is known, that value can be converted to binary.
+
 > History of C:
 ![](10.JPG)
 - ALGOL created
@@ -136,20 +139,20 @@ These source code cannot be executed directly by the computer and must be conver
 #C is case-sensitive language 
 
 #header file which includes code for ip/op 
-#include<stdio.h>
+#include <stdio.h>
     #entry point of program 
-    int main() 
-    {
-        #predefined function
-        printf('hello world');
-        return 0;
-    }
+int main() 
+{
+    #printf is a predefined function
+    printf("hello world");
+    return (0);
+}
 ```
 > Why do we use `int main()` in place of `void main()` ?
-- main() is a function 
+- `main()` is a function 
 as per C convention it has a default return type of int, which means it should return int type of value. However some compilers allow to write void main() which means its not returning any value. 
 
-Old compilers like Turbo C allow void main()
+Old compilers like Turbo C allow `void main()`
 
 > Why do we write `int` before main()?
 ```bash
@@ -163,15 +166,15 @@ int            sum       ()
 > variable is a name given to a memory block to hold a value 
 ![](16.JPG)
 ```bash
-#include<stdio.h>
+#include <stdio.h>
     int main() 
     {
         #these variables are added to RAM
         int a; #declaration - block assigned in the memory 
         a=6;   #initialisation - assigning value to the variable 
         #we can change the value of variable later on in the program
-        printf('%d', a);
-        return 0;
+        printf("%d", a);
+        return (0);
     }
 
 ```
@@ -187,24 +190,37 @@ int            sum       ()
     #global variables defined here 
     int sum = 30;
 
-    void lunch()
+    void lunch();
+
     int main() 
     {
         #define local variables and constants here 
         int sum = 10;
-        printf('%d\n', a);
-        #functions 
-        lunch()
-        return 0;
+        printf("%d\n", sum);
+        lunch();
+
+        return (0);
     }
 
-   lunch(){
-    printf('biryani');
+   void lunch(){
+    printf("biryani");
    }
+
+#OUTPUT:
+//    10
+// Biryani
 ```
 > Tokens in C
 ![](19.JPG)
 - smallest biulding block of the c program. every C program is a collection of tokens (tokens can be either of these: keyword (reserved words), identifier (the names you supply for variables, types, functions, and labels in your program), constant, string, operator, seperator (;), special symbol)
+
+#### Keyword 
+Keywords are reserved words whose meaning is already known to the C compiler.
+![](kk8.JPG)
+
+- when you use float compiler will know how much memory slot to assign
+- all keywords are written in lowercase 
+![](k999.JPG)
 
 ### Unit 2
 ![](111.JPG)
@@ -218,59 +234,72 @@ Operator is a special symbol which tells compiler what operation to perform.
 1. Arithmetic operator
 ![](23.JPG)
 ```bash
-#include<stdio.h>
+#include <stdio.h>
     int main() 
     {
-        int a = 9, b = 4;
+        int a = 9, b = 4, c;
         c= a+ b;
-        printf('%d\n', c);
+        printf("%d\n", c);
 
         c= a- b;
-        printf('%d\n', c);
+        printf("%d\n", c);
 
         c= a* b;
-        printf('%d\n', c);
+        printf("%d\n", c);
 
         c= a/ b;  
-        printf('%d\n', c);
+        printf("%d\n", c);
 
         c= a %b;
-        printf('%d\n', c);
+        printf("%d\n", c);
         
-        return 0;
+        return (0);
     }
+
+// 13
+// 5
+// 36
+// 2
+// 1
 ```
 2. Relational operator
 ![](24.JPG)
 ```bash
-#include<stdio.h>
+#include <stdio.h>
     int main() 
     {
         int a = 5, b=5, c=10;
         
-        printf('%d\n', a == b); #1
-        printf('%d\n', a == c); #0
-        printf('%d\n', a > b);  #0
-        printf('%d\n', a < c);  #1
-        return 0;
+        printf("%d\n", a == b); 
+        printf("%d\n", a == c); 
+        printf("%d\n", a > b);  
+        printf("%d\n", a < c);  
+        return (0);
     }
 
+// 1
+// 0
+// 0
+// 1
 ```
 3. Logical operator
 ![](25.JPG)
 when we want to combine more than 1 statement 
 ```bash
-#include<stdio.h>
+#include <stdio.h>
     int main() 
     {
         int a = 11, b=5, c=10;
         if(a>b && a>c) {
-           printf('\n a is greater than both');
+           printf("\n a is greater than both");
         } else {
-           printf('\n a is not greater than both');
+           printf("\n a is not greater than both");
         }
-        return 0;
+        return (0);
     }
+
+#OUTPUT 
+ a is greater than both
 ```
 - && (LOGICAL ADDITION) 
 ```bash
@@ -294,29 +323,34 @@ assigns value
     int main() 
     {
         #create 2 memory blocks in the RAM
-        int a = 11, b=5;
+        int a = 11, b=5, c;
         c= a+b;
         #c += a same as c=c+a
         
-        printf('%d\n', c);
+        printf("%d\n", c);
     
-        return 0;
+        return (0);
     }
+
+#OUTPUT 
+16
 ```
 
 5. Bitwise Operator 
 Bitwise operator operates at bit / binary level / 0s and 1s
 ![](31.JPG)
 ```bash
-#include<stdio.h>
+#include <stdio.h>
     int main() 
     {
         int a = 6, b=4;
-        #perform & operator at every bit level 
-        printf('%d\n', a&b);
+        //perform & operator at every bit level 
+        printf("%d\n", a&b);
 
-        return 0;
+        return (0);
     }
+
+// 4
 ```
 ![](bin1.JPG)
 
@@ -346,24 +380,24 @@ sizeof() gives size of the datatype
 #pre-decrement operator - decrease value, then assign
 #post-decrement - first assign, then decrease value 
 
-#include<stdio.h>
+#include <stdio.h>
     int main() 
     {
         int a = 1, b;
         b = ++a;
-        #a=2, b=2
+        //a=2, b=2
 
         b = a++;
-        #a=2, b=1
+        //a=2, b=1
 
         b = --a;
-        #a=0, b=0
+        //a=0, b=0
 
         b = a--;
-        #a=0 , b=1
-        printf('%d\n', a);
+        //a=0 , b=1
+        printf("%d %d\n", a, b);
 
-        return 0;
+        return (0);
     }
 ```
 ### Precedence Of Operators
@@ -387,4 +421,395 @@ predefined functions are library functions, whose defination is stored in compil
 
 #### Input-Output
 ![](c6.JPG)
+
+## Unit 3: Data Types and Input / Operator 
+![](i1.JPG)
+![](i2.JPG)
+
+- Type of data variable holds is called Data Types
+The moment you declare a variable, you need to declare its type 
+```bash
+#type of a is integer 
+int a = 10;
+```
+![](c9.JPG)
+
+##### Primitive VS Derived VS User Defined Data Types 
+inbuilt datatypes are known as primitive datatype, derived datatypes are derived from the primitive data types. while user defined data types are mainly used to assign names to integral constants, which make a program easy to read and maintain
 ![](c7.JPG)
+![](kkl.jpg)
+
+Different data types also have different ranges up to which they can store numbers. These ranges may vary from compiler to compiler. 
+![](c8.JPG)
+
+#### Type Casting
+Type Casting is basically a process in C in which we change a variable belonging to one data type to another one. In type casting, the compiler automatically changes one data type to another one depending on what we want the program to do.
+```bash
+#Converting one data type to another data type
+int a = 11;
+float b;
+b=a;  #INT -> FLOAT 
+```
+
+##### Types of Type Casting 
+- Implicit Type Casting - when smaller datatype converted into bigger datatype 
+- Explicit Type Casting - when large datatype convert into smaller data type (forced conversion)
+
+#### Implicit Type Casting
+![](c10.JPG)
+
+Implicity compiler convert small datatype to bigger data type (converting int -> float)
+![](c11.JPG)
+![](c12.JPG)
+![](c13.JPG)
+> by default compiler will print decimal value to 6 decimal places 
+
+- However we can change the number of decimal places 
+![](k1.JPG)
+
+- here compiler is converting implicity using format specifier
+![](kk9.JPG)
+
+#### Explicit Type Casting 
+![](kk2.JPG)
+This conversion is done by user. This is also known as typecasting. Data type is converted into another data type forcefully by the user.
+
+cannot convert big datatype to smaller datatype (float -> int) directly, we'll need to forcefully acheive this 
+![](kk3.JPG)
+
+- float(bigger datatype) converted to int(smaller datatype)
+![](kk4.JPG)
+![](kk5.JPG)
+
+## Input and Output Functions 
+Both input and output function is defined in stdio. h thats why we need to define the library function in the header file so the compiler knows the mening of this predefined function
+
+Input refers to feeding data into the program, and Output refers to getting data out of the program. Input and Output in C are done using the Standard Input/Output library, which we could include in the program using stdio.h header file consists of Input and Output functions in C like scanf() for input and printf() for output
+
+### Input Function
+![](i11.JPG)
+input function allows user to take input from the user via keyboard 
+
+#### getchar()
+allows you to get one character from the user 
+![](i12.JPG)
+![](i13.JPG)
+![](ii4.JPG)
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char a;
+   printf("enter place \n");
+   // scanf("%s", a);
+   a = getchar();
+   printf("%s", a);
+
+   return 0;
+}
+
+#OUTPUT 
+x
+```
+
+#### gets()
+allows you to get multiple ch (string) from the user 
+![](ii5.JPG)
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char  names[20];
+
+   printf("enter place \n");
+   gets(names);
+   printf("%s", names);
+
+   return 0;
+}
+
+#OUTPUT 
+// enter place 
+// jaipur rajasthan
+// jaipur rajasthan
+```
+
+#### Can we use `scanf()` in place of `gets()`?
+if we have a string `jaipur rajasthan`. scanf() would only print Jaipur because through scanf() allow you to enter only single character string. i.e after space it wont count the words. 
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char  names[20];
+
+   printf("enter place \n");
+   scanf("%s", names);
+   printf("%s", names);
+
+   return 0;
+}
+
+#OUTPUT 
+// enter place 
+// jaipur rajasthan
+// jaipur
+
+#in order to get full output use gets(name) instead 
+```
+
+> Can we format output, like print the output of int in octal format?
+![](ii8.JPG)
+![](ii9.JPG)
+
+## Output Function 
+![](ii6.JPG)
+used to print message on the console / output screen 
+
+#### putchar()
+for printing a single character only, if your output has more than one word only the first word would be printed anyways
+```bash
+#include <stdio.h>
+  
+int main()
+{
+    char ch = 'G';
+    putchar(ch);
+  
+    return (0);
+}
+
+#OUTPUT 
+G
+```
+
+#### puts()
+used to print multi word string, just like printf(). By default puts() prints the output in the next line
+![](ii7.JPG)
+
+> puts() automatically sends the output to the next line.
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char  names[20];
+
+   printf("enter surname \n");
+   scanf("%s", names);
+
+   // puts sends the output to the next line
+   puts(names);
+   puts(names);
+
+   return 0;
+}
+
+#INPUT 
+reem 
+
+#OUTPUT 
+reem 
+reem 
+```
+#### printf()
+printf() also displays multiword strings, However it doesnt send the output to the next line by default 
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char name[20];
+   printf("enter first name \n");
+   scanf("%s", name);
+
+   printf("%s", name);
+   printf("%s", name);
+
+   return 0;
+}
+
+#INPUT 
+reem 
+
+#OUTPUT 
+reemreem 
+```
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char name[20], names[20];
+   printf("enter first name \n");
+   scanf("%s", name);
+
+   // note printf() uses format specifiers, puts doesnt
+   // printf prints both the outputs on the same line
+   printf("%s", name);
+   printf("%s \n", name);
+
+   printf("enter surname \n");
+   scanf("%s", names);
+
+   // puts sends the output to the next line
+   puts(names);
+   puts(names);
+
+   return 0;
+}
+
+#OUTPUT
+- enter first name 
+- reem
+reemreem 
+- enter surname 
+- shaikh
+shaikh
+shaikh
+```
+#### Difference between `printf()` and `puts()`?
+> However if there is a printf() before puts() then the first output of the puts() would be printed on the same line as the output of printf()
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char name[20], names[20];
+   printf("enter first name \n");
+   scanf("%s", name);
+
+   printf("enter surname \n");
+   scanf("%s", names);
+
+   // note printf() uses format specifiers, puts doesnt
+   // printf prints both the outputs on the same line
+   printf("%s", name);
+   printf("%s \n", name);
+   //if we mention puts() after printf() then the first encounter it will print on the same line as printf() output, all the puts() after that will be printed on a new line 
+
+   // puts sends the output to the next line
+   puts(names);
+   puts(names);
+
+   return 0;
+}
+
+#INPUT 
+reem 
+shaikh 
+
+#OUTPUT 
+reemreem
+shaikh
+shaikh
+```
+> for instance if we didnt give the `\n` in printf() this would be the output 
+```bash
+#include <stdio.h>
+
+int main()
+{
+   char name[20], names[20];
+   printf("enter first name \n");
+   scanf("%s", name);
+
+   printf("enter surname \n");
+   scanf("%s", names);
+
+   printf("%s", name);
+   printf("%s", name);
+
+   puts(names);
+   puts(names);
+
+   return 0;
+}
+
+#INPUT 
+reem 
+shaikh 
+
+#OUTPUT 
+reemreemshaikh
+shaikh
+```
+> Important Takeaways
+- So you'll need to ensure that everytime you use printf() you're adding a `\n` in the printf() which means sending the pointer to the next line.
+- Strings should be written in double quotes, this aint JS. if you specify it in single quotes compiler will throw an error. In C and in C++ single quotes identify a single character, while double quotes create a string literal. 'a' is a single a character literal, while "a" is a string literal
+```bash
+#include <stdio.h>
+
+int main()
+{
+    char c = 'x';
+    printf("%c", c);
+    printf("%c", 'f');
+
+   return 0;
+}
+#OUTPUT 
+xf
+```
+- if you want to print one character use `putchar()`
+```bash
+#include <stdio.h>
+
+int main()
+{
+    char c = 'x';
+
+    //if you want to print one character use putchar()
+    putchar(c);
+
+   return 0;
+}
+
+#OUTPUT 
+x
+```
+##### Terminal QS
+![](tt1.JPG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
