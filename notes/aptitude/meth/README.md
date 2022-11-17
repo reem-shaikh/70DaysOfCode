@@ -427,11 +427,15 @@ If A, B and C are three sets, then (a ,b, c), where a ∈  A, b ∈  B and c ∈
 
 #### OPEN STATEMENT 
 ![](L8.JPG)
-![](L9.JPG)
 ![](L19.JPG)
 
-#### TRUTH VALUE OF STATMENT 
+#### TRUTH VALUE OF STATEMENT 
 ![](L20.JPG)
+
+#### TRUTH TABLE 
+![](K11.JPG)
+![](K12.JPG)
+![](K13.JPG)
 
 #### TYPES OF STATEMENTS
 ![](L21.JPG)
@@ -441,10 +445,10 @@ If A, B and C are three sets, then (a ,b, c), where a ∈  A, b ∈  B and c ∈
 ![](L23.JPG)
 
 ##### CONJUNCTION
+![](L27.JPG)
 ![](L24.JPG)
 ![](L25.JPG)
 ![](L26.JPG)
-![](L27.JPG)
 
 ##### DISJUNCTION 
 ![](L28.JPG)
@@ -454,37 +458,60 @@ If A, B and C are three sets, then (a ,b, c), where a ∈  A, b ∈  B and c ∈
 ![](NEH.JPG)
 ![](neh2.JPG)
 
-#### NEGATION OF COMPOUND 
-##### NEGATION OF CONJUNCION
+## NEGATION OF COMPOUND 
+##### NEGATION OF CONJUNCTION
 ![](LOP.JPG)
 ![](LP.JPG)
 ![](N1.JPG)
 ![](N12.JPG)
 ![](N13.JPG)
+![](k1.JPG)
 
 ##### NEGATION OF DISJUNCTION
 ![](N3.JPG)
 ![](N4.JPG)
+![](k3.JPG)
+![](k4.JPG)
 
 ##### NEGATION OF NEGATION
+![](k5.JPG)
 ![](N9.JPG)
 ![](N10.JPG)
 
-#### TYPES OF STATEMENTS 
+### TYPES OF STATEMENTS 
 ![](N11.JPG)
+
+##### CONDITIONAL STATEMENT 
+![](k6.JPG)
+![](K7.JPG)
+![](K90.JPG)
+
+##### BI-CONDITIONAL STATEMENT 
+![](K8.JPG)
+![](K7.JPG)
+![](K9.JPG)
+![](K10.JPG)
+![](K91.JPG)
+![](K14.JPG)
+![](K15.JPG)
 
 ## TAUTOLOGY, CONTRADICTION AND LOGICAL EQUAVALENCE 
 ### TAUTOLOGY 
 ![](T7.JPG)
 ![](T11.JPG)
+![](K17.JPG)
 ### CONTRADICTION
 ![](T8.JPG)
+![](K19.JPG)
 ## LOGICAL EQUAVALENCE 
+![](K20.JPG)
 ![](L11.JPG)
 ![](L12.JPG)
 ![](L15.JPG)
+![](K21.JPG)
+![](K22.JPG)
 
-#### TAUTOLOGY VS CONTRADICTION VS LOGICAL EQUAVALENCE
+#### TAUTOLOGY VS CONTRADICTION 
 ![](T10.JPG)
 ![](T199.JPG)
 
