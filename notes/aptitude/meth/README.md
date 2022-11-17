@@ -182,7 +182,7 @@ separated by commas and are enclosed within braces { }.
 
 > Note:
 while writing the set in roster form an element is
-not repeated.
+not repeated, but the elements can be specified in any order. 
 
 #### Set Builder Form 
 In set builder form, all the elements of a set possess a single common
@@ -204,6 +204,7 @@ x such that x is a vowel of the English alphabet’. In this description the bra
 ![](s7.JPG)
 
 ##### Empty Set / Null Set / Void Set 
+- its denoted by Φ or {}
 Consider the set {x : x is an integer, x2 + 1 = 0}. We know that there is no integer whose square is –1. So, the above set has no elements
 ![](s8.JPG)
 ![](s9.JPG)
@@ -255,10 +256,10 @@ equal
 
 ## Subsets 
  If every element of a set A is also an element of a set B, then A
-is called a subset of B or A is contained in B. We write it as A ⊂ B.
+is called a subset of B or A is contained in B. We write it as A ⊂ B. It can be read as A contained in B.
 
-The set Q of rational numbers is a subset of the set R of real numbers
-and we write Q ⊂ R.
+The set Q of rational numbers is a subset of the set R of real numbers and we write Q ⊂ R.
+![](note.JPG)
 
 #### Number of elements in Set 
 ![](s15.JPG)
@@ -267,6 +268,10 @@ and we write Q ⊂ R.
 #### Proper Subset 
 ![](s17.JPG)
 ![](s18.JPG)
+![](proper.JPG)
+
+#### Super Set 
+![](ss.JPG)
 
 #### Singleton Set 
 ![](s19.JPG)
@@ -287,10 +292,11 @@ and we write Q ⊂ R.
 ![](s28.JPG)
 ![](s29.JPG)
 
-### Venn Diagram
-Most of the relationships between sets can be represented by means of
-diagrams. Figures representing sets in the form of enclosed region in the
-plane are called Venn diagrams named after British logician John Venn(1834—1883 A.D.).
+### Venn Diagram / Set diagram / Logical diagram 
+Most of the relationships between sets can be represented by means of diagrams. Figures representing sets in the form of enclosed region in the plane are called Venn diagrams named after British logician John Venn(1834—1883 A.D.).
+
+A venn diagram shows all possible relations between a finite collection of different sets. 
+![](v1.JPG)
 ![](p4.JPG)
 
 ![](001.JPG)
@@ -309,6 +315,7 @@ plane are called Venn diagrams named after British logician John Venn(1834—188
 ![](s111.JPG)
 ![](s112.JPG)
 ![](130.JPG)
+![](cc.JPG)
 
 ### Operation on Set 
 ![](s114.JPG)
@@ -344,18 +351,34 @@ plane are called Venn diagrams named after British logician John Venn(1834—188
 ![](129.JPG)
 
 ### Applications of Sets
+
+### Theorem of Union of two sets 
+![](uu.JPG)
 #### Theorem 1 
 ![](a1.JPG)
 ![](a5.JPG)
 ![](t1.JPG)
 ![](t2.JPG)
-
 #### Theorem 2
 ![](a2.JPG)
 ![](a3.JPG)
 
 #### Theorem 3 
+![](t3.JPG)
 ![](a4.JPG)
+
+### DEMORGANS LAW 
+![](D1.JPG)
+
+### LAWS 
+1. commutative law 
+![](z1.JPG)
+
+2. associative law 
+![](v2.JPG)
+
+3. distributive law 
+![](v3.JPG)
 
 ### Cartesian Product of Sets
 Let A, B be two sets. If a ∈ A, b ∈ B, then (a, b) denotes an ordered pair whose first component is a and the second component is b. 
@@ -388,9 +411,84 @@ If A, B and C are three sets, then (a ,b, c), where a ∈  A, b ∈  B and c ∈
 
 #### Terminal QS 
 ![](t9.JPG)
+![](m1.JPG)
+![](m2.JPG)
 
+## LOGIC STATEMENT 
+![](L1.JPG)
 
+#### STATEMENT 
+![](L2.JPG)
+![](L3.JPG)
+![](L5.JPG)
+![](L6.JPG)
+![](L7.JPG)
+![](IO.JPG)
 
+#### OPEN STATEMENT 
+![](L8.JPG)
+![](L9.JPG)
+![](L19.JPG)
 
+#### TRUTH VALUE OF STATMENT 
+![](L20.JPG)
 
+#### TYPES OF STATEMENTS
+![](L21.JPG)
+![](L22.JPG)
 
+### LOGICAL CONNECTIVES 
+![](L23.JPG)
+
+##### CONJUNCTION
+![](L24.JPG)
+![](L25.JPG)
+![](L26.JPG)
+![](L27.JPG)
+
+##### DISJUNCTION 
+![](L28.JPG)
+![](L29.JPG)
+
+##### NEGATION 
+![](NEH.JPG)
+![](neh2.JPG)
+
+#### NEGATION OF COMPOUND 
+##### NEGATION OF CONJUNCION
+![](LOP.JPG)
+![](LP.JPG)
+![](N1.JPG)
+![](N12.JPG)
+![](N13.JPG)
+
+##### NEGATION OF DISJUNCTION
+![](N3.JPG)
+![](N4.JPG)
+
+##### NEGATION OF NEGATION
+![](N9.JPG)
+![](N10.JPG)
+
+#### TYPES OF STATEMENTS 
+![](N11.JPG)
+
+## TAUTOLOGY, CONTRADICTION AND LOGICAL EQUAVALENCE 
+### TAUTOLOGY 
+![](T7.JPG)
+![](T11.JPG)
+### CONTRADICTION
+![](T8.JPG)
+## LOGICAL EQUAVALENCE 
+![](L11.JPG)
+![](L12.JPG)
+![](L15.JPG)
+
+#### TAUTOLOGY VS CONTRADICTION VS LOGICAL EQUAVALENCE
+![](T10.JPG)
+![](T199.JPG)
+
+### APPLICATIONS OF LOGIC 
+![](MM.JPG)
+![](MM1.JPG)
+![](MM2.JPG)
