@@ -869,7 +869,7 @@ If we want to delete the employee number only from the table the entire record w
 
 ![](n11.JPG)
 when we delete Sec B course group unecesarily Sonam proffesor would be deleted. i.e deleting one record is impacting another record.
-
+git s
 ##### 3. UPDATION ANAMOLY 
 ![](g7.JPG)
 If we want to update the dept number of IT to 1, then we'll manually have to change it in 2 places, which could lead to human error (data inconsistency) if its forgotten to be changed in a place. 
@@ -971,8 +971,6 @@ In the non-procedural languages, the user has to specify only “what to do” a
 execution algorithms form executing the query
 ![](q2.JPG)
 
-### External Sorting
-![](q3.JPG) 
 
 
 
