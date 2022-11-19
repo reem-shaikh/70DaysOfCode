@@ -415,6 +415,7 @@ If A, B and C are three sets, then (a ,b, c), where a ∈  A, b ∈  B and c ∈
 ![](m2.JPG)
 
 ## LOGIC STATEMENT 
+Logic is the study of general patterns of reasoning, without reference to particular meaning or contexts. If an object is either black or white, and if it is not black, then logic leads us to the conclusion that it must be white. Observe that logical reasoning from the given hypotheses cannot reveal what ‘black’ or ‘white’ mean, or why an object can not be both.
 ![](L1.JPG)
 
 #### STATEMENT 

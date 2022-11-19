@@ -2238,15 +2238,233 @@ EFFECTIVE ADDRESS = BASE ADDRESS + DISPLACEMENT
 #while its in 100-199 = 100 + 60 = 160
 #while its in 400-499 = 400 + 60 = 460 
 ```
+## Pipelined Processor 
+![](q1.JPG)
+```bash
+set of program - software 
+set of instruction - program 
+instruction - command given to computer 
+```
+> Pipelining helps break down processes into sub-processes which can be executed parallel where each sub-processes are placed into a segment.
+![](q2.JPG)
+
+we know that there are 3 stages required for instruction cycle: fetch, decode, execute. 
+
+- In pipelining we have 5 stage execution
+1. fetch (IF)
+2. decode (ID)
+3. execute (EX)
+4. memory access (MEM)
+5. register write back (WB)
+
+> If one stage takes 1 clock cycle (1cc) to execute, to execute one instruction you'll need 5 clock cycles (5cc), if we have 8 instructions thn it would take (5cc x 8 = 40cc) in case of non-pipeline. Fetch I1 in first clock cycle, then while I1 is being decoded in I2 is added.
+```bash
+            |  S1  |  S2  |  S3  |  S4  |  S5 
+CLOCK CYCLE |  R1  |  R2  |  R3  |  R4  |  R5   
+    1       |  I1  
+    2       |  I2  |  I1
+    3       |  I3  |  I2  |  I1
+    4       |  I4  |  I3  |  I2  |  I1
+    5       |  I5  |  I4  |  I3  |  I2  |  I1
+    #I1 executed in 5cc
+
+However in order for 5 instructions to execute in non-pipeline it would require 5cc x 5 = 25cc
+
+Time taken for 5 instructions in pipeline:
+#if no of stages = k
+#no of instructions = n 
+Total clock cycle = k+(n-1) = 5 + 4 = 9cc
+
+Speedup = 25cc / 9cc 
+
+#IF WE HAD 1000 INSTRUCTIONS 
+PIPELINE TOTAL CC = 5 + (1000-1)
+                  = 1024
+
+Cycles per Instruction = PIPELINE CC / NO OF INSTRUCTIONS
+                       = 1024 / 1000
+                       = 1
+```
+> Here's an example with 8 instructions 
+![](ttt.JPG)
+
+pipeline breaks process into multiple sub-process (each process contains a bunch of instructions) these sub-processes are running parallely such that they are overlapping so the entire process is executed faster. 
+![](q3.JPG)
+![](q4.JPG)
+![](q5.JPG)
+
+#### How does sub-processes run concurrently?
+![](nnn.JPG)
+![](nnn2.JPG)
+The output of every  segment is stored in a register which is used as an input for the next segment where all segments work indepently thats why we can execute them concurrently.
+
+> Ai * Bi + Ci 
+```bash
+for an operation Ai * Bi + Ci
+where i=1,2,3,4 #which denote number of instances for the equation written above 
+
+each operand is placed in a specific register within the segment
+because the output of R1 is used as an input for R2 
+
+SEGMENT 1: 
+R1 <- Ai
+R2 <- Bi
+
+SEGMENT 2:
+R3 <-  Ai * Bi
+R4 <- Ci
+
+SEGMENT 3:
+R5 <- R3 + R4
+
+            | SEGMENT 1   | SEGMENT 2   | S3
+CLOCK CYCLE |  R1  |  R2  |  R3  |  R4  |  R5   
+    1       |  A1  |  B1
+    2       |  A2  |  B2  | A1*B1 | C1
+    3       |  A3  |  B3  | A2*B2 | C2  | A1*B1+C1
+    4       |  A4  |  B4  | A3*B3 | C3  | A2*B2+C2
+
+```
+
+> Ai * Bi + Ci * Di
+```bash
+for an operation Ai * Bi + Ci * Di
+where i=1,2,3,4 #which denote number of instances for the equation written above 
+
+each operand is placed in a specific register within the segment
+because the output of R1 is used as an input for R2 
+
+SEGMENT 1: 
+R1 <- Ai
+R2 <- Bi
+
+SEGMENT 2:
+R3 <-  Ai * Bi
+R4 <- Ci
+
+SEGMENT 3:
+R5 <- Di
+R6 <- Ci * Di 
+
+SEGMENT 4:
+R7 <- R3 + R6
+
+#Notice how simultanousely multiple sub-processes are executing concurently within their respective segments 
+            | SEGMENT 1   |  SEGMENT 2  |  SEGMENT 3  | S4
+CLOCK CYCLE |  R1  |  R2  |  R3  |  R4  |  R5  |  R6  | R7
+    1       |  A1  |  B1
+    2       |  A2  |  B2  | A1*B1 | C1
+    3       |  A3  |  B3  | A2*B2 | C2  |  D1  | C1*D1|
+    4       |  A4  |  B4  | A3*B3 | C3  |  D2  | C2*D2| A1*B1+C1*D1
 
 
+A1   B1    C1   D1   #FETCHING operands into register 
+ \   /      \   /   
+   R3         R6     #EXECUTED and placed in another register 
+ (A1*B1)    (C1*D1)  
+    \        /
+     A1*B1+C1*D1
+     #stored in R7
+```
+#### What's need for pipelining?
+- used to make CPU processing very fast by arranging hardware in such a way that processees can execute concurently. this is a cheaper choice than changing circuits which is a costly option for improving processing speed (process more instructions in lesser time).
+- pipelining the arrangement of existing hardware elements in the CPU in such a way that the performance is increased 
+- non-pipeline means until one process is not complete the second process cannot start, however in pipeline multiple sub-processes overlap in execution.
+- space-time ( segments - clock cycle ) diagram is used to denote how multiple sub-processes are executed in real time
+
+#### TYPES OF PIPELINE
+![](Q6.JPG)
+![](line.JPG)
+![](line1.JPG)
+- linear pipeline - output of S1 segment will be taken as an input to the S2 segment and so on... i.e its connected streamline.
+- non-linear pipeline - output of S1 segment can be taken as input to any other segment. For example, output of S1 can be taken as input to S3 (feed forward connection), also S1 can be taken as an input to S2(streamline connection), also S3 can take taken as an input to S1 (feed back connection)
+
+> pipelining example 
+each row represents a stage of instruction execution, you can see that 8 instructions are running parallely,  for executing these 8 instructions we need 12 clock pulse (no of pulse its executing instructions). if we tried to execute the same execution without pipleining we'd need (8instructions x 5 stages = 40 clock pulse cycles)
+![](q7.JPG)
+```bash
+#execution time of pipeline 
+no of clock cycles = no of stages + (num of instructions - 1)
+                   = 5 + (8-1)
+                   = 5 + 7
+                   = 12 
+
+#execution time of non-pipeline 
+no of stages * num of instructions = 8 * 5 = 40
+
+#calculating efficiency 
+total bocks = 5 x 12 = 60 
+no of blocks we used = 40 
+efficiency = 40/60 
+
+#calculating speedup
+speedup = execution tm of non-pipeline / execution tm of pipeline 
+        = k*n / k*(n-1)
+        = 40 / 12 = 3.3 
+```
+#### HAZARD IN PIPELINE**
+In pipelining cycles per instruction should be equal to 1, however there are certain cases which causes a delay in the CPI these are called hazards. 
+![](q8.JPG)
+![](q9.JPG)
+![](q10.JPG)
+
+##### DATA HAZARD 
+> What is data dependency?
+A position in which an instruction is dependent on a result from a sequentially earlier instruction before it can be done its execution.
+
+there are 4 kind of data dependency 
+- READ AFTER WRITE (TRUE DEPENDENCY)
+```bash
+#WRITE R1 
+R1 <- R1 + R2  
+#READ R1 
+R4 <- R1 + R3
+
+for an operation Ai + Bi + Ci
+where i=1,2,3,4 #which denote number of instances for the equation written above 
+
+each operand is placed in a specific register within the segment
+because the output of R1 is used as an input for R2 
 
 
+R1 <- Ai
+R2 <- Bi
+R1 <-  Ai + Bi 
+R3 <- Ci
+R4 <- R3 + R1
+
+CLOCK CYCLE |  R1  |  R2  |  R3  |  R4
+    1       |  A1  |
+    2       |  A2  |  B1
+    3       |  A3  |  B2  |  C1
+    4       | A1+B1|  B3  |  C2  |  A1+B1+C1
 
 
+IF / DE  |  OPERAND FETCH | EXECUTE | | WB
+```
+- WRITE AFTER READ (ANTI DEPENDENCY) 
+- WRITE AFTER WRITE (OUTPUT DEPENDENCY)
+- READ AFTER READ 
 
 
+##### STRUCTURAL HAZARD 
+when two paralel instructions need to access the same resource for R/W at the same clock pulse. 
+![](q11.JPG)
+![](Q14.JPG)
 
+###### CONTROL HAZARD 
+When a program is executing sequentially and it encounters a JUMP instruction before I3, then it will need to jump to that address, if it doesnt then it'll cause a branch hazard.
+![](Q12.JPG)
+![](Q13.JPG)
+![](Q15.JPG)
+
+#### Effect of Hazard on Performance 
+![](q18.JPG)
+![](q19.JPG)
+
+### Performance Improvement with Pipelining 
+![](q16.JPG)
+![](q17.JPG)
 
 
 
