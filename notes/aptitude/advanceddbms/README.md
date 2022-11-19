@@ -960,5 +960,32 @@ convert normalized database and convert to non-normalized database to faster acc
 ![](FFD.JPG)
 ![](FFD2.JPG)
 
+# Unit 4: Query Optimization 
+![](q1.JPG)
+```bash
+In procedural languages, the program code is written as a sequence of instructions. User has to specify “what to do” and also “how to do” (
+
+In the non-procedural languages, the user has to specify only “what to do” and not “how to do”. It is also known as an applicative or functional language. 
+```
+## QUERY EXECUTION ALGORITHM 
+execution algorithms form executing the query
+![](q2.JPG)
+
+### External Sorting
+![](q3.JPG) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
