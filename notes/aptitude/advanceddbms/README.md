@@ -967,17 +967,7 @@ In procedural languages, the program code is written as a sequence of instructio
 
 In the non-procedural languages, the user has to specify only “what to do” and not “how to do”. It is also known as an applicative or functional language. 
 ```
-## QUERY EXECUTION ALGORITHM 
-execution algorithms form executing the query
-![](q2.JPG)
-
-
-
-
-
-
-
-
+## Query Optimization
 
 
 

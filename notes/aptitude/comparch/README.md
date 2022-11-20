@@ -2304,7 +2304,7 @@ for an operation Ai * Bi + Ci
 where i=1,2,3,4 #which denote number of instances for the equation written above 
 
 each operand is placed in a specific register within the segment
-because the output of R1 is used as an input for R2 
+because the output of R1 in segment 1 is used as an input for segment 2
 
 SEGMENT 1: 
 R1 <- Ai
@@ -2402,58 +2402,154 @@ speedup = execution tm of non-pipeline / execution tm of pipeline
         = k*n / k*(n-1)
         = 40 / 12 = 3.3 
 ```
-#### HAZARD IN PIPELINE**
-In pipelining cycles per instruction should be equal to 1, however there are certain cases which causes a delay in the CPI these are called hazards. 
+#### STAGE DELAY IN PIPELINE 
+![](coa.JPG)
+- we have 4 stage pipeline 
+```bash
+Instruction fetch | Instruction decode | operand fetch | execute 
+#usually between each stage there would be a uniform delay, but in this case we have different time delays for each stage / segment 
+```
+- the intermediate result of each segment / stage is stored in its respective registers in between the time delays so its value is not lost
+```bash
+every register can also have some delay, which is very minute like 5nano seconds. so the combined delay for each stage is increased by 5ns
+```
+- decoders extract the effective address from the instruction and fetches the operand from memory / register by referring the addressing mode
+```bash
+I | OPODE | EFFECTIVE ADDRESS 
+#Note; the effective address contains the operand address 
+
+The effective address contains an address within the memory (effective address) which contains the address of where the operand actually lies within the memory itself
+```
+- A constant frequency of clock pulse is assorted for each stage. maximum stage delay is 165ns, we take this value as a reference to calculate the frequency for the constant clock pulse 
+```bash
+frequency = 1 / time delay 
+
+#maximum time delay = 165ns 
+frequency of each clock pulse = 1 / 165 
+```
+- the first instruction takes full 4cycles to execute, but every instruction after that takes 1cpi to execute. 
+- total time taken to process 1000 instructions 
+```bash
+#1st instruction time taken to execute  --------- 1
+1 x 4cpi x 165
+
+#999 instructions time taken to execute ---------- 2
+999 x 1cpi x 165 
+
+#total time taken ----> 1+2
+```
+# HAZARD IN PIPELINE**
+In pipelining cycles per instruction should be equal to 1, however there are certain cases which causes a delay in the CPI these are called hazards, this in turn reduces the performance. 
+
+pipelining is implemented to improve the performance, but hazards reduce this speedup. thats why its so important to eliminate them. 
+
+Hazards in Pipelining prevent the next instruction in the instruction stream from executing during its designated clock cycle. 
 ![](q8.JPG)
 ![](q9.JPG)
 ![](q10.JPG)
 
-##### DATA HAZARD 
+## I. DATA HAZARD 
 > What is data dependency?
-A position in which an instruction is dependent on a result from a sequentially earlier instruction before it can be done its execution.
+A position in which an instruction is dependent on a result from a sequentially earlier instruction before it can be done its execution. There are 4 kind of data dependency: 
 
-there are 4 kind of data dependency 
-- READ AFTER WRITE (TRUE DEPENDENCY)
+#### 1. READ AFTER WRITE (TRUE DEPENDENCY)
+Such a dependecy exists when the output of one instruction `R3 <-  R2 + R1 ` is required as an input of one of the next instructions `R5 <- R3 + R4`
+![](coa2.JPG)
 ```bash
-#WRITE R1 
-R1 <- R1 + R2  
-#READ R1 
-R4 <- R1 + R3
+#if the value of R3 is computed and read after its been read by R5 
+I1: R3 <- R1 + R2
+I2: R5 <- R3 + R4
 
 for an operation Ai + Bi + Ci
 where i=1,2,3,4 #which denote number of instances for the equation written above 
 
 each operand is placed in a specific register within the segment
-because the output of R1 is used as an input for R2 
-
 
 R1 <- Ai
 R2 <- Bi
-R1 <-  Ai + Bi 
-R3 <- Ci
-R4 <- R3 + R1
 
-CLOCK CYCLE |  R1  |  R2  |  R3  |  R4
-    1       |  A1  |
-    2       |  A2  |  B1
-    3       |  A3  |  B2  |  C1
-    4       | A1+B1|  B3  |  C2  |  A1+B1+C1
+R3 <- Di
+R4 <- Ci
 
+#If the later instruction R5 tries to read on operand R3 before earlier instruction writes it, in this case, the RAW hazards will occur.
+R3 <-  R2 + R1 
+R5 <- R3 + R4  #value of R3 is read after R5 is executed 
+this leads to data inconsistency
 
-IF / DE  |  OPERAND FETCH | EXECUTE | | WB
+#READ AFTER WRITE 
+#We write the value OF R3 before its actually calculated in R5
+
+CLOCK CYCLE |  R1  |  R2    |  R3  |  R4  |  R5
+    1       |  A1  |  B1    | 
+    2       |  A2  |  B2    | D1   |  C1                                   
+    3       |  A3  |  B3    | D2   |  C2  | D1+C1
+    4       |  A4  |  B4    | D3   |  C3  | D2+C2
+    5       |  
+
+before R3 could be updated / read to A1+B1, the value of D1 is taken as the value of R3 and this value is written in R5, instead of A1+B1+C1
+
+so the value of R3 is READ after its been WRITTEN in R5
 ```
-- WRITE AFTER READ (ANTI DEPENDENCY) 
-- WRITE AFTER WRITE (OUTPUT DEPENDENCY)
-- READ AFTER READ 
+> Whats happening here?
+```bash
+#RISC uses 5 stage architecture 
+Instruction fetch / Instruction decode | operand fetch | execute | Write back in memory 
+```
+1. Instruction 1 is fetched and decoded, which returns the instruction format and tells the compiler what operation is to be performed and where to fetch the operandds from, along with its addressing mode.
+I | OPCODE | OPERAND 
 
+2. While I1 is executing, the I2 is brought to the second clock cycle 
+3. After ALU performs operations for tthe I1 instruction, it stores it in a register R3
+4. The final value is constructed by the end of S3, its at this point the computed value is written back (WB) to the memory.
 
-##### STRUCTURAL HAZARD 
+> Why is it called true dependency?
+A read-after-write (RAW) is a true dependence because the read is intended to receive the result of the write.
+
+#### 2. WRITE AFTER READ (ANTI DEPENDENCY) 
+This kind of dependency occurs when the output of the subsequent instructions is taken as an input for the previous instruction.
+![](coa3.JPG)
+```bash
+#if I2 IS EXECUTED BEFORE I1, then the COMPUTED value of R2 from I2 will be taken as a reference to compute I1
+I1: R1 <- R2 * R3 #WRITE R2 from the read value 
+I2: R2 <- R4 + R5 #READ R2 FIRST
+
+if I1 performed / executed late and I2 COMPUTED the value of R2 abd used this value in computing I1
+```
+> How is it possible that I1 is executed late?
+generally this problem doesnt occur in pipelining since the instruction is first fetched and decoded and then the operands are read instantly. 
+
+#### 3. WRITE AFTER WRITE (OUTPUT DEPENDENCY)
+![](coa5.JPG)
+This kind of dependency appears when two instructions are using the same location as an output, they both write in the same register/memory address:
+```bash
+#before WAW
+I1: R3 <- R1 * R2 #R3 written first
+I2: R3 <- R4 + R5 #R3 overwritten 
+
+#However if both instructions occur concurrently and I2 executes before I1, then this can lead to WAW hazard
+
+#after WAW 
+I1: R3 <- R1 * R2 #R3 written second
+I2: R3 <- R4 + R5 #R3 written first 
+```
+*this is called lost update problem in database which means try to read and update the same data*
+
+#### Elimination of artificial dependencies
+The output dependency and the antidependecy are not real dependencies, they are called artificial and can be eliminated by using additional registers. 
+
+## II. STRUCTURAL HAZARD 
 when two paralel instructions need to access the same resource for R/W at the same clock pulse. 
+
+this hazard happens when we have many instructions and little resource. and when multiple instructions need the same resource.  
+
+Structural hazards arise due to hardware resource conflict amongst the instructions in the pipeline. A resource here could be the Memory, a Register in GPR or ALU. This resource conflict is said to occur when more than one instruction in the pipe is requiring access to the same resource in the same clock cycle. 
 ![](q11.JPG)
 ![](Q14.JPG)
 
-###### CONTROL HAZARD 
+## III. CONTROL HAZARD 
 When a program is executing sequentially and it encounters a JUMP instruction before I3, then it will need to jump to that address, if it doesnt then it'll cause a branch hazard.
+
+all instructions that change the program counter lead to control hazard.
 ![](Q12.JPG)
 ![](Q13.JPG)
 ![](Q15.JPG)

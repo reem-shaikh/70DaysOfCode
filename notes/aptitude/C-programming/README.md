@@ -970,29 +970,110 @@ int main()
 
 // z:97 y:10 x:107
 ```
+# Control Statements 
+![](c1.JPG)
 
+## Flow Control in C programming
+![](w2.JPG)
+> control flow of execution in a C program is called flow control 
 
+### I. Decision Control 
+![](w3.JPG)
 
+##### 1. If statement 
+![](w4.JPG)
+![](w5.JPG)
 
+##### 2. If- Else statement 
+![](w6.JPG)
+![](w7.JPG)
 
+##### 3. If- Else if Ladder
+![](w8.JPG)
+![](w9.JPG)
 
+##### 4. Nested if-else
+![](w10.JPG)
 
+##### 5. Switch case
+![](w11.JPG)
+![](w12.JPG)
+In the switch statement, we compare the condition value with multiple cases. When there is a match with any one of the cases, the block of code corresponding with that case is executed. Each case has a name or a number, which is known as its identifier. If none of the cases matches the condition, the block of code corresponding to the default case is executed. The same example of finding number of days in each month is done using the switch below.
+```bash
+switch (condition) {
+case identifier1:
+//block of code
+break;
+# Break will return control out of switch case.so if we don't use it then next case statements will be executed until break appears. 
 
+case identifier2:
+//block of code
+break;
 
+case identifier3:
+//block of code
+break;
 
+case identifiern:
+//block of code
+break;
 
+default:
+//block of code
+}
+```
+> Pros:
+- A switch statement is significantly faster than an if-else ladder if there are many nested if-else's involved. Switch is generally faster than a long list of ifs because the compiler can generate a jump table during compilation. It is ideal to use a switch instead of using nested if-else statements as it is faster due to the creation of a jump table. The number of comparisons made is lesser hence, reducing the compile time.
 
+### II. Loop Control 
+![](w13.JPG)
+> used for executing block of statement again and again.
 
+#### 1. While Loop 
+![](w14.JPG)
+![](w15.JPG)
 
+> Entry control loop - before executing the loop check the condition at the entry point.
+1. initialize variable 
+2. check condition 
+3. iterate based on whether increement or decrement 
 
+#### 2. Do-While Loop 
+![](w16.JPG)
 
+> Exit-controlled Loop 
+1. iniitalize variable 
+2. iterate based on whether increement or decrement
+3. check condition  
 
+##### Difference between while and do-while?
+![](w17.JPG)
+While loop statement(s) is executed zero times if the condition is false, whereas the do-while statement is executed at least once.
 
+#### 3. For Loop 
+![](w18.JPG)
 
+> Entry control loop - before executing the loop check the condition at the entry point.
+1. initialize variable 
+2. check condition + iterate based on whether increement or decrement 
 
+### JUMP CONTROL STATEMENT 
+![](jump.JPG)
 
+#### BREAK 
+![](W19.JPG)
+![](W20.JPG)
 
+#### CONTINUE 
+![](W21.JPG)
+![](W22.JPG)
+it skips 3 and prints everything else in the loop
 
+#### GOTO 
+![](W23.JPG)
+
+## TERMINAL QS 
+![](W24.JPG)
 
 
 
