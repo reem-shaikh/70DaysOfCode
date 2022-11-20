@@ -2490,7 +2490,9 @@ before R3 could be updated / read to A1+B1, the value of D1 is taken as the valu
 
 so the value of R3 is READ after its been WRITTEN in R5
 ```
-> Whats happening here?
+##### Whats happening here?
+![](coa9.JPG)
+![](coa10.JPG)
 ```bash
 #RISC uses 5 stage architecture 
 Instruction fetch / Instruction decode | operand fetch | execute | Write back in memory 
@@ -2546,6 +2548,22 @@ Structural hazards arise due to hardware resource conflict amongst the instructi
 ![](q11.JPG)
 ![](Q14.JPG)
 
+> How to fix Structural Hazard?
+```bash
+            | SEGMENT 1   |  SEGMENT 2  |  SEGMENT 3  | S4
+CLOCK CYCLE |  R1  |  R2  |  R3  |  R4  |  R5  |  R6  | R7
+    1       |  A1  |  B1
+    2       |  A2  |  B2  | A1*B1 | C1
+    3       |  A3  |  B3  | A2*B2 | C2  |  D1  | C1*D1|
+    4       |  A4  |  B4  | A3*B3 | C3  |  D2  | C2*D2| A1*B1+C1*D1
+#instruction 4 is fetched in clock cycle 4, its accessing the memory  
+#memory is accessed to store the written value of I1
+```
+- we could pause the fetched values of I4 by storing it in a stall and reestarting it in clock cycle 5 but this wouldnt solve the problem since the memory is still accessed in the 5th clock cycle. TThis would also go against clock per instruction = 1. So this trouboleshooting method would affect the systems performance
+- Other approach would be to get more resources - resource duplication
+- Other approach would be to use resources in a pipeline, but this would become too complex 
+- Other approach would be resource renaming, in this approach we would be creating different locations in the memory for instructions and data that is computed.
+
 ## III. CONTROL HAZARD 
 When a program is executing sequentially and it encounters a JUMP instruction before I3, then it will need to jump to that address, if it doesnt then it'll cause a branch hazard.
 
@@ -2554,23 +2572,97 @@ all instructions that change the program counter lead to control hazard.
 ![](Q13.JPG)
 ![](Q15.JPG)
 
+consider that your current instruction is at 1000 adress and the next instruction I2 contains a conditional branching statement `BNEZ R1, 2000` where the pointer of program counter will jump to 2000 if value of R1 is not equal to 0, I2 is first fetched, when its decoded it realizes that this is a branching instruction, then it goes ahead and executes, while also concurrently processing the other instructions, however when it comes to the WB phase (writting the computed value to the register), this is the point the pointer jumps to 2000 address, howver when it does that, then all the instructions that were running concurrently will be flushed out and it starts executing the branched address. This reduces the performance. the count cycles lost due to branch misprediction for other instructions is called branch stall count. 
+
+![](coa6.JPG)
+> How can we prevent this hazard?
+Branches affect the instruction fetch for the next clock cycle. Many hazards can be resolved by forwarding data from the pipeline
+registers to temporrily store the intermediate data in between the stages, however forwarding may not work for control hazard. 
+```bash
+save the value of the other instructions in the interface registers which exist in between the stages, so after the execution of the branched instruction is over, we can continue with the execution of the other instructions that were running concurrently in the pipelined architecture. 
+```
+System realizes during execution phase that this is a branching instruction, once its detected we can stall the other instructions (stall the pipeline). but this approach delays the execution and decreases the performance because stalling delays the entire pipeline. 
+
+the count cycles of instructions lost, when stall is implemented is called load stall count. stalls are empty cycles that are placed in place of where the instructions would be executed.  
+
+the number of stalls introduced in the pipelined processor during this branch operation is called branch penalty. however we can eliminate all these stalls through branch prediction to increase performance. no of stalls introduced / branch penalty depends on the number of branch instructions.
+
+If there are no stalls, performance can be improved by the number of stages of a pipeline 
+![](coa12.JPG)
+```bash
+CPI denotes the number of cycles required for one instructiohn 
+Clock cycle time denotes the time required per cycle  
+```
+
 #### Effect of Hazard on Performance 
+![](coa11.JPG)
 ![](q18.JPG)
+![](coa13.JPG)
 ![](q19.JPG)
+
+speedup increases the extra stall cycles thats added to combat hazards like control hazard, which reduces the performance. 
+```bash
+pipeline stall cycles per instruction - no of clock cycles used in stalls
+```
 
 ### Performance Improvement with Pipelining 
 ![](q16.JPG)
 ![](q17.JPG)
 
+### Pipeline Design Space 
+![](coa22.JPG)
+![](coa14.JPG)
+![](coa15.JPG)
+![](coa16.JPG)
+```bash
+pipeline stages are fetch, decode, execute, memory, write back to the register. now each of thee pipeline stages require one cycle of time
 
+no of pipeline stages:
+there can be 4stage / 5stage or 6stage architecture 
 
+layout of stage sequence; IF -> ID -> EX -> MEM -> WB 
+stages recycled sequence: IF -> ID -> ID ->  EX -> EX -> MEM -> WB 
+#stages are recycled 
 
+we can also bypass some stage if required 
+```
+#### Dependency resolution 
+![](coa19.JPG)
+![](coa20.JPG)
+![](coa23.JPG)
+![](coa21.JPG)
 
+### Pipeline Instruction Processing 
+![](coa24.JPG)
+![](coa25.JPG)
+![](coa26.JPG)
+![](coa29.JPG)
+![](coa30.JPG)
 
+### Integer and Boolean Instructions 
+![](coa31.JPG)
+![](coa32.JPG)
+![](coa33.JPG)
+![](coa35.JPG)
+![](coa36.JPG)
+![](coa40.JPG)
+![](coa41.JPG)
+![](coa42.JPG)
+![](coa43.JPG)
+![](coa44.JPG)
 
-
-
-
+### Pipelined Processing of Load and Store 
+![](coa45.JPG)
+![](coa46.JPG)
+```bash
+LOAD (to load data into the accumulator from memory) 
+STORE (to store the data in the memory location from a accumulator). 
+```
+![](coa47.JPG)
+![](coa48.JPG)
+![](coa50.JPG)
+![](coa51.JPG)
+![](coa52.JPG)
 
 
 
