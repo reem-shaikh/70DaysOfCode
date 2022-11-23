@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="1-header" id="header">
+      <nav class="nav bd-grid">
+
+        <!-- <div class="nav_toggle" id="menuBtn">
+          <i class="bx bxs-grid"></i>
+        </div> -->
+        <img src="../images/menu.png" alt=""  id="menuBtn"/>
+        <!-- <a href="#" class="nav_logo">Roby</a> -->
+      
+
+        <nav class="nav_menu" id="nav-menu">
+          <ul class="nav_list">
+            <li class="nav_item">
+              <a href="#home" class="nav_link active">Home</a>
+            </li>
+            <li class="nav_item">
+              <a href="#featured" class="nav_link">Featured</a>
+            </li>
+            <li class="nav_item">
+              <a href="#women" class="nav_link">Women</a>
+            </li>
+            <li class="nav_item"><a href="#new" class="nav_link">New</a></li>
+            <li class="nav_item">
+              <a href="./shop.html" class="nav_link">Shop</a>
+            </li>
+          </ul>
+        </nav>
+
+      
+      </nav>
+    </header>
+
+    <script>
+      const showMenu = (toggleId, navId) => {
+        const toggle = document.getElementById(toggleId),
+          nav = document.getElementById(navId);
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", () => {
+            nav.classList.toggle("show");
+            toggle.classList.toggle("show");
+         
+          });
+        }
+      };
+
+      showMenu("menuBtn", "nav-menu");
+    </script>
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+  </body>
+</html>

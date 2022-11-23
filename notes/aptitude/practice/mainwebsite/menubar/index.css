@@ -1,0 +1,28 @@
+.nav_menu {
+    display: none;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+  
+    /* initially the menu contents is hidden */
+    right: 0px;
+    top: 0;
+    background-color: #f67c92;
+    z-index: 2;
+    /* transition for emooth menu opening */
+    transition: 0.5s;
+  }
+  
+  .show {
+    display:block;
+  } 
+
+  #menuBtn {
+    /* were shifting this menu icon to the top-right */
+    width: 50px;
+    position: fixed;
+    right: 65px;
+    top: 35px;
+    z-index: 3;
+    cursor: pointer;
+  }
