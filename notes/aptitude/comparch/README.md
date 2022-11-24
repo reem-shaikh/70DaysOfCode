@@ -2457,8 +2457,8 @@ Such a dependecy exists when the output of one instruction `R3 <-  R2 + R1 ` is 
 ![](coa2.JPG)
 ```bash
 #if the value of R3 is computed and read after its been read by R5 
-I1: R3 <- R1 + R2
-I2: R5 <- R3 + R4
+I1: R3 <- R1 + R2  #read
+I2: R5 <- R3 + R4  #write
 
 for an operation Ai + Bi + Ci
 where i=1,2,3,4 #which denote number of instances for the equation written above 
@@ -2477,7 +2477,9 @@ R5 <- R3 + R4  #value of R3 is read after R5 is executed
 this leads to data inconsistency
 
 #READ AFTER WRITE 
-#We write the value OF R3 before its actually calculated in R5
+1. write - R3 value written in R5
+2. read - then R3 value is computed i.e R1 + R2
+#We write the value OF R3 in R5 nefore its actually calculated in R3
 
 CLOCK CYCLE |  R1  |  R2    |  R3  |  R4  |  R5
     1       |  A1  |  B1    | 
@@ -2505,7 +2507,7 @@ I | OPCODE | OPERAND
 4. The final value is constructed by the end of S3, its at this point the computed value is written back (WB) to the memory.
 
 > Why is it called true dependency?
-A read-after-write (RAW) is a true dependence because the read is intended to receive the result of the write.
+A read-after-write (RAW) is a true dependence because the read is intended to receive the result of the write. when in reality itt should b the ther way roun
 
 #### 2. WRITE AFTER READ (ANTI DEPENDENCY) 
 This kind of dependency occurs when the output of the subsequent instructions is taken as an input for the previous instruction.
@@ -2633,6 +2635,7 @@ Pipelining executes instructions at the same time but in different stages
 ![](coa14.JPG)
 ![](coa15.JPG)
 ![](coa16.JPG)
+![](cia99.JPG)
 ```bash
 pipeline stages are fetch, decode, execute, memory, write back to the register. now each of thee pipeline stages require one cycle of time
 
@@ -2646,12 +2649,38 @@ stages recycled sequence: IF -> ID -> ID ->  EX -> EX -> MEM -> WB
 we can also bypass some stage if required 
 ```
 #### Dependency resolution 
+```bash
+Dependency are hazards that affect the performance of the CPU.
+
+Types of dependency in pipeline architecture:
+1. structural dependency - resolves through renaming the resources 
+2. control dependency - resolves using branch prediction
+3. data dependency - code reordering 
+
+control dependencies may introduce stalls in the pipeline 
+```
 ![](coa19.JPG)
+![](cia20.JPG)
+```bash
+MIPS archtecture works in 5 stage execution
+
+static dependenedency resolution is done by the compiler
+dyanamic dependency resolution is done by extra hardware 
+```
 ![](coa20.JPG)
 ![](coa23.JPG)
 ![](coa21.JPG)
 
+#### What happens if we increase the number of stages in a pipeline?
+![](cia22.JPG)
+
 ### Pipeline Instruction Processing 
+![](cia23.JPG)
+1. fetching instruction of memory 
+2. decoding the instruction and calculating the effective address from the operand then check if its a branch instruction in decoding phase
+3. if its not a branch, fetch operand from the memory, else if its a branch then keep the other instructions in a stall and execute the instruction its redirected to.
+4. execute the instruction
+5. check for interrupt, if there is no interrupt then execute the next instruction
 ![](coa24.JPG)
 ![](coa25.JPG)
 ![](coa26.JPG)
@@ -2662,21 +2691,41 @@ we can also bypass some stage if required
 ![](coa31.JPG)
 ![](coa32.JPG)
 ![](coa33.JPG)
+![](cia67.JPG)
+```bash
+In narrow sense, fetch, decode will be implemented by another part of the processor, it wont be a part of the pipeline. 
+```
 ![](coa35.JPG)
 ![](coa36.JPG)
+![](cia1.JPG)
 ![](coa40.JPG)
 ![](coa41.JPG)
+![](cia33.JPG)
+```bash
+data dependency - execution of instruction waiting for previous instruction output.
+
+control dependency - occurance of branch instruction
+```
 ![](coa42.JPG)
 ![](coa43.JPG)
+![](ci44.JPG)
+```bash
+all arithmetic operations can be implemented with the basic addition and shift operator
+```
+![](ci45.JPG )
 ![](coa44.JPG)
 
 ### Pipelined Processing of Load and Store 
-![](coa45.JPG)
-![](coa46.JPG)
 ```bash
 LOAD (to load data into the accumulator from memory) 
+
 STORE (to store the data in the memory location from a accumulator). 
 ```
+![](cia45.JPG)
+![](cp1.JPG)
+![](cp2.JPG)
+![](coa45.JPG)
+![](coa46.JPG)
 ![](coa47.JPG)
 ![](coa48.JPG)
 ![](coa50.JPG)
