@@ -10,11 +10,21 @@
 
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 
+    <!-- font awesome icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
   </head>
-  <body id="body">
+  <body class="body">
     <section id="header">
       <div class="container">
-        <img src="images/logo.png" class="logo" alt='logo'/>
+        <img src="images/logo.png" class="logo" alt="logo" />
         <div class="header-text">
           <h1>
             Lorem, ipsum dolor sit <br />
@@ -40,40 +50,43 @@
         </div>
       </div>
     </section>
-       <!-- automatic popup after 2s of page load -->
-       <div class="popup">
-        <div class="contentBox">
-            <div class="close"></div>
-            <div class="imgBx">
-                <img src="./gift.png" alt="">
-            </div>
-            <div class="content">
-              <div>
-                <h3>Special Offer</h3>
-                <h2>80<sup>%</sup>
-                <span>
-                    Off
-                </span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere pariatur vel quos iure aliquid ullam quo, architecto expedita doloribus nisi.</p>
-                <a href="#">Get The Deal</a>
-              </div>
-            </div>
+    <!-- automatic popup after 2s of page load -->
+    <div class="popup">
+      <div class="contentBox">
+        <div class="close"></div>
+        <div class="imgBx">
+          <img src="./gift.png" alt="" />
         </div>
+        <div class="content">
+          <div>
+            <h3>Special Offer</h3>
+            <h2>80<sup>%</sup> <span> Off </span></h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+              pariatur vel quos iure aliquid ullam quo, architecto expedita
+              doloribus nisi.
+            </p>
+            <a href="#">Get The Deal</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <nav id="nav-menu" class="nav-menu">
       <ul>
         <li><a href="#header">Header</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#courses">Courses</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#offer">Offer</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#pricing">Pricing</a></li>
       </ul>
     </nav>
 
     <!-- side menu widget-->
-    <img src="images/menu.png" alt="menu"  id="menuBtn"/>
+    <img src="images/menu.png" alt="menu" id="menuBtn" />
 
     <section id="about">
       <div class="about-left-col">
@@ -110,46 +123,80 @@
       </div>
     </section>
 
-    <!-- features -->
-    <section id="features">
-      <div class="feature-row">
-        <div class="feature-col">
-          <img src="images/pic-1.png" alt="" />
-          <h4>Learn Anywhere</h4>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
-            animi!
-          </p>
-        </div>
-        <div class="feature-col">
-          <img src="images/pic-2.png" alt="" />
-          <h4>Learn Anywhere</h4>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
-            animi!
-          </p>
-        </div>
-        <div class="feature-col">
-          <img src="images/pic-3.png" alt="" />
-          <h4>Learn Anywhere</h4>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
-            animi!
-          </p>
-        </div>
+    <!-- next section -->
+    <section id="blog">
+      <div class="blog-heading">
+        <span>my recent posts</span>
+        <h3>My Blog</h3>
       </div>
 
-      <div class="feature-btn">
-        <div class="line">
-          <span class="line1"> </span>
-          <br />
+      <!-- blog conttainer -->
+      <div class="blog-container">
+        <!-- box 1 -->
+        <div class="blog-box">
+          <!-- image -->
+          <div class="blog-img">
+            <img src="../mainwebsite/images/blog-1.jpeg" alt="" />
+          </div>
 
-          <span class="line2"> </span>
-          <br />
-
-          <span class="line3"> </span>
+          <!-- text -->
+          <div class="blog-text">
+            <span>18 July 2021 / Web Design</span>
+            <a href="" class="blog-title"
+              >Lorem ipsum dolor sit amet corrupti.</a
+            >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+              maxime voluptatem enim nesciunt architecto velit numquam tempore
+              rerum aut consequatur.
+            </p>
+            <a href="#">Read More</a>
+          </div>
         </div>
-        <button class="common-btn">Start Free Trial</button>
+
+        <!-- box 1 -->
+        <div class="blog-box">
+          <!-- image -->
+          <div class="blog-img">
+            <img src="../mainwebsite/images/blog-2.jpeg" alt="" />
+          </div>
+
+          <!-- text -->
+          <div class="blog-text">
+            <span>18 July 2021 / Web Design</span>
+            <a href="" class="blog-title"
+              >Lorem ipsum dolor sit amet corrupti.</a
+            >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+              maxime voluptatem enim nesciunt architecto velit numquam tempore
+              rerum aut consequatur.
+            </p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+
+        <!-- box 1 -->
+        <div class="blog-box">
+          <!-- image -->
+          <div class="blog-img">
+            <img src="../mainwebsite/images/blog-3.jpeg" alt="" />
+          </div>
+
+          <!-- text -->
+          <div class="blog-text">
+            <span>18 July 2021 / Web Design</span>
+            <a href="" class="blog-title"
+              >Lorem ipsum dolor sit amet corrupti.</a
+            >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+              maxime voluptatem enim nesciunt architecto velit numquam tempore
+              rerum aut consequatur.
+            </p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -192,6 +239,94 @@
       </div>
     </section>
 
+    <!-- features -->
+    <section id="features">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h1>Feature Section</h1>
+
+        <p style="text-align: justify; width: 40%">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus,
+          architecto. Lorem ipsum dolor. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Voluptatem nemo porro fuga impedit similique
+          dignissimos provident eligendi nobis, consectetur dolorum?
+        </p>
+      </div>
+      <div class="feature-row">
+        <div class="feature-col">
+          <img src="images/pic-1.png" alt="" />
+          <h4>Learn Anywhere</h4>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
+            animi!
+          </p>
+        </div>
+        <div class="feature-col">
+          <img src="images/pic-2.png" alt="" />
+          <h4>Learn Anywhere</h4>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
+            animi!
+          </p>
+        </div>
+        <div class="feature-col">
+          <img src="images/pic-3.png" alt="" />
+          <h4>Learn Anywhere</h4>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
+            animi!
+          </p>
+        </div>
+
+        <div class="feature-col">
+          <img src="images/pic-3.png" alt="" />
+          <h4>Learn Anywhere</h4>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
+            animi!
+          </p>
+        </div>
+
+        <div class="feature-col">
+          <img src="images/pic-3.png" alt="" />
+          <h4>Learn Anywhere</h4>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
+            animi!
+          </p>
+        </div>
+
+        <div class="feature-col">
+          <img src="images/pic-3.png" alt="" />
+          <h4>Learn Anywhere</h4>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elepe atque
+            animi!
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="feature-btn">
+        <div class="line">
+          <span class="line1"> </span>
+          <br />
+
+          <span class="line2"> </span>
+          <br />
+
+          <span class="line3"> </span>
+        </div>
+        <button class="common-btn">Start Free Trial</button>
+      </div> -->
+    </section>
+
     <!-- Offer -->
     <section id="offer">
       <div class="about-left-col">
@@ -227,100 +362,367 @@
 
     <!-- contact -->
     <section id="contact">
-        <div class="container contact-row">
-            <div class="contact-left-col">
-                <h1>Lorem ipsum dolor sit, amet con-. <br>Ipsam, labore!</h1>
-                <form action="">
-                    <input type="text" placeholder="Enter Name"> 
-                    <input type="email" placeholder="Enter Email"> 
-                    <input type="Password" placeholder="Enter Password"> 
-                    <div class="btn-box">
-                        <button class="common-btn">
-                            Sign Up
-                        </button>
-                        <button class="common-btn">
-                            Start Free Trial
-                        </button>
-                    </div>
-                </form>
-                <div class="line">
-                    <span class="line1"> </span>
-                    <br />
-        
-                    <span class="line2"> </span>
-                    <br />
-        
-                    <span class="line3"> </span>
-                  </div>
+      <div class="containeri contact-row">
+        <div class="contact-left-col">
+          <h1>Lorem ipsum dolor sit, amet con-. <br />Ipsam, labore!</h1>
+
+          <form action="https://formsubmit.co/business.reemshaikh@gmail.com" method="POST">
+            <input type="text" name='name' placeholder="Enter Name" />
+            <input type="email" name="email" placeholder="Enter Email" />
+            <input type="Password" name='password' placeholder="Enter Password" />
+            <div class="btn-box">
+              <button class="common-btn" type="submit">Sign Up</button>
+              <button class="common-btn" type="submit">Start Free Trial</button>
             </div>
-            <div class="contact-right-col">
-                <img src="images/contact.png" alt="">
-            </div>
+          </form>
+          <div class="line">
+            <span class="line1"> </span>
+            <br />
+
+            <span class="line2"> </span>
+            <br />
+
+            <span class="line3"> </span>
+          </div>
         </div>
+        <div class="contact-right-col">
+          <img src="images/contact.png" alt="" />
+
+          <!--  -->
+
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.379780093991!2d72.84584161482286!3d19.134846187054244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b62c652d9443%3A0x3aa526bb6400a071!2sMcDonald&#39;s!5e0!3m2!1sen!2sin!4v1669195724957!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe> -->
+        </div>
+      </div>
     </section>
+
+
+
+    <!-- pricing -->
+    <section id="pricing">
+      <div class="container4">
+        <h1>Pricing Plans</h1>
+
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus,
+          architecto.
+        </p>
+
+        <span class="square"></span>
+        <div class="subscription__options">
+          <div class="subscription">
+            <h3>Free</h3>
+            <p>For individuals.</p>
+            <small>Always</small>
+            <!-- <span class="price show__price">$ 0/mo</span> -->
+            <span class="price">$ 0/mo</span>
+            <h5>Includes</h5>
+            <ul>
+              <li>1 User</li>
+              <li>500 Mb</li>
+              <li>30 Posts</li>
+            </ul>
+            <h5>Add-ons</h5>
+            <p>Not available</p>
+            <button class="choose__btn">Select Plan</button>
+          </div>
+          <div class="subscription" id="starter">
+            <h3>Starter</h3>
+            <p>For building your brand.</p>
+            <small>From</small>
+
+            <span class="price">$ 12.50/mo</span>
+            <h5>Includes</h5>
+            <ul>
+              <li>1 User</li>
+              <li>5 Gb</li>
+              <li>100 Posts</li>
+            </ul>
+            <h5>Add-ons</h5>
+            <p>Not available</p>
+            <button class="choose__btn">Select Plan</button>
+          </div>
+          <div class="subscription" id="growth">
+            <h3>Growth</h3>
+            <p>For growing your brand.</p>
+            <small>From</small>
+
+            <span class="price">$ 21.20/mo</span>
+            <h5>Includes</h5>
+            <ul>
+              <li>3 User</li>
+              <li>50 Gb</li>
+              <li>300 Posts</li>
+            </ul>
+            <h5>Add-ons</h5>
+            <p>Available</p>
+            <button class="choose__btn">Select Plan</button>
+          </div>
+          <div class="subscription" id="advanced">
+            <h3>Advanced</h3>
+            <p>For a larger team.</p>
+            <small>From</small>
+
+            <span class="price">$ 33.75/mo</span>
+            <h5>Includes</h5>
+            <ul>
+              <li>6 User</li>
+              <li>Unlimited Usage</li>
+              <li>Unlimited Posts</li>
+            </ul>
+            <h5>Add-ons</h5>
+            <p>Available</p>
+            <button class="choose__btn">Select Plan</button>
+          </div>
+        </div>
+
+        <div class="checkout"></div>
+      </div>
+    </section>
+
+
+    <hr />
+
+    <!-- Footer Start -->
+    <section id="footer">
+      <div
+        class="container-fluid text-dark-50 py-5 px-sm-3 px-md-5"
+        style="margin-top: 90px"
+      >
+        <div class="row pt-5">
+          <div
+            class="col-lg-3 col-md-6 mb-5"
+            style="margin-right: 1px solid rgb(25, 21, 21)"
+          >
+            <a href="index.html" class="navbar-brand">
+              <h1 class="m-0 mt-n2 display-4">Phych.</h1>
+            </a>
+            <p style="color: grey">
+              Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem
+              lorem sit sed elitr sed kasd et
+            </p>
+            <h6 class="text-uppercase py-2">Follow Us</h6>
+            <div class="d-flex justify-content-start">
+              <!-- <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a class="btn btn-lg btn-primary btn-lg-square" href="#"><i class="fab fa-instagram"></i></a> -->
+              <div class="social-icons1">
+                <img src="images/facebook.png" alt="" />
+                <img src="images/instagram.png" alt="" />
+                <img src="images/twitter.png" alt="" />
+                <img src="images/linkedin.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-uppercase mb-4">Get In Touch</h4>
+            <p style="color: grey">
+              Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem
+              lorem sit sed elitr sed kasd et
+            </p>
+            <p style="color: grey">
+              <i class="fa fa-map-marker-alt mr-2"></i>
+              <a
+                href=" https://goo.gl/maps/nFS5dMmTbporA33L6"
+                style="color: grey"
+                >Visit Our Clinic.</a
+              >
+            </p>
+
+            <p style="color: grey">
+              <i class="fa fa-phone-alt mr-2"></i>
+              <a href="tel:6031112298" style="color: grey"
+                >Click to call a customer support rep.</a
+              >
+            </p>
+
+            <p style="color: grey">
+              <i class="fa fa-envelope mr-2"></i>
+              <a href="mailto:business.reemshaikh@gmail.com" style="color: grey"
+                >Send us a Mail</a
+              >
+            </p>
+
+            <p style="color: grey">
+              <i class="fa fa-envelope mr-2"></i>
+              <a href="https://chatwith.io/s/reem-shaikh" style="color: grey"
+                >Click to Open Whatsapp Chat</a
+              >
+            </p>
+            <!-- chatwith.io-->
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-uppercase mb-4">Quick Links</h4>
+            <div class="d-flex flex-column justify-content-start">
+              <a class="-50 mb-2" href="#" style="color: grey"
+                ><i class="fa fa-angle-right mr-2"></i>Home</a
+              >
+              <a class="-50 mb-2" href="#" style="color: grey"
+                ><i class="fa fa-angle-right mr-2"></i>About Us</a
+              >
+              <a class="-50 mb-2" href="#" style="color: grey"
+                ><i class="fa fa-angle-right mr-2"></i>Our Services</a
+              >
+              <a class="-50 mb-2" href="#" style="color: grey"
+                ><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a
+              >
+              <a class="-50 mb-2" href="#" style="color: grey"
+                ><i class="fa fa-angle-right mr-2"></i>Meet The Team</a
+              >
+              <a class="-50" href="#" style="color: grey"
+                ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-uppercase mb-4">Newsletter</h4>
+            <p class="mb-4">
+              Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem
+              lorem sit sed elitr sed kasd et
+            </p>
+            <form action="https://formsubmit.co/business.reemshaikh@gmail.com" method="POST">
+            <div class="w-100 mb-3">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control border-light"
+                  style="padding: 25px"
+                  placeholder="Your Email"
+                  name="email"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-primary text-uppercase px-3"
+                    style="background-color: #cc719c; color: white"
+                    type="submit"
+                  >
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </form>
+            </div>
+            <i>Lorem sit sed elitr sed kasd et</i>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid py-4 px-sm-3 px-md-5">
+        <p class="mb-2 text-center -50" style="color: rgb(23, 22, 22)">
+          &copy; <a href="#" style="color: #cc719c">Phych</a>. All Rights
+          Reserved.
+        </p>
+        <p class="m-0 text-center -50" style="color: rgb(23, 22, 22)">
+          Designed by <a href="#" style="color: #cc719c">Reem</a>
+        </p>
+      </div>
+    </section>
+    <!-- Footer End -->
 
     <!-- footer -->
-    <section id="footer">
-        <div class="container footer-row">
-            <hr>
-            <div class="footer-left-col">
-                <!-- <p>left column</p> -->
-                <div class="footer-links">
-                    <div class="link-title">
-                        <h4>Product</h4>
-                        <small>Our Plan.</small> <br>
-                        <small>Free Trial</small>
-                    </div>
-                    <div class="link-title">
-                        <h4>About Us</h4>
-                        <small>Requeest Demo</small> <br>
-                        <small>FAQs.</small>
-                    </div>
-                    <div class="link-title">
-                        <h4>Support</h4>
-                        <small>Features</small> <br>
-                        <small>Contact Us</small>
-                    </div>
-                    <div class="link-title">
-                        <h4>Explore</h4>
-                        <small>Find a non profit</small> <br>
-                        <small>Coporate solution</small>
-                    </div>
-                </div>
+    <!-- <section id="footer">
+      <div class="container footer-row">
+        <hr />
+        <div class="footer-left-col">
+      
+          <div class="footer-links">
+            <div class="link-title">
+              <h4>Product</h4>
+              <small>Our Plan.</small> <br />
+              <small>Free Trial</small>
             </div>
-            <div class="footer-right-col">
-                <!-- <p>right column</p> -->
-                <div class="footer-info">
-                    <div class="copyright-text">
-                        <small>email#gmail.com</small>
-                        <small>copyright 2020 reem</small>
-                    </div>
+            <div class="link-title">
+              <h4>About Us</h4>
+              <small>Requeest Demo</small> <br />
+              <small>FAQs.</small>
+            </div>
+            <div class="link-title">
+              <h4>Support</h4>
+              <small>Features</small> <br />
+              <small>Contact Us</small>
+            </div>
+            <div class="link-title">
+              <h4>Explore</h4>
+              <small>Find a non profit</small> <br />
+              <small>Coporate solution</small>
+            </div>
 
-                    <div class="footer-logo">
-                            <img src="images/logo.png" alt="">
-                            <button class="common-btn">
-                                English
-                            </button>
-                    </div>
-                </div>
+            <div class="link-title">
+              <h4>Explore</h4>
+              <small><a href="mailto:business.reemshaikh@gmail.com">send us a mail</a></small> 
+              <br/>
+              <small>copyright 2020 reem</small>
             </div>
+
+            
+            <div class="link-title">
+              <h4>Explore</h4>
+              <div id="google_element"></div>
+            </div>
+
+      
+          </div>
         </div>
-    </section>
+        <div class="footer-right-col">
+
+          <div class="footer-info">
+            <div class="right-1">
+            </div>
+
+       
+        
+          
+
+            <div class="footer-logo">
+              <h4 style="  color: #fab3c4;">Sign Up for Newsletter</h4>
+                    <div class="subscribe-form">
+                
+                        <form id="mc-form" class="group" novalidate="true" data-netlify="true" onSubmit="submit"
+                        name="contact"
+                        method="post">
+
+                            <input type="email" value="" name="dEmail" class="email" id="mc-email" placeholder="Your Email Address" required=""> 
+                
+                            <input type="submit" name="subscribe" value="subscribe" >
+                
+                            <label for="mc-email" class="subscribe-message"></label>
+                
+                        </form>
+          
+                       </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
     <!-- social icons -->
     <div class="social-icons">
-        <img src="images/facebook.png" alt="">
-        <img src="images/instagram.png" alt="">
-        <img src="images/twitter.png" alt="">
-        <img src="images/linkedin.png" alt="">
+      <img src="images/facebook.png" alt="" />
+      <img src="images/instagram.png" alt="" />
+      <img src="images/twitter.png" alt="" />
+      <img src="images/linkedin.png" alt="" />
     </div>
+
+    <!-- script for google translate -->
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement("google_element");
+      }
+    </script>
 
     <script>
       // toggling the menu items
       var menuBtn = document.getElementById("menuBtn");
       var sidenav = document.getElementById("nav-menu");
 
-   
       sidenav.style.right = "-250px";
 
       menuBtn.onclick = function () {
@@ -329,30 +731,101 @@
         } else {
           sidenav.style.right = "-250px";
         }
-
       };
 
+      // script tag imported above
+      var scroll = new SmoothScroll('a[href*="#"]');
 
-    // script tag imported above 
-	  var scroll = new SmoothScroll('a[href*="#"]');
+      // automatic show popup after 2s of page reload
+      const popup = document.querySelector(".popup");
+      const close = document.querySelector(".close");
 
-           // automatic show popup after 2s of page reload 
-           const popup = document.querySelector('.popup');
-        const close = document.querySelector('.close');
+      window.onload = function () {
+        setTimeout(function () {
+          popup.style.display = "block";
 
-        window.onload = function() {
-            setTimeout(function(){
-                popup.style.display = "block";
+          // add some time delay to show popup
+        }, 2000);
+      };
 
-                // add some time delay to show popup 
-            }, 2000)
-        }
+      // script to close the popup
+      close.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
 
-        // script to close the popup
-        close.addEventListener('click', () => {
-            popup.style.display = "none";
-        })
+      // script for pricing section
 
+      const checkout = document.querySelector(".checkout");
+      const chooseBtn = document.querySelectorAll(".choose__btn");
+
+      chooseBtn.forEach((item) => {
+        item.addEventListener("click", showCheckout);
+      });
+
+      function showCheckout(e) {
+        removeSelected();
+        checkout.style.transform = "translateY(0)";
+        e.target.parentElement.classList.add("selected");
+
+        console.log(e.target.parentElement.childNodes);
+        const product = e.target.parentElement.childNodes[3].innerHTML;
+        const price = e.target.parentElement.childNodes[7].innerHTML;
+
+        checkout.innerHTML = `
+<div class="total__price">
+  <div class="selection"><span>${product}</span><span>${price}</span></div>
+  <div class="selection"><span>Delivery</span><span>Select before paying</span></div>
+  <div class="total"><span>Total</span><span>${price}</span></div>
+
+  <button class="checkout__btn"> 
+    <a href="https://paypalme/itsrumbro" style="text-decoration: none;color: white;">Checkout</a>
+  </button>
+</div>
+
+<a href="#/" class="close__btn"><i class="fas fa-times"></i></a>
+`;
+
+        const closeBtn = document.querySelector(".close__btn");
+        closeBtn.addEventListener("click", hideCheckout);
+      }
+
+      function hideCheckout() {
+        checkout.style.transform = "translateY(100%)";
+        removeSelected();
+      }
+
+      function removeSelected() {
+        const selectedElements = document.querySelectorAll(".selected");
+        selectedElements.forEach((item) => {
+          item.classList.remove("selected");
+        });
+      }
     </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/637dc9d1daff0e1306d8f487/1gihlommt";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+
+      // fairy dust cursor
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+
+
   </body>
 </html>

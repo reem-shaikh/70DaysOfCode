@@ -1,0 +1,151 @@
+
+
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.container3{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container3 h3{
+    color: #861657;
+    padding-top: 2rem;
+}
+
+.options__container{
+    width: 100%;
+    height: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.price__option{
+    background-color: #fff;
+    width: 20%;
+    height: 75%;
+    margin: 1rem;
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    color: rgb(47, 44, 44);
+}
+
+.price__option.selected{
+    background-color: white;
+    color: #ffa69e;
+}
+
+.price__option i{
+    color: #ffa69e;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    margin-top: 3rem;
+}
+
+.price__option h2{
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+}
+
+.price__option .description{
+    width: 100%;
+    height: 140px;
+}
+
+.price__option .price{
+    font-size: 25px;
+    padding: 1rem 0;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.price__option .info{
+    height: 140px;
+    margin-top: 2rem;
+}
+
+.price__option .choose__btn{
+    height: 70px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: #cc719c;
+    border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.price__option .choose__btn:hover{
+    box-shadow: 0 5px #aa4465;
+}
+
+/* checkout */
+.checkout{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: all 0.6s ease-in-out;
+}
+
+.total__price{
+    width: 600px;
+    height: 100%;
+    margin: 10px;
+}
+
+.selection,
+.total{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total{
+    margin-top: 1rem;
+    border-top: 1px solid #861657;
+    padding: 10px 0;
+}
+
+.checkout__btn{
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #861657;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    float: right;
+}
+
+.close__btn{
+    color: #861657;
+    font-size: 20px;
+    padding:10px;
+}

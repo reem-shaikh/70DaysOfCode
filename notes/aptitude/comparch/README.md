@@ -2593,7 +2593,6 @@ If there are no stalls, performance can be improved by the number of stages of a
 CPI denotes the number of cycles required for one instructiohn 
 Clock cycle time denotes the time required per cycle  
 ```
-
 #### Effect of Hazard on Performance 
 ![](coa11.JPG)
 ![](q18.JPG)
@@ -2604,12 +2603,32 @@ speedup increases the extra stall cycles thats added to combat hazards like cont
 ```bash
 pipeline stall cycles per instruction - no of clock cycles used in stalls
 ```
-
 ### Performance Improvement with Pipelining 
 ![](q16.JPG)
 ![](q17.JPG)
 
+#### Advantages of Pipeline
+- improve CPU performance by overlapping the execution of more than two processes with ensuresb faster execution of process, and the system throughput increases (in a particular amount of time what would be the output?)
+
 ### Pipeline Design Space 
+![](111.JPG)
+
+#### Terminologies 
+1. instruction latency 
+there are 5 stages in pipeline execution, the instruction latency in this case is 5, since 5 cycles are required to execute the process. Instruction latency is time between when the instruction is issued and when its completed. 
+2. throughput 
+number of instructions that can be executed in a span of time. if numberr of instructions executing in a point of time is increasing then the system throughput is also increasing. 
+```bash
+throughput of CPU pipeline is the number of instructions completed per second
+```
+#### Introduction 
+Pipelining executes instructions at the same time but in different stages
+1. computers are improving in terms of their instruction set, which improves the complexity of the chip
+2. to improve speed of a chip we implement pipeline which implements overlapping processes and instructions 
+3. The earliest model of pipeline was discrete pipeline which performed the 5 stage process which performed tasks in stages like fetch, decode, execution, memory and WB operation. where every stage requires one cycle of time. since there are 5 stages in this pipeline, instruction latency is of 5 cycles. 
+
+#### Design Space of Pipeline
+![](coa99.JPG)
 ![](coa22.JPG)
 ![](coa14.JPG)
 ![](coa15.JPG)

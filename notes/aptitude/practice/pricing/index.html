@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <title>Princing Table</title>
+  </head>
+  <body>
+    <div class="container3">
+      <h3>Choose the subscription that best fits your needs:</h3>
+      <div class="options__container">
+        <div class="price__option">
+          <i class="fas fa-hamburger"></i>
+          <h2>One Day</h2>
+          <p class="description">
+            Every week your choose the day you want us to deliver your meal
+          </p>
+          <p class="price">$9.99 /mo</p>
+          <p class="info">
+            Great option to try our service. You can always upgrade.
+          </p>
+          <button class="choose__btn">Choose</button>
+        </div>
+        <div class="price__option">
+          <i class="fas fa-shopping-bag"></i>
+          <h2>Three Days</h2>
+          <p class="description">
+            You will receive your meal three days a week. Every week the same
+            days.
+          </p>
+          <p class="price">$19.99 /mo</p>
+          <p class="info">
+            Take a few free days with this option. You can always upgrade.
+          </p>
+          <button class="choose__btn">Choose</button>
+        </div>
+        <div class="price__option">
+          <i class="fas fa-box"></i>
+          <h2>Five Days</h2>
+          <p class="description">Get your dinner ready from Monday to Friday</p>
+          <p class="price">$29.99 /mo</p>
+          <p class="info">
+            We'll take care of the dinner during the work days. You can always
+            upgrade.
+          </p>
+          <button class="choose__btn">Choose</button>
+        </div>
+        <div class="price__option">
+          <i class="fas fa-archive"></i>
+          <h2>every Day</h2>
+          <p class="description">Your dinner ready every day, every week.</p>
+          <p class="price">$39.99 /mo</p>
+          <p class="info">
+            Dinner is one us!. Enjoy your day because you'll always have your
+            dinner ready.
+          </p>
+          <button class="choose__btn">Choose</button>
+        </div>
+      </div>
+
+      <div class="checkout"></div>
+    </div>
+
+    <script>
+      const checkout = document.querySelector(".checkout");
+      const chooseBtn = document.querySelectorAll(".choose__btn");
+
+      chooseBtn.forEach((item) => {
+        item.addEventListener("click", showCheckout);
+      });
+
+      function showCheckout(e) {
+        removeSelected();
+        checkout.style.transform = "translateY(0)";
+        e.target.parentElement.classList.add("selected");
+
+        // console.log(e.target.parentElement.childNodes);
+        const product = e.target.parentElement.childNodes[3].innerHTML;
+        const price = e.target.parentElement.childNodes[7].innerHTML;
+
+        checkout.innerHTML = `
+    <div class="total__price">
+        <div class="selection"><span>${product}</span><span>${price}</span></div>
+        <div class="selection"><span>Delivery</span><span>Select before paying</span></div>
+        <div class="total"><span>Total</span><span>${price}</span></div>
+
+        <button class="checkout__btn">Checkout</button>
+    </div>
+
+    <a href="#/" class="close__btn"><i class="fas fa-times"></i></a>
+    `;
+
+        const closeBtn = document.querySelector(".close__btn");
+        closeBtn.addEventListener("click", hideCheckout);
+      }
+
+      function hideCheckout() {
+        checkout.style.transform = "translateY(100%)";
+        removeSelected();
+      }
+
+      function removeSelected() {
+        const selectedElements = document.querySelectorAll(".selected");
+        selectedElements.forEach((item) => {
+          item.classList.remove("selected");
+        });
+      }
+    </script>
+  </body>
+</html>
