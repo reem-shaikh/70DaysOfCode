@@ -967,7 +967,364 @@ In procedural languages, the program code is written as a sequence of instructio
 
 In the non-procedural languages, the user has to specify only “what to do” and not “how to do”. It is also known as an applicative or functional language. 
 ```
+
+# Query Processing and Optimization 
+Query processing refers to how the query is processed in the background. and query optimisation refers to how the query is optimized using SQL compiler which first analyses the SQL query and rewrites the query if required to develop the optimal solution (which executes the query in the minimal optimal time)
+
+![](km1.JPG)
+Query processing engine converts HLL TO LLL (SQL -> RELATIONAL ALGEBRA)
+```bash
+SELECTION - WHERE 
+
+PROJECTION - SELECT 
+```
+
+> how query processing works internally?
+![](km2.JPG)
+parser checks for syntax and verifies. translator converts hll to lll which returns a relational algebra expression which is then converted to query tree.  the query tree will be executed by the query optimizer.optimizer optimizes the query (select low cost query), statistics for analysing the cost is done from statistic data. execution plan focuses on which part of the query to process (the sequence). data is fetched from the relation in the evaluation engine and give to output. 
+
 ## Query Optimization
+helps to reduce the time database takes for executing the query which is acheived through optimizer.
+```bash
+query optimisation chooses the most efficient means for executing the query 
+
+#what are different processes to execute SQL queries
+```
+![](db1.JPG)
+
+### Query Execution Algorithms 
+are used for optimizing the query. 
+![](db2.JPG)
+
+#### QUERY EXECUTION ALGORITHMS 
+1. EXTERNAL SORTING 
+2. IMPLEMENT SELECT OPERATION 
+3. IMPLEMENT JOIN OPERATION 
+4. PROJECT AND SET OPERATION 
+5. AGGREGATE OPERATIONS IMPLEMENTATION
+
+```bash
+For sorting any algorithm use an index on the key thats used for reading the relationship 
+```
+#### 1. External sorting 
+its implemented though sort-merge strategy, which first divides the data / files (which are not in main memory, stored on the disk) into sub files called runs which are read into main memory and result is written back to buffer, then it sorts for which it takes buffer space from the main memory and these runs merges the data into a single file, but this happens in phases / pass. number of runs that can be merged together in each phase is called **degree of merging**.
+```bash
+number of runs 
+size of runs (nR)
+
+#depends on 
+number of file blocks (b)
+available buffer space (nB) 
+
+#example 
+nB = 5
+b = 1024
+
+Sorting phase:
+then number of runs required in the sorting phase 
+nR = b / nB = 1024/5 = 204
+
+Merging phase:
+if degree of merging (dM) = 4
+number of phases / passes required for merging
+                 = 204 / 4 = 51
+                 = 51 / 4 = 12
+                 = 12 / 4 = 3
+```
+![](db3.JPG)
+
+#### 2. Implement select operation
+select helps in retreiving the desired data from the database.
+![](db4.JPG)
+![](db5.JPG)
+![](db6.JPG)
+![](db7.JPG)
+
+- Linear Search (brute Force) would search the records linearly one after the other until it reaches the end of the table, even if it finds the right record it will continue searching until it reaches the end of the table.
+- Binary search divides file into 2 portions and checks within the section. Its search is more faster than linear search since now it has to ony search one half 
+- primary index - if in the database you applied hash index on the primary key then it will look for the hash index and check if the data is what the user wants to retrieve by indexing only that one point. But at a point only a single record would be retreived. Its the most cost effiecient since it will directly locate you to that particular record. 
+```bash
+#difference between hash key and primary key ?
+hash key allots index for where to search.
+
+primary key is unique record in the database for each record.
+```
+#### 3. Implement join operations 
+![](db8.JPG)
+- nested loop join - when we have nested quieries 
+```bash
+#it checks for the inner loop value with the outer loop value
+if T record in inner loop = S record in the outer loop 
+t[M] = s[N]
+```
+- single loop - when we have single queiries 
+```bash
+#it checks for the hash key value from the table with matches the single quiery from single loop 
+```
+- sort-merge join - if values are sorted 
+- hash join - if records from files are hashed to a single file 
+![](db9.JPG)
+
+#### 4. project and set operations 
+> set difference implementation 
+![](db10.JPG)
+
+#### 5. aggregrate operations implementation 
+![](db11.JPG)
+
+### Terminal QS
+![](db12.JPG)
+1. duplicate values 
+2. name 
+3. T
+
+## HEURISTIC IN QUERY OPTIMIZATION 
+```bash
+heuristic - best way to take a particular decision
+```
+![](db13.JPG)
+![](db14.JPG)
+
+> Query Tree is a tree data structure that is used to represent relational algebra expression. In a query tree input relations are represented as leaf nodes and relational algebra operations as internal nodes. the result is at the root node. 
+![](db16.JPG)
+```bash
+#relation
+book is the leaf node 
+
+#select operation 
+the condition price > 200 is the internal node 
+
+#project operation
+π ISBN, PRICE 
+
+the final retrieved result  replaces the internal node with the root node 
+```
+![](db17.JPG)
+![](db18.JPG)
+
+#### Compilation 
+after entering the sql query, **parser** checks for syntax and verifies. **translator** converts hll to lll which returns a **relational algebra expression** which is then converted to **query tree** / **logical query plan tree** which generates logical query plan. Physical plan generator then converts **logical query plan to physical query plan** which selects appropriate query execution algorithms for execution and order of execution.
+![](mi5.JPG)
+
+#### Execution
+the query tree will be executed by the query optimizer based on the query execution algorithm chosen in the compilation stage. 
+optimizer optimizes the query (selects low cost query), statistics for analysing the cost is done from statistic data. execution plan focuses on which part of the query to process (the sequence). data is fetched from the relation in the evaluation engine and give to output. 
+![](db19.JPG)
+![](db20.JPG)
+![](db21.JPG)
+
+# Query Execution 
+![](q11.JPG)
+
+### Physical Query Plan Operator
+Operators describe how SQL Server executes a query or a Data Manipulation Language (DML) statement.
+![](mi1.JPG)
+
+#### Query Processing 
+Query Processing is converting the query user entered into a bunch of database operations which are first compiled, then executed
+![](mi3.JPG)
+
+The query optimizer uses operators to build an optimized query plan for the result specified in the query, or to perform the operation specified in the DML statement.
+
+The execution of the query is specifically with the help of relational algebra. 
+![](mi2.JPG)
+
+> Physical plan
+A physical plan describes the chosen physical execution plan for a query statement. The optimizer applies various types of rules to rearrange operators and functions into an optimal plan and then converts the logical plan into a physical plan that tells Drill how to execute the query.
+
+#### Reading execution plans 
+![](mi8.JPG)
+An index scan or table scan is when SQL Server has to scan the data or index pages to find the appropriate records. 
+1. table-scan - entire table is scanned for fetching the result, this causes bottleneck to the performance 
+- when the table size is very small, table scan is used 
+- bring tuples of the relation from secondary memory (which are stored in block) to main memory.
+- gets the block (containing tuple) into the main memory one by one 
+2. index-scan - index is going to point to the tuple we want to fetch, so only the particular index is scanned for retreiving the required tuple from the relation. 
+- relations are stored in the main memory 
+- index-scan scans and returns all the tuples from the relations containing a specific sparse index (assigned to the attributes)
+
+While the relation is scanned its also simultanousely sorted, its sorted using the sort-scan. 
+
+#### One-Pass Algorithm 
+One pass Algorithm works on one query at a time. 
+![](mi9.JPG)
+
+Physical plan generator converts **logical query plan to physical query plan** which selects appropriate query execution algorithms for execution and order of execution.
+
+To convert from logical query plan to physical query plan, one pass algorithm is used, based on the technique used for converting, the algorithm is divided into 3 types 
+- index based technique 
+- sorting basedd technique 
+- hashed based technique 
+
+##### 1. Index Based Technique 
+![](mi10.JPG)
+There are different methods based on which the indexing would be done 
+
+###### - tuple at a time -> unary operation 
+It will perform operation on one tuple at a time 
+![](mi11.JPG)
+```bash
+read block one at a time (using index scan or table scan)
+   |
+   v
+input buffer 
+   |
+   v
+perform operations 
+   |
+   v
+output buffer 
+```
+- works on selection and projection operations 
+
+###### - full relation -> unary operation 
+![](mi12.JPG)
+```bash
+read block one at a time (using index scan or table scan)
+         |
+     input buffer 
+    /          \
+seen before    not seen before 
+    |           |
+    v           v
+               #entered into the memory 
+dont output    output buffer 
+
+#this method is used for eliminating duplicate values 
+```
+- works on selection and projection operations 
+
+###### - full relation -> binary operation 
+![](mi13.JPG)
+- works on union, intersection, difference, joins and products operations 
+
+### Tuple Based Nested Loop Joins 
+![](mi14.JPG)
+![](mi15.JPG)
+
+We start comparing values starting with the first value on the outer table and iterate over every inner value from the inner table, when match is found SQL server sends it to the output buffer. This process compares every row of outer table with every row of inner table. 
+![](mi19.JPG)
+
+#### Iterator for a Tuple based Nested Loop Join
+> iterator is the building block of a query but it executes one query at a time 
+![](mi20.JPG)
+- Iterator are used in implementing nested loop joins 
+- one single operation for an iteration can be performed 
+```bash
+R.Open()
+- first open database
+- it checks for nested query 
+- execute the query using nested loop join (uses memory for execution)
+
+R.GetNext()
+- repeat loop operation, which will continue searching for records until the tuple user is searching for is not returned 
+
+R.Close()
+- releases memory used for executing nested loop join
+```
+### Two Pass Algorithm based upon Sorting 
+![](mi122.JPG)
+
+if we want to scan data from a table and update data in a table, both would require seperate passes, that means it would require seperate iterations. In case of one pass algorithm only one pass can occur at a time, but in two pass algorithm they can happen together simultanouesly. 
+![](mi23.JPG)
+
+
+### Practical Session 
+#### Starting with virtual Practice lab 
+![LMS -> advanced DBMS -> virtual lab](https://learning.onlinemanipal.com/d2l/le/enhancedSequenceViewer/7641?url=https%3A%2F%2F0ff6df2b-fb79-4be6-9d7f-9428edd0fa0a.sequences.api.brightspace.com%2F7641%2Factivity%2F100002%3FfilterOnDatesAndDepth%3D1)
+- on the SQL workspace -> credential -> enter credntials from virtual programming lab starting message. 
+![](db10.JPG)
+```bash
+mysql-muj-db.czgqnp6ru8hk.ap-south-1.rds.amazonaws.com
+DB_2214510132
+2214510132
+```
+
+#### Starting executing SQL commands 
+![](db12.JPG)
+![](db11.JPG)
+![](db13.JPG)
+![](db14.JPG)
+![](db15.JPG)
+![](db16.JPG)
+```bash
+Create Table Student
+(
+Name varchar(10), 
+RollNo int Primary key, 
+age int, 
+Dob date
+);
+
+#Insert values into table 
+Insert into Student values('Deepika', 102, 34, '1984-04-27');
+Insert into Student values('Ankit', 102, 34, '1984-04-27');
+```
+
+> 24/12/2022
+### IN OPERATOR 
+![](z2.JPG)
+![](z3.JPG)
+![](z4.JPG)
+
+if any values present in DB then it would show the table with only those values 
+![](z5.JPG)
+
+### BETWEEN OPERATOR 
+Shows records between a certain range.
+![](z6.JPG)
+![](z7.JPG)
+
+### GROUP BY & HAVING CLAUSE 
+![](Z8.JPG)
+![](z10.JPG)
+![](Z11.JPG)
+
+select DEPARTMENT,count(WORKER_ID) as NO_OF_WORKER  from Worker  GROUP BY DEPARTMENT order by NO_OF_WORKER DESC;
+This is query for the assignment question
+
+### ALTER COMMAND 
+![](Z12.JPG)
+![](Z13.JPG)
+
+### UPDATE COMMAND 
+![](Z14.JPG)
+![](Z15.JPG)
+![](Z16.JPG)
+
+### DELETE COMMAND & DROP COMMAND 
+![](Z17.JPG)
+![](Z18.JPG)
+![](Z19.JPG)
+
+DROP used to drop entire table 
+![](Z20.JPG)
+
+### FOREIGN KEY 
+![](z21.JPG)
+```bash
+PRIMARY KEY / REFERENCED TABLE 
+
+FOREIGN KEY / CHILD TABLE - its the primary key of the related table 
+```
+> an example 
+```bash
+#supplier
+scode, sname, scity, turnover 
+
+#part 
+pcode, weight, color, cost 
+
+#supplier_part 
+scode, pcode, qty
+```
+![](z25.JPG)
+![](z26.JPG)
+![](z29.JPG)
+
+### ORDER BY 
+![](z23.JPG)
+![](z24.JPG)
 
 
 
@@ -977,3 +1334,9 @@ In the non-procedural languages, the user has to specify only “what to do” a
 
 
 
+return_type function_name( parameter list )
+
+
+ {
+   body of the function
+}

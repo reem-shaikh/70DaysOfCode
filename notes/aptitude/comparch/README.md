@@ -2592,7 +2592,7 @@ the number of stalls introduced in the pipelined processor during this branch op
 If there are no stalls, performance can be improved by the number of stages of a pipeline 
 ![](coa12.JPG)
 ```bash
-CPI denotes the number of cycles required for one instructiohn 
+CPI denotes the number of cycles required for one instruction 
 Clock cycle time denotes the time required per cycle  
 ```
 #### Effect of Hazard on Performance 
@@ -2610,7 +2610,7 @@ pipeline stall cycles per instruction - no of clock cycles used in stalls
 ![](q17.JPG)
 
 #### Advantages of Pipeline
-- improve CPU performance by overlapping the execution of more than two processes with ensuresb faster execution of process, and the system throughput increases (in a particular amount of time what would be the output?)
+- improve CPU performance by overlapping the execution of more than two processes with ensures faster execution of process, and the system throughput increases (in a particular amount of time what would be the output?)
 
 ### Pipeline Design Space 
 ![](111.JPG)
@@ -2731,6 +2731,233 @@ STORE (to store the data in the memory location from a accumulator).
 ![](coa50.JPG)
 ![](coa51.JPG)
 ![](coa52.JPG)
+
+## Unit 6
+![](o11.JPG)
+instruction either dependent on each other - one inupu is waiting for the data of the previous out
+
+however its possible that 2 instructions exist independently of each other, that is they are not dependent on each others output, so thats when theere comes a  **possibility of overlapping of execution of independent instruction which is called instruction level parralelism**
+
+#### Pipelining 
+![](o11.JPG)
+
+in non-pipeline only one instruction can be executed at a time, but pipelining uses the concept of overallping multiple instructions during execution in different segments where these instructions are dependent on each other. 
+
+### Introduction 
+![](o143.JPG)
+- traditional processor stated before pipelining which would execyte only one instruction per cycle 
+- in pipeling multiple instructions would overlap and execute parallely 
+- when *multiple parallel data path* exists and instruction cycle phases like fetch, deocde and execute would be done, the processor (performs execution of the instruction cycle) which allows this would be called *multiple instruction issue processors*. performance of cpu would be measured in terms of gigahertz, no of cycles cpu executes per second is called CPI. 
+- main issue with multiple instruction issue processors is *code scheduling*. sometimes some instruction is dependent on each other and others are independent of each other. code scheduling ensures that these dependencies execute properly and in whichc order we want to do the processes scheduling. it can be executed either through compile time which is called **static scheduling** or during run time which is called **dyanamic scheduling**. 
+```bash
+#code scheduling is like process scheduling in OS 
+example we have 5 instruction 
+I1 I2 I3 I4 I5 
+
+lets says
+I1 and I3 are dependent instruction 
+I2, I4, I5 are independent instruction 
+
+and 2 datapaths D1, D2 
+
+#we first execute I1 since output of I1 is the input for I3 
+by specifying sequence of instructions we are scheduling the code 
+
+#its not possible for executing I1 and I3 on different data paths 
+D1  |  I1  ->  I2  ->  I5 
+D2  |  I4  -> I3 
+```
+![](os2.JPG)
+
+### PIPELINING HAZARDS 
+![](os3.JPG)
+
+1. DATA HAZARD 
+one instruction waiting for output of the other instruction. execution of one instruction is dependent on processing of another instruction. Main dependency that causes problem in data hazard is called Read after Write.
+![](os4.JPG)
+```bash
+#I1
+R1 -> R2 + R3 
+
+#I2
+R6 -> R1 + R4  #read value of R1 before its written in I1. so it reads old value. 
+```
+![](os5.JPG)
+
+2. STRUCTURAL HAZARDS 
+multiple instructions fighting for the same resource at the same time segment. 
+
+3. CONTROL HAZARD 
+![](os6.JPG)
+During decoding stage compiler realizes whether instruction is branched or not. before jumping to the branched instruction we have to clean up the instructions in the pipeline
+
+### SCHEDULING
+if processor wants to execute something we need to schedule instructions to it. Instruction scheduling is used to minimize the hazards (which are errors in between two instructions) or stalls.
+
+Two types of scheduling: static scheduling (done by the compiler - when dependencies are known during compilation) vs dyanamic scheduling (done by additional hardware to rearrange the instructions- when dependencies are known during run time)
+![](os7.JPG)
+
+1. static scheduling - software based approach 
+![](a11.JPG)
+Data dependencies in sequence of instructions creates interlocked relationships which creates stalls in pipeline, i.e there is a dependent relationship between one instruction with the next instruction. to overcome this problem static scheduling is used. 
+
+- static means instruction is always scheduled by the compiler (software). compiler checks if any dependencies are there or not. if dependencies are there it would be resolved during compile time before execution (running program) by reordering the data. 
+```bash
+compile program         --> run program 
+#compiler can rearrange instructions which can minimize hazards and stalls in the program during run time. 
+
+compiler seperates the dependent instructions (instructions that are dependent on each other sequentially, 2nd instruction is dependent on the 1st instruction, 3rd instruction is dependent on the 2nd instruction and so on...)
+instruction 1 
+instruction 2 
+instruction 3
+
+or 
+
+it creates the seperation between dependencies (if the instructions are not placed sequentially but the 1st instruction is dependent on the 2nd instruction, then it seperates each instructions dependent nature, and it executes one after the other, while i2 still requires i1 data to properly execute. so the rearranging / reordering the instructions will not effect the final output)
+instruction 1 
+instruction 3 
+instruction 2
+```
+
+> methods to handle data dependency in static scheduling?
+- forwarding
+- code rescheduling / rearanging instructiohns 
+- stall 
+
+2. dyanamic scheduling - hardware based approach 
+Technique for improving pipeline proccesor performance. 
+
+if dependencies are known during compile time then use the static scheduling (software based approach) to minimize hazards. However if dependencies are not known at compile time (i.e dependencies are known during run time) we will use dyanamic scheduling. Here the hardware will rearrange the instruction execution to reduce the stalls while maintaining data flow and exceptional behavior. 
+
+> Dynamic scheduling can be implemented by using 2 techniques
+1. score boarding is a technique to allow instructions to execute out of order when there are no structural hazards (when there are sufficient resources) and no data dependencies (no data hazards like WAW, WAR)
+2. Tomasulo algorithm is a hardware dependence resolution scheme 
+
+#### PROS OF DYANAMIC SCHEDULING 
+![](os8.JPG)
+![](os9.JPG)
+Instructions that are independent can be executed concurrently.
+
+> In dyanamic scheduling instruction Decoding is divided into 
+- issue - decoidng instruction and checking for structural hazards 
+- read operand - operands read after checking for data hazards.
+
+> Two techniques for resolving dyanamic scheduling (scheduling code such that no dependencies arise at the time of execution)
+![](os10.JPG)
+
+#### 1. SCOREBOARD APPROACH
+its a dyanamic scheduling technique which handle WAR or WAW data dependency
+![](os11.JPG)
+![](os12.JPG)
+
+Whenever instruction is fetched, it starts decoding, after decoding it has to issue instructions to multiple functional units for execution (which are arranged in a pipeline manner) and finally it writes back. Scoreboarding ensures that instruction are issued from the registers to the correct functional unit. Scoreboarding is a centralized control unit because it ensures the correct routing between the correct registers and execution units. Whenever a functonal unit completes its execution it needs to release its resource, this is also monitored by scoreboarding. It consists of 3 parts:
+![](os13.JPG)
+1. instruction status - in which step instruction is currently 
+2. functional unit status - it tells the status of the functional unit. contains of 9 status codes, for each functional unit. 
+```bash
+busy - indicates reservation station and functional unit are busy 
+op - operation to perform in the unit
+Fj, Fk - value of source registers
+Qj, Qk - reservation stations producing source registers 
+Rj, Rk - flags indicating when Fj and Fk are available or not 
+```
+3. register result status tells in which register will output be written
+
+- in `issue stage` scoreboard checks for WAW hazards. if WAW occurs then instruction would be stalled. if WAW doesnt happen then it would execute the instruction on the next instruction executing phase. it also checks for structural hazards. 
+- in `read operands` it would check and resolve RAW hazards. and after resolving it would read the operands. 
+-  execute the instructions - `execution`
+- after execution is done it would check for WAR hazards. if WAR hazard is available then the instructions are stalled.
+- write back
+
+> CONS with SCOREBOARD 
+
+### 2. TOMANSULO APPROACH 
+- its a method of implementing dyanamic scyheduling through the hardware approach, invented by Robert Tomasulo. 
+- it removes name dependencies like WAW and WAR dependencies by concept of renaming registers / register renaming 
+- it tracks when operands are available to satisfy the data dependency
+
+> Three stages of Tomasulo Algorithm:
+1. issue stage 
+2. execution 
+3. write back 
+
+##### The Diagram flow 
+![](a122.JPG)
+Load data from memory to FP OP Queue, In operand queue (FP OP Queue) instructions are placed one after the other. 
+```bash
+LOAD - MEMORY TO REGISTER 
+```
+1. issue stage 
+From the operand queue instructions would be issued to the adders and multipliers which would then be dispatched to FP adders and FP multipliers
+
+Reservation stations hold the operands from the adders and multpliers. if there is any dependency it pushes the data to the FP registers (floating point registers) are used to hold functional unit registers which then  renames the registers to resolve it and further sends the data to adders and multipliers.
+
+2. execute 
+once dependency are resolved if any, when all operands are ready it wouold execute 
+
+3. write back 
+it would write back the result to the common data bus which will go to store the data in the store buffer and send data to the main memory
+```bash
+STORE - REGISTER TO MEMORY
+```
+
+![](os14.JPG)
+- This approach uses register renaming to eliminate dependencies 
+```bash
+WAW and WAR have finite number of registers. they are called name dependencies. which can be resolved by renaming register which is done through reservation station.
+
+#WAR 
+F4 -> F2 * F3 #read F2 first
+F2 -> Fo * F6 #write F2 after its read and F4 is executed
+
+## renaming 
+F4 -> F2 * F3 
+F8 -> Fo * F6
+```
+![](os15.JPG)
+
+In scoreboard if WAR dependency happens FU wont be available for any other instruction (centralized approach), but in tam approach (distributed approach) if WAR dependency occurs then FU would simply rename the registers and write the result to the common data bus, so there would be no stalls and the processing would become so much faster. 
+![](os16.JPG)
+
+#### HIGH PERFORMANCE INSTRUCTION DELIVERY 
+This is used to control branch instructions
+![](os17.JPG)
+![](OS18.JPG)
+
+#### HARDWARE BASED SPECULATION 
+for cutting down the consequences of control dependencies. its a modificaion of tomasula approachc for handling control dependencies 
+![](os19.JPG)
+![](os20.JPG)
+
+
+/* function returning the max between two numbers */
+#include <stdio.h>
+
+int max(int x, int y)
+{
+    if (x > y) {
+        return x;
+    }
+    else {
+        return y;
+    }
+}
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+    int m = max(a, b);
+    printf("The maximum of %d and %d is %d\n", a, b, m);
+    return 0;
+}
+
+
+
+
+
+
+
 
 
 

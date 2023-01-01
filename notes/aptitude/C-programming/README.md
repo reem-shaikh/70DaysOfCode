@@ -1075,8 +1075,1370 @@ it skips 3 and prints everything else in the loop
 ## TERMINAL QS 
 ![](W24.JPG)
 
+# Unit 5: Functions 
+![](r1.JPG)
+```bash
+Function is a self contained block which can be called again and again. it increases readability of your program and reduces size of the code since it can be called whenever you need. 
+```
+![](r3.JPG)
+```bash
+predefined / library function - already designed and given to you
+user defined function - user can define a function
+```
+#### Every function has 3 things 
+![](r4.JPG)
+1. function declaration 
+2. function call 
+3. function defination 
+```bash
+#function declaration 
+function return type, name of function (argument list)
+int add ()
+
+#function call - calls the function defination 
+function name(argument type)
+add(int a, int b)
+
+#function defination 
+where the function is defined 
+```
+```bash
+#include <stdio.h>
+void hello();  #function declaration / prototype
+#NOTE: function declaration should be done before main()
+
+int main() {
+   hello();    #function call 
+}
+
+void hello() {  #function defination
+   printf("hello world");
+}
+```
+> calling `hello world` 100 times
+```bash
+#include <stdio.h>
+void hello();  #function declaration / prototype
+
+int main() {
+   for(int i=0; i<100; i++) {
+      hello();    #function call 
+   }
+}
+
+void hello() {  #function defination
+   printf("hello world");
+}
+```
+#### Types of User Defined Functions 
+Function can be classified on basis of argument and return type 
+![](r6.JPG)
+
+##### 1. function with argument and with return type 
+![](r7.JPG)
+```bash
+int add(int, int) #function declaration
+```
+> function defination will return a value to its call
+```bash
+#include<stdio.h>
+int add(int, int);   #function declaration
+
+int main() {
+   int a=2, b=3, sum;
+   sum = add(a,b); #call
+   printf("%d", sum);
+   return 0;
+}
+
+int add(int a, int b) #function defination
+{
+   int c;
+   c = a+b;
+   return c;
+}
+```
+![](r8.JPG)
+
+##### 2. function with argument and without return type 
+![](r9.JPG)
+```bash
+void add(int, int)
+#NOTE; when there is no return type we use `void`
+```
+> function defination will return a value to its call
+```bash
+#include<stdio.h>
+void add(int, int);   #function declaration
+
+int main() {
+   int a=2, b=3, sum;
+   sum = add(a,b); #call,   #actual arguments 
+   return 0;
+           
+}
+
+void add(int a, int b) #function defination
+{                      #formal arguments 
+   int c;
+   c = a+b;
+   printf("%d", c);
+   #no return type 
+}
+```
+##### 3. function with no argument and no return type 
+![](r10.JPG)
+```bash
+void add()
+```
+```bash
+#include<stdio.h>
+void add();   #function declaration
+
+int main() {
+   add(); #call
+   return 0;
+}
+
+void add() #function defination
+{
+   int c;
+   int a=2, b=3;
+   c = a+b;
+   printf("%d", c);
+   #no return type
+}
+```
+##### 4. function with no argument and with return type 
+![](r11.JPG)
+```bash
+int add()
+```
+> function defination will return a value to its call
+```bash
+#include<stdio.h>
+int add();   #function declaration
+
+int main() {
+   int sum;
+   sum = add(); #call
+   printf("%d", sum);
+   return 0;
+}
+
+int add() #function defination
+{
+   int c, a=3, b=4;
+   c = a+b;
+   return c;
+}
+```
+![](r14.JPG)
+
+### Formal Argument VS Actual Argument 
+> difference between actual argument and formal argument?
+the argument in function call is called actual argument. the argument in function defination is called formal argument 
+```bash
+#function with argument and without return type 
+
+#include<stdio.h>
+void add(int, int);   #function declaration
+
+int main() {
+   int a=2, b=3, sum;
+   sum = add(a,b); #call,   #actual arguments 
+   printf("%d", sum);
+   return 0;
+           
+}
+
+void add(int a, int b) #function defination
+{                      #formal arguments 
+   int c;
+   c = a+b;
+   #no return type 
+}
+```
+### Recursion 
+when function calls itself 
+
+![](r12.JPG)
+![](r13.JPG)
+```bash
+#print the fact through recursion
+
+int fact(int n);   
+#include <stdio.h>
+
+int main () {
+   int a = 3, f;
+   f = fact(a);   
+   printf("%d", f);
+   return 0;
+}
+
+int fact(int a) {  
+   if(a > 1) {
+      return a * fact(a-1);
+   } else {
+      return 1;
+   }
+}
+```
+
+### Terminal QS 
+![](r16.JPG)
+![](r17.JPG)
+- A1. void() is used whenever a function is not returning any value to function call 
+- A2. function declaration declaresss the function and gives information to the compiler so it knows where it can be used later in the program. while function declaration tells the compiler about what function needs to be executed, function defination contains the body of the function tha needs to be executed.
+```bash
+#function declaration 
+return type function_name (list of parameters if any)
+- can be declared before predefined function
+
+#function defination 
+return type function_name (list of parameters if any) {
+   body of code 
+}
+- should be defined only after main()
+```
+```bash
+void hello(int x);  #function declaration
+
+#include <stdio.h>
+int main() {
+   int x = 1; 
+   hello(x);        #function call
+   return 0;
+}
+
+void hello(int x)   #function defination
+{
+   if(x <= 3) {
+      printf("hello world");
+      x++;
+      hello(x);     #function calling itself 
+   }
+}
+```
+# Unit 6: Storage Classes 
+![](m1.JPG)
+
+#### Variable Declaration
+![](m2.JPG)
+Whenever we see a variable 3 things come to our mind 
+```bash
+int a = 10; 
+
+Name of variable      #a
+Data Type of variable #int 
+Location
+```
+- if you want to give additional information to the variable then we use storage class. 
+![](m3.JPG)
+
+> Storage class can give additional information based on:
+```bash
+storage_class var_data_type var_name;
+static int a = 19;
+```
+1. default value 
+2. where it would be stored?
+3. scope or visibility - where would it be visible? in a block or entire program?
+4. life time - how long will the variable be active?
+
+### Types of Storage Class 
+![](m4.JPG)
+
+#### 1. auto 
+its not mandatory to define storage class for a variable. if you dont specify storage class compiler automatically assign a storage class called `auto`
+![](m5.JPG)
+
+- when we dont initialize the variable a, it will take a garbage value beause default value of auto is garbage 
+```bash
+#when we dont specify any storage class to a variable compiler automatically assigns auto to it, which gives it default value of garbage value
+int a             #auto int a 
+printf('%d', a); 
+
+#console
+shows any garbage value 
+```
+- when we initialize the variable a, it will take the value of a
+```bash
+auto int a = 10; 
+printf('%d', a); 
+
+#console 
+10 
+```
+> scope of auto limited to the block it is defined 
+![](m22.JPG)
+```bash
+#include<stdio.h>
+int main() {
+    auto int a = 20;
+    
+    printf("%d\n", a);
+    {
+        a = 10;
+        printf("%d\n", a);
+    }
+    return 0;
+}
+
+#console:
+20
+10
+```
+```bash
+#include<stdio.h>
+int main() {
+    auto int a = 20;
+    printf("%d\n", a);
+    {
+        printf("%d\n", a);
+    }
+    return 0;
+}
+
+#console:
+20
+20
+```
+#### 2. Register Storage class
+![](m6.JPG)
+
+CPU contains register where it temporarily stores variables that are executing. it fetches the variable from RAM to its register. 
+
+However when a variable is declared and continuosly used, instead of fetching from RAM everytime we could store it temporarily in the register. 
+```bash
+#value of a is frequently used and changing thats why its not practical to store it in RAM, instead its supposed to be stored in the register within the CPU
+int main(){
+   int a , b;
+   b = a+8;
+   a++;
+   b = a+80;
+   a++;
+}
+```
+- in order to specify that the vairable needs to be stored in the register we specify the `register` storage class 
+```bash
+register int a; 
+```
+> example 
+```bash
+#include<stdio.h>
+int main() {
+   register int a=3;
+   int c; 
+   c = a++;
+   //assign then increement 
+   //c=3, a=4
+   a--;
+   //3
+   c=a+8;
+   printf("%d", c);
+}
+```
+##### Important Points
+- When we specify storage class as `auto` it will be stored in RAM and whenever we specify the storage class as `register` it will be stored in the CPU register. 
+- If you declare a variable as register and if the CPU's register memory is full then it will store it in the RAM 
+
+#### 3. Static Storage class 
+- default value of static storage class is 0 
+- its stored in the RAM 
+- visibility - scope of static variable is restricted to the block in which it is defined
+- lifetime of the variable (variables entire life) is available for the entire execution of the program. 
+
+![](m8.JPG)
+![](m9.JPG)
+```bash
+#include<stdio.h>
+void fun();
+int main() {
+   fun();
+   fun();
+   return 0;
+}
+
+void fun() {
+   static int i=0;
+   i++;
+   printf('%d', i);
+}
+
+#console 
+1
+2
+```
+#### 4. Extern Storage class 
+![](m10.JPG)
+
+To declare a variable as external use the keyword `extern` while defining, whenever we want to give a variable global access (can be accessed from any block), we use this storage class. 
+```bash
+#include<stdio.h>
+void fun();
+int x=10;
+
+int main() {
+   extern int x;
+   printf("%d\n", x); //10
+   fun();
+   return 0;
+}
+
+void fun() {
+   ++x;
+   printf("%d\n", x); //11
+}
+
+#console 
+10
+11
+```
+```bash
+#Pre-increement vs Post-increement 
+int x = 2;
+y = x++ #assign first, then increement 
+x=3
+y=2
+
+int x = 2;
+y = ++x #increement first, then assign 
+x=3
+y=3
+
+int a = 1;
+b = a++;
+//b=1, a=2
+
+int a = 1;
+b = ++a;
+//b=2, a=2
+```
+### Summary of Storage class 
+![](m18.JPG)
+
+# Types of Function 
+> Quick review of `function declaration`, `function call` and `function defination`
+```bash
+void hello(int x);  #function declaration
+
+#include <stdio.h>
+int main() {
+   int x = 1; 
+   hello(x);        #function call
+   return 0;
+}
+
+void hello(int x)   #function defination
+{
+   if(x <= 3) {
+      printf("hello world");
+      x++;
+      hello(x);     #function calling itself 
+   }
+}
+```
+### 1. CALL BY VALUE 
+Passing value in the function call 
+![](m20.JPG)
+![](m21.JPG)
+
+actual parameter defined in the int main is copied into formal parameter 
+```bash
+#include<stdio.h>
+void swap(int, int);
+
+int main() {
+   int a=10, b=20; //actual parameters 
+   printf("before swapping the value of a, b: %d %d \n", a, b);
+   swap(a, b);
+   printf("value of a, b remains the same: %d %d \n", a, b);
+   return 0; 
+}
+
+void swap(int x, int y) //formal parameters 
+{
+   int temp = x; //temp = 10
+   x = y;        //x = 20
+   y = temp;     //y = 10 
+   printf("\n after swapping the value %d %d \n", x, y);
+}
+
+// console:
+before swapping the value of a, b: 10 20 
+after swapping the value 20 10
+value of a, b remains the same: 10 20
+```
+![](m23.JPG)
+
+> DRAWBACKS:
+- Change occured in (function defination) formal parameter will not reflect changes in the actual parameter, in order to sync both these changes we use call by reference where were passing address of the variable instead of just it value 
+
+### 2. CALL BY REFERENCE 
+Passing address in the function call 
+
+- in call by reference change in formal parameters (function defination) will be reflected in actual parameters. 
+![](m24.JPG)
+```bash
+#a and b are 2 variable blocks where a holds 10 and b holds 20
+#address location of a = 1000 (&a)
+#address location of b = 2000 (&b)
+
+#*x means value at x -> 10
+#*y means value at y  -> 20
+```
+```bash
+#include<stdio.h>
+void swap(int*, int*);
+
+int main() {
+   int a=10, b=20; //actual parameters 
+   printf("before swapping the value of a, b: %d %d \n", a, b);
+   //sending the address of a and b 
+   swap(&a, &b);
+   printf("value of a, b swaps: %d %d \n", a, b);
+   return 0; 
+}
 
 
+#int *x is a special pointer vairable 
+#*x = 10
+#*y = 20
+
+#so x = memory location of x 
+#x = &a
+void swap(int *x, int *y) //formal parameters 
+{
+   int temp = *x;  //temp = 10
+   *x = *y;        //x = 20
+   *y = temp;      //y = 10 
+   printf("\n after swapping the value %d %d \n", *x, *y);
+}
+
+// console
+// before swapping the value of a, b: 10 20 
+// after swapping the value 20 10
+
+// value of a, b swaps: 20 10
+
+#NOTE:
+value at x (*x) can be taken as (*&a)
+```
+#### Terminal QS 
+![](z1.JPG)
+Value of variable is communicated between actual parameter and formal parameter in both call by value (change in formal parameter will not be reflected in actual parameter) and call by reference (change in formal parameter will be reflected in actual parameter) , thats how variables are channels of communication in the program. 
+
+# Unit 7: Arrays & Strings 
+![](z2.JPG)
+
+### Data Types 
+![](z3.JPG)
+
+### Derived Data Types 
+Derived data types are derived from primitive datatypes 
+
+> Types of derived data types 
+1. Arrays & Strings 
+2. structure 
+3. union 
+4. enum 
+5. pointer 
+
+#### Why do we need an Array? 
+![](z4.JPG)
+If you want to store data for the same category you could individually create those many number of variables, but then we would have to create type specifiers and variable name which is not a good programming practice.  
+
+If we want to store similar elements of the same data type then we can declare them in an array. Array is a Collection of homogeneous data types. 
+
+Array is a collection of similar datatype and they are all stored in contiguos memory location.
+```bash
+#DECLARE 10 STUDENT MARKS 
+int m[10];
+datatype array_name[size_of_array];
+
+#compiler reserves 10 blocks of memory in RAM for this array 
+```
+![](z6.JPG)
+![](z5.JPG)
+
+#### Types of Array 
+### 1D ARRAY / LINEAR ARRAY 
+Elements stored in linear manner 
+![](Z10.JPG)
+
+> 2 ways of allocating value to array 
+1. static initialisation 
+```bash
+int a[5] = [1,2,3,4,50];
+#or 
+int b[0] = 1;
+int b[1] = 2;
+int b[2] = 3;
+
+#if we dont initialize compiler will intiialize the values with garbage values 
+```
+![](z8.JPG)
+![](z9.JPG)
+
+2. dyanamic initialization 
+accepting values during run time 
+![](z20.JPG)
+![](z21.JPG)
+```bash
+#include<stdio.h>
+int main() {
+   int arr[5], i;
+   #accepting values in an array 
+   for(i=0; i<5; i++) {
+      scanf("%d\n", &arr[i]);
+   }
+
+   #display these elements 
+      for(i=0; i<5; i++) {
+      printf("%d\n", arr[i]);
+   }
+   return 0;
+}
+```
+
+> Accessing 1D Array during run time 
+![](z22.JPG)
+```bash
+#include<stdio.h>
+int main() {
+   int arr[5];
+   for(int i=0; i<5; i++) {
+      scanf("%d\n", &arr[i]);
+   }
+
+     for(int i=0; i<5; i++) {
+      printf("array: %d\n", arr[i]);
+   }
+   return 0;
+}
+
+#console:
+Note: since compiler has already assigned 5 memory spaces to the RAM, it will take 5 values from the user 
+3
+1
+2
+3
+4
+
+array: 3
+array: 1
+array: 2
+array: 3
+array: 4
+```
+### 2D ARRAY 
+represents array elements in the form of rows and columns 
+![](z7.JPG)
+
+> 2 kind of initialisations 
+- static initialization 
+- dyanamic initialization
+
+> Initialize 2D Array using dyanamic memory allocation
+```bash
+#include<stdio.h>
+int main() {
+   int arr[3][3];
+   for(int i=0; i<3; i++) {
+         for(int j=0; j<3; j++) {
+            scanf("%d\n", &arr[i][j]); 
+      }
+   }
+
+     for(int i=0; i<3; i++) {
+         for(int j=0; j<3; j++) {
+            printf("%d\n", arr[i][j]); 
+      }
+   }   
+   return 0;
+}
+
+   0     1     2
+------------------
+0  0,0   0,1   0,2
+1  1,0   1,1   1,2
+2  2,0   2,1   2,2
+```
+### Passing Array to function 
+![](z11.JPG)
+```bash
+#include<stdio.h>
+int Sum(int []); #function declaration 
+#passing array as a parameter 
+
+int main() {
+   int a[4] = {1, 3, 4, 15};
+   printf("%d", Sum(a)); #function call 
+}
+
+#function defination 
+int Sum(int a[]) {
+   int sum = 0;
+   for(int i=0; i<4; i++) {
+      sum = sum + a[i];
+   }
+   return sum;
+}
+
+#console:
+23 
+```
+## Strings 
+String is a collection of one dimensional character array while an array is a collection of similar datatypes (float array / int array / double array). String is a collection of homogeneous character data type.
+![](z19.JPG)
+
+- declare an array of character elements 
+```bash
+#initialize string at time of declaration
+char ch[7] = ['e','f','e','w','w','f'];
+
+  0   1   2   3   4   5   6
+----------------------------
+| e | f | e | w | w | f | \0
+----------------------------
+compiler reserves 7 memory blocks in the RAM for this character array (it also includes the null character block)
+compiler terminates string with null character (\0) so it understands that the string terminated here. so it can save the memory block for another string.
+
+#include<stdio.h>
+
+int main() {
+   #if we dont mention \0 compiler will automatically assign it 
+   char ch[7] = {'e','f','e','w','w','f','\0'};
+   char a[] = "india";
+
+   printf("%c", ch[0]);
+   printf("%s\n", ch);
+   printf("%s\n", a);
+
+   #To read mutiword string we use `gets()`
+
+   return 0;
+
+   }
+
+#console
+e
+efewwf
+india
+```
+- declare a string literal 
+```bash
+#compiler automatically assigns the size based on the string size 
+char a[] = 'india';
+```
+![](z211.JPG)
+![](z09.JPG)
+
+### String Handling Functions 
+![](z23.JPG)
+Just like in `stdio.h` we have `scanf()`, `printf()` functions. similarly there is a header file called `string.h` which contains `strcat()`, `strcmp()` etc functions. 
+
+String Handling functions are functions to manipulate a string. 
+> strlen() - tells length of the string 
+```bash
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+   int len;
+   char ch[] = "jaipur is the capital of rajasthan";
+   len = strlen(ch);
+   printf("%d\n", len);
+   return 0; 
+}
+
+#console
+24
+```
+> strcmp() - compares two strings 
+```bash
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+   char Str1[] = "India";
+   char Str2[] = "India";
+
+   int res = strcmp(Str1, Str2);
+
+   if(res==0) {
+      printf("strings equal");
+
+   } else {
+      printf("strings unequal");
+   }
+
+   return 0;
+}
+
+#console:
+strings equal 
+```
+> strcat() - concatenate two strings 
+```bash
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+   char Str1[] = "India";
+   char Str2[] = "uae";
+
+   strcat(Str1, Str2);
+
+   puts(str1); #str2 is concatenated with str1 
+   puts(str2);
+
+   return 0;
+}
+
+#console:
+Indiauae
+uae
+```
+> strcpy() - copy one string to another string
+```bash
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+   char Str1[] = "India";
+   char Str2[] = "uae";
+
+   strcpy(Str1, Str2);
+
+   puts(Str1); #str2 is copied to str1 
+   puts(Str2);
+
+   return 0;
+}
+
+#console:
+uae
+uae
+```
+#### Terminal Qs 
+![](z12.JPG)
+
+# Unit 8: Pointers 
+![](x1.JPG)
+
+> Is it possible for a variable to hold address of another variable? yes by using the concept of pointer 
+```bash
+#NORMAL VARIABLE 
+#compiler assigns a block of memory is assigned for the variable in the RAM 
+#for each memory block in main memory there is associated address
+int a = 5;
+printf("%d\n", a); 
+
+
+a
+---
+5   #value 
+---
+200 #address 
+```
+![](x2.JPG)
+
+> Pointer variable is a special variable which holds address of another variable
+```bash
+#when you intiliaze a value a block of memory is allocated with value and address 
+
+int main() {
+int a = 10; 
+
+#normal variable cannot hold address of another variable 
+#int b = &a; //assign address of a to the variable b
+
+#only a pointer variable can hold address of another variable
+#b is a pointer variable which is defined using asteriks 
+int *b = &a;
+
+##int pointer (*b) will point to address of int value (a)
+
+#to print address use %x used for representing hexadecimal number 
+printf("%x\n", b);
+return 0;
+}
+
+#console:
+cf3ffac4 #hexadecimal number (used to represent address)
+```
+![](x3.JPG)
+
+> how to declare pointer variable?
+```bash
+#DECLARATION OF POINTER VARIABLE 
+int* p; 
+#or 
+int *p; 
+
+#INITIALIZING A POINTER VARIABLE 
+int *p = &a;
+
+#where 
+& -> REFERENCE OPERATOR 
+* -> DEFERENCE OPERATOR / VALUE AT OPERATOR / VALUE AT ADDRESS OPERATOR / INDIRECTION OPERATOR 
+```
+
+> pointer variable is special variable: holding address of another variable 
+![](x5.JPG)
+```bash
+#include<stdio.h>
+int main() {
+int a = 10; 
+
+int *b;
+//pointer variable holds address of normal variable 
+b=&a;
+
+printf("ADDRESS OF A: %x\n", &a);
+// b holds the address of a
+printf("ADDRESS OF A: %x\n", b);
+printf("VALUE AT A: %d\n", *b);
+return 0;
+}
+
+
+/*
+a
+---
+10
+---
+1000 #address of a 
+
+
+*b
+----
+1000  #holds address of a 
+----
+2000
+
+
+CONSOLE:
+ADDRESS OF A: 841ffb64
+ADDRESS OF A: 841ffb64
+VALUE AT A: 10
+
+*/
+
+```
+#### Pointer to Pointer 
+![](x6.JPG)
+> single pointer p holding address of normal variable 
+```bash
+int a = 50;
+int *p = &a;
+
+a
+---
+50
+---
+1000
+
+*p
+---
+1000
+----
+2000
+```
+> double pointer pp holds address of single pointer 
+```bash
+int **pp = &p;
+
+*pp
+----
+2000
+-----
+3000
+```
+> Compiler allows 12 levels of pointer to pointer, but since it increasees complexity its bad practice. 
+![](X9.JPG)
+```bash
+#include<stdio.h>
+int main() {
+   int a = 10; 
+   int *p;
+   int *pp;
+   
+   p = &a; 
+   pp = &p; 
+
+   printf("ADDRESS OF A: %x\n", p);
+   printf("ADDRESS OF P POINTER: %x\n", pp);
+
+   printf("VALUE AT A: %d\n", *p);
+   printf("VALUE AT POINTER P: %x\n", *pp);
+
+   return 0;
+}
+
+#CONSOLE:
+ADDRESS OF A: a8fffa04
+ADDRESS OF P POINTER: a8fff9f8
+VALUE AT A: 10
+VALUE AT POINTER P: a8fffa04
+
+a
+---
+10     #value at a / *p
+---
+a8fffa04
+
+
+p
+----
+a8fffa04 #address of a / value at p 
+-----
+a8fff9f8
+
+
+pp
+----
+a8fff9f8 #address of *p
+----
+random address 
+
+*p = *(&a)  = *(a8fffa04) = 10
+*pp = *(&p) = *(a8fff9f8) = a8fffa04 
+```
+#### Pointer to Array 
+Pointer variable pointing to address of an array (collection of homogeneous variables).
+![](x11.JPG)
+
+```bash
+#include<stdio.h>
+int main() {
+   int a[5] = {1,2,3,4,5}; 
+   int *p;
+
+   #pointer pointing to address of the base address of the array 
+   p = &a[0]; 
+
+   #PRINTING ARRAY ELEMENTS 
+   for(int i=0; i<5; i++){
+      printf("ADDRESS OF A: %x\n", p);
+      printf("VALUE AT A: %d\n", *p);
+      p++;
+
+      #*P = *(&a[0]) 
+   }
+
+   return 0;
+}
+
+#CONSOLE
+ADDRESS OF A: f5ffbf0
+VALUE AT A: 1
+ADDRESS OF A: f5ffbf4
+VALUE AT A: 2
+ADDRESS OF A: f5ffbf8
+VALUE AT A: 3
+ADDRESS OF A: f5ffbfc
+VALUE AT A: 4
+ADDRESS OF A: f5ffc00
+VALUE AT A: 5
+```
+### Pointers & Strings
+![](m62.JPG)
+We can access pointer using string provided 
+
+##### pointer always points to address of variable 
+- we would write ptr = &a if a was a variable holding a single value like int a = 3; 
+- we would write ptr = &a[0] if a was an array and we wanted the pointer to point at the first element of the array. int a[3]= {1,2,3};
+- but now pointer is pointing to a string which an array of characters, thats why we point it to the whole string a
+```bash
+ptr = a; 
+#or 
+ptr = &a[0]
+
+#where ptr is the addess of each character in the string
+
+Array of characters is called string.
+string must always be terminated with null character.
+```
+![](m63.JPG)
+```bash
+#include<stdio.h>
+int main() {
+   char str[6] = "hello"; 
+   char *ptr;
+   int i; 
+
+   //pointer pointing to address of the entire string 
+   ptr = &str[0]; 
+
+   //PRINTING STRING ELEMENTS 
+   for(int i=0; *ptr != '\0'; ptr++){
+      #to print character use %c
+      printf("VALUE AT A STRING: %c\n", *ptr);
+   }
+
+   return 0;
+}
+
+#CONSOLE
+VALUE AT A STRING: h
+VALUE AT A STRING: e
+VALUE AT A STRING: l
+VALUE AT A STRING: l
+VALUE AT A STRING: o
+```
+#### Terminal QS 
+![](x13.JPG)
+- Pointer to pointer variable holds address of another pointer 
+
+# Unit 9: Pointers 
+![](m29.JPG)
+
+### Accessing the variable with memory address 
+![](m30.JPG)
+```bash
+ a 
+----
+ 10   #*p = 10 
+----
+2000  #address location -> &a / p 
+
+pointer variable, p holds address of another variable 
+
+int a = 10 
+int *p; 
+p = &a; #p is holding the address of a 
+```
+### Pointer Arithmetic 
+```bash
+int main() {
+   #for normal variables 
+   int a = 10, b = 5, c;
+   c = a+b;
+   #we can have a bunch of arithmetic operations 
+   
+}
+```
+![](m31.JPG)
+
+#### 1. Pointer Increement 
+![](m32.JPG)
+```bash
+int main() {
+   #for pointer variable 
+   int a = 10, *p;
+   p = &a; 
+   #for pointer variable what are arithmetic operations that can be performed, because its responsible for storing address only limited amount of arithmetic operations can be performed 
+
+   #pointer *p was earlier pointing to 1000 
+   #size of integer a is 4 bytes 
+   printf('%d\n', *p);  #10 
+   printf('%d\n',  p);  #address of a -> 1000
+
+   p = p+1;
+   #this will increase size of the variable 
+   #1000+4 = 1004
+   #now pointer points to very next memory block 
+   printf('%d\n',  p); #1004
+
+   return 0;
+}
+```
+#### 2. Pointer Decrement 
+![](m33.JPG)
+![](m34.JPG)
+```bash
+int main() {
+   #for pointer variable 
+   int a = 10, *p;
+   p = &a; 
+   #for pointer variable what are arithmetic operations that can be performed, because its responsible for storing address only limited amount of arithmetic operations can be performed 
+
+   #pointer *p was earlier pointing to 1000 
+   #size of integer a is 4 bytes 
+   printf('%d\n', *p);  #10 
+   printf('%d\n',  p);  #address of a -> 1000
+
+   p = p-1;
+   #this will decrease size of the variable 
+   #1000+4 = 1004
+   #now pointer points to previous memory block 
+   printf('%d\n',  p); #9996
+
+   return 0;
+}
+```
+#### 3. Pointer Addition
+![](m35.JPG)
+```bash
+int a = 20; 
+int *p; #holds the value of a
+p = &a;
+
+p = p+3;
+#new address 
+current address + (number * size of data type of a)
+1000 + (3*4)
+
+   a
+-------
+   50      # *p
+-------
+  1000     # &a / p 
+```
+> current address + (5*size of data type)
+![](m36.JPG)
+
+#### 4. Pointer Subtraction 
+![](m37.JPG)
+
+> current address - (3*size of data type)
+```bash
+int a = 20; 
+int *p; #holds the value of a
+p = &a;
+
+p = p+3;
+#new address 
+current address - (number * size of data type of a)
+1000 - (3*4)
+
+
+   a
+-------
+   50      # *p
+-------
+  1000     # &a / p 
+```
+![](m38.JPG)
+
+### Pointer doesn't allow these arithmetic operations between two pointers 
+![](m39.JPG)
+![](m40.JPG)
+
+## Pointer as as a Function Arguments 
+![](m41.JPG)
+Change made in function defination will be reflected in the function call 
+
+## Types of Pointers in C 
+#### 1. Wild Pointer / uninitialized pointer 
+![](m42.JPG)
+when we dont initialize a pointer (wild pointer), compiler will initialize any random memory address to the uniniatlized pointer . 
+
+> Here we initialize the pointer 
+```bash
+int a = 60; 
+ptr = &a; 
+
+a
+---
+60      # *ptr - here we initialized the pointer 
+---
+address # &a / ptr
+```
+> Here we don't initialize the pointer 
+```bash
+int a = 60; 
+int *ptr; #WILD POINTER 
+#its not initialized thats why its pointing to a garbage value which is any random memory address 
+
+a
+---
+60      # *ptr - here we dont initialized the pointer 
+---
+address # &a / ptr
+```
+![](m55.JPG)
+
+#### 2. Null Pointer 
+To avoid problem of pointer pointing any random GV or random value in memory which causes damage 
+![](m56.JPG)
+```bash
+p and q are wild pointers 
+a and b are null pointers 
+```
+Null is preprocessor directive used when you dont want pointer to point to any memory address. When we declare a pointer to NULL means its pointing to no memory address. 
+
+When you don't want pointer to point to any random memory address / garbage value declare as null
+![](m57.JPG)
+
+#### 3. Void Pointer or Generic Pointer 
+![](m58.JPG)
+```bash
+dont declare type the pointer belongs to, it can point to address of any kind of variable 
+
+int a = 60;
+float b = 8.99;
+void *ptr; 
+
+int pointer can point to pointer of only int data type
+similarly, 
+void pointer can point to pointer of any data type 
+
+#can point to address of int datatype 
+ptr = &a; 
+
+a
+---
+60      # *ptr - here we dont initialized the pointer 
+---
+address # &a / ptr
+
+----------
+#can also point to address of float datatype 
+ptr = &b; 
+
+b
+---
+8.99    # *ptr - here we dont initialized the pointer 
+---
+address # &b / ptr
+```
+#### 4. Dangling pointer 
+![](m60.JPG)
+![](m61.JPG)
+
+Dangling pointer is used to point a memory location that is deleted. Life of b is within the block, but when were trying to access it outside the memory block, we can access it. 
+```bash
+a
+---
+10      
+---
+1000 # &a 
+
+
+b
+----
+20
+----
+8000 # &b 
+```
+```bash
+#include<stdio.h>
+int main() {
+   int a = 10; 
+   int *p = NULL;
+   printf("a: %u\n", &a);    #address of a 
+
+   #this block is the scope of b, life of b is within the block 
+    {
+      int b = 20;
+      printf("b: %u\n", &b); #address of b 
+
+      p = &b;
+      printf("%u\n", p);     #address of b 
+      //  p pointing to address of b 
+    }
+
+#but the pointer of b can be accessed outside of the variable's death
+      printf("%u\n", p);     #address of b 
+      printf("%u\n", *p);    #20
+
+}
+```
 
 
 
