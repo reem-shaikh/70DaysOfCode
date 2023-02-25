@@ -40,7 +40,7 @@ body {
   background-color: #92a1d1;
 }
 #contains {
-  width: 770px;
+  width: 740px;
 }
 #weekdays {
   width: 100%;
@@ -50,6 +50,7 @@ body {
 #weekdays div {
   width: 100px;
   padding: 10px;
+  font-size: 20px;
 }
 #calendar {
   width: 100%;

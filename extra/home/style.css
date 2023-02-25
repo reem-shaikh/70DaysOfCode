@@ -334,6 +334,7 @@ body {
   justify-content: space-between;
   padding: 5px 0;
   font-family: "VT323", monospace;
+  /* overflow: hidden; */
 }
 
 .nav-items {
@@ -348,6 +349,7 @@ body {
   /* display: flex; */
   justify-content: flex-start;
   align-items: center;
+
 }
 
 #monthDisplay {
